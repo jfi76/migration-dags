@@ -5,14 +5,9 @@ select *
   ?iri rdfs:label ?name .
 }
 """
-def create_stmt(statementText,statementId,procIri,pgStatementType):
-    stmt="""
-    insert { 
-        ?uid mig:hasStatementType ?stmtType 
-        }
-    select (iri(concat('http://www.example.com/MIGRATION#',struuid())) as ?uid) ?stmtType {
-    ?stmtType rdf:type  mig:pgStatementType ;
-    ?stmtType rdfs:label '''{statType}'''
+statement_types="""    
+    select  ?iri ?label{
+    ?iri rdf:type  mig:pgStatementType .
+    ?iri rdfs:label ?label .
      }
     """
-    return stmt.format(statType=pgStatementType)

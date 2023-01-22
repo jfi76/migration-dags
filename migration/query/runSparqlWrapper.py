@@ -16,4 +16,4 @@ class runSparqlWrapper:
             print('sparql error')
             print (stmt)
             print(e)
-        return ret        
+        return ret["results"]["bindings"]        
