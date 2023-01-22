@@ -24,7 +24,13 @@ class create_proc:
         return self.procedures
     
     def process_proc(self,proc):
-        self.ttl_serice.add_stmt('create or replace procedure ' + proc['name'] + '() ', self.statementId , proc['iri'], self.statement_types_dict['CREATE PROC'])   
+        self.ttl_serice.add_stmt('create or replace procedure ' + proc['name'] + ' ', self.statementId , proc['iri'], self.statement_types_dict['CREATE PROC'])   
+
+        param_str=self.prep_params(proc['iri']) 
+        print(param_str)
+        self.statementId =self.statementId+1     
+        self.ttl_serice.add_stmt('(' + param_str +')' , self.statementId , proc['iri'], self.statement_types_dict['CREATE PARAM'])   
+
         self.statementId =self.statementId+1     
         self.ttl_serice.add_stmt("""language plpgsql
 as $$""", self.statementId , proc['iri'], self.statement_types_dict['CREATE LANG'])
@@ -32,10 +38,16 @@ as $$""", self.statementId , proc['iri'], self.statement_types_dict['CREATE LANG
         self.ttl_serice.add_stmt("""begin""", self.statementId , proc['iri'], self.statement_types_dict['CREATE BEGIN'])        
         self.statementId =self.statementId+1             
         self.ttl_serice.add_stmt("""end; $$""", self.statementId , proc['iri'], self.statement_types_dict['CREATE END'])        
-    def prep_params(procIri):
-        print(procIri)
-        stmt_str=stmt.procedure_params.format(iri=procIri)
-        print(stmt_str)
+    def prep_params(self,procIri):
+        stmt_str=stmt.procedure_params.replace('?param?',f"<{procIri}>")
+        ret=self.queryService.query(stmt_str)
+        param_str=''
+        for param in ret:
+            if param_str!='' : param_str=param_str+', '
+            if  param['mode']['value']!='' : param_str=param_str+' '+ param['mode']['value']            
+            param_str=param_str+' '+ param['name']['value'] +  ' ' + param['datatype']['value'] + ' ' 
+            if  param['charlen']['value']!='' : param_str=param_str+' '+ param['charlen']['value']+ ' '
+        return param_str    
     def set_statement_types(self):
         ret=self.queryService.query(stmt.statement_types)                   
         for type in ret:

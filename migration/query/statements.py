@@ -12,8 +12,8 @@ statement_types="""
      }
     """
 procedure_params="""
-select  ?iri ?name ?datatype (IF(?mode_str='IN','', 'inout') as ?mode) ?position (replace(?name,'@','') as ?plpgsqlParam)  ?charlen 
-  { bind ({iri} as ?param)
+select  ?iri ?name ?datatype (IF(?mode_str='IN','', 'inout') as ?mode) ?position  ( coalesce(?charlen_str,'') as ?charlen)
+  { bind (?param? as ?param)
     ?param rdf:type mig:pgprocedure .
     ?param rdfs:label ?label . 
     ?iri mig:hasProcedure ?param .  
@@ -24,7 +24,7 @@ select  ?iri ?name ?datatype (IF(?mode_str='IN','', 'inout') as ?mode) ?position
     ?iri mig:PARAMETER_MODE ?mode_str .
     ?iri mig:ORDINAL_POSITION ?position .  
     optional {?iri mig:CHARACTER_MAXIMUM_LENGTH ?len .
-    bind (concat('(' , ?len ,')' ) as ?charlen ) .    
+    bind (concat('(' , ?len ,')' ) as ?charlen_str ) .    
     } .
     bind (xsd:integer(?position) as ?position_int )  
   } order by ?position_int
