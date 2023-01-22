@@ -16,16 +16,12 @@ class create_proc:
         self.statementId =0
     def iterate_proc(self):
         self.set_statement_types()        
-        ret=self.queryService.query(stmt.stmt_get_all_proc)
-        for proc in ret:
-            print('process:' + proc['name']['value'])    
-            self.procedures.append({"iri":proc['iri']['value'], "name":proc['name']['value']})
-
+        self.get_all_proc_stmt()
         for proc in self.procedures:            
             self.statementId =0
             self.process_proc(proc)
         self.ttl_serice.graph.serialize('./output/proc.ttl', 'turtle')
-        return ret
+        return self.procedures
     
     def process_proc(self,proc):
         self.ttl_serice.add_stmt('create or alter procedure ' + proc['name'] , self.statementId , proc['iri'], self.statement_types_dict['CREATE PROC'])   
@@ -33,6 +29,8 @@ class create_proc:
         self.ttl_serice.add_stmt("""language plpgsql
 as $$""", self.statementId , proc['iri'], self.statement_types_dict['CREATE LANG'])
         self.statementId =self.statementId+1     
+        self.ttl_serice.add_stmt("""begin""", self.statementId , proc['iri'], self.statement_types_dict['CREATE BEGIN'])        
+        self.statementId =self.statementId+1             
         self.ttl_serice.add_stmt("""end; $$""", self.statementId , proc['iri'], self.statement_types_dict['CREATE END'])        
     def prep_params(procIri):
         print(procIri)
@@ -43,6 +41,14 @@ as $$""", self.statementId , proc['iri'], self.statement_types_dict['CREATE LANG
         for type in ret:
             self.statement_types.append(type['label']['value'])
             self.statement_types_dict[type['label']['value']]=type['iri']['value']
+    def get_statements(self,procIri):
+        ret=self.queryService.query(stmt.procedure_statements.format(iri=procIri))        
+        return ret 
+    def get_all_proc(self):
+        ret=self.queryService.query(stmt.stmt_get_all_proc)
+        for proc in ret:
+            print('process:' + proc['name']['value'])    
+            self.procedures.append({"iri":proc['iri']['value'], "name":proc['name']['value']})
 
 if __name__ == "__main__":
     print ('main')

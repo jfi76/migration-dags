@@ -51,12 +51,20 @@ def load_src_data(tbl_dict: dict):
 
 @task()
 def prepare_proc():
-    c=create_proc()
-    ret=c.iterate_proc()
-    print('start 2')
-    for r in ret["results"]["bindings"]:
-        print(r['name']['value'])    
+    conn = BaseHook.get_connection('postgres')
+    engine = create_engine(f'postgresql://{conn.login}:{conn.password}@{conn.host}:{conn.port}/{conn.schema}')
 
+    c=create_proc()
+    ret=c.get_all_proc()
+    print('start 2')
+
+    for proc in ret:
+        exec_str=''
+        print(proc['iri'])    
+        stmt_ret=c.get_statements(proc['iri'])
+        for stmt in stmt_ret:        
+            exec_str=exec_str+'\n'+stmt_ret['text']['value']
+            engine.execute(exec_str)
 with DAG(dag_id="psy_etl_dag",schedule_interval="0 9 * * *", start_date=datetime(2022, 3, 5),catchup=False,  tags=["psy_init"]) as dag:
 
     with TaskGroup("extract_psy_load", tooltip="Extract and load source data") as extract_load_src:

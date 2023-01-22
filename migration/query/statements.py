@@ -29,3 +29,16 @@ select  ?iri ?name ?datatype (IF(?mode_str='IN','', 'inout') as ?mode) ?position
     bind (xsd:integer(?position) as ?position_int )  
   } order by ?position_int
 """
+procedure_statements="""
+select * {
+  bind({iri} as ?param)
+  ?iri mig:hasProcedure ?param .
+  ?iri rdf:type mig:pgstatement .
+  ?iri mig:StatementText ?text .  
+  ?iri mig:StatementId ?statement_id .
+  ?iri mig:haspgStatementType ?sttype .
+  ?sttype rdf:type mig:pgStatementType .
+  ?sttype rdf:type ?statement_type .
+  ?sttype rdfs:label ?statement_type_label .
+} order by ?statement_id
+"""
