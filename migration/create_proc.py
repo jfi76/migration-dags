@@ -16,7 +16,7 @@ class create_proc:
         self.statementId =0
     def iterate_proc(self):
         self.set_statement_types()        
-        self.get_all_proc_stmt()
+        self.get_all_proc()
         for proc in self.procedures:            
             self.statementId =0
             self.process_proc(proc)
@@ -24,7 +24,7 @@ class create_proc:
         return self.procedures
     
     def process_proc(self,proc):
-        self.ttl_serice.add_stmt('create or alter procedure ' + proc['name'] , self.statementId , proc['iri'], self.statement_types_dict['CREATE PROC'])   
+        self.ttl_serice.add_stmt('create or replace procedure ' + proc['name'] + '() ', self.statementId , proc['iri'], self.statement_types_dict['CREATE PROC'])   
         self.statementId =self.statementId+1     
         self.ttl_serice.add_stmt("""language plpgsql
 as $$""", self.statementId , proc['iri'], self.statement_types_dict['CREATE LANG'])
@@ -42,15 +42,18 @@ as $$""", self.statementId , proc['iri'], self.statement_types_dict['CREATE LANG
             self.statement_types.append(type['label']['value'])
             self.statement_types_dict[type['label']['value']]=type['iri']['value']
     def get_statements(self,procIri):
-        ret=self.queryService.query(stmt.procedure_statements.format(iri=procIri))        
+        stmt_str=stmt.procedure_statements.replace('?param?',f"<{procIri}>")
+        ret=self.queryService.query(stmt_str)        
         return ret 
     def get_all_proc(self):
         ret=self.queryService.query(stmt.stmt_get_all_proc)
         for proc in ret:
             print('process:' + proc['name']['value'])    
             self.procedures.append({"iri":proc['iri']['value'], "name":proc['name']['value']})
-
+        return self.procedures
+    
 if __name__ == "__main__":
     print ('main')
     c=create_proc()
     c.iterate_proc()
+    #c.get_statements('mig:c4c649e1-834d-45c6-ac7f-03583b3494bd')

@@ -63,8 +63,13 @@ def prepare_proc():
         print(proc['iri'])    
         stmt_ret=c.get_statements(proc['iri'])
         for stmt in stmt_ret:        
-            exec_str=exec_str+'\n'+stmt_ret['text']['value']
+            exec_str=exec_str+'\n'+stmt['text']['value']
+            print(stmt['text']['value'])
+        if exec_str!='' :
+            print(exec_str)
             engine.execute(exec_str)
+
+
 with DAG(dag_id="psy_etl_dag",schedule_interval="0 9 * * *", start_date=datetime(2022, 3, 5),catchup=False,  tags=["psy_init"]) as dag:
 
     with TaskGroup("extract_psy_load", tooltip="Extract and load source data") as extract_load_src:

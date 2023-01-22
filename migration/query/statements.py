@@ -31,7 +31,7 @@ select  ?iri ?name ?datatype (IF(?mode_str='IN','', 'inout') as ?mode) ?position
 """
 procedure_statements="""
 select * {
-  bind({iri} as ?param)
+  bind ( ?param? as ?param)
   ?iri mig:hasProcedure ?param .
   ?iri rdf:type mig:pgstatement .
   ?iri mig:StatementText ?text .  
