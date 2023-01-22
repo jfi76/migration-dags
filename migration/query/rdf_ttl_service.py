@@ -8,7 +8,7 @@ class rdfTTLService:
         self.graph = Graph()                
     def hashCode(self):
         return BNode()    
-    def add_stmt(self,statementText,statementId,procIri,pgStatementType):
+    def add_stmt(self,statementText,statementId,procIri,pgStatementType):        
         iri=self.Namespace[self.hashCode()]
         self.graph.add((iri , RDF.type, OWL.NamedIndividual))  
         self.graph.add((iri ,RDF.type, self.Namespace.pgstatement))

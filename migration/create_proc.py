@@ -28,9 +28,12 @@ class create_proc:
         return ret
     
     def process_proc(self,proc):
-        self.ttl_serice.add_stmt('create or alter procedure ' + proc['name'] , self.statementId , proc['iri'], self.statement_types_dict['CREATE PROC'])
-        self.statementId =self.statementId
-    
+        self.ttl_serice.add_stmt('create or alter procedure ' + proc['name'] , self.statementId , proc['iri'], self.statement_types_dict['CREATE PROC'])   
+        self.statementId =self.statementId+1     
+        self.ttl_serice.add_stmt("""language plpgsql
+as $$""", self.statementId , proc['iri'], self.statement_types_dict['CREATE LANG'])
+        self.statementId =self.statementId+1     
+        self.ttl_serice.add_stmt("""end; $$""", self.statementId , proc['iri'], self.statement_types_dict['CREATE END'])        
     def prep_params(procIri):
         print(procIri)
         stmt_str=stmt.procedure_params.format(iri=procIri)
