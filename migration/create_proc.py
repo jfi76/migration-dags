@@ -19,20 +19,27 @@ class create_proc:
         ret=self.queryService.query(stmt.stmt_get_all_proc)
         for proc in ret:
             print('process:' + proc['name']['value'])    
-            self.procedures.append({"iri":proc['iri']['value'], "name":proc['iri']['value']})
-        for proc in self.procedures:
-            #self.ttl_serice.add_stmt('create or alter procedure ' + proc.name , self.statementId , proc.iri, '')
-            print(proc['iri'])
-        #print(self.procedures[0]['iri'])    
-#self.ttl_serice            
+            self.procedures.append({"iri":proc['iri']['value'], "name":proc['name']['value']})
+
+        for proc in self.procedures:            
+            self.statementId =0
+            self.process_proc(proc)
+        self.ttl_serice.graph.serialize('./output/proc.ttl', 'turtle')
         return ret
+    
+    def process_proc(self,proc):
+        self.ttl_serice.add_stmt('create or alter procedure ' + proc['name'] , self.statementId , proc['iri'], self.statement_types_dict['CREATE PROC'])
+        self.statementId =self.statementId
+    
+    def prep_params(procIri):
+        print(procIri)
+        stmt_str=stmt.procedure_params.format(iri=procIri)
+        print(stmt_str)
     def set_statement_types(self):
         ret=self.queryService.query(stmt.statement_types)                   
         for type in ret:
             self.statement_types.append(type['label']['value'])
             self.statement_types_dict[type['label']['value']]=type['iri']['value']
-        print('item ')    
-        print(self.statement_types[0]+'q:'+self.statement_types_dict['SELECT'])    
 
 if __name__ == "__main__":
     print ('main')

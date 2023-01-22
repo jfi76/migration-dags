@@ -3,20 +3,20 @@ from rdflib import URIRef, BNode, Literal, Graph, Namespace, RDF, OWL
 
 class rdfTTLService:
     def __init__(self):            
-        self.Namespace = Namespace("http://www.example.com/JSON#")           
+        self.Namespace = Namespace("http://www.example.com/MIGRATION#")           
         self.NamespaceETL = Namespace("http://www.example.com/ETL#")   
         self.graph = Graph()                
     def hashCode(self):
         return BNode()    
     def add_stmt(self,statementText,statementId,procIri,pgStatementType):
-        iri=self.hashCode()
+        iri=self.Namespace[self.hashCode()]
         self.graph.add((iri , RDF.type, OWL.NamedIndividual))  
         self.graph.add((iri ,RDF.type, self.Namespace.pgstatement))
         self.graph.add((iri ,self.NamespaceETL.hasSourceFile, Literal('')))                            
-        self.graph.add((iri , self.Namespace.haspgStatementType,pgStatementType))  
-        self.graph.add((iri , self.Namespace.hasProcedure,procIri))
-        self.graph.add((iri , self.Namespace.StatementId,statementId))
-        self.graph.add((iri , self.Namespace.StatementText,statementText))        
+        self.graph.add((iri , self.Namespace.haspgStatementType,URIRef(pgStatementType)))  
+        self.graph.add((iri , self.Namespace.hasProcedure,URIRef(procIri)))
+        self.graph.add((iri , self.Namespace.StatementId,Literal(statementId)))
+        self.graph.add((iri , self.Namespace.StatementText,Literal(statementText)))        
 
         # stmt="""
         # insert { 
