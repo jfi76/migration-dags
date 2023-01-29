@@ -24,20 +24,29 @@ class create_proc:
         return self.procedures
     
     def process_proc(self,proc):
+#create
         self.ttl_serice.add_stmt('create or replace procedure ' + proc['name'] + ' ', self.statementId , proc['iri'], self.statement_types_dict['CREATE PROC'])   
 
         param_str=self.prep_params(proc['iri']) 
-        print(param_str)
-        self.statementId =self.statementId+1     
+        self.statementId =self.statementId+1    
+#parameters
         self.ttl_serice.add_stmt('(' + param_str +')' , self.statementId , proc['iri'], self.statement_types_dict['CREATE PARAM'])   
-
         self.statementId =self.statementId+1     
+
         self.ttl_serice.add_stmt("""language plpgsql
 as $$""", self.statementId , proc['iri'], self.statement_types_dict['CREATE LANG'])
         self.statementId =self.statementId+1     
-        self.ttl_serice.add_stmt("""begin""", self.statementId , proc['iri'], self.statement_types_dict['CREATE BEGIN'])        
+#declare section
+        declare_section=self.get_proc_variables(proc['iri'])
+        self.ttl_serice.add_stmt(declare_section, self.statementId , proc['iri'], self.statement_types_dict['DECLARE'])        
         self.statementId =self.statementId+1             
+#body
+        self.ttl_serice.add_stmt("""begin""", self.statementId , proc['iri'], self.statement_types_dict['CREATE BEGIN'])        
+        self.statementId =self.statementId+1
+
         self.ttl_serice.add_stmt("""end; $$""", self.statementId , proc['iri'], self.statement_types_dict['CREATE END'])        
+        self.statementId =self.statementId+1                     
+        
     def prep_params(self,procIri):
         stmt_str=stmt.procedure_params.replace('?param?',f"<{procIri}>")
         ret=self.queryService.query(stmt_str)
@@ -56,7 +65,16 @@ as $$""", self.statementId , proc['iri'], self.statement_types_dict['CREATE LANG
     def get_statements(self,procIri):
         stmt_str=stmt.procedure_statements.replace('?param?',f"<{procIri}>")
         ret=self.queryService.query(stmt_str)        
-        return ret 
+        return ret
+    def get_proc_variables(self,procIri):
+        ret_str=''
+        stmt_str=stmt.get_proc_variable.replace('?param?',f"<{procIri}>")
+        ret=self.queryService.query(stmt_str)        
+        for declare_var in ret:
+            ret_str=ret_str+declare_var['name']+ ' ' +declare_var['type_len'] +'; \n'
+        if ret_str=='':
+            ret_str='declare \n'+ret_str
+        return ret_str
     def get_all_proc(self):
         ret=self.queryService.query(stmt.stmt_get_all_proc)
         for proc in ret:

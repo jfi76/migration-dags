@@ -56,3 +56,18 @@ select ?iri ?StatementId_Int  ?StatementType ?StatementText (?msproc as ?procIri
   filter (regex(?StatementText,'declare','i') )
 }  order by ?param ?StatementId_Int
 """
+get_proc_variable="""
+select ?name ?type (coalesce(?len,'') as ?type_len) ?statement  
+{
+bind(?param? as ?param)  .
+?param rdf:type mig:pgprocedure .  
+?param mig:hasProcedure ?msproc .  
+?iri mig:VARIABLE_NAME ?name .
+?iri mig:hasProcedure ?msproc .
+?iri mig:hasStatement ?statement .
+?iri mig:DATA_TYPE ?type .
+?iri rdf:type mig:msprocedurevarible .
+?iri mig:CHARACTER_MAXIMUM_LENGTH ?len.
+}
+
+"""
