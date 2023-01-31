@@ -48,7 +48,8 @@ class process_declare:
         for var_desc in self.variables:    
             #print(var_desc)
             self.ttl_serice.add_variable(var_desc['name'], self.get_type(var_desc['type']), self.get_len(var_desc['type']), var_desc['procIri'], var_desc['stmt_iri'],var_desc['type'])            
-        self.ttl_serice.graph.serialize('./output/vars.ttl', 'turtle')            
+        self.ttl_serice.graph.serialize('./output/vars.ttl', 'turtle') 
+        self.queryService.insert(stmt.insert_pgvariable)           
     def get_type(self,item):
         ind=item.find('(')
         if  ind!=-1:

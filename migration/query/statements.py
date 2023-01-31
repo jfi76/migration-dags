@@ -61,6 +61,33 @@ select ?name ?type (coalesce(?len,'') as ?type_len) ?statement
 {
 bind(?param? as ?param)  .
 ?param rdf:type mig:pgprocedure .  
+ 
+?iri mig:VARIABLE_NAME ?name .
+?iri mig:hasProcedure ?param .
+
+?iri mig:DATA_TYPE ?type .
+?iri rdf:type mig:pgprocedurevariable .
+?iri mig:CHARACTER_MAXIMUM_LENGTH ?len.
+}
+
+"""
+insert_pgvariable="""
+insert {
+?uid rdf:type mig:pgprocedurevariable;
+ mig:VARIABLE_NAME ?name_conv;    
+ mig:DATA_TYPE ?type_conv;
+ mig:CHARACTER_MAXIMUM_LENGTH ?type_len;
+ mig:hasVariable ?iri;   
+ mig:hasProcedure ?param .
+
+} 
+where{
+select 
+(iri(concat('http://www.example.com/MIGRATION#',struuid())) as ?uid)
+(replace(?name,'@','') as ?name_conv) (IF(coalesce(?convPQ,'')='',?type,?convPQ) as ?type_conv) (coalesce(?len,'') as ?type_len) ?statement ?param ?iri
+{
+#bind(mig:69ee3c35-402f-4fa5-bf95-9945ed3220bd as ?param)  .
+?param rdf:type mig:pgprocedure .  
 ?param mig:hasProcedure ?msproc .  
 ?iri mig:VARIABLE_NAME ?name .
 ?iri mig:hasProcedure ?msproc .
@@ -68,6 +95,12 @@ bind(?param? as ?param)  .
 ?iri mig:DATA_TYPE ?type .
 ?iri rdf:type mig:msprocedurevarible .
 ?iri mig:CHARACTER_MAXIMUM_LENGTH ?len.
+   optional  {
+        ?conv rdf:type mig:datatypeconversion .
+        ?conv js:MS ?convMS .
+        ?conv js:PQ ?convPQ .
+        filter (UCASE(?type)=UCASE(?convMS))    
+      }    
 }
-
+}
 """

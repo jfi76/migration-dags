@@ -56,7 +56,7 @@ def prepare_proc():
 
     c=create_proc()
     ret=c.get_all_proc()
-    print('start 2')
+
 
     for proc in ret:
         exec_str=''

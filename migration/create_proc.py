@@ -71,8 +71,8 @@ as $$""", self.statementId , proc['iri'], self.statement_types_dict['CREATE LANG
         stmt_str=stmt.get_proc_variable.replace('?param?',f"<{procIri}>")
         ret=self.queryService.query(stmt_str)        
         for declare_var in ret:
-            ret_str=ret_str+declare_var['name']+ ' ' +declare_var['type_len'] +'; \n'
-        if ret_str=='':
+            ret_str=ret_str+declare_var['name']['value']+ ' ' +declare_var['type']['value'] + ' ' +declare_var['type_len']['value'] +'; \n'
+        if ret_str!='':
             ret_str='declare \n'+ret_str
         return ret_str
     def get_all_proc(self):
