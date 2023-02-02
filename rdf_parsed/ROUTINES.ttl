@@ -1,937 +1,114 @@
-@prefix ns1: <http://www.example.com/JSON#> .
-@prefix ns2: <http://www.example.com/ETL#> .
+@prefix ns1: <http://www.example.com/ETL#> .
+@prefix ns2: <http://www.example.com/JSON#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
-ns1:N086bf23e0b5440f8bef2df8a0d0a00e8 a ns1:ObjectJson,
+ns2:N0235985d986240038e82303c6a746273 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "ROUTINES.json" ;
-    ns1:CREATED "2010-03-15T12:14:37.973" ;
-    ns1:IS_DETERMINISTIC "NO" ;
-    ns1:IS_IMPLICITLY_INVOCABLE "NO" ;
-    ns1:IS_USER_DEFINED_CAST "NO" ;
-    ns1:LAST_ALTERED "2010-11-30T09:46:25.943" ;
-    ns1:MAX_DYNAMIC_RESULT_SETS "-1" ;
-    ns1:ROUTINE_BODY "SQL" ;
-    ns1:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:ROUTINE_DEFINITION """create procedure [dbo].[get_common_ended]\r
+    ns1:hasSourceFile "ROUTINES.json" ;
+    ns2:CREATED "2010-03-09T16:11:17.210" ;
+    ns2:IS_DETERMINISTIC "NO" ;
+    ns2:IS_IMPLICITLY_INVOCABLE "NO" ;
+    ns2:IS_USER_DEFINED_CAST "NO" ;
+    ns2:LAST_ALTERED "2010-11-30T09:46:25.817" ;
+    ns2:MAX_DYNAMIC_RESULT_SETS "-1" ;
+    ns2:ROUTINE_BODY "SQL" ;
+    ns2:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:ROUTINE_DEFINITION """CREATE procedure [dbo].[stat_change_instruct]\r
 @t_testing_id uniqueidentifier\r
-as \r
-select PAGE_USR_TEXT_ENDED\r
-from t_testing_language tl \r
-inner join t_testing t on\r
-tl.t_testing_language_id = t.t_testing_language_id\r
-where t.t_testing_id = @t_testing_id""" ;
-    ns1:ROUTINE_NAME "get_common_ended" ;
-    ns1:ROUTINE_SCHEMA "dbo" ;
-    ns1:ROUTINE_TYPE "PROCEDURE" ;
-    ns1:SCHEMA_LEVEL_ROUTINE "YES" ;
-    ns1:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:SPECIFIC_NAME "get_common_ended" ;
-    ns1:SPECIFIC_SCHEMA "dbo" ;
-    ns1:SQL_DATA_ACCESS "MODIFIES" ;
-    ns1:hasJsonObjectKey "11" ;
-    ns1:parentJsonId ns1:Ndbe63dbc452b4a38befcabcd78a5ac5d .
-
-ns1:N0fe60de01a9d44318017a4cd2d95e780 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "ROUTINES.json" ;
-    ns1:CREATED "2010-03-05T12:27:19.660" ;
-    ns1:IS_DETERMINISTIC "NO" ;
-    ns1:IS_IMPLICITLY_INVOCABLE "NO" ;
-    ns1:IS_USER_DEFINED_CAST "NO" ;
-    ns1:LAST_ALTERED "2010-11-30T09:46:26.100" ;
-    ns1:MAX_DYNAMIC_RESULT_SETS "-1" ;
-    ns1:ROUTINE_BODY "SQL" ;
-    ns1:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:ROUTINE_DEFINITION """CREATE procedure [dbo].[select_tests]\r
-@t_testing_id uniqueidentifier\r
-as \r
-select \r
-te.obj_name as test,  ts.obj_name as status\r
-,\r
-\r
-case l.lang_num\r
-  when 2 then te.notes_lang2\r
-  when 3 then te.notes_lang3\r
-  else te.notes_lang1\r
-end as notes\r
-\r
-from t_testing_test  tt\r
-inner join t_test te on tt.t_test_id = te.t_test_id\r
-inner join t_testing_test_status ts \r
-on tt.t_testing_test_status_id = ts.t_testing_test_status_id\r
-inner join t_testing t on tt.t_testing_id = t.t_testing_id\r
-inner join t_testing_language l on l.t_testing_language_id = t.t_testing_language_id\r
-where t.t_testing_id=@t_testing_id \r
-order by te.order_num""" ;
-    ns1:ROUTINE_NAME "select_tests" ;
-    ns1:ROUTINE_SCHEMA "dbo" ;
-    ns1:ROUTINE_TYPE "PROCEDURE" ;
-    ns1:SCHEMA_LEVEL_ROUTINE "YES" ;
-    ns1:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:SPECIFIC_NAME "select_tests" ;
-    ns1:SPECIFIC_SCHEMA "dbo" ;
-    ns1:SQL_DATA_ACCESS "MODIFIES" ;
-    ns1:hasJsonObjectKey "28" ;
-    ns1:parentJsonId ns1:Ndbe63dbc452b4a38befcabcd78a5ac5d .
-
-ns1:N1a6daf5ad07b4b37b95739a6a2cd7801 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "ROUTINES.json" ;
-    ns1:CREATED "2009-12-08T14:23:03.393" ;
-    ns1:IS_DETERMINISTIC "NO" ;
-    ns1:IS_IMPLICITLY_INVOCABLE "NO" ;
-    ns1:IS_USER_DEFINED_CAST "NO" ;
-    ns1:LAST_ALTERED "2010-11-30T09:46:26.037" ;
-    ns1:MAX_DYNAMIC_RESULT_SETS "-1" ;
-    ns1:ROUTINE_BODY "SQL" ;
-    ns1:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:ROUTINE_DEFINITION """	CREATE PROCEDURE dbo.sp_renamediagram\r
-	(\r
-		@diagramname 		sysname,\r
-		@owner_id		int	= null,\r
-		@new_diagramname	sysname\r
-	\r
-	)\r
-	WITH EXECUTE AS 'dbo'\r
-	AS\r
-	BEGIN\r
-		set nocount on\r
-		declare @theId 			int\r
-		declare @IsDbo 			int\r
-		\r
-		declare @UIDFound 		int\r
-		declare @DiagId			int\r
-		declare @DiagIdTarg		int\r
-		declare @u_name			sysname\r
-		if((@diagramname is null) or (@new_diagramname is null))\r
-		begin\r
-			RAISERROR ('Invalid value', 16, 1);\r
-			return -1\r
-		end\r
-	\r
-		EXECUTE AS CALLER;\r
-		select @theId = DATABASE_PRINCIPAL_ID();\r
-		select @IsDbo = IS_MEMBER(N'db_owner'); \r
-		if(@owner_id is null)\r
-			select @owner_id = @theId;\r
-		REVERT;\r
-	\r
-		select @u_name = USER_NAME(@owner_id)\r
-	\r
-		select @DiagId = diagram_id, @UIDFound = principal_id from dbo.sysdiagrams where principal_id = @owner_id and name = @diagramname \r
-		if(@DiagId IS NULL or (@IsDbo = 0 and @UIDFound <> @theId))\r
-		begin\r
-			RAISERROR ('Diagram does not exist or you do not have permission.', 16, 1)\r
-			return -3\r
-		end\r
-	\r
-		-- if((@u_name is not null) and (@new_diagramname = @diagramname))	-- nothing will change\r
-		--	return 0;\r
-	\r
-		if(@u_name is null)\r
-			select @DiagIdTarg = diagram_id from dbo.sysdiagrams where principal_id = @theId and name = @new_diagramname\r
-		else\r
-			select @DiagIdTarg = diagram_id from dbo.sysdiagrams where principal_id = @owner_id and name = @new_diagramname\r
-	\r
-		if((@DiagIdTarg is not null) and  @DiagId <> @DiagIdTarg)\r
-		begin\r
-			RAISERROR ('The name is already used.', 16, 1);\r
-			return -2\r
-		end		\r
-	\r
-		if(@u_name is null)\r
-			update dbo.sysdiagrams set [name] = @new_diagramname, principal_id = @theId where diagram_id = @DiagId\r
-		else\r
-			update dbo.sysdiagrams set [name] = @new_diagramname where diagram_id = @DiagId\r
-		return 0\r
-	END\r
-	""" ;
-    ns1:ROUTINE_NAME "sp_renamediagram" ;
-    ns1:ROUTINE_SCHEMA "dbo" ;
-    ns1:ROUTINE_TYPE "PROCEDURE" ;
-    ns1:SCHEMA_LEVEL_ROUTINE "YES" ;
-    ns1:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:SPECIFIC_NAME "sp_renamediagram" ;
-    ns1:SPECIFIC_SCHEMA "dbo" ;
-    ns1:SQL_DATA_ACCESS "MODIFIES" ;
-    ns1:hasJsonObjectKey "16" ;
-    ns1:parentJsonId ns1:Ndbe63dbc452b4a38befcabcd78a5ac5d .
-
-ns1:N23a2e7ca01374674a010e7d40d730ef4 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "ROUTINES.json" ;
-    ns1:CREATED "2010-03-02T17:53:19.130" ;
-    ns1:IS_DETERMINISTIC "NO" ;
-    ns1:IS_IMPLICITLY_INVOCABLE "NO" ;
-    ns1:IS_USER_DEFINED_CAST "NO" ;
-    ns1:LAST_ALTERED "2010-11-30T09:46:26.083" ;
-    ns1:MAX_DYNAMIC_RESULT_SETS "-1" ;
-    ns1:ROUTINE_BODY "SQL" ;
-    ns1:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:ROUTINE_DEFINITION """CREATE procedure [dbo].[ws_type] \r
-@ip_address varchar(100),\r
-@ip_auth char(1) output,\r
-@t_workstation_id uniqueidentifier output,\r
-@t_testing_id uniqueidentifier output,\r
-@t_ws_status_id_active uniqueidentifier\r
 \r
 as \r
-declare @ws_ip_count int\r
-select @ws_ip_count=count(t_workstation_id)\r
-from t_workstation \r
-where ip_address=@ip_address and \r
-t_workstation_status_id=@t_ws_status_id_active \r
-and auth_type=0\r
-\r
-if @ws_ip_count > 0 \r
-begin\r
-\r
-   select \r
-   @t_workstation_id=t_workstation_id\r
-   ,@t_testing_id=t_testing_id,@ip_auth='y'\r
-   from t_workstation \r
-   where ip_address=@ip_address\r
-\r
-end \r
-else \r
-begin\r
-   select \r
-   @t_workstation_id=null\r
-   ,@t_testing_id=null,@ip_auth='n'\r
-\r
-end""" ;
-    ns1:ROUTINE_NAME "ws_type" ;
-    ns1:ROUTINE_SCHEMA "dbo" ;
-    ns1:ROUTINE_TYPE "PROCEDURE" ;
-    ns1:SCHEMA_LEVEL_ROUTINE "YES" ;
-    ns1:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:SPECIFIC_NAME "ws_type" ;
-    ns1:SPECIFIC_SCHEMA "dbo" ;
-    ns1:SQL_DATA_ACCESS "MODIFIES" ;
-    ns1:hasJsonObjectKey "24" ;
-    ns1:parentJsonId ns1:Ndbe63dbc452b4a38befcabcd78a5ac5d .
-
-ns1:N26c946273cfa4c0890f9a2ed8a0931bd a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "ROUTINES.json" ;
-    ns1:CREATED "2010-02-26T21:45:21.980" ;
-    ns1:IS_DETERMINISTIC "NO" ;
-    ns1:IS_IMPLICITLY_INVOCABLE "NO" ;
-    ns1:IS_USER_DEFINED_CAST "NO" ;
-    ns1:LAST_ALTERED "2010-11-30T09:46:25.757" ;
-    ns1:MAX_DYNAMIC_RESULT_SETS "-1" ;
-    ns1:ROUTINE_BODY "SQL" ;
-    ns1:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:ROUTINE_DEFINITION """CREATE procedure [dbo].[inititate_testing]\r
-@t_testing_id uniqueidentifier,\r
-@t_workstation_id uniqueidentifier,\r
-@t_persona_id uniqueidentifier,\r
-@t_testing_language_id uniqueidentifier,\r
-@t_testing_classificator_id uniqueidentifier,\r
-@obj_created_by varchar(100),\r
-@passw nvarchar(20)\r
-\r
-as \r
-declare @auth_type nvarchar(20)\r
-SET XACT_ABORT ON;\r
-begin transaction \r
-insert into t_testing(\r
-t_testing_id ,\r
-t_workstation_id ,\r
-t_persona_id ,\r
-t_testing_language_id ,\r
-t_testing_classificator_id ,\r
-obj_created_by,\r
-t_testing_status_id\r
-)\r
-values\r
-(\r
-@t_testing_id ,\r
-@t_workstation_id ,\r
-@t_persona_id ,\r
-@t_testing_language_id ,\r
-@t_testing_classificator_id ,\r
-@obj_created_by,\r
-4\r
-)\r
-\r
-update t_workstation\r
-set t_testing_id = @t_testing_id\r
-where t_workstation_id=@t_workstation_id\r
-\r
-select @auth_type = auth_type\r
-from t_workstation\r
-where t_workstation_id=@t_workstation_id\r
-\r
-if @auth_type =1 \r
-  update t_workstation\r
-  set passw = @passw\r
-  where t_workstation_id=@t_workstation_id\r
-  \r
-\r
-commit transaction\r
-SET XACT_ABORT OFF;""" ;
-    ns1:ROUTINE_NAME "inititate_testing" ;
-    ns1:ROUTINE_SCHEMA "dbo" ;
-    ns1:ROUTINE_TYPE "PROCEDURE" ;
-    ns1:SCHEMA_LEVEL_ROUTINE "YES" ;
-    ns1:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:SPECIFIC_NAME "inititate_testing" ;
-    ns1:SPECIFIC_SCHEMA "dbo" ;
-    ns1:SQL_DATA_ACCESS "MODIFIES" ;
-    ns1:hasJsonObjectKey "0" ;
-    ns1:parentJsonId ns1:Ndbe63dbc452b4a38befcabcd78a5ac5d .
-
-ns1:N30fa732ba46d4da9b2b0f12d7c3e005f a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "ROUTINES.json" ;
-    ns1:CREATED "2010-03-12T14:44:37.697" ;
-    ns1:IS_DETERMINISTIC "NO" ;
-    ns1:IS_IMPLICITLY_INVOCABLE "NO" ;
-    ns1:IS_USER_DEFINED_CAST "NO" ;
-    ns1:LAST_ALTERED "2010-11-30T09:46:25.897" ;
-    ns1:MAX_DYNAMIC_RESULT_SETS "-1" ;
-    ns1:ROUTINE_BODY "SQL" ;
-    ns1:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:ROUTINE_DEFINITION """CREATE procedure get_next_step_id \r
-@current_step_id uniqueidentifier,\r
-@next_step_id uniqueidentifier OUTPUT\r
-\r
-as \r
-\r
+declare @status varchar(10) \r
 declare @t_test_id uniqueidentifier\r
 declare @step_order int\r
-declare @next_step_order int\r
+declare @current_step_id uniqueidentifier\r
+\r
+SET XACT_ABORT ON;\r
+begin transaction \r
 \r
 \r
+select @status=obj_name from t_testing_status ts\r
+inner join t_testing t on ts.t_testing_status_id = t.t_testing_status_id\r
+where  t.t_testing_id = @t_testing_id\r
 \r
-select @t_test_id = t_test_id, @step_order=step_order\r
-from t_test_step \r
-where t_test_step_id = @current_step_id\r
 \r
-\r
-select @next_step_order=min(step_order)\r
-from t_test_step\r
-where t_test_id=@t_test_id and step_order>@step_order\r
-\r
-if (@next_step_order is not null) and (@next_step_order>@step_order)\r
+if @status='INSTRUCT'\r
 begin\r
-  select @next_step_id=t_test_step_id\r
+  \r
+  select @t_test_id=t_test_id\r
+  \r
+  from   t_test\r
+  where order_num =\r
+  (\r
+  select min(order_num) \r
+  from t_testing_test tt inner join t_test te\r
+    on tt.t_test_id= te.t_test_id\r
+    where tt.t_testing_test_status_id = 4\r
+    and tt.t_testing_id = @t_testing_id\r
+  )\r
+  \r
+  update  t_testing \r
+  set t_testing_status_id = 1,\r
+  current_test_id = @t_test_id\r
+  where t_testing_id = @t_testing_id\r
+ \r
+  \r
+\r
+  select @step_order=min(step_order)\r
+  from t_test_step \r
+  where t_test_id=@t_test_id \r
+  \r
+  select @current_step_id= t_test_step_id\r
   from t_test_step\r
-  where t_test_id=@t_test_id and step_order=@next_step_order\r
+  where t_test_id=@t_test_id \r
+  and step_order=@step_order\r
 \r
-end\r
-else \r
-set @next_step_id = null""" ;
-    ns1:ROUTINE_NAME "get_next_step_id" ;
-    ns1:ROUTINE_SCHEMA "dbo" ;
-    ns1:ROUTINE_TYPE "PROCEDURE" ;
-    ns1:SCHEMA_LEVEL_ROUTINE "YES" ;
-    ns1:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:SPECIFIC_NAME "get_next_step_id" ;
-    ns1:SPECIFIC_SCHEMA "dbo" ;
-    ns1:SQL_DATA_ACCESS "MODIFIES" ;
-    ns1:hasJsonObjectKey "9" ;
-    ns1:parentJsonId ns1:Ndbe63dbc452b4a38befcabcd78a5ac5d .
-
-ns1:N4ef8454669bd455b80564129d8012f4d a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "ROUTINES.json" ;
-    ns1:CREATED "2010-04-01T11:23:16.127" ;
-    ns1:IS_DETERMINISTIC "NO" ;
-    ns1:IS_IMPLICITLY_INVOCABLE "NO" ;
-    ns1:IS_USER_DEFINED_CAST "NO" ;
-    ns1:LAST_ALTERED "2010-11-30T09:46:26.053" ;
-    ns1:MAX_DYNAMIC_RESULT_SETS "-1" ;
-    ns1:ROUTINE_BODY "SQL" ;
-    ns1:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:ROUTINE_DEFINITION """CREATE procedure [dbo].[doback]\r
-@t_testing_id uniqueidentifier,\r
-@t_testing_step_id uniqueidentifier\r
-\r
-as \r
-\r
-SET XACT_ABORT ON;\r
-begin transaction \r
-\r
-\r
-declare @current_step_id uniqueidentifier\r
-declare @t_test_id uniqueidentifier \r
-declare @prev_step_id uniqueidentifier\r
-declare @back_only_1_step char(1)\r
-declare @back_btn_mark char(1)\r
-\r
-select @current_step_id=current_step_id\r
-from t_testing t inner join\r
-t_testing_test tt on\r
-t.t_testing_id=tt.t_testing_id\r
-and t.current_test_id = tt.t_test_id\r
-where t.t_testing_id=@t_testing_id\r
-\r
-if @current_step_id=@t_testing_step_id\r
-begin\r
- \r
- set @t_test_id = (select current_test_id from t_testing  where t_testing_id=@t_testing_id )\r
-\r
-/* what is th privious test step?  */\r
- set @prev_step_id = NULL \r
- \r
- select @back_only_1_step=back_only_1_step,\r
- @back_btn_mark=back_btn_mark\r
- from t_test \r
- where t_test_id = @t_test_id\r
-/* in case if option back for test is disabled raise error  */\r
- if @back_btn_mark!='y' \r
-  begin \r
-    RAISERROR ('CURRENT TEST DOES NOT ALLOW BACK ACTION !',16,1,0) with log             \r
-    commit transaction\r
-    return \r
-  end\r
-\r
+  update t_testing_test\r
+  set current_step_id=@current_step_id,\r
+  t_testing_test_status_id=1\r
+  where t_testing_id = @t_testing_id\r
+  and t_test_id=@t_test_id\r
   \r
-  \r
-    if (@back_only_1_step = 'y') AND (select LEN(result_txt) from t_testing_step \r
-         where t_testing_id=@t_testing_id and t_test_step_id=@current_step_id)>0 \r
-      begin\r
-        RAISERROR ('TEST DOES NOT ALLOW BACK MORE THEN ONCE !',16,1,0) with log             \r
-        commit transaction\r
-        return\r
-      end \r
-  \r
-\r
- exec  get_prev_step_id \r
-  @current_step_id ,\r
-  @prev_step_id OUTPUT\r
-\r
-/* if step exists  change current_step_id */\r
- if  @prev_step_id is not null \r
-   begin\r
-    update t_testing_test\r
-    set current_step_id=@prev_step_id\r
-    \r
-    where t_testing_id = @t_testing_id\r
-    and t_test_id=@t_test_id\r
-\r
-    update  \r
-    t_testing_step \r
-    set \r
-    t_testing_step_status_id = 1,\r
-    view_date=getdate()\r
-    where t_test_step_id=@prev_step_id\r
+  update  \r
+  t_testing_step \r
+  set \r
+  t_testing_step_status_id = 1,\r
+  view_date=getdate()\r
+  where t_test_step_id=@current_step_id\r
     and t_testing_id = @t_testing_id\r
-  end\r
 \r
-    \r
-  \r
+  update  t_testing\r
+  set start_date=getdate()\r
+  where t_testing_id = @t_testing_id\r
+  and start_date is null   \r
+\r
 end \r
-/* in case of attemtp to change not current step ERROR message */\r
-else \r
-RAISERROR ('CURRENT STEP ID DOES NOT EQUIL PROPOSED! ANSWER NOT ACCEPTED!',16,1,0) with log             \r
+\r
 \r
 commit transaction\r
 SET XACT_ABORT OFF;""" ;
-    ns1:ROUTINE_NAME "doback" ;
-    ns1:ROUTINE_SCHEMA "dbo" ;
-    ns1:ROUTINE_TYPE "PROCEDURE" ;
-    ns1:SCHEMA_LEVEL_ROUTINE "YES" ;
-    ns1:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:SPECIFIC_NAME "doback" ;
-    ns1:SPECIFIC_SCHEMA "dbo" ;
-    ns1:SQL_DATA_ACCESS "MODIFIES" ;
-    ns1:hasJsonObjectKey "21" ;
-    ns1:parentJsonId ns1:Ndbe63dbc452b4a38befcabcd78a5ac5d .
+    ns2:ROUTINE_NAME "stat_change_instruct" ;
+    ns2:ROUTINE_SCHEMA "dbo" ;
+    ns2:ROUTINE_TYPE "PROCEDURE" ;
+    ns2:SCHEMA_LEVEL_ROUTINE "YES" ;
+    ns2:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:SPECIFIC_NAME "stat_change_instruct" ;
+    ns2:SPECIFIC_SCHEMA "dbo" ;
+    ns2:SQL_DATA_ACCESS "MODIFIES" ;
+    ns2:hasJsonObjectKey "3" ;
+    ns2:parentJsonId ns2:N4435caf0df2f4827ab21048cf1144979 .
 
-ns1:N62eb0386861d48adaf21d16131bed414 a ns1:ObjectJson,
+ns2:N02b4d5966f5d4dfeaaacfc22e33d1b4e a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "ROUTINES.json" ;
-    ns1:CREATED "2022-12-07T20:49:10.287" ;
-    ns1:IS_DETERMINISTIC "NO" ;
-    ns1:IS_IMPLICITLY_INVOCABLE "NO" ;
-    ns1:IS_USER_DEFINED_CAST "NO" ;
-    ns1:LAST_ALTERED "2023-01-25T20:30:36.863" ;
-    ns1:MAX_DYNAMIC_RESULT_SETS "-1" ;
-    ns1:ROUTINE_BODY "SQL" ;
-    ns1:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:ROUTINE_DEFINITION """CREATE proc test1\r
-as \r
-\r
-declare @t1 int ;\r
-select @t1=1;\r
-return @t1\r
-\r
-exec donext  'E7FAB167-C47A-4865-A8AE-429FA778414C', 'a', 'E7FAB167-C47A-4865-A8AE-429FA778414C'""" ;
-    ns1:ROUTINE_NAME "test1" ;
-    ns1:ROUTINE_SCHEMA "dbo" ;
-    ns1:ROUTINE_TYPE "PROCEDURE" ;
-    ns1:SCHEMA_LEVEL_ROUTINE "YES" ;
-    ns1:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:SPECIFIC_NAME "test1" ;
-    ns1:SPECIFIC_SCHEMA "dbo" ;
-    ns1:SQL_DATA_ACCESS "MODIFIES" ;
-    ns1:hasJsonObjectKey "30" ;
-    ns1:parentJsonId ns1:Ndbe63dbc452b4a38befcabcd78a5ac5d .
-
-ns1:N6e56fe2ac1c247e8953e26cd8a98de69 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "ROUTINES.json" ;
-    ns1:CREATED "2010-03-09T15:05:36.877" ;
-    ns1:IS_DETERMINISTIC "NO" ;
-    ns1:IS_IMPLICITLY_INVOCABLE "NO" ;
-    ns1:IS_USER_DEFINED_CAST "NO" ;
-    ns1:LAST_ALTERED "2010-11-30T09:46:25.817" ;
-    ns1:MAX_DYNAMIC_RESULT_SETS "-1" ;
-    ns1:ROUTINE_BODY "SQL" ;
-    ns1:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:ROUTINE_DEFINITION """CREATE procedure get_test_introduction\r
-@lang_num int,\r
-@t_test_id uniqueidentifier\r
-as \r
-\r
-\r
-select \r
-case @lang_num\r
-when 2  then page_usr_text_lang2\r
-when 3  then page_usr_text_lang3\r
-else page_usr_text_lang1\r
-\r
-end \r
-as PAGE_USR_TEXT\r
-from t_test\r
-where t_test_id=@t_test_id""" ;
-    ns1:ROUTINE_NAME "get_test_introduction" ;
-    ns1:ROUTINE_SCHEMA "dbo" ;
-    ns1:ROUTINE_TYPE "PROCEDURE" ;
-    ns1:SCHEMA_LEVEL_ROUTINE "YES" ;
-    ns1:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:SPECIFIC_NAME "get_test_introduction" ;
-    ns1:SPECIFIC_SCHEMA "dbo" ;
-    ns1:SQL_DATA_ACCESS "MODIFIES" ;
-    ns1:hasJsonObjectKey "2" ;
-    ns1:parentJsonId ns1:Ndbe63dbc452b4a38befcabcd78a5ac5d .
-
-ns1:N6ea88ced6fc8453fa3f2db365e7e735d a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "ROUTINES.json" ;
-    ns1:CREATED "2010-04-01T15:58:13.430" ;
-    ns1:IS_DETERMINISTIC "NO" ;
-    ns1:IS_IMPLICITLY_INVOCABLE "NO" ;
-    ns1:IS_USER_DEFINED_CAST "NO" ;
-    ns1:LAST_ALTERED "2010-11-30T09:46:26.053" ;
-    ns1:MAX_DYNAMIC_RESULT_SETS "-1" ;
-    ns1:ROUTINE_BODY "SQL" ;
-    ns1:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:ROUTINE_DEFINITION """CREATE procedure [dbo].[time_remaining]\r
-@t_testing_id uniqueidentifier, \r
-@t_test_id uniqueidentifier,\r
-@seconds_remain int output  \r
-as \r
-declare @start_time datetime\r
-declare @STOP_TIME_SEC int\r
-declare @timelimitmin int \r
-\r
-set @timelimitmin=0\r
-\r
-\r
-select @timelimitmin=isnull(timelimitmin,0)\r
-from t_test \r
-where t_test_id=@t_test_id\r
-\r
-if @timelimitmin>0\r
-begin\r
-\r
---set @seconds_remain=200\r
-\r
-\r
-select  \r
-@start_time=min(isnull(ts.view_date,getdate()))\r
---ts.view_date,\r
-,@STOP_TIME_SEC=min(isnull(tt.STOP_TIME_SEC,0))\r
-from t_testing_step ts\r
-inner join t_test_step s on ts.t_test_step_id=s.t_test_step_id\r
-inner join t_testing_test tt on s.t_test_id=tt.t_test_id \r
-where s.t_test_id=@t_test_id\r
-and ts.t_testing_id=@t_testing_id\r
-and tt.t_testing_id=@t_testing_id\r
-\r
-\r
-set @seconds_remain=datediff(second, getdate(), @start_time )- isnull(@STOP_TIME_SEC,0) + (60*@timelimitmin)\r
-\r
-end""" ;
-    ns1:ROUTINE_NAME "time_remaining" ;
-    ns1:ROUTINE_SCHEMA "dbo" ;
-    ns1:ROUTINE_TYPE "PROCEDURE" ;
-    ns1:SCHEMA_LEVEL_ROUTINE "YES" ;
-    ns1:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:SPECIFIC_NAME "time_remaining" ;
-    ns1:SPECIFIC_SCHEMA "dbo" ;
-    ns1:SQL_DATA_ACCESS "MODIFIES" ;
-    ns1:hasJsonObjectKey "22" ;
-    ns1:parentJsonId ns1:Ndbe63dbc452b4a38befcabcd78a5ac5d .
-
-ns1:N74cd5e00008c43639d3869a1b9d970d0 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "ROUTINES.json" ;
-    ns1:CREATED "2010-04-19T17:19:48.677" ;
-    ns1:IS_DETERMINISTIC "NO" ;
-    ns1:IS_IMPLICITLY_INVOCABLE "NO" ;
-    ns1:IS_USER_DEFINED_CAST "NO" ;
-    ns1:LAST_ALTERED "2010-11-30T09:46:26.113" ;
-    ns1:MAX_DYNAMIC_RESULT_SETS "-1" ;
-    ns1:ROUTINE_BODY "SQL" ;
-    ns1:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:ROUTINE_DEFINITION """CREATE procedure [dbo].[selupd_1print] \r
-as \r
-declare @t_testing_id uniqueidentifier\r
-declare @job_count int \r
-\r
-SET XACT_ABORT ON;\r
-\r
-set @t_testing_id= null\r
-set @job_count = null\r
-\r
-set @t_testing_id = (\r
-select  top 1  t.t_testing_id \r
-from t_testing t \r
-inner join t_testing_status ts \r
-on t.t_testing_status_id = ts.t_testing_status_id\r
-where ts.obj_name='ENDED'\r
-and datepart(day,t.obj_created)=datepart(day,getdate())\r
-and datepart(month,t.obj_created)=datepart(month,getdate())\r
-and datepart(year,t.obj_created)=datepart(year,getdate())\r
-and t.print_count=0 \r
-order by t.obj_created \r
-)\r
-\r
-\r
-set @job_count = (\r
-select  count(t.t_testing_id) \r
-from t_testing t \r
-inner join t_testing_status ts \r
-on t.t_testing_status_id = ts.t_testing_status_id\r
-where ts.obj_name='ENDED'\r
-and datepart(day,t.obj_created)=datepart(day,getdate())\r
-and datepart(month,t.obj_created)=datepart(month,getdate())\r
-and datepart(year,t.obj_created)=datepart(year,getdate())\r
-and t.print_count=0 \r
-)\r
-\r
-select @t_testing_id as t_testing_id,@job_count as job_count\r
-\r
-SET XACT_ABORT OFF;""" ;
-    ns1:ROUTINE_NAME "selupd_1print" ;
-    ns1:ROUTINE_SCHEMA "dbo" ;
-    ns1:ROUTINE_TYPE "PROCEDURE" ;
-    ns1:SCHEMA_LEVEL_ROUTINE "YES" ;
-    ns1:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:SPECIFIC_NAME "selupd_1print" ;
-    ns1:SPECIFIC_SCHEMA "dbo" ;
-    ns1:SQL_DATA_ACCESS "MODIFIES" ;
-    ns1:hasJsonObjectKey "31" ;
-    ns1:parentJsonId ns1:Ndbe63dbc452b4a38befcabcd78a5ac5d .
-
-ns1:N765f7818f8684a7594d9f83ac1a8c14f a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "ROUTINES.json" ;
-    ns1:CREATED "2009-12-08T14:23:03.393" ;
-    ns1:IS_DETERMINISTIC "NO" ;
-    ns1:IS_IMPLICITLY_INVOCABLE "NO" ;
-    ns1:IS_USER_DEFINED_CAST "NO" ;
-    ns1:LAST_ALTERED "2010-11-30T09:46:26.053" ;
-    ns1:MAX_DYNAMIC_RESULT_SETS "-1" ;
-    ns1:ROUTINE_BODY "SQL" ;
-    ns1:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:ROUTINE_DEFINITION """	CREATE PROCEDURE dbo.sp_dropdiagram\r
-	(\r
-		@diagramname 	sysname,\r
-		@owner_id	int	= null\r
-	)\r
-	WITH EXECUTE AS 'dbo'\r
-	AS\r
-	BEGIN\r
-		set nocount on\r
-		declare @theId 			int\r
-		declare @IsDbo 			int\r
-		\r
-		declare @UIDFound 		int\r
-		declare @DiagId			int\r
-	\r
-		if(@diagramname is null)\r
-		begin\r
-			RAISERROR ('Invalid value', 16, 1);\r
-			return -1\r
-		end\r
-	\r
-		EXECUTE AS CALLER;\r
-		select @theId = DATABASE_PRINCIPAL_ID();\r
-		select @IsDbo = IS_MEMBER(N'db_owner'); \r
-		if(@owner_id is null)\r
-			select @owner_id = @theId;\r
-		REVERT; \r
-		\r
-		select @DiagId = diagram_id, @UIDFound = principal_id from dbo.sysdiagrams where principal_id = @owner_id and name = @diagramname \r
-		if(@DiagId IS NULL or (@IsDbo = 0 and @UIDFound <> @theId))\r
-		begin\r
-			RAISERROR ('Diagram does not exist or you do not have permission.', 16, 1)\r
-			return -3\r
-		end\r
-	\r
-		delete from dbo.sysdiagrams where diagram_id = @DiagId;\r
-	\r
-		return 0;\r
-	END\r
-	""" ;
-    ns1:ROUTINE_NAME "sp_dropdiagram" ;
-    ns1:ROUTINE_SCHEMA "dbo" ;
-    ns1:ROUTINE_TYPE "PROCEDURE" ;
-    ns1:SCHEMA_LEVEL_ROUTINE "YES" ;
-    ns1:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:SPECIFIC_NAME "sp_dropdiagram" ;
-    ns1:SPECIFIC_SCHEMA "dbo" ;
-    ns1:SQL_DATA_ACCESS "MODIFIES" ;
-    ns1:hasJsonObjectKey "18" ;
-    ns1:parentJsonId ns1:Ndbe63dbc452b4a38befcabcd78a5ac5d .
-
-ns1:N7c827ba3788340e59c8ce18cce0ce1ba a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "ROUTINES.json" ;
-    ns1:CREATED "2010-03-11T18:04:20.693" ;
-    ns1:IS_DETERMINISTIC "NO" ;
-    ns1:IS_IMPLICITLY_INVOCABLE "NO" ;
-    ns1:IS_USER_DEFINED_CAST "NO" ;
-    ns1:LAST_ALTERED "2010-11-30T09:46:25.880" ;
-    ns1:MAX_DYNAMIC_RESULT_SETS "-1" ;
-    ns1:ROUTINE_BODY "SQL" ;
-    ns1:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:ROUTINE_DEFINITION """CREATE procedure [dbo].[donext]\r
-@t_testing_id uniqueidentifier,\r
-@result_txt nvarchar(1000),\r
-@t_testing_step_id uniqueidentifier\r
-\r
-as \r
-\r
-SET XACT_ABORT ON;\r
-begin transaction \r
-\r
-\r
-declare @current_step_id uniqueidentifier\r
-declare @t_test_id uniqueidentifier \r
-declare @next_step_id uniqueidentifier\r
-declare @seconds_remain int \r
-\r
-select @current_step_id=current_step_id\r
-from t_testing t inner join\r
-t_testing_test tt on\r
-t.t_testing_id=tt.t_testing_id\r
-and t.current_test_id = tt.t_test_id\r
-where t.t_testing_id=@t_testing_id\r
-\r
-if @current_step_id=@t_testing_step_id\r
-begin\r
- \r
- set @t_test_id = (select current_test_id from t_testing  where t_testing_id=@t_testing_id )\r
-/* try timelimit */\r
-exec time_remaining\r
-@t_testing_id , \r
-@t_test_id ,\r
-@seconds_remain  output \r
-\r
-\r
-if @seconds_remain<0 \r
-begin\r
-\r
- exec stat_change_testing  \r
-    @t_testing_id ,\r
-    @t_test_id \r
-\r
-\r
-    RAISERROR ('TIME IS EXPIRED! ANSWER NOT ACCEPTED!',16,1,0) with log             \r
-    commit transaction\r
-    return\r
-\r
-end \r
-\r
-\r
- /* save result and change status to end  */\r
- update  \r
- t_testing_step \r
- set RESULT_TXT=@result_txt,\r
- t_testing_step_status_id = 3,\r
- result_date=getdate() \r
- where t_test_step_id=@current_step_id\r
-    and t_testing_id = @t_testing_id\r
- \r
-/* what is th next test step?  */\r
- set @next_step_id = NULL \r
-\r
- exec  get_next_step_id \r
-  @current_step_id ,\r
-  @next_step_id OUTPUT\r
-\r
-/* if step exists  change current_step_id */\r
- if  @next_step_id is not null \r
-   begin\r
-    update t_testing_test\r
-    set current_step_id=@next_step_id\r
-    \r
-    where t_testing_id = @t_testing_id\r
-    and t_test_id=@t_test_id\r
-\r
-    update  \r
-    t_testing_step \r
-    set \r
-    t_testing_step_status_id = 1,\r
-    view_date=getdate()\r
-    where t_test_step_id=@next_step_id\r
-    and t_testing_id = @t_testing_id\r
-  end\r
-\r
-    \r
- else\r
-/* if step does not exists  exec procedure to finish current test and \r
-possibly all testing */\r
-  \r
- exec stat_change_testing  \r
-    @t_testing_id ,\r
-    @t_test_id \r
-   \r
- \r
-\r
-  \r
-end \r
-/* in case of attemtp to change not current step ERROR message */\r
-else \r
-RAISERROR ('CURRENT STEP ID DOES NOT EQUIL PROPOSED! ANSWER NOT ACCEPTED!',16,1,0) with log             \r
-\r
-commit transaction\r
-SET XACT_ABORT OFF;""" ;
-    ns1:ROUTINE_NAME "donext" ;
-    ns1:ROUTINE_SCHEMA "dbo" ;
-    ns1:ROUTINE_TYPE "PROCEDURE" ;
-    ns1:SCHEMA_LEVEL_ROUTINE "YES" ;
-    ns1:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:SPECIFIC_NAME "donext" ;
-    ns1:SPECIFIC_SCHEMA "dbo" ;
-    ns1:SQL_DATA_ACCESS "MODIFIES" ;
-    ns1:hasJsonObjectKey "5" ;
-    ns1:parentJsonId ns1:Ndbe63dbc452b4a38befcabcd78a5ac5d .
-
-ns1:N7ce9855d9ebc4c99ad48b83dcb26971d a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "ROUTINES.json" ;
-    ns1:CREATED "2011-06-05T14:32:19.750" ;
-    ns1:IS_DETERMINISTIC "NO" ;
-    ns1:IS_IMPLICITLY_INVOCABLE "NO" ;
-    ns1:IS_USER_DEFINED_CAST "NO" ;
-    ns1:LAST_ALTERED "2011-06-05T14:32:19.750" ;
-    ns1:MAX_DYNAMIC_RESULT_SETS "-1" ;
-    ns1:ROUTINE_BODY "SQL" ;
-    ns1:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:ROUTINE_DEFINITION """CREATE procedure dbo.insupd_score \r
-@t_testing_step_id uniqueidentifier ,\r
-@score nvarchar(50)\r
-\r
-as\r
-declare @t_testing_score_id uniqueidentifier \r
-\r
-set @t_testing_score_id = NULL \r
-\r
-select @t_testing_score_id=t_testing_score_id\r
-from t_testing_score \r
-where t_testing_step_id = @t_testing_step_id\r
-\r
-if @t_testing_score_id is null \r
-insert into t_testing_score (t_testing_score_id,score,t_testing_step_id)\r
-values (newid(),@score,@t_testing_step_id )\r
-else \r
-update t_testing_score set score = @score\r
-where t_testing_score_id = @t_testing_score_id""" ;
-    ns1:ROUTINE_NAME "insupd_score" ;
-    ns1:ROUTINE_SCHEMA "dbo" ;
-    ns1:ROUTINE_TYPE "PROCEDURE" ;
-    ns1:SCHEMA_LEVEL_ROUTINE "YES" ;
-    ns1:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:SPECIFIC_NAME "insupd_score" ;
-    ns1:SPECIFIC_SCHEMA "dbo" ;
-    ns1:SQL_DATA_ACCESS "MODIFIES" ;
-    ns1:hasJsonObjectKey "8" ;
-    ns1:parentJsonId ns1:Ndbe63dbc452b4a38befcabcd78a5ac5d .
-
-ns1:N7e0fca3f1fcc4987a46b47dc0ad7b6a8 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "ROUTINES.json" ;
-    ns1:CREATED "2010-02-26T15:33:37.103" ;
-    ns1:IS_DETERMINISTIC "NO" ;
-    ns1:IS_IMPLICITLY_INVOCABLE "NO" ;
-    ns1:IS_USER_DEFINED_CAST "NO" ;
-    ns1:LAST_ALTERED "2010-11-30T09:46:26.113" ;
-    ns1:MAX_DYNAMIC_RESULT_SETS "-1" ;
-    ns1:ROUTINE_BODY "SQL" ;
-    ns1:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:ROUTINE_DEFINITION """CREATE procedure [dbo].[workstation_clear] \r
-@t_workstation_id uniqueidentifier\r
-as \r
-SET XACT_ABORT ON;\r
-begin transaction \r
-\r
-declare @t_testing_id uniqueidentifier\r
-declare @t_testing_status_id int\r
-\r
-select @t_testing_id=t_testing_id \r
-from t_workstation\r
-where t_workstation_id=@t_workstation_id\r
-\r
-if @t_testing_id is not  null  \r
-begin \r
-  update \r
-  t_workstation\r
-  set t_testing_id = null\r
-  where t_workstation_id=@t_workstation_id\r
-\r
-  select @t_testing_status_id=t_testing_status_id\r
-  from t_testing\r
-  where t_testing_id=@t_testing_id\r
-\r
-  if @t_testing_status_id<>3\r
-  begin\r
-    update t_testing\r
-    set t_testing_status_id=2,\r
-    current_test_id = null    \r
-    where t_testing_id=@t_testing_id\r
-\r
-    update t_testing_test\r
-    set t_testing_test_status_id=2,\r
-    current_step_id = null    \r
-    where t_testing_id=@t_testing_id\r
-\r
-\r
-  end\r
-\r
-end\r
-commit tran""" ;
-    ns1:ROUTINE_NAME "workstation_clear" ;
-    ns1:ROUTINE_SCHEMA "dbo" ;
-    ns1:ROUTINE_TYPE "PROCEDURE" ;
-    ns1:SCHEMA_LEVEL_ROUTINE "YES" ;
-    ns1:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:SPECIFIC_NAME "workstation_clear" ;
-    ns1:SPECIFIC_SCHEMA "dbo" ;
-    ns1:SQL_DATA_ACCESS "MODIFIES" ;
-    ns1:hasJsonObjectKey "34" ;
-    ns1:parentJsonId ns1:Ndbe63dbc452b4a38befcabcd78a5ac5d .
-
-ns1:N8de98a7f72f94fddbf67d6ba7c5c5137 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "ROUTINES.json" ;
-    ns1:CREATED "2009-12-08T14:23:03.383" ;
-    ns1:IS_DETERMINISTIC "NO" ;
-    ns1:IS_IMPLICITLY_INVOCABLE "NO" ;
-    ns1:IS_USER_DEFINED_CAST "NO" ;
-    ns1:LAST_ALTERED "2010-11-30T09:46:26.037" ;
-    ns1:MAX_DYNAMIC_RESULT_SETS "-1" ;
-    ns1:ROUTINE_BODY "SQL" ;
-    ns1:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:ROUTINE_DEFINITION """	CREATE PROCEDURE dbo.sp_creatediagram\r
+    ns1:hasSourceFile "ROUTINES.json" ;
+    ns2:CREATED "2009-12-08T14:23:03.383" ;
+    ns2:IS_DETERMINISTIC "NO" ;
+    ns2:IS_IMPLICITLY_INVOCABLE "NO" ;
+    ns2:IS_USER_DEFINED_CAST "NO" ;
+    ns2:LAST_ALTERED "2010-11-30T09:46:26.037" ;
+    ns2:MAX_DYNAMIC_RESULT_SETS "-1" ;
+    ns2:ROUTINE_BODY "SQL" ;
+    ns2:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:ROUTINE_DEFINITION """	CREATE PROCEDURE dbo.sp_creatediagram\r
 	(\r
 		@diagramname 	sysname,\r
 		@owner_id		int	= null, 	\r
@@ -988,29 +165,29 @@ ns1:N8de98a7f72f94fddbf67d6ba7c5c5137 a ns1:ObjectJson,
 		return @retval\r
 	END\r
 	""" ;
-    ns1:ROUTINE_NAME "sp_creatediagram" ;
-    ns1:ROUTINE_SCHEMA "dbo" ;
-    ns1:ROUTINE_TYPE "PROCEDURE" ;
-    ns1:SCHEMA_LEVEL_ROUTINE "YES" ;
-    ns1:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:SPECIFIC_NAME "sp_creatediagram" ;
-    ns1:SPECIFIC_SCHEMA "dbo" ;
-    ns1:SQL_DATA_ACCESS "MODIFIES" ;
-    ns1:hasJsonObjectKey "15" ;
-    ns1:parentJsonId ns1:Ndbe63dbc452b4a38befcabcd78a5ac5d .
+    ns2:ROUTINE_NAME "sp_creatediagram" ;
+    ns2:ROUTINE_SCHEMA "dbo" ;
+    ns2:ROUTINE_TYPE "PROCEDURE" ;
+    ns2:SCHEMA_LEVEL_ROUTINE "YES" ;
+    ns2:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:SPECIFIC_NAME "sp_creatediagram" ;
+    ns2:SPECIFIC_SCHEMA "dbo" ;
+    ns2:SQL_DATA_ACCESS "MODIFIES" ;
+    ns2:hasJsonObjectKey "15" ;
+    ns2:parentJsonId ns2:N4435caf0df2f4827ab21048cf1144979 .
 
-ns1:N8e6b79ae86734ae582ce5377ea1997ff a ns1:ObjectJson,
+ns2:N02f084adb6264b3fa848ce47eacba010 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "ROUTINES.json" ;
-    ns1:CREATED "2010-03-03T12:06:45.473" ;
-    ns1:IS_DETERMINISTIC "NO" ;
-    ns1:IS_IMPLICITLY_INVOCABLE "NO" ;
-    ns1:IS_USER_DEFINED_CAST "NO" ;
-    ns1:LAST_ALTERED "2011-06-05T14:32:19.717" ;
-    ns1:MAX_DYNAMIC_RESULT_SETS "-1" ;
-    ns1:ROUTINE_BODY "SQL" ;
-    ns1:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:ROUTINE_DEFINITION """CREATE procedure [dbo].[testing_status] \r
+    ns1:hasSourceFile "ROUTINES.json" ;
+    ns2:CREATED "2010-03-03T12:06:45.473" ;
+    ns2:IS_DETERMINISTIC "NO" ;
+    ns2:IS_IMPLICITLY_INVOCABLE "NO" ;
+    ns2:IS_USER_DEFINED_CAST "NO" ;
+    ns2:LAST_ALTERED "2011-06-05T14:32:19.717" ;
+    ns2:MAX_DYNAMIC_RESULT_SETS "-1" ;
+    ns2:ROUTINE_BODY "SQL" ;
+    ns2:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:ROUTINE_DEFINITION """CREATE procedure [dbo].[testing_status] \r
 @t_testing_id uniqueidentifier \r
 \r
 \r
@@ -1189,174 +366,208 @@ select \r
 @stop_times as stop_times ,\r
 @show_question_mark as show_question_mark,\r
 @jsfile as jsfile""" ;
-    ns1:ROUTINE_NAME "testing_status" ;
-    ns1:ROUTINE_SCHEMA "dbo" ;
-    ns1:ROUTINE_TYPE "PROCEDURE" ;
-    ns1:SCHEMA_LEVEL_ROUTINE "YES" ;
-    ns1:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:SPECIFIC_NAME "testing_status" ;
-    ns1:SPECIFIC_SCHEMA "dbo" ;
-    ns1:SQL_DATA_ACCESS "MODIFIES" ;
-    ns1:hasJsonObjectKey "26" ;
-    ns1:parentJsonId ns1:Ndbe63dbc452b4a38befcabcd78a5ac5d .
+    ns2:ROUTINE_NAME "testing_status" ;
+    ns2:ROUTINE_SCHEMA "dbo" ;
+    ns2:ROUTINE_TYPE "PROCEDURE" ;
+    ns2:SCHEMA_LEVEL_ROUTINE "YES" ;
+    ns2:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:SPECIFIC_NAME "testing_status" ;
+    ns2:SPECIFIC_SCHEMA "dbo" ;
+    ns2:SQL_DATA_ACCESS "MODIFIES" ;
+    ns2:hasJsonObjectKey "26" ;
+    ns2:parentJsonId ns2:N4435caf0df2f4827ab21048cf1144979 .
 
-ns1:N908589dcac734ae19bbda43fa14b7026 a ns1:ObjectJson,
+ns2:N0fef3e4b05744c9db136500201120b49 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "ROUTINES.json" ;
-    ns1:CREATED "2010-03-04T18:05:22.993" ;
-    ns1:IS_DETERMINISTIC "NO" ;
-    ns1:IS_IMPLICITLY_INVOCABLE "NO" ;
-    ns1:IS_USER_DEFINED_CAST "NO" ;
-    ns1:LAST_ALTERED "2010-11-30T09:46:26.100" ;
-    ns1:MAX_DYNAMIC_RESULT_SETS "-1" ;
-    ns1:ROUTINE_BODY "SQL" ;
-    ns1:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:ROUTINE_DEFINITION """CREATE procedure [dbo].[dopass]\r
-@perscode varchar(12),\r
-@passw nvarchar(20),\r
-@t_testing_id uniqueidentifier output,\r
-@count int output\r
+    ns1:hasSourceFile "ROUTINES.json" ;
+    ns2:CREATED "2011-06-05T14:32:19.653" ;
+    ns2:IS_DETERMINISTIC "NO" ;
+    ns2:IS_IMPLICITLY_INVOCABLE "NO" ;
+    ns2:IS_USER_DEFINED_CAST "NO" ;
+    ns2:LAST_ALTERED "2011-06-05T14:32:19.653" ;
+    ns2:MAX_DYNAMIC_RESULT_SETS "-1" ;
+    ns2:ROUTINE_BODY "SQL" ;
+    ns2:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:ROUTINE_DEFINITION """CREATE procedure [dbo].[tmp_insupd_test_step] @t_test_id uniqueidentifier\r
+as \r
+UPDATE [dbo].[T_TEST_STEP]\r
+   SET [STEP_NUM] = t2.STEP_NUM,\r
+      [STEP_ORDER] = t2.STEP_ORDER,\r
+      [PAGE_USR_TEXT_LANG1] = t2.PAGE_USR_TEXT_LANG1,\r
+      [PAGE_USR_TEXT_LANG2] = t2.PAGE_USR_TEXT_LANG2,\r
+      [PAGE_USR_TEXT_LANG3] = t2.PAGE_USR_TEXT_LANG3,\r
+\r
+      [T_TEST_STEP_JS_FILE_ID] = t2.T_TEST_STEP_JS_FILE_ID,\r
+      [ACTUAL_MARK] = t2.ACTUAL_MARK\r
+ from t_test_step t1 \r
+ inner join tmp_t_test_step t2 on t1.t_test_step_id = t2.t_test_step_id \r
+ WHERE t2.t_test_id = @t_test_id\r
+\r
+INSERT INTO [dbo].[T_TEST_STEP]\r
+           ([STEP_NUM]\r
+           ,[OBJ_CREATED]\r
+           ,[OBJ_CREATED_BY]\r
+           ,[STEP_ORDER]\r
+           ,[PAGE_USR_TEXT_LANG1]\r
+           ,[PAGE_USR_TEXT_LANG2]\r
+           ,[PAGE_USR_TEXT_LANG3]\r
+           ,[T_TEST_ID]\r
+           ,[T_TEST_STEP_ID]\r
+           ,[T_TEST_STEP_JS_FILE_ID]\r
+           ,[ACTUAL_MARK])\r
+select \r
+           t2.STEP_NUM,\r
+           getdate(),\r
+           t2.OBJ_CREATED_BY,\r
+           t2.STEP_ORDER,\r
+           t2.PAGE_USR_TEXT_LANG1,\r
+           t2.PAGE_USR_TEXT_LANG2,\r
+           t2.PAGE_USR_TEXT_LANG3,\r
+           t2.T_TEST_ID,\r
+           t2.T_TEST_STEP_ID,\r
+	   t2.T_TEST_STEP_JS_FILE_ID,\r
+           t2.ACTUAL_MARK\r
+from tmp_t_test_step t2 \r
+where t2.t_test_id = @t_test_id \r
+and t2.t_test_step_id not in (\r
+select t1.t_test_step_id from t_test_step t1 \r
+)""" ;
+    ns2:ROUTINE_NAME "tmp_insupd_test_step" ;
+    ns2:ROUTINE_SCHEMA "dbo" ;
+    ns2:ROUTINE_TYPE "PROCEDURE" ;
+    ns2:SCHEMA_LEVEL_ROUTINE "YES" ;
+    ns2:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:SPECIFIC_NAME "tmp_insupd_test_step" ;
+    ns2:SPECIFIC_SCHEMA "dbo" ;
+    ns2:SQL_DATA_ACCESS "MODIFIES" ;
+    ns2:hasJsonObjectKey "6" ;
+    ns2:parentJsonId ns2:N4435caf0df2f4827ab21048cf1144979 .
+
+ns2:N1804a446a3744b6ab996a84cb3e82f5d a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "ROUTINES.json" ;
+    ns2:CREATED "2010-04-01T11:19:40.673" ;
+    ns2:IS_DETERMINISTIC "NO" ;
+    ns2:IS_IMPLICITLY_INVOCABLE "NO" ;
+    ns2:IS_USER_DEFINED_CAST "NO" ;
+    ns2:LAST_ALTERED "2010-11-30T09:46:26.053" ;
+    ns2:MAX_DYNAMIC_RESULT_SETS "-1" ;
+    ns2:ROUTINE_BODY "SQL" ;
+    ns2:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:ROUTINE_DEFINITION """create procedure [dbo].[get_prev_step_id] \r
+@current_step_id uniqueidentifier,\r
+@prev_step_id uniqueidentifier OUTPUT\r
+\r
 as \r
 \r
+declare @t_test_id uniqueidentifier\r
+declare @step_order int\r
+declare @prev_step_order int\r
 \r
-select @count=count(w.t_testing_id)\r
-from t_workstation w \r
-inner join t_testing t on w.t_testing_id = t.t_testing_id \r
-inner join t_persona p on t.t_persona_id = p.t_persona_id \r
-where w.passw = @passw \r
-and perscode=@perscode\r
 \r
-if (@count=1)\r
+\r
+select @t_test_id = t_test_id, @step_order=step_order\r
+from t_test_step \r
+where t_test_step_id = @current_step_id\r
+\r
+\r
+select @prev_step_order=max(step_order)\r
+from t_test_step\r
+where t_test_id=@t_test_id and step_order<@step_order\r
+\r
+if (@prev_step_order is not null) and (@prev_step_order<@step_order)\r
 begin\r
+  select @prev_step_id=t_test_step_id\r
+  from t_test_step\r
+  where t_test_id=@t_test_id and step_order=@prev_step_order\r
 \r
-  select @t_testing_id=w.t_testing_id\r
-  from t_workstation w \r
-  inner join t_testing t on w.t_testing_id = t.t_testing_id \r
-  inner join t_persona p on t.t_persona_id = p.t_persona_id \r
-  where w.passw = @passw \r
-  and perscode=@perscode\r
-\r
-\r
-\r
-end \r
-else set @t_testing_id=null""" ;
-    ns1:ROUTINE_NAME "dopass" ;
-    ns1:ROUTINE_SCHEMA "dbo" ;
-    ns1:ROUTINE_TYPE "PROCEDURE" ;
-    ns1:SCHEMA_LEVEL_ROUTINE "YES" ;
-    ns1:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:SPECIFIC_NAME "dopass" ;
-    ns1:SPECIFIC_SCHEMA "dbo" ;
-    ns1:SQL_DATA_ACCESS "MODIFIES" ;
-    ns1:hasJsonObjectKey "27" ;
-    ns1:parentJsonId ns1:Ndbe63dbc452b4a38befcabcd78a5ac5d .
+end\r
+else \r
+set @prev_step_id = null""" ;
+    ns2:ROUTINE_NAME "get_prev_step_id" ;
+    ns2:ROUTINE_SCHEMA "dbo" ;
+    ns2:ROUTINE_TYPE "PROCEDURE" ;
+    ns2:SCHEMA_LEVEL_ROUTINE "YES" ;
+    ns2:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:SPECIFIC_NAME "get_prev_step_id" ;
+    ns2:SPECIFIC_SCHEMA "dbo" ;
+    ns2:SQL_DATA_ACCESS "MODIFIES" ;
+    ns2:hasJsonObjectKey "20" ;
+    ns2:parentJsonId ns2:N4435caf0df2f4827ab21048cf1144979 .
 
-ns1:N9956c59513af4e0ab5e8d78c0d796f30 a ns1:ObjectJson,
+ns2:N20259548ed6b450d83ec58bc50d89750 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "ROUTINES.json" ;
-    ns1:CREATED "2009-12-08T14:23:03.193" ;
-    ns1:IS_DETERMINISTIC "NO" ;
-    ns1:IS_IMPLICITLY_INVOCABLE "NO" ;
-    ns1:IS_USER_DEFINED_CAST "NO" ;
-    ns1:LAST_ALTERED "2010-11-30T09:46:26.020" ;
-    ns1:MAX_DYNAMIC_RESULT_SETS "-1" ;
-    ns1:ROUTINE_BODY "SQL" ;
-    ns1:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:ROUTINE_DEFINITION """	CREATE PROCEDURE dbo.sp_helpdiagramdefinition\r
-	(\r
-		@diagramname 	sysname,\r
-		@owner_id	int	= null 		\r
-	)\r
-	WITH EXECUTE AS N'dbo'\r
-	AS\r
-	BEGIN\r
-		set nocount on\r
-\r
-		declare @theId 		int\r
-		declare @IsDbo 		int\r
-		declare @DiagId		int\r
-		declare @UIDFound	int\r
-	\r
-		if(@diagramname is null)\r
-		begin\r
-			RAISERROR (N'E_INVALIDARG', 16, 1);\r
-			return -1\r
-		end\r
-	\r
-		execute as caller;\r
-		select @theId = DATABASE_PRINCIPAL_ID();\r
-		select @IsDbo = IS_MEMBER(N'db_owner');\r
-		if(@owner_id is null)\r
-			select @owner_id = @theId;\r
-		revert; \r
-	\r
-		select @DiagId = diagram_id, @UIDFound = principal_id from dbo.sysdiagrams where principal_id = @owner_id and name = @diagramname;\r
-		if(@DiagId IS NULL or (@IsDbo = 0 and @UIDFound <> @theId ))\r
-		begin\r
-			RAISERROR ('Diagram does not exist or you do not have permission.', 16, 1);\r
-			return -3\r
-		end\r
-\r
-		select version, definition FROM dbo.sysdiagrams where diagram_id = @DiagId ; \r
-		return 0\r
-	END\r
-	""" ;
-    ns1:ROUTINE_NAME "sp_helpdiagramdefinition" ;
-    ns1:ROUTINE_SCHEMA "dbo" ;
-    ns1:ROUTINE_TYPE "PROCEDURE" ;
-    ns1:SCHEMA_LEVEL_ROUTINE "YES" ;
-    ns1:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:SPECIFIC_NAME "sp_helpdiagramdefinition" ;
-    ns1:SPECIFIC_SCHEMA "dbo" ;
-    ns1:SQL_DATA_ACCESS "MODIFIES" ;
-    ns1:hasJsonObjectKey "14" ;
-    ns1:parentJsonId ns1:Ndbe63dbc452b4a38befcabcd78a5ac5d .
-
-ns1:N9cd260e16c05455793d9f0e730bce91c a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "ROUTINES.json" ;
-    ns1:CREATED "2010-03-09T13:23:53.253" ;
-    ns1:IS_DETERMINISTIC "NO" ;
-    ns1:IS_IMPLICITLY_INVOCABLE "NO" ;
-    ns1:IS_USER_DEFINED_CAST "NO" ;
-    ns1:LAST_ALTERED "2010-11-30T09:46:25.803" ;
-    ns1:MAX_DYNAMIC_RESULT_SETS "-1" ;
-    ns1:ROUTINE_BODY "SQL" ;
-    ns1:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:ROUTINE_DEFINITION """CREATE procedure [dbo].[inititate_testing2]\r
-@t_testing_id uniqueidentifier\r
+    ns1:hasSourceFile "ROUTINES.json" ;
+    ns2:CREATED "2010-04-19T17:19:48.677" ;
+    ns2:IS_DETERMINISTIC "NO" ;
+    ns2:IS_IMPLICITLY_INVOCABLE "NO" ;
+    ns2:IS_USER_DEFINED_CAST "NO" ;
+    ns2:LAST_ALTERED "2010-11-30T09:46:26.113" ;
+    ns2:MAX_DYNAMIC_RESULT_SETS "-1" ;
+    ns2:ROUTINE_BODY "SQL" ;
+    ns2:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:ROUTINE_DEFINITION """CREATE procedure [dbo].[selupd_1print] \r
 as \r
+declare @t_testing_id uniqueidentifier\r
+declare @job_count int \r
 \r
-insert into t_testing_step(t_testing_id, t_test_step_id)\r
-select @t_testing_id,ts.t_test_step_id\r
-from t_testing_test t inner join t_test_step ts\r
-on t.t_test_id=ts.t_test_id\r
-where t.t_testing_id=@t_testing_id\r
+SET XACT_ABORT ON;\r
 \r
---order by te.order_num ts.step_order""" ;
-    ns1:ROUTINE_NAME "inititate_testing2" ;
-    ns1:ROUTINE_SCHEMA "dbo" ;
-    ns1:ROUTINE_TYPE "PROCEDURE" ;
-    ns1:SCHEMA_LEVEL_ROUTINE "YES" ;
-    ns1:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:SPECIFIC_NAME "inititate_testing2" ;
-    ns1:SPECIFIC_SCHEMA "dbo" ;
-    ns1:SQL_DATA_ACCESS "MODIFIES" ;
-    ns1:hasJsonObjectKey "1" ;
-    ns1:parentJsonId ns1:Ndbe63dbc452b4a38befcabcd78a5ac5d .
+set @t_testing_id= null\r
+set @job_count = null\r
+\r
+set @t_testing_id = (\r
+select  top 1  t.t_testing_id \r
+from t_testing t \r
+inner join t_testing_status ts \r
+on t.t_testing_status_id = ts.t_testing_status_id\r
+where ts.obj_name='ENDED'\r
+and datepart(day,t.obj_created)=datepart(day,getdate())\r
+and datepart(month,t.obj_created)=datepart(month,getdate())\r
+and datepart(year,t.obj_created)=datepart(year,getdate())\r
+and t.print_count=0 \r
+order by t.obj_created \r
+)\r
+\r
+\r
+set @job_count = (\r
+select  count(t.t_testing_id) \r
+from t_testing t \r
+inner join t_testing_status ts \r
+on t.t_testing_status_id = ts.t_testing_status_id\r
+where ts.obj_name='ENDED'\r
+and datepart(day,t.obj_created)=datepart(day,getdate())\r
+and datepart(month,t.obj_created)=datepart(month,getdate())\r
+and datepart(year,t.obj_created)=datepart(year,getdate())\r
+and t.print_count=0 \r
+)\r
+\r
+select @t_testing_id as t_testing_id,@job_count as job_count\r
+\r
+SET XACT_ABORT OFF;""" ;
+    ns2:ROUTINE_NAME "selupd_1print" ;
+    ns2:ROUTINE_SCHEMA "dbo" ;
+    ns2:ROUTINE_TYPE "PROCEDURE" ;
+    ns2:SCHEMA_LEVEL_ROUTINE "YES" ;
+    ns2:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:SPECIFIC_NAME "selupd_1print" ;
+    ns2:SPECIFIC_SCHEMA "dbo" ;
+    ns2:SQL_DATA_ACCESS "MODIFIES" ;
+    ns2:hasJsonObjectKey "31" ;
+    ns2:parentJsonId ns2:N4435caf0df2f4827ab21048cf1144979 .
 
-ns1:Na0655d0ea952476b85f5a76d4625a880 a ns1:ObjectJson,
+ns2:N223db3c1af404b12906bd5e2e5aab155 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "ROUTINES.json" ;
-    ns1:CREATED "2010-02-26T11:49:34.993" ;
-    ns1:IS_DETERMINISTIC "NO" ;
-    ns1:IS_IMPLICITLY_INVOCABLE "NO" ;
-    ns1:IS_USER_DEFINED_CAST "NO" ;
-    ns1:LAST_ALTERED "2010-11-30T09:46:26.113" ;
-    ns1:MAX_DYNAMIC_RESULT_SETS "-1" ;
-    ns1:ROUTINE_BODY "SQL" ;
-    ns1:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:ROUTINE_DEFINITION """CREATE procedure [dbo].[workstation_status] \r
+    ns1:hasSourceFile "ROUTINES.json" ;
+    ns2:CREATED "2010-02-26T11:49:34.993" ;
+    ns2:IS_DETERMINISTIC "NO" ;
+    ns2:IS_IMPLICITLY_INVOCABLE "NO" ;
+    ns2:IS_USER_DEFINED_CAST "NO" ;
+    ns2:LAST_ALTERED "2010-11-30T09:46:26.113" ;
+    ns2:MAX_DYNAMIC_RESULT_SETS "-1" ;
+    ns2:ROUTINE_BODY "SQL" ;
+    ns2:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:ROUTINE_DEFINITION """CREATE procedure [dbo].[workstation_status] \r
 @t_workstation_id uniqueidentifier\r
 \r
 \r
@@ -1431,225 +642,142 @@ select @start_date as start_date,\r
 @test_num as test_num,\r
 @current_step_id as current_step_id,\r
 @t_testing_id as t_testing_id""" ;
-    ns1:ROUTINE_NAME "workstation_status" ;
-    ns1:ROUTINE_SCHEMA "dbo" ;
-    ns1:ROUTINE_TYPE "PROCEDURE" ;
-    ns1:SCHEMA_LEVEL_ROUTINE "YES" ;
-    ns1:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:SPECIFIC_NAME "workstation_status" ;
-    ns1:SPECIFIC_SCHEMA "dbo" ;
-    ns1:SQL_DATA_ACCESS "MODIFIES" ;
-    ns1:hasJsonObjectKey "32" ;
-    ns1:parentJsonId ns1:Ndbe63dbc452b4a38befcabcd78a5ac5d .
+    ns2:ROUTINE_NAME "workstation_status" ;
+    ns2:ROUTINE_SCHEMA "dbo" ;
+    ns2:ROUTINE_TYPE "PROCEDURE" ;
+    ns2:SCHEMA_LEVEL_ROUTINE "YES" ;
+    ns2:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:SPECIFIC_NAME "workstation_status" ;
+    ns2:SPECIFIC_SCHEMA "dbo" ;
+    ns2:SQL_DATA_ACCESS "MODIFIES" ;
+    ns2:hasJsonObjectKey "32" ;
+    ns2:parentJsonId ns2:N4435caf0df2f4827ab21048cf1144979 .
 
-ns1:Na0b94560d3614e9698fca24f3c610778 a ns1:ObjectJson,
+ns2:N3400be9f36844bc783e901f0781c57fb a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "ROUTINES.json" ;
-    ns1:CREATED "2010-03-09T10:07:32.293" ;
-    ns1:IS_DETERMINISTIC "NO" ;
-    ns1:IS_IMPLICITLY_INVOCABLE "NO" ;
-    ns1:IS_USER_DEFINED_CAST "NO" ;
-    ns1:LAST_ALTERED "2010-11-30T09:46:26.113" ;
-    ns1:MAX_DYNAMIC_RESULT_SETS "-1" ;
-    ns1:ROUTINE_BODY "SQL" ;
-    ns1:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:ROUTINE_DEFINITION """CREATE procedure get_common_introduction\r
-@t_testing_id uniqueidentifier\r
-as \r
-select PAGE_USR_TEXT\r
-from t_testing_language tl \r
-inner join t_testing t on\r
-tl.t_testing_language_id = t.t_testing_language_id\r
-where t.t_testing_id = @t_testing_id""" ;
-    ns1:ROUTINE_NAME "get_common_introduction" ;
-    ns1:ROUTINE_SCHEMA "dbo" ;
-    ns1:ROUTINE_TYPE "PROCEDURE" ;
-    ns1:SCHEMA_LEVEL_ROUTINE "YES" ;
-    ns1:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:SPECIFIC_NAME "get_common_introduction" ;
-    ns1:SPECIFIC_SCHEMA "dbo" ;
-    ns1:SQL_DATA_ACCESS "MODIFIES" ;
-    ns1:hasJsonObjectKey "33" ;
-    ns1:parentJsonId ns1:Ndbe63dbc452b4a38befcabcd78a5ac5d .
-
-ns1:Na19c9cf4e4444e979f9aad4adaf2af2a a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "ROUTINES.json" ;
-    ns1:CREATED "2009-12-08T14:23:03.183" ;
-    ns1:IS_DETERMINISTIC "NO" ;
-    ns1:IS_IMPLICITLY_INVOCABLE "NO" ;
-    ns1:IS_USER_DEFINED_CAST "NO" ;
-    ns1:LAST_ALTERED "2010-11-30T09:46:26.020" ;
-    ns1:MAX_DYNAMIC_RESULT_SETS "-1" ;
-    ns1:ROUTINE_BODY "SQL" ;
-    ns1:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:ROUTINE_DEFINITION """	CREATE PROCEDURE dbo.sp_helpdiagrams\r
+    ns1:hasSourceFile "ROUTINES.json" ;
+    ns2:CREATED "2009-12-08T14:23:03.193" ;
+    ns2:IS_DETERMINISTIC "NO" ;
+    ns2:IS_IMPLICITLY_INVOCABLE "NO" ;
+    ns2:IS_USER_DEFINED_CAST "NO" ;
+    ns2:LAST_ALTERED "2010-11-30T09:46:26.020" ;
+    ns2:MAX_DYNAMIC_RESULT_SETS "-1" ;
+    ns2:ROUTINE_BODY "SQL" ;
+    ns2:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:ROUTINE_DEFINITION """	CREATE PROCEDURE dbo.sp_helpdiagramdefinition\r
 	(\r
-		@diagramname sysname = NULL,\r
-		@owner_id int = NULL\r
+		@diagramname 	sysname,\r
+		@owner_id	int	= null 		\r
 	)\r
 	WITH EXECUTE AS N'dbo'\r
 	AS\r
 	BEGIN\r
-		DECLARE @user sysname\r
-		DECLARE @dboLogin bit\r
-		EXECUTE AS CALLER;\r
-			SET @user = USER_NAME();\r
-			SET @dboLogin = CONVERT(bit,IS_MEMBER('db_owner'));\r
-		REVERT;\r
-		SELECT\r
-			[Database] = DB_NAME(),\r
-			[Name] = name,\r
-			[ID] = diagram_id,\r
-			[Owner] = USER_NAME(principal_id),\r
-			[OwnerID] = principal_id\r
-		FROM\r
-			sysdiagrams\r
-		WHERE\r
-			(@dboLogin = 1 OR USER_NAME(principal_id) = @user) AND\r
-			(@diagramname IS NULL OR name = @diagramname) AND\r
-			(@owner_id IS NULL OR principal_id = @owner_id)\r
-		ORDER BY\r
-			4, 5, 1\r
+		set nocount on\r
+\r
+		declare @theId 		int\r
+		declare @IsDbo 		int\r
+		declare @DiagId		int\r
+		declare @UIDFound	int\r
+	\r
+		if(@diagramname is null)\r
+		begin\r
+			RAISERROR (N'E_INVALIDARG', 16, 1);\r
+			return -1\r
+		end\r
+	\r
+		execute as caller;\r
+		select @theId = DATABASE_PRINCIPAL_ID();\r
+		select @IsDbo = IS_MEMBER(N'db_owner');\r
+		if(@owner_id is null)\r
+			select @owner_id = @theId;\r
+		revert; \r
+	\r
+		select @DiagId = diagram_id, @UIDFound = principal_id from dbo.sysdiagrams where principal_id = @owner_id and name = @diagramname;\r
+		if(@DiagId IS NULL or (@IsDbo = 0 and @UIDFound <> @theId ))\r
+		begin\r
+			RAISERROR ('Diagram does not exist or you do not have permission.', 16, 1);\r
+			return -3\r
+		end\r
+\r
+		select version, definition FROM dbo.sysdiagrams where diagram_id = @DiagId ; \r
+		return 0\r
 	END\r
 	""" ;
-    ns1:ROUTINE_NAME "sp_helpdiagrams" ;
-    ns1:ROUTINE_SCHEMA "dbo" ;
-    ns1:ROUTINE_TYPE "PROCEDURE" ;
-    ns1:SCHEMA_LEVEL_ROUTINE "YES" ;
-    ns1:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:SPECIFIC_NAME "sp_helpdiagrams" ;
-    ns1:SPECIFIC_SCHEMA "dbo" ;
-    ns1:SQL_DATA_ACCESS "MODIFIES" ;
-    ns1:hasJsonObjectKey "13" ;
-    ns1:parentJsonId ns1:Ndbe63dbc452b4a38befcabcd78a5ac5d .
+    ns2:ROUTINE_NAME "sp_helpdiagramdefinition" ;
+    ns2:ROUTINE_SCHEMA "dbo" ;
+    ns2:ROUTINE_TYPE "PROCEDURE" ;
+    ns2:SCHEMA_LEVEL_ROUTINE "YES" ;
+    ns2:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:SPECIFIC_NAME "sp_helpdiagramdefinition" ;
+    ns2:SPECIFIC_SCHEMA "dbo" ;
+    ns2:SQL_DATA_ACCESS "MODIFIES" ;
+    ns2:hasJsonObjectKey "14" ;
+    ns2:parentJsonId ns2:N4435caf0df2f4827ab21048cf1144979 .
 
-ns1:Nad767c16965145a0bf6b86c556da6c81 a ns1:ObjectJson,
+ns2:N39745513a1104419878ae44d895c5885 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "ROUTINES.json" ;
-    ns1:CREATED "2009-12-08T14:23:03.403" ;
-    ns1:DATA_TYPE "int" ;
-    ns1:IS_DETERMINISTIC "NO" ;
-    ns1:IS_IMPLICITLY_INVOCABLE "NO" ;
-    ns1:IS_NULL_CALL "NO" ;
-    ns1:IS_USER_DEFINED_CAST "NO" ;
-    ns1:LAST_ALTERED "2022-12-02T08:31:44.603" ;
-    ns1:MAX_DYNAMIC_RESULT_SETS "0" ;
-    ns1:NUMERIC_PRECISION "10" ;
-    ns1:NUMERIC_PRECISION_RADIX "10" ;
-    ns1:NUMERIC_SCALE "0" ;
-    ns1:ROUTINE_BODY "SQL" ;
-    ns1:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:ROUTINE_DEFINITION """	CREATE FUNCTION dbo.fn_diagramobjects() \r
-	RETURNS int\r
-	WITH EXECUTE AS N'dbo'\r
-	AS\r
-	BEGIN\r
-		declare @id_upgraddiagrams		int\r
-		declare @id_sysdiagrams			int\r
-		declare @id_helpdiagrams		int\r
-		declare @id_helpdiagramdefinition	int\r
-		declare @id_creatediagram	int\r
-		declare @id_renamediagram	int\r
-		declare @id_alterdiagram 	int \r
-		declare @id_dropdiagram		int\r
-		declare @InstalledObjects	int\r
-\r
-		select @InstalledObjects = 0\r
-\r
-		select 	@id_upgraddiagrams = object_id(N'dbo.sp_upgraddiagrams'),\r
-			@id_sysdiagrams = object_id(N'dbo.sysdiagrams'),\r
-			@id_helpdiagrams = object_id(N'dbo.sp_helpdiagrams'),\r
-			@id_helpdiagramdefinition = object_id(N'dbo.sp_helpdiagramdefinition'),\r
-			@id_creatediagram = object_id(N'dbo.sp_creatediagram'),\r
-			@id_renamediagram = object_id(N'dbo.sp_renamediagram'),\r
-			@id_alterdiagram = object_id(N'dbo.sp_alterdiagram'), \r
-			@id_dropdiagram = object_id(N'dbo.sp_dropdiagram')\r
-\r
-		if @id_upgraddiagrams is not null\r
-			select @InstalledObjects = @InstalledObjects + 1\r
-		if @id_sysdiagrams is not null\r
-			select @InstalledObjects = @InstalledObjects + 2\r
-		if @id_helpdiagrams is not null\r
-			select @InstalledObjects = @InstalledObjects + 4\r
-		if @id_helpdiagramdefinition is not null\r
-			select @InstalledObjects = @InstalledObjects + 8\r
-		if @id_creatediagram is not null\r
-			select @InstalledObjects = @InstalledObjects + 16\r
-		if @id_renamediagram is not null\r
-			select @InstalledObjects = @InstalledObjects + 32\r
-		if @id_alterdiagram  is not null\r
-			select @InstalledObjects = @InstalledObjects + 64\r
-		if @id_dropdiagram is not null\r
-			select @InstalledObjects = @InstalledObjects + 128\r
-		\r
-		return @InstalledObjects \r
-	END\r
-	""" ;
-    ns1:ROUTINE_NAME "fn_diagramobjects" ;
-    ns1:ROUTINE_SCHEMA "dbo" ;
-    ns1:ROUTINE_TYPE "FUNCTION" ;
-    ns1:SCHEMA_LEVEL_ROUTINE "YES" ;
-    ns1:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:SPECIFIC_NAME "fn_diagramobjects" ;
-    ns1:SPECIFIC_SCHEMA "dbo" ;
-    ns1:SQL_DATA_ACCESS "READS" ;
-    ns1:hasJsonObjectKey "19" ;
-    ns1:parentJsonId ns1:Ndbe63dbc452b4a38befcabcd78a5ac5d .
-
-ns1:Nb6ab2ebeeeb74e55becb99703a29473d a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "ROUTINES.json" ;
-    ns1:CREATED "2010-03-11T15:51:06.620" ;
-    ns1:IS_DETERMINISTIC "NO" ;
-    ns1:IS_IMPLICITLY_INVOCABLE "NO" ;
-    ns1:IS_USER_DEFINED_CAST "NO" ;
-    ns1:LAST_ALTERED "2010-11-30T09:46:25.880" ;
-    ns1:MAX_DYNAMIC_RESULT_SETS "-1" ;
-    ns1:ROUTINE_BODY "SQL" ;
-    ns1:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:ROUTINE_DEFINITION """CREATE procedure [dbo].[get_test_step]\r
-@lang_num int,\r
+    ns1:hasSourceFile "ROUTINES.json" ;
+    ns2:CREATED "2010-03-12T14:44:37.697" ;
+    ns2:IS_DETERMINISTIC "NO" ;
+    ns2:IS_IMPLICITLY_INVOCABLE "NO" ;
+    ns2:IS_USER_DEFINED_CAST "NO" ;
+    ns2:LAST_ALTERED "2010-11-30T09:46:25.897" ;
+    ns2:MAX_DYNAMIC_RESULT_SETS "-1" ;
+    ns2:ROUTINE_BODY "SQL" ;
+    ns2:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:ROUTINE_DEFINITION """CREATE procedure get_next_step_id \r
 @current_step_id uniqueidentifier,\r
-@t_testing_id uniqueidentifier\r
+@next_step_id uniqueidentifier OUTPUT\r
+\r
 as \r
 \r
+declare @t_test_id uniqueidentifier\r
+declare @step_order int\r
+declare @next_step_order int\r
 \r
-select \r
-case @lang_num\r
-when 2  then ts.page_usr_text_lang2\r
-when 3  then ts.page_usr_text_lang3\r
-else ts.page_usr_text_lang1\r
 \r
-end \r
-as PAGE_USR_TEXT,\r
-tt.result_txt\r
-from t_test_step ts inner join t_testing_step tt \r
-on ts.t_test_step_id=tt.t_test_step_id\r
-where ts.t_test_step_id=@current_step_id and tt.t_testing_id=@t_testing_id""" ;
-    ns1:ROUTINE_NAME "get_test_step" ;
-    ns1:ROUTINE_SCHEMA "dbo" ;
-    ns1:ROUTINE_TYPE "PROCEDURE" ;
-    ns1:SCHEMA_LEVEL_ROUTINE "YES" ;
-    ns1:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:SPECIFIC_NAME "get_test_step" ;
-    ns1:SPECIFIC_SCHEMA "dbo" ;
-    ns1:SQL_DATA_ACCESS "MODIFIES" ;
-    ns1:hasJsonObjectKey "4" ;
-    ns1:parentJsonId ns1:Ndbe63dbc452b4a38befcabcd78a5ac5d .
+\r
+select @t_test_id = t_test_id, @step_order=step_order\r
+from t_test_step \r
+where t_test_step_id = @current_step_id\r
+\r
+\r
+select @next_step_order=min(step_order)\r
+from t_test_step\r
+where t_test_id=@t_test_id and step_order>@step_order\r
+\r
+if (@next_step_order is not null) and (@next_step_order>@step_order)\r
+begin\r
+  select @next_step_id=t_test_step_id\r
+  from t_test_step\r
+  where t_test_id=@t_test_id and step_order=@next_step_order\r
+\r
+end\r
+else \r
+set @next_step_id = null""" ;
+    ns2:ROUTINE_NAME "get_next_step_id" ;
+    ns2:ROUTINE_SCHEMA "dbo" ;
+    ns2:ROUTINE_TYPE "PROCEDURE" ;
+    ns2:SCHEMA_LEVEL_ROUTINE "YES" ;
+    ns2:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:SPECIFIC_NAME "get_next_step_id" ;
+    ns2:SPECIFIC_SCHEMA "dbo" ;
+    ns2:SQL_DATA_ACCESS "MODIFIES" ;
+    ns2:hasJsonObjectKey "9" ;
+    ns2:parentJsonId ns2:N4435caf0df2f4827ab21048cf1144979 .
 
-ns1:Nc7e91bb2f5964a2ab5e873a372f8046a a ns1:ObjectJson,
+ns2:N4b95bf5b72ba4b05950b8170966e6f63 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "ROUTINES.json" ;
-    ns1:CREATED "2010-04-07T22:18:15.650" ;
-    ns1:IS_DETERMINISTIC "NO" ;
-    ns1:IS_IMPLICITLY_INVOCABLE "NO" ;
-    ns1:IS_USER_DEFINED_CAST "NO" ;
-    ns1:LAST_ALTERED "2010-11-30T09:46:26.083" ;
-    ns1:MAX_DYNAMIC_RESULT_SETS "-1" ;
-    ns1:ROUTINE_BODY "SQL" ;
-    ns1:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:ROUTINE_DEFINITION """CREATE procedure [dbo].[stat_change_help2]\r
+    ns1:hasSourceFile "ROUTINES.json" ;
+    ns2:CREATED "2010-04-07T22:18:15.650" ;
+    ns2:IS_DETERMINISTIC "NO" ;
+    ns2:IS_IMPLICITLY_INVOCABLE "NO" ;
+    ns2:IS_USER_DEFINED_CAST "NO" ;
+    ns2:LAST_ALTERED "2010-11-30T09:46:26.083" ;
+    ns2:MAX_DYNAMIC_RESULT_SETS "-1" ;
+    ns2:ROUTINE_BODY "SQL" ;
+    ns2:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:ROUTINE_DEFINITION """CREATE procedure [dbo].[stat_change_help2]\r
 @t_workstation_id uniqueidentifier\r
 \r
 as \r
@@ -1704,128 +832,533 @@ end \r
 \r
 commit transaction\r
 SET XACT_ABORT OFF;""" ;
-    ns1:ROUTINE_NAME "stat_change_help2" ;
-    ns1:ROUTINE_SCHEMA "dbo" ;
-    ns1:ROUTINE_TYPE "PROCEDURE" ;
-    ns1:SCHEMA_LEVEL_ROUTINE "YES" ;
-    ns1:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:SPECIFIC_NAME "stat_change_help2" ;
-    ns1:SPECIFIC_SCHEMA "dbo" ;
-    ns1:SQL_DATA_ACCESS "MODIFIES" ;
-    ns1:hasJsonObjectKey "25" ;
-    ns1:parentJsonId ns1:Ndbe63dbc452b4a38befcabcd78a5ac5d .
+    ns2:ROUTINE_NAME "stat_change_help2" ;
+    ns2:ROUTINE_SCHEMA "dbo" ;
+    ns2:ROUTINE_TYPE "PROCEDURE" ;
+    ns2:SCHEMA_LEVEL_ROUTINE "YES" ;
+    ns2:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:SPECIFIC_NAME "stat_change_help2" ;
+    ns2:SPECIFIC_SCHEMA "dbo" ;
+    ns2:SQL_DATA_ACCESS "MODIFIES" ;
+    ns2:hasJsonObjectKey "25" ;
+    ns2:parentJsonId ns2:N4435caf0df2f4827ab21048cf1144979 .
 
-ns1:Nc8db7ea4541f47708f2fc2b559d18214 a ns1:ObjectJson,
+ns2:N61b25b503fbf4f96a40f605bc19b32ff a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "ROUTINES.json" ;
-    ns1:CREATED "2010-03-05T14:34:58.510" ;
-    ns1:IS_DETERMINISTIC "NO" ;
-    ns1:IS_IMPLICITLY_INVOCABLE "NO" ;
-    ns1:IS_USER_DEFINED_CAST "NO" ;
-    ns1:LAST_ALTERED "2010-11-30T09:46:26.100" ;
-    ns1:MAX_DYNAMIC_RESULT_SETS "-1" ;
-    ns1:ROUTINE_BODY "SQL" ;
-    ns1:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:ROUTINE_DEFINITION """create procedure stat_change_prepared\r
-@t_testing_id uniqueidentifier \r
+    ns1:hasSourceFile "ROUTINES.json" ;
+    ns2:CREATED "2009-12-08T14:23:03.183" ;
+    ns2:IS_DETERMINISTIC "NO" ;
+    ns2:IS_IMPLICITLY_INVOCABLE "NO" ;
+    ns2:IS_USER_DEFINED_CAST "NO" ;
+    ns2:LAST_ALTERED "2010-11-30T09:46:26.020" ;
+    ns2:MAX_DYNAMIC_RESULT_SETS "-1" ;
+    ns2:ROUTINE_BODY "SQL" ;
+    ns2:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:ROUTINE_DEFINITION """	CREATE PROCEDURE dbo.sp_helpdiagrams\r
+	(\r
+		@diagramname sysname = NULL,\r
+		@owner_id int = NULL\r
+	)\r
+	WITH EXECUTE AS N'dbo'\r
+	AS\r
+	BEGIN\r
+		DECLARE @user sysname\r
+		DECLARE @dboLogin bit\r
+		EXECUTE AS CALLER;\r
+			SET @user = USER_NAME();\r
+			SET @dboLogin = CONVERT(bit,IS_MEMBER('db_owner'));\r
+		REVERT;\r
+		SELECT\r
+			[Database] = DB_NAME(),\r
+			[Name] = name,\r
+			[ID] = diagram_id,\r
+			[Owner] = USER_NAME(principal_id),\r
+			[OwnerID] = principal_id\r
+		FROM\r
+			sysdiagrams\r
+		WHERE\r
+			(@dboLogin = 1 OR USER_NAME(principal_id) = @user) AND\r
+			(@diagramname IS NULL OR name = @diagramname) AND\r
+			(@owner_id IS NULL OR principal_id = @owner_id)\r
+		ORDER BY\r
+			4, 5, 1\r
+	END\r
+	""" ;
+    ns2:ROUTINE_NAME "sp_helpdiagrams" ;
+    ns2:ROUTINE_SCHEMA "dbo" ;
+    ns2:ROUTINE_TYPE "PROCEDURE" ;
+    ns2:SCHEMA_LEVEL_ROUTINE "YES" ;
+    ns2:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:SPECIFIC_NAME "sp_helpdiagrams" ;
+    ns2:SPECIFIC_SCHEMA "dbo" ;
+    ns2:SQL_DATA_ACCESS "MODIFIES" ;
+    ns2:hasJsonObjectKey "13" ;
+    ns2:parentJsonId ns2:N4435caf0df2f4827ab21048cf1144979 .
+
+ns2:N6a1c301f97e3473491a357c7b3d644aa a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "ROUTINES.json" ;
+    ns2:CREATED "2010-02-26T21:45:21.980" ;
+    ns2:IS_DETERMINISTIC "NO" ;
+    ns2:IS_IMPLICITLY_INVOCABLE "NO" ;
+    ns2:IS_USER_DEFINED_CAST "NO" ;
+    ns2:LAST_ALTERED "2010-11-30T09:46:25.757" ;
+    ns2:MAX_DYNAMIC_RESULT_SETS "-1" ;
+    ns2:ROUTINE_BODY "SQL" ;
+    ns2:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:ROUTINE_DEFINITION """CREATE procedure [dbo].[inititate_testing]\r
+@t_testing_id uniqueidentifier,\r
+@t_workstation_id uniqueidentifier,\r
+@t_persona_id uniqueidentifier,\r
+@t_testing_language_id uniqueidentifier,\r
+@t_testing_classificator_id uniqueidentifier,\r
+@obj_created_by varchar(100),\r
+@passw nvarchar(20)\r
 \r
 as \r
+declare @auth_type nvarchar(20)\r
+SET XACT_ABORT ON;\r
+begin transaction \r
+insert into t_testing(\r
+t_testing_id ,\r
+t_workstation_id ,\r
+t_persona_id ,\r
+t_testing_language_id ,\r
+t_testing_classificator_id ,\r
+obj_created_by,\r
+t_testing_status_id\r
+)\r
+values\r
+(\r
+@t_testing_id ,\r
+@t_workstation_id ,\r
+@t_persona_id ,\r
+@t_testing_language_id ,\r
+@t_testing_classificator_id ,\r
+@obj_created_by,\r
+4\r
+)\r
 \r
-update t_testing\r
-set \r
-introduction_viewed='y',\r
-t_testing_status_id = 5\r
-where t_testing_id = @t_testing_id\r
-and t_testing_status_id=4""" ;
-    ns1:ROUTINE_NAME "stat_change_prepared" ;
-    ns1:ROUTINE_SCHEMA "dbo" ;
-    ns1:ROUTINE_TYPE "PROCEDURE" ;
-    ns1:SCHEMA_LEVEL_ROUTINE "YES" ;
-    ns1:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:SPECIFIC_NAME "stat_change_prepared" ;
-    ns1:SPECIFIC_SCHEMA "dbo" ;
-    ns1:SQL_DATA_ACCESS "MODIFIES" ;
-    ns1:hasJsonObjectKey "29" ;
-    ns1:parentJsonId ns1:Ndbe63dbc452b4a38befcabcd78a5ac5d .
+update t_workstation\r
+set t_testing_id = @t_testing_id\r
+where t_workstation_id=@t_workstation_id\r
+\r
+select @auth_type = auth_type\r
+from t_workstation\r
+where t_workstation_id=@t_workstation_id\r
+\r
+if @auth_type =1 \r
+  update t_workstation\r
+  set passw = @passw\r
+  where t_workstation_id=@t_workstation_id\r
+  \r
+\r
+commit transaction\r
+SET XACT_ABORT OFF;""" ;
+    ns2:ROUTINE_NAME "inititate_testing" ;
+    ns2:ROUTINE_SCHEMA "dbo" ;
+    ns2:ROUTINE_TYPE "PROCEDURE" ;
+    ns2:SCHEMA_LEVEL_ROUTINE "YES" ;
+    ns2:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:SPECIFIC_NAME "inititate_testing" ;
+    ns2:SPECIFIC_SCHEMA "dbo" ;
+    ns2:SQL_DATA_ACCESS "MODIFIES" ;
+    ns2:hasJsonObjectKey "0" ;
+    ns2:parentJsonId ns2:N4435caf0df2f4827ab21048cf1144979 .
 
-ns1:Ncb876af08a3147fba5fece085f8e1c15 a ns1:ObjectJson,
+ns2:N72dfa58baf4c4b9aba5ad3075e3268b9 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "ROUTINES.json" ;
-    ns1:CREATED "2011-06-05T14:32:19.653" ;
-    ns1:IS_DETERMINISTIC "NO" ;
-    ns1:IS_IMPLICITLY_INVOCABLE "NO" ;
-    ns1:IS_USER_DEFINED_CAST "NO" ;
-    ns1:LAST_ALTERED "2011-06-05T14:32:19.653" ;
-    ns1:MAX_DYNAMIC_RESULT_SETS "-1" ;
-    ns1:ROUTINE_BODY "SQL" ;
-    ns1:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:ROUTINE_DEFINITION """CREATE procedure [dbo].[tmp_insupd_test_step] @t_test_id uniqueidentifier\r
+    ns1:hasSourceFile "ROUTINES.json" ;
+    ns2:CREATED "2009-12-08T14:23:03.393" ;
+    ns2:IS_DETERMINISTIC "NO" ;
+    ns2:IS_IMPLICITLY_INVOCABLE "NO" ;
+    ns2:IS_USER_DEFINED_CAST "NO" ;
+    ns2:LAST_ALTERED "2010-11-30T09:46:26.037" ;
+    ns2:MAX_DYNAMIC_RESULT_SETS "-1" ;
+    ns2:ROUTINE_BODY "SQL" ;
+    ns2:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:ROUTINE_DEFINITION """	CREATE PROCEDURE dbo.sp_renamediagram\r
+	(\r
+		@diagramname 		sysname,\r
+		@owner_id		int	= null,\r
+		@new_diagramname	sysname\r
+	\r
+	)\r
+	WITH EXECUTE AS 'dbo'\r
+	AS\r
+	BEGIN\r
+		set nocount on\r
+		declare @theId 			int\r
+		declare @IsDbo 			int\r
+		\r
+		declare @UIDFound 		int\r
+		declare @DiagId			int\r
+		declare @DiagIdTarg		int\r
+		declare @u_name			sysname\r
+		if((@diagramname is null) or (@new_diagramname is null))\r
+		begin\r
+			RAISERROR ('Invalid value', 16, 1);\r
+			return -1\r
+		end\r
+	\r
+		EXECUTE AS CALLER;\r
+		select @theId = DATABASE_PRINCIPAL_ID();\r
+		select @IsDbo = IS_MEMBER(N'db_owner'); \r
+		if(@owner_id is null)\r
+			select @owner_id = @theId;\r
+		REVERT;\r
+	\r
+		select @u_name = USER_NAME(@owner_id)\r
+	\r
+		select @DiagId = diagram_id, @UIDFound = principal_id from dbo.sysdiagrams where principal_id = @owner_id and name = @diagramname \r
+		if(@DiagId IS NULL or (@IsDbo = 0 and @UIDFound <> @theId))\r
+		begin\r
+			RAISERROR ('Diagram does not exist or you do not have permission.', 16, 1)\r
+			return -3\r
+		end\r
+	\r
+		-- if((@u_name is not null) and (@new_diagramname = @diagramname))	-- nothing will change\r
+		--	return 0;\r
+	\r
+		if(@u_name is null)\r
+			select @DiagIdTarg = diagram_id from dbo.sysdiagrams where principal_id = @theId and name = @new_diagramname\r
+		else\r
+			select @DiagIdTarg = diagram_id from dbo.sysdiagrams where principal_id = @owner_id and name = @new_diagramname\r
+	\r
+		if((@DiagIdTarg is not null) and  @DiagId <> @DiagIdTarg)\r
+		begin\r
+			RAISERROR ('The name is already used.', 16, 1);\r
+			return -2\r
+		end		\r
+	\r
+		if(@u_name is null)\r
+			update dbo.sysdiagrams set [name] = @new_diagramname, principal_id = @theId where diagram_id = @DiagId\r
+		else\r
+			update dbo.sysdiagrams set [name] = @new_diagramname where diagram_id = @DiagId\r
+		return 0\r
+	END\r
+	""" ;
+    ns2:ROUTINE_NAME "sp_renamediagram" ;
+    ns2:ROUTINE_SCHEMA "dbo" ;
+    ns2:ROUTINE_TYPE "PROCEDURE" ;
+    ns2:SCHEMA_LEVEL_ROUTINE "YES" ;
+    ns2:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:SPECIFIC_NAME "sp_renamediagram" ;
+    ns2:SPECIFIC_SCHEMA "dbo" ;
+    ns2:SQL_DATA_ACCESS "MODIFIES" ;
+    ns2:hasJsonObjectKey "16" ;
+    ns2:parentJsonId ns2:N4435caf0df2f4827ab21048cf1144979 .
+
+ns2:N96c18154d5b54bb89667b3fd992c5cd6 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "ROUTINES.json" ;
+    ns2:CREATED "2011-06-05T14:32:19.750" ;
+    ns2:IS_DETERMINISTIC "NO" ;
+    ns2:IS_IMPLICITLY_INVOCABLE "NO" ;
+    ns2:IS_USER_DEFINED_CAST "NO" ;
+    ns2:LAST_ALTERED "2011-06-05T14:32:19.750" ;
+    ns2:MAX_DYNAMIC_RESULT_SETS "-1" ;
+    ns2:ROUTINE_BODY "SQL" ;
+    ns2:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:ROUTINE_DEFINITION """CREATE procedure dbo.insupd_score \r
+@t_testing_step_id uniqueidentifier ,\r
+@score nvarchar(50)\r
+\r
+as\r
+declare @t_testing_score_id uniqueidentifier \r
+\r
+set @t_testing_score_id = NULL \r
+\r
+select @t_testing_score_id=t_testing_score_id\r
+from t_testing_score \r
+where t_testing_step_id = @t_testing_step_id\r
+\r
+if @t_testing_score_id is null \r
+insert into t_testing_score (t_testing_score_id,score,t_testing_step_id)\r
+values (newid(),@score,@t_testing_step_id )\r
+else \r
+update t_testing_score set score = @score\r
+where t_testing_score_id = @t_testing_score_id""" ;
+    ns2:ROUTINE_NAME "insupd_score" ;
+    ns2:ROUTINE_SCHEMA "dbo" ;
+    ns2:ROUTINE_TYPE "PROCEDURE" ;
+    ns2:SCHEMA_LEVEL_ROUTINE "YES" ;
+    ns2:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:SPECIFIC_NAME "insupd_score" ;
+    ns2:SPECIFIC_SCHEMA "dbo" ;
+    ns2:SQL_DATA_ACCESS "MODIFIES" ;
+    ns2:hasJsonObjectKey "8" ;
+    ns2:parentJsonId ns2:N4435caf0df2f4827ab21048cf1144979 .
+
+ns2:Na473c333a97944b2842d10f440e48ec5 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "ROUTINES.json" ;
+    ns2:CREATED "2010-03-04T18:05:22.993" ;
+    ns2:IS_DETERMINISTIC "NO" ;
+    ns2:IS_IMPLICITLY_INVOCABLE "NO" ;
+    ns2:IS_USER_DEFINED_CAST "NO" ;
+    ns2:LAST_ALTERED "2010-11-30T09:46:26.100" ;
+    ns2:MAX_DYNAMIC_RESULT_SETS "-1" ;
+    ns2:ROUTINE_BODY "SQL" ;
+    ns2:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:ROUTINE_DEFINITION """CREATE procedure [dbo].[dopass]\r
+@perscode varchar(12),\r
+@passw nvarchar(20),\r
+@t_testing_id uniqueidentifier output,\r
+@count int output\r
 as \r
-UPDATE [dbo].[T_TEST_STEP]\r
-   SET [STEP_NUM] = t2.STEP_NUM,\r
-      [STEP_ORDER] = t2.STEP_ORDER,\r
-      [PAGE_USR_TEXT_LANG1] = t2.PAGE_USR_TEXT_LANG1,\r
-      [PAGE_USR_TEXT_LANG2] = t2.PAGE_USR_TEXT_LANG2,\r
-      [PAGE_USR_TEXT_LANG3] = t2.PAGE_USR_TEXT_LANG3,\r
 \r
-      [T_TEST_STEP_JS_FILE_ID] = t2.T_TEST_STEP_JS_FILE_ID,\r
-      [ACTUAL_MARK] = t2.ACTUAL_MARK\r
- from t_test_step t1 \r
- inner join tmp_t_test_step t2 on t1.t_test_step_id = t2.t_test_step_id \r
- WHERE t2.t_test_id = @t_test_id\r
 \r
-INSERT INTO [dbo].[T_TEST_STEP]\r
-           ([STEP_NUM]\r
-           ,[OBJ_CREATED]\r
-           ,[OBJ_CREATED_BY]\r
-           ,[STEP_ORDER]\r
-           ,[PAGE_USR_TEXT_LANG1]\r
-           ,[PAGE_USR_TEXT_LANG2]\r
-           ,[PAGE_USR_TEXT_LANG3]\r
-           ,[T_TEST_ID]\r
-           ,[T_TEST_STEP_ID]\r
-           ,[T_TEST_STEP_JS_FILE_ID]\r
-           ,[ACTUAL_MARK])\r
-select \r
-           t2.STEP_NUM,\r
-           getdate(),\r
-           t2.OBJ_CREATED_BY,\r
-           t2.STEP_ORDER,\r
-           t2.PAGE_USR_TEXT_LANG1,\r
-           t2.PAGE_USR_TEXT_LANG2,\r
-           t2.PAGE_USR_TEXT_LANG3,\r
-           t2.T_TEST_ID,\r
-           t2.T_TEST_STEP_ID,\r
-	   t2.T_TEST_STEP_JS_FILE_ID,\r
-           t2.ACTUAL_MARK\r
-from tmp_t_test_step t2 \r
-where t2.t_test_id = @t_test_id \r
-and t2.t_test_step_id not in (\r
-select t1.t_test_step_id from t_test_step t1 \r
-)""" ;
-    ns1:ROUTINE_NAME "tmp_insupd_test_step" ;
-    ns1:ROUTINE_SCHEMA "dbo" ;
-    ns1:ROUTINE_TYPE "PROCEDURE" ;
-    ns1:SCHEMA_LEVEL_ROUTINE "YES" ;
-    ns1:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:SPECIFIC_NAME "tmp_insupd_test_step" ;
-    ns1:SPECIFIC_SCHEMA "dbo" ;
-    ns1:SQL_DATA_ACCESS "MODIFIES" ;
-    ns1:hasJsonObjectKey "6" ;
-    ns1:parentJsonId ns1:Ndbe63dbc452b4a38befcabcd78a5ac5d .
+select @count=count(w.t_testing_id)\r
+from t_workstation w \r
+inner join t_testing t on w.t_testing_id = t.t_testing_id \r
+inner join t_persona p on t.t_persona_id = p.t_persona_id \r
+where w.passw = @passw \r
+and perscode=@perscode\r
+\r
+if (@count=1)\r
+begin\r
+\r
+  select @t_testing_id=w.t_testing_id\r
+  from t_workstation w \r
+  inner join t_testing t on w.t_testing_id = t.t_testing_id \r
+  inner join t_persona p on t.t_persona_id = p.t_persona_id \r
+  where w.passw = @passw \r
+  and perscode=@perscode\r
+\r
+\r
+\r
+end \r
+else set @t_testing_id=null""" ;
+    ns2:ROUTINE_NAME "dopass" ;
+    ns2:ROUTINE_SCHEMA "dbo" ;
+    ns2:ROUTINE_TYPE "PROCEDURE" ;
+    ns2:SCHEMA_LEVEL_ROUTINE "YES" ;
+    ns2:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:SPECIFIC_NAME "dopass" ;
+    ns2:SPECIFIC_SCHEMA "dbo" ;
+    ns2:SQL_DATA_ACCESS "MODIFIES" ;
+    ns2:hasJsonObjectKey "27" ;
+    ns2:parentJsonId ns2:N4435caf0df2f4827ab21048cf1144979 .
 
-ns1:Ncfdb97d18a0e4f72b1b439d0a3873cce a ns1:ObjectJson,
+ns2:Na5c6ff2296104a9e9ac74c77a5d751c1 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "ROUTINES.json" ;
-    ns1:CREATED "2009-12-08T14:23:03.393" ;
-    ns1:IS_DETERMINISTIC "NO" ;
-    ns1:IS_IMPLICITLY_INVOCABLE "NO" ;
-    ns1:IS_USER_DEFINED_CAST "NO" ;
-    ns1:LAST_ALTERED "2010-11-30T09:46:26.053" ;
-    ns1:MAX_DYNAMIC_RESULT_SETS "-1" ;
-    ns1:ROUTINE_BODY "SQL" ;
-    ns1:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:ROUTINE_DEFINITION """	CREATE PROCEDURE dbo.sp_alterdiagram\r
+    ns1:hasSourceFile "ROUTINES.json" ;
+    ns2:CREATED "2010-03-02T17:53:19.130" ;
+    ns2:IS_DETERMINISTIC "NO" ;
+    ns2:IS_IMPLICITLY_INVOCABLE "NO" ;
+    ns2:IS_USER_DEFINED_CAST "NO" ;
+    ns2:LAST_ALTERED "2010-11-30T09:46:26.083" ;
+    ns2:MAX_DYNAMIC_RESULT_SETS "-1" ;
+    ns2:ROUTINE_BODY "SQL" ;
+    ns2:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:ROUTINE_DEFINITION """CREATE procedure [dbo].[ws_type] \r
+@ip_address varchar(100),\r
+@ip_auth char(1) output,\r
+@t_workstation_id uniqueidentifier output,\r
+@t_testing_id uniqueidentifier output,\r
+@t_ws_status_id_active uniqueidentifier\r
+\r
+as \r
+declare @ws_ip_count int\r
+select @ws_ip_count=count(t_workstation_id)\r
+from t_workstation \r
+where ip_address=@ip_address and \r
+t_workstation_status_id=@t_ws_status_id_active \r
+and auth_type=0\r
+\r
+if @ws_ip_count > 0 \r
+begin\r
+\r
+   select \r
+   @t_workstation_id=t_workstation_id\r
+   ,@t_testing_id=t_testing_id,@ip_auth='y'\r
+   from t_workstation \r
+   where ip_address=@ip_address\r
+\r
+end \r
+else \r
+begin\r
+   select \r
+   @t_workstation_id=null\r
+   ,@t_testing_id=null,@ip_auth='n'\r
+\r
+end""" ;
+    ns2:ROUTINE_NAME "ws_type" ;
+    ns2:ROUTINE_SCHEMA "dbo" ;
+    ns2:ROUTINE_TYPE "PROCEDURE" ;
+    ns2:SCHEMA_LEVEL_ROUTINE "YES" ;
+    ns2:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:SPECIFIC_NAME "ws_type" ;
+    ns2:SPECIFIC_SCHEMA "dbo" ;
+    ns2:SQL_DATA_ACCESS "MODIFIES" ;
+    ns2:hasJsonObjectKey "24" ;
+    ns2:parentJsonId ns2:N4435caf0df2f4827ab21048cf1144979 .
+
+ns2:Nb3ea77ea60d3467b9b61579786e896aa a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "ROUTINES.json" ;
+    ns2:CREATED "2010-04-01T15:58:13.430" ;
+    ns2:IS_DETERMINISTIC "NO" ;
+    ns2:IS_IMPLICITLY_INVOCABLE "NO" ;
+    ns2:IS_USER_DEFINED_CAST "NO" ;
+    ns2:LAST_ALTERED "2010-11-30T09:46:26.053" ;
+    ns2:MAX_DYNAMIC_RESULT_SETS "-1" ;
+    ns2:ROUTINE_BODY "SQL" ;
+    ns2:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:ROUTINE_DEFINITION """CREATE procedure [dbo].[time_remaining]\r
+@t_testing_id uniqueidentifier, \r
+@t_test_id uniqueidentifier,\r
+@seconds_remain int output  \r
+as \r
+declare @start_time datetime\r
+declare @STOP_TIME_SEC int\r
+declare @timelimitmin int \r
+\r
+set @timelimitmin=0\r
+\r
+\r
+select @timelimitmin=isnull(timelimitmin,0)\r
+from t_test \r
+where t_test_id=@t_test_id\r
+\r
+if @timelimitmin>0\r
+begin\r
+\r
+--set @seconds_remain=200\r
+\r
+\r
+select  \r
+@start_time=min(isnull(ts.view_date,getdate()))\r
+--ts.view_date,\r
+,@STOP_TIME_SEC=min(isnull(tt.STOP_TIME_SEC,0))\r
+from t_testing_step ts\r
+inner join t_test_step s on ts.t_test_step_id=s.t_test_step_id\r
+inner join t_testing_test tt on s.t_test_id=tt.t_test_id \r
+where s.t_test_id=@t_test_id\r
+and ts.t_testing_id=@t_testing_id\r
+and tt.t_testing_id=@t_testing_id\r
+\r
+\r
+set @seconds_remain=datediff(second, getdate(), @start_time )- isnull(@STOP_TIME_SEC,0) + (60*@timelimitmin)\r
+\r
+end""" ;
+    ns2:ROUTINE_NAME "time_remaining" ;
+    ns2:ROUTINE_SCHEMA "dbo" ;
+    ns2:ROUTINE_TYPE "PROCEDURE" ;
+    ns2:SCHEMA_LEVEL_ROUTINE "YES" ;
+    ns2:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:SPECIFIC_NAME "time_remaining" ;
+    ns2:SPECIFIC_SCHEMA "dbo" ;
+    ns2:SQL_DATA_ACCESS "MODIFIES" ;
+    ns2:hasJsonObjectKey "22" ;
+    ns2:parentJsonId ns2:N4435caf0df2f4827ab21048cf1144979 .
+
+ns2:Nbc4c6b4a28e24de3bac2e5a455237a4e a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "ROUTINES.json" ;
+    ns2:CREATED "2010-02-26T15:33:37.103" ;
+    ns2:IS_DETERMINISTIC "NO" ;
+    ns2:IS_IMPLICITLY_INVOCABLE "NO" ;
+    ns2:IS_USER_DEFINED_CAST "NO" ;
+    ns2:LAST_ALTERED "2010-11-30T09:46:26.113" ;
+    ns2:MAX_DYNAMIC_RESULT_SETS "-1" ;
+    ns2:ROUTINE_BODY "SQL" ;
+    ns2:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:ROUTINE_DEFINITION """CREATE procedure [dbo].[workstation_clear] \r
+@t_workstation_id uniqueidentifier\r
+as \r
+SET XACT_ABORT ON;\r
+begin transaction \r
+\r
+declare @t_testing_id uniqueidentifier\r
+declare @t_testing_status_id int\r
+\r
+select @t_testing_id=t_testing_id \r
+from t_workstation\r
+where t_workstation_id=@t_workstation_id\r
+\r
+if @t_testing_id is not  null  \r
+begin \r
+  update \r
+  t_workstation\r
+  set t_testing_id = null\r
+  where t_workstation_id=@t_workstation_id\r
+\r
+  select @t_testing_status_id=t_testing_status_id\r
+  from t_testing\r
+  where t_testing_id=@t_testing_id\r
+\r
+  if @t_testing_status_id<>3\r
+  begin\r
+    update t_testing\r
+    set t_testing_status_id=2,\r
+    current_test_id = null    \r
+    where t_testing_id=@t_testing_id\r
+\r
+    update t_testing_test\r
+    set t_testing_test_status_id=2,\r
+    current_step_id = null    \r
+    where t_testing_id=@t_testing_id\r
+\r
+\r
+  end\r
+\r
+end\r
+commit tran""" ;
+    ns2:ROUTINE_NAME "workstation_clear" ;
+    ns2:ROUTINE_SCHEMA "dbo" ;
+    ns2:ROUTINE_TYPE "PROCEDURE" ;
+    ns2:SCHEMA_LEVEL_ROUTINE "YES" ;
+    ns2:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:SPECIFIC_NAME "workstation_clear" ;
+    ns2:SPECIFIC_SCHEMA "dbo" ;
+    ns2:SQL_DATA_ACCESS "MODIFIES" ;
+    ns2:hasJsonObjectKey "34" ;
+    ns2:parentJsonId ns2:N4435caf0df2f4827ab21048cf1144979 .
+
+ns2:Nbf8aaf2c62054af28133acc57034aa19 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "ROUTINES.json" ;
+    ns2:CREATED "2022-12-07T20:49:10.287" ;
+    ns2:IS_DETERMINISTIC "NO" ;
+    ns2:IS_IMPLICITLY_INVOCABLE "NO" ;
+    ns2:IS_USER_DEFINED_CAST "NO" ;
+    ns2:LAST_ALTERED "2023-01-25T20:30:36.863" ;
+    ns2:MAX_DYNAMIC_RESULT_SETS "-1" ;
+    ns2:ROUTINE_BODY "SQL" ;
+    ns2:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:ROUTINE_DEFINITION """CREATE proc test1\r
+as \r
+\r
+declare @t1 int ;\r
+select @t1=1;\r
+return @t1\r
+\r
+exec donext  'E7FAB167-C47A-4865-A8AE-429FA778414C', 'a', 'E7FAB167-C47A-4865-A8AE-429FA778414C'""" ;
+    ns2:ROUTINE_NAME "test1" ;
+    ns2:ROUTINE_SCHEMA "dbo" ;
+    ns2:ROUTINE_TYPE "PROCEDURE" ;
+    ns2:SCHEMA_LEVEL_ROUTINE "YES" ;
+    ns2:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:SPECIFIC_NAME "test1" ;
+    ns2:SPECIFIC_SCHEMA "dbo" ;
+    ns2:SQL_DATA_ACCESS "MODIFIES" ;
+    ns2:hasJsonObjectKey "30" ;
+    ns2:parentJsonId ns2:N4435caf0df2f4827ab21048cf1144979 .
+
+ns2:Nc20dafa0706f49ab8469e8637323f947 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "ROUTINES.json" ;
+    ns2:CREATED "2009-12-08T14:23:03.393" ;
+    ns2:IS_DETERMINISTIC "NO" ;
+    ns2:IS_IMPLICITLY_INVOCABLE "NO" ;
+    ns2:IS_USER_DEFINED_CAST "NO" ;
+    ns2:LAST_ALTERED "2010-11-30T09:46:26.053" ;
+    ns2:MAX_DYNAMIC_RESULT_SETS "-1" ;
+    ns2:ROUTINE_BODY "SQL" ;
+    ns2:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:ROUTINE_DEFINITION """	CREATE PROCEDURE dbo.sp_alterdiagram\r
 	(\r
 		@diagramname 	sysname,\r
 		@owner_id	int	= null,\r
@@ -1889,29 +1422,110 @@ ns1:Ncfdb97d18a0e4f72b1b439d0a3873cce a ns1:ObjectJson,
 		return 0\r
 	END\r
 	""" ;
-    ns1:ROUTINE_NAME "sp_alterdiagram" ;
-    ns1:ROUTINE_SCHEMA "dbo" ;
-    ns1:ROUTINE_TYPE "PROCEDURE" ;
-    ns1:SCHEMA_LEVEL_ROUTINE "YES" ;
-    ns1:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:SPECIFIC_NAME "sp_alterdiagram" ;
-    ns1:SPECIFIC_SCHEMA "dbo" ;
-    ns1:SQL_DATA_ACCESS "MODIFIES" ;
-    ns1:hasJsonObjectKey "17" ;
-    ns1:parentJsonId ns1:Ndbe63dbc452b4a38befcabcd78a5ac5d .
+    ns2:ROUTINE_NAME "sp_alterdiagram" ;
+    ns2:ROUTINE_SCHEMA "dbo" ;
+    ns2:ROUTINE_TYPE "PROCEDURE" ;
+    ns2:SCHEMA_LEVEL_ROUTINE "YES" ;
+    ns2:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:SPECIFIC_NAME "sp_alterdiagram" ;
+    ns2:SPECIFIC_SCHEMA "dbo" ;
+    ns2:SQL_DATA_ACCESS "MODIFIES" ;
+    ns2:hasJsonObjectKey "17" ;
+    ns2:parentJsonId ns2:N4435caf0df2f4827ab21048cf1144979 .
 
-ns1:Ndfb9d7592e3d4948bca2e111446401b5 a ns1:ObjectJson,
+ns2:Nc21f63ce269f40efa4016575b9821be6 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "ROUTINES.json" ;
-    ns1:CREATED "2011-06-05T14:32:19.700" ;
-    ns1:IS_DETERMINISTIC "NO" ;
-    ns1:IS_IMPLICITLY_INVOCABLE "NO" ;
-    ns1:IS_USER_DEFINED_CAST "NO" ;
-    ns1:LAST_ALTERED "2011-06-05T14:32:19.700" ;
-    ns1:MAX_DYNAMIC_RESULT_SETS "-1" ;
-    ns1:ROUTINE_BODY "SQL" ;
-    ns1:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:ROUTINE_DEFINITION """create procedure [dbo].[temp_insupd_test] @t_test_id uniqueidentifier  \r
+    ns1:hasSourceFile "ROUTINES.json" ;
+    ns2:CREATED "2009-12-08T14:23:03.143" ;
+    ns2:IS_DETERMINISTIC "NO" ;
+    ns2:IS_IMPLICITLY_INVOCABLE "NO" ;
+    ns2:IS_USER_DEFINED_CAST "NO" ;
+    ns2:LAST_ALTERED "2010-11-30T09:46:25.990" ;
+    ns2:MAX_DYNAMIC_RESULT_SETS "-1" ;
+    ns2:ROUTINE_BODY "SQL" ;
+    ns2:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:ROUTINE_DEFINITION """	CREATE PROCEDURE dbo.sp_upgraddiagrams\r
+	AS\r
+	BEGIN\r
+		IF OBJECT_ID(N'dbo.sysdiagrams') IS NOT NULL\r
+			return 0;\r
+	\r
+		CREATE TABLE dbo.sysdiagrams\r
+		(\r
+			name sysname NOT NULL,\r
+			principal_id int NOT NULL,	-- we may change it to varbinary(85)\r
+			diagram_id int PRIMARY KEY IDENTITY,\r
+			version int,\r
+	\r
+			definition varbinary(max)\r
+			CONSTRAINT UK_principal_name UNIQUE\r
+			(\r
+				principal_id,\r
+				name\r
+			)\r
+		);\r
+\r
+\r
+		/* Add this if we need to have some form of extended properties for diagrams */\r
+		/*\r
+		IF OBJECT_ID(N'dbo.sysdiagram_properties') IS NULL\r
+		BEGIN\r
+			CREATE TABLE dbo.sysdiagram_properties\r
+			(\r
+				diagram_id int,\r
+				name sysname,\r
+				value varbinary(max) NOT NULL\r
+			)\r
+		END\r
+		*/\r
+\r
+		IF OBJECT_ID(N'dbo.dtproperties') IS NOT NULL\r
+		begin\r
+			insert into dbo.sysdiagrams\r
+			(\r
+				[name],\r
+				[principal_id],\r
+				[version],\r
+				[definition]\r
+			)\r
+			select	 \r
+				convert(sysname, dgnm.[uvalue]),\r
+				DATABASE_PRINCIPAL_ID(N'dbo'),			-- will change to the sid of sa\r
+				0,							-- zero for old format, dgdef.[version],\r
+				dgdef.[lvalue]\r
+			from dbo.[dtproperties] dgnm\r
+				inner join dbo.[dtproperties] dggd on dggd.[property] = 'DtgSchemaGUID' and dggd.[objectid] = dgnm.[objectid]	\r
+				inner join dbo.[dtproperties] dgdef on dgdef.[property] = 'DtgSchemaDATA' and dgdef.[objectid] = dgnm.[objectid]\r
+				\r
+			where dgnm.[property] = 'DtgSchemaNAME' and dggd.[uvalue] like N'_EA3E6268-D998-11CE-9454-00AA00A3F36E_' \r
+			return 2;\r
+		end\r
+		return 1;\r
+	END\r
+	""" ;
+    ns2:ROUTINE_NAME "sp_upgraddiagrams" ;
+    ns2:ROUTINE_SCHEMA "dbo" ;
+    ns2:ROUTINE_TYPE "PROCEDURE" ;
+    ns2:SCHEMA_LEVEL_ROUTINE "YES" ;
+    ns2:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:SPECIFIC_NAME "sp_upgraddiagrams" ;
+    ns2:SPECIFIC_SCHEMA "dbo" ;
+    ns2:SQL_DATA_ACCESS "MODIFIES" ;
+    ns2:hasJsonObjectKey "12" ;
+    ns2:parentJsonId ns2:N4435caf0df2f4827ab21048cf1144979 .
+
+ns2:Nc54d8dbbab794ec9bd445bc92812e2b1 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "ROUTINES.json" ;
+    ns2:CREATED "2011-06-05T14:32:19.700" ;
+    ns2:IS_DETERMINISTIC "NO" ;
+    ns2:IS_IMPLICITLY_INVOCABLE "NO" ;
+    ns2:IS_USER_DEFINED_CAST "NO" ;
+    ns2:LAST_ALTERED "2011-06-05T14:32:19.700" ;
+    ns2:MAX_DYNAMIC_RESULT_SETS "-1" ;
+    ns2:ROUTINE_BODY "SQL" ;
+    ns2:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:ROUTINE_DEFINITION """create procedure [dbo].[temp_insupd_test] @t_test_id uniqueidentifier  \r
 as\r
  \r
 	UPDATE [dbo].[T_TEST]\r
@@ -1977,29 +1591,715 @@ select     \r
 	tmp_t_test t2 \r
 	WHERE t2.t_test_id = @t_test_id\r
     and t2.t_test_id not in (select t1.t_test_id from T_TEST t1)""" ;
-    ns1:ROUTINE_NAME "temp_insupd_test" ;
-    ns1:ROUTINE_SCHEMA "dbo" ;
-    ns1:ROUTINE_TYPE "PROCEDURE" ;
-    ns1:SCHEMA_LEVEL_ROUTINE "YES" ;
-    ns1:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:SPECIFIC_NAME "temp_insupd_test" ;
-    ns1:SPECIFIC_SCHEMA "dbo" ;
-    ns1:SQL_DATA_ACCESS "MODIFIES" ;
-    ns1:hasJsonObjectKey "7" ;
-    ns1:parentJsonId ns1:Ndbe63dbc452b4a38befcabcd78a5ac5d .
+    ns2:ROUTINE_NAME "temp_insupd_test" ;
+    ns2:ROUTINE_SCHEMA "dbo" ;
+    ns2:ROUTINE_TYPE "PROCEDURE" ;
+    ns2:SCHEMA_LEVEL_ROUTINE "YES" ;
+    ns2:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:SPECIFIC_NAME "temp_insupd_test" ;
+    ns2:SPECIFIC_SCHEMA "dbo" ;
+    ns2:SQL_DATA_ACCESS "MODIFIES" ;
+    ns2:hasJsonObjectKey "7" ;
+    ns2:parentJsonId ns2:N4435caf0df2f4827ab21048cf1144979 .
 
-ns1:Ne9ed7dce8354427d8ab675f01f739da0 a ns1:ObjectJson,
+ns2:Nc573357f53454879b17c3964ad3e1d80 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "ROUTINES.json" ;
-    ns1:CREATED "2010-04-06T17:30:48.467" ;
-    ns1:IS_DETERMINISTIC "NO" ;
-    ns1:IS_IMPLICITLY_INVOCABLE "NO" ;
-    ns1:IS_USER_DEFINED_CAST "NO" ;
-    ns1:LAST_ALTERED "2010-11-30T09:46:26.067" ;
-    ns1:MAX_DYNAMIC_RESULT_SETS "-1" ;
-    ns1:ROUTINE_BODY "SQL" ;
-    ns1:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:ROUTINE_DEFINITION """CREATE procedure [dbo].[stat_change_help]\r
+    ns1:hasSourceFile "ROUTINES.json" ;
+    ns2:CREATED "2010-03-09T10:07:32.293" ;
+    ns2:IS_DETERMINISTIC "NO" ;
+    ns2:IS_IMPLICITLY_INVOCABLE "NO" ;
+    ns2:IS_USER_DEFINED_CAST "NO" ;
+    ns2:LAST_ALTERED "2010-11-30T09:46:26.113" ;
+    ns2:MAX_DYNAMIC_RESULT_SETS "-1" ;
+    ns2:ROUTINE_BODY "SQL" ;
+    ns2:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:ROUTINE_DEFINITION """CREATE procedure get_common_introduction\r
+@t_testing_id uniqueidentifier\r
+as \r
+select PAGE_USR_TEXT\r
+from t_testing_language tl \r
+inner join t_testing t on\r
+tl.t_testing_language_id = t.t_testing_language_id\r
+where t.t_testing_id = @t_testing_id""" ;
+    ns2:ROUTINE_NAME "get_common_introduction" ;
+    ns2:ROUTINE_SCHEMA "dbo" ;
+    ns2:ROUTINE_TYPE "PROCEDURE" ;
+    ns2:SCHEMA_LEVEL_ROUTINE "YES" ;
+    ns2:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:SPECIFIC_NAME "get_common_introduction" ;
+    ns2:SPECIFIC_SCHEMA "dbo" ;
+    ns2:SQL_DATA_ACCESS "MODIFIES" ;
+    ns2:hasJsonObjectKey "33" ;
+    ns2:parentJsonId ns2:N4435caf0df2f4827ab21048cf1144979 .
+
+ns2:Nc58b7212c32f4383a3fb010b7398e29f a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "ROUTINES.json" ;
+    ns2:CREATED "2010-03-05T12:27:19.660" ;
+    ns2:IS_DETERMINISTIC "NO" ;
+    ns2:IS_IMPLICITLY_INVOCABLE "NO" ;
+    ns2:IS_USER_DEFINED_CAST "NO" ;
+    ns2:LAST_ALTERED "2010-11-30T09:46:26.100" ;
+    ns2:MAX_DYNAMIC_RESULT_SETS "-1" ;
+    ns2:ROUTINE_BODY "SQL" ;
+    ns2:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:ROUTINE_DEFINITION """CREATE procedure [dbo].[select_tests]\r
+@t_testing_id uniqueidentifier\r
+as \r
+select \r
+te.obj_name as test,  ts.obj_name as status\r
+,\r
+\r
+case l.lang_num\r
+  when 2 then te.notes_lang2\r
+  when 3 then te.notes_lang3\r
+  else te.notes_lang1\r
+end as notes\r
+\r
+from t_testing_test  tt\r
+inner join t_test te on tt.t_test_id = te.t_test_id\r
+inner join t_testing_test_status ts \r
+on tt.t_testing_test_status_id = ts.t_testing_test_status_id\r
+inner join t_testing t on tt.t_testing_id = t.t_testing_id\r
+inner join t_testing_language l on l.t_testing_language_id = t.t_testing_language_id\r
+where t.t_testing_id=@t_testing_id \r
+order by te.order_num""" ;
+    ns2:ROUTINE_NAME "select_tests" ;
+    ns2:ROUTINE_SCHEMA "dbo" ;
+    ns2:ROUTINE_TYPE "PROCEDURE" ;
+    ns2:SCHEMA_LEVEL_ROUTINE "YES" ;
+    ns2:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:SPECIFIC_NAME "select_tests" ;
+    ns2:SPECIFIC_SCHEMA "dbo" ;
+    ns2:SQL_DATA_ACCESS "MODIFIES" ;
+    ns2:hasJsonObjectKey "28" ;
+    ns2:parentJsonId ns2:N4435caf0df2f4827ab21048cf1144979 .
+
+ns2:Nc742cdf6503d47f2975761bcaa9ddbe3 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "ROUTINES.json" ;
+    ns2:CREATED "2010-03-09T15:05:36.877" ;
+    ns2:IS_DETERMINISTIC "NO" ;
+    ns2:IS_IMPLICITLY_INVOCABLE "NO" ;
+    ns2:IS_USER_DEFINED_CAST "NO" ;
+    ns2:LAST_ALTERED "2010-11-30T09:46:25.817" ;
+    ns2:MAX_DYNAMIC_RESULT_SETS "-1" ;
+    ns2:ROUTINE_BODY "SQL" ;
+    ns2:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:ROUTINE_DEFINITION """CREATE procedure get_test_introduction\r
+@lang_num int,\r
+@t_test_id uniqueidentifier\r
+as \r
+\r
+\r
+select \r
+case @lang_num\r
+when 2  then page_usr_text_lang2\r
+when 3  then page_usr_text_lang3\r
+else page_usr_text_lang1\r
+\r
+end \r
+as PAGE_USR_TEXT\r
+from t_test\r
+where t_test_id=@t_test_id""" ;
+    ns2:ROUTINE_NAME "get_test_introduction" ;
+    ns2:ROUTINE_SCHEMA "dbo" ;
+    ns2:ROUTINE_TYPE "PROCEDURE" ;
+    ns2:SCHEMA_LEVEL_ROUTINE "YES" ;
+    ns2:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:SPECIFIC_NAME "get_test_introduction" ;
+    ns2:SPECIFIC_SCHEMA "dbo" ;
+    ns2:SQL_DATA_ACCESS "MODIFIES" ;
+    ns2:hasJsonObjectKey "2" ;
+    ns2:parentJsonId ns2:N4435caf0df2f4827ab21048cf1144979 .
+
+ns2:Nca4527d823d042be806141665c51c339 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "ROUTINES.json" ;
+    ns2:CREATED "2010-03-09T13:23:53.253" ;
+    ns2:IS_DETERMINISTIC "NO" ;
+    ns2:IS_IMPLICITLY_INVOCABLE "NO" ;
+    ns2:IS_USER_DEFINED_CAST "NO" ;
+    ns2:LAST_ALTERED "2010-11-30T09:46:25.803" ;
+    ns2:MAX_DYNAMIC_RESULT_SETS "-1" ;
+    ns2:ROUTINE_BODY "SQL" ;
+    ns2:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:ROUTINE_DEFINITION """CREATE procedure [dbo].[inititate_testing2]\r
+@t_testing_id uniqueidentifier\r
+as \r
+\r
+insert into t_testing_step(t_testing_id, t_test_step_id)\r
+select @t_testing_id,ts.t_test_step_id\r
+from t_testing_test t inner join t_test_step ts\r
+on t.t_test_id=ts.t_test_id\r
+where t.t_testing_id=@t_testing_id\r
+\r
+--order by te.order_num ts.step_order""" ;
+    ns2:ROUTINE_NAME "inititate_testing2" ;
+    ns2:ROUTINE_SCHEMA "dbo" ;
+    ns2:ROUTINE_TYPE "PROCEDURE" ;
+    ns2:SCHEMA_LEVEL_ROUTINE "YES" ;
+    ns2:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:SPECIFIC_NAME "inititate_testing2" ;
+    ns2:SPECIFIC_SCHEMA "dbo" ;
+    ns2:SQL_DATA_ACCESS "MODIFIES" ;
+    ns2:hasJsonObjectKey "1" ;
+    ns2:parentJsonId ns2:N4435caf0df2f4827ab21048cf1144979 .
+
+ns2:Ncac251fb2cbd4414b96dadeaf26d8eaf a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "ROUTINES.json" ;
+    ns2:CREATED "2010-04-01T11:23:16.127" ;
+    ns2:IS_DETERMINISTIC "NO" ;
+    ns2:IS_IMPLICITLY_INVOCABLE "NO" ;
+    ns2:IS_USER_DEFINED_CAST "NO" ;
+    ns2:LAST_ALTERED "2010-11-30T09:46:26.053" ;
+    ns2:MAX_DYNAMIC_RESULT_SETS "-1" ;
+    ns2:ROUTINE_BODY "SQL" ;
+    ns2:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:ROUTINE_DEFINITION """CREATE procedure [dbo].[doback]\r
+@t_testing_id uniqueidentifier,\r
+@t_testing_step_id uniqueidentifier\r
+\r
+as \r
+\r
+SET XACT_ABORT ON;\r
+begin transaction \r
+\r
+\r
+declare @current_step_id uniqueidentifier\r
+declare @t_test_id uniqueidentifier \r
+declare @prev_step_id uniqueidentifier\r
+declare @back_only_1_step char(1)\r
+declare @back_btn_mark char(1)\r
+\r
+select @current_step_id=current_step_id\r
+from t_testing t inner join\r
+t_testing_test tt on\r
+t.t_testing_id=tt.t_testing_id\r
+and t.current_test_id = tt.t_test_id\r
+where t.t_testing_id=@t_testing_id\r
+\r
+if @current_step_id=@t_testing_step_id\r
+begin\r
+ \r
+ set @t_test_id = (select current_test_id from t_testing  where t_testing_id=@t_testing_id )\r
+\r
+/* what is th privious test step?  */\r
+ set @prev_step_id = NULL \r
+ \r
+ select @back_only_1_step=back_only_1_step,\r
+ @back_btn_mark=back_btn_mark\r
+ from t_test \r
+ where t_test_id = @t_test_id\r
+/* in case if option back for test is disabled raise error  */\r
+ if @back_btn_mark!='y' \r
+  begin \r
+    RAISERROR ('CURRENT TEST DOES NOT ALLOW BACK ACTION !',16,1,0) with log             \r
+    commit transaction\r
+    return \r
+  end\r
+\r
+  \r
+  \r
+    if (@back_only_1_step = 'y') AND (select LEN(result_txt) from t_testing_step \r
+         where t_testing_id=@t_testing_id and t_test_step_id=@current_step_id)>0 \r
+      begin\r
+        RAISERROR ('TEST DOES NOT ALLOW BACK MORE THEN ONCE !',16,1,0) with log             \r
+        commit transaction\r
+        return\r
+      end \r
+  \r
+\r
+ exec  get_prev_step_id \r
+  @current_step_id ,\r
+  @prev_step_id OUTPUT\r
+\r
+/* if step exists  change current_step_id */\r
+ if  @prev_step_id is not null \r
+   begin\r
+    update t_testing_test\r
+    set current_step_id=@prev_step_id\r
+    \r
+    where t_testing_id = @t_testing_id\r
+    and t_test_id=@t_test_id\r
+\r
+    update  \r
+    t_testing_step \r
+    set \r
+    t_testing_step_status_id = 1,\r
+    view_date=getdate()\r
+    where t_test_step_id=@prev_step_id\r
+    and t_testing_id = @t_testing_id\r
+  end\r
+\r
+    \r
+  \r
+end \r
+/* in case of attemtp to change not current step ERROR message */\r
+else \r
+RAISERROR ('CURRENT STEP ID DOES NOT EQUIL PROPOSED! ANSWER NOT ACCEPTED!',16,1,0) with log             \r
+\r
+commit transaction\r
+SET XACT_ABORT OFF;""" ;
+    ns2:ROUTINE_NAME "doback" ;
+    ns2:ROUTINE_SCHEMA "dbo" ;
+    ns2:ROUTINE_TYPE "PROCEDURE" ;
+    ns2:SCHEMA_LEVEL_ROUTINE "YES" ;
+    ns2:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:SPECIFIC_NAME "doback" ;
+    ns2:SPECIFIC_SCHEMA "dbo" ;
+    ns2:SQL_DATA_ACCESS "MODIFIES" ;
+    ns2:hasJsonObjectKey "21" ;
+    ns2:parentJsonId ns2:N4435caf0df2f4827ab21048cf1144979 .
+
+ns2:Nd691812f0d994fd9aab13bb582920cb2 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "ROUTINES.json" ;
+    ns2:CREATED "2010-03-05T14:34:58.510" ;
+    ns2:IS_DETERMINISTIC "NO" ;
+    ns2:IS_IMPLICITLY_INVOCABLE "NO" ;
+    ns2:IS_USER_DEFINED_CAST "NO" ;
+    ns2:LAST_ALTERED "2010-11-30T09:46:26.100" ;
+    ns2:MAX_DYNAMIC_RESULT_SETS "-1" ;
+    ns2:ROUTINE_BODY "SQL" ;
+    ns2:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:ROUTINE_DEFINITION """create procedure stat_change_prepared\r
+@t_testing_id uniqueidentifier \r
+\r
+as \r
+\r
+update t_testing\r
+set \r
+introduction_viewed='y',\r
+t_testing_status_id = 5\r
+where t_testing_id = @t_testing_id\r
+and t_testing_status_id=4""" ;
+    ns2:ROUTINE_NAME "stat_change_prepared" ;
+    ns2:ROUTINE_SCHEMA "dbo" ;
+    ns2:ROUTINE_TYPE "PROCEDURE" ;
+    ns2:SCHEMA_LEVEL_ROUTINE "YES" ;
+    ns2:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:SPECIFIC_NAME "stat_change_prepared" ;
+    ns2:SPECIFIC_SCHEMA "dbo" ;
+    ns2:SQL_DATA_ACCESS "MODIFIES" ;
+    ns2:hasJsonObjectKey "29" ;
+    ns2:parentJsonId ns2:N4435caf0df2f4827ab21048cf1144979 .
+
+ns2:Ne1e06cf0f5074da8bee81a68d01842a3 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "ROUTINES.json" ;
+    ns2:CREATED "2010-03-15T12:14:37.973" ;
+    ns2:IS_DETERMINISTIC "NO" ;
+    ns2:IS_IMPLICITLY_INVOCABLE "NO" ;
+    ns2:IS_USER_DEFINED_CAST "NO" ;
+    ns2:LAST_ALTERED "2010-11-30T09:46:25.943" ;
+    ns2:MAX_DYNAMIC_RESULT_SETS "-1" ;
+    ns2:ROUTINE_BODY "SQL" ;
+    ns2:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:ROUTINE_DEFINITION """create procedure [dbo].[get_common_ended]\r
+@t_testing_id uniqueidentifier\r
+as \r
+select PAGE_USR_TEXT_ENDED\r
+from t_testing_language tl \r
+inner join t_testing t on\r
+tl.t_testing_language_id = t.t_testing_language_id\r
+where t.t_testing_id = @t_testing_id""" ;
+    ns2:ROUTINE_NAME "get_common_ended" ;
+    ns2:ROUTINE_SCHEMA "dbo" ;
+    ns2:ROUTINE_TYPE "PROCEDURE" ;
+    ns2:SCHEMA_LEVEL_ROUTINE "YES" ;
+    ns2:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:SPECIFIC_NAME "get_common_ended" ;
+    ns2:SPECIFIC_SCHEMA "dbo" ;
+    ns2:SQL_DATA_ACCESS "MODIFIES" ;
+    ns2:hasJsonObjectKey "11" ;
+    ns2:parentJsonId ns2:N4435caf0df2f4827ab21048cf1144979 .
+
+ns2:Ne21fab6e0ea840dd8328d8ce31d033af a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "ROUTINES.json" ;
+    ns2:CREATED "2010-03-11T15:51:06.620" ;
+    ns2:IS_DETERMINISTIC "NO" ;
+    ns2:IS_IMPLICITLY_INVOCABLE "NO" ;
+    ns2:IS_USER_DEFINED_CAST "NO" ;
+    ns2:LAST_ALTERED "2010-11-30T09:46:25.880" ;
+    ns2:MAX_DYNAMIC_RESULT_SETS "-1" ;
+    ns2:ROUTINE_BODY "SQL" ;
+    ns2:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:ROUTINE_DEFINITION """CREATE procedure [dbo].[get_test_step]\r
+@lang_num int,\r
+@current_step_id uniqueidentifier,\r
+@t_testing_id uniqueidentifier\r
+as \r
+\r
+\r
+select \r
+case @lang_num\r
+when 2  then ts.page_usr_text_lang2\r
+when 3  then ts.page_usr_text_lang3\r
+else ts.page_usr_text_lang1\r
+\r
+end \r
+as PAGE_USR_TEXT,\r
+tt.result_txt\r
+from t_test_step ts inner join t_testing_step tt \r
+on ts.t_test_step_id=tt.t_test_step_id\r
+where ts.t_test_step_id=@current_step_id and tt.t_testing_id=@t_testing_id""" ;
+    ns2:ROUTINE_NAME "get_test_step" ;
+    ns2:ROUTINE_SCHEMA "dbo" ;
+    ns2:ROUTINE_TYPE "PROCEDURE" ;
+    ns2:SCHEMA_LEVEL_ROUTINE "YES" ;
+    ns2:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:SPECIFIC_NAME "get_test_step" ;
+    ns2:SPECIFIC_SCHEMA "dbo" ;
+    ns2:SQL_DATA_ACCESS "MODIFIES" ;
+    ns2:hasJsonObjectKey "4" ;
+    ns2:parentJsonId ns2:N4435caf0df2f4827ab21048cf1144979 .
+
+ns2:Ne4430b608e6a4796a037dd4d3315baad a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "ROUTINES.json" ;
+    ns2:CREATED "2010-03-12T15:46:47.713" ;
+    ns2:IS_DETERMINISTIC "NO" ;
+    ns2:IS_IMPLICITLY_INVOCABLE "NO" ;
+    ns2:IS_USER_DEFINED_CAST "NO" ;
+    ns2:LAST_ALTERED "2010-11-30T09:46:25.927" ;
+    ns2:MAX_DYNAMIC_RESULT_SETS "-1" ;
+    ns2:ROUTINE_BODY "SQL" ;
+    ns2:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:ROUTINE_DEFINITION """CREATE procedure [dbo].[stat_change_testing]  \r
+@t_testing_id uniqueidentifier,\r
+@curent_test_id uniqueidentifier\r
+as \r
+\r
+declare @next_test_id uniqueidentifier\r
+\r
+update t_testing_test\r
+set t_testing_test_status_id = 3  \r
+where t_testing_id = @t_testing_id\r
+and t_test_id=@curent_test_id\r
+and current_step_id=NULL\r
+\r
+\r
+select @next_test_id=t_test_id\r
+  \r
+  from   t_test\r
+  where order_num =\r
+  (\r
+  select min(order_num) \r
+  from t_testing_test tt inner join t_test te\r
+    on tt.t_test_id= te.t_test_id\r
+    where tt.t_testing_test_status_id = 4\r
+    and tt.t_testing_id = @t_testing_id\r
+  )\r
+\r
+/* updating test status */\r
+update t_testing_test\r
+set t_testing_test_status_id = 3\r
+where \r
+t_test_id=@curent_test_id and \r
+t_testing_id = @t_testing_id\r
+\r
+/* updating testing status  */\r
+/* if still exists atleast 1 not finished test status INSTRUCT  */\r
+if @next_test_id is not null   \r
+  begin \r
+    update  t_testing \r
+    set t_testing_status_id = 5,\r
+    current_test_id = @next_test_id\r
+    where t_testing_id = @t_testing_id\r
+ \r
+  end \r
+/* if no tests to go status ENDED  */\r
+  else \r
+\r
+    update  t_testing \r
+    set t_testing_status_id = 3,\r
+    current_test_id = null\r
+    where t_testing_id = @t_testing_id""" ;
+    ns2:ROUTINE_NAME "stat_change_testing" ;
+    ns2:ROUTINE_SCHEMA "dbo" ;
+    ns2:ROUTINE_TYPE "PROCEDURE" ;
+    ns2:SCHEMA_LEVEL_ROUTINE "YES" ;
+    ns2:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:SPECIFIC_NAME "stat_change_testing" ;
+    ns2:SPECIFIC_SCHEMA "dbo" ;
+    ns2:SQL_DATA_ACCESS "MODIFIES" ;
+    ns2:hasJsonObjectKey "10" ;
+    ns2:parentJsonId ns2:N4435caf0df2f4827ab21048cf1144979 .
+
+ns2:Nf13d518ae8a24de5b31d823c7979cd23 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "ROUTINES.json" ;
+    ns2:CREATED "2010-03-11T18:04:20.693" ;
+    ns2:IS_DETERMINISTIC "NO" ;
+    ns2:IS_IMPLICITLY_INVOCABLE "NO" ;
+    ns2:IS_USER_DEFINED_CAST "NO" ;
+    ns2:LAST_ALTERED "2010-11-30T09:46:25.880" ;
+    ns2:MAX_DYNAMIC_RESULT_SETS "-1" ;
+    ns2:ROUTINE_BODY "SQL" ;
+    ns2:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:ROUTINE_DEFINITION """CREATE procedure [dbo].[donext]\r
+@t_testing_id uniqueidentifier,\r
+@result_txt nvarchar(1000),\r
+@t_testing_step_id uniqueidentifier\r
+\r
+as \r
+\r
+SET XACT_ABORT ON;\r
+begin transaction \r
+\r
+\r
+declare @current_step_id uniqueidentifier\r
+declare @t_test_id uniqueidentifier \r
+declare @next_step_id uniqueidentifier\r
+declare @seconds_remain int \r
+\r
+select @current_step_id=current_step_id\r
+from t_testing t inner join\r
+t_testing_test tt on\r
+t.t_testing_id=tt.t_testing_id\r
+and t.current_test_id = tt.t_test_id\r
+where t.t_testing_id=@t_testing_id\r
+\r
+if @current_step_id=@t_testing_step_id\r
+begin\r
+ \r
+ set @t_test_id = (select current_test_id from t_testing  where t_testing_id=@t_testing_id )\r
+/* try timelimit */\r
+exec time_remaining\r
+@t_testing_id , \r
+@t_test_id ,\r
+@seconds_remain  output \r
+\r
+\r
+if @seconds_remain<0 \r
+begin\r
+\r
+ exec stat_change_testing  \r
+    @t_testing_id ,\r
+    @t_test_id \r
+\r
+\r
+    RAISERROR ('TIME IS EXPIRED! ANSWER NOT ACCEPTED!',16,1,0) with log             \r
+    commit transaction\r
+    return\r
+\r
+end \r
+\r
+\r
+ /* save result and change status to end  */\r
+ update  \r
+ t_testing_step \r
+ set RESULT_TXT=@result_txt,\r
+ t_testing_step_status_id = 3,\r
+ result_date=getdate() \r
+ where t_test_step_id=@current_step_id\r
+    and t_testing_id = @t_testing_id\r
+ \r
+/* what is th next test step?  */\r
+ set @next_step_id = NULL \r
+\r
+ exec  get_next_step_id \r
+  @current_step_id ,\r
+  @next_step_id OUTPUT\r
+\r
+/* if step exists  change current_step_id */\r
+ if  @next_step_id is not null \r
+   begin\r
+    update t_testing_test\r
+    set current_step_id=@next_step_id\r
+    \r
+    where t_testing_id = @t_testing_id\r
+    and t_test_id=@t_test_id\r
+\r
+    update  \r
+    t_testing_step \r
+    set \r
+    t_testing_step_status_id = 1,\r
+    view_date=getdate()\r
+    where t_test_step_id=@next_step_id\r
+    and t_testing_id = @t_testing_id\r
+  end\r
+\r
+    \r
+ else\r
+/* if step does not exists  exec procedure to finish current test and \r
+possibly all testing */\r
+  \r
+ exec stat_change_testing  \r
+    @t_testing_id ,\r
+    @t_test_id \r
+   \r
+ \r
+\r
+  \r
+end \r
+/* in case of attemtp to change not current step ERROR message */\r
+else \r
+RAISERROR ('CURRENT STEP ID DOES NOT EQUIL PROPOSED! ANSWER NOT ACCEPTED!',16,1,0) with log             \r
+\r
+commit transaction\r
+SET XACT_ABORT OFF;""" ;
+    ns2:ROUTINE_NAME "donext" ;
+    ns2:ROUTINE_SCHEMA "dbo" ;
+    ns2:ROUTINE_TYPE "PROCEDURE" ;
+    ns2:SCHEMA_LEVEL_ROUTINE "YES" ;
+    ns2:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:SPECIFIC_NAME "donext" ;
+    ns2:SPECIFIC_SCHEMA "dbo" ;
+    ns2:SQL_DATA_ACCESS "MODIFIES" ;
+    ns2:hasJsonObjectKey "5" ;
+    ns2:parentJsonId ns2:N4435caf0df2f4827ab21048cf1144979 .
+
+ns2:Nf1405881229946e8988f700451e6bcd0 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "ROUTINES.json" ;
+    ns2:CREATED "2009-12-08T14:23:03.403" ;
+    ns2:DATA_TYPE "int" ;
+    ns2:IS_DETERMINISTIC "NO" ;
+    ns2:IS_IMPLICITLY_INVOCABLE "NO" ;
+    ns2:IS_NULL_CALL "NO" ;
+    ns2:IS_USER_DEFINED_CAST "NO" ;
+    ns2:LAST_ALTERED "2022-12-02T08:31:44.603" ;
+    ns2:MAX_DYNAMIC_RESULT_SETS "0" ;
+    ns2:NUMERIC_PRECISION "10" ;
+    ns2:NUMERIC_PRECISION_RADIX "10" ;
+    ns2:NUMERIC_SCALE "0" ;
+    ns2:ROUTINE_BODY "SQL" ;
+    ns2:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:ROUTINE_DEFINITION """	CREATE FUNCTION dbo.fn_diagramobjects() \r
+	RETURNS int\r
+	WITH EXECUTE AS N'dbo'\r
+	AS\r
+	BEGIN\r
+		declare @id_upgraddiagrams		int\r
+		declare @id_sysdiagrams			int\r
+		declare @id_helpdiagrams		int\r
+		declare @id_helpdiagramdefinition	int\r
+		declare @id_creatediagram	int\r
+		declare @id_renamediagram	int\r
+		declare @id_alterdiagram 	int \r
+		declare @id_dropdiagram		int\r
+		declare @InstalledObjects	int\r
+\r
+		select @InstalledObjects = 0\r
+\r
+		select 	@id_upgraddiagrams = object_id(N'dbo.sp_upgraddiagrams'),\r
+			@id_sysdiagrams = object_id(N'dbo.sysdiagrams'),\r
+			@id_helpdiagrams = object_id(N'dbo.sp_helpdiagrams'),\r
+			@id_helpdiagramdefinition = object_id(N'dbo.sp_helpdiagramdefinition'),\r
+			@id_creatediagram = object_id(N'dbo.sp_creatediagram'),\r
+			@id_renamediagram = object_id(N'dbo.sp_renamediagram'),\r
+			@id_alterdiagram = object_id(N'dbo.sp_alterdiagram'), \r
+			@id_dropdiagram = object_id(N'dbo.sp_dropdiagram')\r
+\r
+		if @id_upgraddiagrams is not null\r
+			select @InstalledObjects = @InstalledObjects + 1\r
+		if @id_sysdiagrams is not null\r
+			select @InstalledObjects = @InstalledObjects + 2\r
+		if @id_helpdiagrams is not null\r
+			select @InstalledObjects = @InstalledObjects + 4\r
+		if @id_helpdiagramdefinition is not null\r
+			select @InstalledObjects = @InstalledObjects + 8\r
+		if @id_creatediagram is not null\r
+			select @InstalledObjects = @InstalledObjects + 16\r
+		if @id_renamediagram is not null\r
+			select @InstalledObjects = @InstalledObjects + 32\r
+		if @id_alterdiagram  is not null\r
+			select @InstalledObjects = @InstalledObjects + 64\r
+		if @id_dropdiagram is not null\r
+			select @InstalledObjects = @InstalledObjects + 128\r
+		\r
+		return @InstalledObjects \r
+	END\r
+	""" ;
+    ns2:ROUTINE_NAME "fn_diagramobjects" ;
+    ns2:ROUTINE_SCHEMA "dbo" ;
+    ns2:ROUTINE_TYPE "FUNCTION" ;
+    ns2:SCHEMA_LEVEL_ROUTINE "YES" ;
+    ns2:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:SPECIFIC_NAME "fn_diagramobjects" ;
+    ns2:SPECIFIC_SCHEMA "dbo" ;
+    ns2:SQL_DATA_ACCESS "READS" ;
+    ns2:hasJsonObjectKey "19" ;
+    ns2:parentJsonId ns2:N4435caf0df2f4827ab21048cf1144979 .
+
+ns2:Nf38fcd9ef5ce40baad4381d9b24f3972 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "ROUTINES.json" ;
+    ns2:CREATED "2009-12-08T14:23:03.393" ;
+    ns2:IS_DETERMINISTIC "NO" ;
+    ns2:IS_IMPLICITLY_INVOCABLE "NO" ;
+    ns2:IS_USER_DEFINED_CAST "NO" ;
+    ns2:LAST_ALTERED "2010-11-30T09:46:26.053" ;
+    ns2:MAX_DYNAMIC_RESULT_SETS "-1" ;
+    ns2:ROUTINE_BODY "SQL" ;
+    ns2:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:ROUTINE_DEFINITION """	CREATE PROCEDURE dbo.sp_dropdiagram\r
+	(\r
+		@diagramname 	sysname,\r
+		@owner_id	int	= null\r
+	)\r
+	WITH EXECUTE AS 'dbo'\r
+	AS\r
+	BEGIN\r
+		set nocount on\r
+		declare @theId 			int\r
+		declare @IsDbo 			int\r
+		\r
+		declare @UIDFound 		int\r
+		declare @DiagId			int\r
+	\r
+		if(@diagramname is null)\r
+		begin\r
+			RAISERROR ('Invalid value', 16, 1);\r
+			return -1\r
+		end\r
+	\r
+		EXECUTE AS CALLER;\r
+		select @theId = DATABASE_PRINCIPAL_ID();\r
+		select @IsDbo = IS_MEMBER(N'db_owner'); \r
+		if(@owner_id is null)\r
+			select @owner_id = @theId;\r
+		REVERT; \r
+		\r
+		select @DiagId = diagram_id, @UIDFound = principal_id from dbo.sysdiagrams where principal_id = @owner_id and name = @diagramname \r
+		if(@DiagId IS NULL or (@IsDbo = 0 and @UIDFound <> @theId))\r
+		begin\r
+			RAISERROR ('Diagram does not exist or you do not have permission.', 16, 1)\r
+			return -3\r
+		end\r
+	\r
+		delete from dbo.sysdiagrams where diagram_id = @DiagId;\r
+	\r
+		return 0;\r
+	END\r
+	""" ;
+    ns2:ROUTINE_NAME "sp_dropdiagram" ;
+    ns2:ROUTINE_SCHEMA "dbo" ;
+    ns2:ROUTINE_TYPE "PROCEDURE" ;
+    ns2:SCHEMA_LEVEL_ROUTINE "YES" ;
+    ns2:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:SPECIFIC_NAME "sp_dropdiagram" ;
+    ns2:SPECIFIC_SCHEMA "dbo" ;
+    ns2:SQL_DATA_ACCESS "MODIFIES" ;
+    ns2:hasJsonObjectKey "18" ;
+    ns2:parentJsonId ns2:N4435caf0df2f4827ab21048cf1144979 .
+
+ns2:Nf44549759dd842488f09bc58cee1b459 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "ROUTINES.json" ;
+    ns2:CREATED "2010-04-06T17:30:48.467" ;
+    ns2:IS_DETERMINISTIC "NO" ;
+    ns2:IS_IMPLICITLY_INVOCABLE "NO" ;
+    ns2:IS_USER_DEFINED_CAST "NO" ;
+    ns2:LAST_ALTERED "2010-11-30T09:46:26.067" ;
+    ns2:MAX_DYNAMIC_RESULT_SETS "-1" ;
+    ns2:ROUTINE_BODY "SQL" ;
+    ns2:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:ROUTINE_DEFINITION """CREATE procedure [dbo].[stat_change_help]\r
 @t_testing_id uniqueidentifier\r
 \r
 as \r
@@ -2070,320 +2370,20 @@ end \r
 \r
 commit transaction\r
 SET XACT_ABORT OFF;""" ;
-    ns1:ROUTINE_NAME "stat_change_help" ;
-    ns1:ROUTINE_SCHEMA "dbo" ;
-    ns1:ROUTINE_TYPE "PROCEDURE" ;
-    ns1:SCHEMA_LEVEL_ROUTINE "YES" ;
-    ns1:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:SPECIFIC_NAME "stat_change_help" ;
-    ns1:SPECIFIC_SCHEMA "dbo" ;
-    ns1:SQL_DATA_ACCESS "MODIFIES" ;
-    ns1:hasJsonObjectKey "23" ;
-    ns1:parentJsonId ns1:Ndbe63dbc452b4a38befcabcd78a5ac5d .
+    ns2:ROUTINE_NAME "stat_change_help" ;
+    ns2:ROUTINE_SCHEMA "dbo" ;
+    ns2:ROUTINE_TYPE "PROCEDURE" ;
+    ns2:SCHEMA_LEVEL_ROUTINE "YES" ;
+    ns2:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns2:SPECIFIC_NAME "stat_change_help" ;
+    ns2:SPECIFIC_SCHEMA "dbo" ;
+    ns2:SQL_DATA_ACCESS "MODIFIES" ;
+    ns2:hasJsonObjectKey "23" ;
+    ns2:parentJsonId ns2:N4435caf0df2f4827ab21048cf1144979 .
 
-ns1:Nf3ca1120826e4a2ab3c16f4939572adf a ns1:ObjectJson,
+ns2:N4435caf0df2f4827ab21048cf1144979 a ns2:ArrayJson,
+        ns2:FileJson,
+        ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "ROUTINES.json" ;
-    ns1:CREATED "2010-04-01T11:19:40.673" ;
-    ns1:IS_DETERMINISTIC "NO" ;
-    ns1:IS_IMPLICITLY_INVOCABLE "NO" ;
-    ns1:IS_USER_DEFINED_CAST "NO" ;
-    ns1:LAST_ALTERED "2010-11-30T09:46:26.053" ;
-    ns1:MAX_DYNAMIC_RESULT_SETS "-1" ;
-    ns1:ROUTINE_BODY "SQL" ;
-    ns1:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:ROUTINE_DEFINITION """create procedure [dbo].[get_prev_step_id] \r
-@current_step_id uniqueidentifier,\r
-@prev_step_id uniqueidentifier OUTPUT\r
-\r
-as \r
-\r
-declare @t_test_id uniqueidentifier\r
-declare @step_order int\r
-declare @prev_step_order int\r
-\r
-\r
-\r
-select @t_test_id = t_test_id, @step_order=step_order\r
-from t_test_step \r
-where t_test_step_id = @current_step_id\r
-\r
-\r
-select @prev_step_order=max(step_order)\r
-from t_test_step\r
-where t_test_id=@t_test_id and step_order<@step_order\r
-\r
-if (@prev_step_order is not null) and (@prev_step_order<@step_order)\r
-begin\r
-  select @prev_step_id=t_test_step_id\r
-  from t_test_step\r
-  where t_test_id=@t_test_id and step_order=@prev_step_order\r
-\r
-end\r
-else \r
-set @prev_step_id = null""" ;
-    ns1:ROUTINE_NAME "get_prev_step_id" ;
-    ns1:ROUTINE_SCHEMA "dbo" ;
-    ns1:ROUTINE_TYPE "PROCEDURE" ;
-    ns1:SCHEMA_LEVEL_ROUTINE "YES" ;
-    ns1:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:SPECIFIC_NAME "get_prev_step_id" ;
-    ns1:SPECIFIC_SCHEMA "dbo" ;
-    ns1:SQL_DATA_ACCESS "MODIFIES" ;
-    ns1:hasJsonObjectKey "20" ;
-    ns1:parentJsonId ns1:Ndbe63dbc452b4a38befcabcd78a5ac5d .
-
-ns1:Nf73c8b0a6ed34adab548048c1bdc2390 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "ROUTINES.json" ;
-    ns1:CREATED "2010-03-09T16:11:17.210" ;
-    ns1:IS_DETERMINISTIC "NO" ;
-    ns1:IS_IMPLICITLY_INVOCABLE "NO" ;
-    ns1:IS_USER_DEFINED_CAST "NO" ;
-    ns1:LAST_ALTERED "2010-11-30T09:46:25.817" ;
-    ns1:MAX_DYNAMIC_RESULT_SETS "-1" ;
-    ns1:ROUTINE_BODY "SQL" ;
-    ns1:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:ROUTINE_DEFINITION """CREATE procedure [dbo].[stat_change_instruct]\r
-@t_testing_id uniqueidentifier\r
-\r
-as \r
-declare @status varchar(10) \r
-declare @t_test_id uniqueidentifier\r
-declare @step_order int\r
-declare @current_step_id uniqueidentifier\r
-\r
-SET XACT_ABORT ON;\r
-begin transaction \r
-\r
-\r
-select @status=obj_name from t_testing_status ts\r
-inner join t_testing t on ts.t_testing_status_id = t.t_testing_status_id\r
-where  t.t_testing_id = @t_testing_id\r
-\r
-\r
-if @status='INSTRUCT'\r
-begin\r
-  \r
-  select @t_test_id=t_test_id\r
-  \r
-  from   t_test\r
-  where order_num =\r
-  (\r
-  select min(order_num) \r
-  from t_testing_test tt inner join t_test te\r
-    on tt.t_test_id= te.t_test_id\r
-    where tt.t_testing_test_status_id = 4\r
-    and tt.t_testing_id = @t_testing_id\r
-  )\r
-  \r
-  update  t_testing \r
-  set t_testing_status_id = 1,\r
-  current_test_id = @t_test_id\r
-  where t_testing_id = @t_testing_id\r
- \r
-  \r
-\r
-  select @step_order=min(step_order)\r
-  from t_test_step \r
-  where t_test_id=@t_test_id \r
-  \r
-  select @current_step_id= t_test_step_id\r
-  from t_test_step\r
-  where t_test_id=@t_test_id \r
-  and step_order=@step_order\r
-\r
-  update t_testing_test\r
-  set current_step_id=@current_step_id,\r
-  t_testing_test_status_id=1\r
-  where t_testing_id = @t_testing_id\r
-  and t_test_id=@t_test_id\r
-  \r
-  update  \r
-  t_testing_step \r
-  set \r
-  t_testing_step_status_id = 1,\r
-  view_date=getdate()\r
-  where t_test_step_id=@current_step_id\r
-    and t_testing_id = @t_testing_id\r
-\r
-  update  t_testing\r
-  set start_date=getdate()\r
-  where t_testing_id = @t_testing_id\r
-  and start_date is null   \r
-\r
-end \r
-\r
-\r
-commit transaction\r
-SET XACT_ABORT OFF;""" ;
-    ns1:ROUTINE_NAME "stat_change_instruct" ;
-    ns1:ROUTINE_SCHEMA "dbo" ;
-    ns1:ROUTINE_TYPE "PROCEDURE" ;
-    ns1:SCHEMA_LEVEL_ROUTINE "YES" ;
-    ns1:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:SPECIFIC_NAME "stat_change_instruct" ;
-    ns1:SPECIFIC_SCHEMA "dbo" ;
-    ns1:SQL_DATA_ACCESS "MODIFIES" ;
-    ns1:hasJsonObjectKey "3" ;
-    ns1:parentJsonId ns1:Ndbe63dbc452b4a38befcabcd78a5ac5d .
-
-ns1:Nf77d5d4bcd354ef5b3335946098337ef a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "ROUTINES.json" ;
-    ns1:CREATED "2010-03-12T15:46:47.713" ;
-    ns1:IS_DETERMINISTIC "NO" ;
-    ns1:IS_IMPLICITLY_INVOCABLE "NO" ;
-    ns1:IS_USER_DEFINED_CAST "NO" ;
-    ns1:LAST_ALTERED "2010-11-30T09:46:25.927" ;
-    ns1:MAX_DYNAMIC_RESULT_SETS "-1" ;
-    ns1:ROUTINE_BODY "SQL" ;
-    ns1:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:ROUTINE_DEFINITION """CREATE procedure [dbo].[stat_change_testing]  \r
-@t_testing_id uniqueidentifier,\r
-@curent_test_id uniqueidentifier\r
-as \r
-\r
-declare @next_test_id uniqueidentifier\r
-\r
-update t_testing_test\r
-set t_testing_test_status_id = 3  \r
-where t_testing_id = @t_testing_id\r
-and t_test_id=@curent_test_id\r
-and current_step_id=NULL\r
-\r
-\r
-select @next_test_id=t_test_id\r
-  \r
-  from   t_test\r
-  where order_num =\r
-  (\r
-  select min(order_num) \r
-  from t_testing_test tt inner join t_test te\r
-    on tt.t_test_id= te.t_test_id\r
-    where tt.t_testing_test_status_id = 4\r
-    and tt.t_testing_id = @t_testing_id\r
-  )\r
-\r
-/* updating test status */\r
-update t_testing_test\r
-set t_testing_test_status_id = 3\r
-where \r
-t_test_id=@curent_test_id and \r
-t_testing_id = @t_testing_id\r
-\r
-/* updating testing status  */\r
-/* if still exists atleast 1 not finished test status INSTRUCT  */\r
-if @next_test_id is not null   \r
-  begin \r
-    update  t_testing \r
-    set t_testing_status_id = 5,\r
-    current_test_id = @next_test_id\r
-    where t_testing_id = @t_testing_id\r
- \r
-  end \r
-/* if no tests to go status ENDED  */\r
-  else \r
-\r
-    update  t_testing \r
-    set t_testing_status_id = 3,\r
-    current_test_id = null\r
-    where t_testing_id = @t_testing_id""" ;
-    ns1:ROUTINE_NAME "stat_change_testing" ;
-    ns1:ROUTINE_SCHEMA "dbo" ;
-    ns1:ROUTINE_TYPE "PROCEDURE" ;
-    ns1:SCHEMA_LEVEL_ROUTINE "YES" ;
-    ns1:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:SPECIFIC_NAME "stat_change_testing" ;
-    ns1:SPECIFIC_SCHEMA "dbo" ;
-    ns1:SQL_DATA_ACCESS "MODIFIES" ;
-    ns1:hasJsonObjectKey "10" ;
-    ns1:parentJsonId ns1:Ndbe63dbc452b4a38befcabcd78a5ac5d .
-
-ns1:Nfc58483a17834190b80380d8df5c76d2 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "ROUTINES.json" ;
-    ns1:CREATED "2009-12-08T14:23:03.143" ;
-    ns1:IS_DETERMINISTIC "NO" ;
-    ns1:IS_IMPLICITLY_INVOCABLE "NO" ;
-    ns1:IS_USER_DEFINED_CAST "NO" ;
-    ns1:LAST_ALTERED "2010-11-30T09:46:25.990" ;
-    ns1:MAX_DYNAMIC_RESULT_SETS "-1" ;
-    ns1:ROUTINE_BODY "SQL" ;
-    ns1:ROUTINE_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:ROUTINE_DEFINITION """	CREATE PROCEDURE dbo.sp_upgraddiagrams\r
-	AS\r
-	BEGIN\r
-		IF OBJECT_ID(N'dbo.sysdiagrams') IS NOT NULL\r
-			return 0;\r
-	\r
-		CREATE TABLE dbo.sysdiagrams\r
-		(\r
-			name sysname NOT NULL,\r
-			principal_id int NOT NULL,	-- we may change it to varbinary(85)\r
-			diagram_id int PRIMARY KEY IDENTITY,\r
-			version int,\r
-	\r
-			definition varbinary(max)\r
-			CONSTRAINT UK_principal_name UNIQUE\r
-			(\r
-				principal_id,\r
-				name\r
-			)\r
-		);\r
-\r
-\r
-		/* Add this if we need to have some form of extended properties for diagrams */\r
-		/*\r
-		IF OBJECT_ID(N'dbo.sysdiagram_properties') IS NULL\r
-		BEGIN\r
-			CREATE TABLE dbo.sysdiagram_properties\r
-			(\r
-				diagram_id int,\r
-				name sysname,\r
-				value varbinary(max) NOT NULL\r
-			)\r
-		END\r
-		*/\r
-\r
-		IF OBJECT_ID(N'dbo.dtproperties') IS NOT NULL\r
-		begin\r
-			insert into dbo.sysdiagrams\r
-			(\r
-				[name],\r
-				[principal_id],\r
-				[version],\r
-				[definition]\r
-			)\r
-			select	 \r
-				convert(sysname, dgnm.[uvalue]),\r
-				DATABASE_PRINCIPAL_ID(N'dbo'),			-- will change to the sid of sa\r
-				0,							-- zero for old format, dgdef.[version],\r
-				dgdef.[lvalue]\r
-			from dbo.[dtproperties] dgnm\r
-				inner join dbo.[dtproperties] dggd on dggd.[property] = 'DtgSchemaGUID' and dggd.[objectid] = dgnm.[objectid]	\r
-				inner join dbo.[dtproperties] dgdef on dgdef.[property] = 'DtgSchemaDATA' and dgdef.[objectid] = dgnm.[objectid]\r
-				\r
-			where dgnm.[property] = 'DtgSchemaNAME' and dggd.[uvalue] like N'_EA3E6268-D998-11CE-9454-00AA00A3F36E_' \r
-			return 2;\r
-		end\r
-		return 1;\r
-	END\r
-	""" ;
-    ns1:ROUTINE_NAME "sp_upgraddiagrams" ;
-    ns1:ROUTINE_SCHEMA "dbo" ;
-    ns1:ROUTINE_TYPE "PROCEDURE" ;
-    ns1:SCHEMA_LEVEL_ROUTINE "YES" ;
-    ns1:SPECIFIC_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns1:SPECIFIC_NAME "sp_upgraddiagrams" ;
-    ns1:SPECIFIC_SCHEMA "dbo" ;
-    ns1:SQL_DATA_ACCESS "MODIFIES" ;
-    ns1:hasJsonObjectKey "12" ;
-    ns1:parentJsonId ns1:Ndbe63dbc452b4a38befcabcd78a5ac5d .
-
-ns1:Ndbe63dbc452b4a38befcabcd78a5ac5d a ns1:ArrayJson,
-        ns1:FileJson,
-        ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "ROUTINES.json" .
+    ns1:hasSourceFile "ROUTINES.json" .
 

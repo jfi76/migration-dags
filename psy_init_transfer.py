@@ -18,6 +18,9 @@ sys.path.append( './dags/migration/query/' )
 from migration.create_proc import create_proc
 from migration.get_proc_plans import mssql_to_postgres
 from migration.convert_json_to_ontology import  json_to_ontology
+import migration.query.runSparqlWrapper as sparql_service
+from migration.process_declare import process_declare
+
 #get t_* tables
 #select * from INFORMATION_SCHEMA.TABLES where substring(TABLE_NAME,1,2)='t_'
 @task()
@@ -57,6 +60,7 @@ def prepare_proc():
     conn = BaseHook.get_connection('postgres')
     engine = create_engine(f'postgresql://{conn.login}:{conn.password}@{conn.host}:{conn.port}/{conn.schema}')
     c=create_proc()
+    c.iterate_proc()
     ret=c.get_all_proc()
     for proc in ret:
         exec_str=''
@@ -66,8 +70,11 @@ def prepare_proc():
             exec_str=exec_str+'\n'+stmt['text']['value']
             print(stmt['text']['value'])
         if exec_str!='' :
-            print(exec_str)
-            engine.execute(exec_str)
+            try: 
+                print(exec_str)
+                engine.execute(exec_str)
+            except Exception as e:
+                print(e)    
 @task
 def get_proc_plan():    
     ms_to_pq=mssql_to_postgres(con_server=Variable.get('mssql_serv'), con_passw=Variable.get('mssql_pass'))
@@ -78,15 +85,27 @@ def convert_to_ontology():
     conv=json_to_ontology('./dags/json_data/')    
     conv.processJsonDir()
 
+@task 
+def run_insert_sparql():
+    data = open('./dags/sparql/insert.sparql').read()
+    service=sparql_service.runSparqlWrapper()
+    service.insert(data)
+
+@task
+def add_proc_declare():      
+    c=process_declare()
+    c.iterate_declare()      
+
 with DAG(dag_id="psy_etl_dag",schedule_interval="0 9 * * *", start_date=datetime(2022, 3, 5),catchup=False,  tags=["psy_init"]) as dag:
 
-    with TaskGroup("extract_psy_load", tooltip="Extract and load source data") as extract_load_src:
-        #src_product_tbls = get_src_tables()
-        #load_dimProducts = load_src_data(src_product_tbls)
-        #pg_prepare_proc= prepare_proc()
+    with TaskGroup("mssql_proc_to_pgsql", tooltip="ms procedure to pgsql procedure") as extract_load_src:
+        src_product_tbls = get_src_tables()
+        load_dimProducts = load_src_data(src_product_tbls)
+        pg_create_proc= prepare_proc()
         proc_plan=get_proc_plan()
         convert_json_to_rdf=convert_to_ontology()
+        run_initial_insert=run_insert_sparql()
+        procedure_declare=add_proc_declare()
         #define order
-        #src_product_tbls >> load_dimProducts >> pg_prepare_proc
-        proc_plan >> convert_json_to_rdf
+        src_product_tbls >> load_dimProducts >> proc_plan >> convert_json_to_rdf >> run_initial_insert >> procedure_declare >> pg_create_proc
     extract_load_src

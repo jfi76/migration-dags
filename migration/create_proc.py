@@ -14,13 +14,15 @@ class create_proc:
         self.queryService=sparql_service.runSparqlWrapper()
         self.ttl_serice=rdfTTLService()
         self.statementId =0
+        self.fileoutput='./dags/output/proc.ttl'
     def iterate_proc(self):
         self.set_statement_types()        
         self.get_all_proc()
         for proc in self.procedures:            
             self.statementId =0
             self.process_proc(proc)
-        self.ttl_serice.graph.serialize('./output/proc.ttl', 'turtle')
+        self.ttl_serice.graph.serialize(self.fileoutput, 'turtle')
+        self.queryService.load_ttl(self.fileoutput)
         return self.procedures
     
     def process_proc(self,proc):
@@ -85,5 +87,6 @@ as $$""", self.statementId , proc['iri'], self.statement_types_dict['CREATE LANG
 if __name__ == "__main__":
     print ('main')
     c=create_proc()
+    c.fileoutput='./output/proc.ttl'
     c.iterate_proc()
     #c.get_statements('mig:c4c649e1-834d-45c6-ac7f-03583b3494bd')

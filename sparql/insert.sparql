@@ -268,3 +268,6 @@ insert {?node mig:hasCondition ?iri} where
 #useful to drop reports
 #delete{  ?iri ?p ?o} where {?iri rdf:type report:buttonReport . ?iri ?p ?o};
 #delete {?iri report:hasDefaultQuery ?q} where {?iri report:hasDefaultQuery ?q};
+#delete{  ?iri ?p ?o} where {?iri rdf:type mig:pgprocedurevariable . ?iri ?p ?o};
+#delete{  ?iri ?p ?o} where {?iri rdf:type mig:msprocedurevarible . ?iri ?p ?o};
+

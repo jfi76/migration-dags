@@ -12,7 +12,7 @@ class process_declare:
         self.queryService=sparql_service.runSparqlWrapper()
         self.ttl_serice=rdfTTLService()
         self.variables=[]
-        self.filepath = './output/vars.ttl'
+        self.filepath = './dags/output/vars.ttl'
 
     def parse(self,sql,procIri,stmt_iri):
         stmts = sqlparse.parse(sql)[0]
@@ -31,16 +31,16 @@ class process_declare:
     def form_declare(self,stmts_tokens,subtoken,i,procIri,stmt_iri):
         name:str=''
         type:str=''
-        var_names=[]
-        for item in subtoken:                            
+        for item in subtoken:  
             if (str(item)[0]=="@"):
                 name=str(item)
                 if str(item)!=str(subtoken[-1]):
                     type=str(subtoken[-1])
                 else:
                     type=str(stmts_tokens[i+2])
-        if not name in var_names:
-            var_names.append(name)      
+        for var in self.variables:            
+            if var['procIri']==procIri and var['name']==name :return
+        if name !='' : 
             self.variables.append({"name":name,"type":type,"procIri":procIri,"stmt_iri":stmt_iri})
 
     def iterate_declare(self):

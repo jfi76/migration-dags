@@ -1,321 +1,21 @@
-@prefix ns1: <http://www.example.com/JSON#> .
-@prefix ns2: <http://www.example.com/ETL#> .
+@prefix ns1: <http://www.example.com/ETL#> .
+@prefix ns2: <http://www.example.com/JSON#> .
 @prefix ns3: <http://www.example.com/JSON#@> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
-ns1:N0a7a1c35108642c08a1a7066387c566a a ns1:ObjectJson,
+ns2:N04bcdf04953847e69768882b97b36a48 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:Column "Expr1006" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:Nccb2e610ef024025a45bd2094ec66571 .
-
-ns1:N0e2310921b9c422c809270490e325c1c a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:Alias "[ts]" ;
-    ns3:Column "VIEW_DATE" ;
-    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns3:Schema "[dbo]" ;
-    ns3:Table "[T_TESTING_STEP]" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:N972b2b8ff58541a290090c4c89c2c8e4 .
-
-ns1:N193467b5d08d455a9d329b4a33a219ac a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:Column "@t_testing_id" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:N22dc2fec04034c988cea64162a73fe04 .
-
-ns1:N196e6ad467d34bd2a51450cde695d097 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
+    ns1:hasSourceFile "time_remaining.json" ;
     ns3:Column "TIMELIMITMIN" ;
     ns3:Database "[PSYCHOLOGY_TEST_1]" ;
     ns3:Schema "[dbo]" ;
     ns3:Table "[T_TEST]" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:N2dd6adeb2d3549a296e096c0ed0da1a8 .
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:Nef1c9f5c4e7446ac9e1a686a04740801 .
 
-ns1:N1b63d043c36a4710a0abd9cdbac35994 a ns1:ObjectJson,
+ns2:N05ce9b24f77c41a49e89c389c88f5c72 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:Alias "[ts]" ;
-    ns3:Column "VIEW_DATE" ;
-    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns3:Schema "[dbo]" ;
-    ns3:Table "[T_TESTING_STEP]" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:Ne23528a7b30a44fb93b5c370ffbc5f92 .
-
-ns1:N22529685f387419b9061eaba7b6fbf19 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:GrantedMemory "0" ;
-    ns3:MaxUsedMemory "0" ;
-    ns3:SerialDesiredMemory "0" ;
-    ns3:SerialRequiredMemory "0" ;
-    ns1:hasJsonObjectKey "MemoryGrantInfo" ;
-    ns1:parentJsonId ns1:N1511af2dc8924a49b010d440f0395acb .
-
-ns1:N30dbd790f78640e1bfe6173599a5d960 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:Alias "[ts]" ;
-    ns3:Column "T_TESTING_ID" ;
-    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns3:Schema "[dbo]" ;
-    ns3:Table "[T_TESTING_STEP]" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:N565f64699e6f407887d038049679afeb .
-
-ns1:N3261ed7fb0c34477a47688d9b4432fd8 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:Column "@t_testing_id" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:N9923cf93cd4a4681926acaf627682dd9 .
-
-ns1:N33fb35bbfece446285a75037baef9705 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:EstimatedAvailableDegreeOfParallelism "2" ;
-    ns3:EstimatedAvailableMemoryGrant "311472" ;
-    ns3:EstimatedPagesCached "77868" ;
-    ns3:MaxCompileMemory "577848" ;
-    ns1:hasJsonObjectKey "OptimizerHardwareDependentProperties" ;
-    ns1:parentJsonId ns1:N1511af2dc8924a49b010d440f0395acb .
-
-ns1:N3864bc690b624343861f114adc1bd983 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:Alias "[tt]" ;
-    ns3:Column "T_TESTING_ID" ;
-    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns3:Schema "[dbo]" ;
-    ns3:Table "[T_TESTING_TEST]" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:Nc1e85a97d2d649b5af149a79c50bb2fb .
-
-ns1:N3b61bb2a579b4b28bb4f916239beca24 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:Alias "[s]" ;
-    ns3:Column "T_TEST_STEP_ID" ;
-    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns3:Schema "[dbo]" ;
-    ns3:Table "[T_TEST_STEP]" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:N9421d6c971f340138be8afa3dedb935a .
-
-ns1:N465f5664ad4c4d90a04bf91d49025f5e a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:ANSI_NULLS "true" ;
-    ns3:ANSI_PADDING "true" ;
-    ns3:ANSI_WARNINGS "true" ;
-    ns3:ARITHABORT "true" ;
-    ns3:CONCAT_NULL_YIELDS_NULL "true" ;
-    ns3:NUMERIC_ROUNDABORT "false" ;
-    ns3:QUOTED_IDENTIFIER "true" ;
-    ns1:hasJsonObjectKey "StatementSetOptions" ;
-    ns1:parentJsonId ns1:N03e126e70eac479b8b8a517ca40c6b0c .
-
-ns1:N5eb72968187046b29ff09b32c7bf824d a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:ANSI_NULLS "true" ;
-    ns3:ANSI_PADDING "true" ;
-    ns3:ANSI_WARNINGS "true" ;
-    ns3:ARITHABORT "true" ;
-    ns3:CONCAT_NULL_YIELDS_NULL "true" ;
-    ns3:NUMERIC_ROUNDABORT "false" ;
-    ns3:QUOTED_IDENTIFIER "true" ;
-    ns1:hasJsonObjectKey "StatementSetOptions" ;
-    ns1:parentJsonId ns1:Naa890c2a44184a5b8f95538babe0a0b5 .
-
-ns1:N61a35f893435493198b3bcd1a912fb3c a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:Alias "[ts]" ;
-    ns3:Column "T_TEST_STEP_ID" ;
-    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns3:Schema "[dbo]" ;
-    ns3:Table "[T_TESTING_STEP]" ;
-    ns1:hasJsonObjectKey "0" ;
-    ns1:parentJsonId ns1:N197e5d01673c48908fc997c88d78a461 .
-
-ns1:N62aed073f9d3423bbdc42a5707a88628 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:Column "@t_testing_id" ;
-    ns3:ParameterCompiledValue "{guid'E7FAB167-C47A-4865-A8AE-429FA778414C'}" ;
-    ns3:ParameterDataType "uniqueidentifier" ;
-    ns1:hasJsonObjectKey "0" ;
-    ns1:parentJsonId ns1:N07989632ac5c45e092f81a0136c881ab .
-
-ns1:N63b7c8d8f0ce46f0ac59cc977f665793 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:Alias "[s]" ;
-    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns3:Index "[PK_T_TEST_STEP]" ;
-    ns3:IndexKind "Clustered" ;
-    ns3:Schema "[dbo]" ;
-    ns3:Storage "RowStore" ;
-    ns3:Table "[T_TEST_STEP]" ;
-    ns1:hasJsonObjectKey "Object" ;
-    ns1:parentJsonId ns1:Na7f44f371fa1490cb2947149b9cda235 .
-
-ns1:N644ba342777e4a53909a278341992a8c a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:Alias "[tt]" ;
-    ns3:Column "T_TEST_ID" ;
-    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns3:Schema "[dbo]" ;
-    ns3:Table "[T_TESTING_TEST]" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:N3cc2a012fd424acc91476f57e6a25c88 .
-
-ns1:N650089831e37432a9417221608356c53 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:Column "TIMELIMITMIN" ;
-    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns3:Schema "[dbo]" ;
-    ns3:Table "[T_TEST]" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:Na81c4cec5279433d997cbb2f8bad667f .
-
-ns1:N6ade9ed45ff148989f075e95f13a62a7 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:Alias "[ts]" ;
-    ns3:Column "VIEW_DATE" ;
-    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns3:Schema "[dbo]" ;
-    ns3:Table "[T_TESTING_STEP]" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:N8240d60e4f38469a87f175432d7548c1 .
-
-ns1:N74e6d81a4e3d4b91932ed470f3d9445f a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:Column "@t_test_id" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:Nced40dd5f5714e6182f7dadb8bd8803a .
-
-ns1:N7742f5cf8be04e888620dd0c43146359 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:Alias "[ts]" ;
-    ns3:Column "VIEW_DATE" ;
-    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns3:Schema "[dbo]" ;
-    ns3:Table "[T_TESTING_STEP]" ;
-    ns1:hasJsonObjectKey "1" ;
-    ns1:parentJsonId ns1:N197e5d01673c48908fc997c88d78a461 .
-
-ns1:N77c66c996df2432ab2169cabb06edd21 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:ConstValue "(0)" ;
-    ns1:hasJsonObjectKey "Const" ;
-    ns1:parentJsonId ns1:N3c14af80260a4526af2617c0db3730f8 .
-
-ns1:N7a0da2b3a4ca492bac2ae8f084897c5b a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:Column "T_TEST_ID" ;
-    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns3:Schema "[dbo]" ;
-    ns3:Table "[T_TEST]" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:N349cbad913f8460f8190235dc3c5eeaf .
-
-ns1:N83abe032cfca41cbba58c251c4666327 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:Column "Expr1006" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:Nbf91bd90effd4e29b3a004de11387eca .
-
-ns1:N8478a048b21f4a248ad8cc5334419156 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:Column "Expr1004" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:N57c0adb8e3b24c7aade519a26a4c2db2 .
-
-ns1:N8843ef36d421412688f1510ebae7e4e6 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:Alias "[ts]" ;
-    ns3:Column "T_TEST_STEP_ID" ;
-    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns3:Schema "[dbo]" ;
-    ns3:Table "[T_TESTING_STEP]" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:N1d2e75c262044f98a969bd6d16a0c40d .
-
-ns1:N89928c64095d4912aed219e2b1f6e5ed a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:Alias "[ts]" ;
-    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns3:Index "[PK_T_TESTING_STEP]" ;
-    ns3:IndexKind "Clustered" ;
-    ns3:Schema "[dbo]" ;
-    ns3:Storage "RowStore" ;
-    ns3:Table "[T_TESTING_STEP]" ;
-    ns1:hasJsonObjectKey "Object" ;
-    ns1:parentJsonId ns1:N78c1f46155d74128b658f0b3c6c8c694 .
-
-ns1:N92c43be32b8641cd8bf62599f5b7717d a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:Alias "[ts]" ;
-    ns3:Column "T_TEST_STEP_ID" ;
-    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns3:Schema "[dbo]" ;
-    ns3:Table "[T_TESTING_STEP]" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:Na136a1d113454ca39b00186e4a9b3e01 .
-
-ns1:N92f3ad1014604da4bc86d826f825e7e4 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:Alias "[tt]" ;
-    ns3:Column "STOP_TIME_SEC" ;
-    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns3:Schema "[dbo]" ;
-    ns3:Table "[T_TESTING_TEST]" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:N377fda973e124d71a3eaf888a26145da .
-
-ns1:N936b6ddc6fa3445ca5b98967544a91aa a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:ColumnId "8" ;
-    ns3:Name "[VIEW_DATE]" ;
-    ns1:hasJsonObjectKey "1" ;
-    ns1:parentJsonId ns1:N75d674e192ac4eda8d0960dd5c5f7e7d .
-
-ns1:N97669c0b79434dcf8a40efcd7f400363 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:GrantedMemory "0" ;
-    ns3:MaxUsedMemory "0" ;
-    ns3:SerialDesiredMemory "0" ;
-    ns3:SerialRequiredMemory "0" ;
-    ns1:hasJsonObjectKey "MemoryGrantInfo" ;
-    ns1:parentJsonId ns1:N19b24dc8a2e549848926bfb95d114515 .
-
-ns1:Na2bf2ef1db1a4d0080e4ab7894a76152 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
+    ns1:hasSourceFile "time_remaining.json" ;
     ns3:RetrievedFromCache "false" ;
     ns3:StatementCompId "3" ;
     ns3:StatementId "2" ;
@@ -334,12 +34,250 @@ set @timelimitmin=0\r
 \r
 """ ;
     ns3:StatementType "ASSIGN" ;
-    ns1:hasJsonObjectKey "0" ;
-    ns1:parentJsonId ns1:Ne252477f708040519c8cbafb6dae87d7 .
+    ns2:hasJsonObjectKey "0" ;
+    ns2:parentJsonId ns2:N4ae6a56303bc4b22aa24bf45f3a32fc0 .
 
-ns1:Na6d35ad6eb064b0d8f3b04cff796a0cf a ns1:ObjectJson,
+ns2:N092f3641ca0f42f0b4dfc18f828a1daf a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:ColumnId "8" ;
+    ns3:Name "[VIEW_DATE]" ;
+    ns2:hasJsonObjectKey "1" ;
+    ns2:parentJsonId ns2:N77dd814f31064d16a27e660ca30d967e .
+
+ns2:N1134779178c54341a044496b33bf4dbf a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:Alias "[tt]" ;
+    ns3:Column "STOP_TIME_SEC" ;
+    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns3:Schema "[dbo]" ;
+    ns3:Table "[T_TESTING_TEST]" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:Ncb9da04154b34a16a8d5b7b6637ad0ba .
+
+ns2:N1b273ff0985049ca928dcfff57822a6a a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:Column "Expr1006" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:N3c9ffd4ab6fb43c78df547fc43c245f3 .
+
+ns2:N1d45d0cc7cdf4bebb6e09bfb91193222 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:Alias "[ts]" ;
+    ns3:Column "VIEW_DATE" ;
+    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns3:Schema "[dbo]" ;
+    ns3:Table "[T_TESTING_STEP]" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:N1cebbe19dc3e44839ed1625871674b8b .
+
+ns2:N21fa5e64245e4c7893c80fecd99e2019 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:Alias "[ts]" ;
+    ns3:Column "VIEW_DATE" ;
+    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns3:Schema "[dbo]" ;
+    ns3:Table "[T_TESTING_STEP]" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:Na129ce81515e4b479ac5be968a29d288 .
+
+ns2:N25ec1b3d60614134b64e1f041129b88e a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:Column "@t_testing_id" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:N676af18e7bd34b6b950276313c491370 .
+
+ns2:N32433159eff94cdba5d188badfe3e9ce a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:GrantedMemory "0" ;
+    ns3:MaxUsedMemory "0" ;
+    ns3:SerialDesiredMemory "0" ;
+    ns3:SerialRequiredMemory "0" ;
+    ns2:hasJsonObjectKey "MemoryGrantInfo" ;
+    ns2:parentJsonId ns2:Nc1866ad696de4e01a4176348b60ad2af .
+
+ns2:N3a20724cfac0410683bbfc584df0d49c a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:Column "Expr1004" ;
+    ns2:hasJsonObjectKey "1" ;
+    ns2:parentJsonId ns2:Na8eb959ce37c45a5b43f056618b541ec .
+
+ns2:N3c96828e32a6496fbb6012a98bd49945 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:Alias "[ts]" ;
+    ns3:Column "VIEW_DATE" ;
+    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns3:Schema "[dbo]" ;
+    ns3:Table "[T_TESTING_STEP]" ;
+    ns2:hasJsonObjectKey "1" ;
+    ns2:parentJsonId ns2:N516a8060175c4184aaa27887a4751c97 .
+
+ns2:N48d0a70f729c412fbc40b7ae7c14a885 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:Column "@t_test_id" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:Nc80fcb49e01e4a9b98b4415fbaa2d80b .
+
+ns2:N49e40fe9952e4f69adad33363a6f02de a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:Alias "[tt]" ;
+    ns3:Column "STOP_TIME_SEC" ;
+    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns3:Schema "[dbo]" ;
+    ns3:Table "[T_TESTING_TEST]" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:N1f8fcf562e4446fba0df8007f679595b .
+
+ns2:N4feba406099243b3ac29f92dd55fa049 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:Column "@t_test_id" ;
+    ns3:ParameterCompiledValue "{guid'E7FAB167-C47A-4865-A8AE-429FA778414C'}" ;
+    ns3:ParameterDataType "uniqueidentifier" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:N80bb5feb0121475184310e8ffe9bb235 .
+
+ns2:N54de6a3431bc4917862c44cfc862be92 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:Column "Expr1006" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:N87c89b1d552d47cba1be028aaf9ff283 .
+
+ns2:N55b745351d924dd8bb10ee0d846f9307 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:Alias "[ts]" ;
+    ns3:Column "VIEW_DATE" ;
+    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns3:Schema "[dbo]" ;
+    ns3:Table "[T_TESTING_STEP]" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:N27dcb71c889444f793e065d1f3f4c1a7 .
+
+ns2:N5bbcf715a523442eaa2e1d0f262bc93f a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:Alias "[tt]" ;
+    ns3:Column "STOP_TIME_SEC" ;
+    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns3:Schema "[dbo]" ;
+    ns3:Table "[T_TESTING_TEST]" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:N8a8d94018faf4add91b7777a5e5ec52b .
+
+ns2:N5bfbbb5de2ac4d7ead4fd1de1e93741f a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:ANSI_NULLS "true" ;
+    ns3:ANSI_PADDING "true" ;
+    ns3:ANSI_WARNINGS "true" ;
+    ns3:ARITHABORT "true" ;
+    ns3:CONCAT_NULL_YIELDS_NULL "true" ;
+    ns3:NUMERIC_ROUNDABORT "false" ;
+    ns3:QUOTED_IDENTIFIER "true" ;
+    ns2:hasJsonObjectKey "StatementSetOptions" ;
+    ns2:parentJsonId ns2:Ndd035910d43243059557057a68a4107f .
+
+ns2:N5e1025c5189045db91211389213b6d34 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:Column "Expr1002" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:Nf8ff37fa458047bdb414eff03d908f4e .
+
+ns2:N5f8270615c444e0d84e3ceeb24a40f0c a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:Column "Expr1004" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:Na0d606a7e22d41f58e1a109f96a9abfa .
+
+ns2:N72f25727cfcd4244a2a162481a8a5259 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:ColumnId "4" ;
+    ns3:Name "[T_TESTING_ID]" ;
+    ns2:hasJsonObjectKey "Column" ;
+    ns2:parentJsonId ns2:N41a3869663d94189b6ae5bf5d405b4a0 .
+
+ns2:N73311ead5123461b817b78df13ba70b0 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:FunctionName "getdate" ;
+    ns2:hasJsonObjectKey "Intrinsic" ;
+    ns2:parentJsonId ns2:N3221b73de7a84b48940fe6bdd1c02e04 .
+
+ns2:N7835fbd1835647c7a969a4d116abd236 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:Alias "[ts]" ;
+    ns3:Column "VIEW_DATE" ;
+    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns3:Schema "[dbo]" ;
+    ns3:Table "[T_TESTING_STEP]" ;
+    ns2:hasJsonObjectKey "0" ;
+    ns2:parentJsonId ns2:N0c0ae0eebbe64e2881016f28ee1fd6fb .
+
+ns2:N7c0b13f734bc4eaf92f450afb2d94e14 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:Column "@t_test_id" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:N07963debcb8f4fa2845a36b3955d9fe6 .
+
+ns2:N7dc63f95f5a44028a81632ac6555797d a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:Alias "[ts]" ;
+    ns3:Column "T_TEST_STEP_ID" ;
+    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns3:Schema "[dbo]" ;
+    ns3:Table "[T_TESTING_STEP]" ;
+    ns2:hasJsonObjectKey "0" ;
+    ns2:parentJsonId ns2:N516a8060175c4184aaa27887a4751c97 .
+
+ns2:N80a170b29ab54ae2970b1838ff3b5b03 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:Column "Expr1002" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:Ne9cf77aaab3d4a459dc5621a3ba86df7 .
+
+ns2:N830f183daf7748b9a8042e21b423195f a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:Alias "[ts]" ;
+    ns3:Column "T_TEST_STEP_ID" ;
+    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns3:Schema "[dbo]" ;
+    ns3:Table "[T_TESTING_STEP]" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:N63c9343881b94a148eb752423259ca3c .
+
+ns2:N8f4475089cf944e98f05b33f7c5ebb5c a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:EstimatedAvailableDegreeOfParallelism "2" ;
+    ns3:EstimatedAvailableMemoryGrant "311472" ;
+    ns3:EstimatedPagesCached "77868" ;
+    ns3:MaxCompileMemory "654312" ;
+    ns2:hasJsonObjectKey "OptimizerHardwareDependentProperties" ;
+    ns2:parentJsonId ns2:Nec48a27eece44efdb9eab262eec89e33 .
+
+ns2:N94c0ccf25b184a619ff36871c84dc03d a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
     ns3:Alias "[tt]" ;
     ns3:Database "[PSYCHOLOGY_TEST_1]" ;
     ns3:Index "[PK_T_TESTING_TEST]" ;
@@ -347,157 +285,247 @@ ns1:Na6d35ad6eb064b0d8f3b04cff796a0cf a ns1:ObjectJson,
     ns3:Schema "[dbo]" ;
     ns3:Storage "RowStore" ;
     ns3:Table "[T_TESTING_TEST]" ;
-    ns1:hasJsonObjectKey "Object" ;
-    ns1:parentJsonId ns1:N2db138db81c042bd95e67c4d5446aa48 .
+    ns2:hasJsonObjectKey "Object" ;
+    ns2:parentJsonId ns2:Nd24bcb333ada47af887c3e073280191e .
 
-ns1:Na9b8da3731274027a6acb5592603cbf5 a ns1:ObjectJson,
+ns2:N9713315762d74f85afd2654bd1b9e3e2 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:Column "Expr1003" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:Nc346e391a5944da0bcaaf7a4f3e91e4b .
+
+ns2:N9ab80bd01a9349b294add2c020a8e18f a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
     ns3:Alias "[tt]" ;
-    ns3:Column "STOP_TIME_SEC" ;
+    ns3:Column "T_TEST_ID" ;
     ns3:Database "[PSYCHOLOGY_TEST_1]" ;
     ns3:Schema "[dbo]" ;
     ns3:Table "[T_TESTING_TEST]" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:N8b09d212a6f7497b979e29bd67f1d64d .
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:N7530f24121704a82be553b0bcc698d74 .
 
-ns1:Naf2ad910494e426eb10e2ac808cad481 a ns1:ObjectJson,
+ns2:N9cbfb94ca5e542d7898e5b9e51a5fe57 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:Column "Expr1002" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:Nd5278ff36bc844c3a43a13e66ab65374 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:Column "T_TEST_ID" ;
+    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns3:Schema "[dbo]" ;
+    ns3:Table "[T_TEST]" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:Nfc530e3c966a4d2096c14ba2e257f6e3 .
 
-ns1:Nb214b75d35ca47a1ac963f84eadc44a5 a ns1:ObjectJson,
+ns2:N9e6c0242327f4a1dae2db3d2be3eba5e a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:Column "@t_test_id" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:N5e21c875278e417d9978a2e32a3df0c2 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:ConstValue "(0)" ;
+    ns2:hasJsonObjectKey "Const" ;
+    ns2:parentJsonId ns2:N4a8107c86e794a118c0d1aa8dbb2433e .
 
-ns1:Nb5de3b81a2f24e738b9fa3ca864e3215 a ns1:ObjectJson,
+ns2:Na0067d8b5ee14beda240e8bb4d4bc7fb a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:Column "Expr1003" ;
-    ns1:hasJsonObjectKey "0" ;
-    ns1:parentJsonId ns1:N5b340ccccc54407bb19c8660266fdbde .
-
-ns1:Nb779c6286d6a410092dae4dbf694d6e6 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
+    ns1:hasSourceFile "time_remaining.json" ;
     ns3:Alias "[ts]" ;
     ns3:Column "T_TEST_STEP_ID" ;
     ns3:Database "[PSYCHOLOGY_TEST_1]" ;
     ns3:Schema "[dbo]" ;
     ns3:Table "[T_TESTING_STEP]" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:Ne2f669238e3d4a91a72f5b95e8c6cf3a .
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:N5b5b07898d484c30b52ebdcd2cade2c3 .
 
-ns1:Nc5f4782164f14a1fb293b5813ba2e8e2 a ns1:ObjectJson,
+ns2:Na43e9066a535434cb10a729513259f59 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:Column "Expr1002" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:N80ddd35761da44f7ab6a1a0793e2f2bf .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns3:Index "[PK_T_TEST_1]" ;
+    ns3:IndexKind "Clustered" ;
+    ns3:Schema "[dbo]" ;
+    ns3:Storage "RowStore" ;
+    ns3:Table "[T_TEST]" ;
+    ns2:hasJsonObjectKey "Object" ;
+    ns2:parentJsonId ns2:N92fe0c833f9942c29e9ddf10ea758337 .
 
-ns1:Nca99858d1f4f4d9681f4c272e8ebaaa7 a ns1:ObjectJson,
+ns2:Nacd8e1630e9e43bfb5baee993cfc3179 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:Column "Expr1004" ;
-    ns1:hasJsonObjectKey "1" ;
-    ns1:parentJsonId ns1:N5b340ccccc54407bb19c8660266fdbde .
-
-ns1:Ncaaa3bddc4594a3b857d827165f5296f a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
+    ns1:hasSourceFile "time_remaining.json" ;
     ns3:ColumnId "6" ;
     ns3:Name "[T_TEST_STEP_ID]" ;
-    ns1:hasJsonObjectKey "0" ;
-    ns1:parentJsonId ns1:N75d674e192ac4eda8d0960dd5c5f7e7d .
+    ns2:hasJsonObjectKey "0" ;
+    ns2:parentJsonId ns2:N77dd814f31064d16a27e660ca30d967e .
 
-ns1:Ncaced0acf46343b29d61d0db0a4d6444 a ns1:ObjectJson,
+ns2:Naeb885a0b83942cb9a4271f8e390f8d3 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:Column "Expr1006" ;
-    ns1:hasJsonObjectKey "1" ;
-    ns1:parentJsonId ns1:N48e711ea3f2c4d98884d85225e9be4c9 .
-
-ns1:Nccf7129639fb4015b806312756fe4cb0 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:EstimatedAvailableDegreeOfParallelism "2" ;
-    ns3:EstimatedAvailableMemoryGrant "311472" ;
-    ns3:EstimatedPagesCached "77868" ;
-    ns3:MaxCompileMemory "577848" ;
-    ns1:hasJsonObjectKey "OptimizerHardwareDependentProperties" ;
-    ns1:parentJsonId ns1:N19b24dc8a2e549848926bfb95d114515 .
-
-ns1:Ncfd7232a6fd94827906ccb008b316545 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:Alias "[tt]" ;
-    ns3:Column "STOP_TIME_SEC" ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:Column "TIMELIMITMIN" ;
     ns3:Database "[PSYCHOLOGY_TEST_1]" ;
     ns3:Schema "[dbo]" ;
-    ns3:Table "[T_TESTING_TEST]" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:N4d299b2a971c44d4b5453661c77cf0b4 .
+    ns3:Table "[T_TEST]" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:N5ebe1e6f78b94ee4a8d8e80ae830d4eb .
 
-ns1:Nd682314e6d9f42e9a82ae21eae928df9 a ns1:ObjectJson,
+ns2:Nb7dee32c100a4c9f907fa37f86fb07d6 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:Column "Expr1003" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:N60a24be97dec4a31918ed40621b8feba .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:ANSI_NULLS "true" ;
+    ns3:ANSI_PADDING "true" ;
+    ns3:ANSI_WARNINGS "true" ;
+    ns3:ARITHABORT "true" ;
+    ns3:CONCAT_NULL_YIELDS_NULL "true" ;
+    ns3:NUMERIC_ROUNDABORT "false" ;
+    ns3:QUOTED_IDENTIFIER "true" ;
+    ns2:hasJsonObjectKey "StatementSetOptions" ;
+    ns2:parentJsonId ns2:N1edfc55665cc44c2aafe523a9c500a34 .
 
-ns1:Nd7ec3d6b1c4e4819ab2dbdcdf4cbfe5f a ns1:ObjectJson,
+ns2:Nb987d942982f46df92c8fe9a2175442a a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:Alias "[ts]" ;
-    ns3:Column "VIEW_DATE" ;
-    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns3:Schema "[dbo]" ;
-    ns3:Table "[T_TESTING_STEP]" ;
-    ns1:hasJsonObjectKey "0" ;
-    ns1:parentJsonId ns1:N48e711ea3f2c4d98884d85225e9be4c9 .
-
-ns1:Ne022e8baa39c41338677f9849bb5bf19 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:FunctionName "getdate" ;
-    ns1:hasJsonObjectKey "Intrinsic" ;
-    ns1:parentJsonId ns1:N8eac0eae12f64b28b22d54ee2ad25124 .
-
-ns1:Ne6041ca1d02a4553a54a582877acd841 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
+    ns1:hasSourceFile "time_remaining.json" ;
     ns3:Alias "[s]" ;
     ns3:Column "T_TEST_ID" ;
     ns3:Database "[PSYCHOLOGY_TEST_1]" ;
     ns3:Schema "[dbo]" ;
     ns3:Table "[T_TEST_STEP]" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:Nc7a256525d0f464788deb753e4a0df47 .
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:N463f0b9a7e6c47b2a0a8eaf3a8d142b0 .
 
-ns1:Ne60cb1377a304cbba0ada624c9a82d01 a ns1:ObjectJson,
+ns2:Nbe53236da97d4447a2e2c852b0d02cf1 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:ConstValue "(0)" ;
-    ns1:hasJsonObjectKey "Const" ;
-    ns1:parentJsonId ns1:Nd1c58c14d27c456aa66d21e733d8a079 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:Column "Expr1006" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:N4979d909cab544d9be9df5f73fd94550 .
 
-ns1:Ne7a12b35cae942a1be2a688fb21d4f98 a ns1:ObjectJson,
+ns2:Nc3b3e857eccd4be8885a516a0aabda10 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:Column "Expr1003" ;
+    ns2:hasJsonObjectKey "0" ;
+    ns2:parentJsonId ns2:Na8eb959ce37c45a5b43f056618b541ec .
+
+ns2:Nc44fa6a781e64c84a7932d1fd856dedb a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
     ns3:Column "@t_test_id" ;
     ns3:ParameterCompiledValue "{guid'E7FAB167-C47A-4865-A8AE-429FA778414C'}" ;
     ns3:ParameterDataType "uniqueidentifier" ;
-    ns1:hasJsonObjectKey "1" ;
-    ns1:parentJsonId ns1:N07989632ac5c45e092f81a0136c881ab .
+    ns2:hasJsonObjectKey "1" ;
+    ns2:parentJsonId ns2:N4f21a42b81fc4a21b9aff0b269f89d63 .
 
-ns1:Nedc39ad6990c42d3be505112420d6ccc a ns1:ObjectJson,
+ns2:Nc70fb2119f264140b666181d2aee4a4f a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:Alias "[ts]" ;
+    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns3:Index "[PK_T_TESTING_STEP]" ;
+    ns3:IndexKind "Clustered" ;
+    ns3:Schema "[dbo]" ;
+    ns3:Storage "RowStore" ;
+    ns3:Table "[T_TESTING_STEP]" ;
+    ns2:hasJsonObjectKey "Object" ;
+    ns2:parentJsonId ns2:Ne03fac03074c465fb4ebc66adbaa5138 .
+
+ns2:Ncc0520c968d24b848b250969b9e021f4 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:Alias "[tt]" ;
+    ns3:Column "T_TESTING_ID" ;
+    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns3:Schema "[dbo]" ;
+    ns3:Table "[T_TESTING_TEST]" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:N4b9668a27a644852a237525584878f58 .
+
+ns2:Ncc9c744ab80d4aca971119159b3d15c6 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:Alias "[s]" ;
+    ns3:Column "T_TEST_STEP_ID" ;
+    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns3:Schema "[dbo]" ;
+    ns3:Table "[T_TEST_STEP]" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:Nfc44f3be794443e78b23db240c978a42 .
+
+ns2:Nd011a9ff24fe4c5387b7279471c80662 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:GrantedMemory "0" ;
+    ns3:MaxUsedMemory "0" ;
+    ns3:SerialDesiredMemory "0" ;
+    ns3:SerialRequiredMemory "0" ;
+    ns2:hasJsonObjectKey "MemoryGrantInfo" ;
+    ns2:parentJsonId ns2:Nec48a27eece44efdb9eab262eec89e33 .
+
+ns2:Ne2699666844740299a0fcc0befdeafe0 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:EstimatedAvailableDegreeOfParallelism "2" ;
+    ns3:EstimatedAvailableMemoryGrant "311472" ;
+    ns3:EstimatedPagesCached "77868" ;
+    ns3:MaxCompileMemory "654312" ;
+    ns2:hasJsonObjectKey "OptimizerHardwareDependentProperties" ;
+    ns2:parentJsonId ns2:Nc1866ad696de4e01a4176348b60ad2af .
+
+ns2:Ne365e22747ad4e1cade1a80f1ec4b89a a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:Column "TIMELIMITMIN" ;
+    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns3:Schema "[dbo]" ;
+    ns3:Table "[T_TEST]" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:Nae469bef529d4b6f8d89a34243c30c2f .
+
+ns2:Ne70b564473a94b2592d84dfc32d88e73 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:Alias "[ts]" ;
+    ns3:Column "T_TESTING_ID" ;
+    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns3:Schema "[dbo]" ;
+    ns3:Table "[T_TESTING_STEP]" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:N175dc87dc9184f0fa332cd2e617ddba9 .
+
+ns2:Ne8e4a42ac9ba4333a7fd55dc4d4744ba a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:Alias "[s]" ;
+    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns3:Index "[PK_T_TEST_STEP]" ;
+    ns3:IndexKind "Clustered" ;
+    ns3:Schema "[dbo]" ;
+    ns3:Storage "RowStore" ;
+    ns3:Table "[T_TEST_STEP]" ;
+    ns2:hasJsonObjectKey "Object" ;
+    ns2:parentJsonId ns2:N28b471ff721d4031bf64099c833b70a5 .
+
+ns2:Neae4bd260c114a58b492561df5111c88 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:Column "@t_testing_id" ;
+    ns3:ParameterCompiledValue "{guid'E7FAB167-C47A-4865-A8AE-429FA778414C'}" ;
+    ns3:ParameterDataType "uniqueidentifier" ;
+    ns2:hasJsonObjectKey "0" ;
+    ns2:parentJsonId ns2:N4f21a42b81fc4a21b9aff0b269f89d63 .
+
+ns2:Neb0dcc4c8867481b890b0ec74a95b4e9 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:ConstValue "(0)" ;
+    ns2:hasJsonObjectKey "Const" ;
+    ns2:parentJsonId ns2:Nf7c8f7b37fe14f27836dd88e7e90ddcf .
+
+ns2:Nebe143e8584b48b4ad8805e1497182bd a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:Column "@t_test_id" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:N1ac6ff36b080439fb33c58fa99ec3b6f .
+
+ns2:Nf6f8746fadac4b1e9c3b6f64adf7e331 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
     ns3:RetrievedFromCache "false" ;
     ns3:StatementCompId "7" ;
     ns3:StatementId "6" ;
@@ -508,500 +536,431 @@ set @seconds_remain=datediff(second, getdate(), @start_time )- isnull(@STOP_TIME
 \r
 """ ;
     ns3:StatementType "ASSIGN" ;
-    ns1:hasJsonObjectKey "1" ;
-    ns1:parentJsonId ns1:Ne58a8fce41d642fdb53905a854a9a01f .
+    ns2:hasJsonObjectKey "1" ;
+    ns2:parentJsonId ns2:Nd6801e7bc0e746a08d3bd9484166b7bc .
 
-ns1:Nf4d3689d308b4391ae42f942c45d43ca a ns1:ObjectJson,
+ns2:Nf8bed5297c404466b193a2d74e7b78df a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns3:Index "[PK_T_TEST_1]" ;
-    ns3:IndexKind "Clustered" ;
-    ns3:Schema "[dbo]" ;
-    ns3:Storage "RowStore" ;
-    ns3:Table "[T_TEST]" ;
-    ns1:hasJsonObjectKey "Object" ;
-    ns1:parentJsonId ns1:Naa5a905ea79545ffa5eeb561d0edd26f .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:Column "@t_testing_id" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:N17e4c49365c34d729596583a5cbdb658 .
 
-ns1:Nf90088e4cf374dfc853ed353c9fd769a a ns1:ObjectJson,
+ns2:Nf9d8c1b1694f43a5bde00cda05108d33 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:Column "@t_test_id" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:N99a1a1f910cf4270ba2cab86bccc6cb0 .
-
-ns1:Nfa5f5ee16b934e6795cf4ec7b67e343c a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:Column "@t_test_id" ;
-    ns3:ParameterCompiledValue "{guid'E7FAB167-C47A-4865-A8AE-429FA778414C'}" ;
-    ns3:ParameterDataType "uniqueidentifier" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:N31b2acd6779e4675bde5602a772f472e .
-
-ns1:Nfb59fab9ce6842908278ec65d0f48616 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:Column "Expr1006" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:N1de6f7a792cb4e4cb61f1632e826694d .
-
-ns1:Nff2b13e942fc41f897b0cd62279f13e6 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:Column "TIMELIMITMIN" ;
-    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns3:Schema "[dbo]" ;
-    ns3:Table "[T_TEST]" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:Nd4e5673c1e814f3f9dcb1c0f0462687a .
-
-ns1:Nfff98ca9c8704b14b9441b79082fda3b a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:ColumnId "4" ;
-    ns3:Name "[T_TESTING_ID]" ;
-    ns1:hasJsonObjectKey "Column" ;
-    ns1:parentJsonId ns1:Nc63ee3fca96742ab8f98dadc9d0706bc .
-
-ns1:N06e466ab3c49448182daad43bcdf4be6 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:ScalarString "[PSYCHOLOGY_TEST_1].[dbo].[T_TEST_STEP].[T_TEST_ID] as [s].[T_TEST_ID]=[@t_test_id]" ;
-    ns1:hasJsonObjectKey "ScalarOperator" ;
-    ns1:parentJsonId ns1:N5bcaab50c22542a68638ce1251dc7c2e .
-
-ns1:N0967a3af218c4a9b96f5fef2333d4dca a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "1" ;
-    ns1:parentJsonId ns1:N72d76597d833438eac9e1e0bb419d82b .
-
-ns1:N097332b8432c44c695fd6419d9dc90de a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "1" ;
-    ns1:parentJsonId ns1:Nf4c758d6709840edae9ec69c61a63f36 .
-
-ns1:N0acada6210a14b73bad2de8aad36a68a a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:ScalarString "[PSYCHOLOGY_TEST_1].[dbo].[T_TESTING_STEP].[T_TEST_STEP_ID] as [ts].[T_TEST_STEP_ID]" ;
-    ns1:hasJsonObjectKey "ScalarOperator" ;
-    ns1:parentJsonId ns1:Nf819e7883668491dac67462894ee8ca1 .
-
-ns1:N0d0eaa3de40b4529a346b191fd3afb8e a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "Then" ;
-    ns1:parentJsonId ns1:Nd213933b62b7452e8ce6ddcfa271c4d1 .
-
-ns1:N0d67b19f678545eb98e9fde3f898576a a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "SeekPredicateNew" ;
-    ns1:parentJsonId ns1:N1696b9c6bb934ccf8ebd3e11f163bd37 .
-
-ns1:N110afde2ddec4fdd8c7837775b3fc712 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:Alias "[ts]" ;
+    ns3:Column "T_TEST_STEP_ID" ;
     ns3:Database "[PSYCHOLOGY_TEST_1]" ;
     ns3:Schema "[dbo]" ;
     ns3:Table "[T_TESTING_STEP]" ;
-    ns1:hasJsonObjectKey "MissingIndex" ;
-    ns1:parentJsonId ns1:N9610da5beec64715a9390c2347823f1a .
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:Ne70df576af714371a85be54dc5763615 .
 
-ns1:N14dd696ac7a54047b4132b81e4667423 a ns1:ObjectJson,
+ns2:Nfb55d336036945368f6cee63a5bbbcca a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:CompareOp "EQ" ;
-    ns1:hasJsonObjectKey "Compare" ;
-    ns1:parentJsonId ns1:Nd9e7bd3964964eaab864821ee4b71813 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:Column "Expr1006" ;
+    ns2:hasJsonObjectKey "1" ;
+    ns2:parentJsonId ns2:N0c0ae0eebbe64e2881016f28ee1fd6fb .
 
-ns1:N1696b9c6bb934ccf8ebd3e11f163bd37 a ns1:ObjectJson,
+ns2:N032a9a3ed2a34dbeb042c73b2d50748e a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "SeekPredicates" ;
-    ns1:parentJsonId ns1:Na7f44f371fa1490cb2947149b9cda235 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "1" ;
+    ns2:parentJsonId ns2:Nd2fa9e94b95c4349ab1c600af86106bd .
 
-ns1:N1d0bd3d25f30416db9410c022c5baa11 a ns1:ObjectJson,
+ns2:N07963debcb8f4fa2845a36b3955d9fe6 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "0" ;
-    ns1:parentJsonId ns1:N1ae78d711c754f3a8b515c5bd52d08ea .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "Identifier" ;
+    ns2:parentJsonId ns2:Nf0f386b15f254740b6c07e210e49f632 .
 
-ns1:N1d2e75c262044f98a969bd6d16a0c40d a ns1:ObjectJson,
+ns2:N09766ecfae5c4c5eacbeda456eaf1fcb a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "0" ;
-    ns1:parentJsonId ns1:N0f94240be8fe4023a38a95ec52182ef5 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:Build "16.0.1000.6" ;
+    ns3:Version "1.564" ;
+    ns3:xmlns "http://schemas.microsoft.com/sqlserver/2004/07/showplan" ;
+    ns2:hasJsonObjectKey "ShowPlanXML" ;
+    ns2:parentJsonId ns2:Nc953f34e872d4f89892f80b7ad494def .
 
-ns1:N1de6f7a792cb4e4cb61f1632e826694d a ns1:ObjectJson,
+ns2:N0c382e78215f4f72aa6b6b86ad4962ab a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "OutputList" ;
-    ns1:parentJsonId ns1:Nc37064c7113848559c4c3d9af8a5e71b .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "OutputList" ;
+    ns2:parentJsonId ns2:N4b34e9450c7e4bbd9dcb778fd728bda9 .
 
-ns1:N22b8834cdbfa42a39e3afe8e7b606bb7 a ns1:ObjectJson,
+ns2:N15636a2a8363437ba8b4d09a22412cf8 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "0" ;
-    ns1:parentJsonId ns1:Nf4c758d6709840edae9ec69c61a63f36 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:ScalarString "[PSYCHOLOGY_TEST_1].[dbo].[T_TESTING_STEP].[T_TEST_STEP_ID] as [ts].[T_TEST_STEP_ID]" ;
+    ns2:hasJsonObjectKey "ScalarOperator" ;
+    ns2:parentJsonId ns2:N68cda7e014784999b931bae8042f3718 .
 
-ns1:N22dc2fec04034c988cea64162a73fe04 a ns1:ObjectJson,
+ns2:N161a17392f4f4b3989c5060c0a70c3fa a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "Identifier" ;
-    ns1:parentJsonId ns1:N885791e405824450b7e76d7a21210d67 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "OutputList" ;
+    ns2:parentJsonId ns2:Nc2c1c621b9c940a48a9fe4aafcc742d9 .
 
-ns1:N22dd5a53c1ea4484b4f844b103a9c5c4 a ns1:ObjectJson,
+ns2:N175dc87dc9184f0fa332cd2e617ddba9 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "MissingIndexes" ;
-    ns1:parentJsonId ns1:N1511af2dc8924a49b010d440f0395acb .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "Identifier" ;
+    ns2:parentJsonId ns2:N38dd3d518475434c894b25934cafe9e9 .
 
-ns1:N25a361a4f0864df099603df1c2505f31 a ns1:ObjectJson,
+ns2:N17e4c49365c34d729596583a5cbdb658 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "ScalarOperator" ;
-    ns1:parentJsonId ns1:Nc2a37ff3f34541a6b7daed4dd07549bb .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "Identifier" ;
+    ns2:parentJsonId ns2:Nad11f51c84c44598a9441cfbd605a9ec .
 
-ns1:N29e4cbc74c8b496cb94cb089851be336 a ns1:ObjectJson,
+ns2:N1ac6ff36b080439fb33c58fa99ec3b6f a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "Identifier" ;
+    ns2:parentJsonId ns2:Ncbe144d2b96549c9acda3e9e0a4476c2 .
+
+ns2:N1cd6dfda36b741368173191c19ef5fa8 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
     ns3:FunctionName "isnull" ;
-    ns1:hasJsonObjectKey "Intrinsic" ;
-    ns1:parentJsonId ns1:N3b513e3da4bf4ababedc5d55219b3b38 .
+    ns2:hasJsonObjectKey "Intrinsic" ;
+    ns2:parentJsonId ns2:N72c14122a44a478eb08993ac2c7f9b02 .
 
-ns1:N2ae5e290375049a58fe1aa00f45a36a4 a ns1:ObjectJson,
+ns2:N1cebbe19dc3e44839ed1625871674b8b a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "OutputList" ;
-    ns1:parentJsonId ns1:Ne0af5e2e36b44814a54c27862f3b9841 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "1" ;
+    ns2:parentJsonId ns2:N9a6caadb3a434745b0a2a5338c00af4d .
 
-ns1:N2d284033432542e0bc89d13a2cb6f4e1 a ns1:ObjectJson,
+ns2:N1f8fcf562e4446fba0df8007f679595b a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:Column "ConstExpr1005" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:Nc78898539fa34a74a4ae3158d02af296 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "DefinedValue" ;
+    ns2:parentJsonId ns2:N5739dfd2c734498489525ff94a27fcd4 .
 
-ns1:N2dd6adeb2d3549a296e096c0ed0da1a8 a ns1:ObjectJson,
+ns2:N1fbd07e38063426a873de611017ddb7b a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "OutputList" ;
-    ns1:parentJsonId ns1:Nf85f560c098c4566a9f0d8108d6d01c9 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "SeekPredicates" ;
+    ns2:parentJsonId ns2:N28b471ff721d4031bf64099c833b70a5 .
 
-ns1:N2f587943c6074b3086416a5a53aaf1c1 a ns1:ObjectJson,
+ns2:N27dcb71c889444f793e065d1f3f4c1a7 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "0" ;
-    ns1:parentJsonId ns1:Ned8667bf3b48434c9c44a6e67c5e4f9d .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "Identifier" ;
+    ns2:parentJsonId ns2:N6c32c4dd12b840fdb6c2333f12dac205 .
 
-ns1:N2fd1020d1eab4ea380878bc733e7baa6 a ns1:ObjectJson,
+ns2:N3221b73de7a84b48940fe6bdd1c02e04 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "Statements" ;
-    ns1:parentJsonId ns1:N0d0eaa3de40b4529a346b191fd3afb8e .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "ScalarOperator" ;
+    ns2:parentJsonId ns2:N79740cbfee1f46a690b4b860c141908f .
 
-ns1:N31b2acd6779e4675bde5602a772f472e a ns1:ObjectJson,
+ns2:N322831f750f74b90ade04bddceef931a a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "ParameterList" ;
-    ns1:parentJsonId ns1:N19b24dc8a2e549848926bfb95d114515 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "Identifier" ;
+    ns2:parentJsonId ns2:N032a9a3ed2a34dbeb042c73b2d50748e .
 
-ns1:N349cbad913f8460f8190235dc3c5eeaf a ns1:ObjectJson,
+ns2:N367bddfc1147434dac0459b138b45dfd a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "RangeColumns" ;
-    ns1:parentJsonId ns1:Nd60313c9d35d4386a30b731f22d42eb4 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "1" ;
+    ns2:parentJsonId ns2:Nacaade9bec964bd38243e665864bc602 .
 
-ns1:N362e9b5327c04617b69fd3368fd1b33d a ns1:ObjectJson,
+ns2:N3797a1fa04d44844bc28956f6fc5de5b a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "BatchSequence" ;
-    ns1:parentJsonId ns1:Nc7ed7ea54b6444e78f0e6939c770a5d0 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "SeekKeys" ;
+    ns2:parentJsonId ns2:N84abe18902264257aa268f05ec60953a .
 
-ns1:N36942fa808624cb784d45002f021ccbf a ns1:ObjectJson,
+ns2:N38dd3d518475434c894b25934cafe9e9 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "1" ;
-    ns1:parentJsonId ns1:Ncebe50e5010b4298b6629fdfb8ff8821 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "0" ;
+    ns2:parentJsonId ns2:N41e973001614400492af5152cbe15d87 .
 
-ns1:N377fda973e124d71a3eaf888a26145da a ns1:ObjectJson,
+ns2:N3b87063ad35d4a95b52e841ed55b57bb a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "DefinedValue" ;
-    ns1:parentJsonId ns1:Nb412cf4a25de4dcb8e7457e7410f3f88 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "0" ;
+    ns2:parentJsonId ns2:Nde976069597244daa046741221a107f2 .
 
-ns1:N38a332647abe449da4fd89178f7abf5e a ns1:ObjectJson,
+ns2:N3c0e6fcf509e40a5bb91bb8516a1a5ab a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "SeekPredicates" ;
-    ns1:parentJsonId ns1:Naa5a905ea79545ffa5eeb561d0edd26f .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:Usage "INCLUDE" ;
+    ns2:hasJsonObjectKey "1" ;
+    ns2:parentJsonId ns2:Nbb6f47e4de8045c2b2c77f23d128a823 .
 
-ns1:N3b513e3da4bf4ababedc5d55219b3b38 a ns1:ObjectJson,
+ns2:N41a3869663d94189b6ae5bf5d405b4a0 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:Usage "EQUALITY" ;
+    ns2:hasJsonObjectKey "0" ;
+    ns2:parentJsonId ns2:Nbb6f47e4de8045c2b2c77f23d128a823 .
+
+ns2:N4212c7945d834ddf9d8cb15d37c72789 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "1" ;
+    ns2:parentJsonId ns2:N2630c4c0bca9431dba0a7d1fa50d61af .
+
+ns2:N42eddf94c6e746ae9b2856f4e0fa454e a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
     ns3:ScalarString "isnull([PSYCHOLOGY_TEST_1].[dbo].[T_TESTING_TEST].[STOP_TIME_SEC] as [tt].[STOP_TIME_SEC],(0))" ;
-    ns1:hasJsonObjectKey "ScalarOperator" ;
-    ns1:parentJsonId ns1:Nccb2e610ef024025a45bd2094ec66571 .
+    ns2:hasJsonObjectKey "ScalarOperator" ;
+    ns2:parentJsonId ns2:N3c9ffd4ab6fb43c78df547fc43c245f3 .
 
-ns1:N3c14af80260a4526af2617c0db3730f8 a ns1:ObjectJson,
+ns2:N4348d54daa12445785348cc7c23b524a a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "1" ;
-    ns1:parentJsonId ns1:N7d237c23709347d4872ec0a063f71fab .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "SeekPredicates" ;
+    ns2:parentJsonId ns2:N92fe0c833f9942c29e9ddf10ea758337 .
 
-ns1:N3cc2a012fd424acc91476f57e6a25c88 a ns1:ObjectJson,
+ns2:N463f0b9a7e6c47b2a0a8eaf3a8d142b0 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "Identifier" ;
-    ns1:parentJsonId ns1:N471ef9bf50b549a9bc3474f97fbda4c1 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "Identifier" ;
+    ns2:parentJsonId ns2:N3b87063ad35d4a95b52e841ed55b57bb .
 
-ns1:N42112d55929c4e5fb0f9d6f301038465 a ns1:ObjectJson,
+ns2:N4736cb053ef24111ad88a1ffde41481a a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "1" ;
-    ns1:parentJsonId ns1:N7e24418bc01b483b95182a6a369e8425 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "OutputList" ;
+    ns2:parentJsonId ns2:N61d7430ad8dd48af8da0c3bf9520e2a7 .
 
-ns1:N4541b0d2f68a4051809f76424f53a565 a ns1:ObjectJson,
+ns2:N4979d909cab544d9be9df5f73fd94550 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "DefinedValues" ;
-    ns1:parentJsonId ns1:Naa5a905ea79545ffa5eeb561d0edd26f .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "Identifier" ;
+    ns2:parentJsonId ns2:Nd523c70402614592a45028942b53c6f6 .
 
-ns1:N4559d54e5f9d4f2490368760471584df a ns1:ObjectJson,
+ns2:N4a00920e19784aeca059834d5d1704d4 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:Optimized "0" ;
-    ns1:hasJsonObjectKey "NestedLoops" ;
-    ns1:parentJsonId ns1:Ne4e2d91cc9da4416ab1aa5bf519607cf .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "Predicate" ;
+    ns2:parentJsonId ns2:Nd24bcb333ada47af887c3e073280191e .
 
-ns1:N471ef9bf50b549a9bc3474f97fbda4c1 a ns1:ObjectJson,
+ns2:N4a8107c86e794a118c0d1aa8dbb2433e a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "0" ;
-    ns1:parentJsonId ns1:N7e24418bc01b483b95182a6a369e8425 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "1" ;
+    ns2:parentJsonId ns2:N79b544b7e476481cbacf90d44a9891a7 .
 
-ns1:N491196d782f146f29c66511eb22ae220 a ns1:ObjectJson,
+ns2:N4b10cf819d604175a642de4ba957bbd8 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "DefinedValues" ;
+    ns2:parentJsonId ns2:Ne03fac03074c465fb4ebc66adbaa5138 .
+
+ns2:N4b9668a27a644852a237525584878f58 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "Identifier" ;
+    ns2:parentJsonId ns2:N88f53b42e1d04cf19fbbe4be375ca6f6 .
+
+ns2:N4c864d8dc545425ab56d8d55513cd795 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:FunctionName "isnull" ;
+    ns2:hasJsonObjectKey "Intrinsic" ;
+    ns2:parentJsonId ns2:N42eddf94c6e746ae9b2856f4e0fa454e .
+
+ns2:N507cf905e63742e792310359690e2c71 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "DefinedValues" ;
+    ns2:parentJsonId ns2:N9d61f359ab5843e08ea627da09a428e9 .
+
+ns2:N51c91c6f8fef47589de4f35e3079dced a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "Batch" ;
+    ns2:parentJsonId ns2:N5806a72636494facb3f8eabf93692de9 .
+
+ns2:N54d66b35150c4093928055724e208ba0 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "DefinedValues" ;
+    ns2:parentJsonId ns2:N92fe0c833f9942c29e9ddf10ea758337 .
+
+ns2:N5739dfd2c734498489525ff94a27fcd4 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "DefinedValues" ;
+    ns2:parentJsonId ns2:Nd24bcb333ada47af887c3e073280191e .
+
+ns2:N5806a72636494facb3f8eabf93692de9 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "BatchSequence" ;
+    ns2:parentJsonId ns2:N09766ecfae5c4c5eacbeda456eaf1fcb .
+
+ns2:N580f95802f194c10ab12f8410eb7e569 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:Operation "AND" ;
+    ns2:hasJsonObjectKey "Logical" ;
+    ns2:parentJsonId ns2:N91a4b55c9e4c478ca73a8539e6338297 .
+
+ns2:N5b580f1ceb214e27b7acfcb18e35c869 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:ScalarString "[@t_test_id]" ;
+    ns2:hasJsonObjectKey "ScalarOperator" ;
+    ns2:parentJsonId ns2:N89525fd61df94602a4e7ae57fcf275c6 .
+
+ns2:N5b5b07898d484c30b52ebdcd2cade2c3 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "0" ;
+    ns2:parentJsonId ns2:N9a6caadb3a434745b0a2a5338c00af4d .
+
+ns2:N5ebe1e6f78b94ee4a8d8e80ae830d4eb a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "OutputList" ;
+    ns2:parentJsonId ns2:Nc386a42ef65d477c8e5322053f2c0cbb .
+
+ns2:N5f9860a813af4549ac5461b2af32ca3f a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "Then" ;
+    ns2:parentJsonId ns2:Nd477e94766e54e1ea8189ee243274fa8 .
+
+ns2:N63c9343881b94a148eb752423259ca3c a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "Identifier" ;
+    ns2:parentJsonId ns2:N15636a2a8363437ba8b4d09a22412cf8 .
+
+ns2:N676af18e7bd34b6b950276313c491370 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "Identifier" ;
+    ns2:parentJsonId ns2:N4212c7945d834ddf9d8cb15d37c72789 .
+
+ns2:N68cda7e014784999b931bae8042f3718 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "RangeExpressions" ;
+    ns2:parentJsonId ns2:N7ac73729e7234d15a8c8bf7d1c50e7fa .
+
+ns2:N6c32c4dd12b840fdb6c2333f12dac205 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "0" ;
+    ns2:parentJsonId ns2:Nd2fa9e94b95c4349ab1c600af86106bd .
+
+ns2:N72c14122a44a478eb08993ac2c7f9b02 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:ScalarString "isnull([PSYCHOLOGY_TEST_1].[dbo].[T_TEST].[TIMELIMITMIN],(0))" ;
+    ns2:hasJsonObjectKey "ScalarOperator" ;
+    ns2:parentJsonId ns2:Ne9cf77aaab3d4a459dc5621a3ba86df7 .
+
+ns2:N7530f24121704a82be553b0bcc698d74 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "Identifier" ;
+    ns2:parentJsonId ns2:N9a6f4da285654cccb5846fbca59ed7c8 .
+
+ns2:N76069bccf1da43bd9c3f48447c91f110 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:AggType "MIN" ;
+    ns3:Distinct "0" ;
+    ns2:hasJsonObjectKey "Aggregate" ;
+    ns2:parentJsonId ns2:Nb426aad324a44bec98436f8f86ee45df .
+
+ns2:N79740cbfee1f46a690b4b860c141908f a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:Column "ConstExpr1005" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:N322831f750f74b90ade04bddceef931a .
+
+ns2:N7aae7d6ce4cc481ea42ed82cd6993c42 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:CompareOp "EQ" ;
+    ns2:hasJsonObjectKey "Compare" ;
+    ns2:parentJsonId ns2:N84e84b35574f49128cd62363a93a3442 .
+
+ns2:N7bdb9518b89c411c97d52d2fb44c715e a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "MissingIndexes" ;
+    ns2:parentJsonId ns2:Nc1866ad696de4e01a4176348b60ad2af .
+
+ns2:N80bb5feb0121475184310e8ffe9bb235 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "ParameterList" ;
+    ns2:parentJsonId ns2:Nec48a27eece44efdb9eab262eec89e33 .
+
+ns2:N81ace3fba931455591b31c2305409918 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:ScalarString "[PSYCHOLOGY_TEST_1].[dbo].[T_TESTING_STEP].[T_TESTING_ID] as [ts].[T_TESTING_ID]=[@t_testing_id]" ;
+    ns2:hasJsonObjectKey "ScalarOperator" ;
+    ns2:parentJsonId ns2:Nf91b82d5d5254e5bbd0bddb8f0f5d22e .
+
+ns2:N84abe18902264257aa268f05ec60953a a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "SeekPredicateNew" ;
+    ns2:parentJsonId ns2:N1fbd07e38063426a873de611017ddb7b .
+
+ns2:N84e84b35574f49128cd62363a93a3442 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "0" ;
+    ns2:parentJsonId ns2:Nacaade9bec964bd38243e665864bc602 .
+
+ns2:N87c89b1d552d47cba1be028aaf9ff283 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "OutputList" ;
+    ns2:parentJsonId ns2:Nef3681a06739489381943d27db337b40 .
+
+ns2:N88f53b42e1d04cf19fbbe4be375ca6f6 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "0" ;
+    ns2:parentJsonId ns2:N2630c4c0bca9431dba0a7d1fa50d61af .
+
+ns2:N89525fd61df94602a4e7ae57fcf275c6 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "RangeExpressions" ;
+    ns2:parentJsonId ns2:Neb74783d893a4c979700435aa66045b8 .
+
+ns2:N8973e62e0a87464cbf691dbdc60afa76 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
     ns3:RetrievedFromCache "false" ;
     ns3:StatementCompId "1" ;
     ns3:StatementId "1" ;
     ns3:StatementText "exec time_remaining  'E7FAB167-C47A-4865-A8AE-429FA778414C', 'E7FAB167-C47A-4865-A8AE-429FA778414C', 1" ;
     ns3:StatementType "EXECUTE PROC" ;
-    ns1:hasJsonObjectKey "StmtSimple" ;
-    ns1:parentJsonId ns1:N8c3e3e4635c94ab2b6b4706a10caaacf .
+    ns2:hasJsonObjectKey "StmtSimple" ;
+    ns2:parentJsonId ns2:Na3cac476342a4beab2e65487041d15da .
 
-ns1:N4a40c1e07ecd4d7f83080fd1d2f1db14 a ns1:ObjectJson,
+ns2:N8a8d94018faf4add91b7777a5e5ec52b a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "Predicate" ;
-    ns1:parentJsonId ns1:N78c1f46155d74128b658f0b3c6c8c694 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "Identifier" ;
+    ns2:parentJsonId ns2:Nc9ee88ea41574734a69fb532b2ed0ad0 .
 
-ns1:N4d299b2a971c44d4b5453661c77cf0b4 a ns1:ObjectJson,
+ns2:N8d1c34ea3bea4d10abc5983421074c9a a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "OutputList" ;
-    ns1:parentJsonId ns1:N1eaa6b97e21e43c6a497573917971eab .
-
-ns1:N4dbdc3c1086c42b995814f37a5ff8747 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:CompareOp "EQ" ;
-    ns1:hasJsonObjectKey "Compare" ;
-    ns1:parentJsonId ns1:Nd7096c5e0d784e5ba68cb6f420e7a823 .
-
-ns1:N4feabc3190324af0a2d338434fc7430c a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "SeekKeys" ;
-    ns1:parentJsonId ns1:N8201a71e0a8c493dbfdf31d1c5cc878f .
-
-ns1:N521d300d1b2c4dd28adcbce6cc420d9a a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "Batch" ;
-    ns1:parentJsonId ns1:N362e9b5327c04617b69fd3368fd1b33d .
-
-ns1:N565f64699e6f407887d038049679afeb a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "Identifier" ;
-    ns1:parentJsonId ns1:Nc6f5081d400544979bbdb7219392e49d .
-
-ns1:N56b2b92736004410aa02da0babdd17c2 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "ParameterList" ;
-    ns1:parentJsonId ns1:N1511af2dc8924a49b010d440f0395acb .
-
-ns1:N56f1e10a53c04a209b81468ff4a9cd2b a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:Usage "INCLUDE" ;
-    ns1:hasJsonObjectKey "1" ;
-    ns1:parentJsonId ns1:Nb01810931009430795a11f67ecf59c94 .
-
-ns1:N5bcaab50c22542a68638ce1251dc7c2e a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "Predicate" ;
-    ns1:parentJsonId ns1:Na7f44f371fa1490cb2947149b9cda235 .
-
-ns1:N5e21c875278e417d9978a2e32a3df0c2 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "Identifier" ;
-    ns1:parentJsonId ns1:N36942fa808624cb784d45002f021ccbf .
-
-ns1:N612514d7baa2430a9f7acf1949f67875 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:CompareOp "EQ" ;
-    ns1:hasJsonObjectKey "Compare" ;
-    ns1:parentJsonId ns1:N0967a3af218c4a9b96f5fef2333d4dca .
-
-ns1:N640247b05d2449e19a10862c43511449 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "DefinedValues" ;
-    ns1:parentJsonId ns1:Nd83a7f60f17543399e9705d0c9a7321a .
-
-ns1:N66dc09c5d2ac484693959e25c9851dbb a ns1:FileJson,
-        ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" .
-
-ns1:N7ece30e2173a46c7b2002ae624b0fdd3 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:ScalarString "[@t_test_id]" ;
-    ns1:hasJsonObjectKey "ScalarOperator" ;
-    ns1:parentJsonId ns1:Nf5fa3f13ac5844a9acafbef3a85fae1a .
-
-ns1:N8064f1be88e54947829aed9aca05e821 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "1" ;
-    ns1:parentJsonId ns1:Nc7c470021eea4d24ac244556ca4591f1 .
-
-ns1:N80ddd35761da44f7ab6a1a0793e2f2bf a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "OutputList" ;
-    ns1:parentJsonId ns1:Nf2abe3b945244da3b724a6d109592d2b .
-
-ns1:N8201a71e0a8c493dbfdf31d1c5cc878f a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "SeekPredicateNew" ;
-    ns1:parentJsonId ns1:N38a332647abe449da4fd89178f7abf5e .
-
-ns1:N8240d60e4f38469a87f175432d7548c1 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "OutputList" ;
-    ns1:parentJsonId ns1:Nda9f14b9c9be45adbc255397b895bac3 .
-
-ns1:N8845fb957ab74be78e95c38f590acde6 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:FunctionName "isnull" ;
-    ns1:hasJsonObjectKey "Intrinsic" ;
-    ns1:parentJsonId ns1:N8afac9f6d59047c7beb508a6ffc0ecfe .
-
-ns1:N885791e405824450b7e76d7a21210d67 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "1" ;
-    ns1:parentJsonId ns1:Ned8667bf3b48434c9c44a6e67c5e4f9d .
-
-ns1:N8afac9f6d59047c7beb508a6ffc0ecfe a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "ScalarOperator" ;
-    ns1:parentJsonId ns1:Ne156d4ea03a4424898c2a65a2faf723f .
-
-ns1:N8b09d212a6f7497b979e29bd67f1d64d a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "Identifier" ;
-    ns1:parentJsonId ns1:N1d0bd3d25f30416db9410c022c5baa11 .
-
-ns1:N8c3e3e4635c94ab2b6b4706a10caaacf a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "Statements" ;
-    ns1:parentJsonId ns1:N521d300d1b2c4dd28adcbce6cc420d9a .
-
-ns1:N8c6b065ccf3c4e948ee113d3bf895a2c a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:Operation "AND" ;
-    ns1:hasJsonObjectKey "Logical" ;
-    ns1:parentJsonId ns1:Nd987b4cbceb3400ba2b3e090669651fe .
-
-ns1:N8eac0eae12f64b28b22d54ee2ad25124 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "ScalarOperator" ;
-    ns1:parentJsonId ns1:N2d284033432542e0bc89d13a2cb6f4e1 .
-
-ns1:N9188a494cb48464baf78c35eef09e8c5 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "Predicate" ;
-    ns1:parentJsonId ns1:N2db138db81c042bd95e67c4d5446aa48 .
-
-ns1:N9421d6c971f340138be8afa3dedb935a a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "RangeColumns" ;
-    ns1:parentJsonId ns1:N05a8fb4771d1403085f6b9fa1027d9d4 .
-
-ns1:N9610da5beec64715a9390c2347823f1a a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:Impact "95.6599" ;
-    ns1:hasJsonObjectKey "MissingIndexGroup" ;
-    ns1:parentJsonId ns1:N22dd5a53c1ea4484b4f844b103a9c5c4 .
-
-ns1:N972b2b8ff58541a290090c4c89c2c8e4 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "1" ;
-    ns1:parentJsonId ns1:N0f94240be8fe4023a38a95ec52182ef5 .
-
-ns1:N9812cb97abd4491eb1eef21e9f498c57 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "DefinedValues" ;
-    ns1:parentJsonId ns1:Nca146b304c664087ae232c3bdcece623 .
-
-ns1:N9923cf93cd4a4681926acaf627682dd9 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "Identifier" ;
-    ns1:parentJsonId ns1:N8064f1be88e54947829aed9aca05e821 .
-
-ns1:N99a1a1f910cf4270ba2cab86bccc6cb0 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "Identifier" ;
-    ns1:parentJsonId ns1:N42112d55929c4e5fb0f9d6f301038465 .
-
-ns1:Na136a1d113454ca39b00186e4a9b3e01 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "OuterReferences" ;
-    ns1:parentJsonId ns1:N67a617ee32e647e4ad9a23d7d7e18e8a .
-
-ns1:Na7e6bc8fc88a49db8368744afa96a253 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
+    ns1:hasSourceFile "time_remaining.json" ;
     ns3:AvgRowSize "23" ;
     ns3:EstimateCPU "0.0001581" ;
     ns3:EstimateIO "0.003125" ;
@@ -1016,117 +975,147 @@ ns1:Na7e6bc8fc88a49db8368744afa96a253 a ns1:ObjectJson,
     ns3:Parallel "0" ;
     ns3:PhysicalOp "Clustered Index Seek" ;
     ns3:TableCardinality "940" ;
-    ns1:OutputList "None" ;
-    ns1:hasJsonObjectKey "1" ;
-    ns1:parentJsonId ns1:Na5ffd6b4e9d2480fb70df59255bb9259 .
+    ns2:OutputList "None" ;
+    ns2:hasJsonObjectKey "1" ;
+    ns2:parentJsonId ns2:Nb9dc9db6dc044e9fa4e3ed954f833f65 .
 
-ns1:Na81c4cec5279433d997cbb2f8bad667f a ns1:ObjectJson,
+ns2:N8de3a662b75b484fb246f131aa33d77b a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "Identifier" ;
-    ns1:parentJsonId ns1:Nde6c92e169fe43f8a3499020e28c9cc2 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:ScalarString "[PSYCHOLOGY_TEST_1].[dbo].[T_TEST_STEP].[T_TEST_ID] as [s].[T_TEST_ID]=[@t_test_id]" ;
+    ns2:hasJsonObjectKey "ScalarOperator" ;
+    ns2:parentJsonId ns2:Neb5841413d914e76bd78a66f2313c5a5 .
 
-ns1:Naecb960ebb444eb5ad06e941faa18dd9 a ns1:ObjectJson,
+ns2:N91a4b55c9e4c478ca73a8539e6338297 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:ProcName "time_remaining" ;
-    ns1:hasJsonObjectKey "StoredProc" ;
-    ns1:parentJsonId ns1:N491196d782f146f29c66511eb22ae220 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:ScalarString "[PSYCHOLOGY_TEST_1].[dbo].[T_TESTING_TEST].[T_TEST_ID] as [tt].[T_TEST_ID]=[@t_test_id] AND [PSYCHOLOGY_TEST_1].[dbo].[T_TESTING_TEST].[T_TESTING_ID] as [tt].[T_TESTING_ID]=[@t_testing_id]" ;
+    ns2:hasJsonObjectKey "ScalarOperator" ;
+    ns2:parentJsonId ns2:N4a00920e19784aeca059834d5d1704d4 .
 
-ns1:Nb412cf4a25de4dcb8e7457e7410f3f88 a ns1:ObjectJson,
+ns2:N96a977400a0d4e6eaa7a213716ee22b3 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "DefinedValues" ;
-    ns1:parentJsonId ns1:N2db138db81c042bd95e67c4d5446aa48 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "DefinedValues" ;
+    ns2:parentJsonId ns2:Nf22def15f7c04f3aacbce1868f555952 .
 
-ns1:Nbc1a3be1ecd94a21ab97dc3675c5518d a ns1:ObjectJson,
+ns2:N97695b8598b5442c93be92394a686c07 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "OutputList" ;
-    ns1:parentJsonId ns1:N5abc5b9791964299852f7b907e4089b8 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns3:Schema "[dbo]" ;
+    ns3:Table "[T_TESTING_STEP]" ;
+    ns2:hasJsonObjectKey "MissingIndex" ;
+    ns2:parentJsonId ns2:Naa5876c0017945c1a42f6af598fd46fc .
 
-ns1:Nbf91bd90effd4e29b3a004de11387eca a ns1:ObjectJson,
+ns2:N9a6f4da285654cccb5846fbca59ed7c8 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "Identifier" ;
-    ns1:parentJsonId ns1:N25a361a4f0864df099603df1c2505f31 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "0" ;
+    ns2:parentJsonId ns2:N712b47be93b04f83926e7e2e2eb9803a .
 
-ns1:Nc1e85a97d2d649b5af149a79c50bb2fb a ns1:ObjectJson,
+ns2:N9ac483a4c8ed4132b401166a80d1914d a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "Identifier" ;
-    ns1:parentJsonId ns1:N2f587943c6074b3086416a5a53aaf1c1 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:Optimized "0" ;
+    ns2:hasJsonObjectKey "NestedLoops" ;
+    ns2:parentJsonId ns2:Nc2c1c621b9c940a48a9fe4aafcc742d9 .
 
-ns1:Nc2a37ff3f34541a6b7daed4dd07549bb a ns1:ObjectJson,
+ns2:Na129ce81515e4b479ac5be968a29d288 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:AggType "MIN" ;
-    ns3:Distinct "0" ;
-    ns1:hasJsonObjectKey "Aggregate" ;
-    ns1:parentJsonId ns1:Ne8a20d8fde274188ab1dc08f71e9ae8d .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "OutputList" ;
+    ns2:parentJsonId ns2:Ne178411812934f5eb7503a336014ffa1 .
 
-ns1:Nc4caf5451ade4487bd4061537af8872a a ns1:ObjectJson,
+ns2:Na3cac476342a4beab2e65487041d15da a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "DefinedValues" ;
-    ns1:parentJsonId ns1:Nc2c428551b1643c58b2421c4da1b86f3 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "Statements" ;
+    ns2:parentJsonId ns2:N51c91c6f8fef47589de4f35e3079dced .
 
-ns1:Nc63ee3fca96742ab8f98dadc9d0706bc a ns1:ObjectJson,
+ns2:Naa5876c0017945c1a42f6af598fd46fc a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:Usage "EQUALITY" ;
-    ns1:hasJsonObjectKey "0" ;
-    ns1:parentJsonId ns1:Nb01810931009430795a11f67ecf59c94 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:Impact "95.6599" ;
+    ns2:hasJsonObjectKey "MissingIndexGroup" ;
+    ns2:parentJsonId ns2:N7bdb9518b89c411c97d52d2fb44c715e .
 
-ns1:Nc6f5081d400544979bbdb7219392e49d a ns1:ObjectJson,
+ns2:Nad11f51c84c44598a9441cfbd605a9ec a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "0" ;
-    ns1:parentJsonId ns1:Nc7c470021eea4d24ac244556ca4591f1 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "1" ;
+    ns2:parentJsonId ns2:N41e973001614400492af5152cbe15d87 .
 
-ns1:Nc78898539fa34a74a4ae3158d02af296 a ns1:ObjectJson,
+ns2:Nae469bef529d4b6f8d89a34243c30c2f a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "Identifier" ;
-    ns1:parentJsonId ns1:N097332b8432c44c695fd6419d9dc90de .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "DefinedValue" ;
+    ns2:parentJsonId ns2:N54d66b35150c4093928055724e208ba0 .
 
-ns1:Nc7a256525d0f464788deb753e4a0df47 a ns1:ObjectJson,
+ns2:Nb426aad324a44bec98436f8f86ee45df a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "Identifier" ;
-    ns1:parentJsonId ns1:Nd83842ab469c493a95544e49e7944585 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:ScalarString "MIN([Expr1006])" ;
+    ns2:hasJsonObjectKey "ScalarOperator" ;
+    ns2:parentJsonId ns2:Na0d606a7e22d41f58e1a109f96a9abfa .
 
-ns1:Nc7ed7ea54b6444e78f0e6939c770a5d0 a ns1:ObjectJson,
+ns2:Nb92478d47a194cecbec5bb26f6c4a667 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:Build "16.0.1000.6" ;
-    ns3:Version "1.564" ;
-    ns3:xmlns "http://schemas.microsoft.com/sqlserver/2004/07/showplan" ;
-    ns1:hasJsonObjectKey "ShowPlanXML" ;
-    ns1:parentJsonId ns1:N66dc09c5d2ac484693959e25c9851dbb .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "SeekKeys" ;
+    ns2:parentJsonId ns2:Ndbb4939d24c643a09160f6f2c6057a63 .
 
-ns1:Ncb9a88d66aa94cf7967caed73197b1c1 a ns1:ObjectJson,
+ns2:Nbae05561b6524c0f9f73d87a2ee05ecb a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:CompareOp "EQ" ;
-    ns1:hasJsonObjectKey "Compare" ;
-    ns1:parentJsonId ns1:N06e466ab3c49448182daad43bcdf4be6 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:FunctionName "isnull" ;
+    ns2:hasJsonObjectKey "Intrinsic" ;
+    ns2:parentJsonId ns2:Nfd8c18fd06ad4c75a75e9d31425e3e91 .
 
-ns1:Nced40dd5f5714e6182f7dadb8bd8803a a ns1:ObjectJson,
+ns2:Nc435fa43888f4d38a6b5555148926f0e a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "Identifier" ;
-    ns1:parentJsonId ns1:N7ece30e2173a46c7b2002ae624b0fdd3 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "ParameterList" ;
+    ns2:parentJsonId ns2:Nc1866ad696de4e01a4176348b60ad2af .
 
-ns1:Nd1c58c14d27c456aa66d21e733d8a079 a ns1:ObjectJson,
+ns2:Nc80fcb49e01e4a9b98b4415fbaa2d80b a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "1" ;
-    ns1:parentJsonId ns1:N1ae78d711c754f3a8b515c5bd52d08ea .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "Identifier" ;
+    ns2:parentJsonId ns2:N5b580f1ceb214e27b7acfcb18e35c869 .
 
-ns1:Nd213933b62b7452e8ce6ddcfa271c4d1 a ns1:ObjectJson,
+ns2:Nc81559a9008e4d8cbf7d30c47bf4c652 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "0" ;
+    ns2:parentJsonId ns2:Nfa3712bbdaa34293aa0a7a49d263a92b .
+
+ns2:Nc953f34e872d4f89892f80b7ad494def a ns2:FileJson,
+        ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" .
+
+ns2:Nc9ee88ea41574734a69fb532b2ed0ad0 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "0" ;
+    ns2:parentJsonId ns2:N79b544b7e476481cbacf90d44a9891a7 .
+
+ns2:Ncb9da04154b34a16a8d5b7b6637ad0ba a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "OutputList" ;
+    ns2:parentJsonId ns2:Nbfb46c4591cf49298b8b958d6772875f .
+
+ns2:Ncbe144d2b96549c9acda3e9e0a4476c2 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "1" ;
+    ns2:parentJsonId ns2:Nde976069597244daa046741221a107f2 .
+
+ns2:Nd477e94766e54e1ea8189ee243274fa8 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
     ns3:RetrievedFromCache "false" ;
     ns3:StatementCompId "5" ;
     ns3:StatementId "4" ;
@@ -1134,129 +1123,154 @@ ns1:Nd213933b62b7452e8ce6ddcfa271c4d1 a ns1:ObjectJson,
 \r
 if @timelimitmin>0""" ;
     ns3:StatementType "COND" ;
-    ns1:Condition "None" ;
-    ns1:hasJsonObjectKey "StmtCond" ;
-    ns1:parentJsonId ns1:N5a59e820c5fc4c59a8e0fbb371db9dc1 .
+    ns2:Condition "None" ;
+    ns2:hasJsonObjectKey "StmtCond" ;
+    ns2:parentJsonId ns2:Nf8668f0de7cc4f88ac2f734e9f8e0222 .
 
-ns1:Nd4e5673c1e814f3f9dcb1c0f0462687a a ns1:ObjectJson,
+ns2:Nd523c70402614592a45028942b53c6f6 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "DefinedValue" ;
-    ns1:parentJsonId ns1:N4541b0d2f68a4051809f76424f53a565 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "ScalarOperator" ;
+    ns2:parentJsonId ns2:N76069bccf1da43bd9c3f48447c91f110 .
 
-ns1:Nd7096c5e0d784e5ba68cb6f420e7a823 a ns1:ObjectJson,
+ns2:Nd5df471edb7740c6bcdead59a58d0589 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:ScalarString "[PSYCHOLOGY_TEST_1].[dbo].[T_TESTING_STEP].[T_TESTING_ID] as [ts].[T_TESTING_ID]=[@t_testing_id]" ;
-    ns1:hasJsonObjectKey "ScalarOperator" ;
-    ns1:parentJsonId ns1:N4a40c1e07ecd4d7f83080fd1d2f1db14 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:ScalarString "MIN(isnull([PSYCHOLOGY_TEST_1].[dbo].[T_TESTING_STEP].[VIEW_DATE] as [ts].[VIEW_DATE],getdate()))" ;
+    ns2:hasJsonObjectKey "ScalarOperator" ;
+    ns2:parentJsonId ns2:Nc346e391a5944da0bcaaf7a4f3e91e4b .
 
-ns1:Nd83842ab469c493a95544e49e7944585 a ns1:ObjectJson,
+ns2:Nd624cfdbacd34b06a30cb9f4fad78190 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "0" ;
-    ns1:parentJsonId ns1:Ncebe50e5010b4298b6629fdfb8ff8821 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "DefinedValues" ;
+    ns2:parentJsonId ns2:N75f68e352b4846fc9dca0754d88f87c8 .
 
-ns1:Nd987b4cbceb3400ba2b3e090669651fe a ns1:ObjectJson,
+ns2:Nd9a1a523fd8b4d599615f7324dbf0253 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:ScalarString "[PSYCHOLOGY_TEST_1].[dbo].[T_TESTING_TEST].[T_TEST_ID] as [tt].[T_TEST_ID]=[@t_test_id] AND [PSYCHOLOGY_TEST_1].[dbo].[T_TESTING_TEST].[T_TESTING_ID] as [tt].[T_TESTING_ID]=[@t_testing_id]" ;
-    ns1:hasJsonObjectKey "ScalarOperator" ;
-    ns1:parentJsonId ns1:N9188a494cb48464baf78c35eef09e8c5 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:ProcName "time_remaining" ;
+    ns2:hasJsonObjectKey "StoredProc" ;
+    ns2:parentJsonId ns2:N8973e62e0a87464cbf691dbdc60afa76 .
 
-ns1:Nd9e7bd3964964eaab864821ee4b71813 a ns1:ObjectJson,
+ns2:Ndbb4939d24c643a09160f6f2c6057a63 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "0" ;
-    ns1:parentJsonId ns1:N72d76597d833438eac9e1e0bb419d82b .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "SeekPredicateNew" ;
+    ns2:parentJsonId ns2:N4348d54daa12445785348cc7c23b524a .
 
-ns1:Nd9fd920c688d4855ae16a783a47366e5 a ns1:ObjectJson,
+ns2:Ne36016e3897746969fb0832e3c4ebfda a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:FunctionName "isnull" ;
-    ns1:hasJsonObjectKey "Intrinsic" ;
-    ns1:parentJsonId ns1:Nf6f2beaf95a44557a329479b2bbe3c77 .
-
-ns1:Ndae16c2e44644a1baea3baef11e417bd a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "OutputList" ;
-    ns1:parentJsonId ns1:Ne4e2d91cc9da4416ab1aa5bf519607cf .
-
-ns1:Nde6c92e169fe43f8a3499020e28c9cc2 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "0" ;
-    ns1:parentJsonId ns1:N7d237c23709347d4872ec0a063f71fab .
-
-ns1:Ne0142aeb1c514b589b9e7e6771a0c85d a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "SeekKeys" ;
-    ns1:parentJsonId ns1:N0d67b19f678545eb98e9fde3f898576a .
-
-ns1:Ne156d4ea03a4424898c2a65a2faf723f a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
+    ns1:hasSourceFile "time_remaining.json" ;
     ns3:AggType "MIN" ;
     ns3:Distinct "0" ;
-    ns1:hasJsonObjectKey "Aggregate" ;
-    ns1:parentJsonId ns1:Ne91e7f00018a4fd9b215f164c914ef9a .
+    ns2:hasJsonObjectKey "Aggregate" ;
+    ns2:parentJsonId ns2:Nd5df471edb7740c6bcdead59a58d0589 .
 
-ns1:Ne23528a7b30a44fb93b5c370ffbc5f92 a ns1:ObjectJson,
+ns2:Ne70df576af714371a85be54dc5763615 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "Identifier" ;
-    ns1:parentJsonId ns1:N22b8834cdbfa42a39e3afe8e7b606bb7 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "OuterReferences" ;
+    ns2:parentJsonId ns2:Nf36161a7c2764d62ace4ace0695b79f7 .
 
-ns1:Ne2f669238e3d4a91a72f5b95e8c6cf3a a ns1:ObjectJson,
+ns2:Neb5841413d914e76bd78a66f2313c5a5 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "Identifier" ;
-    ns1:parentJsonId ns1:N0acada6210a14b73bad2de8aad36a68a .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "Predicate" ;
+    ns2:parentJsonId ns2:N28b471ff721d4031bf64099c833b70a5 .
 
-ns1:Ne61158443570449dabe89c63143ca43b a ns1:ObjectJson,
+ns2:Nef1c9f5c4e7446ac9e1a686a04740801 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "DefinedValues" ;
-    ns1:parentJsonId ns1:N78c1f46155d74128b658f0b3c6c8c694 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "Identifier" ;
+    ns2:parentJsonId ns2:Nc81559a9008e4d8cbf7d30c47bf4c652 .
 
-ns1:Ne8a20d8fde274188ab1dc08f71e9ae8d a ns1:ObjectJson,
+ns2:Nf0f386b15f254740b6c07e210e49f632 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:ScalarString "MIN([Expr1006])" ;
-    ns1:hasJsonObjectKey "ScalarOperator" ;
-    ns1:parentJsonId ns1:N57c0adb8e3b24c7aade519a26a4c2db2 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "1" ;
+    ns2:parentJsonId ns2:N712b47be93b04f83926e7e2e2eb9803a .
 
-ns1:Ne91e7f00018a4fd9b215f164c914ef9a a ns1:ObjectJson,
+ns2:Nf4ab606bc69c43b9b87fae774fcd315a a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:ScalarString "MIN(isnull([PSYCHOLOGY_TEST_1].[dbo].[T_TESTING_STEP].[VIEW_DATE] as [ts].[VIEW_DATE],getdate()))" ;
-    ns1:hasJsonObjectKey "ScalarOperator" ;
-    ns1:parentJsonId ns1:N60a24be97dec4a31918ed40621b8feba .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:CompareOp "EQ" ;
+    ns2:hasJsonObjectKey "Compare" ;
+    ns2:parentJsonId ns2:N367bddfc1147434dac0459b138b45dfd .
 
-ns1:Nf5fa3f13ac5844a9acafbef3a85fae1a a ns1:ObjectJson,
+ns2:Nf7c8f7b37fe14f27836dd88e7e90ddcf a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "RangeExpressions" ;
-    ns1:parentJsonId ns1:Nd60313c9d35d4386a30b731f22d42eb4 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "1" ;
+    ns2:parentJsonId ns2:Nfa3712bbdaa34293aa0a7a49d263a92b .
 
-ns1:Nf6f2beaf95a44557a329479b2bbe3c77 a ns1:ObjectJson,
+ns2:Nf8ff37fa458047bdb414eff03d908f4e a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:ScalarString "isnull([PSYCHOLOGY_TEST_1].[dbo].[T_TEST].[TIMELIMITMIN],(0))" ;
-    ns1:hasJsonObjectKey "ScalarOperator" ;
-    ns1:parentJsonId ns1:Nd5278ff36bc844c3a43a13e66ab65374 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "OutputList" ;
+    ns2:parentJsonId ns2:N950e59cc6e4f45768f06e6c50f53e9ff .
 
-ns1:Nf819e7883668491dac67462894ee8ca1 a ns1:ObjectJson,
+ns2:Nf91b82d5d5254e5bbd0bddb8f0f5d22e a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "RangeExpressions" ;
-    ns1:parentJsonId ns1:N05a8fb4771d1403085f6b9fa1027d9d4 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "Predicate" ;
+    ns2:parentJsonId ns2:Ne03fac03074c465fb4ebc66adbaa5138 .
 
-ns1:N03e126e70eac479b8b8a517ca40c6b0c a ns1:ObjectJson,
+ns2:Nfb47159cc8a344ddb2fbe2fe14ef1733 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:CompareOp "EQ" ;
+    ns2:hasJsonObjectKey "Compare" ;
+    ns2:parentJsonId ns2:N81ace3fba931455591b31c2305409918 .
+
+ns2:Nfb57a09693b940d793c519f13b5c761e a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "Statements" ;
+    ns2:parentJsonId ns2:N5f9860a813af4549ac5461b2af32ca3f .
+
+ns2:Nfc40466186c340e6ac1fbdcb8cf59d6b a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:CompareOp "EQ" ;
+    ns2:hasJsonObjectKey "Compare" ;
+    ns2:parentJsonId ns2:N8de3a662b75b484fb246f131aa33d77b .
+
+ns2:Nfc44f3be794443e78b23db240c978a42 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "RangeColumns" ;
+    ns2:parentJsonId ns2:N7ac73729e7234d15a8c8bf7d1c50e7fa .
+
+ns2:Nfc530e3c966a4d2096c14ba2e257f6e3 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "RangeColumns" ;
+    ns2:parentJsonId ns2:Neb74783d893a4c979700435aa66045b8 .
+
+ns2:Nfd8c18fd06ad4c75a75e9d31425e3e91 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "ScalarOperator" ;
+    ns2:parentJsonId ns2:Ne36016e3897746969fb0832e3c4ebfda .
+
+ns2:N0c0ae0eebbe64e2881016f28ee1fd6fb a ns2:ArrayJson,
+        ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:N161a17392f4f4b3989c5060c0a70c3fa .
+
+ns2:N1c158227edbe40ab83d04655229f6a57 a ns2:ArrayJson,
+        ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "DefinedValue" ;
+    ns2:parentJsonId ns2:Nd624cfdbacd34b06a30cb9f4fad78190 .
+
+ns2:N1edfc55665cc44c2aafe523a9c500a34 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
     ns3:CardinalityEstimationModelVersion "70" ;
     ns3:QueryHash "0x284D9D00AA811AE8" ;
     ns3:QueryPlanHash "0x852AE8E227D0577E" ;
@@ -1271,47 +1285,197 @@ ns1:N03e126e70eac479b8b8a517ca40c6b0c a ns1:ObjectJson,
 from t_test \r
 where t_test_id=@t_test_id""" ;
     ns3:StatementType "SELECT" ;
-    ns1:hasJsonObjectKey "1" ;
-    ns1:parentJsonId ns1:Ne252477f708040519c8cbafb6dae87d7 .
+    ns2:hasJsonObjectKey "1" ;
+    ns2:parentJsonId ns2:N4ae6a56303bc4b22aa24bf45f3a32fc0 .
 
-ns1:N05a8fb4771d1403085f6b9fa1027d9d4 a ns1:ObjectJson,
+ns2:N2630c4c0bca9431dba0a7d1fa50d61af a ns2:ArrayJson,
+        ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "ScalarOperator" ;
+    ns2:parentJsonId ns2:Nf4ab606bc69c43b9b87fae774fcd315a .
+
+ns2:N3c9ffd4ab6fb43c78df547fc43c245f3 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "DefinedValue" ;
+    ns2:parentJsonId ns2:N507cf905e63742e792310359690e2c71 .
+
+ns2:N41e973001614400492af5152cbe15d87 a ns2:ArrayJson,
+        ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "ScalarOperator" ;
+    ns2:parentJsonId ns2:Nfb47159cc8a344ddb2fbe2fe14ef1733 .
+
+ns2:N4ae6a56303bc4b22aa24bf45f3a32fc0 a ns2:ArrayJson,
+        ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "StmtSimple" ;
+    ns2:parentJsonId ns2:Nf8668f0de7cc4f88ac2f734e9f8e0222 .
+
+ns2:N4b34e9450c7e4bbd9dcb778fd728bda9 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:AvgRowSize "19" ;
+    ns3:EstimateCPU "1.1e-06" ;
+    ns3:EstimateIO "0" ;
+    ns3:EstimateRebinds "0" ;
+    ns3:EstimateRewinds "0" ;
+    ns3:EstimateRows "1" ;
+    ns3:EstimatedExecutionMode "Row" ;
+    ns3:EstimatedTotalSubtreeCost "0.302127" ;
+    ns3:LogicalOp "Aggregate" ;
+    ns3:NodeId "0" ;
+    ns3:Parallel "0" ;
+    ns3:PhysicalOp "Stream Aggregate" ;
+    ns2:hasJsonObjectKey "RelOp" ;
+    ns2:parentJsonId ns2:Nc1866ad696de4e01a4176348b60ad2af .
+
+ns2:N4f21a42b81fc4a21b9aff0b269f89d63 a ns2:ArrayJson,
+        ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:Nc435fa43888f4d38a6b5555148926f0e .
+
+ns2:N516a8060175c4184aaa27887a4751c97 a ns2:ArrayJson,
+        ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:N4736cb053ef24111ad88a1ffde41481a .
+
+ns2:N61d7430ad8dd48af8da0c3bf9520e2a7 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:AvgRowSize "47" ;
+    ns3:EstimateCPU "0.0243735" ;
+    ns3:EstimateIO "0.25794" ;
+    ns3:EstimateRebinds "0" ;
+    ns3:EstimateRewinds "0" ;
+    ns3:EstimateRows "1" ;
+    ns3:EstimatedExecutionMode "Row" ;
+    ns3:EstimatedRowsRead "22015" ;
+    ns3:EstimatedTotalSubtreeCost "0.282313" ;
+    ns3:LogicalOp "Clustered Index Scan" ;
+    ns3:NodeId "3" ;
+    ns3:Parallel "0" ;
+    ns3:PhysicalOp "Clustered Index Scan" ;
+    ns3:TableCardinality "22015" ;
+    ns2:hasJsonObjectKey "0" ;
+    ns2:parentJsonId ns2:Nb9dc9db6dc044e9fa4e3ed954f833f65 .
+
+ns2:N6ca41218607d436a97edc8533b768a18 a ns2:ArrayJson,
+        ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "RelOp" ;
+    ns2:parentJsonId ns2:N9ac483a4c8ed4132b401166a80d1914d .
+
+ns2:N712b47be93b04f83926e7e2e2eb9803a a ns2:ArrayJson,
+        ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "ScalarOperator" ;
+    ns2:parentJsonId ns2:N7aae7d6ce4cc481ea42ed82cd6993c42 .
+
+ns2:N75f68e352b4846fc9dca0754d88f87c8 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "StreamAggregate" ;
+    ns2:parentJsonId ns2:N4b34e9450c7e4bbd9dcb778fd728bda9 .
+
+ns2:N77dd814f31064d16a27e660ca30d967e a ns2:ArrayJson,
+        ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "Column" ;
+    ns2:parentJsonId ns2:N3c0e6fcf509e40a5bb91bb8516a1a5ab .
+
+ns2:N79b544b7e476481cbacf90d44a9891a7 a ns2:ArrayJson,
+        ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "ScalarOperator" ;
+    ns2:parentJsonId ns2:N4c864d8dc545425ab56d8d55513cd795 .
+
+ns2:N7ac73729e7234d15a8c8bf7d1c50e7fa a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
     ns3:ScanType "EQ" ;
-    ns1:hasJsonObjectKey "Prefix" ;
-    ns1:parentJsonId ns1:Ne0142aeb1c514b589b9e7e6771a0c85d .
+    ns2:hasJsonObjectKey "Prefix" ;
+    ns2:parentJsonId ns2:N3797a1fa04d44844bc28956f6fc5de5b .
 
-ns1:N07989632ac5c45e092f81a0136c881ab a ns1:ArrayJson,
-        ns1:ObjectJson,
+ns2:N950e59cc6e4f45768f06e6c50f53e9ff a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:N56b2b92736004410aa02da0babdd17c2 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:AvgRowSize "11" ;
+    ns3:EstimateCPU "1e-07" ;
+    ns3:EstimateIO "0" ;
+    ns3:EstimateRebinds "0" ;
+    ns3:EstimateRewinds "0" ;
+    ns3:EstimateRows "1" ;
+    ns3:EstimatedExecutionMode "Row" ;
+    ns3:EstimatedTotalSubtreeCost "0.0032832" ;
+    ns3:LogicalOp "Compute Scalar" ;
+    ns3:NodeId "0" ;
+    ns3:Parallel "0" ;
+    ns3:PhysicalOp "Compute Scalar" ;
+    ns2:hasJsonObjectKey "RelOp" ;
+    ns2:parentJsonId ns2:Nec48a27eece44efdb9eab262eec89e33 .
 
-ns1:N0f94240be8fe4023a38a95ec52182ef5 a ns1:ArrayJson,
-        ns1:ObjectJson,
+ns2:N9a6caadb3a434745b0a2a5338c00af4d a ns2:ArrayJson,
+        ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "DefinedValue" ;
-    ns1:parentJsonId ns1:Ne61158443570449dabe89c63143ca43b .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "DefinedValue" ;
+    ns2:parentJsonId ns2:N4b10cf819d604175a642de4ba957bbd8 .
 
-ns1:N197e5d01673c48908fc997c88d78a461 a ns1:ArrayJson,
-        ns1:ObjectJson,
+ns2:N9d61f359ab5843e08ea627da09a428e9 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:N2ae5e290375049a58fe1aa00f45a36a4 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "ComputeScalar" ;
+    ns2:parentJsonId ns2:Nef3681a06739489381943d27db337b40 .
 
-ns1:N1ae78d711c754f3a8b515c5bd52d08ea a ns1:ArrayJson,
-        ns1:ObjectJson,
+ns2:Na0d606a7e22d41f58e1a109f96a9abfa a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "ScalarOperator" ;
-    ns1:parentJsonId ns1:N29e4cbc74c8b496cb94cb089851be336 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "1" ;
+    ns2:parentJsonId ns2:N1c158227edbe40ab83d04655229f6a57 .
 
-ns1:N1eaa6b97e21e43c6a497573917971eab a ns1:ObjectJson,
+ns2:Na8eb959ce37c45a5b43f056618b541ec a ns2:ArrayJson,
+        ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:N0c382e78215f4f72aa6b6b86ad4962ab .
+
+ns2:Nacaade9bec964bd38243e665864bc602 a ns2:ArrayJson,
+        ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "ScalarOperator" ;
+    ns2:parentJsonId ns2:N580f95802f194c10ab12f8410eb7e569 .
+
+ns2:Nb9dc9db6dc044e9fa4e3ed954f833f65 a ns2:ArrayJson,
+        ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "RelOp" ;
+    ns2:parentJsonId ns2:Nf36161a7c2764d62ace4ace0695b79f7 .
+
+ns2:Nbb6f47e4de8045c2b2c77f23d128a823 a ns2:ArrayJson,
+        ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "ColumnGroup" ;
+    ns2:parentJsonId ns2:N97695b8598b5442c93be92394a686c07 .
+
+ns2:Nbfb46c4591cf49298b8b958d6772875f a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
     ns3:AvgRowSize "43" ;
     ns3:EstimateCPU "0.0004067" ;
     ns3:EstimateIO "0.00534722" ;
@@ -1326,118 +1490,70 @@ ns1:N1eaa6b97e21e43c6a497573917971eab a ns1:ObjectJson,
     ns3:Parallel "0" ;
     ns3:PhysicalOp "Clustered Index Scan" ;
     ns3:TableCardinality "227" ;
-    ns1:hasJsonObjectKey "RelOp" ;
-    ns1:parentJsonId ns1:Nd83a7f60f17543399e9705d0c9a7321a .
+    ns2:hasJsonObjectKey "RelOp" ;
+    ns2:parentJsonId ns2:N9d61f359ab5843e08ea627da09a428e9 .
 
-ns1:N48e711ea3f2c4d98884d85225e9be4c9 a ns1:ArrayJson,
-        ns1:ObjectJson,
+ns2:Nc2c1c621b9c940a48a9fe4aafcc742d9 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:Ndae16c2e44644a1baea3baef11e417bd .
-
-ns1:N57c0adb8e3b24c7aade519a26a4c2db2 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "1" ;
-    ns1:parentJsonId ns1:N7ebda282332d4243bcd3dcaf373b50d2 .
-
-ns1:N5a59e820c5fc4c59a8e0fbb371db9dc1 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "Statements" ;
-    ns1:parentJsonId ns1:Naecb960ebb444eb5ad06e941faa18dd9 .
-
-ns1:N5abc5b9791964299852f7b907e4089b8 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
+    ns1:hasSourceFile "time_remaining.json" ;
     ns3:AvgRowSize "19" ;
-    ns3:EstimateCPU "1.1e-06" ;
+    ns3:EstimateCPU "4.18e-06" ;
     ns3:EstimateIO "0" ;
     ns3:EstimateRebinds "0" ;
     ns3:EstimateRewinds "0" ;
     ns3:EstimateRows "1" ;
     ns3:EstimatedExecutionMode "Row" ;
-    ns3:EstimatedTotalSubtreeCost "0.302127" ;
-    ns3:LogicalOp "Aggregate" ;
-    ns3:NodeId "0" ;
+    ns3:EstimatedTotalSubtreeCost "0.302126" ;
+    ns3:LogicalOp "Inner Join" ;
+    ns3:NodeId "1" ;
     ns3:Parallel "0" ;
-    ns3:PhysicalOp "Stream Aggregate" ;
-    ns1:hasJsonObjectKey "RelOp" ;
-    ns1:parentJsonId ns1:N1511af2dc8924a49b010d440f0395acb .
+    ns3:PhysicalOp "Nested Loops" ;
+    ns2:hasJsonObjectKey "RelOp" ;
+    ns2:parentJsonId ns2:N75f68e352b4846fc9dca0754d88f87c8 .
 
-ns1:N5b340ccccc54407bb19c8660266fdbde a ns1:ArrayJson,
-        ns1:ObjectJson,
+ns2:Nc346e391a5944da0bcaaf7a4f3e91e4b a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:Nbc1a3be1ecd94a21ab97dc3675c5518d .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "0" ;
+    ns2:parentJsonId ns2:N1c158227edbe40ab83d04655229f6a57 .
 
-ns1:N60a24be97dec4a31918ed40621b8feba a ns1:ObjectJson,
+ns2:Nc386a42ef65d477c8e5322053f2c0cbb a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "0" ;
-    ns1:parentJsonId ns1:N7ebda282332d4243bcd3dcaf373b50d2 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:AvgRowSize "11" ;
+    ns3:EstimateCPU "0.0001581" ;
+    ns3:EstimateIO "0.003125" ;
+    ns3:EstimateRebinds "0" ;
+    ns3:EstimateRewinds "0" ;
+    ns3:EstimateRows "1" ;
+    ns3:EstimatedExecutionMode "Row" ;
+    ns3:EstimatedRowsRead "1" ;
+    ns3:EstimatedTotalSubtreeCost "0.0032831" ;
+    ns3:LogicalOp "Clustered Index Seek" ;
+    ns3:NodeId "1" ;
+    ns3:Parallel "0" ;
+    ns3:PhysicalOp "Clustered Index Seek" ;
+    ns3:TableCardinality "19" ;
+    ns2:hasJsonObjectKey "RelOp" ;
+    ns2:parentJsonId ns2:Nf22def15f7c04f3aacbce1868f555952 .
 
-ns1:N67a617ee32e647e4ad9a23d7d7e18e8a a ns1:ObjectJson,
+ns2:Nd2fa9e94b95c4349ab1c600af86106bd a ns2:ArrayJson,
+        ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:Optimized "0" ;
-    ns1:hasJsonObjectKey "NestedLoops" ;
-    ns1:parentJsonId ns1:Nda9f14b9c9be45adbc255397b895bac3 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "ScalarOperator" ;
+    ns2:parentJsonId ns2:Nbae05561b6524c0f9f73d87a2ee05ecb .
 
-ns1:N72d76597d833438eac9e1e0bb419d82b a ns1:ArrayJson,
-        ns1:ObjectJson,
+ns2:Nd6801e7bc0e746a08d3bd9484166b7bc a ns2:ArrayJson,
+        ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "ScalarOperator" ;
-    ns1:parentJsonId ns1:N8c6b065ccf3c4e948ee113d3bf895a2c .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "StmtSimple" ;
+    ns2:parentJsonId ns2:Nfb57a09693b940d793c519f13b5c761e .
 
-ns1:N75d674e192ac4eda8d0960dd5c5f7e7d a ns1:ArrayJson,
-        ns1:ObjectJson,
+ns2:Ndd035910d43243059557057a68a4107f a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "Column" ;
-    ns1:parentJsonId ns1:N56f1e10a53c04a209b81468ff4a9cd2b .
-
-ns1:N7a3422d9d5ff4edf8803e49e604266d1 a ns1:ArrayJson,
-        ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "RelOp" ;
-    ns1:parentJsonId ns1:N4559d54e5f9d4f2490368760471584df .
-
-ns1:N7d237c23709347d4872ec0a063f71fab a ns1:ArrayJson,
-        ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "ScalarOperator" ;
-    ns1:parentJsonId ns1:Nd9fd920c688d4855ae16a783a47366e5 .
-
-ns1:N7e24418bc01b483b95182a6a369e8425 a ns1:ArrayJson,
-        ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "ScalarOperator" ;
-    ns1:parentJsonId ns1:N14dd696ac7a54047b4132b81e4667423 .
-
-ns1:N7ebda282332d4243bcd3dcaf373b50d2 a ns1:ArrayJson,
-        ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "DefinedValue" ;
-    ns1:parentJsonId ns1:Nc4caf5451ade4487bd4061537af8872a .
-
-ns1:Na5ffd6b4e9d2480fb70df59255bb9259 a ns1:ArrayJson,
-        ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "RelOp" ;
-    ns1:parentJsonId ns1:N67a617ee32e647e4ad9a23d7d7e18e8a .
-
-ns1:Naa890c2a44184a5b8f95538babe0a0b5 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
+    ns1:hasSourceFile "time_remaining.json" ;
     ns3:CardinalityEstimationModelVersion "70" ;
     ns3:QueryHash "0xCC905494F59A7856" ;
     ns3:QueryPlanHash "0x2033733E2AC049CA" ;
@@ -1466,88 +1582,19 @@ where s.t_test_id=@t_test_id\r
 and ts.t_testing_id=@t_testing_id\r
 and tt.t_testing_id=@t_testing_id""" ;
     ns3:StatementType "SELECT" ;
-    ns1:hasJsonObjectKey "0" ;
-    ns1:parentJsonId ns1:Ne58a8fce41d642fdb53905a854a9a01f .
+    ns2:hasJsonObjectKey "0" ;
+    ns2:parentJsonId ns2:Nd6801e7bc0e746a08d3bd9484166b7bc .
 
-ns1:Nb01810931009430795a11f67ecf59c94 a ns1:ArrayJson,
-        ns1:ObjectJson,
+ns2:Nde976069597244daa046741221a107f2 a ns2:ArrayJson,
+        ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "ColumnGroup" ;
-    ns1:parentJsonId ns1:N110afde2ddec4fdd8c7837775b3fc712 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "ScalarOperator" ;
+    ns2:parentJsonId ns2:Nfc40466186c340e6ac1fbdcb8cf59d6b .
 
-ns1:Nc2c428551b1643c58b2421c4da1b86f3 a ns1:ObjectJson,
+ns2:Ne178411812934f5eb7503a336014ffa1 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "StreamAggregate" ;
-    ns1:parentJsonId ns1:N5abc5b9791964299852f7b907e4089b8 .
-
-ns1:Nc37064c7113848559c4c3d9af8a5e71b a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:AvgRowSize "11" ;
-    ns3:EstimateCPU "1e-07" ;
-    ns3:EstimateIO "0" ;
-    ns3:EstimateRebinds "0" ;
-    ns3:EstimateRewinds "0" ;
-    ns3:EstimateRows "1" ;
-    ns3:EstimatedExecutionMode "Row" ;
-    ns3:EstimatedTotalSubtreeCost "0.00595378" ;
-    ns3:LogicalOp "Compute Scalar" ;
-    ns3:NodeId "5" ;
-    ns3:Parallel "0" ;
-    ns3:PhysicalOp "Compute Scalar" ;
-    ns1:hasJsonObjectKey "1" ;
-    ns1:parentJsonId ns1:N7a3422d9d5ff4edf8803e49e604266d1 .
-
-ns1:Nc7c470021eea4d24ac244556ca4591f1 a ns1:ArrayJson,
-        ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "ScalarOperator" ;
-    ns1:parentJsonId ns1:N4dbdc3c1086c42b995814f37a5ff8747 .
-
-ns1:Nca146b304c664087ae232c3bdcece623 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "ComputeScalar" ;
-    ns1:parentJsonId ns1:Nf2abe3b945244da3b724a6d109592d2b .
-
-ns1:Nccb2e610ef024025a45bd2094ec66571 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "DefinedValue" ;
-    ns1:parentJsonId ns1:N640247b05d2449e19a10862c43511449 .
-
-ns1:Ncebe50e5010b4298b6629fdfb8ff8821 a ns1:ArrayJson,
-        ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "ScalarOperator" ;
-    ns1:parentJsonId ns1:Ncb9a88d66aa94cf7967caed73197b1c1 .
-
-ns1:Nd5278ff36bc844c3a43a13e66ab65374 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "DefinedValue" ;
-    ns1:parentJsonId ns1:N9812cb97abd4491eb1eef21e9f498c57 .
-
-ns1:Nd60313c9d35d4386a30b731f22d42eb4 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:ScanType "EQ" ;
-    ns1:hasJsonObjectKey "Prefix" ;
-    ns1:parentJsonId ns1:N4feabc3190324af0a2d338434fc7430c .
-
-ns1:Nd83a7f60f17543399e9705d0c9a7321a a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "ComputeScalar" ;
-    ns1:parentJsonId ns1:Nc37064c7113848559c4c3d9af8a5e71b .
-
-ns1:Nda9f14b9c9be45adbc255397b895bac3 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
+    ns1:hasSourceFile "time_remaining.json" ;
     ns3:AvgRowSize "15" ;
     ns3:EstimateCPU "4.18e-06" ;
     ns3:EstimateIO "0" ;
@@ -1560,71 +1607,25 @@ ns1:Nda9f14b9c9be45adbc255397b895bac3 a ns1:ObjectJson,
     ns3:NodeId "2" ;
     ns3:Parallel "0" ;
     ns3:PhysicalOp "Nested Loops" ;
-    ns1:hasJsonObjectKey "0" ;
-    ns1:parentJsonId ns1:N7a3422d9d5ff4edf8803e49e604266d1 .
+    ns2:hasJsonObjectKey "0" ;
+    ns2:parentJsonId ns2:N6ca41218607d436a97edc8533b768a18 .
 
-ns1:Ne0af5e2e36b44814a54c27862f3b9841 a ns1:ObjectJson,
+ns2:Ne9cf77aaab3d4a459dc5621a3ba86df7 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:AvgRowSize "47" ;
-    ns3:EstimateCPU "0.0243735" ;
-    ns3:EstimateIO "0.25794" ;
-    ns3:EstimateRebinds "0" ;
-    ns3:EstimateRewinds "0" ;
-    ns3:EstimateRows "1" ;
-    ns3:EstimatedExecutionMode "Row" ;
-    ns3:EstimatedRowsRead "22015" ;
-    ns3:EstimatedTotalSubtreeCost "0.282313" ;
-    ns3:LogicalOp "Clustered Index Scan" ;
-    ns3:NodeId "3" ;
-    ns3:Parallel "0" ;
-    ns3:PhysicalOp "Clustered Index Scan" ;
-    ns3:TableCardinality "22015" ;
-    ns1:hasJsonObjectKey "0" ;
-    ns1:parentJsonId ns1:Na5ffd6b4e9d2480fb70df59255bb9259 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "DefinedValue" ;
+    ns2:parentJsonId ns2:N96a977400a0d4e6eaa7a213716ee22b3 .
 
-ns1:Ne252477f708040519c8cbafb6dae87d7 a ns1:ArrayJson,
-        ns1:ObjectJson,
+ns2:Neb74783d893a4c979700435aa66045b8 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "StmtSimple" ;
-    ns1:parentJsonId ns1:N5a59e820c5fc4c59a8e0fbb371db9dc1 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:ScanType "EQ" ;
+    ns2:hasJsonObjectKey "Prefix" ;
+    ns2:parentJsonId ns2:Nb92478d47a194cecbec5bb26f6c4a667 .
 
-ns1:Ne4e2d91cc9da4416ab1aa5bf519607cf a ns1:ObjectJson,
+ns2:Nef3681a06739489381943d27db337b40 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:AvgRowSize "19" ;
-    ns3:EstimateCPU "4.18e-06" ;
-    ns3:EstimateIO "0" ;
-    ns3:EstimateRebinds "0" ;
-    ns3:EstimateRewinds "0" ;
-    ns3:EstimateRows "1" ;
-    ns3:EstimatedExecutionMode "Row" ;
-    ns3:EstimatedTotalSubtreeCost "0.302126" ;
-    ns3:LogicalOp "Inner Join" ;
-    ns3:NodeId "1" ;
-    ns3:Parallel "0" ;
-    ns3:PhysicalOp "Nested Loops" ;
-    ns1:hasJsonObjectKey "RelOp" ;
-    ns1:parentJsonId ns1:Nc2c428551b1643c58b2421c4da1b86f3 .
-
-ns1:Ne58a8fce41d642fdb53905a854a9a01f a ns1:ArrayJson,
-        ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "StmtSimple" ;
-    ns1:parentJsonId ns1:N2fd1020d1eab4ea380878bc733e7baa6 .
-
-ns1:Ned8667bf3b48434c9c44a6e67c5e4f9d a ns1:ArrayJson,
-        ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "ScalarOperator" ;
-    ns1:parentJsonId ns1:N612514d7baa2430a9f7acf1949f67875 .
-
-ns1:Nf2abe3b945244da3b724a6d109592d2b a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
+    ns1:hasSourceFile "time_remaining.json" ;
     ns3:AvgRowSize "11" ;
     ns3:EstimateCPU "1e-07" ;
     ns3:EstimateIO "0" ;
@@ -1632,66 +1633,43 @@ ns1:Nf2abe3b945244da3b724a6d109592d2b a ns1:ObjectJson,
     ns3:EstimateRewinds "0" ;
     ns3:EstimateRows "1" ;
     ns3:EstimatedExecutionMode "Row" ;
-    ns3:EstimatedTotalSubtreeCost "0.0032832" ;
+    ns3:EstimatedTotalSubtreeCost "0.00595378" ;
     ns3:LogicalOp "Compute Scalar" ;
-    ns3:NodeId "0" ;
+    ns3:NodeId "5" ;
     ns3:Parallel "0" ;
     ns3:PhysicalOp "Compute Scalar" ;
-    ns1:hasJsonObjectKey "RelOp" ;
-    ns1:parentJsonId ns1:N19b24dc8a2e549848926bfb95d114515 .
+    ns2:hasJsonObjectKey "1" ;
+    ns2:parentJsonId ns2:N6ca41218607d436a97edc8533b768a18 .
 
-ns1:Nf4c758d6709840edae9ec69c61a63f36 a ns1:ArrayJson,
-        ns1:ObjectJson,
+ns2:Nf22def15f7c04f3aacbce1868f555952 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns1:hasJsonObjectKey "ScalarOperator" ;
-    ns1:parentJsonId ns1:N8845fb957ab74be78e95c38f590acde6 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "ComputeScalar" ;
+    ns2:parentJsonId ns2:N950e59cc6e4f45768f06e6c50f53e9ff .
 
-ns1:Nf85f560c098c4566a9f0d8108d6d01c9 a ns1:ObjectJson,
+ns2:Nf36161a7c2764d62ace4ace0695b79f7 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:AvgRowSize "11" ;
-    ns3:EstimateCPU "0.0001581" ;
-    ns3:EstimateIO "0.003125" ;
-    ns3:EstimateRebinds "0" ;
-    ns3:EstimateRewinds "0" ;
-    ns3:EstimateRows "1" ;
-    ns3:EstimatedExecutionMode "Row" ;
-    ns3:EstimatedRowsRead "1" ;
-    ns3:EstimatedTotalSubtreeCost "0.0032831" ;
-    ns3:LogicalOp "Clustered Index Seek" ;
-    ns3:NodeId "1" ;
-    ns3:Parallel "0" ;
-    ns3:PhysicalOp "Clustered Index Seek" ;
-    ns3:TableCardinality "19" ;
-    ns1:hasJsonObjectKey "RelOp" ;
-    ns1:parentJsonId ns1:Nca146b304c664087ae232c3bdcece623 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:Optimized "0" ;
+    ns2:hasJsonObjectKey "NestedLoops" ;
+    ns2:parentJsonId ns2:Ne178411812934f5eb7503a336014ffa1 .
 
-ns1:N2db138db81c042bd95e67c4d5446aa48 a ns1:ObjectJson,
+ns2:Nf8668f0de7cc4f88ac2f734e9f8e0222 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:ForceScan "0" ;
-    ns3:ForcedIndex "0" ;
-    ns3:NoExpandHint "0" ;
-    ns3:Ordered "0" ;
-    ns3:Storage "RowStore" ;
-    ns1:hasJsonObjectKey "IndexScan" ;
-    ns1:parentJsonId ns1:N1eaa6b97e21e43c6a497573917971eab .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "Statements" ;
+    ns2:parentJsonId ns2:Nd9a1a523fd8b4d599615f7324dbf0253 .
 
-ns1:N78c1f46155d74128b658f0b3c6c8c694 a ns1:ObjectJson,
+ns2:Nfa3712bbdaa34293aa0a7a49d263a92b a ns2:ArrayJson,
+        ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
-    ns3:ForceScan "0" ;
-    ns3:ForcedIndex "0" ;
-    ns3:NoExpandHint "0" ;
-    ns3:Ordered "0" ;
-    ns3:Storage "RowStore" ;
-    ns1:hasJsonObjectKey "IndexScan" ;
-    ns1:parentJsonId ns1:Ne0af5e2e36b44814a54c27862f3b9841 .
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns2:hasJsonObjectKey "ScalarOperator" ;
+    ns2:parentJsonId ns2:N1cd6dfda36b741368173191c19ef5fa8 .
 
-ns1:Na7f44f371fa1490cb2947149b9cda235 a ns1:ObjectJson,
+ns2:N28b471ff721d4031bf64099c833b70a5 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
+    ns1:hasSourceFile "time_remaining.json" ;
     ns3:ForceScan "0" ;
     ns3:ForceSeek "0" ;
     ns3:ForcedIndex "0" ;
@@ -1699,13 +1677,13 @@ ns1:Na7f44f371fa1490cb2947149b9cda235 a ns1:ObjectJson,
     ns3:Ordered "1" ;
     ns3:ScanDirection "FORWARD" ;
     ns3:Storage "RowStore" ;
-    ns1:DefinedValues "None" ;
-    ns1:hasJsonObjectKey "IndexScan" ;
-    ns1:parentJsonId ns1:Na7e6bc8fc88a49db8368744afa96a253 .
+    ns2:DefinedValues "None" ;
+    ns2:hasJsonObjectKey "IndexScan" ;
+    ns2:parentJsonId ns2:N8d1c34ea3bea4d10abc5983421074c9a .
 
-ns1:Naa5a905ea79545ffa5eeb561d0edd26f a ns1:ObjectJson,
+ns2:N92fe0c833f9942c29e9ddf10ea758337 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
+    ns1:hasSourceFile "time_remaining.json" ;
     ns3:ForceScan "0" ;
     ns3:ForceSeek "0" ;
     ns3:ForcedIndex "0" ;
@@ -1713,26 +1691,48 @@ ns1:Naa5a905ea79545ffa5eeb561d0edd26f a ns1:ObjectJson,
     ns3:Ordered "1" ;
     ns3:ScanDirection "FORWARD" ;
     ns3:Storage "RowStore" ;
-    ns1:hasJsonObjectKey "IndexScan" ;
-    ns1:parentJsonId ns1:Nf85f560c098c4566a9f0d8108d6d01c9 .
+    ns2:hasJsonObjectKey "IndexScan" ;
+    ns2:parentJsonId ns2:Nc386a42ef65d477c8e5322053f2c0cbb .
 
-ns1:N19b24dc8a2e549848926bfb95d114515 a ns1:ObjectJson,
+ns2:Nd24bcb333ada47af887c3e073280191e a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:ForceScan "0" ;
+    ns3:ForcedIndex "0" ;
+    ns3:NoExpandHint "0" ;
+    ns3:Ordered "0" ;
+    ns3:Storage "RowStore" ;
+    ns2:hasJsonObjectKey "IndexScan" ;
+    ns2:parentJsonId ns2:Nbfb46c4591cf49298b8b958d6772875f .
+
+ns2:Ne03fac03074c465fb4ebc66adbaa5138 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
+    ns3:ForceScan "0" ;
+    ns3:ForcedIndex "0" ;
+    ns3:NoExpandHint "0" ;
+    ns3:Ordered "0" ;
+    ns3:Storage "RowStore" ;
+    ns2:hasJsonObjectKey "IndexScan" ;
+    ns2:parentJsonId ns2:N61d7430ad8dd48af8da0c3bf9520e2a7 .
+
+ns2:Nec48a27eece44efdb9eab262eec89e33 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns1:hasSourceFile "time_remaining.json" ;
     ns3:CachedPlanSize "16" ;
     ns3:CompileCPU "1" ;
     ns3:CompileMemory "200" ;
     ns3:CompileTime "1" ;
-    ns1:hasJsonObjectKey "QueryPlan" ;
-    ns1:parentJsonId ns1:N03e126e70eac479b8b8a517ca40c6b0c .
+    ns2:hasJsonObjectKey "QueryPlan" ;
+    ns2:parentJsonId ns2:N1edfc55665cc44c2aafe523a9c500a34 .
 
-ns1:N1511af2dc8924a49b010d440f0395acb a ns1:ObjectJson,
+ns2:Nc1866ad696de4e01a4176348b60ad2af a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "time_remaining.json" ;
+    ns1:hasSourceFile "time_remaining.json" ;
     ns3:CachedPlanSize "40" ;
-    ns3:CompileCPU "7" ;
+    ns3:CompileCPU "9" ;
     ns3:CompileMemory "552" ;
-    ns3:CompileTime "7" ;
-    ns1:hasJsonObjectKey "QueryPlan" ;
-    ns1:parentJsonId ns1:Naa890c2a44184a5b8f95538babe0a0b5 .
+    ns3:CompileTime "9" ;
+    ns2:hasJsonObjectKey "QueryPlan" ;
+    ns2:parentJsonId ns2:Ndd035910d43243059557057a68a4107f .
 

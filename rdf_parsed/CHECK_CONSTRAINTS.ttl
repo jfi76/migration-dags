@@ -1,50 +1,50 @@
-@prefix ns1: <http://www.example.com/ETL#> .
-@prefix ns2: <http://www.example.com/JSON#> .
+@prefix ns1: <http://www.example.com/JSON#> .
+@prefix ns2: <http://www.example.com/ETL#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
-ns2:N0fdbcb9aa5d74df590348ec9dc53f5a1 a ns2:ObjectJson,
+ns1:N192a35b1c493482e905e552c5b2ae7a1 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "CHECK_CONSTRAINTS.json" ;
-    ns2:CHECK_CLAUSE "([sex]='f' OR [sex]='m')" ;
-    ns2:CONSTRAINT_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns2:CONSTRAINT_NAME "check_sex" ;
-    ns2:CONSTRAINT_SCHEMA "dbo" ;
-    ns2:hasJsonObjectKey "1" ;
-    ns2:parentJsonId ns2:N105d7796752c41d0a3d014a8aadb86ce .
+    ns2:hasSourceFile "CHECK_CONSTRAINTS.json" ;
+    ns1:CHECK_CLAUSE "([sex]='f' OR [sex]='m')" ;
+    ns1:CONSTRAINT_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns1:CONSTRAINT_NAME "check_sex" ;
+    ns1:CONSTRAINT_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:N436d446d15674e4f91fd72dc9c24ba02 .
 
-ns2:N662d16052a974a87ae256c02e8a1e233 a ns2:ObjectJson,
+ns1:N1dc13cd627134ad3afe3d501e4bfe10f a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "CHECK_CONSTRAINTS.json" ;
-    ns2:CHECK_CLAUSE "([actual_mark]='n' OR [actual_mark]='y')" ;
-    ns2:CONSTRAINT_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns2:CONSTRAINT_NAME "CK_T_TEST_STEP" ;
-    ns2:CONSTRAINT_SCHEMA "dbo" ;
-    ns2:hasJsonObjectKey "3" ;
-    ns2:parentJsonId ns2:N105d7796752c41d0a3d014a8aadb86ce .
+    ns2:hasSourceFile "CHECK_CONSTRAINTS.json" ;
+    ns1:CHECK_CLAUSE "([start_date]<[end_date])" ;
+    ns1:CONSTRAINT_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns1:CONSTRAINT_NAME "CK_T_MISSION_START_DATE" ;
+    ns1:CONSTRAINT_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:N436d446d15674e4f91fd72dc9c24ba02 .
 
-ns2:Nb960558f9dfe426b8961390b36199da3 a ns2:ObjectJson,
+ns1:N934d55fb3ae0468a8f2676001c05910a a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "CHECK_CONSTRAINTS.json" ;
-    ns2:CHECK_CLAUSE "([start_date]<[end_date])" ;
-    ns2:CONSTRAINT_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns2:CONSTRAINT_NAME "CK_T_MISSION_START_DATE" ;
-    ns2:CONSTRAINT_SCHEMA "dbo" ;
-    ns2:hasJsonObjectKey "0" ;
-    ns2:parentJsonId ns2:N105d7796752c41d0a3d014a8aadb86ce .
+    ns2:hasSourceFile "CHECK_CONSTRAINTS.json" ;
+    ns1:CHECK_CLAUSE "([actual_mark]='n' OR [actual_mark]='y')" ;
+    ns1:CONSTRAINT_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns1:CONSTRAINT_NAME "CK_T_TEST_STEP" ;
+    ns1:CONSTRAINT_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "3" ;
+    ns1:parentJsonId ns1:N436d446d15674e4f91fd72dc9c24ba02 .
 
-ns2:Nd69fc168aa874d90997fd3ff612ad40c a ns2:ObjectJson,
+ns1:Nc3385f2a2f0b448f8c744d6ae5e933b3 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "CHECK_CONSTRAINTS.json" ;
-    ns2:CHECK_CLAUSE "([lang_num]=(3) OR [lang_num]=(2) OR [lang_num]=(1))" ;
-    ns2:CONSTRAINT_CATALOG "PSYCHOLOGY_TEST_1" ;
-    ns2:CONSTRAINT_NAME "CK_T_TESTING_LANGUAGE" ;
-    ns2:CONSTRAINT_SCHEMA "dbo" ;
-    ns2:hasJsonObjectKey "2" ;
-    ns2:parentJsonId ns2:N105d7796752c41d0a3d014a8aadb86ce .
+    ns2:hasSourceFile "CHECK_CONSTRAINTS.json" ;
+    ns1:CHECK_CLAUSE "([lang_num]=(3) OR [lang_num]=(2) OR [lang_num]=(1))" ;
+    ns1:CONSTRAINT_CATALOG "PSYCHOLOGY_TEST_1" ;
+    ns1:CONSTRAINT_NAME "CK_T_TESTING_LANGUAGE" ;
+    ns1:CONSTRAINT_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "2" ;
+    ns1:parentJsonId ns1:N436d446d15674e4f91fd72dc9c24ba02 .
 
-ns2:N105d7796752c41d0a3d014a8aadb86ce a ns2:ArrayJson,
-        ns2:FileJson,
-        ns2:ObjectJson,
+ns1:N436d446d15674e4f91fd72dc9c24ba02 a ns1:ArrayJson,
+        ns1:FileJson,
+        ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "CHECK_CONSTRAINTS.json" .
+    ns2:hasSourceFile "CHECK_CONSTRAINTS.json" .
 

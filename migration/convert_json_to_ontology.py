@@ -48,6 +48,7 @@ class json_to_ontology:
             self.toTTL(item)
         to_file=self.rdf_parsed+self.filename.replace('.json','.ttl')
         self.graph.serialize(to_file, 'turtle')
+        print(to_file)
         self.queryService.load_ttl(to_file)
 
     def toTTL(self,item):

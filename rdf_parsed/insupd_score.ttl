@@ -1,67 +1,71 @@
-@prefix ns1: <http://www.example.com/ETL#> .
+@prefix ns1: <http://www.example.com/JSON#> .
 @prefix ns2: <http://www.example.com/JSON#@> .
-@prefix ns3: <http://www.example.com/JSON#> .
+@prefix ns3: <http://www.example.com/ETL#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
-ns3:N00945de0a32447e19844197d0fb19195 a ns3:ObjectJson,
+ns1:N0130632be90c4ca5ad77e676ac5f573d a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns2:FunctionName "newid" ;
+    ns1:hasJsonObjectKey "Intrinsic" ;
+    ns1:parentJsonId ns1:Ne1fc82f3ecb14ee88848322360f76fd8 .
+
+ns1:N06661817ac4141e59bfd33fb6bcf1450 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
     ns2:Column "T_TESTING_SCORE_ID" ;
     ns2:Database "[PSYCHOLOGY_TEST_1]" ;
     ns2:Schema "[dbo]" ;
     ns2:Table "[T_TESTING_SCORE]" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:N85f4a3f6351a4a9cb27aa3b886c15400 .
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N5c7621be14744671926c63950bb330b9 .
 
-ns3:N00da5d713a8a4556b2b6c1996ab318fd a ns3:ObjectJson,
+ns1:N081bf13847fb46548f2d7b2e17d88a3d a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns2:Column "@t_testing_step_id" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:N62a462d301ac4eb6ae2a9f087f7a8cd9 .
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns2:GrantedMemory "0" ;
+    ns2:MaxUsedMemory "0" ;
+    ns2:SerialDesiredMemory "0" ;
+    ns2:SerialRequiredMemory "0" ;
+    ns1:hasJsonObjectKey "MemoryGrantInfo" ;
+    ns1:parentJsonId ns1:N1b4f4fdfb7c44c6aade980a51e0ecbf8 .
 
-ns3:N02cb017d7b6141379a7e236c0836a14d a ns3:ObjectJson,
+ns1:N12df97da1a3342a2a7711feaf2876ef8 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns2:Column "SCORE" ;
-    ns2:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns2:Schema "[dbo]" ;
-    ns2:Table "[T_TESTING_SCORE]" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:Nb77e2c5a6bae4c3083dc00d978b8f93e .
-
-ns3:N08569a69c5834bc1b5f9b75d5b83675a a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns2:Column "T_TESTING_SCORE_ID" ;
-    ns2:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns2:Schema "[dbo]" ;
-    ns2:Table "[T_TESTING_SCORE]" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:Nb717192230c84b709092ac462101b0b0 .
-
-ns3:N14be05c6a51e48a5b56b65db1504a48c a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns2:EstimatedAvailableDegreeOfParallelism "2" ;
-    ns2:EstimatedAvailableMemoryGrant "311472" ;
-    ns2:EstimatedPagesCached "77868" ;
-    ns2:MaxCompileMemory "582824" ;
-    ns3:hasJsonObjectKey "OptimizerHardwareDependentProperties" ;
-    ns3:parentJsonId ns3:N9d39af07967a40399a30704a0f55c44d .
-
-ns3:N2248b6cfa086419f8deac68ae34e0ae8 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
+    ns3:hasSourceFile "insupd_score.json" ;
     ns2:Column "@score" ;
     ns2:ParameterCompiledValue "N'a'" ;
     ns2:ParameterDataType "nvarchar(50)" ;
-    ns3:hasJsonObjectKey "1" ;
-    ns3:parentJsonId ns3:N1b7f4979090a406a86f6f3aec67e008f .
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:Ncaab602ea8b74916bd44eeaf9325918e .
 
-ns3:N29bf3929d6ae4888b838676908aa2164 a ns3:ObjectJson,
+ns1:N1526d22dfa7a42179a5a022b1c668d00 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns2:EstimatedAvailableDegreeOfParallelism "2" ;
+    ns2:EstimatedAvailableMemoryGrant "311472" ;
+    ns2:EstimatedPagesCached "77868" ;
+    ns2:MaxCompileMemory "654432" ;
+    ns1:hasJsonObjectKey "OptimizerHardwareDependentProperties" ;
+    ns1:parentJsonId ns1:N8faf6fa8084a41d3b5b73669e4474ca2 .
+
+ns1:N28279066c68943d795ab3f5e39da7345 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns2:Column "Expr1003" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N2e46682716bd47089ca7449c71279a48 .
+
+ns1:N28352a4c7db04fd7a1e61aa00c2d8b92 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns2:Column "@score" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:Nb151d8988d57440199e387c55d6f32e0 .
+
+ns1:N413f16b165fa427c9cb9da52b892a1b1 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
     ns2:ANSI_NULLS "true" ;
     ns2:ANSI_PADDING "true" ;
     ns2:ANSI_WARNINGS "true" ;
@@ -69,272 +73,215 @@ ns3:N29bf3929d6ae4888b838676908aa2164 a ns3:ObjectJson,
     ns2:CONCAT_NULL_YIELDS_NULL "true" ;
     ns2:NUMERIC_ROUNDABORT "false" ;
     ns2:QUOTED_IDENTIFIER "true" ;
-    ns3:hasJsonObjectKey "StatementSetOptions" ;
-    ns3:parentJsonId ns3:N4b98c63acbc74bb597b7ca430e0cb5fc .
+    ns1:hasJsonObjectKey "StatementSetOptions" ;
+    ns1:parentJsonId ns1:Nfaae4f35960340938b57b468109175b9 .
 
-ns3:N2c74f20f592e47929d5ae4b0c611b5af a ns3:ObjectJson,
+ns1:N4ba8d4e6c57d4123a48fe3db91da1387 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns2:Column "T_TESTING_STEP_ID" ;
     ns2:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns2:Index "[PK_T_TESTINNG_SCORE_1]" ;
-    ns2:IndexKind "Clustered" ;
     ns2:Schema "[dbo]" ;
-    ns2:Storage "RowStore" ;
     ns2:Table "[T_TESTING_SCORE]" ;
-    ns3:hasJsonObjectKey "Object" ;
-    ns3:parentJsonId ns3:Ncf4c84ac1b604c2d9f746c30e259ec0b .
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N6600571178bd463db2e04564bba553a5 .
 
-ns3:N34338a68fb1c427a880b057bc5e3906d a ns3:ObjectJson,
+ns1:N528f2e5f2b6840b997d63b14d2de5335 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns2:Column "@score" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:N53f232bf8f344443b6f67b7ff2778cca .
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns2:FunctionName "getdate" ;
+    ns1:hasJsonObjectKey "Intrinsic" ;
+    ns1:parentJsonId ns1:Ncaf10460f7324652b632ff5c5f405c4f .
 
-ns3:N4358bbf5190c4ecaacfcf6103d34e039 a ns3:ObjectJson,
+ns1:N5a98d6c980d1435893d8a963b893cdff a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns2:Column "@t_testing_step_id" ;
+    ns2:ParameterCompiledValue "{guid'E7FAB167-C47A-4865-A8AE-429FA778414C'}" ;
+    ns2:ParameterDataType "uniqueidentifier" ;
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:N7761d0f3407b47e5b6d76f0fae18ea82 .
+
+ns1:N5ed927d1c92d4cb2a327f4b74ddff190 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns2:Column "Expr1002" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:Nee7160a0f5b841ef8834194b829f3883 .
+
+ns1:N5efe17dd6c7f495593e17980e93abae4 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
     ns2:Column "SCORE" ;
     ns2:Database "[PSYCHOLOGY_TEST_1]" ;
     ns2:Schema "[dbo]" ;
     ns2:Table "[T_TESTING_SCORE]" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:N11725b6c7ad3491081e3fad998ac944c .
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N56b70185fd4a47e6a81d0fa21413bfab .
 
-ns3:N5dfac9f6a98542958c055bc5cf1cdd6c a ns3:ObjectJson,
+ns1:N6b2c432f83ab41c1adfdb97ada52d00e a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns2:Column "@t_testing_step_id" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:Nb3861845fc584f779091045046399afa .
+
+ns1:N72b1f063f9fc4b2ba634e55b8c48b2bc a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
     ns2:Database "[PSYCHOLOGY_TEST_1]" ;
     ns2:Index "[PK_T_TESTINNG_SCORE_1]" ;
     ns2:IndexKind "Clustered" ;
     ns2:Schema "[dbo]" ;
     ns2:Storage "RowStore" ;
     ns2:Table "[T_TESTING_SCORE]" ;
-    ns3:hasJsonObjectKey "Object" ;
-    ns3:parentJsonId ns3:N806c522df38a449f8cb9c4281c8264aa .
+    ns1:hasJsonObjectKey "Object" ;
+    ns1:parentJsonId ns1:N948e811afe074e76b608131ee4e82786 .
 
-ns3:N60b072b42e6b413eb8d2de166c6d1bb2 a ns3:ObjectJson,
+ns1:N829f40ae35164c8cab8df890f1224716 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns2:Column "T_TESTING_STEP_ID" ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns2:Column "SCORE" ;
     ns2:Database "[PSYCHOLOGY_TEST_1]" ;
     ns2:Schema "[dbo]" ;
     ns2:Table "[T_TESTING_SCORE]" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:N82f24d00f90c4eadaab533dfe1634511 .
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N9bebb6ef315a4ba7baa63d7822757669 .
 
-ns3:N7800c045e1bf4bc1affcab71fd10666d a ns3:ObjectJson,
+ns1:N855befadf81f45d184db5bf1df312f8b a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns2:Column "Expr1003" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:Nf9ec759ea6544ac383180ac4e36ce8f2 .
-
-ns3:N85fb0ebdaf1245dfa6c34d0db2b130b9 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns2:Column "@score" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:Nc35c5af4ca8b467faab66c6bf4885446 .
-
-ns3:N87ee3567751247318a984d3bddc40ea4 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns2:Column "T_TESTING_STEP_ID" ;
-    ns2:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns2:Schema "[dbo]" ;
-    ns2:Table "[T_TESTING_SCORE]" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:Na12c8252f25f4d72ab19c0d5ce53e02d .
-
-ns3:N90ad91fa952e4bdd8a062871b7665527 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns2:EstimatedAvailableDegreeOfParallelism "2" ;
-    ns2:EstimatedAvailableMemoryGrant "311472" ;
-    ns2:EstimatedPagesCached "77868" ;
-    ns2:MaxCompileMemory "582824" ;
-    ns3:hasJsonObjectKey "OptimizerHardwareDependentProperties" ;
-    ns3:parentJsonId ns3:N05cd3863702c476a9a778d2bc989efd9 .
-
-ns3:N95ca30e865514bb6a815497d35f1b4a3 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns2:Column "@t_testing_step_id" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:N01f640a500824647b5133ba8226de9f6 .
-
-ns3:N9d00bf74c2b04c9d80c99c77c30244d6 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
+    ns3:hasSourceFile "insupd_score.json" ;
     ns2:Column "@t_testing_step_id" ;
     ns2:ParameterCompiledValue "{guid'E7FAB167-C47A-4865-A8AE-429FA778414C'}" ;
     ns2:ParameterDataType "uniqueidentifier" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:Nd3973ce2acc14ecbae31ee0eb9eab29d .
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N123e0b0907264897986b29e7c4a64799 .
 
-ns3:Na1c1f31b33ec438688b96e1a6cef18c4 a ns3:ObjectJson,
+ns1:N85ec1279d7054ca992c5c5b7579c59c7 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns2:Column "@t_testing_score_id" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:Nfe444cff2b9f43bd97720fee4fad81fa .
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns2:Column "@score" ;
+    ns2:ParameterCompiledValue "N'a'" ;
+    ns2:ParameterDataType "nvarchar(50)" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:N7761d0f3407b47e5b6d76f0fae18ea82 .
 
-ns3:Na994faba146a469fbfe4ee4979968826 a ns3:ObjectJson,
+ns1:N8a1c2dcca581426686940c8766393bc8 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns2:Column "T_TESTING_SCORE_ID" ;
-    ns2:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns2:Schema "[dbo]" ;
-    ns2:Table "[T_TESTING_SCORE]" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:Nb0d6f771dd3644d584acb458b3fb132d .
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns2:EstimatedAvailableDegreeOfParallelism "2" ;
+    ns2:EstimatedAvailableMemoryGrant "311472" ;
+    ns2:EstimatedPagesCached "77868" ;
+    ns2:MaxCompileMemory "654432" ;
+    ns1:hasJsonObjectKey "OptimizerHardwareDependentProperties" ;
+    ns1:parentJsonId ns1:N1b4f4fdfb7c44c6aade980a51e0ecbf8 .
 
-ns3:Na9dc446eba8a4e0cb2d6b02334d86de0 a ns3:ObjectJson,
+ns1:N931131e309034a66b43bb33412ada2c0 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns2:GrantedMemory "0" ;
-    ns2:MaxUsedMemory "0" ;
-    ns2:SerialDesiredMemory "0" ;
-    ns2:SerialRequiredMemory "0" ;
-    ns3:hasJsonObjectKey "MemoryGrantInfo" ;
-    ns3:parentJsonId ns3:N9d39af07967a40399a30704a0f55c44d .
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns2:Column "Expr1003" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N195adf11a335431abfb114ce9c783946 .
 
-ns3:Naa8c4c5a27c148829cf67b3772d442c3 a ns3:ObjectJson,
+ns1:N98c18c18d58b4141be20d5c01196e486 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns2:Column "Expr1002" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:N0b8621db239a4c7891e2a3d93ecd04fd .
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns2:ANSI_NULLS "true" ;
+    ns2:ANSI_PADDING "true" ;
+    ns2:ANSI_WARNINGS "true" ;
+    ns2:ARITHABORT "true" ;
+    ns2:CONCAT_NULL_YIELDS_NULL "true" ;
+    ns2:NUMERIC_ROUNDABORT "false" ;
+    ns2:QUOTED_IDENTIFIER "true" ;
+    ns1:hasJsonObjectKey "StatementSetOptions" ;
+    ns1:parentJsonId ns1:N84c9cb0da81c4547a7db969e97d0da13 .
 
-ns3:Naf95c4cf7edd4eeb9cd773f0c9f42ce9 a ns3:ObjectJson,
+ns1:Na1cf4d9b836f4a36babd88bb61f9143d a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns2:Column "Expr1002" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:N39982ef1ccbc44e3965690ef8614b932 .
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns2:Column "@t_testing_step_id" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:Nc05d3fec657a4384a883700da2c52440 .
 
-ns3:Nb39f30686f9a4db9b1d9dd7af7514846 a ns3:ObjectJson,
+ns1:Na292479b98be4c11bb2eb06e60e30081 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
+    ns3:hasSourceFile "insupd_score.json" ;
     ns2:Database "[PSYCHOLOGY_TEST_1]" ;
     ns2:Index "[PK_T_TESTINNG_SCORE_1]" ;
     ns2:IndexKind "Clustered" ;
     ns2:Schema "[dbo]" ;
     ns2:Storage "RowStore" ;
     ns2:Table "[T_TESTING_SCORE]" ;
-    ns3:hasJsonObjectKey "Object" ;
-    ns3:parentJsonId ns3:Nbd1e6728413b4830b56683a0d69c5c3b .
+    ns1:hasJsonObjectKey "Object" ;
+    ns1:parentJsonId ns1:Nfac2017d737647bebb187e6924e3e910 .
 
-ns3:Nbdd6fc80c530412d8fa5c0de40f04787 a ns3:ObjectJson,
+ns1:Nada8b1d131014e91b17d43ac1326c4c3 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
+    ns3:hasSourceFile "insupd_score.json" ;
     ns2:Column "T_TESTING_SCORE_ID" ;
     ns2:Database "[PSYCHOLOGY_TEST_1]" ;
     ns2:Schema "[dbo]" ;
     ns2:Table "[T_TESTING_SCORE]" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:N320384565d494a41959e7876855a3414 .
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N65b08bad0be04e4b9144f0158bdbfd85 .
 
-ns3:Nc5471a1620d94022a3f8c5c8d97d8392 a ns3:ObjectJson,
+ns1:Nb7ad2338d74d4125b916a4c9a4f51f6d a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns2:Column "Expr1003" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:N9be15755600d40fa90059a605b2893bb .
-
-ns3:Nc79622e46fa7486da11dafe811db2300 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns2:FunctionName "newid" ;
-    ns3:hasJsonObjectKey "Intrinsic" ;
-    ns3:parentJsonId ns3:Nac8918db45904e1ab40150361d5e6b6c .
-
-ns3:Nc8e31c9df836440881956a8ace512f71 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns2:EstimatedAvailableDegreeOfParallelism "2" ;
-    ns2:EstimatedAvailableMemoryGrant "311472" ;
-    ns2:EstimatedPagesCached "77868" ;
-    ns2:MaxCompileMemory "582824" ;
-    ns3:hasJsonObjectKey "OptimizerHardwareDependentProperties" ;
-    ns3:parentJsonId ns3:Nd4a64a3736854f58963f065503ebe8c8 .
-
-ns3:Nca4de47f1b5247708b2aab915454ecc7 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
+    ns3:hasSourceFile "insupd_score.json" ;
     ns2:Column "OBJ_CREATED" ;
     ns2:Database "[PSYCHOLOGY_TEST_1]" ;
     ns2:Schema "[dbo]" ;
     ns2:Table "[T_TESTING_SCORE]" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:N3a4a3c2e07bc4aea892bd167825885b7 .
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:Neaf6d8ad257249fab4fe858c98e22317 .
 
-ns3:Nd5d2daf8a5ff4f6187cc6f9f763cb635 a ns3:ObjectJson,
+ns1:Nba90c3040aa04197bde103cda2b7df43 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns2:Column "@t_testing_step_id" ;
-    ns2:ParameterCompiledValue "{guid'E7FAB167-C47A-4865-A8AE-429FA778414C'}" ;
-    ns2:ParameterDataType "uniqueidentifier" ;
-    ns3:hasJsonObjectKey "0" ;
-    ns3:parentJsonId ns3:N1b7f4979090a406a86f6f3aec67e008f .
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns2:Column "T_TESTING_STEP_ID" ;
+    ns2:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns2:Schema "[dbo]" ;
+    ns2:Table "[T_TESTING_SCORE]" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N63101245e5a240c79acd44272c79994a .
 
-ns3:Ndbd47a6fd136404f90a90534bec82bf4 a ns3:ObjectJson,
+ns1:Nbbba6e9091464feaa9da9b7b4a904530 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns2:FunctionName "getdate" ;
-    ns3:hasJsonObjectKey "Intrinsic" ;
-    ns3:parentJsonId ns3:Nf0b30194558245f2b67558d2557d455b .
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns2:Column "T_TESTING_SCORE_ID" ;
+    ns2:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns2:Schema "[dbo]" ;
+    ns2:Table "[T_TESTING_SCORE]" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:Ndd96a961e5b54458a55c65899b04b8ea .
 
-ns3:Ndf1171f8be584f54ba46570eb1edcda7 a ns3:ObjectJson,
+ns1:Nbe1f64298c5c4488aa2f8de72b15fcb7 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns2:GrantedMemory "0" ;
-    ns2:MaxUsedMemory "0" ;
-    ns2:SerialDesiredMemory "0" ;
-    ns2:SerialRequiredMemory "0" ;
-    ns3:hasJsonObjectKey "MemoryGrantInfo" ;
-    ns3:parentJsonId ns3:Nd4a64a3736854f58963f065503ebe8c8 .
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns2:Column "Expr1002" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N8cb61e76983d455b8fa99df7c6144d98 .
 
-ns3:Ne8d4875837334246a0cc45651e769bf0 a ns3:ObjectJson,
+ns1:Nc7394720173543d2a2ef6d8144ee6c26 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns2:ANSI_NULLS "true" ;
-    ns2:ANSI_PADDING "true" ;
-    ns2:ANSI_WARNINGS "true" ;
-    ns2:ARITHABORT "true" ;
-    ns2:CONCAT_NULL_YIELDS_NULL "true" ;
-    ns2:NUMERIC_ROUNDABORT "false" ;
-    ns2:QUOTED_IDENTIFIER "true" ;
-    ns3:hasJsonObjectKey "StatementSetOptions" ;
-    ns3:parentJsonId ns3:N72ee9ce7d4ee4ac29e07c6fea1456f94 .
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns2:Column "@t_testing_score_id" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N90cb5ffaa45e43459bc38b4d5932a39f .
 
-ns3:Nefcbe99b177b4921911e8e8177235413 a ns3:ObjectJson,
+ns1:Nd1fbd1ce35dc4ec1813cc615afe4b77a a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns2:GrantedMemory "0" ;
-    ns2:MaxUsedMemory "0" ;
-    ns2:SerialDesiredMemory "0" ;
-    ns2:SerialRequiredMemory "0" ;
-    ns3:hasJsonObjectKey "MemoryGrantInfo" ;
-    ns3:parentJsonId ns3:N05cd3863702c476a9a778d2bc989efd9 .
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns2:Column "T_TESTING_SCORE_ID" ;
+    ns2:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns2:Schema "[dbo]" ;
+    ns2:Table "[T_TESTING_SCORE]" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N7ba699d003cd449fa00f55b48a1d768a .
 
-ns3:Nf135ae00122e482b9d5cd504a088caf7 a ns3:ObjectJson,
+ns1:Nd6c9a2a716fd403c8ce3160830f74aa9 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns2:ANSI_NULLS "true" ;
-    ns2:ANSI_PADDING "true" ;
-    ns2:ANSI_WARNINGS "true" ;
-    ns2:ARITHABORT "true" ;
-    ns2:CONCAT_NULL_YIELDS_NULL "true" ;
-    ns2:NUMERIC_ROUNDABORT "false" ;
-    ns2:QUOTED_IDENTIFIER "true" ;
-    ns3:hasJsonObjectKey "StatementSetOptions" ;
-    ns3:parentJsonId ns3:N7ef0468fbb25498e931fe688650a642a .
-
-ns3:Nf5f4e937253a49889af66b6fdaae065f a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
+    ns3:hasSourceFile "insupd_score.json" ;
     ns2:RetrievedFromCache "false" ;
     ns2:StatementCompId "3" ;
     ns2:StatementId "2" ;
@@ -349,424 +296,111 @@ set @t_testing_score_id = NULL \r
 \r
 """ ;
     ns2:StatementType "ASSIGN" ;
-    ns3:hasJsonObjectKey "0" ;
-    ns3:parentJsonId ns3:Nbb329773e45948cf93b90271d72219e7 .
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:Na3473adae1b743a286595486da435f55 .
 
-ns3:Nf820594160614c599f5e3b4f75152d8c a ns3:ObjectJson,
+ns1:Ndd77f971d601436db470b2cd024ef34f a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns2:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns2:Index "[PK_T_TESTINNG_SCORE_1]" ;
+    ns2:IndexKind "Clustered" ;
+    ns2:Schema "[dbo]" ;
+    ns2:Storage "RowStore" ;
+    ns2:Table "[T_TESTING_SCORE]" ;
+    ns1:hasJsonObjectKey "Object" ;
+    ns1:parentJsonId ns1:N65239008c07b4906a419fcf654a3039c .
+
+ns1:Nde4703a5ac384c719d019877614c6ce3 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
     ns2:Column "@score" ;
-    ns2:ParameterCompiledValue "N'a'" ;
-    ns2:ParameterDataType "nvarchar(50)" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:N17b3489f6b8948e2b1a2f360a022de6d .
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N98abc9d9f19944a7bbb02540a842ad86 .
 
-ns3:N01970dbe7f1e4741abf9fcf66572dc33 a ns3:ObjectJson,
+ns1:Ne7f59d08fbb749178f688ffa82c6f85e a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "SeekKeys" ;
-    ns3:parentJsonId ns3:Nf03a9805018445548db9fbea9f883f15 .
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns2:GrantedMemory "0" ;
+    ns2:MaxUsedMemory "0" ;
+    ns2:SerialDesiredMemory "0" ;
+    ns2:SerialRequiredMemory "0" ;
+    ns1:hasJsonObjectKey "MemoryGrantInfo" ;
+    ns1:parentJsonId ns1:N8faf6fa8084a41d3b5b73669e4474ca2 .
 
-ns3:N01f640a500824647b5133ba8226de9f6 a ns3:ObjectJson,
+ns1:Nf2f4e775ec0e43679ac5f63a88f3c2a7 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "Identifier" ;
-    ns3:parentJsonId ns3:Ne6d177f880f849b1a329db4c58217c61 .
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns2:GrantedMemory "0" ;
+    ns2:MaxUsedMemory "0" ;
+    ns2:SerialDesiredMemory "0" ;
+    ns2:SerialRequiredMemory "0" ;
+    ns1:hasJsonObjectKey "MemoryGrantInfo" ;
+    ns1:parentJsonId ns1:N9e4a2348395d43f1bd9ed8f8fbc7c5bc .
 
-ns3:N030c3914c843496bba5e24645d15afa5 a ns3:ObjectJson,
+ns1:Nf4948f1c1f144450a090aab02df5facc a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns2:FunctionName "RaiseIfNullUpdate" ;
-    ns3:hasJsonObjectKey "Intrinsic" ;
-    ns3:parentJsonId ns3:N94a8849a8bcf4088a9755f172b1116b6 .
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns2:EstimatedAvailableDegreeOfParallelism "2" ;
+    ns2:EstimatedAvailableMemoryGrant "311472" ;
+    ns2:EstimatedPagesCached "77868" ;
+    ns2:MaxCompileMemory "654432" ;
+    ns1:hasJsonObjectKey "OptimizerHardwareDependentProperties" ;
+    ns1:parentJsonId ns1:N9e4a2348395d43f1bd9ed8f8fbc7c5bc .
 
-ns3:N0461d26c3ad740b68d7d1f96a898743b a ns3:ObjectJson,
+ns1:Nfa0597b80a1845f68b5dafd33b74facb a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:Na43155732ab84d6bb71faeb65a16feef .
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns2:ANSI_NULLS "true" ;
+    ns2:ANSI_PADDING "true" ;
+    ns2:ANSI_WARNINGS "true" ;
+    ns2:ARITHABORT "true" ;
+    ns2:CONCAT_NULL_YIELDS_NULL "true" ;
+    ns2:NUMERIC_ROUNDABORT "false" ;
+    ns2:QUOTED_IDENTIFIER "true" ;
+    ns1:hasJsonObjectKey "StatementSetOptions" ;
+    ns1:parentJsonId ns1:Ndda8bd73c91a49b0a370ed3639b08f42 .
 
-ns3:N0b8621db239a4c7891e2a3d93ecd04fd a ns3:ObjectJson,
+ns1:N0236ae172e6a435eb8ba1fdd17fff974 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "Identifier" ;
-    ns3:parentJsonId ns3:N6c4222451af2432b9ccc64ac70f627d8 .
-
-ns3:N11327d5b50eb4b58858fccb69a2f7c1d a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns2:FunctionName "RaiseIfNullInsert" ;
-    ns3:hasJsonObjectKey "Intrinsic" ;
-    ns3:parentJsonId ns3:N6dfb63f2727e41f3a66de4c92c30563e .
-
-ns3:N17b3489f6b8948e2b1a2f360a022de6d a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "ParameterList" ;
-    ns3:parentJsonId ns3:N05cd3863702c476a9a778d2bc989efd9 .
-
-ns3:N1958a0e3017c412a996dbd919f1511f4 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns2:ScalarString "[PSYCHOLOGY_TEST_1].[dbo].[T_TESTING_SCORE].[SCORE] = RaiseIfNullUpdate([@score])" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:N623c7b77239341eea79f485bac6f38e4 .
-
-ns3:N1eaf9023cd6e439fab3a1b2e35559175 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "MultipleAssign" ;
-    ns3:parentJsonId ns3:N8a359217695b40cc908d47b64d0939c7 .
-
-ns3:N1f8eee02c82b406eb439f5eab6067e3d a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:N030c3914c843496bba5e24645d15afa5 .
-
-ns3:N20c5aab0ef3b469ebf19c1761ceb029d a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "1" ;
-    ns3:parentJsonId ns3:N8f1e164cb5c14d83998f241489fdb64d .
-
-ns3:N234c0545a77c4324a2be99b524a66e66 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns2:ScalarString "[PSYCHOLOGY_TEST_1].[dbo].[T_TESTING_SCORE].[T_TESTING_SCORE_ID] = RaiseIfNullInsert([Expr1002]),[PSYCHOLOGY_TEST_1].[dbo].[T_TESTING_SCORE].[SCORE] = RaiseIfNullInsert([@score]),[PSYCHOLOGY_TEST_1].[dbo].[T_TESTING_SCORE].[T_TESTING_STEP_ID] = RaiseIfNullInsert([@t_testing_step_id]),[PSYCHOLOGY_TEST_1].[dbo].[T_TESTING_SCORE].[OBJ_CREATED] = RaiseIfNullInsert([Expr1003])" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:Nb4ddd9889db94c0e85aa7f84e87c6df3 .
-
-ns3:N27db965cba7246dcb6a59763454765eb a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns2:ScalarString "[@t_testing_score_id]" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:N9aa770bef48f40e998cda944535defa0 .
-
-ns3:N2c8d0d9ec97341069313cfcf4a6039e9 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns2:ScalarString "[PSYCHOLOGY_TEST_1].[dbo].[T_TESTING_SCORE].[T_TESTING_STEP_ID]=[@t_testing_step_id]" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:Nbf466537e9ac4f2c9616421f82d3e340 .
-
-ns3:N320384565d494a41959e7876855a3414 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "DefinedValue" ;
-    ns3:parentJsonId ns3:Nb89652a770d14f59bc72594525ed77a3 .
-
-ns3:N360c50b5b5a04473a39b30c3ff1aa3ce a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:N3a4a3c2e07bc4aea892bd167825885b7 .
-
-ns3:N3905ee9c3ab147a38cb539a0cf460ccc a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns2:Column "ConstExpr1004" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:N4370d5793eac45958a3bced84d29541a .
-
-ns3:N3aa4808bb7e34f1c81b8eec2125135bf a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "Statements" ;
-    ns3:parentJsonId ns3:N78fc557684d94f22af9e3108eac5c6c4 .
-
-ns3:N40776bdc5b2347f2a0a852fcc0656ba5 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "Else" ;
-    ns3:parentJsonId ns3:Nfe4d5801b7434eac9218fbf12f726f0b .
-
-ns3:N4370d5793eac45958a3bced84d29541a a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "Identifier" ;
-    ns3:parentJsonId ns3:N8c90166cf0ee495fafd2f0884718c02b .
-
-ns3:N45cfaebc77e84490b5c668f8cd1d6abf a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "ScalarExpressionList" ;
-    ns3:parentJsonId ns3:N234c0545a77c4324a2be99b524a66e66 .
-
-ns3:N4ca382b0b857498eacf43caeebcfe96f a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:N82f24d00f90c4eadaab533dfe1634511 .
-
-ns3:N4e4bafa3a42f4fc892b76690575c88f8 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "BatchSequence" ;
-    ns3:parentJsonId ns3:Nf5efeecfb6c84385a0149afdcb1ebc3e .
-
-ns3:N53f232bf8f344443b6f67b7ff2778cca a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "Identifier" ;
-    ns3:parentJsonId ns3:N0461d26c3ad740b68d7d1f96a898743b .
-
-ns3:N554931cb9e7d43d38c01e36c2703303d a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns2:ProcName "insupd_score" ;
-    ns3:hasJsonObjectKey "StoredProc" ;
-    ns3:parentJsonId ns3:N5a64b8435b59439bb026976ede59cda5 .
-
-ns3:N5a64b8435b59439bb026976ede59cda5 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
+    ns3:hasSourceFile "insupd_score.json" ;
     ns2:RetrievedFromCache "false" ;
     ns2:StatementCompId "1" ;
     ns2:StatementId "1" ;
     ns2:StatementText "exec insupd_score  'E7FAB167-C47A-4865-A8AE-429FA778414C', 'a'" ;
     ns2:StatementType "EXECUTE PROC" ;
-    ns3:hasJsonObjectKey "StmtSimple" ;
-    ns3:parentJsonId ns3:N3aa4808bb7e34f1c81b8eec2125135bf .
+    ns1:hasJsonObjectKey "StmtSimple" ;
+    ns1:parentJsonId ns1:N8e31e6a6f34f482bb2bdbe65e005b2d8 .
 
-ns3:N623c7b77239341eea79f485bac6f38e4 a ns3:ObjectJson,
+ns1:N07034d24a49943c6af5746252316e11a a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "SetPredicate" ;
-    ns3:parentJsonId ns3:Ncf4c84ac1b604c2d9f746c30e259ec0b .
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "Else" ;
+    ns1:parentJsonId ns1:N7036fd5a4a3949719c1bbd822be734cd .
 
-ns3:N62a462d301ac4eb6ae2a9f087f7a8cd9 a ns3:ObjectJson,
+ns1:N07039002e5874843a6a6bbf2fc4f0e08 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "Identifier" ;
-    ns3:parentJsonId ns3:N20c5aab0ef3b469ebf19c1761ceb029d .
-
-ns3:N62b407915c91472ea42818fda61d3b32 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "MultipleAssign" ;
-    ns3:parentJsonId ns3:Nbbdc572ed3f6430993198565bfbd9c62 .
-
-ns3:N6c4222451af2432b9ccc64ac70f627d8 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:N11327d5b50eb4b58858fccb69a2f7c1d .
-
-ns3:N6dfb63f2727e41f3a66de4c92c30563e a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:Nb0d6f771dd3644d584acb458b3fb132d .
-
-ns3:N78fc557684d94f22af9e3108eac5c6c4 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "Batch" ;
-    ns3:parentJsonId ns3:N4e4bafa3a42f4fc892b76690575c88f8 .
-
-ns3:N7f0ba4d5b108403795c7d5279cfea641 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "Statements" ;
-    ns3:parentJsonId ns3:N94c0a32e278a4a4ca86d71193b1a63e7 .
-
-ns3:N85f4a3f6351a4a9cb27aa3b886c15400 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "OutputList" ;
-    ns3:parentJsonId ns3:Nb0ec78293abc41b784f75cae92dcf060 .
-
-ns3:N8a359217695b40cc908d47b64d0939c7 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:N45cfaebc77e84490b5c668f8cd1d6abf .
-
-ns3:N8c90166cf0ee495fafd2f0884718c02b a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns2:ScalarString "getdate()" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:Nf9ec759ea6544ac383180ac4e36ce8f2 .
-
-ns3:N93d7a67a97804718a31d008bb98d3e2e a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "ScalarExpressionList" ;
-    ns3:parentJsonId ns3:N1958a0e3017c412a996dbd919f1511f4 .
-
-ns3:N94a8849a8bcf4088a9755f172b1116b6 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:N11725b6c7ad3491081e3fad998ac944c .
-
-ns3:N94c0a32e278a4a4ca86d71193b1a63e7 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "Then" ;
-    ns3:parentJsonId ns3:Nfe4d5801b7434eac9218fbf12f726f0b .
-
-ns3:N9aa770bef48f40e998cda944535defa0 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "RangeExpressions" ;
-    ns3:parentJsonId ns3:Nd4ed39491026474b9d52d86d63d5f740 .
-
-ns3:N9be15755600d40fa90059a605b2893bb a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "Identifier" ;
-    ns3:parentJsonId ns3:Nf84cac6af4b04125ad32a639ce9003c1 .
-
-ns3:Na12c8252f25f4d72ab19c0d5ce53e02d a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "Identifier" ;
-    ns3:parentJsonId ns3:Nbe173ccb65f64ba9b7c9f13127cc02cb .
-
-ns3:Na43155732ab84d6bb71faeb65a16feef a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
+    ns3:hasSourceFile "insupd_score.json" ;
     ns2:FunctionName "RaiseIfNullInsert" ;
-    ns3:hasJsonObjectKey "Intrinsic" ;
-    ns3:parentJsonId ns3:Nc742185f071f4bcfb8d7da7bd7d5193a .
+    ns1:hasJsonObjectKey "Intrinsic" ;
+    ns1:parentJsonId ns1:Nc6dca3ae8a804f2db141d1d3aaabb498 .
 
-ns3:Nac14cba222d2448996b481cf463743ba a ns3:ObjectJson,
+ns1:N07c0ede3592048f5a854015696d202ac a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "Statements" ;
-    ns3:parentJsonId ns3:N40776bdc5b2347f2a0a852fcc0656ba5 .
-
-ns3:Nac8918db45904e1ab40150361d5e6b6c a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns2:ScalarString "newid()" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:N39982ef1ccbc44e3965690ef8614b932 .
-
-ns3:Nace7b06d794a41cda5ce004548e8a8d9 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
+    ns3:hasSourceFile "insupd_score.json" ;
     ns2:FunctionName "RaiseIfNullInsert" ;
-    ns3:hasJsonObjectKey "Intrinsic" ;
-    ns3:parentJsonId ns3:N360c50b5b5a04473a39b30c3ff1aa3ce .
+    ns1:hasJsonObjectKey "Intrinsic" ;
+    ns1:parentJsonId ns1:N31103610e93f4510b7f9c5a47080d2e6 .
 
-ns3:Naf7b9185e56441879c83cb6d146e9b16 a ns3:ObjectJson,
+ns1:N0ac176040a014fe0a5d6113be8b93496 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "DefinedValues" ;
-    ns3:parentJsonId ns3:N806c522df38a449f8cb9c4281c8264aa .
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "MultipleAssign" ;
+    ns1:parentJsonId ns1:N8ce93d7ced2642a6930e2e940a0c0ebb .
 
-ns3:Nb4ddd9889db94c0e85aa7f84e87c6df3 a ns3:ObjectJson,
+ns1:N0b7904c3fad6401283a8bc6a1254d07c a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "SetPredicate" ;
-    ns3:parentJsonId ns3:N806c522df38a449f8cb9c4281c8264aa .
-
-ns3:Nb717192230c84b709092ac462101b0b0 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "RangeColumns" ;
-    ns3:parentJsonId ns3:Nd4ed39491026474b9d52d86d63d5f740 .
-
-ns3:Nb85b09228f6647639177a947099af4e0 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns2:FunctionName "RaiseIfNullInsert" ;
-    ns3:hasJsonObjectKey "Intrinsic" ;
-    ns3:parentJsonId ns3:N4ca382b0b857498eacf43caeebcfe96f .
-
-ns3:Nb89652a770d14f59bc72594525ed77a3 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "DefinedValues" ;
-    ns3:parentJsonId ns3:Nbd1e6728413b4830b56683a0d69c5c3b .
-
-ns3:Nbbdc572ed3f6430993198565bfbd9c62 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:N93d7a67a97804718a31d008bb98d3e2e .
-
-ns3:Nbe173ccb65f64ba9b7c9f13127cc02cb a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "0" ;
-    ns3:parentJsonId ns3:N8f1e164cb5c14d83998f241489fdb64d .
-
-ns3:Nbf466537e9ac4f2c9616421f82d3e340 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "Predicate" ;
-    ns3:parentJsonId ns3:Nbd1e6728413b4830b56683a0d69c5c3b .
-
-ns3:Nc35c5af4ca8b467faab66c6bf4885446 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "Identifier" ;
-    ns3:parentJsonId ns3:N1f8eee02c82b406eb439f5eab6067e3d .
-
-ns3:Nc5664ed292744fc8ada0c2506501d183 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns2:CompareOp "EQ" ;
-    ns3:hasJsonObjectKey "Compare" ;
-    ns3:parentJsonId ns3:N2c8d0d9ec97341069313cfcf4a6039e9 .
-
-ns3:Nc742185f071f4bcfb8d7da7bd7d5193a a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:Nb77e2c5a6bae4c3083dc00d978b8f93e .
-
-ns3:Ncd47598896174010b36727b2dbcfbf78 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns2:AvgRowSize "9" ;
-    ns2:EstimateCPU "1e-06" ;
-    ns2:EstimateIO "0.01" ;
-    ns2:EstimateRebinds "0" ;
-    ns2:EstimateRewinds "0" ;
-    ns2:EstimateRows "1" ;
-    ns2:EstimatedExecutionMode "Row" ;
-    ns2:EstimatedTotalSubtreeCost "0.0100023" ;
-    ns2:LogicalOp "Insert" ;
-    ns2:NodeId "0" ;
-    ns2:Parallel "0" ;
-    ns2:PhysicalOp "Clustered Index Insert" ;
-    ns3:OutputList "None" ;
-    ns3:hasJsonObjectKey "RelOp" ;
-    ns3:parentJsonId ns3:N9d39af07967a40399a30704a0f55c44d .
-
-ns3:Nd3671a22d6e4400893912924ea94acc6 a ns3:FileJson,
-        ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" .
-
-ns3:Nd3973ce2acc14ecbae31ee0eb9eab29d a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "ParameterList" ;
-    ns3:parentJsonId ns3:Nd4a64a3736854f58963f065503ebe8c8 .
-
-ns3:Nde73ea3afda24fbab5de5c2e1dae38e3 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "ParameterList" ;
-    ns3:parentJsonId ns3:N9d39af07967a40399a30704a0f55c44d .
-
-ns3:Ne6d177f880f849b1a329db4c58217c61 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:Nb85b09228f6647639177a947099af4e0 .
-
-ns3:Ne92fd61c977e4e88b489b4946456d3ff a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
+    ns3:hasSourceFile "insupd_score.json" ;
     ns2:AvgRowSize "9" ;
     ns2:EstimateCPU "1e-06" ;
     ns2:EstimateIO "0.01" ;
@@ -779,71 +413,569 @@ ns3:Ne92fd61c977e4e88b489b4946456d3ff a ns3:ObjectJson,
     ns2:NodeId "0" ;
     ns2:Parallel "0" ;
     ns2:PhysicalOp "Clustered Index Update" ;
-    ns3:OutputList "None" ;
-    ns3:hasJsonObjectKey "RelOp" ;
-    ns3:parentJsonId ns3:N05cd3863702c476a9a778d2bc989efd9 .
+    ns1:OutputList "None" ;
+    ns1:hasJsonObjectKey "RelOp" ;
+    ns1:parentJsonId ns1:N9e4a2348395d43f1bd9ed8f8fbc7c5bc .
 
-ns3:Nf03a9805018445548db9fbea9f883f15 a ns3:ObjectJson,
+ns1:N0ea331bdbd9b4d7baf1ea20181467cf5 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "SeekPredicateNew" ;
-    ns3:parentJsonId ns3:Ncf4c84ac1b604c2d9f746c30e259ec0b .
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns2:ScalarString "[PSYCHOLOGY_TEST_1].[dbo].[T_TESTING_SCORE].[SCORE] = RaiseIfNullUpdate([@score])" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:N5a26775d95484405a7f3827b725a6024 .
 
-ns3:Nf0b30194558245f2b67558d2557d455b a ns3:ObjectJson,
+ns1:N123e0b0907264897986b29e7c4a64799 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:N3905ee9c3ab147a38cb539a0cf460ccc .
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "ParameterList" ;
+    ns1:parentJsonId ns1:N8faf6fa8084a41d3b5b73669e4474ca2 .
 
-ns3:Nf5efeecfb6c84385a0149afdcb1ebc3e a ns3:ObjectJson,
+ns1:N2107fa49d931450cba6d5f64cae792a0 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:Nafe3ff41d0d24fba9026b19ddd4f2c78 .
+
+ns1:N26085eca2ea348369a88252fcc1e7ead a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:Nb4e066d7a1bf49e29493f589f63c0904 .
+
+ns1:N2e46682716bd47089ca7449c71279a48 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "Identifier" ;
+    ns1:parentJsonId ns1:N46ba172a91bc4e54a07c3627e4068241 .
+
+ns1:N31103610e93f4510b7f9c5a47080d2e6 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:Neaf6d8ad257249fab4fe858c98e22317 .
+
+ns1:N388314cb61894255b3c7658eefe26e36 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns2:ScalarString "[@t_testing_score_id]" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:Ncdef2f98580b407aad95167cb923c0d5 .
+
+ns1:N3e7a5b1fde484fe2a494c44a5a181578 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns2:FunctionName "RaiseIfNullInsert" ;
+    ns1:hasJsonObjectKey "Intrinsic" ;
+    ns1:parentJsonId ns1:Nbebc03ef9e6d49fd9e5226ee88355d45 .
+
+ns1:N4383b2ee709a43b9afdda0c4dda91b3c a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:Ne218a87a4b6e43048980b0871f175b29 .
+
+ns1:N46ba172a91bc4e54a07c3627e4068241 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:N07c0ede3592048f5a854015696d202ac .
+
+ns1:N4d2565c6088b43f9b3729d5bb15eb6f6 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "DefinedValues" ;
+    ns1:parentJsonId ns1:N65239008c07b4906a419fcf654a3039c .
+
+ns1:N4fb28ca2ec8349e38784f6677ac70771 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "SeekPredicateNew" ;
+    ns1:parentJsonId ns1:N948e811afe074e76b608131ee4e82786 .
+
+ns1:N5a26775d95484405a7f3827b725a6024 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "SetPredicate" ;
+    ns1:parentJsonId ns1:N948e811afe074e76b608131ee4e82786 .
+
+ns1:N5c7621be14744671926c63950bb330b9 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "DefinedValue" ;
+    ns1:parentJsonId ns1:Na76cb0b700ce42d8a227e673a3e1d31d .
+
+ns1:N5e7d0a5c30aa41cc970c87d630bd614f a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:N7aaf08c1e0784bf09d083b83847a3eef .
+
+ns1:N65b08bad0be04e4b9144f0158bdbfd85 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "OutputList" ;
+    ns1:parentJsonId ns1:Ndd4e43437d0844cb8ba3a6c83e24c957 .
+
+ns1:N6600571178bd463db2e04564bba553a5 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "Identifier" ;
+    ns1:parentJsonId ns1:N7ac264df06d040a0932b9ada84f5c54e .
+
+ns1:N66eef9fd98b74a358ee98210ee212fd7 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns2:Column "ConstExpr1004" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:Nca2ccd2186da423bb1e37d69d30055bd .
+
+ns1:N67faa3be9bb049a099b9835badea3df6 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:N56b70185fd4a47e6a81d0fa21413bfab .
+
+ns1:N6d560ca24c784fc78ac036c186dae471 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "Batch" ;
+    ns1:parentJsonId ns1:N91ca40505ae04d208d63fa24b34ce087 .
+
+ns1:N6e44d4c22bc24b60b8d3cbba2fa7183b a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns2:ScalarString "[PSYCHOLOGY_TEST_1].[dbo].[T_TESTING_SCORE].[T_TESTING_STEP_ID]=[@t_testing_step_id]" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:N79488777b9d74271a0b2d3a849086661 .
+
+ns1:N6f408b659c0a4bb5b4896f62e307110e a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "Statements" ;
+    ns1:parentJsonId ns1:N07034d24a49943c6af5746252316e11a .
+
+ns1:N76118b935c7946d788c31ecf39c63535 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:N9bebb6ef315a4ba7baa63d7822757669 .
+
+ns1:N79488777b9d74271a0b2d3a849086661 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "Predicate" ;
+    ns1:parentJsonId ns1:Nfac2017d737647bebb187e6924e3e910 .
+
+ns1:N7aaf08c1e0784bf09d083b83847a3eef a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "ScalarExpressionList" ;
+    ns1:parentJsonId ns1:N0ea331bdbd9b4d7baf1ea20181467cf5 .
+
+ns1:N7ac264df06d040a0932b9ada84f5c54e a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:Nb4e066d7a1bf49e29493f589f63c0904 .
+
+ns1:N8050c35ae09c47f9bbe97cc4ced78d64 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns2:ProcName "insupd_score" ;
+    ns1:hasJsonObjectKey "StoredProc" ;
+    ns1:parentJsonId ns1:N0236ae172e6a435eb8ba1fdd17fff974 .
+
+ns1:N81e6fd6de588454e9f5e248535ac914d a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:N3e7a5b1fde484fe2a494c44a5a181578 .
+
+ns1:N8392a0e19040447cbeb389aeee0a09ee a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns2:CompareOp "EQ" ;
+    ns1:hasJsonObjectKey "Compare" ;
+    ns1:parentJsonId ns1:N6e44d4c22bc24b60b8d3cbba2fa7183b .
+
+ns1:N8cb61e76983d455b8fa99df7c6144d98 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "Identifier" ;
+    ns1:parentJsonId ns1:Nbe58d491cf4846f6ab197b3f40555c81 .
+
+ns1:N8ce93d7ced2642a6930e2e940a0c0ebb a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:N9c5d1f4a8204429b97f3b9cca69e96e7 .
+
+ns1:N8e31e6a6f34f482bb2bdbe65e005b2d8 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "Statements" ;
+    ns1:parentJsonId ns1:N6d560ca24c784fc78ac036c186dae471 .
+
+ns1:N90cb5ffaa45e43459bc38b4d5932a39f a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "Identifier" ;
+    ns1:parentJsonId ns1:N388314cb61894255b3c7658eefe26e36 .
+
+ns1:N91ca40505ae04d208d63fa24b34ce087 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "BatchSequence" ;
+    ns1:parentJsonId ns1:Nffae3aeedd8d451ebcc61ba514a4085c .
+
+ns1:N98abc9d9f19944a7bbb02540a842ad86 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "Identifier" ;
+    ns1:parentJsonId ns1:N2107fa49d931450cba6d5f64cae792a0 .
+
+ns1:N9c5d1f4a8204429b97f3b9cca69e96e7 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "ScalarExpressionList" ;
+    ns1:parentJsonId ns1:Nf17723746e6842239ddb69c96720a385 .
+
+ns1:Na6539a7a39b14affb46363799e91285c a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "ParameterList" ;
+    ns1:parentJsonId ns1:N1b4f4fdfb7c44c6aade980a51e0ecbf8 .
+
+ns1:Na76cb0b700ce42d8a227e673a3e1d31d a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "DefinedValues" ;
+    ns1:parentJsonId ns1:Nfac2017d737647bebb187e6924e3e910 .
+
+ns1:Nada89fff382c47f0b8724684999feb23 a ns1:FileJson,
+        ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" .
+
+ns1:Nafe3ff41d0d24fba9026b19ddd4f2c78 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns2:FunctionName "RaiseIfNullUpdate" ;
+    ns1:hasJsonObjectKey "Intrinsic" ;
+    ns1:parentJsonId ns1:N67faa3be9bb049a099b9835badea3df6 .
+
+ns1:Nb151d8988d57440199e387c55d6f32e0 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "Identifier" ;
+    ns1:parentJsonId ns1:N4383b2ee709a43b9afdda0c4dda91b3c .
+
+ns1:Nb3861845fc584f779091045046399afa a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "Identifier" ;
+    ns1:parentJsonId ns1:N26085eca2ea348369a88252fcc1e7ead .
+
+ns1:Nbb311fcb56ba43cabff608a7cb3f96cd a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "SetPredicate" ;
+    ns1:parentJsonId ns1:N65239008c07b4906a419fcf654a3039c .
+
+ns1:Nbe58d491cf4846f6ab197b3f40555c81 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:N07039002e5874843a6a6bbf2fc4f0e08 .
+
+ns1:Nbebc03ef9e6d49fd9e5226ee88355d45 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:N63101245e5a240c79acd44272c79994a .
+
+ns1:Nc05d3fec657a4384a883700da2c52440 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "Identifier" ;
+    ns1:parentJsonId ns1:N81e6fd6de588454e9f5e248535ac914d .
+
+ns1:Nc6b328a2b0494eb2bc68129c97867241 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "MultipleAssign" ;
+    ns1:parentJsonId ns1:N5e7d0a5c30aa41cc970c87d630bd614f .
+
+ns1:Nc6dca3ae8a804f2db141d1d3aaabb498 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:N7ba699d003cd449fa00f55b48a1d768a .
+
+ns1:Nca2ccd2186da423bb1e37d69d30055bd a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "Identifier" ;
+    ns1:parentJsonId ns1:Nd749b7ee6cf04b93be6c9539d0e11ff7 .
+
+ns1:Ncaab602ea8b74916bd44eeaf9325918e a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "ParameterList" ;
+    ns1:parentJsonId ns1:N9e4a2348395d43f1bd9ed8f8fbc7c5bc .
+
+ns1:Ncaf10460f7324652b632ff5c5f405c4f a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:N66eef9fd98b74a358ee98210ee212fd7 .
+
+ns1:Ncdef2f98580b407aad95167cb923c0d5 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "RangeExpressions" ;
+    ns1:parentJsonId ns1:Ne1d24eb472744246b9987a8accf5ea90 .
+
+ns1:Nd749b7ee6cf04b93be6c9539d0e11ff7 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns2:ScalarString "getdate()" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:N195adf11a335431abfb114ce9c783946 .
+
+ns1:Ndd96a961e5b54458a55c65899b04b8ea a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "RangeColumns" ;
+    ns1:parentJsonId ns1:Ne1d24eb472744246b9987a8accf5ea90 .
+
+ns1:Ne1fc82f3ecb14ee88848322360f76fd8 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns2:ScalarString "newid()" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:Nee7160a0f5b841ef8834194b829f3883 .
+
+ns1:Ne218a87a4b6e43048980b0871f175b29 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns2:FunctionName "RaiseIfNullInsert" ;
+    ns1:hasJsonObjectKey "Intrinsic" ;
+    ns1:parentJsonId ns1:N76118b935c7946d788c31ecf39c63535 .
+
+ns1:Nf17723746e6842239ddb69c96720a385 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns2:ScalarString "[PSYCHOLOGY_TEST_1].[dbo].[T_TESTING_SCORE].[T_TESTING_SCORE_ID] = RaiseIfNullInsert([Expr1002]),[PSYCHOLOGY_TEST_1].[dbo].[T_TESTING_SCORE].[SCORE] = RaiseIfNullInsert([@score]),[PSYCHOLOGY_TEST_1].[dbo].[T_TESTING_SCORE].[T_TESTING_STEP_ID] = RaiseIfNullInsert([@t_testing_step_id]),[PSYCHOLOGY_TEST_1].[dbo].[T_TESTING_SCORE].[OBJ_CREATED] = RaiseIfNullInsert([Expr1003])" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:Nbb311fcb56ba43cabff608a7cb3f96cd .
+
+ns1:Nf333181034714dde899110d02934056d a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "Then" ;
+    ns1:parentJsonId ns1:N7036fd5a4a3949719c1bbd822be734cd .
+
+ns1:Nf34eddbdb1204287b37792e03702a436 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns2:AvgRowSize "9" ;
+    ns2:EstimateCPU "1e-06" ;
+    ns2:EstimateIO "0.01" ;
+    ns2:EstimateRebinds "0" ;
+    ns2:EstimateRewinds "0" ;
+    ns2:EstimateRows "1" ;
+    ns2:EstimatedExecutionMode "Row" ;
+    ns2:EstimatedTotalSubtreeCost "0.0100023" ;
+    ns2:LogicalOp "Insert" ;
+    ns2:NodeId "0" ;
+    ns2:Parallel "0" ;
+    ns2:PhysicalOp "Clustered Index Insert" ;
+    ns1:OutputList "None" ;
+    ns1:hasJsonObjectKey "RelOp" ;
+    ns1:parentJsonId ns1:N1b4f4fdfb7c44c6aade980a51e0ecbf8 .
+
+ns1:Nf733746d9bcd4e55847345b7b37d72b8 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "SeekKeys" ;
+    ns1:parentJsonId ns1:N4fb28ca2ec8349e38784f6677ac70771 .
+
+ns1:Nfd23fa7905754102afd98619c51b1a44 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "Statements" ;
+    ns1:parentJsonId ns1:Nf333181034714dde899110d02934056d .
+
+ns1:Nffae3aeedd8d451ebcc61ba514a4085c a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
     ns2:Build "16.0.1000.6" ;
     ns2:Version "1.564" ;
     ns2:xmlns "http://schemas.microsoft.com/sqlserver/2004/07/showplan" ;
-    ns3:hasJsonObjectKey "ShowPlanXML" ;
-    ns3:parentJsonId ns3:Nd3671a22d6e4400893912924ea94acc6 .
+    ns1:hasJsonObjectKey "ShowPlanXML" ;
+    ns1:parentJsonId ns1:Nada89fff382c47f0b8724684999feb23 .
 
-ns3:Nf84cac6af4b04125ad32a639ce9003c1 a ns3:ObjectJson,
+ns1:N195adf11a335431abfb114ce9c783946 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:Nace7b06d794a41cda5ce004548e8a8d9 .
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:N1b0418ce4c26415285db171f07b1d190 .
 
-ns3:Nfe444cff2b9f43bd97720fee4fad81fa a ns3:ObjectJson,
+ns1:N1b0418ce4c26415285db171f07b1d190 a ns1:ArrayJson,
+        ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "Identifier" ;
-    ns3:parentJsonId ns3:N27db965cba7246dcb6a59763454765eb .
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "DefinedValue" ;
+    ns1:parentJsonId ns1:N4d2565c6088b43f9b3729d5bb15eb6f6 .
 
-ns3:N11725b6c7ad3491081e3fad998ac944c a ns3:ObjectJson,
+ns1:N56b70185fd4a47e6a81d0fa21413bfab a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "Assign" ;
-    ns3:parentJsonId ns3:N62b407915c91472ea42818fda61d3b32 .
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "Assign" ;
+    ns1:parentJsonId ns1:Nc6b328a2b0494eb2bc68129c97867241 .
 
-ns3:N1b7f4979090a406a86f6f3aec67e008f a ns3:ArrayJson,
-        ns3:ObjectJson,
+ns1:N63101245e5a240c79acd44272c79994a a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:Nde73ea3afda24fbab5de5c2e1dae38e3 .
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "2" ;
+    ns1:parentJsonId ns1:N22767d761a0a4afaa36ea25d31d76dd0 .
 
-ns3:N39982ef1ccbc44e3965690ef8614b932 a ns3:ObjectJson,
+ns1:N7036fd5a4a3949719c1bbd822be734cd a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "0" ;
-    ns3:parentJsonId ns3:N6dfdf866203948b49441d31275207b99 .
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns2:RetrievedFromCache "false" ;
+    ns2:StatementCompId "5" ;
+    ns2:StatementId "4" ;
+    ns2:StatementText """\r
+\r
+if @t_testing_score_id is null""" ;
+    ns2:StatementType "COND" ;
+    ns1:Condition "None" ;
+    ns1:hasJsonObjectKey "StmtCond" ;
+    ns1:parentJsonId ns1:Ne1d84a378ba6471fa1b6b673dddc97d1 .
 
-ns3:N3a4a3c2e07bc4aea892bd167825885b7 a ns3:ObjectJson,
+ns1:N7761d0f3407b47e5b6d76f0fae18ea82 a ns1:ArrayJson,
+        ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "3" ;
-    ns3:parentJsonId ns3:N9f60e18269a8422f97692aa574d394b1 .
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:Na6539a7a39b14affb46363799e91285c .
 
-ns3:N4b98c63acbc74bb597b7ca430e0cb5fc a ns3:ObjectJson,
+ns1:N7ba699d003cd449fa00f55b48a1d768a a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:N22767d761a0a4afaa36ea25d31d76dd0 .
+
+ns1:N84c9cb0da81c4547a7db969e97d0da13 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns2:CardinalityEstimationModelVersion "70" ;
+    ns2:QueryHash "0x2A8263821A79F69D" ;
+    ns2:QueryPlanHash "0x5021626CBFFC3B4C" ;
+    ns2:RetrievedFromCache "false" ;
+    ns2:SecurityPolicyApplied "false" ;
+    ns2:StatementCompId "4" ;
+    ns2:StatementEstRows "1" ;
+    ns2:StatementId "3" ;
+    ns2:StatementOptmLevel "TRIVIAL" ;
+    ns2:StatementSubTreeCost "0.0032897" ;
+    ns2:StatementText """select @t_testing_score_id=t_testing_score_id\r
+from t_testing_score \r
+where t_testing_step_id = @t_testing_step_id""" ;
+    ns2:StatementType "SELECT" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:Na3473adae1b743a286595486da435f55 .
+
+ns1:N9bebb6ef315a4ba7baa63d7822757669 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:N22767d761a0a4afaa36ea25d31d76dd0 .
+
+ns1:Na3473adae1b743a286595486da435f55 a ns1:ArrayJson,
+        ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "StmtSimple" ;
+    ns1:parentJsonId ns1:Ne1d84a378ba6471fa1b6b673dddc97d1 .
+
+ns1:Nb4e066d7a1bf49e29493f589f63c0904 a ns1:ArrayJson,
+        ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:N8392a0e19040447cbeb389aeee0a09ee .
+
+ns1:Ndd4e43437d0844cb8ba3a6c83e24c957 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns2:AvgRowSize "39" ;
+    ns2:EstimateCPU "0.0001647" ;
+    ns2:EstimateIO "0.003125" ;
+    ns2:EstimateRebinds "0" ;
+    ns2:EstimateRewinds "0" ;
+    ns2:EstimateRows "1" ;
+    ns2:EstimatedExecutionMode "Row" ;
+    ns2:EstimatedRowsRead "7" ;
+    ns2:EstimatedTotalSubtreeCost "0.0032897" ;
+    ns2:LogicalOp "Clustered Index Scan" ;
+    ns2:NodeId "0" ;
+    ns2:Parallel "0" ;
+    ns2:PhysicalOp "Clustered Index Scan" ;
+    ns2:TableCardinality "7" ;
+    ns1:hasJsonObjectKey "RelOp" ;
+    ns1:parentJsonId ns1:N8faf6fa8084a41d3b5b73669e4474ca2 .
+
+ns1:Ndda8bd73c91a49b0a370ed3639b08f42 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns2:CardinalityEstimationModelVersion "70" ;
+    ns2:QueryHash "0x492C65383A171144" ;
+    ns2:QueryPlanHash "0x7792C7276FF6D1C1" ;
+    ns2:RetrievedFromCache "false" ;
+    ns2:SecurityPolicyApplied "false" ;
+    ns2:StatementCompId "6" ;
+    ns2:StatementEstRows "1" ;
+    ns2:StatementId "5" ;
+    ns2:StatementOptmLevel "TRIVIAL" ;
+    ns2:StatementSubTreeCost "0.0100023" ;
+    ns2:StatementText """ \r
+insert into t_testing_score (t_testing_score_id,score,t_testing_step_id)\r
+values (newid(),@score,@t_testing_step_id )""" ;
+    ns2:StatementType "INSERT" ;
+    ns1:hasJsonObjectKey "StmtSimple" ;
+    ns1:parentJsonId ns1:Nfd23fa7905754102afd98619c51b1a44 .
+
+ns1:Ne1d24eb472744246b9987a8accf5ea90 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns2:ScanType "EQ" ;
+    ns1:hasJsonObjectKey "Prefix" ;
+    ns1:parentJsonId ns1:Nf733746d9bcd4e55847345b7b37d72b8 .
+
+ns1:Ne1d84a378ba6471fa1b6b673dddc97d1 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "Statements" ;
+    ns1:parentJsonId ns1:N8050c35ae09c47f9bbe97cc4ced78d64 .
+
+ns1:Neaf6d8ad257249fab4fe858c98e22317 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "3" ;
+    ns1:parentJsonId ns1:N22767d761a0a4afaa36ea25d31d76dd0 .
+
+ns1:Nee7160a0f5b841ef8834194b829f3883 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:N1b0418ce4c26415285db171f07b1d190 .
+
+ns1:Nfaae4f35960340938b57b468109175b9 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
     ns2:CardinalityEstimationModelVersion "70" ;
     ns2:QueryHash "0xE503003C986F57EF" ;
     ns2:QueryPlanHash "0x74DEF1D919DC0E92" ;
@@ -859,200 +991,68 @@ else \r
 update t_testing_score set score = @score\r
 where t_testing_score_id = @t_testing_score_id""" ;
     ns2:StatementType "UPDATE" ;
-    ns3:hasJsonObjectKey "StmtSimple" ;
-    ns3:parentJsonId ns3:Nac14cba222d2448996b481cf463743ba .
+    ns1:hasJsonObjectKey "StmtSimple" ;
+    ns1:parentJsonId ns1:N6f408b659c0a4bb5b4896f62e307110e .
 
-ns3:N6c6da43b3c9e400eb2a985007de23c62 a ns3:ObjectJson,
+ns1:N65239008c07b4906a419fcf654a3039c a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "Statements" ;
-    ns3:parentJsonId ns3:N554931cb9e7d43d38c01e36c2703303d .
-
-ns3:N6dfdf866203948b49441d31275207b99 a ns3:ArrayJson,
-        ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "DefinedValue" ;
-    ns3:parentJsonId ns3:Naf7b9185e56441879c83cb6d146e9b16 .
-
-ns3:N72ee9ce7d4ee4ac29e07c6fea1456f94 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns2:CardinalityEstimationModelVersion "70" ;
-    ns2:QueryHash "0x2A8263821A79F69D" ;
-    ns2:QueryPlanHash "0x5021626CBFFC3B4C" ;
-    ns2:RetrievedFromCache "false" ;
-    ns2:SecurityPolicyApplied "false" ;
-    ns2:StatementCompId "4" ;
-    ns2:StatementEstRows "1" ;
-    ns2:StatementId "3" ;
-    ns2:StatementOptmLevel "TRIVIAL" ;
-    ns2:StatementSubTreeCost "0.0032897" ;
-    ns2:StatementText """select @t_testing_score_id=t_testing_score_id\r
-from t_testing_score \r
-where t_testing_step_id = @t_testing_step_id""" ;
-    ns2:StatementType "SELECT" ;
-    ns3:hasJsonObjectKey "1" ;
-    ns3:parentJsonId ns3:Nbb329773e45948cf93b90271d72219e7 .
-
-ns3:N7ef0468fbb25498e931fe688650a642a a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns2:CardinalityEstimationModelVersion "70" ;
-    ns2:QueryHash "0x492C65383A171144" ;
-    ns2:QueryPlanHash "0x7792C7276FF6D1C1" ;
-    ns2:RetrievedFromCache "false" ;
-    ns2:SecurityPolicyApplied "false" ;
-    ns2:StatementCompId "6" ;
-    ns2:StatementEstRows "1" ;
-    ns2:StatementId "5" ;
-    ns2:StatementOptmLevel "TRIVIAL" ;
-    ns2:StatementSubTreeCost "0.0100023" ;
-    ns2:StatementText """ \r
-insert into t_testing_score (t_testing_score_id,score,t_testing_step_id)\r
-values (newid(),@score,@t_testing_step_id )""" ;
-    ns2:StatementType "INSERT" ;
-    ns3:hasJsonObjectKey "StmtSimple" ;
-    ns3:parentJsonId ns3:N7f0ba4d5b108403795c7d5279cfea641 .
-
-ns3:N82f24d00f90c4eadaab533dfe1634511 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "2" ;
-    ns3:parentJsonId ns3:N9f60e18269a8422f97692aa574d394b1 .
-
-ns3:N8f1e164cb5c14d83998f241489fdb64d a ns3:ArrayJson,
-        ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:Nc5664ed292744fc8ada0c2506501d183 .
-
-ns3:Nb0d6f771dd3644d584acb458b3fb132d a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "0" ;
-    ns3:parentJsonId ns3:N9f60e18269a8422f97692aa574d394b1 .
-
-ns3:Nb0ec78293abc41b784f75cae92dcf060 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns2:AvgRowSize "39" ;
-    ns2:EstimateCPU "0.0001647" ;
-    ns2:EstimateIO "0.003125" ;
-    ns2:EstimateRebinds "0" ;
-    ns2:EstimateRewinds "0" ;
-    ns2:EstimateRows "1" ;
-    ns2:EstimatedExecutionMode "Row" ;
-    ns2:EstimatedRowsRead "7" ;
-    ns2:EstimatedTotalSubtreeCost "0.0032897" ;
-    ns2:LogicalOp "Clustered Index Scan" ;
-    ns2:NodeId "0" ;
-    ns2:Parallel "0" ;
-    ns2:PhysicalOp "Clustered Index Scan" ;
-    ns2:TableCardinality "7" ;
-    ns3:hasJsonObjectKey "RelOp" ;
-    ns3:parentJsonId ns3:Nd4a64a3736854f58963f065503ebe8c8 .
-
-ns3:Nb77e2c5a6bae4c3083dc00d978b8f93e a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "1" ;
-    ns3:parentJsonId ns3:N9f60e18269a8422f97692aa574d394b1 .
-
-ns3:Nbb329773e45948cf93b90271d72219e7 a ns3:ArrayJson,
-        ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "StmtSimple" ;
-    ns3:parentJsonId ns3:N6c6da43b3c9e400eb2a985007de23c62 .
-
-ns3:Nd4ed39491026474b9d52d86d63d5f740 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns2:ScanType "EQ" ;
-    ns3:hasJsonObjectKey "Prefix" ;
-    ns3:parentJsonId ns3:N01970dbe7f1e4741abf9fcf66572dc33 .
-
-ns3:Nf9ec759ea6544ac383180ac4e36ce8f2 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "1" ;
-    ns3:parentJsonId ns3:N6dfdf866203948b49441d31275207b99 .
-
-ns3:Nfe4d5801b7434eac9218fbf12f726f0b a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns2:RetrievedFromCache "false" ;
-    ns2:StatementCompId "5" ;
-    ns2:StatementId "4" ;
-    ns2:StatementText """\r
-\r
-if @t_testing_score_id is null""" ;
-    ns2:StatementType "COND" ;
-    ns3:Condition "None" ;
-    ns3:hasJsonObjectKey "StmtCond" ;
-    ns3:parentJsonId ns3:N6c6da43b3c9e400eb2a985007de23c62 .
-
-ns3:N806c522df38a449f8cb9c4281c8264aa a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
+    ns3:hasSourceFile "insupd_score.json" ;
     ns2:DMLRequestSort "0" ;
-    ns3:hasJsonObjectKey "ScalarInsert" ;
-    ns3:parentJsonId ns3:Ncd47598896174010b36727b2dbcfbf78 .
+    ns1:hasJsonObjectKey "ScalarInsert" ;
+    ns1:parentJsonId ns1:Nf34eddbdb1204287b37792e03702a436 .
 
-ns3:Nbd1e6728413b4830b56683a0d69c5c3b a ns3:ObjectJson,
+ns1:N948e811afe074e76b608131ee4e82786 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns2:DMLRequestSort "0" ;
+    ns1:hasJsonObjectKey "SimpleUpdate" ;
+    ns1:parentJsonId ns1:N0b7904c3fad6401283a8bc6a1254d07c .
+
+ns1:Nfac2017d737647bebb187e6924e3e910 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
     ns2:ForceScan "0" ;
     ns2:ForcedIndex "0" ;
     ns2:NoExpandHint "0" ;
     ns2:Ordered "0" ;
     ns2:Storage "RowStore" ;
-    ns3:hasJsonObjectKey "IndexScan" ;
-    ns3:parentJsonId ns3:Nb0ec78293abc41b784f75cae92dcf060 .
+    ns1:hasJsonObjectKey "IndexScan" ;
+    ns1:parentJsonId ns1:Ndd4e43437d0844cb8ba3a6c83e24c957 .
 
-ns3:Ncf4c84ac1b604c2d9f746c30e259ec0b a ns3:ObjectJson,
+ns1:N1b4f4fdfb7c44c6aade980a51e0ecbf8 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns2:DMLRequestSort "0" ;
-    ns3:hasJsonObjectKey "SimpleUpdate" ;
-    ns3:parentJsonId ns3:Ne92fd61c977e4e88b489b4946456d3ff .
-
-ns3:N05cd3863702c476a9a778d2bc989efd9 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns2:CachedPlanSize "16" ;
-    ns2:CompileCPU "1" ;
-    ns2:CompileMemory "216" ;
-    ns2:CompileTime "1" ;
-    ns3:hasJsonObjectKey "QueryPlan" ;
-    ns3:parentJsonId ns3:N4b98c63acbc74bb597b7ca430e0cb5fc .
-
-ns3:N9d39af07967a40399a30704a0f55c44d a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
+    ns3:hasSourceFile "insupd_score.json" ;
     ns2:CachedPlanSize "16" ;
     ns2:CompileCPU "1" ;
     ns2:CompileMemory "160" ;
     ns2:CompileTime "1" ;
-    ns3:hasJsonObjectKey "QueryPlan" ;
-    ns3:parentJsonId ns3:N7ef0468fbb25498e931fe688650a642a .
+    ns1:hasJsonObjectKey "QueryPlan" ;
+    ns1:parentJsonId ns1:Ndda8bd73c91a49b0a370ed3639b08f42 .
 
-ns3:N9f60e18269a8422f97692aa574d394b1 a ns3:ArrayJson,
-        ns3:ObjectJson,
+ns1:N22767d761a0a4afaa36ea25d31d76dd0 a ns1:ArrayJson,
+        ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
-    ns3:hasJsonObjectKey "Assign" ;
-    ns3:parentJsonId ns3:N1eaf9023cd6e439fab3a1b2e35559175 .
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns1:hasJsonObjectKey "Assign" ;
+    ns1:parentJsonId ns1:N0ac176040a014fe0a5d6113be8b93496 .
 
-ns3:Nd4a64a3736854f58963f065503ebe8c8 a ns3:ObjectJson,
+ns1:N8faf6fa8084a41d3b5b73669e4474ca2 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "insupd_score.json" ;
+    ns3:hasSourceFile "insupd_score.json" ;
+    ns2:CachedPlanSize "16" ;
+    ns2:CompileCPU "1" ;
+    ns2:CompileMemory "152" ;
+    ns2:CompileTime "1" ;
+    ns1:hasJsonObjectKey "QueryPlan" ;
+    ns1:parentJsonId ns1:N84c9cb0da81c4547a7db969e97d0da13 .
+
+ns1:N9e4a2348395d43f1bd9ed8f8fbc7c5bc a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "insupd_score.json" ;
     ns2:CachedPlanSize "16" ;
     ns2:CompileCPU "2" ;
-    ns2:CompileMemory "152" ;
+    ns2:CompileMemory "216" ;
     ns2:CompileTime "2" ;
-    ns3:hasJsonObjectKey "QueryPlan" ;
-    ns3:parentJsonId ns3:N72ee9ce7d4ee4ac29e07c6fea1456f94 .
+    ns1:hasJsonObjectKey "QueryPlan" ;
+    ns1:parentJsonId ns1:Nfaae4f35960340938b57b468109175b9 .
 
