@@ -1,3 +1,4 @@
+import requests
 
 from SPARQLWrapper import SPARQLWrapper, JSON, XML
 import prefix as prefix
@@ -29,3 +30,19 @@ class runSparqlWrapper:
             print (stmt)
             print(e)
         return ret      
+    def load_ttl(self,file):
+        #myfiles = {'file': open(file ,'rb')}
+        #f=open(file)
+        #symbol= f.readline(10)
+        #print(symbol)
+        #f.close()
+
+        #files = {'file': open(file, 'rb')}
+        #resp=requests.post(self.dbpath+'/data', files=files)
+        #print(self.dbpath+'/data' + ' from ' + file)
+        #print(resp.text)
+        data = open(file).read()
+        headers = {'Content-Type': 'text/turtle;charset=utf-8'}
+        resp = requests.post(self.dbpath+'/data?default', data=data, headers=headers)
+        print(self.dbpath+'/data' + ' from ' + file)
+        print(resp.text)

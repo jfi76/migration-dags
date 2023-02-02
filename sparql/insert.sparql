@@ -1,0 +1,270 @@
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX mig: <http://www.example.com/MIGRATION#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX js: <http://www.example.com/JSON#>
+PREFIX etl:<http://www.example.com/ETL#>
+PREFIX  js_at: <http://www.example.com/JSON#@>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX report:<http://www.example.com/report#>
+
+insert {?iri rdfs:label ?filename}
+where {
+ ?iri rdf:type js:FileJson .  
+ ?iri etl:hasSourceFile ?filename .
+};
+
+# mssqlprocedurefile
+insert {?iri rdf:type mig:mssqlprocedurefile  }
+ where {
+ ?iri rdf:type js:FileJson .  
+ ?iri etl:hasSourceFile ?filename .
+ ?child etl:hasSourceFile ?filename .
+ ?child js_at:StatementType  "EXECUTE PROC" .
+ };
+
+insert {?child rdf:type mig:msprocexecstmt . ?batchStart rdf:type mig:mssqlprocedurebatch. ?child mig:hasBatch ?batchStart}
+ where {
+ ?iri rdf:type mig:mssqlprocedurefile .
+ ?iri rdf:type js:FileJson .  
+ ?iri etl:hasSourceFile ?filename .
+ ?child etl:hasSourceFile ?filename .
+ ?child js:hasJsonObjectKey "StoredProc" .
+ ?child js:parentJsonId ?batchStart . 
+ ?batchStart js_at:StatementId "1" 
+ };
+ 
+insert {?iri rdf:type mig:msprocedure . ?iri rdfs:label ?pro_name} where 
+{
+  ?iri etl:hasSourceFile 'ROUTINES.json' .
+  ?iri js:ROUTINE_TYPE 'PROCEDURE' .
+  ?iri js:SPECIFIC_NAME ?name .
+  ?iri js:ROUTINE_NAME ?pro_name .    
+  filter (SUBSTR(?name,1,3)!='sp_' )
+}  ;
+insert {?execStmt mig:hasProcedure ?iri} where
+{
+  ?iri rdf:type mig:msprocedure .
+  ?iri js:ROUTINE_NAME ?proc_name .    
+  ?execStmt rdf:type mig:msprocexecstmt . 
+  ?execStmt etl:hasSourceFile ?file .
+  filter (REPLACE(?file,".json","")=?proc_name )
+};
+
+insert {?iri rdf:type mig:msProcedureParameter . ?iri mig:hasProcedure ?proc . } 
+where 
+{
+  ?iri js:SPECIFIC_NAME ?spname .
+  ?iri etl:hasSourceFile 'PARAMETERS.json' .
+  ?proc js:SPECIFIC_NAME ?spname .
+  ?proc rdf:type mig:msprocedure .
+};
+insert {
+  ?uid rdfs:label ?name.
+  ?uid mig:hasProcedure ?iri .
+  ?uid rdf:type mig:pgprocedure .
+  ?uid etl:hasSourceFile 'generated' .
+}
+where {
+select (iri(concat('http://www.example.com/MIGRATION#',struuid())) as ?uid) ?iri ?name
+  { 
+
+    ?iri rdf:type mig:msprocedure .
+    ?iri rdfs:label ?name .   
+  }
+};
+
+
+insert {
+?iri rdfs:label ?name.
+?iri rdf:type mig:msdatabase .  
+}
+where {
+  
+   ?iri js:name ?name . 
+   ?iri etl:hasSourceFile 'databases.json' .
+  
+};
+insert {?iri mig:hasDatabase ?dbiri} where 
+{
+?iri js:SPECIFIC_CATALOG ?db .
+?iri rdf:type mig:msprocedure .
+?dbiri rdf:type mig:msdatabase .
+?dbiri js:name ?db .
+};
+
+insert {
+?iri rdfs:label ?label.
+?iri rdf:type mig:datatypeconversion .  
+}
+where {
+  
+   ?iri js:MS ?MS . 
+   ?iri js:PQ ?PQ . 
+   ?iri etl:hasSourceFile '_convert_type.json' .
+   bind (concat(?MS, ' to ' , ?PQ ) as ?label) 
+};
+
+insert {?iri rdf:type mig:msstatement. ?iri mig:hasProcedure ?proc} where
+ {
+ ?iri js_at:StatementText ?text .	 
+ ?iri js_at:StatementType ?type .	  
+ ?iri js_at:StatementId ?id .	    
+ ?iri etl:hasSourceFile ?file . 
+ ?proc etl:hasSourceFile ?file .
+ ?proc rdf:type mig:msprocedure .  
+};
+  
+insert {  
+  ?uid rdf:type mig:pgprocedureparameter;
+  mig:hasProcedure ?param; 
+  rdfs:label ?plpgsqlParam;  
+  mig:DATA_TYPE ?convPQ;
+  mig:PARAMETER_NAME ?plpgsqlParam;  
+  mig:ORDINAL_POSITION ?pos_int;  
+  mig:CHARACTER_MAXIMUM_LENGTH ?CHARACTER_MAXIMUM_LENGTH;  
+  mig:PARAMETER_MODE ?PARAMETER_MODE ;
+  etl:hasSourceFile '' .
+} where {
+
+select  
+(iri(concat('http://www.example.com/MIGRATION#',struuid())) as ?uid)
+?DATA_TYPE ?PARAMETER_NAME ?ORDINAL_POSITION ?CHARACTER_MAXIMUM_LENGTH ?PARAMETER_MODE 
+(replace(?PARAMETER_NAME,'@','') as ?plpgsqlParam) ?convPQ 
+(xsd:integer(?ORDINAL_POSITION) as ?pos_int)  
+?param  
+  { 
+    ?param rdf:type mig:pgprocedure .
+    ?param rdfs:label ?label . 
+    ?param mig:hasProcedure ?msproc .
+    ?msproc rdf:type mig:msprocedure .
+    ?iri rdf:type mig:msProcedureParameter .
+    ?iri mig:hasProcedure ?msproc .
+  
+    ?iri rdf:type mig:msProcedureParameter .
+    ?iri mig:hasProcedure ?msproc .
+    ?iri js:DATA_TYPE ?DATA_TYPE .
+    ?iri js:PARAMETER_NAME ?PARAMETER_NAME .  
+    ?iri js:ORDINAL_POSITION ?ORDINAL_POSITION . 
+    ?iri js:PARAMETER_MODE ?PARAMETER_MODE .   
+    optional{?iri  js:CHARACTER_MAXIMUM_LENGTH ?CHARACTER_MAXIMUM_LENGTH} .        
+    optional  {
+        ?conv rdf:type mig:datatypeconversion .
+        ?conv js:MS ?convMS .
+        ?conv js:PQ ?convPQ .
+      }    
+ 
+  filter (UCASE(?DATA_TYPE)=UCASE(?convMS))
+  }
+} ;      
+
+delete {?uid ?prop ?obj}
+where {?uid ?prop ?obj . ?uid rdf:type mig:pgStatementType };
+insert {?uid rdf:type mig:pgStatementType ; rdfs:label ?st . ?uid etl:hasSourceFile '' . ?uid  mig:hasMStext ?st }
+ where {
+  select ?st (iri(concat('http://www.example.com/MIGRATION#',struuid())) as ?uid) {
+  select distinct ?st {
+      ?iri js_at:StatementType ?st
+      }
+	}
+};    
+insert {?uid rdf:type mig:pgStatementType ; rdfs:label ?st . ?uid etl:hasSourceFile '' }
+ where {
+  select ?st (iri(concat('http://www.example.com/MIGRATION#',struuid())) as ?uid) {
+  select distinct ?st 
+    {
+      {bind('CREATE PROC' as  ?st)}
+      union 
+      {bind('CREATE LANG' as  ?st)}
+      union
+      {bind('CREATE PARAM' as  ?st)}
+      union 
+      {bind('CREATE BEGIN' as  ?st)}
+      union 
+      {bind('CREATE END' as  ?st)}
+      union 
+      {bind('DECLARE' as  ?st)}     
+    }
+    
+	}
+};    
+insert {?node mig:ProcName ?sub_proc_name} where
+{ 
+  #bind (js:N02ec215c1ea94660a08820e9403bd518 as ?param)
+  ?param rdf:type mig:msprocexecstmt .
+
+  ?param etl:hasSourceFile ?file .
+  ?iri etl:hasSourceFile ?file .
+  ?iri js_at:StatementId ?StatementId .
+
+  ?iri  js_at:StatementType ?StatementType .
+  ?iri js_at:StatementText ?StatementText .
+  bind (xsd:integer(?StatementId) as ?StatementId_Int)  
+  #filter (?StatementType = 'EXECUTE PROC' && ?StatementId != '1')
+  ?child js:parentJsonId ?iri .
+  ?child js_at:ProcName ?sub_proc_name .
+  #?proc js:ROUTINE_NAME ?sub_proc_name .
+  #?proc rdf:type mig:msprocedure .
+  ?node js:parentJsonId*  ?child .  
+  ?node js_at:StatementText ?node_text.
+};
+
+insert {?node mig:hasProcedure ?proc. ?node rdf:type mig:msprocedurestatement} where {
+select ?node (count(*) as ?c) ?proc
+where
+{ 
+  ?param rdf:type mig:msprocexecstmt .
+  ?param mig:hasProcedure ?proc .
+  ?param etl:hasSourceFile ?file .
+  ?iri etl:hasSourceFile ?file .
+
+  ?iri  js_at:StatementType ?StatementType .
+  ?iri js_at:StatementText ?StatementText .
+  ?child js:parentJsonId ?iri .
+  ?child js_at:ProcName ?sub_proc_name .
+  ?node js:parentJsonId*  ?child .  
+  ?node js_at:StatementText ?node_text.
+  ?node mig:ProcName ?pname .
+  ?node js_at:StatementId ?StatementId .
+  bind (xsd:integer(?StatementId) as ?StatementId_Int)  
+  
+ } group by ?node ?proc  having (?c=1 ) 
+};
+
+insert {?iri rdf:type mig:mscondition} where 
+{  
+  #bind (?param? as ?param) .
+  #bind(mig:e63873ee-25dd-41f5-a3fc-8cece3befffd as ?param )
+  ?param rdf:type mig:pgprocedure .
+
+  ?param etl:hasSourceFile ?file .
+  ?param rdf:type mig:pgprocedure .
+  ?param mig:hasProcedure ?msproc .
+  ?iri mig:hasProcedure ?msproc .
+  ?iri rdf:type mig:msprocedurestatement .
+  ?iri js_at:StatementId ?StatementId .
+  ?iri  js_at:StatementType ?StatementType .
+  ?iri js_at:StatementText ?StatementText .
+  bind (xsd:integer(?StatementId) as ?StatementId_Int)
+  filter (?StatementType='COND')
+} ;
+
+insert {?node mig:hasCondition ?iri} where 
+{  
+  ?param rdf:type mig:pgprocedure .
+
+  ?param etl:hasSourceFile ?file .
+  ?param rdf:type mig:pgprocedure .
+  ?param mig:hasProcedure ?msproc .
+  ?iri rdf:type mig:mscondition .  
+  ?iri mig:hasProcedure ?msproc .
+  ?node js:parentJsonId*  ?iri .
+  ?node mig:hasProcedure ?msproc .
+  ?node  js_at:StatementType ?StatementType .
+  ?node js_at:StatementText ?StatementText .  
+} ;
+
+#useful to drop reports
+#delete{  ?iri ?p ?o} where {?iri rdf:type report:buttonReport . ?iri ?p ?o};
+#delete {?iri report:hasDefaultQuery ?q} where {?iri report:hasDefaultQuery ?q};

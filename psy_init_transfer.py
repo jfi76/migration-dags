@@ -1,4 +1,5 @@
 import sys
+import os
 import time
 from datetime import datetime
 from airflow.models.dag import DAG
@@ -8,18 +9,20 @@ from airflow.providers.microsoft.mssql.hooks.mssql import MsSqlHook
 from airflow.hooks.base_hook import BaseHook
 import pandas as pd
 from sqlalchemy import create_engine
+from airflow.models import Variable
 
 sys.path.append( './dags/migration/' )
 sys.path.append( './dags/migration/query/' )
 
 
 from migration.create_proc import create_proc
-
+from migration.get_proc_plans import mssql_to_postgres
+from migration.convert_json_to_ontology import  json_to_ontology
 #get t_* tables
 #select * from INFORMATION_SCHEMA.TABLES where substring(TABLE_NAME,1,2)='t_'
 @task()
 def get_src_tables():
-    hook = MsSqlHook(mssql_conn_id="t440s")
+    hook = MsSqlHook(mssql_conn_id="t440s")    
     sql = """ select  LOWER(table_name) as table_name from INFORMATION_SCHEMA.TABLES where substring(TABLE_NAME,1,2)='t_' """
     df = hook.get_pandas_df(sql)
     print(df)
@@ -53,11 +56,8 @@ def load_src_data(tbl_dict: dict):
 def prepare_proc():
     conn = BaseHook.get_connection('postgres')
     engine = create_engine(f'postgresql://{conn.login}:{conn.password}@{conn.host}:{conn.port}/{conn.schema}')
-
     c=create_proc()
     ret=c.get_all_proc()
-
-
     for proc in ret:
         exec_str=''
         print(proc['iri'])    
@@ -68,15 +68,25 @@ def prepare_proc():
         if exec_str!='' :
             print(exec_str)
             engine.execute(exec_str)
+@task
+def get_proc_plan():    
+    ms_to_pq=mssql_to_postgres(con_server=Variable.get('mssql_serv'), con_passw=Variable.get('mssql_pass'))
+    ms_to_pq.exec()  
 
+@task 
+def convert_to_ontology():
+    conv=json_to_ontology('./dags/json_data/')    
+    conv.processJsonDir()
 
 with DAG(dag_id="psy_etl_dag",schedule_interval="0 9 * * *", start_date=datetime(2022, 3, 5),catchup=False,  tags=["psy_init"]) as dag:
 
     with TaskGroup("extract_psy_load", tooltip="Extract and load source data") as extract_load_src:
         #src_product_tbls = get_src_tables()
         #load_dimProducts = load_src_data(src_product_tbls)
-        pg_prepare_proc= prepare_proc()
+        #pg_prepare_proc= prepare_proc()
+        proc_plan=get_proc_plan()
+        convert_json_to_rdf=convert_to_ontology()
         #define order
-        #src_product_tbls >> load_dimProducts >> 
-        pg_prepare_proc
+        #src_product_tbls >> load_dimProducts >> pg_prepare_proc
+        proc_plan >> convert_json_to_rdf
     extract_load_src
