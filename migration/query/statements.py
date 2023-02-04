@@ -104,3 +104,26 @@ select
 }
 }
 """
+delete_variables="""
+delete{  ?iri ?p ?o} where {?iri rdf:type mig:pgprocedurevariable . ?iri ?p ?o};
+delete{  ?iri ?p ?o} where {?iri rdf:type mig:msprocedurevarible . ?iri ?p ?o};
+"""
+delete_pgstatements="""
+delete{  ?iri ?p ?o} where {?iri rdf:type mig:pgstatement . ?iri ?p ?o};
+"""
+select_msproc_statement= """
+select ?iri ?StatementId_Int  ?StatementType ?StatementText 
+{  
+  bind (?param? as ?param) .
+  ?param etl:hasSourceFile ?file .
+  ?param rdf:type mig:pgprocedure .
+  ?param mig:hasProcedure ?msproc .
+  ?iri mig:hasProcedure ?msproc .
+  ?iri rdf:type mig:msprocedurestatement .
+  ?iri js_at:StatementId ?StatementId .
+  ?iri  js_at:StatementType ?StatementType .
+  ?iri js_at:StatementText ?StatementText .
+  bind (xsd:integer(?StatementId) as ?StatementId_Int)
+} 
+order by ?StatementId_Int
+"""

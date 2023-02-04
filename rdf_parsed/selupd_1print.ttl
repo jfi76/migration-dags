@@ -1,375 +1,170 @@
-@prefix ns1: <http://www.example.com/JSON#@> .
-@prefix ns2: <http://www.example.com/ETL#> .
-@prefix ns3: <http://www.example.com/JSON#> .
+@prefix ns1: <http://www.example.com/JSON#> .
+@prefix ns2: <http://www.example.com/JSON#@> .
+@prefix ns3: <http://www.example.com/ETL#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
-ns3:N006ac12d647246a799cc0f2bc2848e38 a ns3:ObjectJson,
+ns1:N03e223faeb4141ed813837fa9d1f0345 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Alias "[t]" ;
-    ns1:Column "print_count" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Table "[T_TESTING]" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:Ncc227257cd0a4110b16f977e830d3f8a .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Alias "[t]" ;
+    ns2:Column "T_TESTING_ID" ;
+    ns2:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns2:Schema "[dbo]" ;
+    ns2:Table "[T_TESTING]" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:Nce73869a1f7242d5bf40145237fac9a4 .
 
-ns3:N00a76a936bee46bc8ba5ac719f26ab04 a ns3:ObjectJson,
+ns1:N0ac898e324d8474094ae0780e3648cc2 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Alias "[t]" ;
-    ns1:Column "OBJ_CREATED" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Table "[T_TESTING]" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:Na9101a3227a340f3a669f17590fdd3e7 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:FunctionName "getdate" ;
+    ns1:hasJsonObjectKey "Intrinsic" ;
+    ns1:parentJsonId ns1:N0fa18df10a3d44f994b456f5bfc20bbd .
 
-ns3:N051e18127a0b4198ac0c8fd753a08701 a ns3:ObjectJson,
+ns1:N0cb44d33870940cfbe286de4fa568fb5 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Alias "[t]" ;
-    ns1:Column "T_TESTING_ID" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Table "[T_TESTING]" ;
-    ns3:hasJsonObjectKey "1" ;
-    ns3:parentJsonId ns3:N31d6d0f7bd2049f98133964dddddaa7f .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Alias "[t]" ;
+    ns2:Column "OBJ_CREATED" ;
+    ns2:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns2:Schema "[dbo]" ;
+    ns2:Table "[T_TESTING]" ;
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:N91194dbf2312446f9f1fa58e81234e53 .
 
-ns3:N0948ffe8ca1e40dd8bfb52e99f100f33 a ns3:ObjectJson,
+ns1:N0e06938a11bd4a6caf4d18eeac940251 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Alias "[t]" ;
-    ns1:Column "OBJ_CREATED" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Table "[T_TESTING]" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:N62e5f5b44d9647229ae423cc1f4c61a3 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:AggType "countstar" ;
+    ns2:Distinct "0" ;
+    ns1:hasJsonObjectKey "Aggregate" ;
+    ns1:parentJsonId ns1:N1b4777d43bb940e59ac1868b01cc8267 .
 
-ns3:N0f12158974404a3e8955ea88afde8452 a ns3:ObjectJson,
+ns1:N0e59cbc3df2744229d01849b54d41976 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:ConstValue "(1)" ;
-    ns3:hasJsonObjectKey "Const" ;
-    ns3:parentJsonId ns3:N90d9bf82d6b345769c70015777f8d59e .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:ConstValue "(0)" ;
+    ns1:hasJsonObjectKey "Const" ;
+    ns1:parentJsonId ns1:Nb0558a4952ae4e52b16dfc336aa691de .
 
-ns3:N1014023c3a574a598a0f3dd339d59840 a ns3:ObjectJson,
+ns1:N105187274dfb4de1b044c3adf3f2af97 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Alias "[t]" ;
-    ns1:Column "OBJ_CREATED" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Table "[T_TESTING]" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:Nab9699889eae40e292467c95e45a1191 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Alias "[t]" ;
+    ns2:Column "T_TESTING_STATUS_ID" ;
+    ns2:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns2:Schema "[dbo]" ;
+    ns2:Table "[T_TESTING]" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N665a9f93416f4549ba7a525801e5a5c1 .
 
-ns3:N154d31c6b4194e3da24d62f95533b09e a ns3:ObjectJson,
+ns1:N1735ec6203b54f0b93b632e2cb3788ff a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:ConstValue "(2)" ;
-    ns3:hasJsonObjectKey "Const" ;
-    ns3:parentJsonId ns3:N5698618bcb484596b934d069c282a746 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:ConstValue "N'ENDED'" ;
+    ns1:hasJsonObjectKey "Const" ;
+    ns1:parentJsonId ns1:N506c9df66a0a41dda768c18b1ede7b9c .
 
-ns3:N15eab060b7204cb9922825fd6b302511 a ns3:ObjectJson,
+ns1:N19a43d62fcc84ea3a912ea26938345ee a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:GrantedMemory "0" ;
-    ns1:MaxUsedMemory "0" ;
-    ns1:SerialDesiredMemory "0" ;
-    ns1:SerialRequiredMemory "0" ;
-    ns3:hasJsonObjectKey "MemoryGrantInfo" ;
-    ns3:parentJsonId ns3:N1f52bc06fb0041fabbe54b890234449f .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Alias "[t]" ;
+    ns2:Column "OBJ_CREATED" ;
+    ns2:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns2:Schema "[dbo]" ;
+    ns2:Table "[T_TESTING]" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:Nf47717f8b363482db0a7f71e4a81f719 .
 
-ns3:N18ed91b161144fd58d2bf01ecd68dc3f a ns3:ObjectJson,
+ns1:N1ad40f3c51e64bf3b6cd6034b3543bea a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:ConstValue "(0)" ;
-    ns3:hasJsonObjectKey "Const" ;
-    ns3:parentJsonId ns3:N1bd8cbe9e144433ab41112eca1d036ee .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Alias "[t]" ;
+    ns2:Column "OBJ_CREATED" ;
+    ns2:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns2:Schema "[dbo]" ;
+    ns2:Table "[T_TESTING]" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N6b927b8c3ba24764a4c9d6fa44e71685 .
 
-ns3:N1c30db3eb1924d51b70c0a0cab6e30bd a ns3:ObjectJson,
+ns1:N1df9d72c57e542979253994c91da04c4 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:GrantedMemory "0" ;
-    ns1:MaxUsedMemory "0" ;
-    ns1:SerialDesiredMemory "0" ;
-    ns1:SerialRequiredMemory "0" ;
-    ns3:hasJsonObjectKey "MemoryGrantInfo" ;
-    ns3:parentJsonId ns3:N39dac8e9d021489d9bebf7115db3a746 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:ConstValue "(0)" ;
+    ns1:hasJsonObjectKey "Const" ;
+    ns1:parentJsonId ns1:N5c9ee53921be48769d4b76bd19372595 .
 
-ns3:N1e4c657180a9427c9dd507e3155b5388 a ns3:ObjectJson,
+ns1:N209bce01f1c649d1877fc8802ba5489e a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Alias "[t]" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Index "[PK_T_TESTING]" ;
-    ns1:IndexKind "Clustered" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Storage "RowStore" ;
-    ns1:Table "[T_TESTING]" ;
-    ns3:hasJsonObjectKey "Object" ;
-    ns3:parentJsonId ns3:N5512a558628e48258f8f5f94ce3cae11 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:ConstValue "N'ENDED'" ;
+    ns1:hasJsonObjectKey "Const" ;
+    ns1:parentJsonId ns1:N2bd0248a9e6341f18fee2c9d0b7f661f .
 
-ns3:N236cd98571584dde8fe95e3a923b1a35 a ns3:ObjectJson,
+ns1:N248ec259a56d42849c2d302ac75e1066 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Alias "[t]" ;
-    ns1:Column "print_count" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Table "[T_TESTING]" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:Nb664b4ddfc734dbf9c6d93fb13383057 .
-
-ns3:N2565b4601aa248acb3c396a1cce2cb8e a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Column "Expr1013" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:N5ab9a5351564413f861a9f3047bd20b5 .
-
-ns3:N2a13a7a295a2422d9f769f6b82015f61 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:ConstValue "(0)" ;
-    ns3:hasJsonObjectKey "Const" ;
-    ns3:parentJsonId ns3:Nd5455cc2f5184f3cb3297768220fddcd .
-
-ns3:N2edfeb3020af4e48831a05973613c495 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Alias "[t]" ;
-    ns1:Column "T_TESTING_STATUS_ID" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Table "[T_TESTING]" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:N9d0ed14acb7e4f6c9fe01abc432cba89 .
-
-ns3:N30624f5e478741d6ba4a7f50cf4bc125 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Alias "[t]" ;
-    ns1:Column "T_TESTING_ID" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Table "[T_TESTING]" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:N3307d4299ac2423aa13c97bde56b3793 .
-
-ns3:N31c0e4f0fbc249729e33df58e0dfe507 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:RetrievedFromCache "false" ;
-    ns1:StatementCompId "9" ;
-    ns1:StatementId "8" ;
-    ns1:StatementText """\r
-\r
-SET XACT_ABORT OFF;\r
- \r
-\r
-""" ;
-    ns1:StatementType "SET ON/OFF" ;
-    ns3:hasJsonObjectKey "6" ;
-    ns3:parentJsonId ns3:Nefd33894af9447bfad1c82a63009db1c .
-
-ns3:N31c943f625ed459599495f43133cc0f3 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Alias "[ts]" ;
-    ns1:Column "T_TESTING_STATUS_ID" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Table "[T_TESTING_STATUS]" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:N37b69c03305247fb8aec86e0ccd6a4b5 .
-
-ns3:N34078520b1df488d8f05666cd7c54185 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:ConstValue "(2)" ;
-    ns3:hasJsonObjectKey "Const" ;
-    ns3:parentJsonId ns3:N4fcb7b5e675d49cc9fccbd5511836a70 .
-
-ns3:N35981945e3304b56b630568d9ce53eb9 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Alias "[t]" ;
-    ns1:Column "OBJ_CREATED" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Table "[T_TESTING]" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:N971d811cd10b4923b4ab9282da958d57 .
-
-ns3:N36912e3441cd481b83432458d7d467b8 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Alias "[t]" ;
-    ns1:Column "T_TESTING_ID" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Table "[T_TESTING]" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:Nb350140d316e499cb78c8af6581be53b .
-
-ns3:N373034e1619f4b878108bbf31c4cfc46 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:AvgRowSize "9" ;
-    ns1:EstimateCPU "1.157e-06" ;
-    ns1:EstimateIO "0" ;
-    ns1:EstimateRebinds "0" ;
-    ns1:EstimateRewinds "0" ;
-    ns1:EstimateRows "1" ;
-    ns1:EstimatedExecutionMode "Row" ;
-    ns1:EstimatedTotalSubtreeCost "1.157e-06" ;
-    ns1:LogicalOp "Constant Scan" ;
-    ns1:NodeId "2" ;
-    ns1:Parallel "0" ;
-    ns1:PhysicalOp "Constant Scan" ;
-    ns3:ConstantScan "None" ;
-    ns3:OutputList "None" ;
-    ns3:hasJsonObjectKey "0" ;
-    ns3:parentJsonId ns3:Ne2a0b4badfc644a6bc16170de9cb4b90 .
-
-ns3:N3aa75ef7bbab4a0ea2e88e3b8fb4889b a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Column "Expr1002" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:N817d5ac22dbc425cb4ccb795e720ba64 .
-
-ns3:N3d103c7659114704a9ce80b8c9e94d7c a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Column "Expr1013" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:Nbbf783d746764bd69e6098dfa27deb48 .
-
-ns3:N407025d3b49c4bb58775e636e624b16a a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Alias "[t]" ;
-    ns1:Column "T_TESTING_ID" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Table "[T_TESTING]" ;
-    ns3:hasJsonObjectKey "1" ;
-    ns3:parentJsonId ns3:N548c4286f2eb40898bca671f47413acd .
-
-ns3:N43d63517da15459dae2fff2d94b19295 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:ConstValue "(4)" ;
-    ns3:hasJsonObjectKey "Const" ;
-    ns3:parentJsonId ns3:N1141d5984e904736a78103aff88bc0b9 .
-
-ns3:N4aeee1c3040b4b3faa309cd870405ea7 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:RetrievedFromCache "false" ;
-    ns1:StatementCompId "8" ;
-    ns1:StatementId "7" ;
-    ns1:StatementText """\r
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:RetrievedFromCache "false" ;
+    ns2:StatementCompId "8" ;
+    ns2:StatementId "7" ;
+    ns2:StatementText """\r
 \r
 select @t_testing_id as t_testing_id,@job_count as job_count""" ;
-    ns1:StatementType "SELECT WITHOUT QUERY" ;
-    ns3:hasJsonObjectKey "5" ;
-    ns3:parentJsonId ns3:Nefd33894af9447bfad1c82a63009db1c .
+    ns2:StatementType "SELECT WITHOUT QUERY" ;
+    ns1:hasJsonObjectKey "5" ;
+    ns1:parentJsonId ns1:N1255935781d14b1caa4d2da080f935a7 .
 
-ns3:N4e7d15346fbf463788f18d768cc44baa a ns3:ObjectJson,
+ns1:N2615368b769543cda6746a4d41e59109 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Alias "[t]" ;
-    ns1:Column "T_TESTING_STATUS_ID" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Table "[T_TESTING]" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:Nad406df0943840cc8afc92b23ce6813b .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Alias "[t]" ;
+    ns2:Column "T_TESTING_ID" ;
+    ns2:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns2:Schema "[dbo]" ;
+    ns2:Table "[T_TESTING]" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:N91194dbf2312446f9f1fa58e81234e53 .
 
-ns3:N507f142866c241b5a48726ef946feb3a a ns3:ObjectJson,
+ns1:N28a5d82dc2f0436fbda4c805fa5d21fd a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:RetrievedFromCache "false" ;
-    ns1:StatementCompId "4" ;
-    ns1:StatementId "3" ;
-    ns1:StatementText """set @t_testing_id= null\r
-""" ;
-    ns1:StatementType "ASSIGN" ;
-    ns3:hasJsonObjectKey "1" ;
-    ns3:parentJsonId ns3:Nefd33894af9447bfad1c82a63009db1c .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Alias "[ts]" ;
+    ns2:Column "OBJ_NAME" ;
+    ns2:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns2:Schema "[dbo]" ;
+    ns2:Table "[T_TESTING_STATUS]" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N066075d51e6b41a7bdd2622c14083d66 .
 
-ns3:N52fe739fad9e44d89114db2ff6ac5eda a ns3:ObjectJson,
+ns1:N28ef4112bb324a938ffd5f48ea061c6e a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Alias "[ts]" ;
-    ns1:Column "OBJ_NAME" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Table "[T_TESTING_STATUS]" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:Nc3b9d8e97a4d410aab653ae619bdf152 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Alias "[t]" ;
+    ns2:Column "T_TESTING_STATUS_ID" ;
+    ns2:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns2:Schema "[dbo]" ;
+    ns2:Table "[T_TESTING]" ;
+    ns1:hasJsonObjectKey "2" ;
+    ns1:parentJsonId ns1:N1d2985e7494b43a9a56df62dcc213591 .
 
-ns3:N54ea14acc33249d09ab08dada50e6f5a a ns3:ObjectJson,
+ns1:N2c65c300e793436880d091098467751d a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Alias "[t]" ;
-    ns1:Column "T_TESTING_STATUS_ID" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Table "[T_TESTING]" ;
-    ns3:hasJsonObjectKey "2" ;
-    ns3:parentJsonId ns3:N31d6d0f7bd2049f98133964dddddaa7f .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Alias "[t]" ;
+    ns2:Column "OBJ_CREATED" ;
+    ns2:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns2:Schema "[dbo]" ;
+    ns2:Table "[T_TESTING]" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N37d80e2762b3474bbdb28c70adf14d71 .
 
-ns3:N59d4456a230a4e41b19b8c8b81f47571 a ns3:ObjectJson,
+ns1:N2dafd96fb2fa454cb7a30c62fc7bae20 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:ConstValue "(0)" ;
-    ns3:hasJsonObjectKey "Const" ;
-    ns3:parentJsonId ns3:N004005353f8745bf86bd7abbfeee37b6 .
-
-ns3:N604d6e7a037440bfa803cd5c16e0d6da a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Column "Expr1003" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:N6f4ac461863a4a209fefa4ba13c23ca0 .
-
-ns3:N63fabc27842e40779de0d511d7adca81 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:ANSI_NULLS "true" ;
-    ns1:ANSI_PADDING "true" ;
-    ns1:ANSI_WARNINGS "true" ;
-    ns1:ARITHABORT "true" ;
-    ns1:CONCAT_NULL_YIELDS_NULL "true" ;
-    ns1:NUMERIC_ROUNDABORT "false" ;
-    ns1:QUOTED_IDENTIFIER "true" ;
-    ns3:hasJsonObjectKey "StatementSetOptions" ;
-    ns3:parentJsonId ns3:N5c132c82e0d34baea9cf01ef8f9357b6 .
-
-ns3:N66fb82cda902424fb9cfce55951b15a1 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Alias "[t]" ;
-    ns1:Column "OBJ_CREATED" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Table "[T_TESTING]" ;
-    ns3:hasJsonObjectKey "0" ;
-    ns3:parentJsonId ns3:N9d0152c163be4388b77d4204fcea2755 .
-
-ns3:N77234b4b549d45d990b2cd76e63cc4ae a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:RetrievedFromCache "false" ;
-    ns1:StatementCompId "3" ;
-    ns1:StatementId "2" ;
-    ns1:StatementText """\r
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:RetrievedFromCache "false" ;
+    ns2:StatementCompId "3" ;
+    ns2:StatementId "2" ;
+    ns2:StatementText """\r
 CREATE procedure [dbo].[selupd_1print] \r
 as \r
 declare @t_testing_id uniqueidentifier\r
@@ -378,1829 +173,2040 @@ declare @job_count int \r
 SET XACT_ABORT ON;\r
 \r
 """ ;
-    ns1:StatementType "SET ON/OFF" ;
-    ns3:hasJsonObjectKey "0" ;
-    ns3:parentJsonId ns3:Nefd33894af9447bfad1c82a63009db1c .
+    ns2:StatementType "SET ON/OFF" ;
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:N1255935781d14b1caa4d2da080f935a7 .
 
-ns3:N77b7ee2ea6ce416eae1e0e6ff3e6abbb a ns3:ObjectJson,
+ns1:N317e07aff5634c68b3575f9e7fd7f45f a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Alias "[t]" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Index "[PK_T_TESTING]" ;
-    ns1:IndexKind "Clustered" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Storage "RowStore" ;
-    ns1:Table "[T_TESTING]" ;
-    ns1:TableReferenceId "-1" ;
-    ns3:hasJsonObjectKey "Object" ;
-    ns3:parentJsonId ns3:Nad92e25954fa4caaa207a2aa30ea2f4d .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:ConstValue "(2)" ;
+    ns1:hasJsonObjectKey "Const" ;
+    ns1:parentJsonId ns1:N98de3d0cd7f543c0bd22552257176906 .
 
-ns3:N7aa53e241e3d4eacabe95c00c914ad3c a ns3:ObjectJson,
+ns1:N31a48706d671458d8ff236306c196423 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:EstimatedAvailableDegreeOfParallelism "2" ;
-    ns1:EstimatedAvailableMemoryGrant "311472" ;
-    ns1:EstimatedPagesCached "77868" ;
-    ns1:MaxCompileMemory "653536" ;
-    ns3:hasJsonObjectKey "OptimizerHardwareDependentProperties" ;
-    ns3:parentJsonId ns3:N39dac8e9d021489d9bebf7115db3a746 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Alias "[t]" ;
+    ns2:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns2:Index "[PK_T_TESTING]" ;
+    ns2:IndexKind "Clustered" ;
+    ns2:Schema "[dbo]" ;
+    ns2:Storage "RowStore" ;
+    ns2:Table "[T_TESTING]" ;
+    ns1:hasJsonObjectKey "Object" ;
+    ns1:parentJsonId ns1:Nefb65ae370ec4d9ea94fdf6df1dbf3f9 .
 
-ns3:N80fc7b85407a482486482fca9565ea39 a ns3:ObjectJson,
+ns1:N393be12fb1614963b52546b9afbd3cdc a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:ConstValue "(4)" ;
-    ns3:hasJsonObjectKey "Const" ;
-    ns3:parentJsonId ns3:N05e665ad5b424a4e8c9b996cca1db96f .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:ConstValue "(0)" ;
+    ns1:hasJsonObjectKey "Const" ;
+    ns1:parentJsonId ns1:N497e4bda7d094562b1c6a81ad119205e .
 
-ns3:N878f25ddf6b14451b0f8c702f5894545 a ns3:ObjectJson,
+ns1:N3a5684bc31cf45e2991cf743635db1db a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Alias "[t]" ;
-    ns1:Column "OBJ_CREATED" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Table "[T_TESTING]" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:N5203d467c6874447b14a7752499befc5 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Column "Expr1003" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N21e75f79a4ba4c1d8f2308bc0b751cc5 .
 
-ns3:N8ebe9ac60dad4dbb87b153af27246417 a ns3:ObjectJson,
+ns1:N3a7e933cf0f549af8d9a6945619bce78 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:FunctionName "getdate" ;
-    ns3:hasJsonObjectKey "Intrinsic" ;
-    ns3:parentJsonId ns3:N2e2666e073224570a398f8f977617106 .
-
-ns3:N905fa7b9e31f45dba5ed8ab976f44419 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Column "Expr1003" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:N248cf88d55ac4b778456c1f3338b7223 .
-
-ns3:N9337aa72ea984f49a535a67f8552993d a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:ConstValue "(0)" ;
-    ns3:hasJsonObjectKey "Const" ;
-    ns3:parentJsonId ns3:Nf87bcb236b26460fad9f6a00e9554640 .
-
-ns3:N939c893a5d9c439e8e3ee1e705761a51 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Alias "[ts]" ;
-    ns1:Column "OBJ_NAME" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Table "[T_TESTING_STATUS]" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:N58a3a8597ed84569b342fe8bf684813b .
-
-ns3:N9969edc042be4c9f9458c64666285183 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Alias "[t]" ;
-    ns1:Column "OBJ_CREATED" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Table "[T_TESTING]" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:N11c48e56d83844cb9588c489dd942d8b .
-
-ns3:N9fdae27e96ff4ecd951ab94fe24ba73f a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:ConstValue "(4)" ;
-    ns3:hasJsonObjectKey "Const" ;
-    ns3:parentJsonId ns3:N614ba3a39eb54b39b5580221efcc8aae .
-
-ns3:Na708382684054b49a4961426d103529d a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:RetrievedFromCache "false" ;
-    ns1:StatementCompId "5" ;
-    ns1:StatementId "4" ;
-    ns1:StatementText """set @job_count = null\r
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:RetrievedFromCache "false" ;
+    ns2:StatementCompId "5" ;
+    ns2:StatementId "4" ;
+    ns2:StatementText """set @job_count = null\r
 \r
 """ ;
-    ns1:StatementType "ASSIGN" ;
-    ns3:hasJsonObjectKey "2" ;
-    ns3:parentJsonId ns3:Nefd33894af9447bfad1c82a63009db1c .
-
-ns3:Na8131a6274634bf8af6ad38c19436879 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Alias "[t]" ;
-    ns1:Column "T_TESTING_STATUS_ID" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Table "[T_TESTING]" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:N5c567e89216440ff9cc2a9452f26ceac .
-
-ns3:Na96f8ed14a0949ad86b429369e9e5338 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:FunctionName "getdate" ;
-    ns3:hasJsonObjectKey "Intrinsic" ;
-    ns3:parentJsonId ns3:N15b40c66366a4b1da8a78a9041f49c9c .
-
-ns3:Na98ec964a60c4608a9f04b1081869469 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Alias "[t]" ;
-    ns1:Column "OBJ_CREATED" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Table "[T_TESTING]" ;
-    ns3:hasJsonObjectKey "0" ;
-    ns3:parentJsonId ns3:N548c4286f2eb40898bca671f47413acd .
-
-ns3:Na9ec913f235948e8931209cf74236351 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Column "Expr1002" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:N73723a59e5b74a82af5ca57cee63bfdd .
-
-ns3:Naad3c917ab9a455ab7a22888702b5ffd a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:ANSI_NULLS "true" ;
-    ns1:ANSI_PADDING "true" ;
-    ns1:ANSI_WARNINGS "true" ;
-    ns1:ARITHABORT "true" ;
-    ns1:CONCAT_NULL_YIELDS_NULL "true" ;
-    ns1:NUMERIC_ROUNDABORT "false" ;
-    ns1:QUOTED_IDENTIFIER "true" ;
-    ns3:hasJsonObjectKey "StatementSetOptions" ;
-    ns3:parentJsonId ns3:N6f1706ea8fdb475681cb06c69d2fd461 .
-
-ns3:Nad852aacabd643c8a8d25f20dd6e8ee1 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Alias "[t]" ;
-    ns1:Column "OBJ_CREATED" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Table "[T_TESTING]" ;
-    ns3:hasJsonObjectKey "0" ;
-    ns3:parentJsonId ns3:N31d6d0f7bd2049f98133964dddddaa7f .
-
-ns3:Naeac6448e40f42d3931cd9a1ad025ab2 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Alias "[ts]" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Index "[PK_T_TESTING_STATUS]" ;
-    ns1:IndexKind "Clustered" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Storage "RowStore" ;
-    ns1:Table "[T_TESTING_STATUS]" ;
-    ns3:hasJsonObjectKey "Object" ;
-    ns3:parentJsonId ns3:N91186cb71f8f4ac9945aa8c3b9b110e4 .
-
-ns3:Nafc6fbacae3e42238b9951bd92d99d32 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:ConstValue "(2)" ;
-    ns3:hasJsonObjectKey "Const" ;
-    ns3:parentJsonId ns3:N3ca12af1e4e44b6ab74fbbb5c155d1c7 .
-
-ns3:Nb5c3e1750aef41d3b64d18c6f5d7348d a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Alias "[t]" ;
-    ns1:Column "T_TESTING_STATUS_ID" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Table "[T_TESTING]" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:Nbce41c651586471481c5dacf346cbd3c .
-
-ns3:Nb906ffdd77bd42d38349e9c5b6d47271 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:AggType "countstar" ;
-    ns1:Distinct "0" ;
-    ns3:hasJsonObjectKey "Aggregate" ;
-    ns3:parentJsonId ns3:N3d095a9b8c5549a4884b425ee6727ae7 .
-
-ns3:Nbad6a7d5f4fa4cee8ff843d50750b665 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:ConstValue "(4)" ;
-    ns3:hasJsonObjectKey "Const" ;
-    ns3:parentJsonId ns3:N3f6e4e549ecb4d69aec215ea88a61764 .
-
-ns3:Nbb0b642228534b40b0e316ebbf86ce16 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Alias "[t]" ;
-    ns1:Column "T_TESTING_ID" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Table "[T_TESTING]" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:N9769d03d7ba946179ae57c402162e4f0 .
-
-ns3:Nbbefbfb94f0949588ab73994b1669f0a a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Alias "[t]" ;
-    ns1:Column "T_TESTING_ID" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Table "[T_TESTING]" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:Nb7bc580ffc864b97ad6b144f38b8dc4d .
-
-ns3:Nc09bfaff4111445fa2224c0348587491 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Column "Expr1004" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:N622ff6d92d0e4a3ab45b932a41a70c0a .
-
-ns3:Nc09c800fd7e144babd8729904134b250 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Alias "[ts]" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Index "[PK_T_TESTING_STATUS]" ;
-    ns1:IndexKind "Clustered" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Storage "RowStore" ;
-    ns1:Table "[T_TESTING_STATUS]" ;
-    ns3:hasJsonObjectKey "Object" ;
-    ns3:parentJsonId ns3:N7de93a3d25d7486e92ee8ed816a77898 .
-
-ns3:Nc19f31ec9ef043d0b730ceeb91da4d39 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Alias "[t]" ;
-    ns1:Column "T_TESTING_ID" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Table "[T_TESTING]" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:N10317c269369467390b29d7b871f8146 .
-
-ns3:Nc1e772282ab848a3a84a1ab065e74197 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Alias "[t]" ;
-    ns1:Column "T_TESTING_ID" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Table "[T_TESTING]" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:Nf0580ddd12824b0c92f67c3248922777 .
-
-ns3:Nc2952dbc12994fab9325312db0fcea04 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Alias "[t]" ;
-    ns1:Column "T_TESTING_ID" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Table "[T_TESTING]" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:Nff74946998ee45349bac9521cbbe6ce5 .
-
-ns3:Nc8faedd1dd464b04b26ea00ad5ae3780 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:ConstValue "(2)" ;
-    ns3:hasJsonObjectKey "Const" ;
-    ns3:parentJsonId ns3:Nfdf2a5e843fa461b86d376d9b80b4d12 .
-
-ns3:Ncb28be07156248b4b61e69e4e5f08f51 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Column "Expr1004" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:N65b98a6164934cbfb69203e983a13da8 .
-
-ns3:Nd0ae08f8c22e42d0b28d63e56de94015 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:ConstValue "N'ENDED'" ;
-    ns3:hasJsonObjectKey "Const" ;
-    ns3:parentJsonId ns3:N97ab7fdc3f1b4c578e50f358f70738f8 .
-
-ns3:Nd0e417bf8b5a452c949f76f83e3a98e7 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Column "Expr1002" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:N0a8f1001ab334782939835e0b501c683 .
-
-ns3:Nd231c6b9c6fb4149b25912406b5dd9cd a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Alias "[t]" ;
-    ns1:Column "T_TESTING_STATUS_ID" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Table "[T_TESTING]" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:N015aa4f73921490190f32b7b7773464d .
-
-ns3:Nd3f58e3d0bca4e0d8a3c64f04ad7a3ee a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Alias "[t]" ;
-    ns1:Column "T_TESTING_STATUS_ID" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Table "[T_TESTING]" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:Nd69058815ac44e509e3ef1b0555bd18b .
-
-ns3:Nd503457b8ba1441f9e2382f01619b404 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Alias "[t]" ;
-    ns1:Column "T_TESTING_ID" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Table "[T_TESTING]" ;
-    ns3:hasJsonObjectKey "1" ;
-    ns3:parentJsonId ns3:N9d0152c163be4388b77d4204fcea2755 .
-
-ns3:Nd6174a6b3ebc4bf9af6fc3004081044b a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Alias "[t]" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Index "[testing_objdate]" ;
-    ns1:IndexKind "NonClustered" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Storage "RowStore" ;
-    ns1:Table "[T_TESTING]" ;
-    ns3:hasJsonObjectKey "Object" ;
-    ns3:parentJsonId ns3:N620e0c5e421f4b3ba444e7ccd09336fd .
-
-ns3:Nd68c4535dd74499c91416e6d43567185 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Column "Expr1013" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:N46ed6caf71664947a4cefddae7319062 .
-
-ns3:Ndcd9c9e33d714fde97d46039a28322b0 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:EstimatedAvailableDegreeOfParallelism "2" ;
-    ns1:EstimatedAvailableMemoryGrant "311472" ;
-    ns1:EstimatedPagesCached "77868" ;
-    ns1:MaxCompileMemory "653536" ;
-    ns3:hasJsonObjectKey "OptimizerHardwareDependentProperties" ;
-    ns3:parentJsonId ns3:N1f52bc06fb0041fabbe54b890234449f .
-
-ns3:Nded349cd77554bfd918914574f66fd3c a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Alias "[t]" ;
-    ns1:Column "T_TESTING_STATUS_ID" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Table "[T_TESTING]" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:N72dfc620fbc24a3ab9fc0fca066bbf45 .
-
-ns3:Ne16d88b255944431bd380052864e4293 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:FunctionName "getdate" ;
-    ns3:hasJsonObjectKey "Intrinsic" ;
-    ns3:parentJsonId ns3:Nf9781cc783f449a783c2df8eb85ead5c .
-
-ns3:Ne4c3f55f35544ede90071a06fee610ec a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Alias "[t]" ;
-    ns1:Column "OBJ_CREATED" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Table "[T_TESTING]" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:N0c4827c37a544c149c2b530c7163a59f .
-
-ns3:Ne6f97569b0e442b3896046eb9485bc2b a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Alias "[ts]" ;
-    ns1:Column "T_TESTING_STATUS_ID" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Table "[T_TESTING_STATUS]" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:Nb9f1e0b9c3cd4a63bbeb1f0eaca860f3 .
-
-ns3:Nec93ec0a4bba438a9acebf182f502c76 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:FunctionName "getdate" ;
-    ns3:hasJsonObjectKey "Intrinsic" ;
-    ns3:parentJsonId ns3:N77ed9a73ad2444a5b7fd03101b43f139 .
-
-ns3:Nece18c8c8102447e9f86d4e084403ea3 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:FunctionName "getdate" ;
-    ns3:hasJsonObjectKey "Intrinsic" ;
-    ns3:parentJsonId ns3:N6b46ab034d1f416695f98abd57db3c1d .
-
-ns3:Ned497f11d48547048f0f500fd50bac82 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:ConstValue "(0)" ;
-    ns3:hasJsonObjectKey "Const" ;
-    ns3:parentJsonId ns3:Nf8a47330631e40869fbaa8d06525bed7 .
-
-ns3:Nf47fd60edc0a41219b524d6e38e45779 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:ConstValue "N'ENDED'" ;
-    ns3:hasJsonObjectKey "Const" ;
-    ns3:parentJsonId ns3:N8473ca26a8f845a9871d4c4fadc2390d .
-
-ns3:Nf7ebcf49ce4d40d38c94321b210c8678 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:FunctionName "getdate" ;
-    ns3:hasJsonObjectKey "Intrinsic" ;
-    ns3:parentJsonId ns3:Ne73f11183e574c21a81b74dbcec95180 .
-
-ns3:Nfcd1dbceef27478493a024a81ab2bdc4 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Alias "[t]" ;
-    ns1:Column "T_TESTING_STATUS_ID" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Table "[T_TESTING]" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:N3504dfd48be54e84bd42bab7a936bd74 .
-
-ns3:Nfd2462ef6a4f46448980c5c384e465ff a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:ConstValue "(0)" ;
-    ns3:hasJsonObjectKey "Const" ;
-    ns3:parentJsonId ns3:Ncdbc3b542e8f47429fc3043382ea3595 .
-
-ns3:N004005353f8745bf86bd7abbfeee37b6 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "1" ;
-    ns3:parentJsonId ns3:N61e79021ccab410ea4f010ec30ade249 .
-
-ns3:N007b13de5aba429aa1375badcbf7dfd8 a ns3:ObjectJson,
+    ns2:StatementType "ASSIGN" ;
+    ns1:hasJsonObjectKey "2" ;
+    ns1:parentJsonId ns1:N1255935781d14b1caa4d2da080f935a7 .
+
+ns1:N3dd4a5d661724b3cb2faaa36e8810995 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:FunctionName "getdate" ;
+    ns1:hasJsonObjectKey "Intrinsic" ;
+    ns1:parentJsonId ns1:N1e134ef646324eea97e4c3a47a75df5c .
+
+ns1:N43841d963ef2476fbbdf12e861968fb3 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Alias "[t]" ;
+    ns2:Column "T_TESTING_STATUS_ID" ;
+    ns2:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns2:Schema "[dbo]" ;
+    ns2:Table "[T_TESTING]" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N0edab474f60044c288099df8fbd2614c .
+
+ns1:N44d1aa21007c49de92f80fd88b43085e a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Alias "[ts]" ;
+    ns2:Column "T_TESTING_STATUS_ID" ;
+    ns2:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns2:Schema "[dbo]" ;
+    ns2:Table "[T_TESTING_STATUS]" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N68b89eaddcb14fa7ae4dac92aa89e79a .
+
+ns1:N46d2101dcde44cab9a737f5e868c6166 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:ConstValue "(4)" ;
+    ns1:hasJsonObjectKey "Const" ;
+    ns1:parentJsonId ns1:Ned56f78c5f3a433eaa244994eb094286 .
+
+ns1:N476cc03220674f6e88fb3dcc7ccf1a45 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Alias "[t]" ;
+    ns2:Column "OBJ_CREATED" ;
+    ns2:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns2:Schema "[dbo]" ;
+    ns2:Table "[T_TESTING]" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:Na9f340761afc454eb59b9d3d81aa6d58 .
+
+ns1:N48139fb227ee4cc39e9e94d06ee8d654 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Alias "[t]" ;
+    ns2:Column "T_TESTING_STATUS_ID" ;
+    ns2:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns2:Schema "[dbo]" ;
+    ns2:Table "[T_TESTING]" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:Nc4579234f76944f88d1cb01f696dcc65 .
+
+ns1:N49067c4c2bae42ad92b0130b1673a0c7 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:RetrievedFromCache "false" ;
+    ns2:StatementCompId "9" ;
+    ns2:StatementId "8" ;
+    ns2:StatementText """\r
+\r
+SET XACT_ABORT OFF;\r
+ \r
+\r
+""" ;
+    ns2:StatementType "SET ON/OFF" ;
+    ns1:hasJsonObjectKey "6" ;
+    ns1:parentJsonId ns1:N1255935781d14b1caa4d2da080f935a7 .
+
+ns1:N4d07b48334c84f9c8b667a48bc6ea03b a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Alias "[t]" ;
+    ns2:Column "print_count" ;
+    ns2:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns2:Schema "[dbo]" ;
+    ns2:Table "[T_TESTING]" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N71e7aa1a758e4333a00751095c3f55fe .
+
+ns1:N4d498361f91b401c800bb17052324d29 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:FunctionName "getdate" ;
+    ns1:hasJsonObjectKey "Intrinsic" ;
+    ns1:parentJsonId ns1:Nc2bccd1e95fc4de49ec10b6dc582a217 .
+
+ns1:N5178c3bfbde243fcad8a4e162c8da34f a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Alias "[t]" ;
+    ns2:Column "print_count" ;
+    ns2:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns2:Schema "[dbo]" ;
+    ns2:Table "[T_TESTING]" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:Nf3ae260a05f747a9b1f9463e1f1d5e15 .
+
+ns1:N530735438f8248c59668217482d71e69 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Alias "[t]" ;
+    ns2:Column "T_TESTING_STATUS_ID" ;
+    ns2:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns2:Schema "[dbo]" ;
+    ns2:Table "[T_TESTING]" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N4af5c33ae16744ee8940064e7410ae98 .
+
+ns1:N53fa0564d999442fa3f70c8326c8233e a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:FunctionName "getdate" ;
+    ns1:hasJsonObjectKey "Intrinsic" ;
+    ns1:parentJsonId ns1:Ndb47e52f946c42a686bd02b2c5d51de6 .
+
+ns1:N569751651b814daaacbfa665725bd137 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:AvgRowSize "9" ;
+    ns2:EstimateCPU "1.157e-06" ;
+    ns2:EstimateIO "0" ;
+    ns2:EstimateRebinds "0" ;
+    ns2:EstimateRewinds "0" ;
+    ns2:EstimateRows "1" ;
+    ns2:EstimatedExecutionMode "Row" ;
+    ns2:EstimatedTotalSubtreeCost "1.157e-06" ;
+    ns2:LogicalOp "Constant Scan" ;
+    ns2:NodeId "2" ;
+    ns2:Parallel "0" ;
+    ns2:PhysicalOp "Constant Scan" ;
+    ns1:ConstantScan "None" ;
+    ns1:OutputList "None" ;
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:Nf8ffbd7aa1a64b349aee4237bd791178 .
+
+ns1:N59fbe96db8e84b5299d6b663b27b130f a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Column "Expr1013" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N347d09f475e240699d726477ba221a1f .
+
+ns1:N6791b642dfce42bfb982d1fedcc03bc2 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:EstimatedAvailableDegreeOfParallelism "2" ;
+    ns2:EstimatedAvailableMemoryGrant "311472" ;
+    ns2:EstimatedPagesCached "77868" ;
+    ns2:MaxCompileMemory "8240" ;
+    ns1:hasJsonObjectKey "OptimizerHardwareDependentProperties" ;
+    ns1:parentJsonId ns1:Na9d2f9180caa4b8d820d38a29bcc282b .
+
+ns1:N6c510d846eb2450aae851c3467381a4c a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:ConstValue "(4)" ;
+    ns1:hasJsonObjectKey "Const" ;
+    ns1:parentJsonId ns1:N8774bd112ce6496da9219905cdb17df6 .
+
+ns1:N70fea67f81f742a78d604d2bc1933ac2 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Column "Expr1002" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N5aa2cfedead64bee90b4654819070d97 .
+
+ns1:N7544e6a5baf14e10b4aa5a8882a5f519 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Column "Expr1013" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N1ab42d5254154090b0a30b275d28805a .
+
+ns1:N768f1e34e60141ac80f21f8bbe50d59c a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:ConstValue "(2)" ;
+    ns1:hasJsonObjectKey "Const" ;
+    ns1:parentJsonId ns1:Nef8a857191bd44f0a3d36796a746bf91 .
+
+ns1:N7838773a36ca48c9bd6dd070c832b0c3 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:ConstValue "(2)" ;
+    ns1:hasJsonObjectKey "Const" ;
+    ns1:parentJsonId ns1:N68b709b8056c4b81b374f95f894c9afb .
+
+ns1:N7896dfd49d6349faa97af2c71684bd1b a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:FunctionName "getdate" ;
+    ns1:hasJsonObjectKey "Intrinsic" ;
+    ns1:parentJsonId ns1:N2ea91378cbd54c8d938144e2d2b4e8ae .
+
+ns1:N79d582179bb7486a91174b5a20f0ef9f a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:ConstValue "(2)" ;
+    ns1:hasJsonObjectKey "Const" ;
+    ns1:parentJsonId ns1:Nd867a768f9134a5cb2ea492843b949b4 .
+
+ns1:N7ffbbecc281f4a32ad2e0320e1c6f2af a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:ConstValue "(0)" ;
+    ns1:hasJsonObjectKey "Const" ;
+    ns1:parentJsonId ns1:N7b342cb2f2584245a486b6e3a241c664 .
+
+ns1:N800770e87a994d14b8be698c64b1ea37 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Alias "[t]" ;
+    ns2:Column "T_TESTING_ID" ;
+    ns2:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns2:Schema "[dbo]" ;
+    ns2:Table "[T_TESTING]" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:N1d2985e7494b43a9a56df62dcc213591 .
+
+ns1:N844623538dba45b9b8e6ef3d07df2c48 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Alias "[ts]" ;
+    ns2:Column "OBJ_NAME" ;
+    ns2:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns2:Schema "[dbo]" ;
+    ns2:Table "[T_TESTING_STATUS]" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N8f21fe62eb054894b240b847b9382cb1 .
+
+ns1:N8510a3ebaa7f4b41815dec5c15e4a7de a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Column "Expr1004" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N6c26d5290ae640ee938703359188c4d4 .
+
+ns1:N8752eb76cc9e449f928199ab1928285b a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Alias "[t]" ;
+    ns2:Column "T_TESTING_ID" ;
+    ns2:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns2:Schema "[dbo]" ;
+    ns2:Table "[T_TESTING]" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N754a1127d87f48618ac9261146598b9f .
+
+ns1:N8c4b7595117f4bfc92af62298088d424 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Column "Expr1003" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N95d5821e9aee412fb7cf44e89b3d1653 .
+
+ns1:N904c672f3d904e2396c0da41a3d13aeb a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Alias "[t]" ;
+    ns2:Column "T_TESTING_ID" ;
+    ns2:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns2:Schema "[dbo]" ;
+    ns2:Table "[T_TESTING]" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N2f446edb601541a69928f1761133c543 .
+
+ns1:N915c405a790e415eb47914ef6163a6ee a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:GrantedMemory "0" ;
+    ns2:MaxUsedMemory "0" ;
+    ns2:SerialDesiredMemory "0" ;
+    ns2:SerialRequiredMemory "0" ;
+    ns1:hasJsonObjectKey "MemoryGrantInfo" ;
+    ns1:parentJsonId ns1:Na9d2f9180caa4b8d820d38a29bcc282b .
+
+ns1:N91e4c0b093554299b346f8bc32697ae2 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Alias "[t]" ;
+    ns2:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns2:Index "[testing_objdate]" ;
+    ns2:IndexKind "NonClustered" ;
+    ns2:Schema "[dbo]" ;
+    ns2:Storage "RowStore" ;
+    ns2:Table "[T_TESTING]" ;
+    ns1:hasJsonObjectKey "Object" ;
+    ns1:parentJsonId ns1:Na2c0c56108b041b38927a0e11684bf49 .
+
+ns1:N94ce0ff123d4489ebcfaf9b6e472bbf2 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Alias "[t]" ;
+    ns2:Column "T_TESTING_STATUS_ID" ;
+    ns2:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns2:Schema "[dbo]" ;
+    ns2:Table "[T_TESTING]" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:Nde43c35053894de1a2d9faae4004f43e .
+
+ns1:N9d0a685eee3742e1b7be598eb8e4ca45 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Column "Expr1004" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N4fbc30fd8d164091832ba480358044d3 .
+
+ns1:N9fd0eefa5f9d4c228cbaff8ca79b1bcf a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Alias "[ts]" ;
+    ns2:Column "T_TESTING_STATUS_ID" ;
+    ns2:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns2:Schema "[dbo]" ;
+    ns2:Table "[T_TESTING_STATUS]" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N9c61f9965fae49dd9ea5a32940dcb293 .
+
+ns1:Na13fd81005a64fd08e865bc4b3f0c3c9 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:FunctionName "getdate" ;
+    ns1:hasJsonObjectKey "Intrinsic" ;
+    ns1:parentJsonId ns1:N339bbfa9a9e74bbcadc3cba1176aebcf .
+
+ns1:Na5a487af87c04701ae9189ae2b3ce92f a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Alias "[t]" ;
+    ns2:Column "T_TESTING_ID" ;
+    ns2:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns2:Schema "[dbo]" ;
+    ns2:Table "[T_TESTING]" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N4f1736642e6541e29f5b0bc7de16bc3b .
+
+ns1:Na90cefc090a94f7b81d92ee87b4756ce a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Column "Expr1002" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:Nf4bfa941d5904baa8593c09c69991972 .
+
+ns1:Na91b874e6ec047bb9a30d7e00c7a3bec a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:ConstValue "(4)" ;
+    ns1:hasJsonObjectKey "Const" ;
+    ns1:parentJsonId ns1:Ne4bd838204c34e088291ad4668a05697 .
+
+ns1:Nae8c8b0a15d34b639b3bd7562e891e0a a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Alias "[t]" ;
+    ns2:Column "T_TESTING_STATUS_ID" ;
+    ns2:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns2:Schema "[dbo]" ;
+    ns2:Table "[T_TESTING]" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:Nace2b6b19d794efaa8cf2289e1cad6f5 .
+
+ns1:Nb0c224e29a554ec9a9581e222d20ac5d a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Alias "[t]" ;
+    ns2:Column "OBJ_CREATED" ;
+    ns2:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns2:Schema "[dbo]" ;
+    ns2:Table "[T_TESTING]" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:Na4189e09fcb942b5860a2a0223c68e0a .
+
+ns1:Nb67f402ac57d4eba8f52b3eb35022c75 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:ConstValue "(0)" ;
+    ns1:hasJsonObjectKey "Const" ;
+    ns1:parentJsonId ns1:N03b5a873d75c4deeba734a2e75ffe368 .
+
+ns1:Nb755e7e3586b4ad1b8e7dc95f56c1c56 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:ANSI_NULLS "true" ;
+    ns2:ANSI_PADDING "true" ;
+    ns2:ANSI_WARNINGS "true" ;
+    ns2:ARITHABORT "true" ;
+    ns2:CONCAT_NULL_YIELDS_NULL "true" ;
+    ns2:NUMERIC_ROUNDABORT "false" ;
+    ns2:QUOTED_IDENTIFIER "true" ;
+    ns1:hasJsonObjectKey "StatementSetOptions" ;
+    ns1:parentJsonId ns1:N4886a2e776c644268765f4df95650f56 .
+
+ns1:Nb82541b7d4434917923a721bf8913dff a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Column "Expr1002" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N22839c2015ee444e82231ca3ae6380e6 .
+
+ns1:Nb8a92169d8ab4db9abeacfe7956a353f a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:ConstValue "(0)" ;
+    ns1:hasJsonObjectKey "Const" ;
+    ns1:parentJsonId ns1:N7a74273726f74aa8b57ee925d2c49d8e .
+
+ns1:Nb8ece875f0964d3cb34d9d921591ef11 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:ConstValue "(1)" ;
+    ns1:hasJsonObjectKey "Const" ;
+    ns1:parentJsonId ns1:N6a1d88a92d6a4a40b1f193cde628b820 .
+
+ns1:Nbbdd47c6aded453e872e85979c07288a a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Alias "[t]" ;
+    ns2:Column "OBJ_CREATED" ;
+    ns2:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns2:Schema "[dbo]" ;
+    ns2:Table "[T_TESTING]" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:Nec0172c59c5e4e389112bae637bf9a51 .
+
+ns1:Nc1913459df2b44398b49aee120515f57 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:GrantedMemory "0" ;
+    ns2:MaxUsedMemory "0" ;
+    ns2:SerialDesiredMemory "0" ;
+    ns2:SerialRequiredMemory "0" ;
+    ns1:hasJsonObjectKey "MemoryGrantInfo" ;
+    ns1:parentJsonId ns1:N0b1fbdff8fb44014aeab2c07e9064b10 .
+
+ns1:Nc3097582dda347d4bbf4fd34e9dc9778 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:EstimatedAvailableDegreeOfParallelism "2" ;
+    ns2:EstimatedAvailableMemoryGrant "311472" ;
+    ns2:EstimatedPagesCached "77868" ;
+    ns2:MaxCompileMemory "8240" ;
+    ns1:hasJsonObjectKey "OptimizerHardwareDependentProperties" ;
+    ns1:parentJsonId ns1:N0b1fbdff8fb44014aeab2c07e9064b10 .
+
+ns1:Nc7642cb1a319464f8b1e02c70fbb0332 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Alias "[t]" ;
+    ns2:Column "T_TESTING_ID" ;
+    ns2:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns2:Schema "[dbo]" ;
+    ns2:Table "[T_TESTING]" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:Nb67c3028d4ea49aea410b1eaef54cfe4 .
+
+ns1:Ncb0faea0d4d546959e7fd5d13988e49c a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:ANSI_NULLS "true" ;
+    ns2:ANSI_PADDING "true" ;
+    ns2:ANSI_WARNINGS "true" ;
+    ns2:ARITHABORT "true" ;
+    ns2:CONCAT_NULL_YIELDS_NULL "true" ;
+    ns2:NUMERIC_ROUNDABORT "false" ;
+    ns2:QUOTED_IDENTIFIER "true" ;
+    ns1:hasJsonObjectKey "StatementSetOptions" ;
+    ns1:parentJsonId ns1:Na8d3b57612864cc8974c5976a07e0608 .
+
+ns1:Ncd3de1e962be496d9d63ceeb321ef9c7 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Alias "[t]" ;
+    ns2:Column "OBJ_CREATED" ;
+    ns2:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns2:Schema "[dbo]" ;
+    ns2:Table "[T_TESTING]" ;
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:N2c8158ac0f5a4946ae62d1bd7897f16c .
+
+ns1:Ncfdf1040978a4c4798a16952ee035f65 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Alias "[ts]" ;
+    ns2:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns2:Index "[PK_T_TESTING_STATUS]" ;
+    ns2:IndexKind "Clustered" ;
+    ns2:Schema "[dbo]" ;
+    ns2:Storage "RowStore" ;
+    ns2:Table "[T_TESTING_STATUS]" ;
+    ns1:hasJsonObjectKey "Object" ;
+    ns1:parentJsonId ns1:N38ac2aeb6fe44b0a8cd613e01dcaf8f4 .
+
+ns1:Nd03e09bde3944bc681912cc70eb2bf13 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Column "Expr1013" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N72d6a6d640214b7b92562648ed5676c2 .
+
+ns1:Nd0e740a7a88d494b8bfda77d42c8931c a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Alias "[t]" ;
+    ns2:Column "OBJ_CREATED" ;
+    ns2:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns2:Schema "[dbo]" ;
+    ns2:Table "[T_TESTING]" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N5702b97c9f6149ed8878ff5d3ce28801 .
+
+ns1:Nd9fa648fe22d486a86abf9685d042f3d a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Alias "[t]" ;
+    ns2:Column "OBJ_CREATED" ;
+    ns2:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns2:Schema "[dbo]" ;
+    ns2:Table "[T_TESTING]" ;
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:N1d2985e7494b43a9a56df62dcc213591 .
+
+ns1:Nda9e0722cb4741a79a1c04ffa4553d35 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Alias "[t]" ;
+    ns2:Column "T_TESTING_STATUS_ID" ;
+    ns2:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns2:Schema "[dbo]" ;
+    ns2:Table "[T_TESTING]" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:Nd746ff145c5141f18edcc1ceb1b1a128 .
+
+ns1:Ndb93f24bb6ad4b74988ffbb589328a65 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Alias "[ts]" ;
+    ns2:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns2:Index "[PK_T_TESTING_STATUS]" ;
+    ns2:IndexKind "Clustered" ;
+    ns2:Schema "[dbo]" ;
+    ns2:Storage "RowStore" ;
+    ns2:Table "[T_TESTING_STATUS]" ;
+    ns1:hasJsonObjectKey "Object" ;
+    ns1:parentJsonId ns1:N88d67006acab43218a261561cda2c676 .
+
+ns1:Ne3a9f9eaaeca4dda91b6ec4c137fc3be a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Alias "[t]" ;
+    ns2:Column "T_TESTING_ID" ;
+    ns2:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns2:Schema "[dbo]" ;
+    ns2:Table "[T_TESTING]" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:N2c8158ac0f5a4946ae62d1bd7897f16c .
+
+ns1:Ne63c5f80dfa24554a195782b89d77111 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:ConstValue "(4)" ;
+    ns1:hasJsonObjectKey "Const" ;
+    ns1:parentJsonId ns1:Ncae1ca2fd9114c7f94c60b7547162aba .
+
+ns1:Ne8391c45b72d4ebe961b2837a2ef679f a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Alias "[t]" ;
+    ns2:Column "T_TESTING_ID" ;
+    ns2:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns2:Schema "[dbo]" ;
+    ns2:Table "[T_TESTING]" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:Ne202e0202b6244018075e0e31f7040f0 .
+
+ns1:Nec8e3ea8d7f84224a97a26c80e0e05fd a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Alias "[t]" ;
+    ns2:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns2:Index "[PK_T_TESTING]" ;
+    ns2:IndexKind "Clustered" ;
+    ns2:Schema "[dbo]" ;
+    ns2:Storage "RowStore" ;
+    ns2:Table "[T_TESTING]" ;
+    ns2:TableReferenceId "-1" ;
+    ns1:hasJsonObjectKey "Object" ;
+    ns1:parentJsonId ns1:N0e1d5ed4b6e442e4ad3fdee3fc29fd09 .
+
+ns1:Nefd8699304464001bb1de16fc031d571 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Alias "[t]" ;
+    ns2:Column "T_TESTING_ID" ;
+    ns2:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns2:Schema "[dbo]" ;
+    ns2:Table "[T_TESTING]" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N33fd5d1530a94c1d94c446ecd01b10d7 .
+
+ns1:Nfdf0b96691b84cf09294920b86a95240 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Alias "[t]" ;
+    ns2:Column "T_TESTING_STATUS_ID" ;
+    ns2:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns2:Schema "[dbo]" ;
+    ns2:Table "[T_TESTING]" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N13ef47f7d6c84e42be18978e7a465bd8 .
+
+ns1:Nff0d6c33a52d42fa83d689db4efe9cc5 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:RetrievedFromCache "false" ;
+    ns2:StatementCompId "4" ;
+    ns2:StatementId "3" ;
+    ns2:StatementText """set @t_testing_id= null\r
+""" ;
+    ns2:StatementType "ASSIGN" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:N1255935781d14b1caa4d2da080f935a7 .
+
+ns1:N03b5a873d75c4deeba734a2e75ffe368 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:N4d6ef7d3385841279d0cc003d7162fd7 .
+
+ns1:N040a73f454e44f449687f84a18a377fe a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "SeekPredicateNew" ;
+    ns1:parentJsonId ns1:N5851a6fc7dec4b4faf83dea5cb98bc16 .
+
+ns1:N055261f4e9c8449bb1bc3784a4cfad22 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:FunctionName "datepart" ;
+    ns1:hasJsonObjectKey "Intrinsic" ;
+    ns1:parentJsonId ns1:N7be17ae4d535473d881037c2f46c4216 .
+
+ns1:N066075d51e6b41a7bdd2622c14083d66 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "Identifier" ;
+    ns1:parentJsonId ns1:Nc779f27a06cb4365b23a527bbcd71ebc .
+
+ns1:N06d0b376ff424beb97611278ee105459 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:AvgRowSize "9" ;
+    ns2:EstimateCPU "4.18e-06" ;
+    ns2:EstimateIO "0" ;
+    ns2:EstimateRebinds "0" ;
+    ns2:EstimateRewinds "0" ;
+    ns2:EstimateRows "1" ;
+    ns2:EstimatedExecutionMode "Row" ;
+    ns2:EstimatedTotalSubtreeCost "0.00923686" ;
+    ns2:LogicalOp "Inner Join" ;
+    ns2:NodeId "3" ;
+    ns2:Parallel "0" ;
+    ns2:PhysicalOp "Nested Loops" ;
+    ns1:OutputList "None" ;
+    ns1:hasJsonObjectKey "RelOp" ;
+    ns1:parentJsonId ns1:N316f94118a9b479483ef013f5fb377c4 .
+
+ns1:N07d2055bc5b549db92824aff6be9426d a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "Identifier" ;
+    ns1:parentJsonId ns1:Ne8ae15d764d44ab4aedcfd0c5ecf1b19 .
+
+ns1:N0b2f7f0c8b6c4d72a0789ec25198a8d8 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:Nca7a63c0f2844c2e8b568a834441dc85 .
+
+ns1:N0b3e8d709cef41a88e05a596d5c8f71f a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Column "ConstExpr1005" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N8fb677a57d13432bab4e5921377141d5 .
+
+ns1:N0b5d94c1353b48b2b757feb7e0563b4c a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:FunctionName "datepart" ;
+    ns1:hasJsonObjectKey "Intrinsic" ;
+    ns1:parentJsonId ns1:N7946518815b2468eb42f43cc6b453402 .
+
+ns1:N0d78e134cd744f378ea4a563255c4d48 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:CompareOp "EQ" ;
+    ns1:hasJsonObjectKey "Compare" ;
+    ns1:parentJsonId ns1:N0fcca1028e034296a6da484c1b8198fc .
+
+ns1:N0dba5587b43a4c1081b33da992ebab82 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:N120efcb0e2ec4edf851302fe3eeaefa6 .
+
+ns1:N0e49618aeef742f988445920174fd538 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:N0bafa286012b42aa924556d239e26ed9 .
+
+ns1:N0edab474f60044c288099df8fbd2614c a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "Identifier" ;
+    ns1:parentJsonId ns1:Nc90015cee18440b4a03725161538f66d .
+
+ns1:N0fa18df10a3d44f994b456f5bfc20bbd a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:N2e7c5111a83c4f0f95605306d8249207 .
+
+ns1:N0fcca1028e034296a6da484c1b8198fc a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:ScalarString "[PSYCHOLOGY_TEST_1].[dbo].[T_TESTING_STATUS].[OBJ_NAME] as [ts].[OBJ_NAME]=N'ENDED'" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:N1690d52689684ff9ad71610d6f264f88 .
+
+ns1:N108cd2e09bd7419cbf359eda758c7daf a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:N5b70c53233e5445eb96144992a5fcf9c .
+
+ns1:N12a23fde6e7549eab9cfeb2ce02fca79 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "SeekPredicates" ;
+    ns1:parentJsonId ns1:N88d67006acab43218a261561cda2c676 .
+
+ns1:N13ef47f7d6c84e42be18978e7a465bd8 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "DefinedValue" ;
+    ns1:parentJsonId ns1:Nd9c93ff3217b443d8f171bf5109942ad .
+
+ns1:N1601be2021184e68a845cbd3796c998c a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "Predicate" ;
+    ns1:parentJsonId ns1:Nefb65ae370ec4d9ea94fdf6df1dbf3f9 .
+
+ns1:N1606ff4db476480ebd5d891d27346479 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:Nbe2fa7ffdc2d4c50ad9f45bc30b633ae .
+
+ns1:N1690d52689684ff9ad71610d6f264f88 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "Predicate" ;
+    ns1:parentJsonId ns1:N88d67006acab43218a261561cda2c676 .
+
+ns1:N17502837b24b4257af5e93a18034a891 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:N4b0e3904b02c4dd7bbea33e2caf43f7b .
+
+ns1:N17f60226120a40d3a58a53cc005a6a79 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "SeekPredicateNew" ;
+    ns1:parentJsonId ns1:N12a23fde6e7549eab9cfeb2ce02fca79 .
+
+ns1:N191feee1bfb2409d97e5e0ffe03b5b63 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:FunctionName "datepart" ;
+    ns1:hasJsonObjectKey "Intrinsic" ;
+    ns1:parentJsonId ns1:N8dae8a0d9c0744a0bbc9a6adaa168ace .
+
+ns1:N199aff52f9d54617896405932a57f03a a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:N17b7a1ad2370445b9fcb58ad81f8f62e .
+
+ns1:N1ab42d5254154090b0a30b275d28805a a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "Identifier" ;
+    ns1:parentJsonId ns1:Ndee130628a4343169b551b6450fc1c4a .
+
+ns1:N1b4777d43bb940e59ac1868b01cc8267 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:ScalarString "Count(*)" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:N72d6a6d640214b7b92562648ed5676c2 .
+
+ns1:N1c1892fe6542434e9acbf3da69dcc98b a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:ScalarString "[PSYCHOLOGY_TEST_1].[dbo].[T_TESTING_STATUS].[OBJ_NAME] as [ts].[OBJ_NAME]=N'ENDED'" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:Nd05e9633c6fd42eca6c9b7ab4f7976cf .
+
+ns1:N1d482565895147698b633bfef2ccb063 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:FunctionName "datepart" ;
+    ns1:hasJsonObjectKey "Intrinsic" ;
+    ns1:parentJsonId ns1:N71c583379ce744f0b869fc902e3d2b27 .
+
+ns1:N1e134ef646324eea97e4c3a47a75df5c a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:Nae67ca3addfc4eacbac7640f55af34a7 .
+
+ns1:N1e746c1f44934cf29a113ffdfc107527 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:FunctionName "datepart" ;
+    ns1:hasJsonObjectKey "Intrinsic" ;
+    ns1:parentJsonId ns1:Nb60b2b186185492a874c8d8bd90886be .
+
+ns1:N1e9188798e074cd79a072490dd6450a7 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:N4339f6eb8aa647a18741bb446365a67f .
+
+ns1:N247ae1e9b74c47798024bb6148d89b36 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "DefinedValues" ;
+    ns1:parentJsonId ns1:N316f94118a9b479483ef013f5fb377c4 .
+
+ns1:N298d8e7e804b4eb6a67e33198f67e7a4 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:RetrievedFromCache "false" ;
+    ns2:StatementCompId "1" ;
+    ns2:StatementId "1" ;
+    ns2:StatementText "exec selupd_1print" ;
+    ns2:StatementType "EXECUTE PROC" ;
+    ns1:hasJsonObjectKey "StmtSimple" ;
+    ns1:parentJsonId ns1:N77da153473f64e4b907fdd90ebb9f8f2 .
+
+ns1:N29c07e75389c44ceafa8f00a1df75b44 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Operation "AND" ;
+    ns1:hasJsonObjectKey "Logical" ;
+    ns1:parentJsonId ns1:Nd8cdd2f16f97411eafa7b636919be79d .
+
+ns1:N29ea772e80e844eeb130c48b3c454b26 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "2" ;
+    ns1:parentJsonId ns1:Nbe2fa7ffdc2d4c50ad9f45bc30b633ae .
+
+ns1:N2bd0248a9e6341f18fee2c9d0b7f661f a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:N6f80c5e442c24ea886ef02fc8c60b1cf .
+
+ns1:N2ea61085e340474b85560dc2b23fe9c6 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:DataType "int" ;
+    ns2:Implicit "1" ;
+    ns2:Style "0" ;
+    ns1:hasJsonObjectKey "Convert" ;
+    ns1:parentJsonId ns1:Nb7c77f42ac334b188f501f1fbf195a32 .
+
+ns1:N2ea91378cbd54c8d938144e2d2b4e8ae a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:N160714882e284a15a726a516692e81e5 .
+
+ns1:N2f446edb601541a69928f1761133c543 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "Identifier" ;
+    ns1:parentJsonId ns1:N65c4d67c5a9346adb4042a8fb7b9eb00 .
+
+ns1:N332b64aa922f4d66872f26cce091907c a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "TopExpression" ;
+    ns1:parentJsonId ns1:N6e229b4eac93451b856cf8754dd041bc .
+
+ns1:N338af50832d14bbfac485a9f304d5a35 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:Nec8fda9fbb844db98a1fd3da29d1931b .
+
+ns1:N339bbfa9a9e74bbcadc3cba1176aebcf a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:Na588c6bae3c4429ca6f00427b367eef1 .
+
+ns1:N33fd5d1530a94c1d94c446ecd01b10d7 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:N51847359a37548cbb67af870b58369f1 .
+
+ns1:N347d09f475e240699d726477ba221a1f a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "OutputList" ;
+    ns1:parentJsonId ns1:Nd1c12229681b4089a6fef1a2f73556bc .
+
+ns1:N34ea23af09544830a4260d61c13c4ebc a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "DefinedValues" ;
+    ns1:parentJsonId ns1:N4357ff10d93c4e51aaa5dc1e22ba2c85 .
+
+ns1:N37d80e2762b3474bbdb28c70adf14d71 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "Identifier" ;
+    ns1:parentJsonId ns1:N43f5e63e45d9418391609d17210c9e24 .
+
+ns1:N3d8c33f8c2134ef194ccc015e2179c76 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "RangeExpressions" ;
+    ns1:parentJsonId ns1:Ncfbba2d5e3854b8687d9169d59a976f2 .
+
+ns1:N3e2c26dbec8f4ac8becffebb3e4823ea a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:FunctionName "datepart" ;
+    ns1:hasJsonObjectKey "Intrinsic" ;
+    ns1:parentJsonId ns1:Nf63745d4e38e45e0b354e4379c4fbc6c .
+
+ns1:N407bef8407c24630bc741cf6bf1a384c a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:Nc208a9983da148b79ba6bc8cc0f033d3 .
+
+ns1:N43f5e63e45d9418391609d17210c9e24 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:N718b2e2cd9b749f5b4eb096a3ed41aed .
+
+ns1:N450fa76542a34d5786d172fd459e25cc a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Column "ConstExpr1005" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N66129b61ce034b92ae70459b2066004b .
+
+ns1:N4625e0d3536842f1a6d2597f2ae0ddf6 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "SeekKeys" ;
-    ns3:parentJsonId ns3:Nd1a5ff691ecd49b4bf17f8a2f915a440 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "SeekKeys" ;
+    ns1:parentJsonId ns1:Na24c419d79c0491f85c4393dfaea8f0d .
 
-ns3:N015aa4f73921490190f32b7b7773464d a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "Identifier" ;
-    ns3:parentJsonId ns3:Ned171b85dae446bca1ef70c83ec17955 .
-
-ns3:N0375cb76baea405192407f64ecff8cae a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "1" ;
-    ns3:parentJsonId ns3:N89b3c68e8798415b96d1f6b5a429b21e .
-
-ns3:N04d35425edd747159aa751dc4c67cf3b a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:Ne99d27a714f64a66894152f9d2cdbc38 .
-
-ns3:N05e665ad5b424a4e8c9b996cca1db96f a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "0" ;
-    ns3:parentJsonId ns3:Na64e7edcfa2d4ade9ca12bbe0f8d60a8 .
-
-ns3:N06546e2b630f4eefb7f335893e4079d1 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "DefinedValues" ;
-    ns3:parentJsonId ns3:N51ca764b5e8d41a09018894e182ac47c .
-
-ns3:N081aa61b87234103aa68f30f5222aced a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Column "ConstExpr1006" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:N85233e21c95e4955b08b23e6a89b3e17 .
-
-ns3:N0941ea660dd94c528ed2745ee6f27799 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "Predicate" ;
-    ns3:parentJsonId ns3:N7de93a3d25d7486e92ee8ed816a77898 .
-
-ns3:N0a8f1001ab334782939835e0b501c683 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "Identifier" ;
-    ns3:parentJsonId ns3:N95c894309fb4439f9460ad4676b9d00b .
-
-ns3:N0c4827c37a544c149c2b530c7163a59f a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "Identifier" ;
-    ns3:parentJsonId ns3:N2de1ac51179c40fabcae4a7293019e41 .
-
-ns3:N0d9970dfb1444c178326d6103695a3c3 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:Ne376840b5672461e81f7e00c66f890c9 .
-
-ns3:N0e7cedad49f04295bd69086be2c2f571 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:ScalarString "[PSYCHOLOGY_TEST_1].[dbo].[T_TESTING].[T_TESTING_STATUS_ID] as [t].[T_TESTING_STATUS_ID]" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:N35346054d447487a9fa8eed505c9843c .
-
-ns3:N10317c269369467390b29d7b871f8146 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "OuterReferences" ;
-    ns3:parentJsonId ns3:N21a390ff56844e409c940ad15c692f52 .
-
-ns3:N1100e1d2c9af44588862ee48937db6e1 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:ScalarString "[PSYCHOLOGY_TEST_1].[dbo].[T_TESTING_STATUS].[OBJ_NAME] as [ts].[OBJ_NAME]=N'ENDED'" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:N0941ea660dd94c528ed2745ee6f27799 .
-
-ns3:N1141d5984e904736a78103aff88bc0b9 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "0" ;
-    ns3:parentJsonId ns3:Nce958c5b68384650af1d37d8c3ed45be .
-
-ns3:N11c48e56d83844cb9588c489dd942d8b a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "Identifier" ;
-    ns3:parentJsonId ns3:Nbe372beb80f94d5093920492677e216b .
-
-ns3:N15b40c66366a4b1da8a78a9041f49c9c a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "1" ;
-    ns3:parentJsonId ns3:Ne42f6e64ba3c42d083e2839ba6e7adca .
-
-ns3:N1a2ffc40d0db44b9ba9e741f52e49a46 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "0" ;
-    ns3:parentJsonId ns3:N5f50481f2358494baeb0dad634cb2550 .
-
-ns3:N1bd8cbe9e144433ab41112eca1d036ee a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "0" ;
-    ns3:parentJsonId ns3:Ne42f6e64ba3c42d083e2839ba6e7adca .
-
-ns3:N23930a20b2bb4a54acbf4386c917ddf9 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:CompareOp "EQ" ;
-    ns3:hasJsonObjectKey "Compare" ;
-    ns3:parentJsonId ns3:Na0bdf8eb040e420dacd4b7f745caeafc .
-
-ns3:N28ca3af01c2a4ec592d127ef41e3e6f8 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "2" ;
-    ns3:parentJsonId ns3:N5f50481f2358494baeb0dad634cb2550 .
-
-ns3:N2a74e37a3f304d859e0311896b66b7e3 a ns3:FileJson,
-        ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" .
-
-ns3:N2de1ac51179c40fabcae4a7293019e41 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "1" ;
-    ns3:parentJsonId ns3:Nc90cde9bcefa45dfab8c7cc4e19a861a .
-
-ns3:N2e2666e073224570a398f8f977617106 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "1" ;
-    ns3:parentJsonId ns3:Nb3a5900c172c4bb7aaeae8ffe4dbfab2 .
-
-ns3:N2f6f2f23940c4e1f886344c996d24698 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:FunctionName "datepart" ;
-    ns3:hasJsonObjectKey "Intrinsic" ;
-    ns3:parentJsonId ns3:N39d518d0ad58414298c2524f1edc0536 .
-
-ns3:N3307d4299ac2423aa13c97bde56b3793 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "Identifier" ;
-    ns3:parentJsonId ns3:Nac848d112225420a92663b09bce30910 .
-
-ns3:N33b5a5485b6b450d9699eeceaa3ca591 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "Batch" ;
-    ns3:parentJsonId ns3:Nac293cc876864405ac30de2e5110290c .
-
-ns3:N340757288cd74698a26269e23603c90b a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:FunctionName "datepart" ;
-    ns3:hasJsonObjectKey "Intrinsic" ;
-    ns3:parentJsonId ns3:Nd94286f1c84a405fbb64bfb49997dc79 .
-
-ns3:N3504dfd48be54e84bd42bab7a936bd74 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "DefinedValue" ;
-    ns3:parentJsonId ns3:Nd58536f83d1143fbbaf1bb1e225b71de .
-
-ns3:N35346054d447487a9fa8eed505c9843c a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "RangeExpressions" ;
-    ns3:parentJsonId ns3:Nfc7851f895ca4fcb8b878e1c1bb9353a .
-
-ns3:N371e95f65e7c492a943a28faf73be0a4 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "1" ;
-    ns3:parentJsonId ns3:N725009ff8a1b41af84b613fd475188ca .
-
-ns3:N37b69c03305247fb8aec86e0ccd6a4b5 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "RangeColumns" ;
-    ns3:parentJsonId ns3:Nc633c6d3b37840d2a17d6509ca8a1f33 .
-
-ns3:N3865377c50794da0a6db24fd2afc1bf3 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "SeekPredicates" ;
-    ns3:parentJsonId ns3:N7de93a3d25d7486e92ee8ed816a77898 .
-
-ns3:N39d518d0ad58414298c2524f1edc0536 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:Nf7d122dd251a40a4aca7f328e0305936 .
-
-ns3:N39f8281ca0824409ac19d18622b34b59 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "SeekPredicateNew" ;
-    ns3:parentJsonId ns3:N6b313d989c224f2c9908dcfd635e9e90 .
-
-ns3:N3ca12af1e4e44b6ab74fbbb5c155d1c7 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "0" ;
-    ns3:parentJsonId ns3:Nae3537366e5d4a00a27cdfb41e49b9ff .
-
-ns3:N3d04c741a4a048199f2baadf4e63e6b0 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "SeekKeys" ;
-    ns3:parentJsonId ns3:N39f8281ca0824409ac19d18622b34b59 .
-
-ns3:N3d095a9b8c5549a4884b425ee6727ae7 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:ScalarString "Count(*)" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:N46ed6caf71664947a4cefddae7319062 .
-
-ns3:N3d6a09926cc941999a15d125fcc7567c a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "1" ;
-    ns3:parentJsonId ns3:N81936e7333614d9c837a0f7ddd3afcbf .
-
-ns3:N3f6e4e549ecb4d69aec215ea88a61764 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "0" ;
-    ns3:parentJsonId ns3:N81936e7333614d9c837a0f7ddd3afcbf .
-
-ns3:N419ee8d22918407eba64d7e0866f3e0d a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:FunctionName "datepart" ;
-    ns3:hasJsonObjectKey "Intrinsic" ;
-    ns3:parentJsonId ns3:N0d9970dfb1444c178326d6103695a3c3 .
-
-ns3:N424c2be841b1496d9e8235771262ca75 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "Predicate" ;
-    ns3:parentJsonId ns3:N620e0c5e421f4b3ba444e7ccd09336fd .
-
-ns3:N449e2f32a92d4a6cafda20e3c58184fb a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "0" ;
-    ns3:parentJsonId ns3:N48b488978a9b41568865fef6b59175b0 .
-
-ns3:N459b34ac6a5941f78e3ea945c1853b06 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:FunctionName "datepart" ;
-    ns3:hasJsonObjectKey "Intrinsic" ;
-    ns3:parentJsonId ns3:Nea76453c98bf45df85768e0c5d08a94c .
-
-ns3:N4a7026b3a70740b19a1c314bbab20a62 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "0" ;
-    ns3:parentJsonId ns3:N7ce9f2a06a6546289853078d1f69de98 .
-
-ns3:N4a8cbdf5a3314a58a0ac58661c0eae15 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "0" ;
-    ns3:parentJsonId ns3:N9887f40767ed43369fe83ede0806a0b5 .
-
-ns3:N4aa9540ce0e24ddea37d78d2a12be029 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:Ne26c0f4fb1684650b4887560e522c079 .
-
-ns3:N4da9e5f7dc4143249dcd50721a1f7d76 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "OutputList" ;
-    ns3:parentJsonId ns3:Nb32258947cbe4ae1af86faf7837fc5a1 .
-
-ns3:N4e93b20ecfca43eab7dfa5f1c216d5ab a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:FunctionName "datepart" ;
-    ns3:hasJsonObjectKey "Intrinsic" ;
-    ns3:parentJsonId ns3:Ncebf089bf9614a8ea5e8f42fbd2e4b8b .
-
-ns3:N4fcb7b5e675d49cc9fccbd5511836a70 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "0" ;
-    ns3:parentJsonId ns3:N54b689b469ee45c89711aab9091b9888 .
+ns1:N47db0d96dfd443c09c1ce2ef5e8edf68 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:Nbe10bf44c5a447a88f9da33bd7ee9c0e .
 
-ns3:N5194e42000a643ef8085119c05728c69 a ns3:ObjectJson,
+ns1:N497e4bda7d094562b1c6a81ad119205e a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "DefinedValues" ;
-    ns3:parentJsonId ns3:N9966021b915647059e1ec12aab047e55 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:Nae67ca3addfc4eacbac7640f55af34a7 .
 
-ns3:N5203d467c6874447b14a7752499befc5 a ns3:ObjectJson,
+ns1:N4af5c33ae16744ee8940064e7410ae98 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "Identifier" ;
-    ns3:parentJsonId ns3:N3d6a09926cc941999a15d125fcc7567c .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "OuterReferences" ;
+    ns1:parentJsonId ns1:N62b0d870e7754f4398aa641f50807d94 .
 
-ns3:N5349953694b9411d971e4e32387e986a a ns3:ObjectJson,
+ns1:N4dc1ca1cded54acaa86d38c990eaaffe a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:ScalarString "[PSYCHOLOGY_TEST_1].[dbo].[T_TESTING].[T_TESTING_ID] as [t].[T_TESTING_ID]" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:N248cf88d55ac4b778456c1f3338b7223 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:CompareOp "EQ" ;
+    ns1:hasJsonObjectKey "Compare" ;
+    ns1:parentJsonId ns1:N8d71edff049e475a8b18d7e4956e2187 .
 
-ns3:N535d85b4b2664b7ab5fa9f3b3586c1ef a ns3:ObjectJson,
+ns1:N4e1c9051629d439ba7911312b19f8c9f a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "RangeExpressions" ;
-    ns3:parentJsonId ns3:Nc633c6d3b37840d2a17d6509ca8a1f33 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:Nd0cdb65699b94a5ebd6995ec7932c64c .
 
-ns3:N55aad0a99a854e1a9a50ed0ae8319021 a ns3:ObjectJson,
+ns1:N4f1736642e6541e29f5b0bc7de16bc3b a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:ScalarString "datepart(day,[PSYCHOLOGY_TEST_1].[dbo].[T_TESTING].[OBJ_CREATED] as [t].[OBJ_CREATED])=datepart(day,getdate()) AND datepart(month,[PSYCHOLOGY_TEST_1].[dbo].[T_TESTING].[OBJ_CREATED] as [t].[OBJ_CREATED])=datepart(month,getdate()) AND datepart(year,[PSYCHOLOGY_TEST_1].[dbo].[T_TESTING].[OBJ_CREATED] as [t].[OBJ_CREATED])=datepart(year,getdate())" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:N424c2be841b1496d9e8235771262ca75 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "OutputList" ;
+    ns1:parentJsonId ns1:N8ff173634cd84afc81f4a4c1c2ecbfb8 .
 
-ns3:N55ce0bf4ea8d4ecb8da54a8ce009df69 a ns3:ObjectJson,
+ns1:N506c9df66a0a41dda768c18b1ede7b9c a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:ScalarString "[PSYCHOLOGY_TEST_1].[dbo].[T_TESTING].[print_count] as [t].[print_count]=(0)" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:Na4964fc9a5534a889f0c8c2fd7a87b41 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:Ndd43bd9e016d4bc0ac713f897242b6bb .
 
-ns3:N5698618bcb484596b934d069c282a746 a ns3:ObjectJson,
+ns1:N510a14b21e474e268a9eefa507d258e6 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "0" ;
-    ns3:parentJsonId ns3:N662072bb00bf4247a5f2f169eadb4d56 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "DefinedValues" ;
+    ns1:parentJsonId ns1:Nefb65ae370ec4d9ea94fdf6df1dbf3f9 .
 
-ns3:N5866fe75cf24458d9af4d91c26ff0eb3 a ns3:ObjectJson,
+ns1:N51ab67507df94ed7afeeb708f28724be a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:FunctionName "datepart" ;
-    ns3:hasJsonObjectKey "Intrinsic" ;
-    ns3:parentJsonId ns3:Nb49a89e325074847b943a2f495105ce2 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:CompareOp "EQ" ;
+    ns1:hasJsonObjectKey "Compare" ;
+    ns1:parentJsonId ns1:N6019fbd3448a421fb5cc7f633f0c2989 .
 
-ns3:N58a3a8597ed84569b342fe8bf684813b a ns3:ObjectJson,
+ns1:N5702b97c9f6149ed8878ff5d3ce28801 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "Identifier" ;
-    ns3:parentJsonId ns3:N4a8cbdf5a3314a58a0ac58661c0eae15 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "Identifier" ;
+    ns1:parentJsonId ns1:N17502837b24b4257af5e93a18034a891 .
 
-ns3:N5ab9a5351564413f861a9f3047bd20b5 a ns3:ObjectJson,
+ns1:N5781e12547054b2d9f5e9c87575bbee4 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "Identifier" ;
-    ns3:parentJsonId ns3:Nf8e9888e1ca3414293c57458471f7dda .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Build "16.0.1000.6" ;
+    ns2:Version "1.564" ;
+    ns2:xmlns "http://schemas.microsoft.com/sqlserver/2004/07/showplan" ;
+    ns1:hasJsonObjectKey "ShowPlanXML" ;
+    ns1:parentJsonId ns1:N768938d331fe45c9bae156faeadfd12c .
 
-ns3:N5be79399a4024fe89c7a2cf303cb387e a ns3:ObjectJson,
+ns1:N5851a6fc7dec4b4faf83dea5cb98bc16 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "TopExpression" ;
-    ns3:parentJsonId ns3:Nbcf1b6ee3fb54cb08101019b78333057 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "SeekPredicates" ;
+    ns1:parentJsonId ns1:N0e1d5ed4b6e442e4ad3fdee3fc29fd09 .
 
-ns3:N5c567e89216440ff9cc2a9452f26ceac a ns3:ObjectJson,
+ns1:N5a2aecaecb554c3faccbfee628d9da0c a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "OutputList" ;
-    ns3:parentJsonId ns3:Nb53fa833194a4517a5339920188d43f9 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:N9b37c6bddaa04f00a833b6a0a49ae440 .
 
-ns3:N5e0a647c23dd4849b9299a8246b106db a ns3:ObjectJson,
+ns1:N5aa2cfedead64bee90b4654819070d97 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "DefinedValues" ;
-    ns3:parentJsonId ns3:N620e0c5e421f4b3ba444e7ccd09336fd .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "OutputList" ;
+    ns1:parentJsonId ns1:Nb8fa2d9cc8304ba989253c65cb31b90f .
 
-ns3:N5f8e0adc216743daa0bef1648e9f5602 a ns3:ObjectJson,
+ns1:N5c9ee53921be48769d4b76bd19372595 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "SeekPredicates" ;
-    ns3:parentJsonId ns3:N91186cb71f8f4ac9945aa8c3b9b110e4 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:Nd0cdb65699b94a5ebd6995ec7932c64c .
 
-ns3:N601954e1fd65437cb852c108780ec99e a ns3:ObjectJson,
+ns1:N5edd173bbb464cabb3d04bbe7b3d7592 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:CompareOp "EQ" ;
-    ns3:hasJsonObjectKey "Compare" ;
-    ns3:parentJsonId ns3:N1100e1d2c9af44588862ee48937db6e1 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:ScalarString "[Expr1002]" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:N4fbc30fd8d164091832ba480358044d3 .
 
-ns3:N614ba3a39eb54b39b5580221efcc8aae a ns3:ObjectJson,
+ns1:N6019fbd3448a421fb5cc7f633f0c2989 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "0" ;
-    ns3:parentJsonId ns3:N7902479d4feb491dafe2d3564eef2f33 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "3" ;
+    ns1:parentJsonId ns1:N5b70c53233e5445eb96144992a5fcf9c .
 
-ns3:N622ff6d92d0e4a3ab45b932a41a70c0a a ns3:ObjectJson,
+ns1:N65c4d67c5a9346adb4042a8fb7b9eb00 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "OutputList" ;
-    ns3:parentJsonId ns3:Nff157595377043e1b56995a3b2ab28a8 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:ScalarString "[PSYCHOLOGY_TEST_1].[dbo].[T_TESTING].[T_TESTING_ID] as [t].[T_TESTING_ID]" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:N3d8c33f8c2134ef194ccc015e2179c76 .
 
-ns3:N62e5f5b44d9647229ae423cc1f4c61a3 a ns3:ObjectJson,
+ns1:N66129b61ce034b92ae70459b2066004b a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "Identifier" ;
-    ns3:parentJsonId ns3:N91dc3425633b42fca16b776e1c6c0c73 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "Identifier" ;
+    ns1:parentJsonId ns1:N5a2aecaecb554c3faccbfee628d9da0c .
 
-ns3:N635776b0a13d4a92b914aad9309e9a5a a ns3:ObjectJson,
+ns1:N665a9f93416f4549ba7a525801e5a5c1 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:ScalarString "[PSYCHOLOGY_TEST_1].[dbo].[T_TESTING_STATUS].[OBJ_NAME] as [ts].[OBJ_NAME]=N'ENDED'" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:N96adbfae61644ad4848f4a4324c70735 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "OuterReferences" ;
+    ns1:parentJsonId ns1:Nea476d6d580b416bbe8c6eef3748341e .
 
-ns3:N6b313d989c224f2c9908dcfd635e9e90 a ns3:ObjectJson,
+ns1:N668b05ab01ef4e27befa7dd50ae22e35 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "SeekPredicates" ;
-    ns3:parentJsonId ns3:Nad92e25954fa4caaa207a2aa30ea2f4d .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "OutputList" ;
+    ns1:parentJsonId ns1:N9cfa1fe7e2a445a8bd947584d077a64c .
 
-ns3:N6b46ab034d1f416695f98abd57db3c1d a ns3:ObjectJson,
+ns1:N66bb99326a3f493e883c4770f1cd84f7 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "1" ;
-    ns3:parentJsonId ns3:Nce958c5b68384650af1d37d8c3ed45be .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:N6f73ecc4a9974599a9eedcd71a732d85 .
 
-ns3:N6f4ac461863a4a209fefa4ba13c23ca0 a ns3:ObjectJson,
+ns1:N66f2b34631ab44babfe3289a2e52e523 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "OutputList" ;
-    ns3:parentJsonId ns3:N07b1129a59704f9db15e1c3bd6e10d4f .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Column "ConstExpr1007" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:Ne8d0379136b24a52914ca09f88c4aa53 .
 
-ns3:N6fed3d2c7f204f2cb40adc2245473f3a a ns3:ObjectJson,
+ns1:N68b709b8056c4b81b374f95f894c9afb a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "OutputList" ;
-    ns3:parentJsonId ns3:Ne1b5d0e5610d4ea3bf459e88d415415a .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:N8de25d902ea14b4aa20d265ba0a47e67 .
 
-ns3:N7092d8d8dbcf491494866a5268a31065 a ns3:ObjectJson,
+ns1:N68b89eaddcb14fa7ae4dac92aa89e79a a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:FunctionName "datepart" ;
-    ns3:hasJsonObjectKey "Intrinsic" ;
-    ns3:parentJsonId ns3:Nd4f4268225c34e0d92ee6a9646565f79 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "RangeColumns" ;
+    ns1:parentJsonId ns1:N27055f484d2747489fbff1821795eb38 .
 
-ns3:N70e7cf1f17684bbb8a694074ad438d8b a ns3:ObjectJson,
+ns1:N6a1d88a92d6a4a40b1f193cde628b820 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:FunctionName "datepart" ;
-    ns3:hasJsonObjectKey "Intrinsic" ;
-    ns3:parentJsonId ns3:N80e15f6d01794061a310231c3c02ed3e .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:ScalarString "(1)" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:N332b64aa922f4d66872f26cce091907c .
 
-ns3:N72dfc620fbc24a3ab9fc0fca066bbf45 a ns3:ObjectJson,
+ns1:N6b927b8c3ba24764a4c9d6fa44e71685 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "DefinedValue" ;
-    ns3:parentJsonId ns3:Ne27d544d76fc427c954595095323f641 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "Identifier" ;
+    ns1:parentJsonId ns1:N407bef8407c24630bc741cf6bf1a384c .
 
-ns3:N73723a59e5b74a82af5ca57cee63bfdd a ns3:ObjectJson,
+ns1:N6c26d5290ae640ee938703359188c4d4 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "OutputList" ;
-    ns3:parentJsonId ns3:Nfbb53188841649f7a2b63a11eda0469c .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "OutputList" ;
+    ns1:parentJsonId ns1:N286d85fd57a2461ba7fb4efa4a8dce22 .
 
-ns3:N76641af6a9a447ceacc747c2587921c8 a ns3:ObjectJson,
+ns1:N6e86d92d4c054b5e952407cbc14c90f6 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "SeekKeys" ;
-    ns3:parentJsonId ns3:Na019001dcef9479b8e0d4ec94088de13 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:FunctionName "datepart" ;
+    ns1:hasJsonObjectKey "Intrinsic" ;
+    ns1:parentJsonId ns1:Nc7e07431696f42bfba226c1307c07118 .
 
-ns3:N77ed9a73ad2444a5b7fd03101b43f139 a ns3:ObjectJson,
+ns1:N7147fd7c405e44f39c2d116719527ea5 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "1" ;
-    ns3:parentJsonId ns3:N54b689b469ee45c89711aab9091b9888 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:CompareOp "EQ" ;
+    ns1:hasJsonObjectKey "Compare" ;
+    ns1:parentJsonId ns1:N29ea772e80e844eeb130c48b3c454b26 .
 
-ns3:N7b16029469dc4950a9dabda1883dd6f7 a ns3:ObjectJson,
+ns1:N714bfe34990548b7b989497721ea818b a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:CompareOp "EQ" ;
-    ns3:hasJsonObjectKey "Compare" ;
-    ns3:parentJsonId ns3:N1a2ffc40d0db44b9ba9e741f52e49a46 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "SeekKeys" ;
+    ns1:parentJsonId ns1:N040a73f454e44f449687f84a18a377fe .
 
-ns3:N7b6ab6688abd4df2a5f213547e9d274d a ns3:ObjectJson,
+ns1:N71c583379ce744f0b869fc902e3d2b27 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:RetrievedFromCache "false" ;
-    ns1:StatementCompId "1" ;
-    ns1:StatementId "1" ;
-    ns1:StatementText "exec selupd_1print" ;
-    ns1:StatementType "EXECUTE PROC" ;
-    ns3:hasJsonObjectKey "StmtSimple" ;
-    ns3:parentJsonId ns3:Nef2ee650d8dd40bdb06d4fb6589c8c41 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:Ndade6f81f5e840699e9715ef14ac126d .
 
-ns3:N7f8dded82f7547c7b9f925cc3095e57b a ns3:ObjectJson,
+ns1:N71e7aa1a758e4333a00751095c3f55fe a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "1" ;
-    ns3:parentJsonId ns3:Nc5c914dd564b42c2a4fd64c59da21993 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "Identifier" ;
+    ns1:parentJsonId ns1:N66bb99326a3f493e883c4770f1cd84f7 .
 
-ns3:N80e15f6d01794061a310231c3c02ed3e a ns3:ObjectJson,
+ns1:N727e7fb08adb4402bbf7f633a3cdb3fb a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:Nab50fc23f4e249abaaae7c34213f7ff4 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:N5b70c53233e5445eb96144992a5fcf9c .
 
-ns3:N8238b482fec64261976615a47ecabd57 a ns3:ObjectJson,
+ns1:N754a1127d87f48618ac9261146598b9f a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "2" ;
-    ns3:parentJsonId ns3:N725009ff8a1b41af84b613fd475188ca .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "Identifier" ;
+    ns1:parentJsonId ns1:N7b2f351458ad4534b3bd567b548900f1 .
 
-ns3:N8473ca26a8f845a9871d4c4fadc2390d a ns3:ObjectJson,
+ns1:N768938d331fe45c9bae156faeadfd12c a ns1:FileJson,
+        ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "1" ;
-    ns3:parentJsonId ns3:N7c9655d50afb48238dcf1d697097512d .
+    ns3:hasSourceFile "selupd_1print.json" .
 
-ns3:N85233e21c95e4955b08b23e6a89b3e17 a ns3:ObjectJson,
+ns1:N77da153473f64e4b907fdd90ebb9f8f2 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "Identifier" ;
-    ns3:parentJsonId ns3:Nf6a46906407c4245aae1b318d4985d00 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "Statements" ;
+    ns1:parentJsonId ns1:Nc1be67a98133420193fc5b0d483e51c0 .
 
-ns3:N8cdbeeb8aa214403b1c020522d62ead2 a ns3:ObjectJson,
+ns1:N78fe1d51421c42f2930f64f19f1a198c a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:AvgRowSize "28" ;
-    ns1:EstimateCPU "0.0001581" ;
-    ns1:EstimateIO "0.003125" ;
-    ns1:EstimateRebinds "0" ;
-    ns1:EstimateRewinds "0" ;
-    ns1:EstimateRows "1" ;
-    ns1:EstimatedExecutionMode "Row" ;
-    ns1:EstimatedRowsRead "1" ;
-    ns1:EstimatedTotalSubtreeCost "0.0032831" ;
-    ns1:LogicalOp "Clustered Index Seek" ;
-    ns1:NodeId "6" ;
-    ns1:Parallel "0" ;
-    ns1:PhysicalOp "Clustered Index Seek" ;
-    ns1:TableCardinality "6" ;
-    ns3:OutputList "None" ;
-    ns3:hasJsonObjectKey "1" ;
-    ns3:parentJsonId ns3:N34e1ce40bbcc43c5b4ad74ee15575001 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Column "ConstExpr1004" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N07d2055bc5b549db92824aff6be9426d .
 
-ns3:N904f7ccc97da4560a6a50d317411f874 a ns3:ObjectJson,
+ns1:N7946518815b2468eb42f43cc6b453402 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "1" ;
-    ns3:parentJsonId ns3:N002b07934bce4a18b92a6732ead0c95d .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:N0b3e8d709cef41a88e05a596d5c8f71f .
 
-ns3:N90d9bf82d6b345769c70015777f8d59e a ns3:ObjectJson,
+ns1:N7a74273726f74aa8b57ee925d2c49d8e a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:ScalarString "(1)" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:N5be79399a4024fe89c7a2cf303cb387e .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:N160714882e284a15a726a516692e81e5 .
 
-ns3:N90f0a3e8adfb489c9d35ca32dc3d638b a ns3:ObjectJson,
+ns1:N7aaccc958b6844aba64cf08b7efdb52b a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:CompareOp "EQ" ;
-    ns3:hasJsonObjectKey "Compare" ;
-    ns3:parentJsonId ns3:N635776b0a13d4a92b914aad9309e9a5a .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:FunctionName "datepart" ;
+    ns1:hasJsonObjectKey "Intrinsic" ;
+    ns1:parentJsonId ns1:Nfeafe7c6e6e145d198ab6eceffc7e772 .
 
-ns3:N91dc3425633b42fca16b776e1c6c0c73 a ns3:ObjectJson,
+ns1:N7b2f351458ad4534b3bd567b548900f1 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "1" ;
-    ns3:parentJsonId ns3:N7902479d4feb491dafe2d3564eef2f33 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:ScalarString "[PSYCHOLOGY_TEST_1].[dbo].[T_TESTING].[T_TESTING_ID] as [t].[T_TESTING_ID]" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:N21e75f79a4ba4c1d8f2308bc0b751cc5 .
 
-ns3:N93172fe90fb6478abd9153f4f3b2aa8d a ns3:ObjectJson,
+ns1:N7b342cb2f2584245a486b6e3a241c664 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Optimized "0" ;
-    ns3:hasJsonObjectKey "NestedLoops" ;
-    ns3:parentJsonId ns3:Nbee29cc1ab1c41ac828693b26491d5a7 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:N0bafa286012b42aa924556d239e26ed9 .
 
-ns3:N946447ef42a1415bb5dbbc6462934017 a ns3:ObjectJson,
+ns1:N7b933570f7f549b18a7144255f598047 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:CompareOp "EQ" ;
-    ns3:hasJsonObjectKey "Compare" ;
-    ns3:parentJsonId ns3:N371e95f65e7c492a943a28faf73be0a4 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:ScalarString "datepart(day,[PSYCHOLOGY_TEST_1].[dbo].[T_TESTING].[OBJ_CREATED] as [t].[OBJ_CREATED])=datepart(day,getdate()) AND datepart(month,[PSYCHOLOGY_TEST_1].[dbo].[T_TESTING].[OBJ_CREATED] as [t].[OBJ_CREATED])=datepart(month,getdate()) AND datepart(year,[PSYCHOLOGY_TEST_1].[dbo].[T_TESTING].[OBJ_CREATED] as [t].[OBJ_CREATED])=datepart(year,getdate())" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:Nb5383dd9cc0e433fa229ff15f9c743fe .
 
-ns3:N95b33e9e7a4e4149aa9bd1fbd8221f53 a ns3:ObjectJson,
+ns1:N7be17ae4d535473d881037c2f46c4216 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Build "16.0.1000.6" ;
-    ns1:Version "1.564" ;
-    ns1:xmlns "http://schemas.microsoft.com/sqlserver/2004/07/showplan" ;
-    ns3:hasJsonObjectKey "ShowPlanXML" ;
-    ns3:parentJsonId ns3:N2a74e37a3f304d859e0311896b66b7e3 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:N4339f6eb8aa647a18741bb446365a67f .
 
-ns3:N95c894309fb4439f9460ad4676b9d00b a ns3:ObjectJson,
+ns1:N7c4421fb8fe649b6a2a177b0701bb57f a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:ScalarString "[Expr1002]" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:N65b98a6164934cbfb69203e983a13da8 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:FunctionName "datepart" ;
+    ns1:hasJsonObjectKey "Intrinsic" ;
+    ns1:parentJsonId ns1:Ne5fb758399714dc882ede0e83d2df421 .
 
-ns3:N96adbfae61644ad4848f4a4324c70735 a ns3:ObjectJson,
+ns1:N7d8067f60e944bad80abd3c27c91b158 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "Predicate" ;
-    ns3:parentJsonId ns3:N91186cb71f8f4ac9945aa8c3b9b110e4 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:ProcName "selupd_1print" ;
+    ns1:hasJsonObjectKey "StoredProc" ;
+    ns1:parentJsonId ns1:N298d8e7e804b4eb6a67e33198f67e7a4 .
 
-ns3:N971d811cd10b4923b4ab9282da958d57 a ns3:ObjectJson,
+ns1:N7ee82047e10c4a099741b2fa09ede2af a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "Identifier" ;
-    ns3:parentJsonId ns3:Nb61ffb6465e54b48b8388da40fbf1860 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:N4d6ef7d3385841279d0cc003d7162fd7 .
 
-ns3:N9769d03d7ba946179ae57c402162e4f0 a ns3:ObjectJson,
+ns1:N8774bd112ce6496da9219905cdb17df6 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "1" ;
-    ns3:parentJsonId ns3:Ne957d5fd30b7413899b3d272e0be6894 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:Na588c6bae3c4429ca6f00427b367eef1 .
 
-ns3:N97ab7fdc3f1b4c578e50f358f70738f8 a ns3:ObjectJson,
+ns1:N894edf441f844608b429c16b49044471 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "1" ;
-    ns3:parentJsonId ns3:N9887f40767ed43369fe83ede0806a0b5 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:AvgRowSize "28" ;
+    ns2:EstimateCPU "0.0001581" ;
+    ns2:EstimateIO "0.003125" ;
+    ns2:EstimateRebinds "0" ;
+    ns2:EstimateRewinds "0" ;
+    ns2:EstimateRows "1" ;
+    ns2:EstimatedExecutionMode "Row" ;
+    ns2:EstimatedRowsRead "1" ;
+    ns2:EstimatedTotalSubtreeCost "0.0032831" ;
+    ns2:LogicalOp "Clustered Index Seek" ;
+    ns2:NodeId "6" ;
+    ns2:Parallel "0" ;
+    ns2:PhysicalOp "Clustered Index Seek" ;
+    ns2:TableCardinality "6" ;
+    ns1:OutputList "None" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:N095867cf84de4137ab06efc751686f4f .
 
-ns3:N9844684d765344878f8413f10045f53c a ns3:ObjectJson,
+ns1:N8aad6a5ef947415ab48ab2b30f687cc1 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "Predicate" ;
-    ns3:parentJsonId ns3:N5512a558628e48258f8f5f94ce3cae11 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "Identifier" ;
+    ns1:parentJsonId ns1:N1e9188798e074cd79a072490dd6450a7 .
 
-ns3:N9b0b97865a424775910975a9db065dfb a ns3:ObjectJson,
+ns1:N8d71edff049e475a8b18d7e4956e2187 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:CompareOp "EQ" ;
-    ns3:hasJsonObjectKey "Compare" ;
-    ns3:parentJsonId ns3:N55ce0bf4ea8d4ecb8da54a8ce009df69 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:ScalarString "[PSYCHOLOGY_TEST_1].[dbo].[T_TESTING].[print_count] as [t].[print_count]=(0)" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:Ne94aa0ba8b5c4353a7c2cda21dec9cd3 .
 
-ns3:N9cd451b092084c73a8bdbba35ab74203 a ns3:ObjectJson,
+ns1:N8dae8a0d9c0744a0bbc9a6adaa168ace a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:CompareOp "EQ" ;
-    ns3:hasJsonObjectKey "Compare" ;
-    ns3:parentJsonId ns3:N28ca3af01c2a4ec592d127ef41e3e6f8 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:N66f2b34631ab44babfe3289a2e52e523 .
 
-ns3:N9d0ed14acb7e4f6c9fe01abc432cba89 a ns3:ObjectJson,
+ns1:N8f21fe62eb054894b240b847b9382cb1 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "OuterReferences" ;
-    ns3:parentJsonId ns3:N2b7df95fa3a14bc2b658416082e71063 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "Identifier" ;
+    ns1:parentJsonId ns1:Nf6b20201ad874d3cb8f58f188a02597a .
 
-ns3:N9e69c26b6c194b87bf1d41bc1c7d3151 a ns3:ObjectJson,
+ns1:N8fb677a57d13432bab4e5921377141d5 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "0" ;
-    ns3:parentJsonId ns3:N7c9655d50afb48238dcf1d697097512d .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "Identifier" ;
+    ns1:parentJsonId ns1:N199aff52f9d54617896405932a57f03a .
 
-ns3:N9fe7570329cc4a64a9a66d81ca5ac9a2 a ns3:ObjectJson,
+ns1:N947b78d6628a436db17afb1ae3837957 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Operation "AND" ;
-    ns3:hasJsonObjectKey "Logical" ;
-    ns3:parentJsonId ns3:Ne4bf081d135349288330d9d7e1c1936b .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "DefinedValues" ;
+    ns1:parentJsonId ns1:N3873f503b10f4f65abbee3ae5c5e1f9a .
 
-ns3:Na019001dcef9479b8e0d4ec94088de13 a ns3:ObjectJson,
+ns1:N95d5821e9aee412fb7cf44e89b3d1653 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "SeekPredicateNew" ;
-    ns3:parentJsonId ns3:N3865377c50794da0a6db24fd2afc1bf3 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "OutputList" ;
+    ns1:parentJsonId ns1:Nab4ff53233c443ff923aca5475c794cc .
 
-ns3:Na0bdf8eb040e420dacd4b7f745caeafc a ns3:ObjectJson,
+ns1:N98de3d0cd7f543c0bd22552257176906 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "0" ;
-    ns3:parentJsonId ns3:N725009ff8a1b41af84b613fd475188ca .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:Na3237455bf554af1a4b360cd71c559c7 .
 
-ns3:Na4964fc9a5534a889f0c8c2fd7a87b41 a ns3:ObjectJson,
+ns1:N9c61f9965fae49dd9ea5a32940dcb293 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "Predicate" ;
-    ns3:parentJsonId ns3:Nad92e25954fa4caaa207a2aa30ea2f4d .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "RangeColumns" ;
+    ns1:parentJsonId ns1:Naeccc4401c144782adedbd0f2e78518d .
 
-ns3:Na9101a3227a340f3a669f17590fdd3e7 a ns3:ObjectJson,
+ns1:Na24c419d79c0491f85c4393dfaea8f0d a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "Identifier" ;
-    ns3:parentJsonId ns3:N904f7ccc97da4560a6a50d317411f874 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "SeekPredicateNew" ;
+    ns1:parentJsonId ns1:Nc6c37c4631fe4295bb5f6a8958a206ba .
 
-ns3:Na9a5da34fcef491c87eb73d2323f8c76 a ns3:ObjectJson,
+ns1:Na2e43e0317a046159a546d4388088ac0 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "RangeExpressions" ;
-    ns3:parentJsonId ns3:N4a7041ea46134783979ae55f93212f98 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:AvgRowSize "28" ;
+    ns2:EstimateCPU "0.0001581" ;
+    ns2:EstimateIO "0.003125" ;
+    ns2:EstimateRebinds "0" ;
+    ns2:EstimateRewinds "0" ;
+    ns2:EstimateRows "1" ;
+    ns2:EstimatedExecutionMode "Row" ;
+    ns2:EstimatedRowsRead "1" ;
+    ns2:EstimatedTotalSubtreeCost "0.0032831" ;
+    ns2:LogicalOp "Clustered Index Seek" ;
+    ns2:NodeId "10" ;
+    ns2:Parallel "0" ;
+    ns2:PhysicalOp "Clustered Index Seek" ;
+    ns2:TableCardinality "6" ;
+    ns1:OutputList "None" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:N41b0248c70f44dc5b62c855374153487 .
 
-ns3:Nab14365a1c46499e8a707d6bae4c0c72 a ns3:ObjectJson,
+ns1:Na4189e09fcb942b5860a2a0223c68e0a a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "Identifier" ;
-    ns3:parentJsonId ns3:N7f8dded82f7547c7b9f925cc3095e57b .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:N51847359a37548cbb67af870b58369f1 .
 
-ns3:Nab50fc23f4e249abaaae7c34213f7ff4 a ns3:ObjectJson,
+ns1:Na9f340761afc454eb59b9d3d81aa6d58 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Column "ConstExpr1005" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:Nda504400fbad4b78b2d167de4135fdd5 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "Identifier" ;
+    ns1:parentJsonId ns1:N0dba5587b43a4c1081b33da992ebab82 .
 
-ns3:Nab9699889eae40e292467c95e45a1191 a ns3:ObjectJson,
+ns1:Nace2b6b19d794efaa8cf2289e1cad6f5 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "0" ;
-    ns3:parentJsonId ns3:Ne957d5fd30b7413899b3d272e0be6894 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "OutputList" ;
+    ns1:parentJsonId ns1:N48ad52f996614fd6b4985d450ea9f2bc .
 
-ns3:Nac293cc876864405ac30de2e5110290c a ns3:ObjectJson,
+ns1:Nae583234328543f48eaba923a12de52a a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "BatchSequence" ;
-    ns3:parentJsonId ns3:N95b33e9e7a4e4149aa9bd1fbd8221f53 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:Nbe10bf44c5a447a88f9da33bd7ee9c0e .
 
-ns3:Nac3820cc91254380af8141abd66a36c9 a ns3:ObjectJson,
+ns1:Nb0558a4952ae4e52b16dfc336aa691de a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:ScalarString "CONVERT_IMPLICIT(int,[Expr1013],0)" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:N817d5ac22dbc425cb4ccb795e720ba64 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:N6f73ecc4a9974599a9eedcd71a732d85 .
 
-ns3:Nac848d112225420a92663b09bce30910 a ns3:ObjectJson,
+ns1:Nb3fca0c8a5cd4736aa2cea03944b42fd a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:ScalarString "[PSYCHOLOGY_TEST_1].[dbo].[T_TESTING].[T_TESTING_ID] as [t].[T_TESTING_ID]" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:Na9a5da34fcef491c87eb73d2323f8c76 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Optimized "0" ;
+    ns1:hasJsonObjectKey "NestedLoops" ;
+    ns1:parentJsonId ns1:N8ff173634cd84afc81f4a4c1c2ecbfb8 .
 
-ns3:Nad08785749ec4ae2b168a3953fda45bc a ns3:ObjectJson,
+ns1:Nb5383dd9cc0e433fa229ff15f9c743fe a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:DataType "int" ;
-    ns1:Implicit "1" ;
-    ns1:Style "0" ;
-    ns3:hasJsonObjectKey "Convert" ;
-    ns3:parentJsonId ns3:Nac3820cc91254380af8141abd66a36c9 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "Predicate" ;
+    ns1:parentJsonId ns1:Na2c0c56108b041b38927a0e11684bf49 .
 
-ns3:Nad20a43614144d4eaa91ba5f476d5ddb a ns3:ObjectJson,
+ns1:Nb60b2b186185492a874c8d8bd90886be a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "1" ;
-    ns3:parentJsonId ns3:N3a5a48816dd942a4acc52043cadc6df3 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:Nca7a63c0f2844c2e8b568a834441dc85 .
 
-ns3:Nad406df0943840cc8afc92b23ce6813b a ns3:ObjectJson,
+ns1:Nb6293ac7bd8f44ac9875e7f49c141c43 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "OuterReferences" ;
-    ns3:parentJsonId ns3:N155064fadb78479f9914474dc486fd48 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:CompareOp "EQ" ;
+    ns1:hasJsonObjectKey "Compare" ;
+    ns1:parentJsonId ns1:Nbf894d81a7fd4a2bb24100d2c7bae120 .
 
-ns3:Naee96e19c2fb4bf5b29718d491da0444 a ns3:ObjectJson,
+ns1:Nb67c3028d4ea49aea410b1eaef54cfe4 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:CompareOp "EQ" ;
-    ns3:hasJsonObjectKey "Compare" ;
-    ns3:parentJsonId ns3:Nc1919ebdca29409699696a2ea19fcb0b .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "OuterReferences" ;
+    ns1:parentJsonId ns1:N18d2fcf9957d4d67b6c080f1c4c444c0 .
 
-ns3:Naf58f418d3d04aea8bb56706941664f3 a ns3:ObjectJson,
+ns1:Nb7c77f42ac334b188f501f1fbf195a32 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:FunctionName "datepart" ;
-    ns3:hasJsonObjectKey "Intrinsic" ;
-    ns3:parentJsonId ns3:N04d35425edd747159aa751dc4c67cf3b .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:ScalarString "CONVERT_IMPLICIT(int,[Expr1013],0)" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:N22839c2015ee444e82231ca3ae6380e6 .
 
-ns3:Nb350140d316e499cb78c8af6581be53b a ns3:ObjectJson,
+ns1:Nbb11b8400c344c558922a1d6bc17493c a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "OutputList" ;
-    ns3:parentJsonId ns3:Nbee29cc1ab1c41ac828693b26491d5a7 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Column "ConstExpr1006" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:Nd906d0d8550b4a90888f72dbf157602f .
 
-ns3:Nb49a89e325074847b943a2f495105ce2 a ns3:ObjectJson,
+ns1:Nbf894d81a7fd4a2bb24100d2c7bae120 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "0" ;
-    ns3:parentJsonId ns3:N7ccbb79cd43e40c1a5e55a72d3400c68 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "2" ;
+    ns1:parentJsonId ns1:N5b70c53233e5445eb96144992a5fcf9c .
 
-ns3:Nb5c94b51625b414eac1a73c0f0e956af a ns3:ObjectJson,
+ns1:Nc177c5178e1a486aa3ff7d2807c91871 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "DefinedValues" ;
-    ns3:parentJsonId ns3:Ndadf8ab7c948430da1a523dae1efdac2 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "Statements" ;
+    ns1:parentJsonId ns1:N7d8067f60e944bad80abd3c27c91b158 .
 
-ns3:Nb60121d2964b4892b1b98f4c5fa4c9e7 a ns3:ObjectJson,
+ns1:Nc1be67a98133420193fc5b0d483e51c0 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:FunctionName "datepart" ;
-    ns3:hasJsonObjectKey "Intrinsic" ;
-    ns3:parentJsonId ns3:N4aa9540ce0e24ddea37d78d2a12be029 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "Batch" ;
+    ns1:parentJsonId ns1:Nd1959302f8834b48b962f229b1008379 .
 
-ns3:Nb61ffb6465e54b48b8388da40fbf1860 a ns3:ObjectJson,
+ns1:Nc2bccd1e95fc4de49ec10b6dc582a217 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "1" ;
-    ns3:parentJsonId ns3:N662072bb00bf4247a5f2f169eadb4d56 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:Na3237455bf554af1a4b360cd71c559c7 .
 
-ns3:Nb664b4ddfc734dbf9c6d93fb13383057 a ns3:ObjectJson,
+ns1:Nc2d305db0423465289886eb58dbd1de4 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "Identifier" ;
-    ns3:parentJsonId ns3:Nc473cced0f6648f4a6a5298ddc3cb972 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "RangeExpressions" ;
+    ns1:parentJsonId ns1:N27055f484d2747489fbff1821795eb38 .
 
-ns3:Nb7bc580ffc864b97ad6b144f38b8dc4d a ns3:ObjectJson,
+ns1:Nc36bf51ea07e43b0ad530f6cbd4d8165 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "Identifier" ;
-    ns3:parentJsonId ns3:N5349953694b9411d971e4e32387e986a .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:CompareOp "EQ" ;
+    ns1:hasJsonObjectKey "Compare" ;
+    ns1:parentJsonId ns1:N727e7fb08adb4402bbf7f633a3cdb3fb .
 
-ns3:Nb9f1e0b9c3cd4a63bbeb1f0eaca860f3 a ns3:ObjectJson,
+ns1:Nc4579234f76944f88d1cb01f696dcc65 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "RangeColumns" ;
-    ns3:parentJsonId ns3:Nfc7851f895ca4fcb8b878e1c1bb9353a .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "OutputList" ;
+    ns1:parentJsonId ns1:N991c49e009ad498bad7fccedfb56317e .
 
-ns3:Nb9ff7bc7e67a4b94bef0a23e69dd352a a ns3:ObjectJson,
+ns1:Nc6c37c4631fe4295bb5f6a8958a206ba a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:CompareOp "EQ" ;
-    ns3:hasJsonObjectKey "Compare" ;
-    ns3:parentJsonId ns3:Nedb556f2d7bb40268b03daeb66ec3a18 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "SeekPredicates" ;
+    ns1:parentJsonId ns1:N38ac2aeb6fe44b0a8cd613e01dcaf8f4 .
 
-ns3:Nbbf783d746764bd69e6098dfa27deb48 a ns3:ObjectJson,
+ns1:Nc779f27a06cb4365b23a527bbcd71ebc a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "OutputList" ;
-    ns3:parentJsonId ns3:Nb2c2db1bdd8c415baf041dbef29dcdcc .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:Ndd43bd9e016d4bc0ac713f897242b6bb .
 
-ns3:Nbce41c651586471481c5dacf346cbd3c a ns3:ObjectJson,
+ns1:Nc7e07431696f42bfba226c1307c07118 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "Identifier" ;
-    ns3:parentJsonId ns3:N0e7cedad49f04295bd69086be2c2f571 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:Nbb11b8400c344c558922a1d6bc17493c .
 
-ns3:Nbe372beb80f94d5093920492677e216b a ns3:ObjectJson,
+ns1:Nc90015cee18440b4a03725161538f66d a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "1" ;
-    ns3:parentJsonId ns3:Nd0366e909c4a40fb9222c3f8d4b7a137 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:ScalarString "[PSYCHOLOGY_TEST_1].[dbo].[T_TESTING].[T_TESTING_STATUS_ID] as [t].[T_TESTING_STATUS_ID]" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:Ne3ee764848014134a1c9bd0c1922b3a8 .
 
-ns3:Nbef5b92656404f44859e994e6091a9d3 a ns3:ObjectJson,
+ns1:Nc9ab15f0b3e142e893d7f9a704b9c968 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:ProcName "selupd_1print" ;
-    ns3:hasJsonObjectKey "StoredProc" ;
-    ns3:parentJsonId ns3:N7b6ab6688abd4df2a5f213547e9d274d .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:CompareOp "EQ" ;
+    ns1:hasJsonObjectKey "Compare" ;
+    ns1:parentJsonId ns1:N108cd2e09bd7419cbf359eda758c7daf .
 
-ns3:Nc1919ebdca29409699696a2ea19fcb0b a ns3:ObjectJson,
+ns1:Ncae1ca2fd9114c7f94c60b7547162aba a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "1" ;
-    ns3:parentJsonId ns3:N5f50481f2358494baeb0dad634cb2550 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:N4b0e3904b02c4dd7bbea33e2caf43f7b .
 
-ns3:Nc1cb3c6a25b74027b6f1785771a4ce64 a ns3:ObjectJson,
+ns1:Ncd8277decfc54a69b7d7765993a7b40f a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "Identifier" ;
-    ns3:parentJsonId ns3:Ndd912158fca148049d90bcc72b6f8097 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "DefinedValues" ;
+    ns1:parentJsonId ns1:Nc500404231854fea8671fe4de145d136 .
 
-ns3:Nc3b9d8e97a4d410aab653ae619bdf152 a ns3:ObjectJson,
+ns1:Nce73869a1f7242d5bf40145237fac9a4 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "Identifier" ;
-    ns3:parentJsonId ns3:N9e69c26b6c194b87bf1d41bc1c7d3151 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "RangeColumns" ;
+    ns1:parentJsonId ns1:Ncfbba2d5e3854b8687d9169d59a976f2 .
 
-ns3:Nc473cced0f6648f4a6a5298ddc3cb972 a ns3:ObjectJson,
+ns1:Nd05e9633c6fd42eca6c9b7ab4f7976cf a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "0" ;
-    ns3:parentJsonId ns3:N61e79021ccab410ea4f010ec30ade249 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "Predicate" ;
+    ns1:parentJsonId ns1:N38ac2aeb6fe44b0a8cd613e01dcaf8f4 .
 
-ns3:Ncb904428d6a44c21b12fe9f915c4a4ee a ns3:ObjectJson,
+ns1:Nd1959302f8834b48b962f229b1008379 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "1" ;
-    ns3:parentJsonId ns3:N7ce9f2a06a6546289853078d1f69de98 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "BatchSequence" ;
+    ns1:parentJsonId ns1:N5781e12547054b2d9f5e9c87575bbee4 .
 
-ns3:Ncc227257cd0a4110b16f977e830d3f8a a ns3:ObjectJson,
+ns1:Nd746ff145c5141f18edcc1ceb1b1a128 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "Identifier" ;
-    ns3:parentJsonId ns3:N449e2f32a92d4a6cafda20e3c58184fb .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "DefinedValue" ;
+    ns1:parentJsonId ns1:N510a14b21e474e268a9eefa507d258e6 .
 
-ns3:Ncdbc3b542e8f47429fc3043382ea3595 a ns3:ObjectJson,
+ns1:Nd867a768f9134a5cb2ea492843b949b4 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "0" ;
-    ns3:parentJsonId ns3:Nb3a5900c172c4bb7aaeae8ffe4dbfab2 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:Nc208a9983da148b79ba6bc8cc0f033d3 .
 
-ns3:Nce6833b384964d77b47bf62364392a33 a ns3:ObjectJson,
+ns1:Nd8cdd2f16f97411eafa7b636919be79d a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "Identifier" ;
-    ns3:parentJsonId ns3:Nad20a43614144d4eaa91ba5f476d5ddb .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:ScalarString "[PSYCHOLOGY_TEST_1].[dbo].[T_TESTING].[print_count] as [t].[print_count]=(0) AND datepart(day,[PSYCHOLOGY_TEST_1].[dbo].[T_TESTING].[OBJ_CREATED] as [t].[OBJ_CREATED])=datepart(day,getdate()) AND datepart(month,[PSYCHOLOGY_TEST_1].[dbo].[T_TESTING].[OBJ_CREATED] as [t].[OBJ_CREATED])=datepart(month,getdate()) AND datepart(year,[PSYCHOLOGY_TEST_1].[dbo].[T_TESTING].[OBJ_CREATED] as [t].[OBJ_CREATED])=datepart(year,getdate())" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:N1601be2021184e68a845cbd3796c998c .
 
-ns3:Ncebf089bf9614a8ea5e8f42fbd2e4b8b a ns3:ObjectJson,
+ns1:Nd8e6c6353ba949f3a5ecb37581a05792 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "0" ;
-    ns3:parentJsonId ns3:Nc5c914dd564b42c2a4fd64c59da21993 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:Nbe2fa7ffdc2d4c50ad9f45bc30b633ae .
 
-ns3:Nd1a5ff691ecd49b4bf17f8a2f915a440 a ns3:ObjectJson,
+ns1:Nd906d0d8550b4a90888f72dbf157602f a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "SeekPredicateNew" ;
-    ns3:parentJsonId ns3:N5f8e0adc216743daa0bef1648e9f5602 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "Identifier" ;
+    ns1:parentJsonId ns1:N0b2f7f0c8b6c4d72a0789ec25198a8d8 .
 
-ns3:Nd32c8b0645ee44ff8bce15da12a9f7d3 a ns3:ObjectJson,
+ns1:Nd9c93ff3217b443d8f171bf5109942ad a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "Identifier" ;
-    ns3:parentJsonId ns3:Ncb904428d6a44c21b12fe9f915c4a4ee .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "DefinedValues" ;
+    ns1:parentJsonId ns1:N0e1d5ed4b6e442e4ad3fdee3fc29fd09 .
 
-ns3:Nd4f4268225c34e0d92ee6a9646565f79 a ns3:ObjectJson,
+ns1:Nda4e0ea6e8ee4ab2956d2e27f686b4d4 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:N081aa61b87234103aa68f30f5222aced .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "SeekKeys" ;
+    ns1:parentJsonId ns1:N17f60226120a40d3a58a53cc005a6a79 .
 
-ns3:Nd5455cc2f5184f3cb3297768220fddcd a ns3:ObjectJson,
+ns1:Ndb170045e10b43ae9a2ca5c556f6cac1 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "0" ;
-    ns3:parentJsonId ns3:Nc90cde9bcefa45dfab8c7cc4e19a861a .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "DefinedValues" ;
+    ns1:parentJsonId ns1:Na2c0c56108b041b38927a0e11684bf49 .
 
-ns3:Nd58536f83d1143fbbaf1bb1e225b71de a ns3:ObjectJson,
+ns1:Ndb47e52f946c42a686bd02b2c5d51de6 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "DefinedValues" ;
-    ns3:parentJsonId ns3:N5512a558628e48258f8f5f94ce3cae11 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:N8de25d902ea14b4aa20d265ba0a47e67 .
 
-ns3:Nd69058815ac44e509e3ef1b0555bd18b a ns3:ObjectJson,
+ns1:Ndbddfda5b47f4855b4c7cd4874b3aafe a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "OutputList" ;
-    ns3:parentJsonId ns3:N0ffd456bae564b0993b544f9785e4925 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "OutputList" ;
+    ns1:parentJsonId ns1:N829ea229a40c4314ae4acea96321419f .
 
-ns3:Nd94286f1c84a405fbb64bfb49997dc79 a ns3:ObjectJson,
+ns1:Nde43c35053894de1a2d9faae4004f43e a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "0" ;
-    ns3:parentJsonId ns3:N3a5a48816dd942a4acc52043cadc6df3 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "Identifier" ;
+    ns1:parentJsonId ns1:Nf5a261fbeb1c41ad9e0450991227d728 .
 
-ns3:Nda504400fbad4b78b2d167de4135fdd5 a ns3:ObjectJson,
+ns1:Ndee130628a4343169b551b6450fc1c4a a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "Identifier" ;
-    ns3:parentJsonId ns3:N0375cb76baea405192407f64ecff8cae .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:N2ea61085e340474b85560dc2b23fe9c6 .
 
-ns3:Ndb632a9963e94bc0a06029e4f31de351 a ns3:ObjectJson,
+ns1:Ne202e0202b6244018075e0e31f7040f0 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:FunctionName "datepart" ;
-    ns3:hasJsonObjectKey "Intrinsic" ;
-    ns3:parentJsonId ns3:Nf6f7fc88c13e43288fc411b16675da4f .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "OutputList" ;
+    ns1:parentJsonId ns1:N2a9b91b625bf4bfeaede13179c8ea751 .
 
-ns3:Ndd912158fca148049d90bcc72b6f8097 a ns3:ObjectJson,
+ns1:Ne2c1c58562ee43419a9cd97da217b6a2 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "1" ;
-    ns3:parentJsonId ns3:N7ccbb79cd43e40c1a5e55a72d3400c68 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:CompareOp "EQ" ;
+    ns1:hasJsonObjectKey "Compare" ;
+    ns1:parentJsonId ns1:N1606ff4db476480ebd5d891d27346479 .
 
-ns3:Ne26c0f4fb1684650b4887560e522c079 a ns3:ObjectJson,
+ns1:Ne3ee764848014134a1c9bd0c1922b3a8 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Column "ConstExpr1007" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:Nc1cb3c6a25b74027b6f1785771a4ce64 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "RangeExpressions" ;
+    ns1:parentJsonId ns1:Naeccc4401c144782adedbd0f2e78518d .
 
-ns3:Ne27d544d76fc427c954595095323f641 a ns3:ObjectJson,
+ns1:Ne4bd838204c34e088291ad4668a05697 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "DefinedValues" ;
-    ns3:parentJsonId ns3:Nad92e25954fa4caaa207a2aa30ea2f4d .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:N2e7c5111a83c4f0f95605306d8249207 .
 
-ns3:Ne376840b5672461e81f7e00c66f890c9 a ns3:ObjectJson,
+ns1:Ne5fb758399714dc882ede0e83d2df421 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Column "ConstExpr1005" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:Nce6833b384964d77b47bf62364392a33 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:N17b7a1ad2370445b9fcb58ad81f8f62e .
 
-ns3:Ne484ceb04f9a4123b88101af48aa7946 a ns3:ObjectJson,
+ns1:Ne8ae15d764d44ab4aedcfd0c5ecf1b19 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "OutputList" ;
-    ns3:parentJsonId ns3:N79cba4dff6b54312afa935ef27f0a4a2 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:Ndade6f81f5e840699e9715ef14ac126d .
 
-ns3:Ne4bf081d135349288330d9d7e1c1936b a ns3:ObjectJson,
+ns1:Ne8d0379136b24a52914ca09f88c4aa53 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:ScalarString "[PSYCHOLOGY_TEST_1].[dbo].[T_TESTING].[print_count] as [t].[print_count]=(0) AND datepart(day,[PSYCHOLOGY_TEST_1].[dbo].[T_TESTING].[OBJ_CREATED] as [t].[OBJ_CREATED])=datepart(day,getdate()) AND datepart(month,[PSYCHOLOGY_TEST_1].[dbo].[T_TESTING].[OBJ_CREATED] as [t].[OBJ_CREATED])=datepart(month,getdate()) AND datepart(year,[PSYCHOLOGY_TEST_1].[dbo].[T_TESTING].[OBJ_CREATED] as [t].[OBJ_CREATED])=datepart(year,getdate())" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:N9844684d765344878f8413f10045f53c .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "Identifier" ;
+    ns1:parentJsonId ns1:Nae583234328543f48eaba923a12de52a .
 
-ns3:Ne73f11183e574c21a81b74dbcec95180 a ns3:ObjectJson,
+ns1:Ne94aa0ba8b5c4353a7c2cda21dec9cd3 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "1" ;
-    ns3:parentJsonId ns3:Na64e7edcfa2d4ade9ca12bbe0f8d60a8 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "Predicate" ;
+    ns1:parentJsonId ns1:N0e1d5ed4b6e442e4ad3fdee3fc29fd09 .
 
-ns3:Ne7b196f93a714abb907454d113ce5e62 a ns3:ObjectJson,
+ns1:Nec0172c59c5e4e389112bae637bf9a51 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:FunctionName "datepart" ;
-    ns3:hasJsonObjectKey "Intrinsic" ;
-    ns3:parentJsonId ns3:N4a7026b3a70740b19a1c314bbab20a62 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "Identifier" ;
+    ns1:parentJsonId ns1:N4e1c9051629d439ba7911312b19f8c9f .
 
-ns3:Ne99d27a714f64a66894152f9d2cdbc38 a ns3:ObjectJson,
+ns1:Nec8fda9fbb844db98a1fd3da29d1931b a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Column "ConstExpr1004" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:Nd32c8b0645ee44ff8bce15da12a9f7d3 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Column "ConstExpr1006" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N8aad6a5ef947415ab48ab2b30f687cc1 .
 
-ns3:Nea3f510520cf45ab96cacbdcc726c5d5 a ns3:ObjectJson,
+ns1:Ned56f78c5f3a433eaa244994eb094286 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "Statements" ;
-    ns3:parentJsonId ns3:Nbef5b92656404f44859e994e6091a9d3 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:N120efcb0e2ec4edf851302fe3eeaefa6 .
 
-ns3:Nea76453c98bf45df85768e0c5d08a94c a ns3:ObjectJson,
+ns1:Ned8bc3b3b7aa428296721a1c67123072 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "0" ;
-    ns3:parentJsonId ns3:N89b3c68e8798415b96d1f6b5a429b21e .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:FunctionName "datepart" ;
+    ns1:hasJsonObjectKey "Intrinsic" ;
+    ns1:parentJsonId ns1:N338af50832d14bbfac485a9f304d5a35 .
 
-ns3:Ned171b85dae446bca1ef70c83ec17955 a ns3:ObjectJson,
+ns1:Nedfa11806f09472aa9f2b6d703023b10 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:ScalarString "[PSYCHOLOGY_TEST_1].[dbo].[T_TESTING].[T_TESTING_STATUS_ID] as [t].[T_TESTING_STATUS_ID]" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:N535d85b4b2664b7ab5fa9f3b3586c1ef .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:N9b37c6bddaa04f00a833b6a0a49ae440 .
 
-ns3:Nedb556f2d7bb40268b03daeb66ec3a18 a ns3:ObjectJson,
+ns1:Nef8a857191bd44f0a3d36796a746bf91 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "3" ;
-    ns3:parentJsonId ns3:N5f50481f2358494baeb0dad634cb2550 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:N718b2e2cd9b749f5b4eb096a3ed41aed .
 
-ns3:Nef2ee650d8dd40bdb06d4fb6589c8c41 a ns3:ObjectJson,
+ns1:Nf309b3a7a6374c5a9695197a5a959299 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "Statements" ;
-    ns3:parentJsonId ns3:N33b5a5485b6b450d9699eeceaa3ca591 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:CompareOp "EQ" ;
+    ns1:hasJsonObjectKey "Compare" ;
+    ns1:parentJsonId ns1:Nd8e6c6353ba949f3a5ecb37581a05792 .
 
-ns3:Neffd39f629624517ad83958013afc8aa a ns3:ObjectJson,
+ns1:Nf3ae260a05f747a9b1f9463e1f1d5e15 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:CompareOp "EQ" ;
-    ns3:hasJsonObjectKey "Compare" ;
-    ns3:parentJsonId ns3:N8238b482fec64261976615a47ecabd57 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "Identifier" ;
+    ns1:parentJsonId ns1:N7ee82047e10c4a099741b2fa09ede2af .
 
-ns3:Nf0580ddd12824b0c92f67c3248922777 a ns3:ObjectJson,
+ns1:Nf47717f8b363482db0a7f71e4a81f719 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "OutputList" ;
-    ns3:parentJsonId ns3:N240fbb14252542168f80d105750ab62d .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "Identifier" ;
+    ns1:parentJsonId ns1:N0e49618aeef742f988445920174fd538 .
 
-ns3:Nf0ba9d9cb8784b7ca336651e99d57fd0 a ns3:ObjectJson,
+ns1:Nf4bfa941d5904baa8593c09c69991972 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:AvgRowSize "28" ;
-    ns1:EstimateCPU "0.0001581" ;
-    ns1:EstimateIO "0.003125" ;
-    ns1:EstimateRebinds "0" ;
-    ns1:EstimateRewinds "0" ;
-    ns1:EstimateRows "1" ;
-    ns1:EstimatedExecutionMode "Row" ;
-    ns1:EstimatedRowsRead "1" ;
-    ns1:EstimatedTotalSubtreeCost "0.0032831" ;
-    ns1:LogicalOp "Clustered Index Seek" ;
-    ns1:NodeId "10" ;
-    ns1:Parallel "0" ;
-    ns1:PhysicalOp "Clustered Index Seek" ;
-    ns1:TableCardinality "6" ;
-    ns3:OutputList "None" ;
-    ns3:hasJsonObjectKey "1" ;
-    ns3:parentJsonId ns3:N9e4a625c6ff4453692be234c22549816 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "Identifier" ;
+    ns1:parentJsonId ns1:N5edd173bbb464cabb3d04bbe7b3d7592 .
 
-ns3:Nf6a46906407c4245aae1b318d4985d00 a ns3:ObjectJson,
+ns1:Nf5a261fbeb1c41ad9e0450991227d728 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "1" ;
-    ns3:parentJsonId ns3:N64598de440c94971bede60e2b42a5ac1 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:ScalarString "[PSYCHOLOGY_TEST_1].[dbo].[T_TESTING].[T_TESTING_STATUS_ID] as [t].[T_TESTING_STATUS_ID]" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:Nc2d305db0423465289886eb58dbd1de4 .
 
-ns3:Nf6f7fc88c13e43288fc411b16675da4f a ns3:ObjectJson,
+ns1:Nf5d20af297e74062adff3506cc166d55 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "0" ;
-    ns3:parentJsonId ns3:N64598de440c94971bede60e2b42a5ac1 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:FunctionName "datepart" ;
+    ns1:hasJsonObjectKey "Intrinsic" ;
+    ns1:parentJsonId ns1:Nedfa11806f09472aa9f2b6d703023b10 .
 
-ns3:Nf7d122dd251a40a4aca7f328e0305936 a ns3:ObjectJson,
+ns1:Nf63745d4e38e45e0b354e4379c4fbc6c a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Column "ConstExpr1006" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:Nab14365a1c46499e8a707d6bae4c0c72 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:N450fa76542a34d5786d172fd459e25cc .
 
-ns3:Nf87bcb236b26460fad9f6a00e9554640 a ns3:ObjectJson,
+ns1:Nf6b20201ad874d3cb8f58f188a02597a a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "1" ;
-    ns3:parentJsonId ns3:N48b488978a9b41568865fef6b59175b0 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:N6f80c5e442c24ea886ef02fc8c60b1cf .
 
-ns3:Nf8a47330631e40869fbaa8d06525bed7 a ns3:ObjectJson,
+ns1:Nf70a9ffef99f49c89ca60dd8dcd1b60c a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "0" ;
-    ns3:parentJsonId ns3:N002b07934bce4a18b92a6732ead0c95d .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Operation "AND" ;
+    ns1:hasJsonObjectKey "Logical" ;
+    ns1:parentJsonId ns1:N7b933570f7f549b18a7144255f598047 .
 
-ns3:Nf8d23890939e431091a85ddd0421d9b1 a ns3:ObjectJson,
+ns1:Nfe623e213cbb48c9a33c5e70d5ad4973 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "DefinedValues" ;
-    ns3:parentJsonId ns3:Nbf5634120c98470db0d41b644a67f6df .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:CompareOp "EQ" ;
+    ns1:hasJsonObjectKey "Compare" ;
+    ns1:parentJsonId ns1:N1c1892fe6542434e9acbf3da69dcc98b .
 
-ns3:Nf8e9888e1ca3414293c57458471f7dda a ns3:ObjectJson,
+ns1:Nfe8dbb7ac7134b15a708a71f05a5cb09 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:Nad08785749ec4ae2b168a3953fda45bc .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:FunctionName "datepart" ;
+    ns1:hasJsonObjectKey "Intrinsic" ;
+    ns1:parentJsonId ns1:N47db0d96dfd443c09c1ce2ef5e8edf68 .
 
-ns3:Nf9781cc783f449a783c2df8eb85ead5c a ns3:ObjectJson,
+ns1:Nfeafe7c6e6e145d198ab6eceffc7e772 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "1" ;
-    ns3:parentJsonId ns3:Nae3537366e5d4a00a27cdfb41e49b9ff .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:N78fe1d51421c42f2930f64f19f1a198c .
 
-ns3:Nfbfcf1d50def4fac8d0272b34b80b7d8 a ns3:ObjectJson,
+ns1:Nff068ac21ee1456f93d598a24e9695f4 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Operation "AND" ;
-    ns3:hasJsonObjectKey "Logical" ;
-    ns3:parentJsonId ns3:N55aad0a99a854e1a9a50ed0ae8319021 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "OutputList" ;
+    ns1:parentJsonId ns1:N63dd301b63cd47e0bd195aacb62af413 .
 
-ns3:Nfdf2a5e843fa461b86d376d9b80b4d12 a ns3:ObjectJson,
+ns1:N095867cf84de4137ab06efc751686f4f a ns1:ArrayJson,
+        ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "0" ;
-    ns3:parentJsonId ns3:Nd0366e909c4a40fb9222c3f8d4b7a137 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "RelOp" ;
+    ns1:parentJsonId ns1:Nea476d6d580b416bbe8c6eef3748341e .
 
-ns3:Nfe34cea70d0249bc8c668a060291f339 a ns3:ObjectJson,
+ns1:N0bafa286012b42aa924556d239e26ed9 a ns1:ArrayJson,
+        ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:AvgRowSize "9" ;
-    ns1:EstimateCPU "4.18e-06" ;
-    ns1:EstimateIO "0" ;
-    ns1:EstimateRebinds "0" ;
-    ns1:EstimateRewinds "0" ;
-    ns1:EstimateRows "1" ;
-    ns1:EstimatedExecutionMode "Row" ;
-    ns1:EstimatedTotalSubtreeCost "0.00923686" ;
-    ns1:LogicalOp "Inner Join" ;
-    ns1:NodeId "3" ;
-    ns1:Parallel "0" ;
-    ns1:PhysicalOp "Nested Loops" ;
-    ns3:OutputList "None" ;
-    ns3:hasJsonObjectKey "RelOp" ;
-    ns3:parentJsonId ns3:N9966021b915647059e1ec12aab047e55 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:N055261f4e9c8449bb1bc3784a4cfad22 .
 
-ns3:Nff74946998ee45349bac9521cbbe6ce5 a ns3:ObjectJson,
+ns1:N120efcb0e2ec4edf851302fe3eeaefa6 a ns1:ArrayJson,
+        ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "RangeColumns" ;
-    ns3:parentJsonId ns3:N4a7041ea46134783979ae55f93212f98 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:N7c4421fb8fe649b6a2a177b0701bb57f .
 
-ns3:N002b07934bce4a18b92a6732ead0c95d a ns3:ArrayJson,
-        ns3:ObjectJson,
+ns1:N160714882e284a15a726a516692e81e5 a ns1:ArrayJson,
+        ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:N5866fe75cf24458d9af4d91c26ff0eb3 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:Ned8bc3b3b7aa428296721a1c67123072 .
 
-ns3:N07b1129a59704f9db15e1c3bd6e10d4f a ns3:ObjectJson,
+ns1:N17b7a1ad2370445b9fcb58ad81f8f62e a ns1:ArrayJson,
+        ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:AvgRowSize "23" ;
-    ns1:EstimateCPU "1e-07" ;
-    ns1:EstimateIO "0" ;
-    ns1:EstimateRebinds "0" ;
-    ns1:EstimateRewinds "0" ;
-    ns1:EstimateRows "1" ;
-    ns1:EstimatedExecutionMode "Row" ;
-    ns1:EstimatedTotalSubtreeCost "0.0103412" ;
-    ns1:LogicalOp "Compute Scalar" ;
-    ns1:NodeId "0" ;
-    ns1:Parallel "0" ;
-    ns1:PhysicalOp "Compute Scalar" ;
-    ns3:hasJsonObjectKey "RelOp" ;
-    ns3:parentJsonId ns3:N1f52bc06fb0041fabbe54b890234449f .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:Nc9ab15f0b3e142e893d7f9a704b9c968 .
 
-ns3:N0ffd456bae564b0993b544f9785e4925 a ns3:ObjectJson,
+ns1:N18d2fcf9957d4d67b6c080f1c4c444c0 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:AvgRowSize "23" ;
-    ns1:EstimateCPU "0.0003396" ;
-    ns1:EstimateIO "0.00534722" ;
-    ns1:EstimateRebinds "0" ;
-    ns1:EstimateRewinds "0" ;
-    ns1:EstimateRows "1" ;
-    ns1:EstimatedExecutionMode "Row" ;
-    ns1:EstimatedRowsRead "166" ;
-    ns1:EstimatedTotalSubtreeCost "0.00568682" ;
-    ns1:LogicalOp "Clustered Index Scan" ;
-    ns1:NodeId "5" ;
-    ns1:Parallel "0" ;
-    ns1:PhysicalOp "Clustered Index Scan" ;
-    ns1:TableCardinality "166" ;
-    ns3:hasJsonObjectKey "0" ;
-    ns3:parentJsonId ns3:N34e1ce40bbcc43c5b4ad74ee15575001 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Optimized "0" ;
+    ns1:hasJsonObjectKey "NestedLoops" ;
+    ns1:parentJsonId ns1:N829ea229a40c4314ae4acea96321419f .
 
-ns3:N155064fadb78479f9914474dc486fd48 a ns3:ObjectJson,
+ns1:N21e75f79a4ba4c1d8f2308bc0b751cc5 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Optimized "0" ;
-    ns3:hasJsonObjectKey "NestedLoops" ;
-    ns3:parentJsonId ns3:Ne1b5d0e5610d4ea3bf459e88d415415a .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "DefinedValue" ;
+    ns1:parentJsonId ns1:N34ea23af09544830a4260d61c13c4ebc .
 
-ns3:N21a390ff56844e409c940ad15c692f52 a ns3:ObjectJson,
+ns1:N22839c2015ee444e82231ca3ae6380e6 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Optimized "0" ;
-    ns3:hasJsonObjectKey "NestedLoops" ;
-    ns3:parentJsonId ns3:N79cba4dff6b54312afa935ef27f0a4a2 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "DefinedValue" ;
+    ns1:parentJsonId ns1:N947b78d6628a436db17afb1ae3837957 .
 
-ns3:N240fbb14252542168f80d105750ab62d a ns3:ObjectJson,
+ns1:N27055f484d2747489fbff1821795eb38 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:AvgRowSize "23" ;
-    ns1:EstimateCPU "1e-07" ;
-    ns1:EstimateIO "0" ;
-    ns1:EstimateRebinds "0" ;
-    ns1:EstimateRewinds "0" ;
-    ns1:EstimateRows "1" ;
-    ns1:EstimatedExecutionMode "Row" ;
-    ns1:EstimatedTotalSubtreeCost "0.0103358" ;
-    ns1:LogicalOp "Top" ;
-    ns1:NodeId "3" ;
-    ns1:Parallel "0" ;
-    ns1:PhysicalOp "Top" ;
-    ns3:hasJsonObjectKey "1" ;
-    ns3:parentJsonId ns3:Ne2a0b4badfc644a6bc16170de9cb4b90 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:ScanType "EQ" ;
+    ns1:hasJsonObjectKey "Prefix" ;
+    ns1:parentJsonId ns1:Nda4e0ea6e8ee4ab2956d2e27f686b4d4 .
 
-ns3:N248cf88d55ac4b778456c1f3338b7223 a ns3:ObjectJson,
+ns1:N286d85fd57a2461ba7fb4efa4a8dce22 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "DefinedValue" ;
-    ns3:parentJsonId ns3:N06546e2b630f4eefb7f335893e4079d1 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:AvgRowSize "11" ;
+    ns2:EstimateCPU "1e-07" ;
+    ns2:EstimateIO "0" ;
+    ns2:EstimateRebinds "0" ;
+    ns2:EstimateRewinds "0" ;
+    ns2:EstimateRows "1" ;
+    ns2:EstimatedExecutionMode "Row" ;
+    ns2:EstimatedTotalSubtreeCost "0.00923806" ;
+    ns2:LogicalOp "Compute Scalar" ;
+    ns2:NodeId "0" ;
+    ns2:Parallel "0" ;
+    ns2:PhysicalOp "Compute Scalar" ;
+    ns1:hasJsonObjectKey "RelOp" ;
+    ns1:parentJsonId ns1:Na9d2f9180caa4b8d820d38a29bcc282b .
 
-ns3:N2b7df95fa3a14bc2b658416082e71063 a ns3:ObjectJson,
+ns1:N2a9b91b625bf4bfeaede13179c8ea751 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:Optimized "0" ;
-    ns3:hasJsonObjectKey "NestedLoops" ;
-    ns3:parentJsonId ns3:Nfe34cea70d0249bc8c668a060291f339 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:AvgRowSize "23" ;
+    ns2:EstimateCPU "1e-07" ;
+    ns2:EstimateIO "0" ;
+    ns2:EstimateRebinds "0" ;
+    ns2:EstimateRewinds "0" ;
+    ns2:EstimateRows "1" ;
+    ns2:EstimatedExecutionMode "Row" ;
+    ns2:EstimatedTotalSubtreeCost "0.0103358" ;
+    ns2:LogicalOp "Top" ;
+    ns2:NodeId "3" ;
+    ns2:Parallel "0" ;
+    ns2:PhysicalOp "Top" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:Nf8ffbd7aa1a64b349aee4237bd791178 .
 
-ns3:N34e1ce40bbcc43c5b4ad74ee15575001 a ns3:ArrayJson,
-        ns3:ObjectJson,
+ns1:N2c8158ac0f5a4946ae62d1bd7897f16c a ns1:ArrayJson,
+        ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "RelOp" ;
-    ns3:parentJsonId ns3:N2b7df95fa3a14bc2b658416082e71063 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N668b05ab01ef4e27befa7dd50ae22e35 .
 
-ns3:N3a5a48816dd942a4acc52043cadc6df3 a ns3:ArrayJson,
-        ns3:ObjectJson,
+ns1:N2e7c5111a83c4f0f95605306d8249207 a ns1:ArrayJson,
+        ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:N946447ef42a1415bb5dbbc6462934017 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:N7aaccc958b6844aba64cf08b7efdb52b .
 
-ns3:N46ed6caf71664947a4cefddae7319062 a ns3:ObjectJson,
+ns1:N316f94118a9b479483ef013f5fb377c4 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "DefinedValue" ;
-    ns3:parentJsonId ns3:N5194e42000a643ef8085119c05728c69 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "StreamAggregate" ;
+    ns1:parentJsonId ns1:Nd1c12229681b4089a6fef1a2f73556bc .
 
-ns3:N48b488978a9b41568865fef6b59175b0 a ns3:ArrayJson,
-        ns3:ObjectJson,
+ns1:N3873f503b10f4f65abbee3ae5c5e1f9a a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:N9b0b97865a424775910975a9db065dfb .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "ComputeScalar" ;
+    ns1:parentJsonId ns1:Nb8fa2d9cc8304ba989253c65cb31b90f .
 
-ns3:N4a7041ea46134783979ae55f93212f98 a ns3:ObjectJson,
+ns1:N41b0248c70f44dc5b62c855374153487 a ns1:ArrayJson,
+        ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:ScanType "EQ" ;
-    ns3:hasJsonObjectKey "Prefix" ;
-    ns3:parentJsonId ns3:N3d04c741a4a048199f2baadf4e63e6b0 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "RelOp" ;
+    ns1:parentJsonId ns1:N62b0d870e7754f4398aa641f50807d94 .
 
-ns3:N51ca764b5e8d41a09018894e182ac47c a ns3:ObjectJson,
+ns1:N4339f6eb8aa647a18741bb446365a67f a ns1:ArrayJson,
+        ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "ComputeScalar" ;
-    ns3:parentJsonId ns3:N07b1129a59704f9db15e1c3bd6e10d4f .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:N7147fd7c405e44f39c2d116719527ea5 .
 
-ns3:N548c4286f2eb40898bca671f47413acd a ns3:ArrayJson,
-        ns3:ObjectJson,
+ns1:N4357ff10d93c4e51aaa5dc1e22ba2c85 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:N4da9e5f7dc4143249dcd50721a1f7d76 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "ComputeScalar" ;
+    ns1:parentJsonId ns1:Nab4ff53233c443ff923aca5475c794cc .
 
-ns3:N54b689b469ee45c89711aab9091b9888 a ns3:ArrayJson,
-        ns3:ObjectJson,
+ns1:N46d2858b722b42fd8b09db5349506dfa a ns1:ArrayJson,
+        ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:N7092d8d8dbcf491494866a5268a31065 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "RelOp" ;
+    ns1:parentJsonId ns1:N18d2fcf9957d4d67b6c080f1c4c444c0 .
 
-ns3:N5c132c82e0d34baea9cf01ef8f9357b6 a ns3:ObjectJson,
+ns1:N4886a2e776c644268765f4df95650f56 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:CardinalityEstimationModelVersion "70" ;
-    ns1:QueryHash "0x03664F2CAE512733" ;
-    ns1:QueryPlanHash "0x8E1612618333FA89" ;
-    ns1:RetrievedFromCache "false" ;
-    ns1:SecurityPolicyApplied "false" ;
-    ns1:StatementCompId "6" ;
-    ns1:StatementEstRows "1" ;
-    ns1:StatementId "5" ;
-    ns1:StatementOptmEarlyAbortReason "GoodEnoughPlanFound" ;
-    ns1:StatementOptmLevel "FULL" ;
-    ns1:StatementSubTreeCost "0.0103412" ;
-    ns1:StatementText """set @t_testing_id = (\r
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:CardinalityEstimationModelVersion "70" ;
+    ns2:QueryHash "0x03664F2CAE512733" ;
+    ns2:QueryPlanHash "0x8E1612618333FA89" ;
+    ns2:RetrievedFromCache "false" ;
+    ns2:SecurityPolicyApplied "false" ;
+    ns2:StatementCompId "6" ;
+    ns2:StatementEstRows "1" ;
+    ns2:StatementId "5" ;
+    ns2:StatementOptmEarlyAbortReason "GoodEnoughPlanFound" ;
+    ns2:StatementOptmLevel "FULL" ;
+    ns2:StatementSubTreeCost "0.0103412" ;
+    ns2:StatementText """set @t_testing_id = (\r
 select  top 1  t.t_testing_id \r
 from t_testing t \r
 inner join t_testing_status ts \r
@@ -2212,52 +2218,243 @@ and datepart(year,t.obj_created)=datepart(year,getdate())\r
 and t.print_count=0 \r
 order by t.obj_created \r
 )""" ;
-    ns1:StatementType "SELECT" ;
-    ns3:hasJsonObjectKey "3" ;
-    ns3:parentJsonId ns3:Nefd33894af9447bfad1c82a63009db1c .
+    ns2:StatementType "SELECT" ;
+    ns1:hasJsonObjectKey "3" ;
+    ns1:parentJsonId ns1:N1255935781d14b1caa4d2da080f935a7 .
 
-ns3:N61e79021ccab410ea4f010ec30ade249 a ns3:ArrayJson,
-        ns3:ObjectJson,
+ns1:N48ad52f996614fd6b4985d450ea9f2bc a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:N7b16029469dc4950a9dabda1883dd6f7 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:AvgRowSize "15" ;
+    ns2:EstimateCPU "0.0001581" ;
+    ns2:EstimateIO "0.003125" ;
+    ns2:EstimateRebinds "0" ;
+    ns2:EstimateRewinds "0" ;
+    ns2:EstimateRows "1" ;
+    ns2:EstimatedExecutionMode "Row" ;
+    ns2:EstimatedTotalSubtreeCost "0.0032831" ;
+    ns2:LogicalOp "Clustered Index Seek" ;
+    ns2:NodeId "9" ;
+    ns2:Parallel "0" ;
+    ns2:PhysicalOp "Clustered Index Seek" ;
+    ns2:TableCardinality "166" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:N46d2858b722b42fd8b09db5349506dfa .
 
-ns3:N64598de440c94971bede60e2b42a5ac1 a ns3:ArrayJson,
-        ns3:ObjectJson,
+ns1:N4b0e3904b02c4dd7bbea33e2caf43f7b a ns1:ArrayJson,
+        ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:N9cd451b092084c73a8bdbba35ab74203 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:N1d482565895147698b633bfef2ccb063 .
 
-ns3:N65b98a6164934cbfb69203e983a13da8 a ns3:ObjectJson,
+ns1:N4d6ef7d3385841279d0cc003d7162fd7 a ns1:ArrayJson,
+        ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "DefinedValue" ;
-    ns3:parentJsonId ns3:Nb5c94b51625b414eac1a73c0f0e956af .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:Nc36bf51ea07e43b0ad530f6cbd4d8165 .
 
-ns3:N662072bb00bf4247a5f2f169eadb4d56 a ns3:ArrayJson,
-        ns3:ObjectJson,
+ns1:N4fbc30fd8d164091832ba480358044d3 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:N340757288cd74698a26269e23603c90b .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "DefinedValue" ;
+    ns1:parentJsonId ns1:Ncd8277decfc54a69b7d7765993a7b40f .
 
-ns3:N6f1706ea8fdb475681cb06c69d2fd461 a ns3:ObjectJson,
+ns1:N51847359a37548cbb67af870b58369f1 a ns1:ArrayJson,
+        ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:CardinalityEstimationModelVersion "70" ;
-    ns1:QueryHash "0xBCE76BC608AD58C9" ;
-    ns1:QueryPlanHash "0xC96F6290B3967584" ;
-    ns1:RetrievedFromCache "false" ;
-    ns1:SecurityPolicyApplied "false" ;
-    ns1:StatementCompId "7" ;
-    ns1:StatementEstRows "1" ;
-    ns1:StatementId "6" ;
-    ns1:StatementOptmEarlyAbortReason "GoodEnoughPlanFound" ;
-    ns1:StatementOptmLevel "FULL" ;
-    ns1:StatementSubTreeCost "0.00923806" ;
-    ns1:StatementText """\r
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "DefinedValue" ;
+    ns1:parentJsonId ns1:Ndb170045e10b43ae9a2ca5c556f6cac1 .
+
+ns1:N62b0d870e7754f4398aa641f50807d94 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Optimized "0" ;
+    ns1:hasJsonObjectKey "NestedLoops" ;
+    ns1:parentJsonId ns1:N9cfa1fe7e2a445a8bd947584d077a64c .
+
+ns1:N63dd301b63cd47e0bd195aacb62af413 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:AvgRowSize "31" ;
+    ns2:EstimateCPU "0.0003396" ;
+    ns2:EstimateIO "0.003125" ;
+    ns2:EstimateRebinds "0" ;
+    ns2:EstimateRewinds "0" ;
+    ns2:EstimateRows "1" ;
+    ns2:EstimatedExecutionMode "Row" ;
+    ns2:EstimatedRowsRead "166" ;
+    ns2:EstimatedTotalSubtreeCost "0.0034646" ;
+    ns2:LogicalOp "Index Scan" ;
+    ns2:NodeId "7" ;
+    ns2:Parallel "0" ;
+    ns2:PhysicalOp "Index Scan" ;
+    ns2:TableCardinality "166" ;
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:N46d2858b722b42fd8b09db5349506dfa .
+
+ns1:N6e229b4eac93451b856cf8754dd041bc a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:IsPercent "0" ;
+    ns2:RowCount "0" ;
+    ns2:WithTies "0" ;
+    ns1:hasJsonObjectKey "Top" ;
+    ns1:parentJsonId ns1:N2a9b91b625bf4bfeaede13179c8ea751 .
+
+ns1:N6f73ecc4a9974599a9eedcd71a732d85 a ns1:ArrayJson,
+        ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:N4dc1ca1cded54acaa86d38c990eaaffe .
+
+ns1:N6f80c5e442c24ea886ef02fc8c60b1cf a ns1:ArrayJson,
+        ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:N0d78e134cd744f378ea4a563255c4d48 .
+
+ns1:N718b2e2cd9b749f5b4eb096a3ed41aed a ns1:ArrayJson,
+        ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:N1e746c1f44934cf29a113ffdfc107527 .
+
+ns1:N72d6a6d640214b7b92562648ed5676c2 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "DefinedValue" ;
+    ns1:parentJsonId ns1:N247ae1e9b74c47798024bb6148d89b36 .
+
+ns1:N829ea229a40c4314ae4acea96321419f a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:AvgRowSize "39" ;
+    ns2:EstimateCPU "4.18e-06" ;
+    ns2:EstimateIO "0" ;
+    ns2:EstimateRebinds "0" ;
+    ns2:EstimateRewinds "0" ;
+    ns2:EstimateRows "1" ;
+    ns2:EstimatedExecutionMode "Row" ;
+    ns2:EstimatedTotalSubtreeCost "0.00704736" ;
+    ns2:LogicalOp "Inner Join" ;
+    ns2:NodeId "6" ;
+    ns2:Parallel "0" ;
+    ns2:PhysicalOp "Nested Loops" ;
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:N41b0248c70f44dc5b62c855374153487 .
+
+ns1:N8de25d902ea14b4aa20d265ba0a47e67 a ns1:ArrayJson,
+        ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:N6e86d92d4c054b5e952407cbc14c90f6 .
+
+ns1:N8ff173634cd84afc81f4a4c1c2ecbfb8 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:AvgRowSize "23" ;
+    ns2:EstimateCPU "4.18e-06" ;
+    ns2:EstimateIO "0" ;
+    ns2:EstimateRebinds "0" ;
+    ns2:EstimateRewinds "0" ;
+    ns2:EstimateRows "1" ;
+    ns2:EstimatedExecutionMode "Row" ;
+    ns2:EstimatedTotalSubtreeCost "0.0103411" ;
+    ns2:LogicalOp "Left Outer Join" ;
+    ns2:NodeId "1" ;
+    ns2:Parallel "0" ;
+    ns2:PhysicalOp "Nested Loops" ;
+    ns1:hasJsonObjectKey "RelOp" ;
+    ns1:parentJsonId ns1:N4357ff10d93c4e51aaa5dc1e22ba2c85 .
+
+ns1:N91194dbf2312446f9f1fa58e81234e53 a ns1:ArrayJson,
+        ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:Nff068ac21ee1456f93d598a24e9695f4 .
+
+ns1:N991c49e009ad498bad7fccedfb56317e a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:AvgRowSize "23" ;
+    ns2:EstimateCPU "0.0003396" ;
+    ns2:EstimateIO "0.00534722" ;
+    ns2:EstimateRebinds "0" ;
+    ns2:EstimateRewinds "0" ;
+    ns2:EstimateRows "1" ;
+    ns2:EstimatedExecutionMode "Row" ;
+    ns2:EstimatedRowsRead "166" ;
+    ns2:EstimatedTotalSubtreeCost "0.00568682" ;
+    ns2:LogicalOp "Clustered Index Scan" ;
+    ns2:NodeId "5" ;
+    ns2:Parallel "0" ;
+    ns2:PhysicalOp "Clustered Index Scan" ;
+    ns2:TableCardinality "166" ;
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:N095867cf84de4137ab06efc751686f4f .
+
+ns1:N9b37c6bddaa04f00a833b6a0a49ae440 a ns1:ArrayJson,
+        ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:Nf309b3a7a6374c5a9695197a5a959299 .
+
+ns1:N9cfa1fe7e2a445a8bd947584d077a64c a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:AvgRowSize "31" ;
+    ns2:EstimateCPU "4.18e-06" ;
+    ns2:EstimateIO "0" ;
+    ns2:EstimateRebinds "0" ;
+    ns2:EstimateRewinds "0" ;
+    ns2:EstimateRows "1" ;
+    ns2:EstimatedExecutionMode "Row" ;
+    ns2:EstimatedTotalSubtreeCost "0.0103357" ;
+    ns2:LogicalOp "Inner Join" ;
+    ns2:NodeId "4" ;
+    ns2:Parallel "0" ;
+    ns2:PhysicalOp "Nested Loops" ;
+    ns1:hasJsonObjectKey "RelOp" ;
+    ns1:parentJsonId ns1:N6e229b4eac93451b856cf8754dd041bc .
+
+ns1:Na3237455bf554af1a4b360cd71c559c7 a ns1:ArrayJson,
+        ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:N3e2c26dbec8f4ac8becffebb3e4823ea .
+
+ns1:Na588c6bae3c4429ca6f00427b367eef1 a ns1:ArrayJson,
+        ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:N0b5d94c1353b48b2b757feb7e0563b4c .
+
+ns1:Na8d3b57612864cc8974c5976a07e0608 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:CardinalityEstimationModelVersion "70" ;
+    ns2:QueryHash "0xBCE76BC608AD58C9" ;
+    ns2:QueryPlanHash "0xC96F6290B3967584" ;
+    ns2:RetrievedFromCache "false" ;
+    ns2:SecurityPolicyApplied "false" ;
+    ns2:StatementCompId "7" ;
+    ns2:StatementEstRows "1" ;
+    ns2:StatementId "6" ;
+    ns2:StatementOptmEarlyAbortReason "GoodEnoughPlanFound" ;
+    ns2:StatementOptmLevel "FULL" ;
+    ns2:StatementSubTreeCost "0.00923806" ;
+    ns2:StatementText """\r
 \r
 \r
 set @job_count = (\r
@@ -2271,455 +2468,258 @@ and datepart(month,t.obj_created)=datepart(month,getdate())\r
 and datepart(year,t.obj_created)=datepart(year,getdate())\r
 and t.print_count=0 \r
 )""" ;
-    ns1:StatementType "SELECT" ;
-    ns3:hasJsonObjectKey "4" ;
-    ns3:parentJsonId ns3:Nefd33894af9447bfad1c82a63009db1c .
+    ns2:StatementType "SELECT" ;
+    ns1:hasJsonObjectKey "4" ;
+    ns1:parentJsonId ns1:N1255935781d14b1caa4d2da080f935a7 .
 
-ns3:N7902479d4feb491dafe2d3564eef2f33 a ns3:ArrayJson,
-        ns3:ObjectJson,
+ns1:Nab4ff53233c443ff923aca5475c794cc a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:N459b34ac6a5941f78e3ea945c1853b06 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:AvgRowSize "23" ;
+    ns2:EstimateCPU "1e-07" ;
+    ns2:EstimateIO "0" ;
+    ns2:EstimateRebinds "0" ;
+    ns2:EstimateRewinds "0" ;
+    ns2:EstimateRows "1" ;
+    ns2:EstimatedExecutionMode "Row" ;
+    ns2:EstimatedTotalSubtreeCost "0.0103412" ;
+    ns2:LogicalOp "Compute Scalar" ;
+    ns2:NodeId "0" ;
+    ns2:Parallel "0" ;
+    ns2:PhysicalOp "Compute Scalar" ;
+    ns1:hasJsonObjectKey "RelOp" ;
+    ns1:parentJsonId ns1:N0b1fbdff8fb44014aeab2c07e9064b10 .
 
-ns3:N79cba4dff6b54312afa935ef27f0a4a2 a ns3:ObjectJson,
+ns1:Nae67ca3addfc4eacbac7640f55af34a7 a ns1:ArrayJson,
+        ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:AvgRowSize "39" ;
-    ns1:EstimateCPU "4.18e-06" ;
-    ns1:EstimateIO "0" ;
-    ns1:EstimateRebinds "0" ;
-    ns1:EstimateRewinds "0" ;
-    ns1:EstimateRows "1" ;
-    ns1:EstimatedExecutionMode "Row" ;
-    ns1:EstimatedTotalSubtreeCost "0.00704736" ;
-    ns1:LogicalOp "Inner Join" ;
-    ns1:NodeId "6" ;
-    ns1:Parallel "0" ;
-    ns1:PhysicalOp "Nested Loops" ;
-    ns3:hasJsonObjectKey "0" ;
-    ns3:parentJsonId ns3:N9e4a625c6ff4453692be234c22549816 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:N191feee1bfb2409d97e5e0ffe03b5b63 .
 
-ns3:N7c9655d50afb48238dcf1d697097512d a ns3:ArrayJson,
-        ns3:ObjectJson,
+ns1:Naeccc4401c144782adedbd0f2e78518d a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:N601954e1fd65437cb852c108780ec99e .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:ScanType "EQ" ;
+    ns1:hasJsonObjectKey "Prefix" ;
+    ns1:parentJsonId ns1:N4625e0d3536842f1a6d2597f2ae0ddf6 .
 
-ns3:N7ccbb79cd43e40c1a5e55a72d3400c68 a ns3:ArrayJson,
-        ns3:ObjectJson,
+ns1:Nb8fa2d9cc8304ba989253c65cb31b90f a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:Nb9ff7bc7e67a4b94bef0a23e69dd352a .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:AvgRowSize "11" ;
+    ns2:EstimateCPU "0" ;
+    ns2:EstimateIO "0" ;
+    ns2:EstimateRebinds "0" ;
+    ns2:EstimateRewinds "0" ;
+    ns2:EstimateRows "1" ;
+    ns2:EstimatedExecutionMode "Row" ;
+    ns2:EstimatedTotalSubtreeCost "0.00923796" ;
+    ns2:LogicalOp "Compute Scalar" ;
+    ns2:NodeId "1" ;
+    ns2:Parallel "0" ;
+    ns2:PhysicalOp "Compute Scalar" ;
+    ns1:hasJsonObjectKey "RelOp" ;
+    ns1:parentJsonId ns1:Nc500404231854fea8671fe4de145d136 .
 
-ns3:N7ce9f2a06a6546289853078d1f69de98 a ns3:ArrayJson,
-        ns3:ObjectJson,
+ns1:Nbe10bf44c5a447a88f9da33bd7ee9c0e a ns1:ArrayJson,
+        ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:N23930a20b2bb4a54acbf4386c917ddf9 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:N51ab67507df94ed7afeeb708f28724be .
 
-ns3:N817d5ac22dbc425cb4ccb795e720ba64 a ns3:ObjectJson,
+ns1:Nc208a9983da148b79ba6bc8cc0f033d3 a ns1:ArrayJson,
+        ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "DefinedValue" ;
-    ns3:parentJsonId ns3:Nf8d23890939e431091a85ddd0421d9b1 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:Nf5d20af297e74062adff3506cc166d55 .
 
-ns3:N81936e7333614d9c837a0f7ddd3afcbf a ns3:ArrayJson,
-        ns3:ObjectJson,
+ns1:Nc500404231854fea8671fe4de145d136 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:Ne7b196f93a714abb907454d113ce5e62 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "ComputeScalar" ;
+    ns1:parentJsonId ns1:N286d85fd57a2461ba7fb4efa4a8dce22 .
 
-ns3:N89b3c68e8798415b96d1f6b5a429b21e a ns3:ArrayJson,
-        ns3:ObjectJson,
+ns1:Nca7a63c0f2844c2e8b568a834441dc85 a ns1:ArrayJson,
+        ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:Naee96e19c2fb4bf5b29718d491da0444 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:Nb6293ac7bd8f44ac9875e7f49c141c43 .
 
-ns3:N9887f40767ed43369fe83ede0806a0b5 a ns3:ArrayJson,
-        ns3:ObjectJson,
+ns1:Ncfbba2d5e3854b8687d9169d59a976f2 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:N90f0a3e8adfb489c9d35ca32dc3d638b .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:ScanType "EQ" ;
+    ns1:hasJsonObjectKey "Prefix" ;
+    ns1:parentJsonId ns1:N714bfe34990548b7b989497721ea818b .
 
-ns3:N9966021b915647059e1ec12aab047e55 a ns3:ObjectJson,
+ns1:Nd0cdb65699b94a5ebd6995ec7932c64c a ns1:ArrayJson,
+        ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "StreamAggregate" ;
-    ns3:parentJsonId ns3:Nb2c2db1bdd8c415baf041dbef29dcdcc .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:Nfe8dbb7ac7134b15a708a71f05a5cb09 .
 
-ns3:N9d0152c163be4388b77d4204fcea2755 a ns3:ArrayJson,
-        ns3:ObjectJson,
+ns1:Nd1c12229681b4089a6fef1a2f73556bc a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:N6fed3d2c7f204f2cb40adc2245473f3a .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:AvgRowSize "11" ;
+    ns2:EstimateCPU "1.1e-06" ;
+    ns2:EstimateIO "0" ;
+    ns2:EstimateRebinds "0" ;
+    ns2:EstimateRewinds "0" ;
+    ns2:EstimateRows "1" ;
+    ns2:EstimatedExecutionMode "Row" ;
+    ns2:EstimatedTotalSubtreeCost "0.00923796" ;
+    ns2:LogicalOp "Aggregate" ;
+    ns2:NodeId "2" ;
+    ns2:Parallel "0" ;
+    ns2:PhysicalOp "Stream Aggregate" ;
+    ns1:hasJsonObjectKey "RelOp" ;
+    ns1:parentJsonId ns1:N3873f503b10f4f65abbee3ae5c5e1f9a .
 
-ns3:N9e4a625c6ff4453692be234c22549816 a ns3:ArrayJson,
-        ns3:ObjectJson,
+ns1:Ndade6f81f5e840699e9715ef14ac126d a ns1:ArrayJson,
+        ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "RelOp" ;
-    ns3:parentJsonId ns3:N155064fadb78479f9914474dc486fd48 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:Ne2c1c58562ee43419a9cd97da217b6a2 .
 
-ns3:Na64e7edcfa2d4ade9ca12bbe0f8d60a8 a ns3:ArrayJson,
-        ns3:ObjectJson,
+ns1:Ndd43bd9e016d4bc0ac713f897242b6bb a ns1:ArrayJson,
+        ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:Naf58f418d3d04aea8bb56706941664f3 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:Nfe623e213cbb48c9a33c5e70d5ad4973 .
 
-ns3:Nae3537366e5d4a00a27cdfb41e49b9ff a ns3:ArrayJson,
-        ns3:ObjectJson,
+ns1:Nea476d6d580b416bbe8c6eef3748341e a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:N419ee8d22918407eba64d7e0866f3e0d .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:Optimized "0" ;
+    ns1:hasJsonObjectKey "NestedLoops" ;
+    ns1:parentJsonId ns1:N06d0b376ff424beb97611278ee105459 .
 
-ns3:Nb2c2db1bdd8c415baf041dbef29dcdcc a ns3:ObjectJson,
+ns1:Nf8ffbd7aa1a64b349aee4237bd791178 a ns1:ArrayJson,
+        ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:AvgRowSize "11" ;
-    ns1:EstimateCPU "1.1e-06" ;
-    ns1:EstimateIO "0" ;
-    ns1:EstimateRebinds "0" ;
-    ns1:EstimateRewinds "0" ;
-    ns1:EstimateRows "1" ;
-    ns1:EstimatedExecutionMode "Row" ;
-    ns1:EstimatedTotalSubtreeCost "0.00923796" ;
-    ns1:LogicalOp "Aggregate" ;
-    ns1:NodeId "2" ;
-    ns1:Parallel "0" ;
-    ns1:PhysicalOp "Stream Aggregate" ;
-    ns3:hasJsonObjectKey "RelOp" ;
-    ns3:parentJsonId ns3:Nbf5634120c98470db0d41b644a67f6df .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "RelOp" ;
+    ns1:parentJsonId ns1:Nb3fca0c8a5cd4736aa2cea03944b42fd .
 
-ns3:Nb32258947cbe4ae1af86faf7837fc5a1 a ns3:ObjectJson,
+ns1:N0b1fbdff8fb44014aeab2c07e9064b10 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:AvgRowSize "31" ;
-    ns1:EstimateCPU "0.0003396" ;
-    ns1:EstimateIO "0.003125" ;
-    ns1:EstimateRebinds "0" ;
-    ns1:EstimateRewinds "0" ;
-    ns1:EstimateRows "1" ;
-    ns1:EstimatedExecutionMode "Row" ;
-    ns1:EstimatedRowsRead "166" ;
-    ns1:EstimatedTotalSubtreeCost "0.0034646" ;
-    ns1:LogicalOp "Index Scan" ;
-    ns1:NodeId "7" ;
-    ns1:Parallel "0" ;
-    ns1:PhysicalOp "Index Scan" ;
-    ns1:TableCardinality "166" ;
-    ns3:hasJsonObjectKey "0" ;
-    ns3:parentJsonId ns3:Ncaf35078be3a4db19534130073f95012 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:CachedPlanSize "40" ;
+    ns2:CompileCPU "12" ;
+    ns2:CompileMemory "552" ;
+    ns2:CompileTime "12" ;
+    ns1:hasJsonObjectKey "QueryPlan" ;
+    ns1:parentJsonId ns1:N4886a2e776c644268765f4df95650f56 .
 
-ns3:Nb3a5900c172c4bb7aaeae8ffe4dbfab2 a ns3:ArrayJson,
-        ns3:ObjectJson,
+ns1:N1d2985e7494b43a9a56df62dcc213591 a ns1:ArrayJson,
+        ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:N2f6f2f23940c4e1f886344c996d24698 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:Ndbddfda5b47f4855b4c7cd4874b3aafe .
 
-ns3:Nb53fa833194a4517a5339920188d43f9 a ns3:ObjectJson,
+ns1:N38ac2aeb6fe44b0a8cd613e01dcaf8f4 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:AvgRowSize "15" ;
-    ns1:EstimateCPU "0.0001581" ;
-    ns1:EstimateIO "0.003125" ;
-    ns1:EstimateRebinds "0" ;
-    ns1:EstimateRewinds "0" ;
-    ns1:EstimateRows "1" ;
-    ns1:EstimatedExecutionMode "Row" ;
-    ns1:EstimatedTotalSubtreeCost "0.0032831" ;
-    ns1:LogicalOp "Clustered Index Seek" ;
-    ns1:NodeId "9" ;
-    ns1:Parallel "0" ;
-    ns1:PhysicalOp "Clustered Index Seek" ;
-    ns1:TableCardinality "166" ;
-    ns3:hasJsonObjectKey "1" ;
-    ns3:parentJsonId ns3:Ncaf35078be3a4db19534130073f95012 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:ForceScan "0" ;
+    ns2:ForceSeek "0" ;
+    ns2:ForcedIndex "0" ;
+    ns2:NoExpandHint "0" ;
+    ns2:Ordered "1" ;
+    ns2:ScanDirection "FORWARD" ;
+    ns2:Storage "RowStore" ;
+    ns1:DefinedValues "None" ;
+    ns1:hasJsonObjectKey "IndexScan" ;
+    ns1:parentJsonId ns1:Na2e43e0317a046159a546d4388088ac0 .
 
-ns3:Nbcf1b6ee3fb54cb08101019b78333057 a ns3:ObjectJson,
+ns1:N88d67006acab43218a261561cda2c676 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:IsPercent "0" ;
-    ns1:RowCount "0" ;
-    ns1:WithTies "0" ;
-    ns3:hasJsonObjectKey "Top" ;
-    ns3:parentJsonId ns3:N240fbb14252542168f80d105750ab62d .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:ForceScan "0" ;
+    ns2:ForceSeek "0" ;
+    ns2:ForcedIndex "0" ;
+    ns2:NoExpandHint "0" ;
+    ns2:Ordered "1" ;
+    ns2:ScanDirection "FORWARD" ;
+    ns2:Storage "RowStore" ;
+    ns1:DefinedValues "None" ;
+    ns1:hasJsonObjectKey "IndexScan" ;
+    ns1:parentJsonId ns1:N894edf441f844608b429c16b49044471 .
 
-ns3:Nbee29cc1ab1c41ac828693b26491d5a7 a ns3:ObjectJson,
+ns1:Na2c0c56108b041b38927a0e11684bf49 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:AvgRowSize "23" ;
-    ns1:EstimateCPU "4.18e-06" ;
-    ns1:EstimateIO "0" ;
-    ns1:EstimateRebinds "0" ;
-    ns1:EstimateRewinds "0" ;
-    ns1:EstimateRows "1" ;
-    ns1:EstimatedExecutionMode "Row" ;
-    ns1:EstimatedTotalSubtreeCost "0.0103411" ;
-    ns1:LogicalOp "Left Outer Join" ;
-    ns1:NodeId "1" ;
-    ns1:Parallel "0" ;
-    ns1:PhysicalOp "Nested Loops" ;
-    ns3:hasJsonObjectKey "RelOp" ;
-    ns3:parentJsonId ns3:N51ca764b5e8d41a09018894e182ac47c .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:ForceScan "0" ;
+    ns2:ForceSeek "0" ;
+    ns2:ForcedIndex "0" ;
+    ns2:NoExpandHint "0" ;
+    ns2:Ordered "1" ;
+    ns2:ScanDirection "FORWARD" ;
+    ns2:Storage "RowStore" ;
+    ns1:hasJsonObjectKey "IndexScan" ;
+    ns1:parentJsonId ns1:N63dd301b63cd47e0bd195aacb62af413 .
 
-ns3:Nbf5634120c98470db0d41b644a67f6df a ns3:ObjectJson,
+ns1:Na9d2f9180caa4b8d820d38a29bcc282b a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "ComputeScalar" ;
-    ns3:parentJsonId ns3:Nfbb53188841649f7a2b63a11eda0469c .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:CachedPlanSize "32" ;
+    ns2:CompileCPU "7" ;
+    ns2:CompileMemory "560" ;
+    ns2:CompileTime "7" ;
+    ns1:hasJsonObjectKey "QueryPlan" ;
+    ns1:parentJsonId ns1:Na8d3b57612864cc8974c5976a07e0608 .
 
-ns3:Nc5c914dd564b42c2a4fd64c59da21993 a ns3:ArrayJson,
-        ns3:ObjectJson,
+ns1:Nbe2fa7ffdc2d4c50ad9f45bc30b633ae a ns1:ArrayJson,
+        ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:Neffd39f629624517ad83958013afc8aa .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:Nf70a9ffef99f49c89ca60dd8dcd1b60c .
 
-ns3:Nc633c6d3b37840d2a17d6509ca8a1f33 a ns3:ObjectJson,
+ns1:Nefb65ae370ec4d9ea94fdf6df1dbf3f9 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:ScanType "EQ" ;
-    ns3:hasJsonObjectKey "Prefix" ;
-    ns3:parentJsonId ns3:N007b13de5aba429aa1375badcbf7dfd8 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:ForceScan "0" ;
+    ns2:ForcedIndex "0" ;
+    ns2:NoExpandHint "0" ;
+    ns2:Ordered "0" ;
+    ns2:Storage "RowStore" ;
+    ns1:hasJsonObjectKey "IndexScan" ;
+    ns1:parentJsonId ns1:N991c49e009ad498bad7fccedfb56317e .
 
-ns3:Nc90cde9bcefa45dfab8c7cc4e19a861a a ns3:ArrayJson,
-        ns3:ObjectJson,
+ns1:N0e1d5ed4b6e442e4ad3fdee3fc29fd09 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:N4e93b20ecfca43eab7dfa5f1c216d5ab .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns2:ForceScan "0" ;
+    ns2:ForceSeek "0" ;
+    ns2:ForcedIndex "0" ;
+    ns2:Lookup "1" ;
+    ns2:NoExpandHint "0" ;
+    ns2:Ordered "1" ;
+    ns2:ScanDirection "FORWARD" ;
+    ns2:Storage "RowStore" ;
+    ns1:hasJsonObjectKey "IndexScan" ;
+    ns1:parentJsonId ns1:N48ad52f996614fd6b4985d450ea9f2bc .
 
-ns3:Ncaf35078be3a4db19534130073f95012 a ns3:ArrayJson,
-        ns3:ObjectJson,
+ns1:N5b70c53233e5445eb96144992a5fcf9c a ns1:ArrayJson,
+        ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "RelOp" ;
-    ns3:parentJsonId ns3:N21a390ff56844e409c940ad15c692f52 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:N29c07e75389c44ceafa8f00a1df75b44 .
 
-ns3:Nce958c5b68384650af1d37d8c3ed45be a ns3:ArrayJson,
-        ns3:ObjectJson,
+ns1:N1255935781d14b1caa4d2da080f935a7 a ns1:ArrayJson,
+        ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:N70e7cf1f17684bbb8a694074ad438d8b .
-
-ns3:Nd0366e909c4a40fb9222c3f8d4b7a137 a ns3:ArrayJson,
-        ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:Ndb632a9963e94bc0a06029e4f31de351 .
-
-ns3:Ndadf8ab7c948430da1a523dae1efdac2 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "ComputeScalar" ;
-    ns3:parentJsonId ns3:Nff157595377043e1b56995a3b2ab28a8 .
-
-ns3:Ne1b5d0e5610d4ea3bf459e88d415415a a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:AvgRowSize "31" ;
-    ns1:EstimateCPU "4.18e-06" ;
-    ns1:EstimateIO "0" ;
-    ns1:EstimateRebinds "0" ;
-    ns1:EstimateRewinds "0" ;
-    ns1:EstimateRows "1" ;
-    ns1:EstimatedExecutionMode "Row" ;
-    ns1:EstimatedTotalSubtreeCost "0.0103357" ;
-    ns1:LogicalOp "Inner Join" ;
-    ns1:NodeId "4" ;
-    ns1:Parallel "0" ;
-    ns1:PhysicalOp "Nested Loops" ;
-    ns3:hasJsonObjectKey "RelOp" ;
-    ns3:parentJsonId ns3:Nbcf1b6ee3fb54cb08101019b78333057 .
-
-ns3:Ne2a0b4badfc644a6bc16170de9cb4b90 a ns3:ArrayJson,
-        ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "RelOp" ;
-    ns3:parentJsonId ns3:N93172fe90fb6478abd9153f4f3b2aa8d .
-
-ns3:Ne42f6e64ba3c42d083e2839ba6e7adca a ns3:ArrayJson,
-        ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:Nb60121d2964b4892b1b98f4c5fa4c9e7 .
-
-ns3:Ne957d5fd30b7413899b3d272e0be6894 a ns3:ArrayJson,
-        ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "DefinedValue" ;
-    ns3:parentJsonId ns3:N5e0a647c23dd4849b9299a8246b106db .
-
-ns3:Nfbb53188841649f7a2b63a11eda0469c a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:AvgRowSize "11" ;
-    ns1:EstimateCPU "0" ;
-    ns1:EstimateIO "0" ;
-    ns1:EstimateRebinds "0" ;
-    ns1:EstimateRewinds "0" ;
-    ns1:EstimateRows "1" ;
-    ns1:EstimatedExecutionMode "Row" ;
-    ns1:EstimatedTotalSubtreeCost "0.00923796" ;
-    ns1:LogicalOp "Compute Scalar" ;
-    ns1:NodeId "1" ;
-    ns1:Parallel "0" ;
-    ns1:PhysicalOp "Compute Scalar" ;
-    ns3:hasJsonObjectKey "RelOp" ;
-    ns3:parentJsonId ns3:Ndadf8ab7c948430da1a523dae1efdac2 .
-
-ns3:Nfc7851f895ca4fcb8b878e1c1bb9353a a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:ScanType "EQ" ;
-    ns3:hasJsonObjectKey "Prefix" ;
-    ns3:parentJsonId ns3:N76641af6a9a447ceacc747c2587921c8 .
-
-ns3:Nff157595377043e1b56995a3b2ab28a8 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:AvgRowSize "11" ;
-    ns1:EstimateCPU "1e-07" ;
-    ns1:EstimateIO "0" ;
-    ns1:EstimateRebinds "0" ;
-    ns1:EstimateRewinds "0" ;
-    ns1:EstimateRows "1" ;
-    ns1:EstimatedExecutionMode "Row" ;
-    ns1:EstimatedTotalSubtreeCost "0.00923806" ;
-    ns1:LogicalOp "Compute Scalar" ;
-    ns1:NodeId "0" ;
-    ns1:Parallel "0" ;
-    ns1:PhysicalOp "Compute Scalar" ;
-    ns3:hasJsonObjectKey "RelOp" ;
-    ns3:parentJsonId ns3:N39dac8e9d021489d9bebf7115db3a746 .
-
-ns3:N1f52bc06fb0041fabbe54b890234449f a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:CachedPlanSize "40" ;
-    ns1:CompileCPU "9" ;
-    ns1:CompileMemory "552" ;
-    ns1:CompileTime "14" ;
-    ns3:hasJsonObjectKey "QueryPlan" ;
-    ns3:parentJsonId ns3:N5c132c82e0d34baea9cf01ef8f9357b6 .
-
-ns3:N31d6d0f7bd2049f98133964dddddaa7f a ns3:ArrayJson,
-        ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "ColumnReference" ;
-    ns3:parentJsonId ns3:Ne484ceb04f9a4123b88101af48aa7946 .
-
-ns3:N39dac8e9d021489d9bebf7115db3a746 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:CachedPlanSize "32" ;
-    ns1:CompileCPU "18" ;
-    ns1:CompileMemory "560" ;
-    ns1:CompileTime "18" ;
-    ns3:hasJsonObjectKey "QueryPlan" ;
-    ns3:parentJsonId ns3:N6f1706ea8fdb475681cb06c69d2fd461 .
-
-ns3:N5512a558628e48258f8f5f94ce3cae11 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:ForceScan "0" ;
-    ns1:ForcedIndex "0" ;
-    ns1:NoExpandHint "0" ;
-    ns1:Ordered "0" ;
-    ns1:Storage "RowStore" ;
-    ns3:hasJsonObjectKey "IndexScan" ;
-    ns3:parentJsonId ns3:N0ffd456bae564b0993b544f9785e4925 .
-
-ns3:N620e0c5e421f4b3ba444e7ccd09336fd a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:ForceScan "0" ;
-    ns1:ForceSeek "0" ;
-    ns1:ForcedIndex "0" ;
-    ns1:NoExpandHint "0" ;
-    ns1:Ordered "1" ;
-    ns1:ScanDirection "FORWARD" ;
-    ns1:Storage "RowStore" ;
-    ns3:hasJsonObjectKey "IndexScan" ;
-    ns3:parentJsonId ns3:Nb32258947cbe4ae1af86faf7837fc5a1 .
-
-ns3:N725009ff8a1b41af84b613fd475188ca a ns3:ArrayJson,
-        ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:Nfbfcf1d50def4fac8d0272b34b80b7d8 .
-
-ns3:N7de93a3d25d7486e92ee8ed816a77898 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:ForceScan "0" ;
-    ns1:ForceSeek "0" ;
-    ns1:ForcedIndex "0" ;
-    ns1:NoExpandHint "0" ;
-    ns1:Ordered "1" ;
-    ns1:ScanDirection "FORWARD" ;
-    ns1:Storage "RowStore" ;
-    ns3:DefinedValues "None" ;
-    ns3:hasJsonObjectKey "IndexScan" ;
-    ns3:parentJsonId ns3:Nf0ba9d9cb8784b7ca336651e99d57fd0 .
-
-ns3:N91186cb71f8f4ac9945aa8c3b9b110e4 a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:ForceScan "0" ;
-    ns1:ForceSeek "0" ;
-    ns1:ForcedIndex "0" ;
-    ns1:NoExpandHint "0" ;
-    ns1:Ordered "1" ;
-    ns1:ScanDirection "FORWARD" ;
-    ns1:Storage "RowStore" ;
-    ns3:DefinedValues "None" ;
-    ns3:hasJsonObjectKey "IndexScan" ;
-    ns3:parentJsonId ns3:N8cdbeeb8aa214403b1c020522d62ead2 .
-
-ns3:N5f50481f2358494baeb0dad634cb2550 a ns3:ArrayJson,
-        ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "ScalarOperator" ;
-    ns3:parentJsonId ns3:N9fe7570329cc4a64a9a66d81ca5ac9a2 .
-
-ns3:Nad92e25954fa4caaa207a2aa30ea2f4d a ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns1:ForceScan "0" ;
-    ns1:ForceSeek "0" ;
-    ns1:ForcedIndex "0" ;
-    ns1:Lookup "1" ;
-    ns1:NoExpandHint "0" ;
-    ns1:Ordered "1" ;
-    ns1:ScanDirection "FORWARD" ;
-    ns1:Storage "RowStore" ;
-    ns3:hasJsonObjectKey "IndexScan" ;
-    ns3:parentJsonId ns3:Nb53fa833194a4517a5339920188d43f9 .
-
-ns3:Nefd33894af9447bfad1c82a63009db1c a ns3:ArrayJson,
-        ns3:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "selupd_1print.json" ;
-    ns3:hasJsonObjectKey "StmtSimple" ;
-    ns3:parentJsonId ns3:Nea3f510520cf45ab96cacbdcc726c5d5 .
+    ns3:hasSourceFile "selupd_1print.json" ;
+    ns1:hasJsonObjectKey "StmtSimple" ;
+    ns1:parentJsonId ns1:Nc177c5178e1a486aa3ff7d2807c91871 .
 

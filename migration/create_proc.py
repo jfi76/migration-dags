@@ -5,7 +5,7 @@ sys.path.append( './migration/query/' )
 import runSparqlWrapper as sparql_service
 import statements as stmt
 from rdf_ttl_service import rdfTTLService
-
+from st_type_select import st_type_select 
 class create_proc:
     def __init__(self):
         self.procedures=[]
@@ -15,7 +15,11 @@ class create_proc:
         self.ttl_serice=rdfTTLService()
         self.statementId =0
         self.fileoutput='./dags/output/proc.ttl'
-    def iterate_proc(self):
+        self.taskIri
+    def log_task_start(self):
+        self.taskIri=self.ttl_serice.start_run_task()
+    def iterate_proc(self):        
+        self.queryService.insert(stmt.delete_pgstatements)
         self.set_statement_types()        
         self.get_all_proc()
         for proc in self.procedures:            
@@ -83,7 +87,12 @@ as $$""", self.statementId , proc['iri'], self.statement_types_dict['CREATE LANG
             print('process:' + proc['name']['value'])    
             self.procedures.append({"iri":proc['iri']['value'], "name":proc['name']['value']})
         return self.procedures
-    
+    def process_body(self,procIri):
+            ret=self.queryService.query(stmt.select_msproc_statement.replace('?param?',f"<{procIri}>"))
+            for statemnt in ret:
+                if (statemnt['StatementType']['value']=='SELECT'): 
+                    slect=st_type_select(statemnt['StatementText']['value'])
+
 if __name__ == "__main__":
     print ('main')
     c=create_proc()

@@ -60,12 +60,16 @@ def prepare_proc():
     conn = BaseHook.get_connection('postgres')
     engine = create_engine(f'postgresql://{conn.login}:{conn.password}@{conn.host}:{conn.port}/{conn.schema}')
     c=create_proc()
+    taksIri=c.log_task_start()
+    c.ttl_serice.log_proc_create(taksIri,proc['iri'])
     c.iterate_proc()
     ret=c.get_all_proc()
     for proc in ret:
         exec_str=''
         print(proc['iri'])    
+        c.ttl_serice.log_proc_create(taksIri,proc['iri'])
         stmt_ret=c.get_statements(proc['iri'])
+
         for stmt in stmt_ret:        
             exec_str=exec_str+'\n'+stmt['text']['value']
             print(stmt['text']['value'])
@@ -75,6 +79,7 @@ def prepare_proc():
                 engine.execute(exec_str)
             except Exception as e:
                 print(e)    
+                c.ttl_serice.log_proc_error(taksIri,proc['iri'],str(e))
 @task
 def get_proc_plan():    
     ms_to_pq=mssql_to_postgres(con_server=Variable.get('mssql_serv'), con_passw=Variable.get('mssql_pass'))

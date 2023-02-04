@@ -1,5 +1,6 @@
 import json
-from rdflib import URIRef, BNode, Literal, Graph, Namespace, RDF, OWL
+import datetime
+from rdflib import URIRef, BNode, Literal, Graph, Namespace, RDF, OWL, RDFS
 
 class rdfTTLService:
     def __init__(self):            
@@ -26,7 +27,30 @@ class rdfTTLService:
         self.graph.add((iri ,self.Namespace.VARIABLE_NAME, Literal(variable_name)))                            
         self.graph.add((iri ,self.Namespace.DATA_TYPE, Literal(type)))                            
         self.graph.add((iri ,self.Namespace.CHARACTER_MAXIMUM_LENGTH, Literal(char_len)))                            
-        self.graph.add((iri , self.Namespace.StatementText,Literal(statementText)))        
+        self.graph.add((iri , self.Namespace.StatementText,Literal(statementText)))
+    def start_run_task(self):
+        iri=self.Namespace[self.hashCode()]     
+        self.graph.add((iri , RDF.type, OWL.NamedIndividual))              
+        self.graph.add((iri ,RDF.type, self.Namespace.runcreateprocess))                       
+        self.graph.add((iri ,self.Namespace.START_AT, Literal(datetime.datetime.now())))                            
+        self.graph.add((iri ,RDFS.label, Literal(datetime.datetime.now())))                            
+        return iri
+    def log_proc_create(self,taksIri,procIri):
+        iri=self.Namespace[self.hashCode()]     
+        self.graph.add((iri , RDF.type, OWL.NamedIndividual))              
+        self.graph.add((iri ,RDF.type, self.Namespace.runcreateprocessprocedure))                               
+        self.graph.add((iri , self.Namespace.hasProcedure,URIRef(procIri)))
+        self.graph.add((iri , self.Namespace.hasTask,URIRef(taksIri)))        
+        return iri
+    def log_proc_error(self,taksIri,procIri,error):
+        iri=self.Namespace[self.hashCode()]     
+        self.graph.add((iri , RDF.type, OWL.NamedIndividual))              
+        self.graph.add((iri ,RDF.type, self.Namespace.runcreateprocessprocedure))                               
+        self.graph.add((iri , self.Namespace.hasProcedure,URIRef(procIri)))
+        self.graph.add((iri , self.Namespace.hasTask,URIRef(taksIri)))        
+        self.graph.add((iri ,self.Namespace.ERROR_MSG, Literal(error)))
+        return iri
+
         #js:PARAMETER_NAME
 
         # stmt="""

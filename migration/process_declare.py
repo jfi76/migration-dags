@@ -44,6 +44,7 @@ class process_declare:
             self.variables.append({"name":name,"type":type,"procIri":procIri,"stmt_iri":stmt_iri})
 
     def iterate_declare(self):
+        self.queryService.insert(stmt.delete_variables)
         stmt_str=stmt.get_declare
         ret=self.queryService.query(stmt_str)
         for declare_stmt in ret:   
