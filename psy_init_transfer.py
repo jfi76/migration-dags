@@ -101,7 +101,7 @@ def add_proc_declare():
     c=process_declare()
     c.iterate_declare()      
 
-with DAG(dag_id="psy_etl_dag",schedule_interval="0 9 * * *", start_date=datetime(2022, 3, 5),catchup=False,  tags=["psy_init"]) as dag:
+with DAG(dag_id="psy_etl_dag",schedule_interval="", start_date="",catchup=False,  tags=["psy_init"]) as dag:
 
     with TaskGroup("mssql_proc_to_pgsql", tooltip="ms procedure to pgsql procedure") as extract_load_src:
         src_product_tbls = get_src_tables()

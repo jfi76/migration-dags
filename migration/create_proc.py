@@ -15,7 +15,7 @@ class create_proc:
         self.ttl_serice=rdfTTLService()
         self.statementId =0
         self.fileoutput='./dags/output/proc.ttl'
-        self.taskIri
+        self.taskIri=''
     def log_task_start(self):
         self.taskIri=self.ttl_serice.start_run_task()
     def iterate_proc(self):        
@@ -88,14 +88,19 @@ as $$""", self.statementId , proc['iri'], self.statement_types_dict['CREATE LANG
             self.procedures.append({"iri":proc['iri']['value'], "name":proc['name']['value']})
         return self.procedures
     def process_body(self,procIri):
+            #print(stmt.select_msproc_statement.replace('?param?',f"<{procIri}>"))
             ret=self.queryService.query(stmt.select_msproc_statement.replace('?param?',f"<{procIri}>"))
-            for statemnt in ret:
-                if (statemnt['StatementType']['value']=='SELECT'): 
-                    slect=st_type_select(statemnt['StatementText']['value'])
+            select=st_type_select()
+            for statement in ret:
+                if (statement['StatementType']['value']=='SELECT'): 
+
+                    select.exec(statement['StatementText']['value'])
+                    #break
 
 if __name__ == "__main__":
     print ('main')
     c=create_proc()
-    c.fileoutput='./output/proc.ttl'
-    c.iterate_proc()
-    #c.get_statements('mig:c4c649e1-834d-45c6-ac7f-03583b3494bd')
+#    c.fileoutput='./output/proc.ttl'
+#    c.iterate_proc()
+    c.process_body('http://www.example.com/MIGRATION#bb08c9b6-4683-4208-afee-f93a7c7754a7')
+
