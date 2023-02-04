@@ -25,26 +25,27 @@ class st_type_select():
         print(positions)
         new_str=''
         isChanged=False
+        var_str=''
         for token in elements[0].tokens:
             if i==positions['end_index']: 
-                var_str=''
-                for var in variables:                    
-                    if var_str!='': var_str=',' + var_str
-                    var_str=var_str + var.replace('@','')                     
+                var_str=''                
+                for var in variables:                                        
+                    if var_str=='': separator=''
+                    else:separator=','
+                    var_str=var_str + separator  + var.replace('@','')                     
+
                 if var_str!='':    
                     new_str= new_str + '\n into '+var_str + '\n'
                     isChanged=True
 
             if i>positions['start_index'] and i<positions['end_index']:
-                new_str=new_str+process_identifier(token,variables)                
-                # print(type(token))                
-                # print(str(token))
-                # if isinstance(token, sqlparse.sql.Comparison) and str(token[0])[0]=="@":
-                #     variables.append(str(token[0]))
-                #     for t in token:
-                #         if isinstance(t, sqlparse.sql.Identifier) and str(t)[0]!="@":
-                #             new_str=new_str+str(t)
-                # else:new_str=new_str+(str(token))                    
+                if isinstance(token, sqlparse.sql.Comparison):
+                    new_str=new_str+process_identifier(token,variables)                
+                if isinstance(token,sqlparse.sql.IdentifierList):
+                    for identifier in token:
+                        new_str=new_str+process_identifier(identifier,variables)                
+                if not isinstance(token,sqlparse.sql.Comparison) and not isinstance(token,sqlparse.sql.IdentifierList):
+                   new_str=new_str+(str(token))         
             else: 
                 new_str=new_str+(str(token))
             i=i+1
