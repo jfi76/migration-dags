@@ -12,7 +12,7 @@ statement_types="""
      }
     """
 procedure_params="""
-select  ?iri ?name ?datatype (IF(?mode_str='IN','', 'inout') as ?mode) ?position  ( coalesce(?charlen_str,'') as ?charlen)
+select  ?iri ?name ?datatype (IF(?mode_str='IN','', 'inout') as ?mode) ?position  ( coalesce(?charlen_str,'') as ?charlen) ( coalesce(?ms_name_str,'') as ?ms_name)
   { bind (?param? as ?param)
     ?param rdf:type mig:pgprocedure .
     ?param rdfs:label ?label . 
@@ -23,6 +23,9 @@ select  ?iri ?name ?datatype (IF(?mode_str='IN','', 'inout') as ?mode) ?position
     ?iri mig:DATA_TYPE ?datatype .
     ?iri mig:PARAMETER_MODE ?mode_str .
     ?iri mig:ORDINAL_POSITION ?position .  
+    optional {?iri  mig:hasParameter ?ms_param .
+    ?ms_param js:PARAMETER_NAME ?ms_name_str .
+    } .    
     optional {?iri mig:CHARACTER_MAXIMUM_LENGTH ?len .
     bind (concat('(' , ?len ,')' ) as ?charlen_str ) .    
     } .
@@ -57,7 +60,7 @@ select ?iri ?StatementId_Int  ?StatementType ?StatementText (?msproc as ?procIri
 }  order by ?param ?StatementId_Int
 """
 get_proc_variable="""
-select ?name ?type (coalesce(?len,'') as ?type_len) ?statement  
+select ?name ?type (coalesce(?len,'') as ?type_len) ?statement ( coalesce(?ms_name_str,'') as ?ms_name)
 {
 bind(?param? as ?param)  .
 ?param rdf:type mig:pgprocedure .  
@@ -68,6 +71,11 @@ bind(?param? as ?param)  .
 ?iri mig:DATA_TYPE ?type .
 ?iri rdf:type mig:pgprocedurevariable .
 ?iri mig:CHARACTER_MAXIMUM_LENGTH ?len.
+optional {
+   ?iri mig:hasVariable ?msvar .
+   ?msvar rdf:type mig:msprocedurevarible . 
+   ?msvar mig:VARIABLE_NAME ?ms_name_str .
+   }
 }
 
 """

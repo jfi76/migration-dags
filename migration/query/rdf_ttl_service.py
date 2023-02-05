@@ -9,7 +9,7 @@ class rdfTTLService:
         self.graph = Graph()                
     def hashCode(self):
         return BNode()    
-    def add_stmt(self,statementText,statementId,procIri,pgStatementType):        
+    def add_stmt(self,statementText,statementId,procIri,pgStatementType,sourceStatementIri=''):        
         iri=self.Namespace[self.hashCode()]
         self.graph.add((iri , RDF.type, OWL.NamedIndividual))  
         self.graph.add((iri ,RDF.type, self.Namespace.pgstatement))
@@ -17,7 +17,9 @@ class rdfTTLService:
         self.graph.add((iri , self.Namespace.haspgStatementType,URIRef(pgStatementType)))  
         self.graph.add((iri , self.Namespace.hasProcedure,URIRef(procIri)))
         self.graph.add((iri , self.Namespace.StatementId,Literal(statementId)))
-        self.graph.add((iri , self.Namespace.StatementText,Literal(statementText)))        
+        self.graph.add((iri , self.Namespace.StatementText,Literal(statementText)))
+        if sourceStatementIri!="":
+            self.graph.add((iri , self.Namespace.hasStatement,URIRef(sourceStatementIri)))  
     def add_variable(self,variable_name,type,char_len,procIri,stmt_iri,statementText):
         iri=self.Namespace[self.hashCode()]
         self.graph.add((iri , RDF.type, OWL.NamedIndividual))  

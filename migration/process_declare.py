@@ -58,18 +58,18 @@ class process_declare:
     def get_type(self,item):
         ind=item.find('(')
         if  ind!=-1:
-            print(str(ind) + item + ' is ' + item[0:ind])
+            #print(str(ind) + item + ' is ' + item[0:ind])
             return item[0:ind] 
         return item
     def get_len(self,item):
         ind=item.find('(')
         if  ind!=-1:
             ind2=item.find(')')+1
-            print(str(ind2) + item + ' is ' + item[ind+1:ind2-1] )
+            #print(str(ind2) + item + ' is ' + item[ind+1:ind2-1] )
             return item[ind+1:ind2-1] 
         return ''
 
 if __name__ == "__main__":
-    print('start')
+
     c=process_declare()
     c.iterate_declare()

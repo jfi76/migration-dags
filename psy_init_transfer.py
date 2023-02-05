@@ -61,25 +61,24 @@ def prepare_proc():
     engine = create_engine(f'postgresql://{conn.login}:{conn.password}@{conn.host}:{conn.port}/{conn.schema}')
     c=create_proc()
     taksIri=c.log_task_start()
-    c.ttl_serice.log_proc_create(taksIri,proc['iri'])
     c.iterate_proc()
+    print('finish iterate')
     ret=c.get_all_proc()
     for proc in ret:
-        exec_str=''
         print(proc['iri'])    
-        c.ttl_serice.log_proc_create(taksIri,proc['iri'])
-        stmt_ret=c.get_statements(proc['iri'])
-
-        for stmt in stmt_ret:        
-            exec_str=exec_str+'\n'+stmt['text']['value']
-            print(stmt['text']['value'])
-        if exec_str!='' :
-            try: 
+        try: 
+            exec_str=''
+            c.ttl_serice.log_proc_create(taksIri,proc['iri'])
+            stmt_ret=c.get_statements(proc['iri'])
+            for stmt in stmt_ret:        
+                exec_str=exec_str+'\n'+stmt['text']['value']
+                print(stmt['text']['value'])
+            if exec_str!='' :
                 print(exec_str)
                 engine.execute(exec_str)
-            except Exception as e:
-                print(e)    
-                c.ttl_serice.log_proc_error(taksIri,proc['iri'],str(e))
+        except Exception as e:
+            print(e)    
+            c.ttl_serice.log_proc_error(taksIri,proc['iri'],str(e))
 @task
 def get_proc_plan():    
     ms_to_pq=mssql_to_postgres(con_server=Variable.get('mssql_serv'), con_passw=Variable.get('mssql_pass'))
@@ -101,7 +100,7 @@ def add_proc_declare():
     c=process_declare()
     c.iterate_declare()      
 
-with DAG(dag_id="psy_etl_dag",schedule_interval="", start_date="",catchup=False,  tags=["psy_init"]) as dag:
+with DAG(dag_id="psy_etl_dag", start_date=datetime(2023, 2, 1),catchup=False,  tags=["psy_init"]) as dag:
 
     with TaskGroup("mssql_proc_to_pgsql", tooltip="ms procedure to pgsql procedure") as extract_load_src:
         src_product_tbls = get_src_tables()

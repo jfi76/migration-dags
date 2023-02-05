@@ -125,6 +125,7 @@ insert {
   mig:ORDINAL_POSITION ?pos_int;  
   mig:CHARACTER_MAXIMUM_LENGTH ?CHARACTER_MAXIMUM_LENGTH;  
   mig:PARAMETER_MODE ?PARAMETER_MODE ;
+  mig:hasParameter ?iri;
   etl:hasSourceFile '' .
 } where {
 
@@ -133,6 +134,7 @@ select
 ?DATA_TYPE ?PARAMETER_NAME ?ORDINAL_POSITION ?CHARACTER_MAXIMUM_LENGTH ?PARAMETER_MODE 
 (replace(?PARAMETER_NAME,'@','') as ?plpgsqlParam) ?convPQ 
 (xsd:integer(?ORDINAL_POSITION) as ?pos_int)  
+?iri
 ?param  
   { 
     ?param rdf:type mig:pgprocedure .
