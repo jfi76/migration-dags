@@ -1,784 +1,405 @@
-@prefix ns1: <http://www.example.com/ETL#> .
-@prefix ns2: <http://www.example.com/MIGRATION#> .
+@prefix ns1: <http://www.example.com/MIGRATION#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ns2:N01f0f2ee74ae4a55a4863cb252482d42 a ns2:pgstatement,
+ns1:N00b1e64fa9964881a3b3041a1397260e a ns1:runcreateprocessprocedure,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 2 ;
-    ns2:StatementText """language plpgsql
-as $$""" ;
-    ns2:hasProcedure ns2:41f47825-6177-4408-b5f4-a03536fb8cda ;
-    ns2:haspgStatementType ns2:8fda4853-dc52-41b1-8a9b-877a588cc61c .
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.SyntaxError) ОШИБКА:  ошибка синтаксиса (примерное положение: "20")
+LINE 7: auth_type VARCHAR 20; 
+                          ^
+CONTEXT:  неверное имя типа "VARCHAR 20"
 
-ns2:N02911888be6249fa954abb5ed29d1626 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 4 ;
-    ns2:StatementText "begin" ;
-    ns2:hasProcedure ns2:f7b1df8b-dfd6-4287-a282-1d08757e63b0 ;
-    ns2:haspgStatementType ns2:4d36989c-79b3-4cfb-b1f3-1ec40f8150b6 .
+[SQL: 
+create or replace procedure inititate_testing 
+( t_testing_id UUID ,  t_workstation_id UUID ,  t_persona_id UUID ,  t_testing_language_id UUID ,  t_testing_classificator_id UUID ,  obj_created_by VARCHAR  (100) ,  passw VARCHAR  (20) )
+language plpgsql
+as $$
+declare 
+auth_type VARCHAR 20; 
 
-ns2:N03fb121900e54ba489727b21a51dc5da a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 5 ;
-    ns2:StatementText """select t.t_workstation_id,\r
-ts.obj_name  \r
-
- into t_workstation_id,status
-from t_testing t\r
-inner join t_testing_status ts \r
-on t.t_testing_status_id = ts.t_testing_status_id \r
-where t_testing_id =t_testing_id;""" ;
-    ns2:hasProcedure ns2:a97e24f8-d48b-49c6-9ea0-5a4cc2df4dc2 ;
-    ns2:haspgStatementType ns2:d330f478-3585-483a-b97d-9b183c14e7c0 .
-
-ns2:N06109a7ba3e54502b9de0ff9d8d87002 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 2 ;
-    ns2:StatementText """language plpgsql
-as $$""" ;
-    ns2:hasProcedure ns2:862298d9-1863-48b3-8b1b-a9aa0fba2f75 ;
-    ns2:haspgStatementType ns2:8fda4853-dc52-41b1-8a9b-877a588cc61c .
-
-ns2:N075887c8480e4e9a93c2f0c42a226c92 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 0 ;
-    ns2:StatementText "create or replace procedure testing_status " ;
-    ns2:hasProcedure ns2:a97e24f8-d48b-49c6-9ea0-5a4cc2df4dc2 ;
-    ns2:haspgStatementType ns2:6bd4c1b0-353f-460d-97b2-d5c22ee6d379 .
-
-ns2:N08a6ce77b022410d9823bb06cb4fe636 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 2 ;
-    ns2:StatementText """language plpgsql
-as $$""" ;
-    ns2:hasProcedure ns2:d2f8311d-c78c-47ad-89ae-530c4acfae50 ;
-    ns2:haspgStatementType ns2:8fda4853-dc52-41b1-8a9b-877a588cc61c .
-
-ns2:N0988e3e77eab4e5085d9dcc68645dc1c a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 0 ;
-    ns2:StatementText "create or replace procedure inititate_testing2 " ;
-    ns2:hasProcedure ns2:7da108c2-6900-41ce-99a3-83a8b64e7e67 ;
-    ns2:haspgStatementType ns2:6bd4c1b0-353f-460d-97b2-d5c22ee6d379 .
-
-ns2:N0aac973db4da492aa5724c711ad0deb7 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 4 ;
-    ns2:StatementText "begin" ;
-    ns2:hasProcedure ns2:45e58bce-d76c-487b-b36c-ce484c3aedfb ;
-    ns2:haspgStatementType ns2:4d36989c-79b3-4cfb-b1f3-1ec40f8150b6 .
-
-ns2:N0c1dfc9e163441479a66907475b4572a a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 1 ;
-    ns2:StatementText "( t_test_id UUID )" ;
-    ns2:hasProcedure ns2:336a98e5-eb3e-40bc-a27b-b750c154d48c ;
-    ns2:haspgStatementType ns2:dfc0d924-887f-481e-99d0-547368f887c8 .
-
-ns2:N0d01fb3066134303847bd6827390e69a a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 0 ;
-    ns2:StatementText "create or replace procedure donext " ;
-    ns2:hasProcedure ns2:d2f8311d-c78c-47ad-89ae-530c4acfae50 ;
-    ns2:haspgStatementType ns2:6bd4c1b0-353f-460d-97b2-d5c22ee6d379 .
-
-ns2:N0e144e8c0735499caf0c20ff148ff3b9 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 1 ;
-    ns2:StatementText "( t_workstation_id UUID )" ;
-    ns2:hasProcedure ns2:d86d6d0a-2e05-4c22-96a6-1d7316074dc6 ;
-    ns2:haspgStatementType ns2:dfc0d924-887f-481e-99d0-547368f887c8 .
-
-ns2:N12462f1beaf6492698e2bd98964b0f7f a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 3 ;
-    ns2:StatementText """declare 
-t_testing_id UUID ; 
-t_testing_status_id int ; 
-""" ;
-    ns2:hasProcedure ns2:aa15a878-d2cb-4d32-b0e6-61257526fcb5 ;
-    ns2:haspgStatementType ns2:b1899c26-8b40-488f-bdeb-7fcb10431030 .
-
-ns2:N132875e6f8454798b246e40bd5e16829 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 5 ;
-    ns2:StatementText """select obj_name 
- into status
-from t_testing_status ts\r
-inner join t_testing t on ts.t_testing_status_id = t.t_testing_status_id\r
-where  t.t_testing_id  =t_testing_id;""" ;
-    ns2:hasProcedure ns2:8e7ef6a7-c2d0-4683-997b-22a77da92063 ;
-    ns2:haspgStatementType ns2:d330f478-3585-483a-b97d-9b183c14e7c0 .
-
-ns2:N14578299a19c43a68ab56a200e4a1b00 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 4 ;
-    ns2:StatementText "begin" ;
-    ns2:hasProcedure ns2:20bc29e8-5d0c-4e94-8591-f84021abf5a0 ;
-    ns2:haspgStatementType ns2:4d36989c-79b3-4cfb-b1f3-1ec40f8150b6 .
-
-ns2:N16990cc677534d678eebc3483fa8a20a a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 2 ;
-    ns2:StatementText """language plpgsql
-as $$""" ;
-    ns2:hasProcedure ns2:6e03002c-2cde-4214-b12e-1fe2e1695cc8 ;
-    ns2:haspgStatementType ns2:8fda4853-dc52-41b1-8a9b-877a588cc61c .
-
-ns2:N1779414982bf4ba6af1dcffd95cd9e54 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 3 ;
-    ns2:StatementText "" ;
-    ns2:hasProcedure ns2:e028cb95-3827-4905-9efe-7dc1802675f1 ;
-    ns2:haspgStatementType ns2:b1899c26-8b40-488f-bdeb-7fcb10431030 .
-
-ns2:N177afe576ac5428aabc9e4c9b9b85187 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 3 ;
-    ns2:StatementText "" ;
-    ns2:hasProcedure ns2:20bc29e8-5d0c-4e94-8591-f84021abf5a0 ;
-    ns2:haspgStatementType ns2:b1899c26-8b40-488f-bdeb-7fcb10431030 .
-
-ns2:N182463b33db1454a8b22a61bbbf20feb a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 0 ;
-    ns2:StatementText "create or replace procedure inititate_testing " ;
-    ns2:hasProcedure ns2:e17ab7f5-d330-44d1-90ef-3f8f3f76dd88 ;
-    ns2:haspgStatementType ns2:6bd4c1b0-353f-460d-97b2-d5c22ee6d379 .
-
-ns2:N18fd5f451af64c5e9209a86d5a1969d8 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 2 ;
-    ns2:StatementText """language plpgsql
-as $$""" ;
-    ns2:hasProcedure ns2:df7b8333-6af9-454b-8f29-e1289529c818 ;
-    ns2:haspgStatementType ns2:8fda4853-dc52-41b1-8a9b-877a588cc61c .
-
-ns2:N197eec014a4b47a280c8b8cf243689dc a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 5 ;
-    ns2:StatementText "end; $$" ;
-    ns2:hasProcedure ns2:336a98e5-eb3e-40bc-a27b-b750c154d48c ;
-    ns2:haspgStatementType ns2:57e06df7-d1c2-4ff0-bf7a-fb10f96efce1 .
-
-ns2:N19cae097cf274b99a7794584b8a4ae0e a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 5 ;
-    ns2:StatementText "end; $$" ;
-    ns2:hasProcedure ns2:d774c7f5-cace-4981-b74a-f44e47e2644e ;
-    ns2:haspgStatementType ns2:57e06df7-d1c2-4ff0-bf7a-fb10f96efce1 .
-
-ns2:N1b0327655050461a9f1fe562c1452f03 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 3 ;
-    ns2:StatementText """declare 
-t_test_id UUID ; 
-current_step_id UUID ; 
-step_order int ; 
-""" ;
-    ns2:hasProcedure ns2:969bd3bc-4e04-4782-a48e-129ca986d4aa ;
-    ns2:haspgStatementType ns2:b1899c26-8b40-488f-bdeb-7fcb10431030 .
-
-ns2:N1c400aae8bcf48828c87b9a13fddcf24 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 3 ;
-    ns2:StatementText """declare 
-job_count int ; 
-""" ;
-    ns2:hasProcedure ns2:45e58bce-d76c-487b-b36c-ce484c3aedfb ;
-    ns2:haspgStatementType ns2:b1899c26-8b40-488f-bdeb-7fcb10431030 .
-
-ns2:N1f9ddbd0ac2a4197a64b6edb7b528b8c a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 5 ;
-    ns2:StatementText """select auth_type\r
+begin
+select auth_type\r
 
  into auth_type
 from t_workstation\r
-where t_workstation_id =t_workstation_id;""" ;
-    ns2:hasProcedure ns2:e17ab7f5-d330-44d1-90ef-3f8f3f76dd88 ;
-    ns2:haspgStatementType ns2:d330f478-3585-483a-b97d-9b183c14e7c0 .
+where t_workstation_id =t_workstation_id;
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:e17ab7f5-d330-44d1-90ef-3f8f3f76dd88 ;
+    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
 
-ns2:N200a7121952742089eabea3b769e0177 a ns2:pgstatement,
+ns1:N00fe1c890b9a44e5b85cd1ca54dcb89f a ns1:runcreateprocessprocedure,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 3 ;
-    ns2:StatementText "" ;
-    ns2:hasProcedure ns2:f7b1df8b-dfd6-4287-a282-1d08757e63b0 ;
-    ns2:haspgStatementType ns2:b1899c26-8b40-488f-bdeb-7fcb10431030 .
+    rdfs:label "get_common_introduction" ;
+    ns1:hasProcedure ns1:6e03002c-2cde-4214-b12e-1fe2e1695cc8 ;
+    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
 
-ns2:N20514fb4b3fa42a09bf36cecda6097ab a ns2:pgstatement,
+ns1:N06be1fff5b064358bc9a4f2328194609 a ns1:runcreateprocessprocedure,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 6 ;
-    ns2:StatementText "end; $$" ;
-    ns2:hasProcedure ns2:969bd3bc-4e04-4782-a48e-129ca986d4aa ;
-    ns2:haspgStatementType ns2:57e06df7-d1c2-4ff0-bf7a-fb10f96efce1 .
+    rdfs:label "get_common_ended" ;
+    ns1:hasProcedure ns1:bd90706d-157f-44c9-88c1-47964dae9cf5 ;
+    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
 
-ns2:N20a5dd5aa9ed465787973028227482b7 a ns2:pgstatement,
+ns1:N06fdc56825c143669b443db2bd39c11a a ns1:runcreateprocessprocedure,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 3 ;
-    ns2:StatementText "" ;
-    ns2:hasProcedure ns2:709af84b-f318-495b-aaae-958751f6091b ;
-    ns2:haspgStatementType ns2:b1899c26-8b40-488f-bdeb-7fcb10431030 .
+    rdfs:label "stat_change_prepared" ;
+    ns1:hasProcedure ns1:e028cb95-3827-4905-9efe-7dc1802675f1 ;
+    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
 
-ns2:N21823aeacc8b45158db3e061057cebd0 a ns2:pgstatement,
+ns1:N0a013a621dae40c0a9d4df6159005c86 a ns1:runcreateprocessprocedure,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 5 ;
-    ns2:StatementText """select obj_name 
- into status
-from t_testing_status ts\r
-inner join t_testing t on ts.t_testing_status_id = t.t_testing_status_id\r
-where  t.t_testing_id  =t_testing_id;""" ;
-    ns2:hasProcedure ns2:969bd3bc-4e04-4782-a48e-129ca986d4aa ;
-    ns2:haspgStatementType ns2:d330f478-3585-483a-b97d-9b183c14e7c0 .
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.SyntaxError) ОШИБКА:  ошибка синтаксиса (примерное положение: "t_workstation_status_id")
+LINE 15: t_workstation_status_id =t_ws_status_id_activeand auth_type=...
+         ^
 
-ns2:N234dec6946d449988caca37214ee6bf0 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 3 ;
-    ns2:StatementText "" ;
-    ns2:hasProcedure ns2:bd90706d-157f-44c9-88c1-47964dae9cf5 ;
-    ns2:haspgStatementType ns2:b1899c26-8b40-488f-bdeb-7fcb10431030 .
-
-ns2:N239ad7e65f114656b8267897bcf8c49e a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 4 ;
-    ns2:StatementText "begin" ;
-    ns2:hasProcedure ns2:bd90706d-157f-44c9-88c1-47964dae9cf5 ;
-    ns2:haspgStatementType ns2:4d36989c-79b3-4cfb-b1f3-1ec40f8150b6 .
-
-ns2:N24da161e895b42679c51882a2bbc63ca a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 0 ;
-    ns2:StatementText "create or replace procedure select_tests " ;
-    ns2:hasProcedure ns2:20bc29e8-5d0c-4e94-8591-f84021abf5a0 ;
-    ns2:haspgStatementType ns2:6bd4c1b0-353f-460d-97b2-d5c22ee6d379 .
-
-ns2:N265c04bdc8614af795ff558449cd0a39 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 6 ;
-    ns2:StatementText "end; $$" ;
-    ns2:hasProcedure ns2:41f47825-6177-4408-b5f4-a03536fb8cda ;
-    ns2:haspgStatementType ns2:57e06df7-d1c2-4ff0-bf7a-fb10f96efce1 .
-
-ns2:N28a2b957fdde42c4ba3e77b9427a7928 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 4 ;
-    ns2:StatementText "begin" ;
-    ns2:hasProcedure ns2:969bd3bc-4e04-4782-a48e-129ca986d4aa ;
-    ns2:haspgStatementType ns2:4d36989c-79b3-4cfb-b1f3-1ec40f8150b6 .
-
-ns2:N2c3b818bce034d06ba81dca4c1dfe973 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 1 ;
-    ns2:StatementText "( t_testing_id UUID )" ;
-    ns2:hasProcedure ns2:20bc29e8-5d0c-4e94-8591-f84021abf5a0 ;
-    ns2:haspgStatementType ns2:dfc0d924-887f-481e-99d0-547368f887c8 .
-
-ns2:N2d0e5d1a256946c9ab144930e34ae02f a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 2 ;
-    ns2:StatementText """language plpgsql
-as $$""" ;
-    ns2:hasProcedure ns2:709af84b-f318-495b-aaae-958751f6091b ;
-    ns2:haspgStatementType ns2:8fda4853-dc52-41b1-8a9b-877a588cc61c .
-
-ns2:N2e8e90c1991f4a8a82ef47dda39eb2f4 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 5 ;
-    ns2:StatementText """select t_testing_score_id\r
-
- into t_testing_score_id
-from t_testing_score \r
-where t_testing_step_id  =t_testing_step_id;""" ;
-    ns2:hasProcedure ns2:09ae80e8-56bc-4fff-ad63-43a4b181fedd ;
-    ns2:haspgStatementType ns2:d330f478-3585-483a-b97d-9b183c14e7c0 .
-
-ns2:N2f02c49b11d14a23b815a3e9068a9db5 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 5 ;
-    ns2:StatementText "end; $$" ;
-    ns2:hasProcedure ns2:bd90706d-157f-44c9-88c1-47964dae9cf5 ;
-    ns2:haspgStatementType ns2:57e06df7-d1c2-4ff0-bf7a-fb10f96efce1 .
-
-ns2:N2f653c7626e14f97838956e9a05f4a2f a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 5 ;
-    ns2:StatementText """select t_test_id, step_order\r
-
- into t_test_id,step_order
-from t_test_step \r
-where t_test_step_id  =current_step_id;""" ;
-    ns2:hasProcedure ns2:d6c7c9c6-c645-4605-974f-743d6e74fd1f ;
-    ns2:haspgStatementType ns2:d330f478-3585-483a-b97d-9b183c14e7c0 .
-
-ns2:N2ffc14c69a9e4a6392ce679cf0583d4a a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 0 ;
-    ns2:StatementText "create or replace procedure stat_change_help2 " ;
-    ns2:hasProcedure ns2:d86d6d0a-2e05-4c22-96a6-1d7316074dc6 ;
-    ns2:haspgStatementType ns2:6bd4c1b0-353f-460d-97b2-d5c22ee6d379 .
-
-ns2:N33c68494902945dfbca0411dded74f23 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 0 ;
-    ns2:StatementText "create or replace procedure selupd_1print " ;
-    ns2:hasProcedure ns2:45e58bce-d76c-487b-b36c-ce484c3aedfb ;
-    ns2:haspgStatementType ns2:6bd4c1b0-353f-460d-97b2-d5c22ee6d379 .
-
-ns2:N3508f5deedb54076a37192c38f2dd295 a ns2:runcreateprocessprocedure,
-        owl:NamedIndividual ;
-    ns2:ERROR_MSG "'>=' not supported between instances of 'int' and 'NoneType'" ;
-    ns2:hasProcedure ns2:45e58bce-d76c-487b-b36c-ce484c3aedfb ;
-    ns2:hasTask ns2:Nd411128fa7d847bf8e7a6f1c441c65b3 .
-
-ns2:N36ca0b59566e408ebfca1bbe81ed6205 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 0 ;
-    ns2:StatementText "create or replace procedure dopass " ;
-    ns2:hasProcedure ns2:df7b8333-6af9-454b-8f29-e1289529c818 ;
-    ns2:haspgStatementType ns2:6bd4c1b0-353f-460d-97b2-d5c22ee6d379 .
-
-ns2:N37df7baab7184c4c8c7b643ca0ac155b a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 5 ;
-    ns2:StatementText "end; $$" ;
-    ns2:hasProcedure ns2:e028cb95-3827-4905-9efe-7dc1802675f1 ;
-    ns2:haspgStatementType ns2:57e06df7-d1c2-4ff0-bf7a-fb10f96efce1 .
-
-ns2:N384b9ce0b18d4777a963b089dd0b4288 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 6 ;
-    ns2:StatementText "end; $$" ;
-    ns2:hasProcedure ns2:df7b8333-6af9-454b-8f29-e1289529c818 ;
-    ns2:haspgStatementType ns2:57e06df7-d1c2-4ff0-bf7a-fb10f96efce1 .
-
-ns2:N38ed4f0727cc48ae82747c478802f188 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 3 ;
-    ns2:StatementText """declare 
-next_test_id UUID ; 
-""" ;
-    ns2:hasProcedure ns2:a1aadc8b-f714-4c5b-beaa-d70c00455a56 ;
-    ns2:haspgStatementType ns2:b1899c26-8b40-488f-bdeb-7fcb10431030 .
-
-ns2:N397261aeb91b4bff90a9a7cbaa741737 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 3 ;
-    ns2:StatementText """declare 
-seconds_remain int ; 
-t_test_id UUID ; 
-current_step_id UUID ; 
-next_step_id UUID ; 
-""" ;
-    ns2:hasProcedure ns2:d2f8311d-c78c-47ad-89ae-530c4acfae50 ;
-    ns2:haspgStatementType ns2:b1899c26-8b40-488f-bdeb-7fcb10431030 .
-
-ns2:N3d8ba58e1c8a43609e4e28a72d193ba4 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 6 ;
-    ns2:StatementText "end; $$" ;
-    ns2:hasProcedure ns2:d2f8311d-c78c-47ad-89ae-530c4acfae50 ;
-    ns2:haspgStatementType ns2:57e06df7-d1c2-4ff0-bf7a-fb10f96efce1 .
-
-ns2:N403281eaa5864282b3bd33b1bbabc44a a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 5 ;
-    ns2:StatementText "end; $$" ;
-    ns2:hasProcedure ns2:f7b1df8b-dfd6-4287-a282-1d08757e63b0 ;
-    ns2:haspgStatementType ns2:57e06df7-d1c2-4ff0-bf7a-fb10f96efce1 .
-
-ns2:N40b9daeaf2494c9b9eb257f4fcbc43fa a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 1 ;
-    ns2:StatementText "( t_test_id UUID )" ;
-    ns2:hasProcedure ns2:709af84b-f318-495b-aaae-958751f6091b ;
-    ns2:haspgStatementType ns2:dfc0d924-887f-481e-99d0-547368f887c8 .
-
-ns2:N43343926df6f4f5d9a96d4769a7ec93c a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 0 ;
-    ns2:StatementText "create or replace procedure get_test_step " ;
-    ns2:hasProcedure ns2:2aa221af-5377-4ecb-affd-83f19213c7b5 ;
-    ns2:haspgStatementType ns2:6bd4c1b0-353f-460d-97b2-d5c22ee6d379 .
-
-ns2:N436c39bc126f4934b2e404acd9664c35 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 2 ;
-    ns2:StatementText """language plpgsql
-as $$""" ;
-    ns2:hasProcedure ns2:d6c7c9c6-c645-4605-974f-743d6e74fd1f ;
-    ns2:haspgStatementType ns2:8fda4853-dc52-41b1-8a9b-877a588cc61c .
-
-ns2:N4548dd8b0def4dc79bf680b976c557b4 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 2 ;
-    ns2:StatementText """language plpgsql
-as $$""" ;
-    ns2:hasProcedure ns2:04d381e4-d214-4c04-bdd9-57fa9a03e0f5 ;
-    ns2:haspgStatementType ns2:8fda4853-dc52-41b1-8a9b-877a588cc61c .
-
-ns2:N46867ca3230047ae8a7c77d694954ed9 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 0 ;
-    ns2:StatementText "create or replace procedure get_common_ended " ;
-    ns2:hasProcedure ns2:bd90706d-157f-44c9-88c1-47964dae9cf5 ;
-    ns2:haspgStatementType ns2:6bd4c1b0-353f-460d-97b2-d5c22ee6d379 .
-
-ns2:N46e03db16d0048a8bfa936ecc3976147 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 2 ;
-    ns2:StatementText """language plpgsql
-as $$""" ;
-    ns2:hasProcedure ns2:a1aadc8b-f714-4c5b-beaa-d70c00455a56 ;
-    ns2:haspgStatementType ns2:8fda4853-dc52-41b1-8a9b-877a588cc61c .
-
-ns2:N488dd633826b4072a7127ff556bcb4a4 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 0 ;
-    ns2:StatementText "create or replace procedure insupd_score " ;
-    ns2:hasProcedure ns2:09ae80e8-56bc-4fff-ad63-43a4b181fedd ;
-    ns2:haspgStatementType ns2:6bd4c1b0-353f-460d-97b2-d5c22ee6d379 .
-
-ns2:N490a9ac8ac884ecf942eacab0e34c85c a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 6 ;
-    ns2:StatementText "end; $$" ;
-    ns2:hasProcedure ns2:e17ab7f5-d330-44d1-90ef-3f8f3f76dd88 ;
-    ns2:haspgStatementType ns2:57e06df7-d1c2-4ff0-bf7a-fb10f96efce1 .
-
-ns2:N49b91e195975416bbb8b0407f3c59445 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 4 ;
-    ns2:StatementText "begin" ;
-    ns2:hasProcedure ns2:709af84b-f318-495b-aaae-958751f6091b ;
-    ns2:haspgStatementType ns2:4d36989c-79b3-4cfb-b1f3-1ec40f8150b6 .
-
-ns2:N4bd0033b83ec4035a31c9c2a2f3b93e1 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 2 ;
-    ns2:StatementText """language plpgsql
-as $$""" ;
-    ns2:hasProcedure ns2:e028cb95-3827-4905-9efe-7dc1802675f1 ;
-    ns2:haspgStatementType ns2:8fda4853-dc52-41b1-8a9b-877a588cc61c .
-
-ns2:N4c8cdaf510384f58982ad4b99725b743 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 6 ;
-    ns2:StatementText "end; $$" ;
-    ns2:hasProcedure ns2:aa15a878-d2cb-4d32-b0e6-61257526fcb5 ;
-    ns2:haspgStatementType ns2:57e06df7-d1c2-4ff0-bf7a-fb10f96efce1 .
-
-ns2:N4d9388d291bf4c75a197eaca315f74a7 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 1 ;
-    ns2:StatementText "( t_testing_id UUID )" ;
-    ns2:hasProcedure ns2:7da108c2-6900-41ce-99a3-83a8b64e7e67 ;
-    ns2:haspgStatementType ns2:dfc0d924-887f-481e-99d0-547368f887c8 .
-
-ns2:N4e6c66111bcb474bb44d83af3c782e35 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 6 ;
-    ns2:StatementText "end; $$" ;
-    ns2:hasProcedure ns2:d6c7c9c6-c645-4605-974f-743d6e74fd1f ;
-    ns2:haspgStatementType ns2:57e06df7-d1c2-4ff0-bf7a-fb10f96efce1 .
-
-ns2:N50913af101f14f71afff9129fb8d2e7e a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 5 ;
-    ns2:StatementText "end; $$" ;
-    ns2:hasProcedure ns2:7da108c2-6900-41ce-99a3-83a8b64e7e67 ;
-    ns2:haspgStatementType ns2:57e06df7-d1c2-4ff0-bf7a-fb10f96efce1 .
-
-ns2:N50de2c4ef34048f49cd29ecb74dcc2bf a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 2 ;
-    ns2:StatementText """language plpgsql
-as $$""" ;
-    ns2:hasProcedure ns2:2aa221af-5377-4ecb-affd-83f19213c7b5 ;
-    ns2:haspgStatementType ns2:8fda4853-dc52-41b1-8a9b-877a588cc61c .
-
-ns2:N52a73a1a071a4798834d5d915c06c9d9 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 0 ;
-    ns2:StatementText "create or replace procedure tmp_insupd_test_step " ;
-    ns2:hasProcedure ns2:709af84b-f318-495b-aaae-958751f6091b ;
-    ns2:haspgStatementType ns2:6bd4c1b0-353f-460d-97b2-d5c22ee6d379 .
-
-ns2:N53e0ea5023004effacede0af3de67938 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 1 ;
-    ns2:StatementText "( t_testing_id UUID )" ;
-    ns2:hasProcedure ns2:bd90706d-157f-44c9-88c1-47964dae9cf5 ;
-    ns2:haspgStatementType ns2:dfc0d924-887f-481e-99d0-547368f887c8 .
-
-ns2:N55d60b9fe79f41a58eae9a38ed4b3bfb a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 1 ;
-    ns2:StatementText "()" ;
-    ns2:hasProcedure ns2:45e58bce-d76c-487b-b36c-ce484c3aedfb ;
-    ns2:haspgStatementType ns2:dfc0d924-887f-481e-99d0-547368f887c8 .
-
-ns2:N5653289a6fd34ed9ae0ca81ee8e9b8e6 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 0 ;
-    ns2:StatementText "create or replace procedure workstation_status " ;
-    ns2:hasProcedure ns2:41f47825-6177-4408-b5f4-a03536fb8cda ;
-    ns2:haspgStatementType ns2:6bd4c1b0-353f-460d-97b2-d5c22ee6d379 .
-
-ns2:N56ebeb1f68ad4a0cb0fb44af91038c1e a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 3 ;
-    ns2:StatementText """declare 
-t1 int ; 
-""" ;
-    ns2:hasProcedure ns2:d774c7f5-cace-4981-b74a-f44e47e2644e ;
-    ns2:haspgStatementType ns2:b1899c26-8b40-488f-bdeb-7fcb10431030 .
-
-ns2:N576c864745034f649877d44e9c40257e a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 6 ;
-    ns2:StatementText "end; $$" ;
-    ns2:hasProcedure ns2:3d4b9f83-ded8-40c8-b530-868bd37a7104 ;
-    ns2:haspgStatementType ns2:57e06df7-d1c2-4ff0-bf7a-fb10f96efce1 .
-
-ns2:N5a9025337e2a4ecf95e45d4118dccdeb a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 0 ;
-    ns2:StatementText "create or replace procedure ws_type " ;
-    ns2:hasProcedure ns2:862298d9-1863-48b3-8b1b-a9aa0fba2f75 ;
-    ns2:haspgStatementType ns2:6bd4c1b0-353f-460d-97b2-d5c22ee6d379 .
-
-ns2:N5b6b5a64133d49cb8a6c304b95d8386f a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 3 ;
-    ns2:StatementText """declare 
+[SQL: 
+create or replace procedure ws_type 
+( ip_address VARCHAR  (100) ,  inout ip_auth CHAR  (1) ,  inout t_workstation_id UUID ,  inout t_testing_id UUID ,  t_ws_status_id_active UUID )
+language plpgsql
+as $$
+declare 
 ws_ip_count int ; 
-""" ;
-    ns2:hasProcedure ns2:862298d9-1863-48b3-8b1b-a9aa0fba2f75 ;
-    ns2:haspgStatementType ns2:b1899c26-8b40-488f-bdeb-7fcb10431030 .
 
-ns2:N5f41cdc00c9f4febb1e14caf6cecacc2 a ns2:pgstatement,
+begin
+select \r
+
+ into ws_ip_count
+from t_workstation \r
+where ip_address =ip_addressand \r
+t_workstation_status_id =t_ws_status_id_activeand auth_type=0;
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:862298d9-1863-48b3-8b1b-a9aa0fba2f75 ;
+    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
+
+ns1:N2b84bd83977248539a0ce021a2ad58a8 a ns1:runcreateprocessprocedure,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 2 ;
-    ns2:StatementText """language plpgsql
-as $$""" ;
-    ns2:hasProcedure ns2:a97e24f8-d48b-49c6-9ea0-5a4cc2df4dc2 ;
-    ns2:haspgStatementType ns2:8fda4853-dc52-41b1-8a9b-877a588cc61c .
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.SyntaxError) ОШИБКА:  ошибка синтаксиса (примерное положение: "10")
+LINE 7: test_num VARCHAR 10; 
+                         ^
+CONTEXT:  неверное имя типа "VARCHAR 10"
 
-ns2:N63acc154232144b18f692637fb5ab503 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 3 ;
-    ns2:StatementText "" ;
-    ns2:hasProcedure ns2:2aa221af-5377-4ecb-affd-83f19213c7b5 ;
-    ns2:haspgStatementType ns2:b1899c26-8b40-488f-bdeb-7fcb10431030 .
+[SQL: 
+create or replace procedure workstation_status 
+( t_workstation_id UUID )
+language plpgsql
+as $$
+declare 
+test_num VARCHAR 10; 
+current_step_id UUID ; 
+start_date TIMESTAMP(3) ; 
+step int ; 
+t_testing_id UUID ; 
+status VARCHAR 10; 
 
-ns2:N650492f294fb447d9d4b10a5e71eee99 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 0 ;
-    ns2:StatementText "create or replace procedure get_next_step_id " ;
-    ns2:hasProcedure ns2:6d57d949-cba7-4b3f-9848-4bd05ae4168c ;
-    ns2:haspgStatementType ns2:6bd4c1b0-353f-460d-97b2-d5c22ee6d379 .
-
-ns2:N684164d40a1f407f9e943363f15a46c0 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 5 ;
-    ns2:StatementText "end; $$" ;
-    ns2:hasProcedure ns2:6e03002c-2cde-4214-b12e-1fe2e1695cc8 ;
-    ns2:haspgStatementType ns2:57e06df7-d1c2-4ff0-bf7a-fb10f96efce1 .
-
-ns2:N6983c4bba29c48f583057d06625385fb a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 6 ;
-    ns2:StatementText "end; $$" ;
-    ns2:hasProcedure ns2:09ae80e8-56bc-4fff-ad63-43a4b181fedd ;
-    ns2:haspgStatementType ns2:57e06df7-d1c2-4ff0-bf7a-fb10f96efce1 .
-
-ns2:N6aab982e186f4f28908c979d4e3b1cc2 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 5 ;
-    ns2:StatementText """select \r
-
- into timelimitmin
-from t_test \r
-where t_test_id =t_test_id;""" ;
-    ns2:hasProcedure ns2:3d4b9f83-ded8-40c8-b530-868bd37a7104 ;
-    ns2:haspgStatementType ns2:d330f478-3585-483a-b97d-9b183c14e7c0 .
-
-ns2:N6b367e30a6594645beb7ccd0e85e66b3 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 4 ;
-    ns2:StatementText "begin" ;
-    ns2:hasProcedure ns2:6d57d949-cba7-4b3f-9848-4bd05ae4168c ;
-    ns2:haspgStatementType ns2:4d36989c-79b3-4cfb-b1f3-1ec40f8150b6 .
-
-ns2:N6b6a263536fe4a0a8a36cb07b6053a15 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 0 ;
-    ns2:StatementText "create or replace procedure stat_change_instruct " ;
-    ns2:hasProcedure ns2:969bd3bc-4e04-4782-a48e-129ca986d4aa ;
-    ns2:haspgStatementType ns2:6bd4c1b0-353f-460d-97b2-d5c22ee6d379 .
-
-ns2:N6e766b58e1ac47a28e54535339c25459 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 4 ;
-    ns2:StatementText "begin" ;
-    ns2:hasProcedure ns2:e17ab7f5-d330-44d1-90ef-3f8f3f76dd88 ;
-    ns2:haspgStatementType ns2:4d36989c-79b3-4cfb-b1f3-1ec40f8150b6 .
-
-ns2:N72663a003d6d4a65a0548b6f8d1129da a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 4 ;
-    ns2:StatementText "begin" ;
-    ns2:hasProcedure ns2:3d4b9f83-ded8-40c8-b530-868bd37a7104 ;
-    ns2:haspgStatementType ns2:4d36989c-79b3-4cfb-b1f3-1ec40f8150b6 .
-
-ns2:N72692e4a061d4056b993d09d7f1a17f3 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 5 ;
-    ns2:StatementText "end; $$" ;
-    ns2:hasProcedure ns2:709af84b-f318-495b-aaae-958751f6091b ;
-    ns2:haspgStatementType ns2:57e06df7-d1c2-4ff0-bf7a-fb10f96efce1 .
-
-ns2:N7396028ec17140d696536cd91475d2ff a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 4 ;
-    ns2:StatementText "begin" ;
-    ns2:hasProcedure ns2:09ae80e8-56bc-4fff-ad63-43a4b181fedd ;
-    ns2:haspgStatementType ns2:4d36989c-79b3-4cfb-b1f3-1ec40f8150b6 .
-
-ns2:N78727e4a62584dc7bfe2ac9c59c122aa a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 1 ;
-    ns2:StatementText "( t_testing_id UUID )" ;
-    ns2:hasProcedure ns2:a97e24f8-d48b-49c6-9ea0-5a4cc2df4dc2 ;
-    ns2:haspgStatementType ns2:dfc0d924-887f-481e-99d0-547368f887c8 .
-
-ns2:N79181506d1ca48519946d72fefc7a153 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 1 ;
-    ns2:StatementText "( t_testing_id UUID ,  curent_test_id UUID )" ;
-    ns2:hasProcedure ns2:a1aadc8b-f714-4c5b-beaa-d70c00455a56 ;
-    ns2:haspgStatementType ns2:dfc0d924-887f-481e-99d0-547368f887c8 .
-
-ns2:N7ca339b3f1f54d548f3fec8e9a85b3fe a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 4 ;
-    ns2:StatementText "begin" ;
-    ns2:hasProcedure ns2:e028cb95-3827-4905-9efe-7dc1802675f1 ;
-    ns2:haspgStatementType ns2:4d36989c-79b3-4cfb-b1f3-1ec40f8150b6 .
-
-ns2:N7d80d80871b9423ab43f560d9f299275 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 2 ;
-    ns2:StatementText """language plpgsql
-as $$""" ;
-    ns2:hasProcedure ns2:8e7ef6a7-c2d0-4683-997b-22a77da92063 ;
-    ns2:haspgStatementType ns2:8fda4853-dc52-41b1-8a9b-877a588cc61c .
-
-ns2:N7da386f255b541dfba172b311aba7fef a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 5 ;
-    ns2:StatementText """select t_testing_id\r
+begin
+select t_testing_id \r
 
  into t_testing_id
 from t_workstation\r
-where t_workstation_id =t_workstation_id;""" ;
-    ns2:hasProcedure ns2:d86d6d0a-2e05-4c22-96a6-1d7316074dc6 ;
-    ns2:haspgStatementType ns2:d330f478-3585-483a-b97d-9b183c14e7c0 .
+where t_workstation_id =t_workstation_id;
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:41f47825-6177-4408-b5f4-a03536fb8cda ;
+    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
 
-ns2:N7e7d9fc23c624e1496001af44b380741 a ns2:pgstatement,
+ns1:N31cc0504140948ab89e28b5027a6d871 a ns1:runcreateprocessprocedure,
         owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 3 ;
-    ns2:StatementText """declare 
+    rdfs:label "tmp_insupd_test_step" ;
+    ns1:hasProcedure ns1:709af84b-f318-495b-aaae-958751f6091b ;
+    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
+
+ns1:N359d82477c6549709cad8531b5e17e03 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.SyntaxError) ОШИБКА:  "count" - не известная переменная
+LINE 10:  into count
+               ^
+
+[SQL: 
+create or replace procedure dopass 
+( perscode VARCHAR  (12) ,  passw VARCHAR  (20) ,  inout t_testing_id UUID )
+language plpgsql
+as $$
+
+begin
+select \r
+
+ into count
+from t_workstation w \r
+inner join t_testing t on w.t_testing_id = t.t_testing_id \r
+inner join t_persona p on t.t_persona_id = p.t_persona_id \r
+where w.passw  =passwand perscode =perscode;
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:df7b8333-6af9-454b-8f29-e1289529c818 ;
+    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
+
+ns1:N373129481a7f469dba65576954b21ffe a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "get_prev_step_id" ;
+    ns1:hasProcedure ns1:d6c7c9c6-c645-4605-974f-743d6e74fd1f ;
+    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
+
+ns1:N44ba71a9a6d24f60bd2c876d6a6cb98e a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "test1" ;
+    ns1:hasProcedure ns1:d774c7f5-cace-4981-b74a-f44e47e2644e ;
+    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
+
+ns1:N465ca75a05954b96aa6408831b39a596 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "temp_insupd_test" ;
+    ns1:hasProcedure ns1:f7b1df8b-dfd6-4287-a282-1d08757e63b0 ;
+    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
+
+ns1:N4a3d54062d9446e3af029ed3c98b1c1e a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "get_test_step" ;
+    ns1:hasProcedure ns1:2aa221af-5377-4ecb-affd-83f19213c7b5 ;
+    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
+
+ns1:N4a86d3a449e74cecbbe4b86dcd458c06 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "time_remaining" ;
+    ns1:hasProcedure ns1:3d4b9f83-ded8-40c8-b530-868bd37a7104 ;
+    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
+
+ns1:N4b1f400a6a534e86967ff43b49738266 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "select_tests" ;
+    ns1:hasProcedure ns1:20bc29e8-5d0c-4e94-8591-f84021abf5a0 ;
+    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
+
+ns1:N53a1b1a92d3b4c5a9da149aa46f083de a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "workstation_clear" ;
+    ns1:hasProcedure ns1:aa15a878-d2cb-4d32-b0e6-61257526fcb5 ;
+    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
+
+ns1:N61a0db575fa648c48bfc426f5979f131 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "stat_change_testing" ;
+    ns1:hasProcedure ns1:a1aadc8b-f714-4c5b-beaa-d70c00455a56 ;
+    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
+
+ns1:N696f3eb906b2472e99377fdf259a7849 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "get_next_step_id" ;
+    ns1:hasProcedure ns1:6d57d949-cba7-4b3f-9848-4bd05ae4168c ;
+    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
+
+ns1:N6d5049bde03149bfb4b03f67d86f6897 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.SyntaxError) ОШИБКА:  ошибка синтаксиса (примерное положение: "1")
+LINE 7: back_btn_mark CHAR 1; 
+                           ^
+CONTEXT:  неверное имя типа "CHAR 1"
+
+[SQL: 
+create or replace procedure doback 
+( t_testing_id UUID ,  t_testing_step_id UUID )
+language plpgsql
+as $$
+declare 
+back_btn_mark CHAR 1; 
+prev_step_id UUID ; 
+current_step_id UUID ; 
+t_test_id UUID ; 
+back_only_1_step CHAR 1; 
+
+begin
+select current_step_id\r
+
+ into current_step_id
+from t_testing t inner join\r
+t_testing_test tt on\r
+t.t_testing_id=tt.t_testing_id\r
+and t.current_test_id = tt.t_test_id\r
+where t.t_testing_id =t_testing_id;
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:04d381e4-d214-4c04-bdd9-57fa9a03e0f5 ;
+    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
+
+ns1:N7271ebcf37ba4feba8772c18b0a6ff5e a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.SyntaxError) ОШИБКА:  незавершённая строка с $ (примерное положение: "$$
+declare 
+job_count int ; 
+
+begin")
+LINE 5: as $$
+           ^
+
+[SQL: 
+create or replace procedure selupd_1print 
+()
+language plpgsql
+as $$
+declare 
+job_count int ; 
+
+begin]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:45e58bce-d76c-487b-b36c-ce484c3aedfb ;
+    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
+
+ns1:N7742b4f18398465985528b8c78ab601b a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "get_test_introduction" ;
+    ns1:hasProcedure ns1:336a98e5-eb3e-40bc-a27b-b750c154d48c ;
+    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
+
+ns1:N8cf4202faa5a4e5c92ed78388c2ab09a a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "inititate_testing2" ;
+    ns1:hasProcedure ns1:7da108c2-6900-41ce-99a3-83a8b64e7e67 ;
+    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
+
+ns1:N8ee94c25cfba41a8b9429876e9bfdc22 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "doback" ;
+    ns1:hasProcedure ns1:04d381e4-d214-4c04-bdd9-57fa9a03e0f5 ;
+    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
+
+ns1:N93d04cd631fb4c2aae877d3eb701e183 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "selupd_1print" ;
+    ns1:hasProcedure ns1:45e58bce-d76c-487b-b36c-ce484c3aedfb ;
+    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
+
+ns1:N96b207c373074ea6a169aa38d0ee04c3 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "stat_change_help" ;
+    ns1:hasProcedure ns1:8e7ef6a7-c2d0-4683-997b-22a77da92063 ;
+    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
+
+ns1:N9a6901d9009643f499909307157d8adc a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "ws_type" ;
+    ns1:hasProcedure ns1:862298d9-1863-48b3-8b1b-a9aa0fba2f75 ;
+    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
+
+ns1:Nbf5d86242f124388b33c64ecba3fe420 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.SyntaxError) ОШИБКА:  "status" - не известная переменная
+LINE 15:  into status
+               ^
+
+[SQL: 
+create or replace procedure stat_change_help 
+( t_testing_id UUID )
+language plpgsql
+as $$
+declare 
+t_test_id UUID ; 
+time_limit_min int ; 
+stop_times int ; 
+stop_time_sec int ; 
+count_stop_times int ; 
+
+begin
+select obj_name 
+ into status
+from t_testing_status ts\r
+inner join t_testing t on ts.t_testing_status_id = t.t_testing_status_id\r
+where  t.t_testing_id  =t_testing_id;
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:8e7ef6a7-c2d0-4683-997b-22a77da92063 ;
+    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
+
+ns1:Nc597a5d34aaf4c15b83ca558a287cce5 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "donext" ;
+    ns1:hasProcedure ns1:d2f8311d-c78c-47ad-89ae-530c4acfae50 ;
+    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
+
+ns1:Nc775daa8f5fc4da18fc4acbaefa06bc0 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "workstation_status" ;
+    ns1:hasProcedure ns1:41f47825-6177-4408-b5f4-a03536fb8cda ;
+    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
+
+ns1:Nc96e07d5fca1431cafd97359509a4487 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "inititate_testing" ;
+    ns1:hasProcedure ns1:e17ab7f5-d330-44d1-90ef-3f8f3f76dd88 ;
+    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
+
+ns1:Nc9b2c58067d9453eb153cdfc4324b47c a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "dopass" ;
+    ns1:hasProcedure ns1:df7b8333-6af9-454b-8f29-e1289529c818 ;
+    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
+
+ns1:Nd7300056c36948a1a12867c9b5fca3ed a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "insupd_score" ;
+    ns1:hasProcedure ns1:09ae80e8-56bc-4fff-ad63-43a4b181fedd ;
+    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
+
+ns1:Ne48200b564b54fb281606907bd6c8780 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "stat_change_help2" ;
+    ns1:hasProcedure ns1:d86d6d0a-2e05-4c22-96a6-1d7316074dc6 ;
+    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
+
+ns1:Ne68266ed5fdd4cf5bb15c58bc185d522 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.SyntaxError) ОШИБКА:  "status" - не известная переменная
+LINE 13:  into status
+               ^
+
+[SQL: 
+create or replace procedure stat_change_instruct 
+( t_testing_id UUID )
+language plpgsql
+as $$
+declare 
+t_test_id UUID ; 
+current_step_id UUID ; 
+step_order int ; 
+
+begin
+select obj_name 
+ into status
+from t_testing_status ts\r
+inner join t_testing t on ts.t_testing_status_id = t.t_testing_status_id\r
+where  t.t_testing_id  =t_testing_id;
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:969bd3bc-4e04-4782-a48e-129ca986d4aa ;
+    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
+
+ns1:Ne914b071a9b842b597a0bd85504cd3e9 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "testing_status" ;
+    ns1:hasProcedure ns1:a97e24f8-d48b-49c6-9ea0-5a4cc2df4dc2 ;
+    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
+
+ns1:Nf173c6755c1d459fa613a183d9572436 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.SyntaxError) ОШИБКА:  ошибка синтаксиса (примерное положение: "10")
+LINE 7: status VARCHAR 10; 
+                       ^
+CONTEXT:  неверное имя типа "VARCHAR 10"
+
+[SQL: 
+create or replace procedure testing_status 
+( t_testing_id UUID )
+language plpgsql
+as $$
+declare 
 status VARCHAR 10; 
 seconds_remain int ; 
 count_stop_times int ; 
@@ -803,825 +424,24 @@ last_step_id UUID ;
 perscode CHAR 12; 
 jsfile VARCHAR 50; 
 step_num VARCHAR 100; 
-""" ;
-    ns2:hasProcedure ns2:a97e24f8-d48b-49c6-9ea0-5a4cc2df4dc2 ;
-    ns2:haspgStatementType ns2:b1899c26-8b40-488f-bdeb-7fcb10431030 .
 
-ns2:N7faf62914a6b49ee9f851003be6d5348 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 0 ;
-    ns2:StatementText "create or replace procedure stat_change_help " ;
-    ns2:hasProcedure ns2:8e7ef6a7-c2d0-4683-997b-22a77da92063 ;
-    ns2:haspgStatementType ns2:6bd4c1b0-353f-460d-97b2-d5c22ee6d379 .
-
-ns2:N80a6c809df304e81ae928053b6434ae3 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 4 ;
-    ns2:StatementText "begin" ;
-    ns2:hasProcedure ns2:d86d6d0a-2e05-4c22-96a6-1d7316074dc6 ;
-    ns2:haspgStatementType ns2:4d36989c-79b3-4cfb-b1f3-1ec40f8150b6 .
-
-ns2:N830b0f1209484138af341bb665480400 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 5 ;
-    ns2:StatementText """select \r
-
- into ws_ip_count
-from t_workstation \r
-where ip_address =ip_addressand \r
-t_workstation_status_id =t_ws_status_id_activeand auth_type=0;""" ;
-    ns2:hasProcedure ns2:862298d9-1863-48b3-8b1b-a9aa0fba2f75 ;
-    ns2:haspgStatementType ns2:d330f478-3585-483a-b97d-9b183c14e7c0 .
-
-ns2:N843033e15cc64d979d733f85185f7228 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 2 ;
-    ns2:StatementText """language plpgsql
-as $$""" ;
-    ns2:hasProcedure ns2:aa15a878-d2cb-4d32-b0e6-61257526fcb5 ;
-    ns2:haspgStatementType ns2:8fda4853-dc52-41b1-8a9b-877a588cc61c .
-
-ns2:N84777c7ea3c446a1a2998170ac6ccd44 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 4 ;
-    ns2:StatementText "begin" ;
-    ns2:hasProcedure ns2:d6c7c9c6-c645-4605-974f-743d6e74fd1f ;
-    ns2:haspgStatementType ns2:4d36989c-79b3-4cfb-b1f3-1ec40f8150b6 .
-
-ns2:N853c049e89c74152842acebc5c49d97e a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 3 ;
-    ns2:StatementText """declare 
-test_num VARCHAR 10; 
-current_step_id UUID ; 
-start_date TIMESTAMP(3) ; 
-step int ; 
-t_testing_id UUID ; 
-status VARCHAR 10; 
-""" ;
-    ns2:hasProcedure ns2:41f47825-6177-4408-b5f4-a03536fb8cda ;
-    ns2:haspgStatementType ns2:b1899c26-8b40-488f-bdeb-7fcb10431030 .
-
-ns2:N868ae18995764ac1b64990b976d2b9ea a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 1 ;
-    ns2:StatementText "( ip_address VARCHAR  (100) ,  inout ip_auth CHAR  (1) ,  inout t_workstation_id UUID ,  inout t_testing_id UUID ,  t_ws_status_id_active UUID )" ;
-    ns2:hasProcedure ns2:862298d9-1863-48b3-8b1b-a9aa0fba2f75 ;
-    ns2:haspgStatementType ns2:dfc0d924-887f-481e-99d0-547368f887c8 .
-
-ns2:N86a865dd2099417a94d35e8dc6455171 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 0 ;
-    ns2:StatementText "create or replace procedure workstation_clear " ;
-    ns2:hasProcedure ns2:aa15a878-d2cb-4d32-b0e6-61257526fcb5 ;
-    ns2:haspgStatementType ns2:6bd4c1b0-353f-460d-97b2-d5c22ee6d379 .
-
-ns2:N86f0d468ff2548e598123f4d1d32357b a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 4 ;
-    ns2:StatementText "begin" ;
-    ns2:hasProcedure ns2:8e7ef6a7-c2d0-4683-997b-22a77da92063 ;
-    ns2:haspgStatementType ns2:4d36989c-79b3-4cfb-b1f3-1ec40f8150b6 .
-
-ns2:N87bbd978ca344fe08f187b09e0823213 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 1 ;
-    ns2:StatementText "( t_testing_id UUID )" ;
-    ns2:hasProcedure ns2:6e03002c-2cde-4214-b12e-1fe2e1695cc8 ;
-    ns2:haspgStatementType ns2:dfc0d924-887f-481e-99d0-547368f887c8 .
-
-ns2:N889cfbd689eb4dca90205b1ec0fff30c a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 1 ;
-    ns2:StatementText "( t_workstation_id UUID )" ;
-    ns2:hasProcedure ns2:41f47825-6177-4408-b5f4-a03536fb8cda ;
-    ns2:haspgStatementType ns2:dfc0d924-887f-481e-99d0-547368f887c8 .
-
-ns2:N8afcd104b2fb450eaa1fbe975dc1e083 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 3 ;
-    ns2:StatementText """declare 
-back_btn_mark CHAR 1; 
-prev_step_id UUID ; 
-current_step_id UUID ; 
-t_test_id UUID ; 
-back_only_1_step CHAR 1; 
-""" ;
-    ns2:hasProcedure ns2:04d381e4-d214-4c04-bdd9-57fa9a03e0f5 ;
-    ns2:haspgStatementType ns2:b1899c26-8b40-488f-bdeb-7fcb10431030 .
-
-ns2:N8d48312c35d449ad97bbb73ee64beea7 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 5 ;
-    ns2:StatementText "end; $$" ;
-    ns2:hasProcedure ns2:20bc29e8-5d0c-4e94-8591-f84021abf5a0 ;
-    ns2:haspgStatementType ns2:57e06df7-d1c2-4ff0-bf7a-fb10f96efce1 .
-
-ns2:N8e00d1e76ae24bfe8c1749305e9798cb a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 1 ;
-    ns2:StatementText "( t_testing_id UUID ,  result_txt VARCHAR  (1000) ,  t_testing_step_id UUID )" ;
-    ns2:hasProcedure ns2:d2f8311d-c78c-47ad-89ae-530c4acfae50 ;
-    ns2:haspgStatementType ns2:dfc0d924-887f-481e-99d0-547368f887c8 .
-
-ns2:N912c09c509d94c559e396d7091dba326 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 1 ;
-    ns2:StatementText "( t_testing_id UUID ,  t_workstation_id UUID ,  t_persona_id UUID ,  t_testing_language_id UUID ,  t_testing_classificator_id UUID ,  obj_created_by VARCHAR  (100) ,  passw VARCHAR  (20) )" ;
-    ns2:hasProcedure ns2:e17ab7f5-d330-44d1-90ef-3f8f3f76dd88 ;
-    ns2:haspgStatementType ns2:dfc0d924-887f-481e-99d0-547368f887c8 .
-
-ns2:N94430d63dd244ca28990ca2506547357 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 4 ;
-    ns2:StatementText "begin" ;
-    ns2:hasProcedure ns2:7da108c2-6900-41ce-99a3-83a8b64e7e67 ;
-    ns2:haspgStatementType ns2:4d36989c-79b3-4cfb-b1f3-1ec40f8150b6 .
-
-ns2:N9453c3c62a1f442a9767f485709cb45d a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 2 ;
-    ns2:StatementText """language plpgsql
-as $$""" ;
-    ns2:hasProcedure ns2:d86d6d0a-2e05-4c22-96a6-1d7316074dc6 ;
-    ns2:haspgStatementType ns2:8fda4853-dc52-41b1-8a9b-877a588cc61c .
-
-ns2:N96f11e82bb6d4000a43833f6efdad317 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 6 ;
-    ns2:StatementText "end; $$" ;
-    ns2:hasProcedure ns2:862298d9-1863-48b3-8b1b-a9aa0fba2f75 ;
-    ns2:haspgStatementType ns2:57e06df7-d1c2-4ff0-bf7a-fb10f96efce1 .
-
-ns2:N9808bc7db75d41e8a0bf34fb772d26b6 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 3 ;
-    ns2:StatementText """declare 
-STOP_TIME_SEC int ; 
-timelimitmin int ; 
-start_time TIMESTAMP(3) ; 
-""" ;
-    ns2:hasProcedure ns2:3d4b9f83-ded8-40c8-b530-868bd37a7104 ;
-    ns2:haspgStatementType ns2:b1899c26-8b40-488f-bdeb-7fcb10431030 .
-
-ns2:N9854e4f6744e4cfbb4776e9a1fb709ed a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 2 ;
-    ns2:StatementText """language plpgsql
-as $$""" ;
-    ns2:hasProcedure ns2:7da108c2-6900-41ce-99a3-83a8b64e7e67 ;
-    ns2:haspgStatementType ns2:8fda4853-dc52-41b1-8a9b-877a588cc61c .
-
-ns2:N987678b9bdbe4245ba366d661e0587eb a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 2 ;
-    ns2:StatementText """language plpgsql
-as $$""" ;
-    ns2:hasProcedure ns2:969bd3bc-4e04-4782-a48e-129ca986d4aa ;
-    ns2:haspgStatementType ns2:8fda4853-dc52-41b1-8a9b-877a588cc61c .
-
-ns2:N98f8ea0e26ce4aa8af837919f84fd0a2 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 2 ;
-    ns2:StatementText """language plpgsql
-as $$""" ;
-    ns2:hasProcedure ns2:f7b1df8b-dfd6-4287-a282-1d08757e63b0 ;
-    ns2:haspgStatementType ns2:8fda4853-dc52-41b1-8a9b-877a588cc61c .
-
-ns2:N9c1a9c1d76d94a26910305246fca8d26 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 1 ;
-    ns2:StatementText "( t_testing_id UUID )" ;
-    ns2:hasProcedure ns2:969bd3bc-4e04-4782-a48e-129ca986d4aa ;
-    ns2:haspgStatementType ns2:dfc0d924-887f-481e-99d0-547368f887c8 .
-
-ns2:N9c2b83723f5549e1b26fd2cf5513eea2 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 0 ;
-    ns2:StatementText "create or replace procedure temp_insupd_test " ;
-    ns2:hasProcedure ns2:f7b1df8b-dfd6-4287-a282-1d08757e63b0 ;
-    ns2:haspgStatementType ns2:6bd4c1b0-353f-460d-97b2-d5c22ee6d379 .
-
-ns2:N9daa4a017af44dea9ffd3a3733582c96 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 3 ;
-    ns2:StatementText "" ;
-    ns2:hasProcedure ns2:df7b8333-6af9-454b-8f29-e1289529c818 ;
-    ns2:haspgStatementType ns2:b1899c26-8b40-488f-bdeb-7fcb10431030 .
-
-ns2:N9dd1725e1ecf4bdf85cb5873b099f9c4 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 1 ;
-    ns2:StatementText "( t_test_id UUID )" ;
-    ns2:hasProcedure ns2:f7b1df8b-dfd6-4287-a282-1d08757e63b0 ;
-    ns2:haspgStatementType ns2:dfc0d924-887f-481e-99d0-547368f887c8 .
-
-ns2:N9ec1e891f43a4127b1a188865b1cb13a a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 0 ;
-    ns2:StatementText "create or replace procedure get_prev_step_id " ;
-    ns2:hasProcedure ns2:d6c7c9c6-c645-4605-974f-743d6e74fd1f ;
-    ns2:haspgStatementType ns2:6bd4c1b0-353f-460d-97b2-d5c22ee6d379 .
-
-ns2:N9f42701ec1a849e9a4659632cf50005b a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 4 ;
-    ns2:StatementText "begin" ;
-    ns2:hasProcedure ns2:2aa221af-5377-4ecb-affd-83f19213c7b5 ;
-    ns2:haspgStatementType ns2:4d36989c-79b3-4cfb-b1f3-1ec40f8150b6 .
-
-ns2:Na154c066668f4420958a4a43ea78c576 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 3 ;
-    ns2:StatementText """declare 
-auth_type VARCHAR 20; 
-""" ;
-    ns2:hasProcedure ns2:e17ab7f5-d330-44d1-90ef-3f8f3f76dd88 ;
-    ns2:haspgStatementType ns2:b1899c26-8b40-488f-bdeb-7fcb10431030 .
-
-ns2:Na28dfd5eb80745c3940d6f804fb17f35 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 3 ;
-    ns2:StatementText "" ;
-    ns2:hasProcedure ns2:336a98e5-eb3e-40bc-a27b-b750c154d48c ;
-    ns2:haspgStatementType ns2:b1899c26-8b40-488f-bdeb-7fcb10431030 .
-
-ns2:Na4401099ad9d48618c8986a52e11912c a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 4 ;
-    ns2:StatementText "begin" ;
-    ns2:hasProcedure ns2:a97e24f8-d48b-49c6-9ea0-5a4cc2df4dc2 ;
-    ns2:haspgStatementType ns2:4d36989c-79b3-4cfb-b1f3-1ec40f8150b6 .
-
-ns2:Na4cc5de7d8d54bd39f43ee9223c73477 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 0 ;
-    ns2:StatementText "create or replace procedure stat_change_testing " ;
-    ns2:hasProcedure ns2:a1aadc8b-f714-4c5b-beaa-d70c00455a56 ;
-    ns2:haspgStatementType ns2:6bd4c1b0-353f-460d-97b2-d5c22ee6d379 .
-
-ns2:Na951513e4b394b9b835a37a091ea4ad9 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 5 ;
-    ns2:StatementText """select t_test_id\r
-  \r
-  
- into next_test_id
-from   t_test\r
-  where order_num =\r
-  (\r
-  select min(order_num) \r
-  from t_testing_test tt inner join t_test te\r
-    on tt.t_test_id= te.t_test_id\r
-    where tt.t_testing_test_status_id = 4\r
-    and tt.t_testing_id  =t_testing_id);""" ;
-    ns2:hasProcedure ns2:a1aadc8b-f714-4c5b-beaa-d70c00455a56 ;
-    ns2:haspgStatementType ns2:d330f478-3585-483a-b97d-9b183c14e7c0 .
-
-ns2:Naa5b3fd27aa9481f97cc485208e2ee4e a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 0 ;
-    ns2:StatementText "create or replace procedure test1 " ;
-    ns2:hasProcedure ns2:d774c7f5-cace-4981-b74a-f44e47e2644e ;
-    ns2:haspgStatementType ns2:6bd4c1b0-353f-460d-97b2-d5c22ee6d379 .
-
-ns2:Nab5ed65e778d4c87a6d2a7b6756392da a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 2 ;
-    ns2:StatementText """language plpgsql
-as $$""" ;
-    ns2:hasProcedure ns2:20bc29e8-5d0c-4e94-8591-f84021abf5a0 ;
-    ns2:haspgStatementType ns2:8fda4853-dc52-41b1-8a9b-877a588cc61c .
-
-ns2:Nabb34b325c0e4b83b7452417d465fe5e a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 0 ;
-    ns2:StatementText "create or replace procedure time_remaining " ;
-    ns2:hasProcedure ns2:3d4b9f83-ded8-40c8-b530-868bd37a7104 ;
-    ns2:haspgStatementType ns2:6bd4c1b0-353f-460d-97b2-d5c22ee6d379 .
-
-ns2:Nad0551e04bed480591134ebc98cb50a1 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 6 ;
-    ns2:StatementText "end; $$" ;
-    ns2:hasProcedure ns2:8e7ef6a7-c2d0-4683-997b-22a77da92063 ;
-    ns2:haspgStatementType ns2:57e06df7-d1c2-4ff0-bf7a-fb10f96efce1 .
-
-ns2:Nad6511883de443f1b05103a0f2e39b7d a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 1 ;
-    ns2:StatementText "( t_testing_id UUID )" ;
-    ns2:hasProcedure ns2:e028cb95-3827-4905-9efe-7dc1802675f1 ;
-    ns2:haspgStatementType ns2:dfc0d924-887f-481e-99d0-547368f887c8 .
-
-ns2:Nae096d9517324778a2a20db42ae08801 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 0 ;
-    ns2:StatementText "create or replace procedure doback " ;
-    ns2:hasProcedure ns2:04d381e4-d214-4c04-bdd9-57fa9a03e0f5 ;
-    ns2:haspgStatementType ns2:6bd4c1b0-353f-460d-97b2-d5c22ee6d379 .
-
-ns2:Nae81a4a5734044998b01b00c5a122dc0 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 5 ;
-    ns2:StatementText """select \r
-
- into count
-from t_workstation w \r
-inner join t_testing t on w.t_testing_id = t.t_testing_id \r
-inner join t_persona p on t.t_persona_id = p.t_persona_id \r
-where w.passw  =passwand perscode =perscode;""" ;
-    ns2:hasProcedure ns2:df7b8333-6af9-454b-8f29-e1289529c818 ;
-    ns2:haspgStatementType ns2:d330f478-3585-483a-b97d-9b183c14e7c0 .
-
-ns2:Naf33a59d1d9449488eb1aec3a09c132d a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 0 ;
-    ns2:StatementText "create or replace procedure stat_change_prepared " ;
-    ns2:hasProcedure ns2:e028cb95-3827-4905-9efe-7dc1802675f1 ;
-    ns2:haspgStatementType ns2:6bd4c1b0-353f-460d-97b2-d5c22ee6d379 .
-
-ns2:Nb1ba7be018654a03bdfe6475539cf15f a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 1 ;
-    ns2:StatementText "( t_workstation_id UUID )" ;
-    ns2:hasProcedure ns2:aa15a878-d2cb-4d32-b0e6-61257526fcb5 ;
-    ns2:haspgStatementType ns2:dfc0d924-887f-481e-99d0-547368f887c8 .
-
-ns2:Nb79bbc0f78134a21aefe4c1765e1135b a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 3 ;
-    ns2:StatementText """declare 
-t_test_id UUID ; 
-t_testing_id UUID ; 
-current_step_id UUID ; 
-""" ;
-    ns2:hasProcedure ns2:d86d6d0a-2e05-4c22-96a6-1d7316074dc6 ;
-    ns2:haspgStatementType ns2:b1899c26-8b40-488f-bdeb-7fcb10431030 .
-
-ns2:Nb85d923314af411ba139072139a16f57 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 4 ;
-    ns2:StatementText "begin" ;
-    ns2:hasProcedure ns2:6e03002c-2cde-4214-b12e-1fe2e1695cc8 ;
-    ns2:haspgStatementType ns2:4d36989c-79b3-4cfb-b1f3-1ec40f8150b6 .
-
-ns2:Nb9f09adbf8284a02a508d84c173a6e9d a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 2 ;
-    ns2:StatementText """language plpgsql
-as $$""" ;
-    ns2:hasProcedure ns2:6d57d949-cba7-4b3f-9848-4bd05ae4168c ;
-    ns2:haspgStatementType ns2:8fda4853-dc52-41b1-8a9b-877a588cc61c .
-
-ns2:Nbaf9b28161a5496daf79ff3a264ea17d a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 4 ;
-    ns2:StatementText "begin" ;
-    ns2:hasProcedure ns2:aa15a878-d2cb-4d32-b0e6-61257526fcb5 ;
-    ns2:haspgStatementType ns2:4d36989c-79b3-4cfb-b1f3-1ec40f8150b6 .
-
-ns2:Nbb48c7becc434d6f9b0fe9a392680150 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 5 ;
-    ns2:StatementText """select t_test_id, step_order\r
-
- into t_test_id,step_order
-from t_test_step \r
-where t_test_step_id  =current_step_id;""" ;
-    ns2:hasProcedure ns2:6d57d949-cba7-4b3f-9848-4bd05ae4168c ;
-    ns2:haspgStatementType ns2:d330f478-3585-483a-b97d-9b183c14e7c0 .
-
-ns2:Nbd9d5671f1dd4f109a3cde9bcbeeca15 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 1 ;
-    ns2:StatementText "( t_testing_id UUID ,  t_test_id UUID )" ;
-    ns2:hasProcedure ns2:3d4b9f83-ded8-40c8-b530-868bd37a7104 ;
-    ns2:haspgStatementType ns2:dfc0d924-887f-481e-99d0-547368f887c8 .
-
-ns2:Nc43e51e5a9624bcc91276120bc3ebdc9 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 1 ;
-    ns2:StatementText "( perscode VARCHAR  (12) ,  passw VARCHAR  (20) ,  inout t_testing_id UUID )" ;
-    ns2:hasProcedure ns2:df7b8333-6af9-454b-8f29-e1289529c818 ;
-    ns2:haspgStatementType ns2:dfc0d924-887f-481e-99d0-547368f887c8 .
-
-ns2:Nc4ba6af16afc40f1b2042f46c1a34138 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 5 ;
-    ns2:StatementText """select current_step_id\r
-
- into current_step_id
-from t_testing t inner join\r
-t_testing_test tt on\r
-t.t_testing_id=tt.t_testing_id\r
-and t.current_test_id = tt.t_test_id\r
-where t.t_testing_id =t_testing_id;""" ;
-    ns2:hasProcedure ns2:d2f8311d-c78c-47ad-89ae-530c4acfae50 ;
-    ns2:haspgStatementType ns2:d330f478-3585-483a-b97d-9b183c14e7c0 .
-
-ns2:Nc534cbbcfafd4a3ca2798a565659c6e0 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 4 ;
-    ns2:StatementText "begin" ;
-    ns2:hasProcedure ns2:a1aadc8b-f714-4c5b-beaa-d70c00455a56 ;
-    ns2:haspgStatementType ns2:4d36989c-79b3-4cfb-b1f3-1ec40f8150b6 .
-
-ns2:Nc762a80cd8ac423c8857931ad94dfe05 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 2 ;
-    ns2:StatementText """language plpgsql
-as $$""" ;
-    ns2:hasProcedure ns2:3d4b9f83-ded8-40c8-b530-868bd37a7104 ;
-    ns2:haspgStatementType ns2:8fda4853-dc52-41b1-8a9b-877a588cc61c .
-
-ns2:Ncb2a98d64e7347d58f43063a5c45eab2 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 3 ;
-    ns2:StatementText """declare 
-t_test_id UUID ; 
-time_limit_min int ; 
-stop_times int ; 
-stop_time_sec int ; 
-count_stop_times int ; 
-""" ;
-    ns2:hasProcedure ns2:8e7ef6a7-c2d0-4683-997b-22a77da92063 ;
-    ns2:haspgStatementType ns2:b1899c26-8b40-488f-bdeb-7fcb10431030 .
-
-ns2:Ncb8846b260274cc497caa97b64d67a03 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 4 ;
-    ns2:StatementText "begin" ;
-    ns2:hasProcedure ns2:d774c7f5-cace-4981-b74a-f44e47e2644e ;
-    ns2:haspgStatementType ns2:4d36989c-79b3-4cfb-b1f3-1ec40f8150b6 .
-
-ns2:Ncd47c29fccc144ecb663c729e513ef3f a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 6 ;
-    ns2:StatementText "end; $$" ;
-    ns2:hasProcedure ns2:04d381e4-d214-4c04-bdd9-57fa9a03e0f5 ;
-    ns2:haspgStatementType ns2:57e06df7-d1c2-4ff0-bf7a-fb10f96efce1 .
-
-ns2:Nce46e661d72e4f189ba4ea11bc29125c a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 4 ;
-    ns2:StatementText "begin" ;
-    ns2:hasProcedure ns2:862298d9-1863-48b3-8b1b-a9aa0fba2f75 ;
-    ns2:haspgStatementType ns2:4d36989c-79b3-4cfb-b1f3-1ec40f8150b6 .
-
-ns2:Nd1d799bd67964b28917fe14b6f2459f5 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 6 ;
-    ns2:StatementText "end; $$" ;
-    ns2:hasProcedure ns2:6d57d949-cba7-4b3f-9848-4bd05ae4168c ;
-    ns2:haspgStatementType ns2:57e06df7-d1c2-4ff0-bf7a-fb10f96efce1 .
-
-ns2:Nd276f3cdf85d42a7992c27461e46f950 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 2 ;
-    ns2:StatementText """language plpgsql
-as $$""" ;
-    ns2:hasProcedure ns2:bd90706d-157f-44c9-88c1-47964dae9cf5 ;
-    ns2:haspgStatementType ns2:8fda4853-dc52-41b1-8a9b-877a588cc61c .
-
-ns2:Nd3bb13f350d4491cae93f773e2f7c0bd a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 4 ;
-    ns2:StatementText "begin" ;
-    ns2:hasProcedure ns2:df7b8333-6af9-454b-8f29-e1289529c818 ;
-    ns2:haspgStatementType ns2:4d36989c-79b3-4cfb-b1f3-1ec40f8150b6 .
-
-ns2:Nd6a86eaddc1b42c6ba1c66c0610b5a40 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 2 ;
-    ns2:StatementText """language plpgsql
-as $$""" ;
-    ns2:hasProcedure ns2:09ae80e8-56bc-4fff-ad63-43a4b181fedd ;
-    ns2:haspgStatementType ns2:8fda4853-dc52-41b1-8a9b-877a588cc61c .
-
-ns2:Nd899ba94ce8347b787b49dea30b0196a a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 1 ;
-    ns2:StatementText "()" ;
-    ns2:hasProcedure ns2:d774c7f5-cace-4981-b74a-f44e47e2644e ;
-    ns2:haspgStatementType ns2:dfc0d924-887f-481e-99d0-547368f887c8 .
-
-ns2:Nd90a1a84f6fc458893201cf0acf79686 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 4 ;
-    ns2:StatementText "begin" ;
-    ns2:hasProcedure ns2:04d381e4-d214-4c04-bdd9-57fa9a03e0f5 ;
-    ns2:haspgStatementType ns2:4d36989c-79b3-4cfb-b1f3-1ec40f8150b6 .
-
-ns2:Ndbb65c36611c44f5b2228281c389ed1f a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 1 ;
-    ns2:StatementText "( t_testing_id UUID ,  t_testing_step_id UUID )" ;
-    ns2:hasProcedure ns2:04d381e4-d214-4c04-bdd9-57fa9a03e0f5 ;
-    ns2:haspgStatementType ns2:dfc0d924-887f-481e-99d0-547368f887c8 .
-
-ns2:Ne06ece5acae144c7a30c876da999a72e a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 4 ;
-    ns2:StatementText "begin" ;
-    ns2:hasProcedure ns2:336a98e5-eb3e-40bc-a27b-b750c154d48c ;
-    ns2:haspgStatementType ns2:4d36989c-79b3-4cfb-b1f3-1ec40f8150b6 .
-
-ns2:Ne2e51e9044ec4a5c86920ad07ef1ca89 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 6 ;
-    ns2:StatementText "end; $$" ;
-    ns2:hasProcedure ns2:a1aadc8b-f714-4c5b-beaa-d70c00455a56 ;
-    ns2:haspgStatementType ns2:57e06df7-d1c2-4ff0-bf7a-fb10f96efce1 .
-
-ns2:Ne3fa409bf87d4ec2b38361bf11d95301 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 3 ;
-    ns2:StatementText """declare 
-t_test_id UUID ; 
-prev_step_order int ; 
-step_order int ; 
-""" ;
-    ns2:hasProcedure ns2:d6c7c9c6-c645-4605-974f-743d6e74fd1f ;
-    ns2:haspgStatementType ns2:b1899c26-8b40-488f-bdeb-7fcb10431030 .
-
-ns2:Ne47fdb9089f8417bb36ad1d99b46bf1e a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 3 ;
-    ns2:StatementText """declare 
-next_step_order int ; 
-step_order int ; 
-t_test_id UUID ; 
-""" ;
-    ns2:hasProcedure ns2:6d57d949-cba7-4b3f-9848-4bd05ae4168c ;
-    ns2:haspgStatementType ns2:b1899c26-8b40-488f-bdeb-7fcb10431030 .
-
-ns2:Ne576ee5aaba043329e0bfb399c006981 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 3 ;
-    ns2:StatementText "" ;
-    ns2:hasProcedure ns2:7da108c2-6900-41ce-99a3-83a8b64e7e67 ;
-    ns2:haspgStatementType ns2:b1899c26-8b40-488f-bdeb-7fcb10431030 .
-
-ns2:Ne6ef6708d8434f6588d83d3caf745cd7 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 2 ;
-    ns2:StatementText """language plpgsql
-as $$""" ;
-    ns2:hasProcedure ns2:336a98e5-eb3e-40bc-a27b-b750c154d48c ;
-    ns2:haspgStatementType ns2:8fda4853-dc52-41b1-8a9b-877a588cc61c .
-
-ns2:Ne9139076dba34c6096c3cc7626813d31 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 1 ;
-    ns2:StatementText "( current_step_id UUID ,  inout prev_step_id UUID )" ;
-    ns2:hasProcedure ns2:d6c7c9c6-c645-4605-974f-743d6e74fd1f ;
-    ns2:haspgStatementType ns2:dfc0d924-887f-481e-99d0-547368f887c8 .
-
-ns2:Nea47ebabd9564d1888db2c29b7614214 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 2 ;
-    ns2:StatementText """language plpgsql
-as $$""" ;
-    ns2:hasProcedure ns2:d774c7f5-cace-4981-b74a-f44e47e2644e ;
-    ns2:haspgStatementType ns2:8fda4853-dc52-41b1-8a9b-877a588cc61c .
-
-ns2:Neac351714aa441ecb16a9f259dc3488d a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 5 ;
-    ns2:StatementText "end; $$" ;
-    ns2:hasProcedure ns2:2aa221af-5377-4ecb-affd-83f19213c7b5 ;
-    ns2:haspgStatementType ns2:57e06df7-d1c2-4ff0-bf7a-fb10f96efce1 .
-
-ns2:Neb2f44bc6eef45e4853c28d227c02da2 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 1 ;
-    ns2:StatementText "( current_step_id UUID ,  inout next_step_id UUID )" ;
-    ns2:hasProcedure ns2:6d57d949-cba7-4b3f-9848-4bd05ae4168c ;
-    ns2:haspgStatementType ns2:dfc0d924-887f-481e-99d0-547368f887c8 .
-
-ns2:Nec6fbc1849c14aa7aa15d201684885a6 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 1 ;
-    ns2:StatementText "( current_step_id UUID ,  t_testing_id UUID )" ;
-    ns2:hasProcedure ns2:2aa221af-5377-4ecb-affd-83f19213c7b5 ;
-    ns2:haspgStatementType ns2:dfc0d924-887f-481e-99d0-547368f887c8 .
-
-ns2:Nedbb65c4076747fc8024a833bcb4d983 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 0 ;
-    ns2:StatementText "create or replace procedure get_test_introduction " ;
-    ns2:hasProcedure ns2:336a98e5-eb3e-40bc-a27b-b750c154d48c ;
-    ns2:haspgStatementType ns2:6bd4c1b0-353f-460d-97b2-d5c22ee6d379 .
-
-ns2:Nef08bacaa6b24b618003c8721892043a a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 5 ;
-    ns2:StatementText """select current_step_id\r
-
- into current_step_id
-from t_testing t inner join\r
-t_testing_test tt on\r
-t.t_testing_id=tt.t_testing_id\r
-and t.current_test_id = tt.t_test_id\r
-where t.t_testing_id =t_testing_id;""" ;
-    ns2:hasProcedure ns2:04d381e4-d214-4c04-bdd9-57fa9a03e0f5 ;
-    ns2:haspgStatementType ns2:d330f478-3585-483a-b97d-9b183c14e7c0 .
-
-ns2:Nef7e7913df534a418f2ffe8b18b46978 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 2 ;
-    ns2:StatementText """language plpgsql
-as $$""" ;
-    ns2:hasProcedure ns2:45e58bce-d76c-487b-b36c-ce484c3aedfb ;
-    ns2:haspgStatementType ns2:8fda4853-dc52-41b1-8a9b-877a588cc61c .
-
-ns2:Nf11d472bf239428da08448aa26a5bc77 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 1 ;
-    ns2:StatementText "( t_testing_id UUID )" ;
-    ns2:hasProcedure ns2:8e7ef6a7-c2d0-4683-997b-22a77da92063 ;
-    ns2:haspgStatementType ns2:dfc0d924-887f-481e-99d0-547368f887c8 .
-
-ns2:Nf14c8dad233d410fb0e6e0ea699985a5 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 4 ;
-    ns2:StatementText "begin" ;
-    ns2:hasProcedure ns2:41f47825-6177-4408-b5f4-a03536fb8cda ;
-    ns2:haspgStatementType ns2:4d36989c-79b3-4cfb-b1f3-1ec40f8150b6 .
-
-ns2:Nf1967c4c5d5a4202b5fa30eb1a87a4f0 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 3 ;
-    ns2:StatementText "" ;
-    ns2:hasProcedure ns2:6e03002c-2cde-4214-b12e-1fe2e1695cc8 ;
-    ns2:haspgStatementType ns2:b1899c26-8b40-488f-bdeb-7fcb10431030 .
-
-ns2:Nf2619a89725047ad9478281f5ec208d6 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 6 ;
-    ns2:StatementText "end; $$" ;
-    ns2:hasProcedure ns2:d86d6d0a-2e05-4c22-96a6-1d7316074dc6 ;
-    ns2:haspgStatementType ns2:57e06df7-d1c2-4ff0-bf7a-fb10f96efce1 .
-
-ns2:Nf7839ce3c2604285a65ac23c811d7f28 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 6 ;
-    ns2:StatementText "end; $$" ;
-    ns2:hasProcedure ns2:a97e24f8-d48b-49c6-9ea0-5a4cc2df4dc2 ;
-    ns2:haspgStatementType ns2:57e06df7-d1c2-4ff0-bf7a-fb10f96efce1 .
-
-ns2:Nf89361c169284bb5a59faf7eb0d16d93 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 5 ;
-    ns2:StatementText """select t_testing_id \r
-
- into t_testing_id
-from t_workstation\r
-where t_workstation_id =t_workstation_id;""" ;
-    ns2:hasProcedure ns2:aa15a878-d2cb-4d32-b0e6-61257526fcb5 ;
-    ns2:haspgStatementType ns2:d330f478-3585-483a-b97d-9b183c14e7c0 .
-
-ns2:Nf89e1e9ee1b641adb4c208ffcaa6fd58 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 1 ;
-    ns2:StatementText "( t_testing_step_id UUID ,  score VARCHAR  (50) )" ;
-    ns2:hasProcedure ns2:09ae80e8-56bc-4fff-ad63-43a4b181fedd ;
-    ns2:haspgStatementType ns2:dfc0d924-887f-481e-99d0-547368f887c8 .
-
-ns2:Nf89ed78407d84d9bbcd1ef5fdf8bfdc8 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 4 ;
-    ns2:StatementText "begin" ;
-    ns2:hasProcedure ns2:d2f8311d-c78c-47ad-89ae-530c4acfae50 ;
-    ns2:haspgStatementType ns2:4d36989c-79b3-4cfb-b1f3-1ec40f8150b6 .
-
-ns2:Nf9303096970f4e6fa9939cde31096a39 a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 0 ;
-    ns2:StatementText "create or replace procedure get_common_introduction " ;
-    ns2:hasProcedure ns2:6e03002c-2cde-4214-b12e-1fe2e1695cc8 ;
-    ns2:haspgStatementType ns2:6bd4c1b0-353f-460d-97b2-d5c22ee6d379 .
-
-ns2:Nf9ca64b4ba3a4ceb9b97af0b2d187edd a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 5 ;
-    ns2:StatementText """select t_testing_id \r
-
- into t_testing_id
-from t_workstation\r
-where t_workstation_id =t_workstation_id;""" ;
-    ns2:hasProcedure ns2:41f47825-6177-4408-b5f4-a03536fb8cda ;
-    ns2:haspgStatementType ns2:d330f478-3585-483a-b97d-9b183c14e7c0 .
-
-ns2:Nfdd2d0f6a9dd4a05b15f42b1f723ccef a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 3 ;
-    ns2:StatementText """declare 
-t_testing_score_id UUID ; 
-""" ;
-    ns2:hasProcedure ns2:09ae80e8-56bc-4fff-ad63-43a4b181fedd ;
-    ns2:haspgStatementType ns2:b1899c26-8b40-488f-bdeb-7fcb10431030 .
-
-ns2:Nfed4f62a543641ab8bbc0632569b404c a ns2:pgstatement,
-        owl:NamedIndividual ;
-    ns1:hasSourceFile "" ;
-    ns2:StatementId 2 ;
-    ns2:StatementText """language plpgsql
-as $$""" ;
-    ns2:hasProcedure ns2:e17ab7f5-d330-44d1-90ef-3f8f3f76dd88 ;
-    ns2:haspgStatementType ns2:8fda4853-dc52-41b1-8a9b-877a588cc61c .
-
-ns2:Nd411128fa7d847bf8e7a6f1c441c65b3 a ns2:runcreateprocess,
-        owl:NamedIndividual ;
-    rdfs:label "2023-02-05T13:17:27.446205"^^xsd:dateTime ;
-    ns2:START_AT "2023-02-05T13:17:27.445957"^^xsd:dateTime .
+begin
+select t.t_workstation_id,\r
+ts.obj_name  \r
+
+ into t_workstation_id,status
+from t_testing t\r
+inner join t_testing_status ts \r
+on t.t_testing_status_id = ts.t_testing_status_id \r
+where t_testing_id =t_testing_id;
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:a97e24f8-d48b-49c6-9ea0-5a4cc2df4dc2 ;
+    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
+
+ns1:Nf1fcefe5ebb4484792f78f4b0154148c a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "stat_change_instruct" ;
+    ns1:hasProcedure ns1:969bd3bc-4e04-4782-a48e-129ca986d4aa ;
+    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
 

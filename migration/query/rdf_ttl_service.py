@@ -7,6 +7,8 @@ class rdfTTLService:
         self.Namespace = Namespace("http://www.example.com/MIGRATION#")           
         self.NamespaceETL = Namespace("http://www.example.com/ETL#")   
         self.graph = Graph()                
+    def emptyGraph(self):
+        self.graph = Graph()     
     def hashCode(self):
         return BNode()    
     def add_stmt(self,statementText,statementId,procIri,pgStatementType,sourceStatementIri=''):        
@@ -37,20 +39,23 @@ class rdfTTLService:
         self.graph.add((iri ,self.Namespace.START_AT, Literal(datetime.datetime.now())))                            
         self.graph.add((iri ,RDFS.label, Literal(datetime.datetime.now())))                            
         return iri
-    def log_proc_create(self,taksIri,procIri):
+    def log_proc_create(self,taksIri,procIri,label):
         iri=self.Namespace[self.hashCode()]     
         self.graph.add((iri , RDF.type, OWL.NamedIndividual))              
         self.graph.add((iri ,RDF.type, self.Namespace.runcreateprocessprocedure))                               
         self.graph.add((iri , self.Namespace.hasProcedure,URIRef(procIri)))
-        self.graph.add((iri , self.Namespace.hasTask,URIRef(taksIri)))        
+        self.graph.add((iri , self.Namespace.hasTask,URIRef(taksIri)))
+        self.graph.add((iri ,RDFS.label, Literal(label)))           
         return iri
-    def log_proc_error(self,taksIri,procIri,error):
+    def log_proc_error(self,taksIri,procIri,error,label=''):
+        print('do_logging:'+ error[0:10])
         iri=self.Namespace[self.hashCode()]     
         self.graph.add((iri , RDF.type, OWL.NamedIndividual))              
         self.graph.add((iri ,RDF.type, self.Namespace.runcreateprocessprocedure))                               
         self.graph.add((iri , self.Namespace.hasProcedure,URIRef(procIri)))
         self.graph.add((iri , self.Namespace.hasTask,URIRef(taksIri)))        
         self.graph.add((iri ,self.Namespace.ERROR_MSG, Literal(error)))
+        self.graph.add((iri ,RDFS.label, Literal(label)))                   
         return iri
 
         #js:PARAMETER_NAME

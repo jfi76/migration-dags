@@ -33,7 +33,7 @@ class create_proc:
             try:
                 self.process_proc(proc)
             except Exception as e:
-                print(e)    
+                print('process_proc.' + str(e))    
                 self.ttl_serice.log_proc_error(self.taskIri,proc['iri'],str(e))
 
         self.ttl_serice.graph.serialize(self.fileoutput, 'turtle')

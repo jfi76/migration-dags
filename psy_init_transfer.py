@@ -60,25 +60,29 @@ def prepare_proc():
     conn = BaseHook.get_connection('postgres')
     engine = create_engine(f'postgresql://{conn.login}:{conn.password}@{conn.host}:{conn.port}/{conn.schema}')
     c=create_proc()
-    taksIri=c.log_task_start()
+    c.log_task_start()
     c.iterate_proc()
+    c.ttl_serice.emptyGraph()    
     print('finish iterate')
-    ret=c.get_all_proc()
-    for proc in ret:
+    #ret=c.get_all_proc()
+
+    for proc in c.procedures:
         print(proc['iri'])    
         try: 
             exec_str=''
-            c.ttl_serice.log_proc_create(taksIri,proc['iri'])
+            c.ttl_serice.log_proc_create(c.taskIri,proc['iri'],proc['name'])
             stmt_ret=c.get_statements(proc['iri'])
             for stmt in stmt_ret:        
                 exec_str=exec_str+'\n'+stmt['text']['value']
                 print(stmt['text']['value'])
             if exec_str!='' :
-                print(exec_str)
+                #print(exec_str)
                 engine.execute(exec_str)
         except Exception as e:
-            print(e)    
-            c.ttl_serice.log_proc_error(taksIri,proc['iri'],str(e))
+            print('taskIri:'+c.taskIri + ';proc:' + proc['iri'] + ';exception:'+str(e))    
+            c.ttl_serice.log_proc_error(c.taskIri, proc['iri'], str(e))
+    c.ttl_serice.graph.serialize(c.fileoutput, 'turtle')        
+    c.queryService.load_ttl(c.fileoutput)        
 @task
 def get_proc_plan():    
     ms_to_pq=mssql_to_postgres(con_server=Variable.get('mssql_serv'), con_passw=Variable.get('mssql_pass'))
