@@ -2,7 +2,7 @@ import sqlparse
 import re
 def replace_right_ms_vars_in_coparison(variables, stmt):
     for var in variables:
-        stmt=re.sub("=(\s)*" + var['ms_name'] + "(\s)*", ' ='+var['replace_name'] , stmt)
+        stmt=re.sub("=(\s)*" + var['ms_name'] + "(\s)*", ' ='+var['replace_name']+' ' , stmt)
     return stmt
 def iterate_where(where_token):
     print('start where')

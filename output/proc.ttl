@@ -2,75 +2,37 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-ns1:N0853183b2a8e44c0a3beee3426f5aecc a ns1:runcreateprocessprocedure,
-        owl:NamedIndividual ;
-    rdfs:label "" ;
-    ns1:ERROR_MSG """(psycopg2.errors.SyntaxError) ОШИБКА:  "count" - не известная переменная
-LINE 10:  into count
-               ^
-
-[SQL: 
-create or replace procedure dopass 
-( perscode VARCHAR  (12) ,  passw VARCHAR  (20) ,  inout t_testing_id UUID )
-language plpgsql
-as $$
-
-begin
-select \r
-
- into count
-from t_workstation w \r
-inner join t_testing t on w.t_testing_id = t.t_testing_id \r
-inner join t_persona p on t.t_persona_id = p.t_persona_id \r
-where w.passw  =passwand perscode =perscode;
-end; $$]
-(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
-    ns1:hasProcedure ns1:d267ac79-677f-47d8-8dfd-496aca0c02a6 ;
-    ns1:hasTask ns1:N9a45c875060d47f0b2631d60cac6bc32 .
-
-ns1:N1774441752b24ffaa2d6c05c84f94e03 a ns1:runcreateprocessprocedure,
-        owl:NamedIndividual ;
-    rdfs:label "selupd_1print" ;
-    ns1:hasProcedure ns1:0d7225a3-da93-4c25-9184-ed0ef00715bb ;
-    ns1:hasTask ns1:N9a45c875060d47f0b2631d60cac6bc32 .
-
-ns1:N2724657f41ef46eea552423e4aecf824 a ns1:runcreateprocessprocedure,
+ns1:N093a316588754ebba58ff5f725f3468b a ns1:runcreateprocessprocedure,
         owl:NamedIndividual ;
     rdfs:label "test1" ;
     ns1:hasProcedure ns1:6ca64236-2595-4910-b30a-ad400d42de95 ;
-    ns1:hasTask ns1:N9a45c875060d47f0b2631d60cac6bc32 .
+    ns1:hasTask ns1:Ndd1101bbcae248b2b7f79017b2fa23bd .
 
-ns1:N30f3665c145f4ffcba739bddc76106e8 a ns1:runcreateprocessprocedure,
+ns1:N162d08381295454f906d0dee964a6285 a ns1:runcreateprocessprocedure,
         owl:NamedIndividual ;
-    rdfs:label "workstation_clear" ;
-    ns1:hasProcedure ns1:492f5d20-bb2a-4bb8-b6fb-06e5892534b0 ;
-    ns1:hasTask ns1:N9a45c875060d47f0b2631d60cac6bc32 .
+    rdfs:label "temp_insupd_test" ;
+    ns1:hasProcedure ns1:35b8fe4a-8e41-4c88-ab75-fe9c36677b99 ;
+    ns1:hasTask ns1:Ndd1101bbcae248b2b7f79017b2fa23bd .
 
-ns1:N34330b932faa4ba58a3bd1f5e1084e3e a ns1:runcreateprocessprocedure,
+ns1:N1951abea61564374a66dd7e291873c36 a ns1:runcreateprocessprocedure,
         owl:NamedIndividual ;
-    rdfs:label "tmp_insupd_test_step" ;
-    ns1:hasProcedure ns1:dee65803-ee12-447e-8c66-1e843e4966b3 ;
-    ns1:hasTask ns1:N9a45c875060d47f0b2631d60cac6bc32 .
+    rdfs:label "doback" ;
+    ns1:hasProcedure ns1:a4b3aa37-d922-4e08-ae98-48fb46daeb86 ;
+    ns1:hasTask ns1:Ndd1101bbcae248b2b7f79017b2fa23bd .
 
-ns1:N3d0d7a4a76224f69986fe7e8aaa70e2d a ns1:runcreateprocessprocedure,
+ns1:N2577a9a897804850849c3135ecc9fc42 a ns1:runcreateprocessprocedure,
         owl:NamedIndividual ;
-    rdfs:label "get_common_introduction" ;
-    ns1:hasProcedure ns1:f53103e9-0ae8-40c2-944d-2ec82936db5b ;
-    ns1:hasTask ns1:N9a45c875060d47f0b2631d60cac6bc32 .
+    rdfs:label "inititate_testing2" ;
+    ns1:hasProcedure ns1:968f5116-5e7c-4193-9f62-43cb7d4a7558 ;
+    ns1:hasTask ns1:Ndd1101bbcae248b2b7f79017b2fa23bd .
 
-ns1:N3d604884675249f584ba5c235caa221c a ns1:runcreateprocessprocedure,
+ns1:N2a668d2a9f9242be96dcbc73d1d1447a a ns1:runcreateprocessprocedure,
         owl:NamedIndividual ;
-    rdfs:label "select_tests" ;
-    ns1:hasProcedure ns1:6c299533-69b1-4beb-89e3-8d5fadaf8301 ;
-    ns1:hasTask ns1:N9a45c875060d47f0b2631d60cac6bc32 .
+    rdfs:label "stat_change_instruct" ;
+    ns1:hasProcedure ns1:bb4fdaca-58fa-442b-93ea-e905b8a668f1 ;
+    ns1:hasTask ns1:Ndd1101bbcae248b2b7f79017b2fa23bd .
 
-ns1:N4138b255a66d40ffbb3c278e9da1676b a ns1:runcreateprocessprocedure,
-        owl:NamedIndividual ;
-    rdfs:label "get_test_introduction" ;
-    ns1:hasProcedure ns1:e10c27d2-21f4-45fc-997c-3433d5c7e13a ;
-    ns1:hasTask ns1:N9a45c875060d47f0b2631d60cac6bc32 .
-
-ns1:N476caf1d82284bfbaa7f1e322b609079 a ns1:runcreateprocessprocedure,
+ns1:N32055112c7b74d6f9a220cdcb902dc72 a ns1:runcreateprocessprocedure,
         owl:NamedIndividual ;
     rdfs:label "" ;
     ns1:ERROR_MSG """(psycopg2.errors.SyntaxError) ОШИБКА:  "status" - не известная переменная
@@ -94,155 +56,43 @@ select obj_name
  into status
 from t_testing_status ts\r
 inner join t_testing t on ts.t_testing_status_id = t.t_testing_status_id\r
-where  t.t_testing_id  =t_testing_id;
+where  t.t_testing_id  =t_testing_id ;
 end; $$]
 (Background on this error at: https://sqlalche.me/e/14/f405)""" ;
     ns1:hasProcedure ns1:9e8ff8c5-f468-4a80-aeff-6490bb573afc ;
-    ns1:hasTask ns1:N9a45c875060d47f0b2631d60cac6bc32 .
+    ns1:hasTask ns1:Ndd1101bbcae248b2b7f79017b2fa23bd .
 
-ns1:N51d8169e3a6c4c6c8db71c4d157c05f1 a ns1:runcreateprocessprocedure,
+ns1:N390660f9a6594e9b97543d49c275090d a ns1:runcreateprocessprocedure,
         owl:NamedIndividual ;
-    rdfs:label "inititate_testing" ;
-    ns1:hasProcedure ns1:5307c652-d153-481c-a71a-1fbb41ccdfc6 ;
-    ns1:hasTask ns1:N9a45c875060d47f0b2631d60cac6bc32 .
+    rdfs:label "get_prev_step_id" ;
+    ns1:hasProcedure ns1:2b84f5b3-abac-4b66-bcfe-36d1240741ad ;
+    ns1:hasTask ns1:Ndd1101bbcae248b2b7f79017b2fa23bd .
 
-ns1:N5a238b44e57b44848a0bdc812bedf459 a ns1:runcreateprocessprocedure,
+ns1:N3e800466b0a249f8b2aa2081407abc80 a ns1:runcreateprocessprocedure,
         owl:NamedIndividual ;
-    rdfs:label "workstation_status" ;
-    ns1:hasProcedure ns1:423fea03-9450-43a0-bf5b-fdec30f9a1e8 ;
-    ns1:hasTask ns1:N9a45c875060d47f0b2631d60cac6bc32 .
+    rdfs:label "tmp_insupd_test_step" ;
+    ns1:hasProcedure ns1:dee65803-ee12-447e-8c66-1e843e4966b3 ;
+    ns1:hasTask ns1:Ndd1101bbcae248b2b7f79017b2fa23bd .
 
-ns1:N5c9c7b97dd6640c8a73ecdbcabd3f820 a ns1:runcreateprocessprocedure,
-        owl:NamedIndividual ;
-    rdfs:label "donext" ;
-    ns1:hasProcedure ns1:858d0f4e-9a67-410b-8f6a-3031d1b56480 ;
-    ns1:hasTask ns1:N9a45c875060d47f0b2631d60cac6bc32 .
-
-ns1:N60e4df4150b34456be4bad2e2d3b45dd a ns1:runcreateprocessprocedure,
-        owl:NamedIndividual ;
-    rdfs:label "insupd_score" ;
-    ns1:hasProcedure ns1:7c422a4b-5049-427a-9a04-f3f985659653 ;
-    ns1:hasTask ns1:N9a45c875060d47f0b2631d60cac6bc32 .
-
-ns1:N6cb38a9419924942aaca73b1cd55bd03 a ns1:runcreateprocessprocedure,
+ns1:N46ebe67505544b49a2b997c300decb06 a ns1:runcreateprocessprocedure,
         owl:NamedIndividual ;
     rdfs:label "get_common_ended" ;
     ns1:hasProcedure ns1:0b3beed9-7637-465f-84ea-2df46f308e9a ;
-    ns1:hasTask ns1:N9a45c875060d47f0b2631d60cac6bc32 .
+    ns1:hasTask ns1:Ndd1101bbcae248b2b7f79017b2fa23bd .
 
-ns1:N762c8955786a488984000e5dd9b1a147 a ns1:runcreateprocessprocedure,
+ns1:N4f5b74db4a0446499b1a9197af51890c a ns1:runcreateprocessprocedure,
         owl:NamedIndividual ;
-    rdfs:label "stat_change_instruct" ;
-    ns1:hasProcedure ns1:bb4fdaca-58fa-442b-93ea-e905b8a668f1 ;
-    ns1:hasTask ns1:N9a45c875060d47f0b2631d60cac6bc32 .
+    rdfs:label "donext" ;
+    ns1:hasProcedure ns1:858d0f4e-9a67-410b-8f6a-3031d1b56480 ;
+    ns1:hasTask ns1:Ndd1101bbcae248b2b7f79017b2fa23bd .
 
-ns1:N76bc1cabe0a447eeadea706ef4e0432e a ns1:runcreateprocessprocedure,
-        owl:NamedIndividual ;
-    rdfs:label "" ;
-    ns1:ERROR_MSG """(psycopg2.errors.SyntaxError) ОШИБКА:  незавершённая строка с $ (примерное положение: "$$
-declare 
-job_count int ; 
-
-begin")
-LINE 5: as $$
-           ^
-
-[SQL: 
-create or replace procedure selupd_1print 
-()
-language plpgsql
-as $$
-declare 
-job_count int ; 
-
-begin]
-(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
-    ns1:hasProcedure ns1:0d7225a3-da93-4c25-9184-ed0ef00715bb ;
-    ns1:hasTask ns1:N9a45c875060d47f0b2631d60cac6bc32 .
-
-ns1:N7c96000d07eb42e599d52315d51d2df6 a ns1:runcreateprocessprocedure,
-        owl:NamedIndividual ;
-    rdfs:label "testing_status" ;
-    ns1:hasProcedure ns1:dffd7899-874f-4ddd-b7fb-7c6516095207 ;
-    ns1:hasTask ns1:N9a45c875060d47f0b2631d60cac6bc32 .
-
-ns1:N81510ed2b69b437fb17ef7189f5ba764 a ns1:runcreateprocessprocedure,
-        owl:NamedIndividual ;
-    rdfs:label "" ;
-    ns1:ERROR_MSG """(psycopg2.errors.SyntaxError) ОШИБКА:  "status" - не известная переменная
-LINE 13:  into status
-               ^
-
-[SQL: 
-create or replace procedure stat_change_instruct 
-( t_testing_id UUID )
-language plpgsql
-as $$
-declare 
-t_test_id UUID ; 
-current_step_id UUID ; 
-step_order int ; 
-
-begin
-select obj_name 
- into status
-from t_testing_status ts\r
-inner join t_testing t on ts.t_testing_status_id = t.t_testing_status_id\r
-where  t.t_testing_id  =t_testing_id;
-end; $$]
-(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
-    ns1:hasProcedure ns1:bb4fdaca-58fa-442b-93ea-e905b8a668f1 ;
-    ns1:hasTask ns1:N9a45c875060d47f0b2631d60cac6bc32 .
-
-ns1:N94698996b25c40eaa9de13881b7702b0 a ns1:runcreateprocessprocedure,
+ns1:N5127ee16c9be4251a0bb8e4a0271f115 a ns1:runcreateprocessprocedure,
         owl:NamedIndividual ;
     rdfs:label "dopass" ;
     ns1:hasProcedure ns1:d267ac79-677f-47d8-8dfd-496aca0c02a6 ;
-    ns1:hasTask ns1:N9a45c875060d47f0b2631d60cac6bc32 .
+    ns1:hasTask ns1:Ndd1101bbcae248b2b7f79017b2fa23bd .
 
-ns1:N9906890f6a054050bf6c53f2256952e8 a ns1:runcreateprocessprocedure,
-        owl:NamedIndividual ;
-    rdfs:label "stat_change_testing" ;
-    ns1:hasProcedure ns1:24c8e0c1-78c7-4893-8121-debdbbc77301 ;
-    ns1:hasTask ns1:N9a45c875060d47f0b2631d60cac6bc32 .
-
-ns1:N9a0aff3608be4856924bd3a1b6ad6cb7 a ns1:runcreateprocessprocedure,
-        owl:NamedIndividual ;
-    rdfs:label "stat_change_prepared" ;
-    ns1:hasProcedure ns1:2ab6f874-8d5f-4426-9fb8-0719cb9e8180 ;
-    ns1:hasTask ns1:N9a45c875060d47f0b2631d60cac6bc32 .
-
-ns1:N9f52dd75649d4408951a06161a3dd5ca a ns1:runcreateprocessprocedure,
-        owl:NamedIndividual ;
-    rdfs:label "temp_insupd_test" ;
-    ns1:hasProcedure ns1:35b8fe4a-8e41-4c88-ab75-fe9c36677b99 ;
-    ns1:hasTask ns1:N9a45c875060d47f0b2631d60cac6bc32 .
-
-ns1:Na9d7eacb7d0f4c7d8446449fd6100a63 a ns1:runcreateprocessprocedure,
-        owl:NamedIndividual ;
-    rdfs:label "stat_change_help2" ;
-    ns1:hasProcedure ns1:b7f3c613-7a36-4beb-9fdd-3463db05c0ab ;
-    ns1:hasTask ns1:N9a45c875060d47f0b2631d60cac6bc32 .
-
-ns1:Nb52cf92757694fa497e37b68e375e639 a ns1:runcreateprocessprocedure,
-        owl:NamedIndividual ;
-    rdfs:label "time_remaining" ;
-    ns1:hasProcedure ns1:2b7067df-e8ce-4521-abf2-4ec83d22948d ;
-    ns1:hasTask ns1:N9a45c875060d47f0b2631d60cac6bc32 .
-
-ns1:Nb6ce3b264d184d0b9bfeeb5639ef20fd a ns1:runcreateprocessprocedure,
-        owl:NamedIndividual ;
-    rdfs:label "stat_change_help" ;
-    ns1:hasProcedure ns1:9e8ff8c5-f468-4a80-aeff-6490bb573afc ;
-    ns1:hasTask ns1:N9a45c875060d47f0b2631d60cac6bc32 .
-
-ns1:Nb90e13523bdf4472978ee3870fefe821 a ns1:runcreateprocessprocedure,
-        owl:NamedIndividual ;
-    rdfs:label "get_test_step" ;
-    ns1:hasProcedure ns1:80fb1f48-72b9-4664-97ec-5f1a0802bb76 ;
-    ns1:hasTask ns1:N9a45c875060d47f0b2631d60cac6bc32 .
-
-ns1:Nce18e6ee48d04d498265768ec3d23a5f a ns1:runcreateprocessprocedure,
+ns1:N51a28a6f44264a1292f4726523b2d578 a ns1:runcreateprocessprocedure,
         owl:NamedIndividual ;
     rdfs:label "" ;
     ns1:ERROR_MSG """(psycopg2.errors.SyntaxError) ОШИБКА:  "t_workstation_id" - не известная переменная
@@ -288,66 +138,189 @@ ts.obj_name  \r
 from t_testing t\r
 inner join t_testing_status ts \r
 on t.t_testing_status_id = ts.t_testing_status_id \r
-where t_testing_id =t_testing_id;
+where t_testing_id =t_testing_id ;
 end; $$]
 (Background on this error at: https://sqlalche.me/e/14/f405)""" ;
     ns1:hasProcedure ns1:dffd7899-874f-4ddd-b7fb-7c6516095207 ;
-    ns1:hasTask ns1:N9a45c875060d47f0b2631d60cac6bc32 .
+    ns1:hasTask ns1:Ndd1101bbcae248b2b7f79017b2fa23bd .
 
-ns1:Nd9503748dd2b45dbb547fb410e99eaa4 a ns1:runcreateprocessprocedure,
+ns1:N54649eb17f754a96abc0ea9fab353421 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "stat_change_help2" ;
+    ns1:hasProcedure ns1:b7f3c613-7a36-4beb-9fdd-3463db05c0ab ;
+    ns1:hasTask ns1:Ndd1101bbcae248b2b7f79017b2fa23bd .
+
+ns1:N559abd02239a48a381d4848c9d7407d2 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "insupd_score" ;
+    ns1:hasProcedure ns1:7c422a4b-5049-427a-9a04-f3f985659653 ;
+    ns1:hasTask ns1:Ndd1101bbcae248b2b7f79017b2fa23bd .
+
+ns1:N6cae44984bc14e359be8ed08e240e2e2 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "workstation_status" ;
+    ns1:hasProcedure ns1:423fea03-9450-43a0-bf5b-fdec30f9a1e8 ;
+    ns1:hasTask ns1:Ndd1101bbcae248b2b7f79017b2fa23bd .
+
+ns1:N73adb67156ad4f4298c9a45cc79c1030 a ns1:runcreateprocessprocedure,
         owl:NamedIndividual ;
     rdfs:label "get_next_step_id" ;
     ns1:hasProcedure ns1:6fc3a0eb-859f-4df0-b804-be4f48a266e9 ;
-    ns1:hasTask ns1:N9a45c875060d47f0b2631d60cac6bc32 .
+    ns1:hasTask ns1:Ndd1101bbcae248b2b7f79017b2fa23bd .
 
-ns1:Ne05e6a43dd7943c5a450cf3dada4964b a ns1:runcreateprocessprocedure,
+ns1:N75d0067816f84ffab90e43a151e891f6 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "get_common_introduction" ;
+    ns1:hasProcedure ns1:f53103e9-0ae8-40c2-944d-2ec82936db5b ;
+    ns1:hasTask ns1:Ndd1101bbcae248b2b7f79017b2fa23bd .
+
+ns1:N79e700141fea4a469977774227aeb756 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "time_remaining" ;
+    ns1:hasProcedure ns1:2b7067df-e8ce-4521-abf2-4ec83d22948d ;
+    ns1:hasTask ns1:Ndd1101bbcae248b2b7f79017b2fa23bd .
+
+ns1:N7d0aab0e0c11486e928c6f95a29df02f a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "select_tests" ;
+    ns1:hasProcedure ns1:6c299533-69b1-4beb-89e3-8d5fadaf8301 ;
+    ns1:hasTask ns1:Ndd1101bbcae248b2b7f79017b2fa23bd .
+
+ns1:N8adf8ed4c8dd4b4985dbdc4f88a31f22 a ns1:runcreateprocessprocedure,
         owl:NamedIndividual ;
     rdfs:label "" ;
-    ns1:ERROR_MSG """(psycopg2.errors.SyntaxError) ОШИБКА:  ошибка синтаксиса (примерное положение: "t_workstation_status_id")
-LINE 15: t_workstation_status_id =t_ws_status_id_activeand auth_type=...
-         ^
+    ns1:ERROR_MSG """(psycopg2.errors.SyntaxError) ОШИБКА:  "count" - не известная переменная
+LINE 10:  into count
+               ^
 
 [SQL: 
-create or replace procedure ws_type 
-( ip_address VARCHAR  (100) ,  inout ip_auth CHAR  (1) ,  inout t_workstation_id UUID ,  inout t_testing_id UUID ,  t_ws_status_id_active UUID )
+create or replace procedure dopass 
+( perscode VARCHAR  (12) ,  passw VARCHAR  (20) ,  inout t_testing_id UUID )
 language plpgsql
 as $$
-declare 
-ws_ip_count int ; 
 
 begin
 select \r
 
- into ws_ip_count
-from t_workstation \r
-where ip_address =ip_addressand \r
-t_workstation_status_id =t_ws_status_id_activeand auth_type=0;
+ into count
+from t_workstation w \r
+inner join t_testing t on w.t_testing_id = t.t_testing_id \r
+inner join t_persona p on t.t_persona_id = p.t_persona_id \r
+where w.passw  =passw and perscode =perscode ;
 end; $$]
 (Background on this error at: https://sqlalche.me/e/14/f405)""" ;
-    ns1:hasProcedure ns1:977b6af0-4a43-4a88-86c7-c4f0301c6579 ;
-    ns1:hasTask ns1:N9a45c875060d47f0b2631d60cac6bc32 .
+    ns1:hasProcedure ns1:d267ac79-677f-47d8-8dfd-496aca0c02a6 ;
+    ns1:hasTask ns1:Ndd1101bbcae248b2b7f79017b2fa23bd .
 
-ns1:Ne186eddae9ec4702a8aff5b321585334 a ns1:runcreateprocessprocedure,
+ns1:N8ca13565a33140629de06ba24806fc95 a ns1:runcreateprocessprocedure,
         owl:NamedIndividual ;
     rdfs:label "ws_type" ;
     ns1:hasProcedure ns1:977b6af0-4a43-4a88-86c7-c4f0301c6579 ;
-    ns1:hasTask ns1:N9a45c875060d47f0b2631d60cac6bc32 .
+    ns1:hasTask ns1:Ndd1101bbcae248b2b7f79017b2fa23bd .
 
-ns1:Ne2eb62f51476422cb20f39743ff56fe7 a ns1:runcreateprocessprocedure,
+ns1:N8f63a9e7c52745079395b9d611851bd7 a ns1:runcreateprocessprocedure,
         owl:NamedIndividual ;
-    rdfs:label "inititate_testing2" ;
-    ns1:hasProcedure ns1:968f5116-5e7c-4193-9f62-43cb7d4a7558 ;
-    ns1:hasTask ns1:N9a45c875060d47f0b2631d60cac6bc32 .
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.SyntaxError) ОШИБКА:  незавершённая строка с $ (примерное положение: "$$
+declare 
+job_count int ; 
 
-ns1:Ne5418b5dd130400d9673ad47b1c72095 a ns1:runcreateprocessprocedure,
-        owl:NamedIndividual ;
-    rdfs:label "doback" ;
-    ns1:hasProcedure ns1:a4b3aa37-d922-4e08-ae98-48fb46daeb86 ;
-    ns1:hasTask ns1:N9a45c875060d47f0b2631d60cac6bc32 .
+begin")
+LINE 5: as $$
+           ^
 
-ns1:Nec6f236cf6394cd5bcc389146a11ed90 a ns1:runcreateprocessprocedure,
+[SQL: 
+create or replace procedure selupd_1print 
+()
+language plpgsql
+as $$
+declare 
+job_count int ; 
+
+begin]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:0d7225a3-da93-4c25-9184-ed0ef00715bb ;
+    ns1:hasTask ns1:Ndd1101bbcae248b2b7f79017b2fa23bd .
+
+ns1:N98c777ed7af54b5cb9ce97cbb661cd37 a ns1:runcreateprocessprocedure,
         owl:NamedIndividual ;
-    rdfs:label "get_prev_step_id" ;
-    ns1:hasProcedure ns1:2b84f5b3-abac-4b66-bcfe-36d1240741ad ;
-    ns1:hasTask ns1:N9a45c875060d47f0b2631d60cac6bc32 .
+    rdfs:label "testing_status" ;
+    ns1:hasProcedure ns1:dffd7899-874f-4ddd-b7fb-7c6516095207 ;
+    ns1:hasTask ns1:Ndd1101bbcae248b2b7f79017b2fa23bd .
+
+ns1:N9a78c7a4d28041cdb9914bd4e040b7ad a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.SyntaxError) ОШИБКА:  "status" - не известная переменная
+LINE 13:  into status
+               ^
+
+[SQL: 
+create or replace procedure stat_change_instruct 
+( t_testing_id UUID )
+language plpgsql
+as $$
+declare 
+t_test_id UUID ; 
+current_step_id UUID ; 
+step_order int ; 
+
+begin
+select obj_name 
+ into status
+from t_testing_status ts\r
+inner join t_testing t on ts.t_testing_status_id = t.t_testing_status_id\r
+where  t.t_testing_id  =t_testing_id ;
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:bb4fdaca-58fa-442b-93ea-e905b8a668f1 ;
+    ns1:hasTask ns1:Ndd1101bbcae248b2b7f79017b2fa23bd .
+
+ns1:Na92b15c932064405b5e2d41bd06bc929 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "stat_change_prepared" ;
+    ns1:hasProcedure ns1:2ab6f874-8d5f-4426-9fb8-0719cb9e8180 ;
+    ns1:hasTask ns1:Ndd1101bbcae248b2b7f79017b2fa23bd .
+
+ns1:Nce3fc21c438648f388597c558924b073 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "workstation_clear" ;
+    ns1:hasProcedure ns1:492f5d20-bb2a-4bb8-b6fb-06e5892534b0 ;
+    ns1:hasTask ns1:Ndd1101bbcae248b2b7f79017b2fa23bd .
+
+ns1:Nd8de3e7c3c274c0db60c542c021f9386 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "stat_change_testing" ;
+    ns1:hasProcedure ns1:24c8e0c1-78c7-4893-8121-debdbbc77301 ;
+    ns1:hasTask ns1:Ndd1101bbcae248b2b7f79017b2fa23bd .
+
+ns1:Ne00c53de52e045ad8d8b54eebef1be66 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "get_test_introduction" ;
+    ns1:hasProcedure ns1:e10c27d2-21f4-45fc-997c-3433d5c7e13a ;
+    ns1:hasTask ns1:Ndd1101bbcae248b2b7f79017b2fa23bd .
+
+ns1:Ne85dadf2012d4af6b67b4f9c6ecd606a a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "selupd_1print" ;
+    ns1:hasProcedure ns1:0d7225a3-da93-4c25-9184-ed0ef00715bb ;
+    ns1:hasTask ns1:Ndd1101bbcae248b2b7f79017b2fa23bd .
+
+ns1:Nf8ab41511c724efbae4595e9284465d8 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "inititate_testing" ;
+    ns1:hasProcedure ns1:5307c652-d153-481c-a71a-1fbb41ccdfc6 ;
+    ns1:hasTask ns1:Ndd1101bbcae248b2b7f79017b2fa23bd .
+
+ns1:Nfd629a6da61e4456bffb00b8c97a11e8 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "stat_change_help" ;
+    ns1:hasProcedure ns1:9e8ff8c5-f468-4a80-aeff-6490bb573afc ;
+    ns1:hasTask ns1:Ndd1101bbcae248b2b7f79017b2fa23bd .
+
+ns1:Nfde7aae4635c40f28c38410988a69c30 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "get_test_step" ;
+    ns1:hasProcedure ns1:80fb1f48-72b9-4664-97ec-5f1a0802bb76 ;
+    ns1:hasTask ns1:Ndd1101bbcae248b2b7f79017b2fa23bd .
 
