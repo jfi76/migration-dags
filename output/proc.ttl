@@ -2,61 +2,169 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-ns1:N00b1e64fa9964881a3b3041a1397260e a ns1:runcreateprocessprocedure,
+ns1:N00967b95cf2949d0a960298082bd61ef a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "workstation_status" ;
+    ns1:hasProcedure ns1:5f9f94a4-c2f3-4e5e-9f53-387a2f508d28 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N00e7c4751c204e7baad2aa80b85fe358 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "select_tests" ;
+    ns1:hasProcedure ns1:a9f594a5-aefc-496f-97a9-198ea4276d19 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N01e50ea73f1040f6a741e24510ba3c72 a ns1:runcreateprocessprocedure,
         owl:NamedIndividual ;
     rdfs:label "" ;
-    ns1:ERROR_MSG """(psycopg2.errors.SyntaxError) ОШИБКА:  ошибка синтаксиса (примерное положение: "20")
-LINE 7: auth_type VARCHAR 20; 
-                          ^
-CONTEXT:  неверное имя типа "VARCHAR 20"
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_testing_id" указано неоднократно
 
 [SQL: 
-create or replace procedure inititate_testing 
-( t_testing_id UUID ,  t_workstation_id UUID ,  t_persona_id UUID ,  t_testing_language_id UUID ,  t_testing_classificator_id UUID ,  obj_created_by VARCHAR  (100) ,  passw VARCHAR  (20) )
+create or replace procedure testing_status 
+( t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID )
 language plpgsql
 as $$
 declare 
-auth_type VARCHAR 20; 
+stop_time_sec int ; 
+show_question_mark CHAR 1; 
+status VARCHAR 10; 
+status VARCHAR 10; 
+seconds_remain int ; 
+show_question_mark CHAR 1; 
+jsfile VARCHAR 50; 
+last_step_id UUID ; 
+current_step_id UUID ; 
+lang_short_code VARCHAR 3; 
+test_num int ; 
+lang_num int ; 
+CURRENT_STOP_TIME TIMESTAMP(3) ; 
+step_num VARCHAR 100; 
+last_step_id UUID ; 
+count_stop_times int ; 
+CURRENT_STOP_TIME TIMESTAMP(3) ; 
+back_btn_mark CHAR 1; 
+back_btn_mark CHAR 1; 
+jsfile VARCHAR 50; 
+step_count int ; 
+perscode CHAR 12; 
+secondname VARCHAR 100; 
+lang_short_code VARCHAR 3; 
+test_name VARCHAR 100; 
+firstname VARCHAR 100; 
+test_name VARCHAR 100; 
+perscode CHAR 12; 
+t_test_id UUID ; 
+step int ; 
+firstname VARCHAR 100; 
+question_btn_mark CHAR 1; 
+t_test_id UUID ; 
+current_step_id UUID ; 
+step_num VARCHAR 100; 
+time_limit_min int ; 
+question_btn_mark CHAR 1; 
+stop_times int ; 
+secondname VARCHAR 100; 
 
 begin
-select auth_type\r
+select t.t_workstation_id,\r
+ts.obj_name  \r
 
- into auth_type
-from t_workstation\r
-where t_workstation_id =t_workstation_id;
+ into t_workstation_id,status
+from t_testing t\r
+inner join t_testing_status ts \r
+on t.t_testing_status_id = ts.t_testing_status_id \r
+where t_testing_id =t_testing_id;
 end; $$]
 (Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:787c8d16-640b-4fa2-84c8-0bee9f139ae2 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N02c3bc83c44f4b8b9ce9410499684f96 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "stat_change_help2" ;
+    ns1:hasProcedure ns1:b595cada-765c-4217-a29d-8b6c208180bb ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N089ba58462c1439db0068d0fa31f2457 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "stat_change_instruct" ;
+    ns1:hasProcedure ns1:969bd3bc-4e04-4782-a48e-129ca986d4aa ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N0a1891043003477fa8d45135322835be a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "inititate_testing" ;
     ns1:hasProcedure ns1:e17ab7f5-d330-44d1-90ef-3f8f3f76dd88 ;
-    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
 
-ns1:N00fe1c890b9a44e5b85cd1ca54dcb89f a ns1:runcreateprocessprocedure,
+ns1:N0a8f88e9c06c4ddeb8abcd4b3e5e5f33 a ns1:runcreateprocessprocedure,
         owl:NamedIndividual ;
-    rdfs:label "get_common_introduction" ;
-    ns1:hasProcedure ns1:6e03002c-2cde-4214-b12e-1fe2e1695cc8 ;
-    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
+    rdfs:label "workstation_status" ;
+    ns1:hasProcedure ns1:1f52678e-15f1-4a4a-b6fa-965ce59920ce ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
 
-ns1:N06be1fff5b064358bc9a4f2328194609 a ns1:runcreateprocessprocedure,
+ns1:N0c8a54970e07499da5480959dcacd9ff a ns1:runcreateprocessprocedure,
         owl:NamedIndividual ;
-    rdfs:label "get_common_ended" ;
-    ns1:hasProcedure ns1:bd90706d-157f-44c9-88c1-47964dae9cf5 ;
-    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
+    rdfs:label "stat_change_testing" ;
+    ns1:hasProcedure ns1:6d64c69b-6c3e-43aa-b5b1-dac55afbfb72 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
 
-ns1:N06fdc56825c143669b443db2bd39c11a a ns1:runcreateprocessprocedure,
+ns1:N0e178d6c719d4fe5bacd638d7738f60c a ns1:runcreateprocessprocedure,
         owl:NamedIndividual ;
-    rdfs:label "stat_change_prepared" ;
-    ns1:hasProcedure ns1:e028cb95-3827-4905-9efe-7dc1802675f1 ;
-    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
+    rdfs:label "temp_insupd_test" ;
+    ns1:hasProcedure ns1:2b679547-2547-4179-9120-c7b55d188d6f ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
 
-ns1:N0a013a621dae40c0a9d4df6159005c86 a ns1:runcreateprocessprocedure,
+ns1:N0e2ef49f74494d778b596479b68e6184 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "get_next_step_id" ;
+    ns1:hasProcedure ns1:611d6f60-14d6-4741-95a0-7c621bb33d40 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N102fbe83efe74a35b5878505114c32c4 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "workstation_clear" ;
+    ns1:hasProcedure ns1:baeeaadb-1b89-4d52-97ce-a6aad3e1fd85 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N10ca6e31ee6f48408c28752bdc62b549 a ns1:runcreateprocessprocedure,
         owl:NamedIndividual ;
     rdfs:label "" ;
-    ns1:ERROR_MSG """(psycopg2.errors.SyntaxError) ОШИБКА:  ошибка синтаксиса (примерное положение: "t_workstation_status_id")
-LINE 15: t_workstation_status_id =t_ws_status_id_activeand auth_type=...
-         ^
+    ns1:ERROR_MSG """(psycopg2.errors.SyntaxError) ОШИБКА:  незавершённая строка с $ (примерное положение: "$$
+declare 
+job_count int ; 
+
+begin")
+LINE 5: as $$
+           ^
+
+[SQL: 
+create or replace procedure selupd_1print 
+()
+language plpgsql
+as $$
+declare 
+job_count int ; 
+
+begin]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:90cbd22a-7ad1-41c6-84bd-34dc73dc5782 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N10f7e05d0a5848ad819158b7aac7f385 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "donext" ;
+    ns1:hasProcedure ns1:d7f16ad0-45f4-4407-b9c7-d0fcca1bc5f5 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N11f8a58b139549dc90d1d9aeb9d8aee2 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "ip_address" указано неоднократно
 
 [SQL: 
 create or replace procedure ws_type 
-( ip_address VARCHAR  (100) ,  inout ip_auth CHAR  (1) ,  inout t_workstation_id UUID ,  inout t_testing_id UUID ,  t_ws_status_id_active UUID )
+( ip_address VARCHAR  (100) ,  ip_address VARCHAR  (100) ,  ip_address VARCHAR  (100) ,  ip_address VARCHAR  (100) ,  inout ip_auth CHAR  (1) ,  inout ip_auth CHAR  (1) ,  inout ip_auth CHAR  (1) ,  inout ip_auth CHAR  (1) ,  inout t_workstation_id UUID ,  inout t_workstation_id UUID ,  inout t_workstation_id UUID ,  inout t_workstation_id UUID ,  inout t_testing_id UUID ,  inout t_testing_id UUID ,  inout t_testing_id UUID ,  inout t_testing_id UUID ,  t_ws_status_id_active UUID ,  t_ws_status_id_active UUID ,  t_ws_status_id_active UUID ,  t_ws_status_id_active UUID )
 language plpgsql
 as $$
 declare 
@@ -71,29 +179,455 @@ where ip_address =ip_addressand \r
 t_workstation_status_id =t_ws_status_id_activeand auth_type=0;
 end; $$]
 (Background on this error at: https://sqlalche.me/e/14/f405)""" ;
-    ns1:hasProcedure ns1:862298d9-1863-48b3-8b1b-a9aa0fba2f75 ;
-    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
+    ns1:hasProcedure ns1:832fc376-b11c-487d-9f08-8a203cde130b ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
 
-ns1:N2b84bd83977248539a0ce021a2ad58a8 a ns1:runcreateprocessprocedure,
+ns1:N12f0fca40643478791fe0965f8c1e8e9 a ns1:runcreateprocessprocedure,
         owl:NamedIndividual ;
     rdfs:label "" ;
-    ns1:ERROR_MSG """(psycopg2.errors.SyntaxError) ОШИБКА:  ошибка синтаксиса (примерное положение: "10")
-LINE 7: test_num VARCHAR 10; 
-                         ^
-CONTEXT:  неверное имя типа "VARCHAR 10"
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "current_step_id" указано неоднократно
+
+[SQL: 
+create or replace procedure get_prev_step_id 
+( current_step_id UUID ,  current_step_id UUID ,  current_step_id UUID ,  current_step_id UUID ,  inout prev_step_id UUID ,  inout prev_step_id UUID ,  inout prev_step_id UUID ,  inout prev_step_id UUID )
+language plpgsql
+as $$
+declare 
+step_order int ; 
+t_test_id UUID ; 
+prev_step_order int ; 
+t_test_id UUID ; 
+
+begin
+select t_test_id, step_order\r
+
+ into t_test_id,step_order
+from t_test_step \r
+where t_test_step_id  =current_step_id;
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:28ebfd64-d05f-4407-a1d0-9b63fb014def ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N13afe205682e4cc08f1aeb92212aaf19 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "get_test_introduction" ;
+    ns1:hasProcedure ns1:cbc9e4cd-9a16-4bcd-a4a6-2de28d8c6be3 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N15b22c1fd1e24e42ac88e5f9e743643a a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "get_prev_step_id" ;
+    ns1:hasProcedure ns1:28ebfd64-d05f-4407-a1d0-9b63fb014def ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N1748e3398ed74a4ea4f33b0eab1077a0 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "time_remaining" ;
+    ns1:hasProcedure ns1:5d9ef1ef-490d-4eb4-be05-fba59d1de03f ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N17848bbd951a4e72a5cdc5167013b983 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "get_next_step_id" ;
+    ns1:hasProcedure ns1:6d57d949-cba7-4b3f-9848-4bd05ae4168c ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N1a02e6a4e9ae48a4afa773c3dd6c5377 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "doback" ;
+    ns1:hasProcedure ns1:04d381e4-d214-4c04-bdd9-57fa9a03e0f5 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N1d0137d05ce049349c5eb1a677f8f1bb a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_testing_id" указано неоднократно
+
+[SQL: 
+create or replace procedure get_common_introduction 
+( t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID )
+language plpgsql
+as $$
+
+begin
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:835fd3f0-c662-4788-85ef-8f9cad706dc5 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N1d50119d76f04025a86324d2a7878c72 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_testing_id" указано неоднократно
+
+[SQL: 
+create or replace procedure testing_status 
+( t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID )
+language plpgsql
+as $$
+declare 
+show_question_mark CHAR 1; 
+CURRENT_STOP_TIME TIMESTAMP(3) ; 
+secondname VARCHAR 100; 
+test_name VARCHAR 100; 
+lang_num int ; 
+perscode CHAR 12; 
+time_limit_min int ; 
+stop_time_sec int ; 
+status VARCHAR 10; 
+last_step_id UUID ; 
+perscode CHAR 12; 
+question_btn_mark CHAR 1; 
+step int ; 
+CURRENT_STOP_TIME TIMESTAMP(3) ; 
+firstname VARCHAR 100; 
+step_count int ; 
+t_test_id UUID ; 
+count_stop_times int ; 
+stop_times int ; 
+lang_short_code VARCHAR 3; 
+jsfile VARCHAR 50; 
+status VARCHAR 10; 
+t_test_id UUID ; 
+last_step_id UUID ; 
+back_btn_mark CHAR 1; 
+secondname VARCHAR 100; 
+show_question_mark CHAR 1; 
+current_step_id UUID ; 
+current_step_id UUID ; 
+lang_short_code VARCHAR 3; 
+back_btn_mark CHAR 1; 
+step_num VARCHAR 100; 
+question_btn_mark CHAR 1; 
+test_name VARCHAR 100; 
+jsfile VARCHAR 50; 
+step_num VARCHAR 100; 
+seconds_remain int ; 
+firstname VARCHAR 100; 
+test_num int ; 
+
+begin
+select t.t_workstation_id,\r
+ts.obj_name  \r
+
+ into t_workstation_id,status
+from t_testing t\r
+inner join t_testing_status ts \r
+on t.t_testing_status_id = ts.t_testing_status_id \r
+where t_testing_id =t_testing_id;
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:a97e24f8-d48b-49c6-9ea0-5a4cc2df4dc2 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N1f7aa14eac984c338473937de5978a6f a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "current_step_id" указано неоднократно
+
+[SQL: 
+create or replace procedure get_test_step 
+( current_step_id UUID ,  current_step_id UUID ,  current_step_id UUID ,  current_step_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID )
+language plpgsql
+as $$
+
+begin
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:20e01fe3-b6d9-4644-b8ed-8180a003e690 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N1fe31aa83c1d4e6b9d3ca6f19d740c77 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_testing_id" указано неоднократно
+
+[SQL: 
+create or replace procedure inititate_testing 
+( t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_workstation_id UUID ,  t_workstation_id UUID ,  t_workstation_id UUID ,  t_workstation_id UUID ,  t_persona_id UUID ,  t_persona_id UUID ,  t_persona_id UUID ,  t_persona_id UUID ,  t_testing_language_id UUID ,  t_testing_language_id UUID ,  t_testing_language_id UUID ,  t_testing_language_id UUID ,  t_testing_classificator_id UUID ,  t_testing_classificator_id UUID ,  t_testing_classificator_id UUID ,  t_testing_classificator_id UUID ,  obj_created_by VARCHAR  (100) ,  obj_created_by VARCHAR  (100) ,  obj_created_by VARCHAR  (100) ,  obj_created_by VARCHAR  (100) ,  passw VARCHAR  (20) ,  passw VARCHAR  (20) ,  passw VARCHAR  (20) ,  passw VARCHAR  (20) )
+language plpgsql
+as $$
+declare 
+auth_type VARCHAR 20; 
+auth_type VARCHAR 20; 
+
+begin
+select auth_type\r
+
+ into auth_type
+from t_workstation\r
+where t_workstation_id =t_workstation_id;
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:39e74904-b825-4f8c-ba0f-9adf0c61297b ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N211cb6a2875948d59eb2f2c3fd6c8f35 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "current_step_id" указано неоднократно
+
+[SQL: 
+create or replace procedure get_test_step 
+( current_step_id UUID ,  current_step_id UUID ,  current_step_id UUID ,  current_step_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID )
+language plpgsql
+as $$
+
+begin
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:4ebb752c-dcf0-43ec-af91-a96c07d85bb1 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N21d0e496bc7241e08123cca758fe3442 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "get_common_ended" ;
+    ns1:hasProcedure ns1:bd90706d-157f-44c9-88c1-47964dae9cf5 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N22ddb35d099b4758b3c71d3189da8fbd a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "test1" ;
+    ns1:hasProcedure ns1:d774c7f5-cace-4981-b74a-f44e47e2644e ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N23d76eef8c2d42a683394e3c6c165b7e a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "stat_change_instruct" ;
+    ns1:hasProcedure ns1:a1fc0f49-0475-4551-93a0-f19f43fc6336 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N2743f93019db49699521dd48d4cde560 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_testing_id" указано неоднократно
+
+[SQL: 
+create or replace procedure stat_change_instruct 
+( t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID )
+language plpgsql
+as $$
+declare 
+step_order int ; 
+current_step_id UUID ; 
+t_test_id UUID ; 
+current_step_id UUID ; 
+t_test_id UUID ; 
+
+begin
+select obj_name 
+ into status
+from t_testing_status ts\r
+inner join t_testing t on ts.t_testing_status_id = t.t_testing_status_id\r
+where  t.t_testing_id  =t_testing_id;
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:ddf2e4b4-a202-43f6-93f9-a27dd67298f2 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N276e246c50b24360b980c7c13e1b34e0 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_testing_id" указано неоднократно
+
+[SQL: 
+create or replace procedure stat_change_prepared 
+( t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID )
+language plpgsql
+as $$
+
+begin
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:ab92ae4f-c7e7-4e7e-be78-153aa2ff68a6 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N29882ff492b6486eabd193812e0d2bfd a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "inititate_testing2" ;
+    ns1:hasProcedure ns1:c62c51f4-5a64-42b1-975d-0f5017d5e9ae ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N2e62a22dcc9945608fb5fb018e3404df a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_testing_id" указано неоднократно
+
+[SQL: 
+create or replace procedure doback 
+( t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_step_id UUID ,  t_testing_step_id UUID ,  t_testing_step_id UUID ,  t_testing_step_id UUID ,  t_testing_step_id UUID )
+language plpgsql
+as $$
+declare 
+back_btn_mark CHAR 1; 
+current_step_id UUID ; 
+current_step_id UUID ; 
+back_only_1_step CHAR 1; 
+t_test_id UUID ; 
+t_test_id UUID ; 
+prev_step_id UUID ; 
+prev_step_id UUID ; 
+back_only_1_step CHAR 1; 
+back_btn_mark CHAR 1; 
+
+begin
+select current_step_id\r
+
+ into current_step_id
+from t_testing t inner join\r
+t_testing_test tt on\r
+t.t_testing_id=tt.t_testing_id\r
+and t.current_test_id = tt.t_test_id\r
+where t.t_testing_id =t_testing_id;
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:04d381e4-d214-4c04-bdd9-57fa9a03e0f5 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N2fd9d12e4fd94c838f85138ac0a93dfd a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "dopass" ;
+    ns1:hasProcedure ns1:60095695-e979-4a6e-8ede-8e8ff7f3a87a ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N31b2c374090a491e8a51f46dc44b96f6 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "perscode" указано неоднократно
+
+[SQL: 
+create or replace procedure dopass 
+( perscode VARCHAR  (12) ,  perscode VARCHAR  (12) ,  perscode VARCHAR  (12) ,  perscode VARCHAR  (12) ,  passw VARCHAR  (20) ,  passw VARCHAR  (20) ,  passw VARCHAR  (20) ,  passw VARCHAR  (20) ,  inout t_testing_id UUID ,  inout t_testing_id UUID ,  inout t_testing_id UUID ,  inout t_testing_id UUID )
+language plpgsql
+as $$
+
+begin
+select \r
+
+ into count
+from t_workstation w \r
+inner join t_testing t on w.t_testing_id = t.t_testing_id \r
+inner join t_persona p on t.t_persona_id = p.t_persona_id \r
+where w.passw  =passwand perscode =perscode;
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:9a0c2811-ccdd-4628-863b-325ea1cb995e ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N329518ad2a7245c4a63c30e15f8079f3 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "donext" ;
+    ns1:hasProcedure ns1:47180c4d-9dac-4cdc-a6f5-46971f2c4384 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N32bb146e27ec44a981ebfe7d34625f41 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "dopass" ;
+    ns1:hasProcedure ns1:9a0c2811-ccdd-4628-863b-325ea1cb995e ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N3406de1f020b4fcf984cdd1101c88196 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "get_common_introduction" ;
+    ns1:hasProcedure ns1:835fd3f0-c662-4788-85ef-8f9cad706dc5 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N343b7ef27aaf40499f3731ac91757a9a a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "workstation_clear" ;
+    ns1:hasProcedure ns1:aa15a878-d2cb-4d32-b0e6-61257526fcb5 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N382cc5f9027646c89999116d212c5705 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "testing_status" ;
+    ns1:hasProcedure ns1:7098edd7-186c-4848-8a7c-4e3bdb98e041 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N3bea180be1104ec2942bcfc785f1dbd2 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_testing_id" указано неоднократно
+
+[SQL: 
+create or replace procedure select_tests 
+( t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID )
+language plpgsql
+as $$
+
+begin
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:a9f594a5-aefc-496f-97a9-198ea4276d19 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N40f43e63547f4a1a9f8b3e50f5dc2ac6 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "current_step_id" указано неоднократно
+
+[SQL: 
+create or replace procedure get_prev_step_id 
+( current_step_id UUID ,  current_step_id UUID ,  current_step_id UUID ,  current_step_id UUID ,  current_step_id UUID ,  inout prev_step_id UUID ,  inout prev_step_id UUID ,  inout prev_step_id UUID ,  inout prev_step_id UUID ,  inout prev_step_id UUID )
+language plpgsql
+as $$
+declare 
+t_test_id UUID ; 
+step_order int ; 
+prev_step_order int ; 
+t_test_id UUID ; 
+
+begin
+select t_test_id, step_order\r
+
+ into t_test_id,step_order
+from t_test_step \r
+where t_test_step_id  =current_step_id;
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:d6c7c9c6-c645-4605-974f-743d6e74fd1f ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N410c5f952b3f43269475226241d9fc66 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_workstation_id" указано неоднократно
 
 [SQL: 
 create or replace procedure workstation_status 
-( t_workstation_id UUID )
+( t_workstation_id UUID ,  t_workstation_id UUID ,  t_workstation_id UUID ,  t_workstation_id UUID )
+language plpgsql
+as $$
+
+begin
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:5f9f94a4-c2f3-4e5e-9f53-387a2f508d28 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N427b3bc9067e42b1af01e667738d335a a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_workstation_id" указано неоднократно
+
+[SQL: 
+create or replace procedure workstation_status 
+( t_workstation_id UUID ,  t_workstation_id UUID ,  t_workstation_id UUID ,  t_workstation_id UUID ,  t_workstation_id UUID )
 language plpgsql
 as $$
 declare 
 test_num VARCHAR 10; 
+status VARCHAR 10; 
+t_testing_id UUID ; 
+current_step_id UUID ; 
+test_num VARCHAR 10; 
+step int ; 
+status VARCHAR 10; 
+start_date TIMESTAMP(3) ; 
 current_step_id UUID ; 
 start_date TIMESTAMP(3) ; 
-step int ; 
 t_testing_id UUID ; 
-status VARCHAR 10; 
 
 begin
 select t_testing_id \r
@@ -104,24 +638,753 @@ where t_workstation_id =t_workstation_id;
 end; $$]
 (Background on this error at: https://sqlalche.me/e/14/f405)""" ;
     ns1:hasProcedure ns1:41f47825-6177-4408-b5f4-a03536fb8cda ;
-    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
 
-ns1:N31cc0504140948ab89e28b5027a6d871 a ns1:runcreateprocessprocedure,
+ns1:N4387dc6e89524ea6a35b7ee19c552417 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "time_remaining" ;
+    ns1:hasProcedure ns1:3d4b9f83-ded8-40c8-b530-868bd37a7104 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N4643627e104d40e797cb8156f7916bca a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "insupd_score" ;
+    ns1:hasProcedure ns1:20a171f4-4dc8-4e94-ad08-5fed381dbda7 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N47d3133f803b4485b0065ccea0d38066 a ns1:runcreateprocessprocedure,
         owl:NamedIndividual ;
     rdfs:label "tmp_insupd_test_step" ;
     ns1:hasProcedure ns1:709af84b-f318-495b-aaae-958751f6091b ;
-    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
 
-ns1:N359d82477c6549709cad8531b5e17e03 a ns1:runcreateprocessprocedure,
+ns1:N4858b63cbc6545638a303eb012867be0 a ns1:runcreateprocessprocedure,
         owl:NamedIndividual ;
     rdfs:label "" ;
-    ns1:ERROR_MSG """(psycopg2.errors.SyntaxError) ОШИБКА:  "count" - не известная переменная
-LINE 10:  into count
-               ^
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_test_id" указано неоднократно
+
+[SQL: 
+create or replace procedure tmp_insupd_test_step 
+( t_test_id UUID ,  t_test_id UUID ,  t_test_id UUID ,  t_test_id UUID ,  t_test_id UUID )
+language plpgsql
+as $$
+
+begin
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:709af84b-f318-495b-aaae-958751f6091b ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N4a092147b08f4661bcbb291c50d76ea9 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_workstation_id" указано неоднократно
+
+[SQL: 
+create or replace procedure stat_change_help2 
+( t_workstation_id UUID ,  t_workstation_id UUID ,  t_workstation_id UUID ,  t_workstation_id UUID )
+language plpgsql
+as $$
+
+begin
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:866a20bf-6682-4cb7-8d7e-2bd66cba87f7 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N4b527641004b434b942af6b0455fe793 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "testing_status" ;
+    ns1:hasProcedure ns1:787c8d16-640b-4fa2-84c8-0bee9f139ae2 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N4d263c12ce974bec903640aa94441220 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_testing_id" указано неоднократно
+
+[SQL: 
+create or replace procedure inititate_testing 
+( t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_workstation_id UUID ,  t_workstation_id UUID ,  t_workstation_id UUID ,  t_workstation_id UUID ,  t_workstation_id UUID ,  t_persona_id UUID ,  t_persona_id UUID ,  t_persona_id UUID ,  t_persona_id UUID ,  t_persona_id UUID ,  t_testing_language_id UUID ,  t_testing_language_id UUID ,  t_testing_language_id UUID ,  t_testing_language_id UUID ,  t_testing_language_id UUID ,  t_testing_classificator_id UUID ,  t_testing_classificator_id UUID ,  t_testing_classificator_id UUID ,  t_testing_classificator_id UUID ,  t_testing_classificator_id UUID ,  obj_created_by VARCHAR  (100) ,  obj_created_by VARCHAR  (100) ,  obj_created_by VARCHAR  (100) ,  obj_created_by VARCHAR  (100) ,  obj_created_by VARCHAR  (100) ,  passw VARCHAR  (20) ,  passw VARCHAR  (20) ,  passw VARCHAR  (20) ,  passw VARCHAR  (20) ,  passw VARCHAR  (20) )
+language plpgsql
+as $$
+declare 
+auth_type VARCHAR 20; 
+auth_type VARCHAR 20; 
+
+begin
+select auth_type\r
+
+ into auth_type
+from t_workstation\r
+where t_workstation_id =t_workstation_id;
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:e17ab7f5-d330-44d1-90ef-3f8f3f76dd88 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N5023abbe002142c8be8bdebb1e270409 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "stat_change_prepared" ;
+    ns1:hasProcedure ns1:78bbccd1-8322-4d2a-90b2-1975d5b5e2b2 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N503be6c346904c8c91e2e880907bbb43 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "current_step_id" указано неоднократно
+
+[SQL: 
+create or replace procedure get_next_step_id 
+( current_step_id UUID ,  current_step_id UUID ,  current_step_id UUID ,  current_step_id UUID ,  inout next_step_id UUID ,  inout next_step_id UUID ,  inout next_step_id UUID ,  inout next_step_id UUID )
+language plpgsql
+as $$
+
+begin
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:611d6f60-14d6-4741-95a0-7c621bb33d40 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N524d2663d3d74bf893ec5bfb024d9252 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_test_id" указано неоднократно
+
+[SQL: 
+create or replace procedure temp_insupd_test 
+( t_test_id UUID ,  t_test_id UUID ,  t_test_id UUID ,  t_test_id UUID ,  t_test_id UUID )
+language plpgsql
+as $$
+
+begin
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:f7b1df8b-dfd6-4287-a282-1d08757e63b0 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N53effa769f58488884c95ec7072b11e9 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_testing_id" указано неоднократно
+
+[SQL: 
+create or replace procedure select_tests 
+( t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID )
+language plpgsql
+as $$
+
+begin
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:20bc29e8-5d0c-4e94-8591-f84021abf5a0 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N56153732c7104b868667e4b18583c501 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_testing_id" указано неоднократно
+
+[SQL: 
+create or replace procedure stat_change_testing 
+( t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  curent_test_id UUID ,  curent_test_id UUID ,  curent_test_id UUID ,  curent_test_id UUID ,  curent_test_id UUID )
+language plpgsql
+as $$
+declare 
+next_test_id UUID ; 
+next_test_id UUID ; 
+
+begin
+select t_test_id\r
+  \r
+  
+ into next_test_id
+from   t_test\r
+  where order_num =\r
+  (\r
+  select min(order_num) \r
+  from t_testing_test tt inner join t_test te\r
+    on tt.t_test_id= te.t_test_id\r
+    where tt.t_testing_test_status_id = 4\r
+    and tt.t_testing_id  =t_testing_id);
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:a1aadc8b-f714-4c5b-beaa-d70c00455a56 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N566b0fbda92e460a856456d648c80225 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_testing_id" указано неоднократно
+
+[SQL: 
+create or replace procedure inititate_testing 
+( t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_workstation_id UUID ,  t_workstation_id UUID ,  t_workstation_id UUID ,  t_workstation_id UUID ,  t_persona_id UUID ,  t_persona_id UUID ,  t_persona_id UUID ,  t_persona_id UUID ,  t_testing_language_id UUID ,  t_testing_language_id UUID ,  t_testing_language_id UUID ,  t_testing_language_id UUID ,  t_testing_classificator_id UUID ,  t_testing_classificator_id UUID ,  t_testing_classificator_id UUID ,  t_testing_classificator_id UUID ,  obj_created_by VARCHAR  (100) ,  obj_created_by VARCHAR  (100) ,  obj_created_by VARCHAR  (100) ,  obj_created_by VARCHAR  (100) ,  passw VARCHAR  (20) ,  passw VARCHAR  (20) ,  passw VARCHAR  (20) ,  passw VARCHAR  (20) )
+language plpgsql
+as $$
+
+begin
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:1b13c277-961a-45a9-973e-f1fbae105ebc ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N590cde9885c1488fa39315e8332756ff a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_testing_id" указано неоднократно
+
+[SQL: 
+create or replace procedure doback 
+( t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_step_id UUID ,  t_testing_step_id UUID ,  t_testing_step_id UUID ,  t_testing_step_id UUID )
+language plpgsql
+as $$
+
+begin
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:d12e40c1-ec08-4f2f-b42c-1390fd8fe864 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N5bfee743693e40f08f45206a60977321 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "ip_address" указано неоднократно
+
+[SQL: 
+create or replace procedure ws_type 
+( ip_address VARCHAR  (100) ,  ip_address VARCHAR  (100) ,  ip_address VARCHAR  (100) ,  ip_address VARCHAR  (100) ,  inout ip_auth CHAR  (1) ,  inout ip_auth CHAR  (1) ,  inout ip_auth CHAR  (1) ,  inout ip_auth CHAR  (1) ,  inout t_workstation_id UUID ,  inout t_workstation_id UUID ,  inout t_workstation_id UUID ,  inout t_workstation_id UUID ,  inout t_testing_id UUID ,  inout t_testing_id UUID ,  inout t_testing_id UUID ,  inout t_testing_id UUID ,  t_ws_status_id_active UUID ,  t_ws_status_id_active UUID ,  t_ws_status_id_active UUID ,  t_ws_status_id_active UUID )
+language plpgsql
+as $$
+
+begin
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:ffa367b8-e8f6-4980-b694-f3ebd53c0d0c ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N5c15fac26d0a4bdcb55dfa01a9a5edde a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_test_id" указано неоднократно
+
+[SQL: 
+create or replace procedure tmp_insupd_test_step 
+( t_test_id UUID ,  t_test_id UUID ,  t_test_id UUID ,  t_test_id UUID )
+language plpgsql
+as $$
+
+begin
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:5f8f7cd3-87ea-4421-bdc5-e104250b7722 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N5f091861651544f0b915d793fd05b349 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "ws_type" ;
+    ns1:hasProcedure ns1:ffa367b8-e8f6-4980-b694-f3ebd53c0d0c ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N5f4d8232217c47eeb9a01d240bc8176b a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_workstation_id" указано неоднократно
+
+[SQL: 
+create or replace procedure stat_change_help2 
+( t_workstation_id UUID ,  t_workstation_id UUID ,  t_workstation_id UUID ,  t_workstation_id UUID )
+language plpgsql
+as $$
+declare 
+t_testing_id UUID ; 
+current_step_id UUID ; 
+t_test_id UUID ; 
+t_testing_id UUID ; 
+current_step_id UUID ; 
+t_test_id UUID ; 
+
+begin
+select t_testing_id\r
+
+ into t_testing_id
+from t_workstation\r
+where t_workstation_id =t_workstation_id;
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:b595cada-765c-4217-a29d-8b6c208180bb ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N5f804d7ee70f4ec9a6526400251473c3 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "stat_change_help" ;
+    ns1:hasProcedure ns1:33cf774a-3d41-4d0a-b94b-9af509dbb404 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N611fea292d6d4642b07bea424af1cdec a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_testing_id" указано неоднократно
+
+[SQL: 
+create or replace procedure get_common_ended 
+( t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID )
+language plpgsql
+as $$
+
+begin
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:f05c5a31-b575-420f-8cfc-c1543a5ae3cf ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N61473a4e52bd41f1a1831cbfac3412aa a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "selupd_1print" ;
+    ns1:hasProcedure ns1:45e58bce-d76c-487b-b36c-ce484c3aedfb ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N667dfa83e11a4798b1c62f96cc551907 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "perscode" указано неоднократно
 
 [SQL: 
 create or replace procedure dopass 
-( perscode VARCHAR  (12) ,  passw VARCHAR  (20) ,  inout t_testing_id UUID )
+( perscode VARCHAR  (12) ,  perscode VARCHAR  (12) ,  perscode VARCHAR  (12) ,  perscode VARCHAR  (12) ,  passw VARCHAR  (20) ,  passw VARCHAR  (20) ,  passw VARCHAR  (20) ,  passw VARCHAR  (20) ,  inout t_testing_id UUID ,  inout t_testing_id UUID ,  inout t_testing_id UUID ,  inout t_testing_id UUID )
+language plpgsql
+as $$
+
+begin
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:60095695-e979-4a6e-8ede-8e8ff7f3a87a ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N67acf637ae93407bb8b0205d871a40e7 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_testing_id" указано неоднократно
+
+[SQL: 
+create or replace procedure time_remaining 
+( t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_test_id UUID ,  t_test_id UUID ,  t_test_id UUID ,  t_test_id UUID )
+language plpgsql
+as $$
+declare 
+timelimitmin int ; 
+start_time TIMESTAMP(3) ; 
+start_time TIMESTAMP(3) ; 
+STOP_TIME_SEC int ; 
+
+begin
+select \r
+
+ into timelimitmin
+from t_test \r
+where t_test_id =t_test_id;
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:0a5c80b9-a0fd-4b66-b1a5-c57a8f3db2bd ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N6aee807520f74e5480b4d7fcab7b3452 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "stat_change_instruct" ;
+    ns1:hasProcedure ns1:ddf2e4b4-a202-43f6-93f9-a27dd67298f2 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N6b355480b13a47549915fc5cfe392016 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "time_remaining" ;
+    ns1:hasProcedure ns1:0a5c80b9-a0fd-4b66-b1a5-c57a8f3db2bd ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N6bbfb61f914c4e299879d782d7f1087a a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "temp_insupd_test" ;
+    ns1:hasProcedure ns1:01858cf6-b50b-4384-bbd2-67948349dece ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N70d1cb39f8404972be55bd25187648e9 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "get_common_introduction" ;
+    ns1:hasProcedure ns1:6e03002c-2cde-4214-b12e-1fe2e1695cc8 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N71da5b6c2e3648e58451f183e4e555b8 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "select_tests" ;
+    ns1:hasProcedure ns1:5ec28aa8-718e-43d0-be62-56ccd9e98a79 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N72798cc13d934a68bf2097590fd1afa1 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_testing_id" указано неоднократно
+
+[SQL: 
+create or replace procedure stat_change_testing 
+( t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  curent_test_id UUID ,  curent_test_id UUID ,  curent_test_id UUID ,  curent_test_id UUID )
+language plpgsql
+as $$
+
+begin
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:182c090e-fef2-45ed-a7c5-445ae39adc12 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N73c16e53e34e40979f3b8f060459b6d9 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "insupd_score" ;
+    ns1:hasProcedure ns1:185b0d1e-a7f6-4de7-8006-38810b720d01 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N762f7c11bbe046698f6496e7689cd492 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "get_prev_step_id" ;
+    ns1:hasProcedure ns1:191bd6b9-b8ee-4b8e-94c8-cce589f096e2 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N7827c545fdac48bcaab6e2fd4c947bff a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_testing_id" указано неоднократно
+
+[SQL: 
+create or replace procedure stat_change_testing 
+( t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  curent_test_id UUID ,  curent_test_id UUID ,  curent_test_id UUID ,  curent_test_id UUID )
+language plpgsql
+as $$
+declare 
+next_test_id UUID ; 
+next_test_id UUID ; 
+
+begin
+select t_test_id\r
+  \r
+  
+ into next_test_id
+from   t_test\r
+  where order_num =\r
+  (\r
+  select min(order_num) \r
+  from t_testing_test tt inner join t_test te\r
+    on tt.t_test_id= te.t_test_id\r
+    where tt.t_testing_test_status_id = 4\r
+    and tt.t_testing_id  =t_testing_id);
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:6d64c69b-6c3e-43aa-b5b1-dac55afbfb72 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N7a18d2789cae4610b83d14c601b55086 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_testing_id" указано неоднократно
+
+[SQL: 
+create or replace procedure doback 
+( t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_step_id UUID ,  t_testing_step_id UUID ,  t_testing_step_id UUID ,  t_testing_step_id UUID )
+language plpgsql
+as $$
+declare 
+back_only_1_step CHAR 1; 
+back_only_1_step CHAR 1; 
+prev_step_id UUID ; 
+back_btn_mark CHAR 1; 
+current_step_id UUID ; 
+t_test_id UUID ; 
+back_btn_mark CHAR 1; 
+prev_step_id UUID ; 
+current_step_id UUID ; 
+t_test_id UUID ; 
+
+begin
+select current_step_id\r
+
+ into current_step_id
+from t_testing t inner join\r
+t_testing_test tt on\r
+t.t_testing_id=tt.t_testing_id\r
+and t.current_test_id = tt.t_test_id\r
+where t.t_testing_id =t_testing_id;
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:57061d7a-485e-486c-8549-0cb88b7e4e70 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N7ba1b4018ec947929deba791104ed6b7 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_workstation_id" указано неоднократно
+
+[SQL: 
+create or replace procedure stat_change_help2 
+( t_workstation_id UUID ,  t_workstation_id UUID ,  t_workstation_id UUID ,  t_workstation_id UUID ,  t_workstation_id UUID )
+language plpgsql
+as $$
+declare 
+t_testing_id UUID ; 
+t_test_id UUID ; 
+current_step_id UUID ; 
+current_step_id UUID ; 
+t_test_id UUID ; 
+t_testing_id UUID ; 
+
+begin
+select t_testing_id\r
+
+ into t_testing_id
+from t_workstation\r
+where t_workstation_id =t_workstation_id;
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:d86d6d0a-2e05-4c22-96a6-1d7316074dc6 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N7ccd5c17e59e4eb4976c9230783174a5 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "get_next_step_id" ;
+    ns1:hasProcedure ns1:d1abb6d1-a694-4917-bc03-b9e36a2c91de ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N7d1090fc3da547b59c67a3dede459670 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_testing_step_id" указано неоднократно
+
+[SQL: 
+create or replace procedure insupd_score 
+( t_testing_step_id UUID ,  t_testing_step_id UUID ,  t_testing_step_id UUID ,  t_testing_step_id UUID ,  score VARCHAR  (50) ,  score VARCHAR  (50) ,  score VARCHAR  (50) ,  score VARCHAR  (50) )
+language plpgsql
+as $$
+
+begin
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:185b0d1e-a7f6-4de7-8006-38810b720d01 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N7e0f61d8f4464c4098f14e98453974c1 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_testing_id" указано неоднократно
+
+[SQL: 
+create or replace procedure stat_change_instruct 
+( t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID )
+language plpgsql
+as $$
+
+begin
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:a1fc0f49-0475-4551-93a0-f19f43fc6336 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N7ea0aa4b8faf4bde8626684ea3c222b2 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_testing_id" указано неоднократно
+
+[SQL: 
+create or replace procedure inititate_testing2 
+( t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID )
+language plpgsql
+as $$
+
+begin
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:c62c51f4-5a64-42b1-975d-0f5017d5e9ae ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N8021af69558d4c3db4743145d5f17dce a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "get_common_introduction" ;
+    ns1:hasProcedure ns1:4b973103-876c-4eb8-b975-33345a97a37d ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N81d3c8ed89e44ba3876a2a43734ea082 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "stat_change_help2" ;
+    ns1:hasProcedure ns1:866a20bf-6682-4cb7-8d7e-2bd66cba87f7 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N82b22338c66c4a98a396098a13302791 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_testing_id" указано неоднократно
+
+[SQL: 
+create or replace procedure donext 
+( t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  result_txt VARCHAR  (1000) ,  result_txt VARCHAR  (1000) ,  result_txt VARCHAR  (1000) ,  result_txt VARCHAR  (1000) ,  t_testing_step_id UUID ,  t_testing_step_id UUID ,  t_testing_step_id UUID ,  t_testing_step_id UUID )
+language plpgsql
+as $$
+
+begin
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:47180c4d-9dac-4cdc-a6f5-46971f2c4384 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N83358b9bdc7a4cc8bd844888ea896028 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_testing_id" указано неоднократно
+
+[SQL: 
+create or replace procedure stat_change_prepared 
+( t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID )
+language plpgsql
+as $$
+
+begin
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:78bbccd1-8322-4d2a-90b2-1975d5b5e2b2 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N8651edba2c6b40a58598f4946901ba2a a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "get_common_ended" ;
+    ns1:hasProcedure ns1:f05c5a31-b575-420f-8cfc-c1543a5ae3cf ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N86de897b6d604ec9a575e82edbcdb1aa a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_testing_step_id" указано неоднократно
+
+[SQL: 
+create or replace procedure insupd_score 
+( t_testing_step_id UUID ,  t_testing_step_id UUID ,  t_testing_step_id UUID ,  t_testing_step_id UUID ,  score VARCHAR  (50) ,  score VARCHAR  (50) ,  score VARCHAR  (50) ,  score VARCHAR  (50) )
+language plpgsql
+as $$
+declare 
+t_testing_score_id UUID ; 
+t_testing_score_id UUID ; 
+
+begin
+select t_testing_score_id\r
+
+ into t_testing_score_id
+from t_testing_score \r
+where t_testing_step_id  =t_testing_step_id;
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:20a171f4-4dc8-4e94-ad08-5fed381dbda7 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N8921551aef084207874d9b080a059b5c a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "tmp_insupd_test_step" ;
+    ns1:hasProcedure ns1:5f8f7cd3-87ea-4421-bdc5-e104250b7722 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N89b0f3d810c44c3599c18b78f74680db a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "stat_change_testing" ;
+    ns1:hasProcedure ns1:182c090e-fef2-45ed-a7c5-445ae39adc12 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N8d16ab67045546bfa20e4a9dd182a17b a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "current_step_id" указано неоднократно
+
+[SQL: 
+create or replace procedure get_prev_step_id 
+( current_step_id UUID ,  current_step_id UUID ,  current_step_id UUID ,  current_step_id UUID ,  inout prev_step_id UUID ,  inout prev_step_id UUID ,  inout prev_step_id UUID ,  inout prev_step_id UUID )
+language plpgsql
+as $$
+
+begin
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:191bd6b9-b8ee-4b8e-94c8-cce589f096e2 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N8ffc9b856fc9498793055d961d5a63f8 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_testing_id" указано неоднократно
+
+[SQL: 
+create or replace procedure select_tests 
+( t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID )
+language plpgsql
+as $$
+
+begin
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:5ec28aa8-718e-43d0-be62-56ccd9e98a79 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N920cdd2163eb4887adffd80b66dff484 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "tmp_insupd_test_step" ;
+    ns1:hasProcedure ns1:1c81ac83-66a7-4724-949f-aa35430e37b3 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N93859cae9e7e48baa285253314a84aac a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "workstation_status" ;
+    ns1:hasProcedure ns1:41f47825-6177-4408-b5f4-a03536fb8cda ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N975e58eac2c64a4688e3dabbf1ef0c73 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "get_common_ended" ;
+    ns1:hasProcedure ns1:042cd929-7438-4152-8462-3b1b35c7599c ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N98a1ac24688a448ba9b17450ee0d4917 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "temp_insupd_test" ;
+    ns1:hasProcedure ns1:f7b1df8b-dfd6-4287-a282-1d08757e63b0 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N9d5468c67ef64645bc844f41b39ecf42 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_testing_id" указано неоднократно
+
+[SQL: 
+create or replace procedure stat_change_help 
+( t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID )
+language plpgsql
+as $$
+declare 
+stop_times int ; 
+count_stop_times int ; 
+t_test_id UUID ; 
+time_limit_min int ; 
+stop_time_sec int ; 
+t_test_id UUID ; 
+
+begin
+select obj_name 
+ into status
+from t_testing_status ts\r
+inner join t_testing t on ts.t_testing_status_id = t.t_testing_status_id\r
+where  t.t_testing_id  =t_testing_id;
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:33cf774a-3d41-4d0a-b94b-9af509dbb404 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:N9fc5e57343de4614adc6a46ab7cc232d a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "perscode" указано неоднократно
+
+[SQL: 
+create or replace procedure dopass 
+( perscode VARCHAR  (12) ,  perscode VARCHAR  (12) ,  perscode VARCHAR  (12) ,  perscode VARCHAR  (12) ,  perscode VARCHAR  (12) ,  passw VARCHAR  (20) ,  passw VARCHAR  (20) ,  passw VARCHAR  (20) ,  passw VARCHAR  (20) ,  passw VARCHAR  (20) ,  inout t_testing_id UUID ,  inout t_testing_id UUID ,  inout t_testing_id UUID ,  inout t_testing_id UUID ,  inout t_testing_id UUID )
 language plpgsql
 as $$
 
@@ -136,81 +1399,148 @@ where w.passw  =passwand perscode =perscode;
 end; $$]
 (Background on this error at: https://sqlalche.me/e/14/f405)""" ;
     ns1:hasProcedure ns1:df7b8333-6af9-454b-8f29-e1289529c818 ;
-    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
 
-ns1:N373129481a7f469dba65576954b21ffe a ns1:runcreateprocessprocedure,
+ns1:Na2a1090f273a400cb1552bb974720211 a ns1:runcreateprocessprocedure,
         owl:NamedIndividual ;
-    rdfs:label "get_prev_step_id" ;
-    ns1:hasProcedure ns1:d6c7c9c6-c645-4605-974f-743d6e74fd1f ;
-    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
+    rdfs:label "doback" ;
+    ns1:hasProcedure ns1:57061d7a-485e-486c-8549-0cb88b7e4e70 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
 
-ns1:N44ba71a9a6d24f60bd2c876d6a6cb98e a ns1:runcreateprocessprocedure,
-        owl:NamedIndividual ;
-    rdfs:label "test1" ;
-    ns1:hasProcedure ns1:d774c7f5-cace-4981-b74a-f44e47e2644e ;
-    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
-
-ns1:N465ca75a05954b96aa6408831b39a596 a ns1:runcreateprocessprocedure,
-        owl:NamedIndividual ;
-    rdfs:label "temp_insupd_test" ;
-    ns1:hasProcedure ns1:f7b1df8b-dfd6-4287-a282-1d08757e63b0 ;
-    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
-
-ns1:N4a3d54062d9446e3af029ed3c98b1c1e a ns1:runcreateprocessprocedure,
-        owl:NamedIndividual ;
-    rdfs:label "get_test_step" ;
-    ns1:hasProcedure ns1:2aa221af-5377-4ecb-affd-83f19213c7b5 ;
-    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
-
-ns1:N4a86d3a449e74cecbbe4b86dcd458c06 a ns1:runcreateprocessprocedure,
-        owl:NamedIndividual ;
-    rdfs:label "time_remaining" ;
-    ns1:hasProcedure ns1:3d4b9f83-ded8-40c8-b530-868bd37a7104 ;
-    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
-
-ns1:N4b1f400a6a534e86967ff43b49738266 a ns1:runcreateprocessprocedure,
-        owl:NamedIndividual ;
-    rdfs:label "select_tests" ;
-    ns1:hasProcedure ns1:20bc29e8-5d0c-4e94-8591-f84021abf5a0 ;
-    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
-
-ns1:N53a1b1a92d3b4c5a9da149aa46f083de a ns1:runcreateprocessprocedure,
-        owl:NamedIndividual ;
-    rdfs:label "workstation_clear" ;
-    ns1:hasProcedure ns1:aa15a878-d2cb-4d32-b0e6-61257526fcb5 ;
-    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
-
-ns1:N61a0db575fa648c48bfc426f5979f131 a ns1:runcreateprocessprocedure,
-        owl:NamedIndividual ;
-    rdfs:label "stat_change_testing" ;
-    ns1:hasProcedure ns1:a1aadc8b-f714-4c5b-beaa-d70c00455a56 ;
-    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
-
-ns1:N696f3eb906b2472e99377fdf259a7849 a ns1:runcreateprocessprocedure,
-        owl:NamedIndividual ;
-    rdfs:label "get_next_step_id" ;
-    ns1:hasProcedure ns1:6d57d949-cba7-4b3f-9848-4bd05ae4168c ;
-    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
-
-ns1:N6d5049bde03149bfb4b03f67d86f6897 a ns1:runcreateprocessprocedure,
+ns1:Na524ef21eb454fb8bfa20dd74fba362a a ns1:runcreateprocessprocedure,
         owl:NamedIndividual ;
     rdfs:label "" ;
-    ns1:ERROR_MSG """(psycopg2.errors.SyntaxError) ОШИБКА:  ошибка синтаксиса (примерное положение: "1")
-LINE 7: back_btn_mark CHAR 1; 
-                           ^
-CONTEXT:  неверное имя типа "CHAR 1"
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_testing_id" указано неоднократно
 
 [SQL: 
-create or replace procedure doback 
-( t_testing_id UUID ,  t_testing_step_id UUID )
+create or replace procedure time_remaining 
+( t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_test_id UUID ,  t_test_id UUID ,  t_test_id UUID ,  t_test_id UUID ,  t_test_id UUID )
 language plpgsql
 as $$
 declare 
-back_btn_mark CHAR 1; 
-prev_step_id UUID ; 
+STOP_TIME_SEC int ; 
+timelimitmin int ; 
+start_time TIMESTAMP(3) ; 
+start_time TIMESTAMP(3) ; 
+
+begin
+select \r
+
+ into timelimitmin
+from t_test \r
+where t_test_id =t_test_id;
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:3d4b9f83-ded8-40c8-b530-868bd37a7104 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Na52ab6a64ed646a38fb084ec54b82889 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_testing_id" указано неоднократно
+
+[SQL: 
+create or replace procedure stat_change_instruct 
+( t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID )
+language plpgsql
+as $$
+declare 
+t_test_id UUID ; 
+t_test_id UUID ; 
+current_step_id UUID ; 
+step_order int ; 
+current_step_id UUID ; 
+
+begin
+select obj_name 
+ into status
+from t_testing_status ts\r
+inner join t_testing t on ts.t_testing_status_id = t.t_testing_status_id\r
+where  t.t_testing_id  =t_testing_id;
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:969bd3bc-4e04-4782-a48e-129ca986d4aa ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Na61cde195b474d958cf33d20d9b8b45e a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_workstation_id" указано неоднократно
+
+[SQL: 
+create or replace procedure workstation_clear 
+( t_workstation_id UUID ,  t_workstation_id UUID ,  t_workstation_id UUID ,  t_workstation_id UUID )
+language plpgsql
+as $$
+declare 
+t_testing_status_id int ; 
+t_testing_id UUID ; 
+t_testing_id UUID ; 
+
+begin
+select t_testing_id \r
+
+ into t_testing_id
+from t_workstation\r
+where t_workstation_id =t_workstation_id;
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:a511d512-65d4-405d-92d3-60a4464d8296 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Na6348dbbe0e44b048e38eec44e383b4f a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "stat_change_prepared" ;
+    ns1:hasProcedure ns1:e028cb95-3827-4905-9efe-7dc1802675f1 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Na8bfc7641a4f4ab899f0db87c58a118d a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "selupd_1print" ;
+    ns1:hasProcedure ns1:0820da59-9448-477a-8c8f-a1db1c27e684 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Nadc5d098e1a947289c788cdf4fea18a4 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_test_id" указано неоднократно
+
+[SQL: 
+create or replace procedure temp_insupd_test 
+( t_test_id UUID ,  t_test_id UUID ,  t_test_id UUID ,  t_test_id UUID )
+language plpgsql
+as $$
+
+begin
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:01858cf6-b50b-4384-bbd2-67948349dece ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Nadfe790491dd45f5a18178eeb1f0f372 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "inititate_testing" ;
+    ns1:hasProcedure ns1:1b13c277-961a-45a9-973e-f1fbae105ebc ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Nb1c1631d2ec04504b84e53a552348102 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_testing_id" указано неоднократно
+
+[SQL: 
+create or replace procedure donext 
+( t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  result_txt VARCHAR  (1000) ,  result_txt VARCHAR  (1000) ,  result_txt VARCHAR  (1000) ,  result_txt VARCHAR  (1000) ,  t_testing_step_id UUID ,  t_testing_step_id UUID ,  t_testing_step_id UUID ,  t_testing_step_id UUID )
+language plpgsql
+as $$
+declare 
+seconds_remain int ; 
+t_test_id UUID ; 
 current_step_id UUID ; 
 t_test_id UUID ; 
-back_only_1_step CHAR 1; 
+next_step_id UUID ; 
+current_step_id UUID ; 
+next_step_id UUID ; 
 
 begin
 select current_step_id\r
@@ -223,10 +1553,62 @@ and t.current_test_id = tt.t_test_id\r
 where t.t_testing_id =t_testing_id;
 end; $$]
 (Background on this error at: https://sqlalche.me/e/14/f405)""" ;
-    ns1:hasProcedure ns1:04d381e4-d214-4c04-bdd9-57fa9a03e0f5 ;
-    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
+    ns1:hasProcedure ns1:d7f16ad0-45f4-4407-b9c7-d0fcca1bc5f5 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
 
-ns1:N7271ebcf37ba4feba8772c18b0a6ff5e a ns1:runcreateprocessprocedure,
+ns1:Nb2922ef359fb466b97678ee6b79fb0e8 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_workstation_id" указано неоднократно
+
+[SQL: 
+create or replace procedure workstation_status 
+( t_workstation_id UUID ,  t_workstation_id UUID ,  t_workstation_id UUID ,  t_workstation_id UUID )
+language plpgsql
+as $$
+declare 
+t_testing_id UUID ; 
+step int ; 
+status VARCHAR 10; 
+test_num VARCHAR 10; 
+start_date TIMESTAMP(3) ; 
+t_testing_id UUID ; 
+current_step_id UUID ; 
+start_date TIMESTAMP(3) ; 
+test_num VARCHAR 10; 
+current_step_id UUID ; 
+status VARCHAR 10; 
+
+begin
+select t_testing_id \r
+
+ into t_testing_id
+from t_workstation\r
+where t_workstation_id =t_workstation_id;
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:1f52678e-15f1-4a4a-b6fa-965ce59920ce ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Nb2f7d60a080143f8b7b11c3755c02af1 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "test1" ;
+    ns1:hasProcedure ns1:11bd0d8b-704e-475d-a46b-ce0427cc6a97 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Nb33ba2adc2a941b692827286be1c185c a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "stat_change_prepared" ;
+    ns1:hasProcedure ns1:ab92ae4f-c7e7-4e7e-be78-153aa2ff68a6 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Nb3614afc58e143f4b438fb7fb8928a2e a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "stat_change_help2" ;
+    ns1:hasProcedure ns1:d86d6d0a-2e05-4c22-96a6-1d7316074dc6 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Nb3bbe23940c14a44811af42ffa223e04 a ns1:runcreateprocessprocedure,
         owl:NamedIndividual ;
     rdfs:label "" ;
     ns1:ERROR_MSG """(psycopg2.errors.SyntaxError) ОШИБКА:  незавершённая строка с $ (примерное положение: "$$
@@ -248,126 +1630,389 @@ job_count int ;
 begin]
 (Background on this error at: https://sqlalche.me/e/14/f405)""" ;
     ns1:hasProcedure ns1:45e58bce-d76c-487b-b36c-ce484c3aedfb ;
-    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
 
-ns1:N7742b4f18398465985528b8c78ab601b a ns1:runcreateprocessprocedure,
-        owl:NamedIndividual ;
-    rdfs:label "get_test_introduction" ;
-    ns1:hasProcedure ns1:336a98e5-eb3e-40bc-a27b-b750c154d48c ;
-    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
-
-ns1:N8cf4202faa5a4e5c92ed78388c2ab09a a ns1:runcreateprocessprocedure,
-        owl:NamedIndividual ;
-    rdfs:label "inititate_testing2" ;
-    ns1:hasProcedure ns1:7da108c2-6900-41ce-99a3-83a8b64e7e67 ;
-    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
-
-ns1:N8ee94c25cfba41a8b9429876e9bfdc22 a ns1:runcreateprocessprocedure,
-        owl:NamedIndividual ;
-    rdfs:label "doback" ;
-    ns1:hasProcedure ns1:04d381e4-d214-4c04-bdd9-57fa9a03e0f5 ;
-    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
-
-ns1:N93d04cd631fb4c2aae877d3eb701e183 a ns1:runcreateprocessprocedure,
-        owl:NamedIndividual ;
-    rdfs:label "selupd_1print" ;
-    ns1:hasProcedure ns1:45e58bce-d76c-487b-b36c-ce484c3aedfb ;
-    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
-
-ns1:N96b207c373074ea6a169aa38d0ee04c3 a ns1:runcreateprocessprocedure,
-        owl:NamedIndividual ;
-    rdfs:label "stat_change_help" ;
-    ns1:hasProcedure ns1:8e7ef6a7-c2d0-4683-997b-22a77da92063 ;
-    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
-
-ns1:N9a6901d9009643f499909307157d8adc a ns1:runcreateprocessprocedure,
-        owl:NamedIndividual ;
-    rdfs:label "ws_type" ;
-    ns1:hasProcedure ns1:862298d9-1863-48b3-8b1b-a9aa0fba2f75 ;
-    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
-
-ns1:Nbf5d86242f124388b33c64ecba3fe420 a ns1:runcreateprocessprocedure,
-        owl:NamedIndividual ;
-    rdfs:label "" ;
-    ns1:ERROR_MSG """(psycopg2.errors.SyntaxError) ОШИБКА:  "status" - не известная переменная
-LINE 15:  into status
-               ^
-
-[SQL: 
-create or replace procedure stat_change_help 
-( t_testing_id UUID )
-language plpgsql
-as $$
-declare 
-t_test_id UUID ; 
-time_limit_min int ; 
-stop_times int ; 
-stop_time_sec int ; 
-count_stop_times int ; 
-
-begin
-select obj_name 
- into status
-from t_testing_status ts\r
-inner join t_testing t on ts.t_testing_status_id = t.t_testing_status_id\r
-where  t.t_testing_id  =t_testing_id;
-end; $$]
-(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
-    ns1:hasProcedure ns1:8e7ef6a7-c2d0-4683-997b-22a77da92063 ;
-    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
-
-ns1:Nc597a5d34aaf4c15b83ca558a287cce5 a ns1:runcreateprocessprocedure,
+ns1:Nb4862cba45c54b7ab6ec68ac4ce993e2 a ns1:runcreateprocessprocedure,
         owl:NamedIndividual ;
     rdfs:label "donext" ;
     ns1:hasProcedure ns1:d2f8311d-c78c-47ad-89ae-530c4acfae50 ;
-    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
 
-ns1:Nc775daa8f5fc4da18fc4acbaefa06bc0 a ns1:runcreateprocessprocedure,
-        owl:NamedIndividual ;
-    rdfs:label "workstation_status" ;
-    ns1:hasProcedure ns1:41f47825-6177-4408-b5f4-a03536fb8cda ;
-    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
-
-ns1:Nc96e07d5fca1431cafd97359509a4487 a ns1:runcreateprocessprocedure,
-        owl:NamedIndividual ;
-    rdfs:label "inititate_testing" ;
-    ns1:hasProcedure ns1:e17ab7f5-d330-44d1-90ef-3f8f3f76dd88 ;
-    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
-
-ns1:Nc9b2c58067d9453eb153cdfc4324b47c a ns1:runcreateprocessprocedure,
-        owl:NamedIndividual ;
-    rdfs:label "dopass" ;
-    ns1:hasProcedure ns1:df7b8333-6af9-454b-8f29-e1289529c818 ;
-    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
-
-ns1:Nd7300056c36948a1a12867c9b5fca3ed a ns1:runcreateprocessprocedure,
-        owl:NamedIndividual ;
-    rdfs:label "insupd_score" ;
-    ns1:hasProcedure ns1:09ae80e8-56bc-4fff-ad63-43a4b181fedd ;
-    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
-
-ns1:Ne48200b564b54fb281606907bd6c8780 a ns1:runcreateprocessprocedure,
-        owl:NamedIndividual ;
-    rdfs:label "stat_change_help2" ;
-    ns1:hasProcedure ns1:d86d6d0a-2e05-4c22-96a6-1d7316074dc6 ;
-    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
-
-ns1:Ne68266ed5fdd4cf5bb15c58bc185d522 a ns1:runcreateprocessprocedure,
+ns1:Nb55b36352a6a492490c21bc3e4d23a03 a ns1:runcreateprocessprocedure,
         owl:NamedIndividual ;
     rdfs:label "" ;
-    ns1:ERROR_MSG """(psycopg2.errors.SyntaxError) ОШИБКА:  "status" - не известная переменная
-LINE 13:  into status
-               ^
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_workstation_id" указано неоднократно
 
 [SQL: 
-create or replace procedure stat_change_instruct 
-( t_testing_id UUID )
+create or replace procedure workstation_clear 
+( t_workstation_id UUID ,  t_workstation_id UUID ,  t_workstation_id UUID ,  t_workstation_id UUID )
+language plpgsql
+as $$
+
+begin
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:baeeaadb-1b89-4d52-97ce-a6aad3e1fd85 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Nb57c5d41a5454c9682692eb1abe0056a a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "get_test_step" ;
+    ns1:hasProcedure ns1:20e01fe3-b6d9-4644-b8ed-8180a003e690 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Nb8e7155970d14974ba4bd642485079a3 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "select_tests" ;
+    ns1:hasProcedure ns1:20bc29e8-5d0c-4e94-8591-f84021abf5a0 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Nbbbf37822d9940ae905f67461a806095 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "current_step_id" указано неоднократно
+
+[SQL: 
+create or replace procedure get_next_step_id 
+( current_step_id UUID ,  current_step_id UUID ,  current_step_id UUID ,  current_step_id UUID ,  current_step_id UUID ,  inout next_step_id UUID ,  inout next_step_id UUID ,  inout next_step_id UUID ,  inout next_step_id UUID ,  inout next_step_id UUID )
 language plpgsql
 as $$
 declare 
 t_test_id UUID ; 
-current_step_id UUID ; 
+next_step_order int ; 
 step_order int ; 
+t_test_id UUID ; 
+
+begin
+select t_test_id, step_order\r
+
+ into t_test_id,step_order
+from t_test_step \r
+where t_test_step_id  =current_step_id;
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:6d57d949-cba7-4b3f-9848-4bd05ae4168c ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Nbc1df2a83c9d426fba34d78b442ee3dc a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "get_test_step" ;
+    ns1:hasProcedure ns1:2aa221af-5377-4ecb-affd-83f19213c7b5 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Nbd866f7c00814407b240a1b5c13d251c a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "dopass" ;
+    ns1:hasProcedure ns1:df7b8333-6af9-454b-8f29-e1289529c818 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Nbdbb76a7129a44dc8582f30419b9d5aa a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "ws_type" ;
+    ns1:hasProcedure ns1:832fc376-b11c-487d-9f08-8a203cde130b ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Nbe2f7c61eea74c81a26682d9fd1ae523 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "selupd_1print" ;
+    ns1:hasProcedure ns1:90cbd22a-7ad1-41c6-84bd-34dc73dc5782 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Nc10e179810cf4a74b15abe8ac09fc830 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "get_prev_step_id" ;
+    ns1:hasProcedure ns1:d6c7c9c6-c645-4605-974f-743d6e74fd1f ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Nc2517793e5104abea5665dad71019708 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "stat_change_help" ;
+    ns1:hasProcedure ns1:bd39857c-1b47-494e-829d-bd00f401d54e ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Nc3a77d409b7f4b47adb638ec7a87fa1b a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_test_id" указано неоднократно
+
+[SQL: 
+create or replace procedure temp_insupd_test 
+( t_test_id UUID ,  t_test_id UUID ,  t_test_id UUID ,  t_test_id UUID )
+language plpgsql
+as $$
+
+begin
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:2b679547-2547-4179-9120-c7b55d188d6f ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Nc58f6d899ece467b830318b4a5908e58 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_test_id" указано неоднократно
+
+[SQL: 
+create or replace procedure get_test_introduction 
+( t_test_id UUID ,  t_test_id UUID ,  t_test_id UUID ,  t_test_id UUID )
+language plpgsql
+as $$
+
+begin
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:cbc9e4cd-9a16-4bcd-a4a6-2de28d8c6be3 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Nc79704a548714bf68d07ac33f8521f7b a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "workstation_clear" ;
+    ns1:hasProcedure ns1:a511d512-65d4-405d-92d3-60a4464d8296 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Nc882149a05874ec2b3a53cd470811184 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "inititate_testing" ;
+    ns1:hasProcedure ns1:39e74904-b825-4f8c-ba0f-9adf0c61297b ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Nc962088092204bff836c7225f1c0c12b a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_workstation_id" указано неоднократно
+
+[SQL: 
+create or replace procedure workstation_clear 
+( t_workstation_id UUID ,  t_workstation_id UUID ,  t_workstation_id UUID ,  t_workstation_id UUID ,  t_workstation_id UUID )
+language plpgsql
+as $$
+declare 
+t_testing_status_id int ; 
+t_testing_id UUID ; 
+t_testing_id UUID ; 
+
+begin
+select t_testing_id \r
+
+ into t_testing_id
+from t_workstation\r
+where t_workstation_id =t_workstation_id;
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:aa15a878-d2cb-4d32-b0e6-61257526fcb5 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Nca529c6e6a2b44838ba2b3828edd921d a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "get_test_step" ;
+    ns1:hasProcedure ns1:4ebb752c-dcf0-43ec-af91-a96c07d85bb1 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Ncfd8db37a5ba42439add7c0e3f975f3f a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_testing_id" указано неоднократно
+
+[SQL: 
+create or replace procedure inititate_testing2 
+( t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID )
+language plpgsql
+as $$
+
+begin
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:7da108c2-6900-41ce-99a3-83a8b64e7e67 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Ncfe8c55debbd4a0581bb22082e9e7304 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "current_step_id" указано неоднократно
+
+[SQL: 
+create or replace procedure get_next_step_id 
+( current_step_id UUID ,  current_step_id UUID ,  current_step_id UUID ,  current_step_id UUID ,  inout next_step_id UUID ,  inout next_step_id UUID ,  inout next_step_id UUID ,  inout next_step_id UUID )
+language plpgsql
+as $$
+declare 
+t_test_id UUID ; 
+t_test_id UUID ; 
+next_step_order int ; 
+step_order int ; 
+
+begin
+select t_test_id, step_order\r
+
+ into t_test_id,step_order
+from t_test_step \r
+where t_test_step_id  =current_step_id;
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:d1abb6d1-a694-4917-bc03-b9e36a2c91de ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Nd0b86edaa9e845c79ad73b7a61c59507 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "stat_change_help" ;
+    ns1:hasProcedure ns1:8e7ef6a7-c2d0-4683-997b-22a77da92063 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Nd322e745b2b144a0bf33c17ea20b0043 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_testing_id" указано неоднократно
+
+[SQL: 
+create or replace procedure get_common_introduction 
+( t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID )
+language plpgsql
+as $$
+
+begin
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:4b973103-876c-4eb8-b975-33345a97a37d ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Nd5ecf1183e56445291239bc1121dfe7d a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "insupd_score" ;
+    ns1:hasProcedure ns1:09ae80e8-56bc-4fff-ad63-43a4b181fedd ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Nd68c95df87b2495bbcb4545c9edb53e8 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_testing_id" указано неоднократно
+
+[SQL: 
+create or replace procedure testing_status 
+( t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID )
+language plpgsql
+as $$
+
+begin
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:7098edd7-186c-4848-8a7c-4e3bdb98e041 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Nde9a30713a554f3caa1347c3ad888fd1 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_testing_step_id" указано неоднократно
+
+[SQL: 
+create or replace procedure insupd_score 
+( t_testing_step_id UUID ,  t_testing_step_id UUID ,  t_testing_step_id UUID ,  t_testing_step_id UUID ,  t_testing_step_id UUID ,  score VARCHAR  (50) ,  score VARCHAR  (50) ,  score VARCHAR  (50) ,  score VARCHAR  (50) ,  score VARCHAR  (50) )
+language plpgsql
+as $$
+declare 
+t_testing_score_id UUID ; 
+t_testing_score_id UUID ; 
+
+begin
+select t_testing_score_id\r
+
+ into t_testing_score_id
+from t_testing_score \r
+where t_testing_step_id  =t_testing_step_id;
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:09ae80e8-56bc-4fff-ad63-43a4b181fedd ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Ne1a4366b0a3544159b17f88186f676e9 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "inititate_testing2" ;
+    ns1:hasProcedure ns1:95f32311-30b9-48cf-88ba-0809dbcf0831 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Ne1d95fa8eedb4bd38df521f98dfd4fbc a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_testing_id" указано неоднократно
+
+[SQL: 
+create or replace procedure get_common_ended 
+( t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID )
+language plpgsql
+as $$
+
+begin
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:bd90706d-157f-44c9-88c1-47964dae9cf5 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Ne56298342eca479588ece6a705152505 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_testing_id" указано неоднократно
+
+[SQL: 
+create or replace procedure inititate_testing2 
+( t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID )
+language plpgsql
+as $$
+
+begin
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:95f32311-30b9-48cf-88ba-0809dbcf0831 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Ne599e912bec04a9b98ee67a98d150782 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_testing_id" указано неоднократно
+
+[SQL: 
+create or replace procedure donext 
+( t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  result_txt VARCHAR  (1000) ,  result_txt VARCHAR  (1000) ,  result_txt VARCHAR  (1000) ,  result_txt VARCHAR  (1000) ,  result_txt VARCHAR  (1000) ,  t_testing_step_id UUID ,  t_testing_step_id UUID ,  t_testing_step_id UUID ,  t_testing_step_id UUID ,  t_testing_step_id UUID )
+language plpgsql
+as $$
+declare 
+current_step_id UUID ; 
+next_step_id UUID ; 
+seconds_remain int ; 
+t_test_id UUID ; 
+current_step_id UUID ; 
+next_step_id UUID ; 
+t_test_id UUID ; 
+
+begin
+select current_step_id\r
+
+ into current_step_id
+from t_testing t inner join\r
+t_testing_test tt on\r
+t.t_testing_id=tt.t_testing_id\r
+and t.current_test_id = tt.t_test_id\r
+where t.t_testing_id =t_testing_id;
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:d2f8311d-c78c-47ad-89ae-530c4acfae50 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Ne6cd903a639a4aea9746b4f9d35fe172 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_testing_id" указано неоднократно
+
+[SQL: 
+create or replace procedure stat_change_help 
+( t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID )
+language plpgsql
+as $$
+declare 
+t_test_id UUID ; 
+stop_time_sec int ; 
+time_limit_min int ; 
+t_test_id UUID ; 
+stop_times int ; 
+count_stop_times int ; 
 
 begin
 select obj_name 
@@ -377,71 +2022,232 @@ inner join t_testing t on ts.t_testing_status_id = t.t_testing_status_id\r
 where  t.t_testing_id  =t_testing_id;
 end; $$]
 (Background on this error at: https://sqlalche.me/e/14/f405)""" ;
-    ns1:hasProcedure ns1:969bd3bc-4e04-4782-a48e-129ca986d4aa ;
-    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
+    ns1:hasProcedure ns1:8e7ef6a7-c2d0-4683-997b-22a77da92063 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
 
-ns1:Ne914b071a9b842b597a0bd85504cd3e9 a ns1:runcreateprocessprocedure,
+ns1:Ne6f52b4122b2402a96ba588a114e819e a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "inititate_testing2" ;
+    ns1:hasProcedure ns1:7da108c2-6900-41ce-99a3-83a8b64e7e67 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Ne73d9a6079e046618c84af2eeaebc616 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_testing_id" указано неоднократно
+
+[SQL: 
+create or replace procedure time_remaining 
+( t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_test_id UUID ,  t_test_id UUID ,  t_test_id UUID ,  t_test_id UUID )
+language plpgsql
+as $$
+
+begin
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:5d9ef1ef-490d-4eb4-be05-fba59d1de03f ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Ne7baf1a022014c11afab40bf38b3448b a ns1:runcreateprocessprocedure,
         owl:NamedIndividual ;
     rdfs:label "testing_status" ;
     ns1:hasProcedure ns1:a97e24f8-d48b-49c6-9ea0-5a4cc2df4dc2 ;
-    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
 
-ns1:Nf173c6755c1d459fa613a183d9572436 a ns1:runcreateprocessprocedure,
+ns1:Ne7d1a78d1c434b00b24167cc334769f0 a ns1:runcreateprocessprocedure,
         owl:NamedIndividual ;
     rdfs:label "" ;
-    ns1:ERROR_MSG """(psycopg2.errors.SyntaxError) ОШИБКА:  ошибка синтаксиса (примерное положение: "10")
-LINE 7: status VARCHAR 10; 
-                       ^
-CONTEXT:  неверное имя типа "VARCHAR 10"
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_testing_id" указано неоднократно
 
 [SQL: 
-create or replace procedure testing_status 
-( t_testing_id UUID )
+create or replace procedure stat_change_prepared 
+( t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID )
+language plpgsql
+as $$
+
+begin
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:e028cb95-3827-4905-9efe-7dc1802675f1 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Ne7e6d84a93fd428aa14c80267e0e49a7 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "test1" ;
+    ns1:hasProcedure ns1:c754770d-6ccb-4082-8099-ca0b7ad9fa4c ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Ne7e86d0cf89a4ae3afc5edf4ec44cfe2 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "get_test_introduction" ;
+    ns1:hasProcedure ns1:336a98e5-eb3e-40bc-a27b-b750c154d48c ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Ne94ed7ba0b6f439da424bf08c0f6b724 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "doback" ;
+    ns1:hasProcedure ns1:d12e40c1-ec08-4f2f-b42c-1390fd8fe864 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Neb4efaea2c794a72a59fecb610950199 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_testing_id" указано неоднократно
+
+[SQL: 
+create or replace procedure get_common_ended 
+( t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID )
+language plpgsql
+as $$
+
+begin
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:042cd929-7438-4152-8462-3b1b35c7599c ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Ned4e631f7d8d4af0933619089b70565e a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_test_id" указано неоднократно
+
+[SQL: 
+create or replace procedure tmp_insupd_test_step 
+( t_test_id UUID ,  t_test_id UUID ,  t_test_id UUID ,  t_test_id UUID )
+language plpgsql
+as $$
+
+begin
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:1c81ac83-66a7-4724-949f-aa35430e37b3 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Nf011199a1ccd4088b2d61a52fd59919d a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "stat_change_testing" ;
+    ns1:hasProcedure ns1:a1aadc8b-f714-4c5b-beaa-d70c00455a56 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Nf37753488bbe47f1acc759406b99677b a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "ip_address" указано неоднократно
+
+[SQL: 
+create or replace procedure ws_type 
+( ip_address VARCHAR  (100) ,  ip_address VARCHAR  (100) ,  ip_address VARCHAR  (100) ,  ip_address VARCHAR  (100) ,  ip_address VARCHAR  (100) ,  inout ip_auth CHAR  (1) ,  inout ip_auth CHAR  (1) ,  inout ip_auth CHAR  (1) ,  inout ip_auth CHAR  (1) ,  inout ip_auth CHAR  (1) ,  inout t_workstation_id UUID ,  inout t_workstation_id UUID ,  inout t_workstation_id UUID ,  inout t_workstation_id UUID ,  inout t_workstation_id UUID ,  inout t_testing_id UUID ,  inout t_testing_id UUID ,  inout t_testing_id UUID ,  inout t_testing_id UUID ,  inout t_testing_id UUID ,  t_ws_status_id_active UUID ,  t_ws_status_id_active UUID ,  t_ws_status_id_active UUID ,  t_ws_status_id_active UUID ,  t_ws_status_id_active UUID )
 language plpgsql
 as $$
 declare 
-status VARCHAR 10; 
-seconds_remain int ; 
-count_stop_times int ; 
-lang_num int ; 
-stop_times int ; 
-question_btn_mark CHAR 1; 
-show_question_mark CHAR 1; 
-secondname VARCHAR 100; 
-lang_short_code VARCHAR 3; 
-current_step_id UUID ; 
-step int ; 
-step_count int ; 
-back_btn_mark CHAR 1; 
-t_test_id UUID ; 
-firstname VARCHAR 100; 
-time_limit_min int ; 
-stop_time_sec int ; 
-CURRENT_STOP_TIME TIMESTAMP(3) ; 
-test_num int ; 
-test_name VARCHAR 100; 
-last_step_id UUID ; 
-perscode CHAR 12; 
-jsfile VARCHAR 50; 
-step_num VARCHAR 100; 
+ws_ip_count int ; 
 
 begin
-select t.t_workstation_id,\r
-ts.obj_name  \r
+select \r
 
- into t_workstation_id,status
-from t_testing t\r
-inner join t_testing_status ts \r
-on t.t_testing_status_id = ts.t_testing_status_id \r
-where t_testing_id =t_testing_id;
+ into ws_ip_count
+from t_workstation \r
+where ip_address =ip_addressand \r
+t_workstation_status_id =t_ws_status_id_activeand auth_type=0;
 end; $$]
 (Background on this error at: https://sqlalche.me/e/14/f405)""" ;
-    ns1:hasProcedure ns1:a97e24f8-d48b-49c6-9ea0-5a4cc2df4dc2 ;
-    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
+    ns1:hasProcedure ns1:862298d9-1863-48b3-8b1b-a9aa0fba2f75 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
 
-ns1:Nf1fcefe5ebb4484792f78f4b0154148c a ns1:runcreateprocessprocedure,
+ns1:Nf3b2b1d464a64645a12391518a2c53e9 a ns1:runcreateprocessprocedure,
         owl:NamedIndividual ;
-    rdfs:label "stat_change_instruct" ;
-    ns1:hasProcedure ns1:969bd3bc-4e04-4782-a48e-129ca986d4aa ;
-    ns1:hasTask ns1:Nbe186b8a02604da28e2061652fc6727d .
+    rdfs:label "ws_type" ;
+    ns1:hasProcedure ns1:862298d9-1863-48b3-8b1b-a9aa0fba2f75 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Nf54eaf01dfe34ed1b6fdf81cb8779bab a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_test_id" указано неоднократно
+
+[SQL: 
+create or replace procedure get_test_introduction 
+( t_test_id UUID ,  t_test_id UUID ,  t_test_id UUID ,  t_test_id UUID ,  t_test_id UUID )
+language plpgsql
+as $$
+
+begin
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:336a98e5-eb3e-40bc-a27b-b750c154d48c ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Nf7e7037c09df4f518766819357f3f7cd a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_testing_id" указано неоднократно
+
+[SQL: 
+create or replace procedure get_common_introduction 
+( t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID )
+language plpgsql
+as $$
+
+begin
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:6e03002c-2cde-4214-b12e-1fe2e1695cc8 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Nf9b77d068ddd492194b50784f48eda2a a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_testing_id" указано неоднократно
+
+[SQL: 
+create or replace procedure stat_change_help 
+( t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID )
+language plpgsql
+as $$
+
+begin
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:bd39857c-1b47-494e-829d-bd00f401d54e ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Nfbe5a19ed7734e83a9b96d81e874f7fd a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "current_step_id" указано неоднократно
+
+[SQL: 
+create or replace procedure get_test_step 
+( current_step_id UUID ,  current_step_id UUID ,  current_step_id UUID ,  current_step_id UUID ,  current_step_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID ,  t_testing_id UUID )
+language plpgsql
+as $$
+
+begin
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:2aa221af-5377-4ecb-affd-83f19213c7b5 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Nfd2bf7557a2541d9a3ed9a7822102527 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "" ;
+    ns1:ERROR_MSG """(psycopg2.errors.InvalidFunctionDefinition) ОШИБКА:  имя параметра "t_test_id" указано неоднократно
+
+[SQL: 
+create or replace procedure get_test_introduction 
+( t_test_id UUID ,  t_test_id UUID ,  t_test_id UUID ,  t_test_id UUID )
+language plpgsql
+as $$
+
+begin
+end; $$]
+(Background on this error at: https://sqlalche.me/e/14/f405)""" ;
+    ns1:hasProcedure ns1:830ec48f-665f-4b70-94a6-f6b4fff0b637 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
+
+ns1:Nffbd450ddca648fb89f3032cb93042f8 a ns1:runcreateprocessprocedure,
+        owl:NamedIndividual ;
+    rdfs:label "get_test_introduction" ;
+    ns1:hasProcedure ns1:830ec48f-665f-4b70-94a6-f6b4fff0b637 ;
+    ns1:hasTask ns1:N1b59b2c277c04161bddb903cc6783437 .
 

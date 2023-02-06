@@ -2,23 +2,80 @@
 @prefix ns2: <http://www.example.com/ETL#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
-ns1:N02d3ef1af9394d5e919c67f352d418e2 a ns1:ObjectJson,
+ns1:N06dae6fb7db74b7c8adefcc5690005b6 a ns1:ObjectJson,
         owl:NamedIndividual ;
     ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:COLUMN_NAME "major_version" ;
+    ns1:COLUMN_NAME "Created_Date" ;
+    ns1:DATA_TYPE "datetime" ;
+    ns1:DATETIME_PRECISION "3" ;
+    ns1:IS_NULLABLE "NO" ;
+    ns1:ORDINAL_POSITION "3" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "country" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "29" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:N098669c775644f5e88f28be34d99577b a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:COLUMN_NAME "pack_errors" ;
     ns1:DATA_TYPE "int" ;
     ns1:IS_NULLABLE "NO" ;
     ns1:NUMERIC_PRECISION "10" ;
     ns1:NUMERIC_PRECISION_RADIX "10" ;
     ns1:NUMERIC_SCALE "0" ;
+    ns1:ORDINAL_POSITION "8" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "spt_monitor" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "53" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:N0a9efbeb15754d30966ce85f263621cd a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:COLUMN_NAME "Table_ID" ;
+    ns1:DATA_TYPE "bigint" ;
+    ns1:IS_NULLABLE "NO" ;
+    ns1:NUMERIC_PRECISION "19" ;
+    ns1:NUMERIC_PRECISION_RADIX "10" ;
+    ns1:NUMERIC_SCALE "0" ;
     ns1:ORDINAL_POSITION "3" ;
     ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "MSreplication_options" ;
+    ns1:TABLE_NAME "TableLoggingData" ;
     ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "59" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
+    ns1:hasJsonObjectKey "32" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
 
-ns1:N02f56b0b8852487c978bfdad0d25d1b9 a ns1:ObjectJson,
+ns1:N0abf1eeb04704ea5b626d07f6cf91606 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:COLUMN_NAME "is_type" ;
+    ns1:DATA_TYPE "bit" ;
+    ns1:IS_NULLABLE "NO" ;
+    ns1:ORDINAL_POSITION "5" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "TableLoggingData" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "34" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:N0aff0062238243c0ba44f7df969cbb0d a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:COLUMN_NAME "xdttm_last_ins_upd" ;
+    ns1:DATA_TYPE "datetime" ;
+    ns1:DATETIME_PRECISION "3" ;
+    ns1:IS_NULLABLE "NO" ;
+    ns1:ORDINAL_POSITION "3" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "spt_fallback_dev" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "10" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:N11fb3122899c407cb66ecbc0857e7f50 a ns1:ObjectJson,
         owl:NamedIndividual ;
     ns2:hasSourceFile "COLUMNS.json" ;
     ns1:CHARACTER_MAXIMUM_LENGTH "30" ;
@@ -33,121 +90,9 @@ ns1:N02f56b0b8852487c978bfdad0d25d1b9 a ns1:ObjectJson,
     ns1:TABLE_NAME "spt_fallback_dev" ;
     ns1:TABLE_SCHEMA "dbo" ;
     ns1:hasJsonObjectKey "8" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
 
-ns1:N0856b2c5373945558a5df1ba55974b90 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:COLUMN_NAME "Created_Date" ;
-    ns1:DATA_TYPE "datetime" ;
-    ns1:DATETIME_PRECISION "3" ;
-    ns1:IS_NULLABLE "NO" ;
-    ns1:ORDINAL_POSITION "3" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "country" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "29" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:N0b94c51c8dbf4c83b3c7d81a43dbdce5 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:COLUMN_NAME "pack_errors" ;
-    ns1:DATA_TYPE "int" ;
-    ns1:IS_NULLABLE "NO" ;
-    ns1:NUMERIC_PRECISION "10" ;
-    ns1:NUMERIC_PRECISION_RADIX "10" ;
-    ns1:NUMERIC_SCALE "0" ;
-    ns1:ORDINAL_POSITION "8" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "spt_monitor" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "53" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:N0eecd9cd5bc74ed6980365fc3c6e012e a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:COLUMN_NAME "cpu_busy" ;
-    ns1:DATA_TYPE "int" ;
-    ns1:IS_NULLABLE "NO" ;
-    ns1:NUMERIC_PRECISION "10" ;
-    ns1:NUMERIC_PRECISION_RADIX "10" ;
-    ns1:NUMERIC_SCALE "0" ;
-    ns1:ORDINAL_POSITION "2" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "spt_monitor" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "47" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:N13b673b7678b4a30bdba45231231b2af a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:CHARACTER_MAXIMUM_LENGTH "127" ;
-    ns1:CHARACTER_OCTET_LENGTH "127" ;
-    ns1:CHARACTER_SET_NAME "iso_1" ;
-    ns1:COLLATION_NAME "SQL_Latin1_General_CP1_CI_AS" ;
-    ns1:COLUMN_NAME "phyname" ;
-    ns1:DATA_TYPE "varchar" ;
-    ns1:IS_NULLABLE "NO" ;
-    ns1:ORDINAL_POSITION "10" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "spt_fallback_dev" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "17" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:N192e881c159a40f087b9aab027d51673 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:CHARACTER_MAXIMUM_LENGTH "35" ;
-    ns1:CHARACTER_OCTET_LENGTH "70" ;
-    ns1:CHARACTER_SET_NAME "UNICODE" ;
-    ns1:COLLATION_NAME "SQL_Latin1_General_CP1_CI_AS" ;
-    ns1:COLUMN_NAME "name" ;
-    ns1:DATA_TYPE "nvarchar" ;
-    ns1:IS_NULLABLE "YES" ;
-    ns1:ORDINAL_POSITION "1" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "spt_values" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "40" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:N2224f71245d043a9986b78b3534a2857 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:COLUMN_NAME "dbid" ;
-    ns1:DATA_TYPE "smallint" ;
-    ns1:IS_NULLABLE "NO" ;
-    ns1:NUMERIC_PRECISION "5" ;
-    ns1:NUMERIC_PRECISION_RADIX "10" ;
-    ns1:NUMERIC_SCALE "0" ;
-    ns1:ORDINAL_POSITION "5" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "spt_fallback_usg" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "22" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:N28257766a0eb4a7ebd5b8358d489076f a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:COLUMN_NAME "revision" ;
-    ns1:DATA_TYPE "int" ;
-    ns1:IS_NULLABLE "NO" ;
-    ns1:NUMERIC_PRECISION "10" ;
-    ns1:NUMERIC_PRECISION_RADIX "10" ;
-    ns1:NUMERIC_SCALE "0" ;
-    ns1:ORDINAL_POSITION "5" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "MSreplication_options" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "61" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:N2ad96c2a91e84b5183a89e6075e4d36a a ns1:ObjectJson,
+ns1:N12808de22c484e569a033505063eb6ed a ns1:ObjectJson,
         owl:NamedIndividual ;
     ns2:hasSourceFile "COLUMNS.json" ;
     ns1:COLUMN_NAME "dbid" ;
@@ -161,687 +106,9 @@ ns1:N2ad96c2a91e84b5183a89e6075e4d36a a ns1:ObjectJson,
     ns1:TABLE_NAME "spt_fallback_db" ;
     ns1:TABLE_SCHEMA "dbo" ;
     ns1:hasJsonObjectKey "5" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
 
-ns1:N3200e080e6a84d4cb27acd9e9a9efa9e a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:COLUMN_NAME "Table_ID" ;
-    ns1:DATA_TYPE "bigint" ;
-    ns1:IS_NULLABLE "NO" ;
-    ns1:NUMERIC_PRECISION "19" ;
-    ns1:NUMERIC_PRECISION_RADIX "10" ;
-    ns1:NUMERIC_SCALE "0" ;
-    ns1:ORDINAL_POSITION "3" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "TableLoggingData" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "32" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:N36cda24d249d4c268e4d23f24a4ead5a a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:COLUMN_NAME "minor_version" ;
-    ns1:DATA_TYPE "int" ;
-    ns1:IS_NULLABLE "NO" ;
-    ns1:NUMERIC_PRECISION "10" ;
-    ns1:NUMERIC_PRECISION_RADIX "10" ;
-    ns1:NUMERIC_SCALE "0" ;
-    ns1:ORDINAL_POSITION "4" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "MSreplication_options" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "60" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:N37c4ffe84e744ed68dbdaa78def7bafc a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:COLUMN_NAME "low" ;
-    ns1:DATA_TYPE "int" ;
-    ns1:IS_NULLABLE "YES" ;
-    ns1:NUMERIC_PRECISION "10" ;
-    ns1:NUMERIC_PRECISION_RADIX "10" ;
-    ns1:NUMERIC_SCALE "0" ;
-    ns1:ORDINAL_POSITION "4" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "spt_values" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "43" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:N3f3256ed92ce435ca5bc93f300f85072 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:COLUMN_NAME "Base_ID" ;
-    ns1:DATA_TYPE "bigint" ;
-    ns1:IS_NULLABLE "NO" ;
-    ns1:NUMERIC_PRECISION "19" ;
-    ns1:NUMERIC_PRECISION_RADIX "10" ;
-    ns1:NUMERIC_SCALE "0" ;
-    ns1:ORDINAL_POSITION "2" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "TableLoggingData" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "31" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:N47642f37ed894ca4a924bb74bf33a17a a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:COLUMN_NAME "xfallback_vstart" ;
-    ns1:DATA_TYPE "int" ;
-    ns1:IS_NULLABLE "YES" ;
-    ns1:NUMERIC_PRECISION "10" ;
-    ns1:NUMERIC_PRECISION_RADIX "10" ;
-    ns1:NUMERIC_SCALE "0" ;
-    ns1:ORDINAL_POSITION "4" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "spt_fallback_usg" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "21" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:N47f6079b0d164c8f9b3e7a0e11bb0616 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:COLUMN_NAME "is_type" ;
-    ns1:DATA_TYPE "bit" ;
-    ns1:IS_NULLABLE "NO" ;
-    ns1:ORDINAL_POSITION "5" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "TableLoggingData" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "34" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:N4ab220860ef04e82825762f78face8ff a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:COLUMN_NAME "status" ;
-    ns1:DATA_TYPE "int" ;
-    ns1:IS_NULLABLE "YES" ;
-    ns1:NUMERIC_PRECISION "10" ;
-    ns1:NUMERIC_PRECISION_RADIX "10" ;
-    ns1:NUMERIC_SCALE "0" ;
-    ns1:ORDINAL_POSITION "6" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "spt_values" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "45" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:N4b68e90ced0046cc90706ab01e4eef1c a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:COLUMN_NAME "vstart" ;
-    ns1:DATA_TYPE "int" ;
-    ns1:IS_NULLABLE "NO" ;
-    ns1:NUMERIC_PRECISION "10" ;
-    ns1:NUMERIC_PRECISION_RADIX "10" ;
-    ns1:NUMERIC_SCALE "0" ;
-    ns1:ORDINAL_POSITION "9" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "spt_fallback_usg" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "26" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:N516b5874276f4124b27afaee23fdfd0e a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:CHARACTER_MAXIMUM_LENGTH "30" ;
-    ns1:CHARACTER_OCTET_LENGTH "30" ;
-    ns1:CHARACTER_SET_NAME "iso_1" ;
-    ns1:COLLATION_NAME "SQL_Latin1_General_CP1_CI_AS" ;
-    ns1:COLUMN_NAME "xserver_name" ;
-    ns1:DATA_TYPE "varchar" ;
-    ns1:IS_NULLABLE "NO" ;
-    ns1:ORDINAL_POSITION "1" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "spt_fallback_usg" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "18" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:N545f4290b0054cb09c16be638feca971 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:CHARACTER_MAXIMUM_LENGTH "2" ;
-    ns1:CHARACTER_OCTET_LENGTH "2" ;
-    ns1:CHARACTER_SET_NAME "iso_1" ;
-    ns1:COLLATION_NAME "SQL_Latin1_General_CP1_CI_AS" ;
-    ns1:COLUMN_NAME "xfallback_drive" ;
-    ns1:DATA_TYPE "char" ;
-    ns1:IS_NULLABLE "YES" ;
-    ns1:ORDINAL_POSITION "5" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "spt_fallback_dev" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "12" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:N54741de39f504484a4caab5024ba7e0d a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:COLUMN_NAME "total_read" ;
-    ns1:DATA_TYPE "int" ;
-    ns1:IS_NULLABLE "NO" ;
-    ns1:NUMERIC_PRECISION "10" ;
-    ns1:NUMERIC_PRECISION_RADIX "10" ;
-    ns1:NUMERIC_SCALE "0" ;
-    ns1:ORDINAL_POSITION "9" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "spt_monitor" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "54" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:N57ec80dfad83418f9d85299ad6bebe33 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:COLUMN_NAME "xdttm_last_ins_upd" ;
-    ns1:DATA_TYPE "datetime" ;
-    ns1:DATETIME_PRECISION "3" ;
-    ns1:IS_NULLABLE "NO" ;
-    ns1:ORDINAL_POSITION "3" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "spt_fallback_db" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "2" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:N597b8efb2bbd4676939e897e8ea5c5e2 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:COLUMN_NAME "xdttm_last_ins_upd" ;
-    ns1:DATA_TYPE "datetime" ;
-    ns1:DATETIME_PRECISION "3" ;
-    ns1:IS_NULLABLE "NO" ;
-    ns1:ORDINAL_POSITION "3" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "spt_fallback_usg" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "20" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:N5a8d56fe364740f5b573e267a5c7413e a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:CHARACTER_MAXIMUM_LENGTH "100" ;
-    ns1:CHARACTER_OCTET_LENGTH "100" ;
-    ns1:CHARACTER_SET_NAME "iso_1" ;
-    ns1:COLLATION_NAME "SQL_Latin1_General_CP1_CI_AS" ;
-    ns1:COLUMN_NAME "ProgramName" ;
-    ns1:DATA_TYPE "varchar" ;
-    ns1:IS_NULLABLE "YES" ;
-    ns1:ORDINAL_POSITION "7" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "TableLoggingData" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "36" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:N5bb70dc55b524078b9574ca4515df264 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:COLUMN_NAME "lastrun" ;
-    ns1:DATA_TYPE "datetime" ;
-    ns1:DATETIME_PRECISION "3" ;
-    ns1:IS_NULLABLE "NO" ;
-    ns1:ORDINAL_POSITION "1" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "spt_monitor" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "46" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:N5e7cc43d58cb456cadc987c817c01f51 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:COLUMN_NAME "segmap" ;
-    ns1:DATA_TYPE "int" ;
-    ns1:IS_NULLABLE "NO" ;
-    ns1:NUMERIC_PRECISION "10" ;
-    ns1:NUMERIC_PRECISION_RADIX "10" ;
-    ns1:NUMERIC_SCALE "0" ;
-    ns1:ORDINAL_POSITION "6" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "spt_fallback_usg" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "23" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:N63a2127c869b4b2099712c485a3aac14 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:CHARACTER_MAXIMUM_LENGTH "30" ;
-    ns1:CHARACTER_OCTET_LENGTH "30" ;
-    ns1:CHARACTER_SET_NAME "iso_1" ;
-    ns1:COLLATION_NAME "SQL_Latin1_General_CP1_CI_AS" ;
-    ns1:COLUMN_NAME "name" ;
-    ns1:DATA_TYPE "varchar" ;
-    ns1:IS_NULLABLE "NO" ;
-    ns1:ORDINAL_POSITION "9" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "spt_fallback_dev" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "16" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:N63ab5ed16c3d4a5788c4593ec1ba014f a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:COLUMN_NAME "sizepg" ;
-    ns1:DATA_TYPE "int" ;
-    ns1:IS_NULLABLE "NO" ;
-    ns1:NUMERIC_PRECISION "10" ;
-    ns1:NUMERIC_PRECISION_RADIX "10" ;
-    ns1:NUMERIC_SCALE "0" ;
-    ns1:ORDINAL_POSITION "8" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "spt_fallback_usg" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "25" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:N6a882956e13d41ecae724865bef15da6 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:COLUMN_NAME "xdttm_last_ins_upd" ;
-    ns1:DATA_TYPE "datetime" ;
-    ns1:DATETIME_PRECISION "3" ;
-    ns1:IS_NULLABLE "NO" ;
-    ns1:ORDINAL_POSITION "3" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "spt_fallback_dev" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "10" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:N7562b3e9439d46feb9104401003ddbd0 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:COLUMN_NAME "xdttm_ins" ;
-    ns1:DATA_TYPE "datetime" ;
-    ns1:DATETIME_PRECISION "3" ;
-    ns1:IS_NULLABLE "NO" ;
-    ns1:ORDINAL_POSITION "2" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "spt_fallback_usg" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "19" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:N7598355ae1bd424e9b877e6aa3ba883f a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:COLUMN_NAME "id" ;
-    ns1:DATA_TYPE "bigint" ;
-    ns1:IS_NULLABLE "NO" ;
-    ns1:NUMERIC_PRECISION "19" ;
-    ns1:NUMERIC_PRECISION_RADIX "10" ;
-    ns1:NUMERIC_SCALE "0" ;
-    ns1:ORDINAL_POSITION "1" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "TableLoggingData" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "30" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:N76ee20287023422eb0ec078b02c50e96 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:COLUMN_NAME "Proc_ID" ;
-    ns1:DATA_TYPE "bigint" ;
-    ns1:IS_NULLABLE "YES" ;
-    ns1:NUMERIC_PRECISION "19" ;
-    ns1:NUMERIC_PRECISION_RADIX "10" ;
-    ns1:NUMERIC_SCALE "0" ;
-    ns1:ORDINAL_POSITION "8" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "TableLoggingData" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "37" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:N7e23a64c988b431498b60861dfef6a99 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:CHARACTER_MAXIMUM_LENGTH "3" ;
-    ns1:CHARACTER_OCTET_LENGTH "6" ;
-    ns1:CHARACTER_SET_NAME "UNICODE" ;
-    ns1:COLLATION_NAME "SQL_Latin1_General_CP1_CI_AS" ;
-    ns1:COLUMN_NAME "type" ;
-    ns1:DATA_TYPE "nchar" ;
-    ns1:IS_NULLABLE "NO" ;
-    ns1:ORDINAL_POSITION "3" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "spt_values" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "42" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:N8126455179c04fcaaa19efaa381fcbcb a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:COLUMN_NAME "pack_received" ;
-    ns1:DATA_TYPE "int" ;
-    ns1:IS_NULLABLE "NO" ;
-    ns1:NUMERIC_PRECISION "10" ;
-    ns1:NUMERIC_PRECISION_RADIX "10" ;
-    ns1:NUMERIC_SCALE "0" ;
-    ns1:ORDINAL_POSITION "5" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "spt_monitor" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "50" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:N823ce3f0659c4664b6cd6b8024ab6c9b a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:COLUMN_NAME "version" ;
-    ns1:DATA_TYPE "smallint" ;
-    ns1:IS_NULLABLE "NO" ;
-    ns1:NUMERIC_PRECISION "5" ;
-    ns1:NUMERIC_PRECISION_RADIX "10" ;
-    ns1:NUMERIC_SCALE "0" ;
-    ns1:ORDINAL_POSITION "8" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "spt_fallback_db" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "7" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:N8be9d6d4780e4c85b13b00720c19ecca a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:CHARACTER_MAXIMUM_LENGTH "-1" ;
-    ns1:CHARACTER_OCTET_LENGTH "-1" ;
-    ns1:CHARACTER_SET_NAME "UNICODE" ;
-    ns1:COLLATION_NAME "SQL_Latin1_General_CP1_CI_AS" ;
-    ns1:COLUMN_NAME "Str_json" ;
-    ns1:DATA_TYPE "nvarchar" ;
-    ns1:IS_NULLABLE "YES" ;
-    ns1:ORDINAL_POSITION "10" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "TableLoggingData" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "39" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:N8f54d0a6e5fb4feeafa12c2b954ca878 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:COLUMN_NAME "Country_ID" ;
-    ns1:DATA_TYPE "int" ;
-    ns1:IS_NULLABLE "NO" ;
-    ns1:NUMERIC_PRECISION "10" ;
-    ns1:NUMERIC_PRECISION_RADIX "10" ;
-    ns1:NUMERIC_SCALE "0" ;
-    ns1:ORDINAL_POSITION "1" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "country" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "27" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:N94a578929dbe419ebfa56245907b58a5 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:COLUMN_NAME "DateAdd" ;
-    ns1:DATA_TYPE "datetime" ;
-    ns1:DATETIME_PRECISION "3" ;
-    ns1:IS_NULLABLE "NO" ;
-    ns1:ORDINAL_POSITION "4" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "TableLoggingData" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "33" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:N9903804cd8cc40d4a0efc504d32c86f8 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:COLUMN_NAME "total_write" ;
-    ns1:DATA_TYPE "int" ;
-    ns1:IS_NULLABLE "NO" ;
-    ns1:NUMERIC_PRECISION "10" ;
-    ns1:NUMERIC_PRECISION_RADIX "10" ;
-    ns1:NUMERIC_SCALE "0" ;
-    ns1:ORDINAL_POSITION "10" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "spt_monitor" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "55" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:N9b401d504ef7467192d8e6c435909c9b a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:CHARACTER_MAXIMUM_LENGTH "100" ;
-    ns1:CHARACTER_OCTET_LENGTH "100" ;
-    ns1:CHARACTER_SET_NAME "iso_1" ;
-    ns1:COLLATION_NAME "SQL_Latin1_General_CP1_CI_AS" ;
-    ns1:COLUMN_NAME "Country_Name" ;
-    ns1:DATA_TYPE "varchar" ;
-    ns1:IS_NULLABLE "NO" ;
-    ns1:ORDINAL_POSITION "2" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "country" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "28" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:N9f9779cb7a5b490bb44ef1ff4d3ba652 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:COLUMN_NAME "xfallback_low" ;
-    ns1:DATA_TYPE "int" ;
-    ns1:IS_NULLABLE "YES" ;
-    ns1:NUMERIC_PRECISION "10" ;
-    ns1:NUMERIC_PRECISION_RADIX "10" ;
-    ns1:NUMERIC_SCALE "0" ;
-    ns1:ORDINAL_POSITION "4" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "spt_fallback_dev" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "11" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:Na2d5671f25ba442ca935239f6344c33c a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:COLUMN_NAME "install_failures" ;
-    ns1:DATA_TYPE "int" ;
-    ns1:IS_NULLABLE "NO" ;
-    ns1:NUMERIC_PRECISION "10" ;
-    ns1:NUMERIC_PRECISION_RADIX "10" ;
-    ns1:NUMERIC_SCALE "0" ;
-    ns1:ORDINAL_POSITION "6" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "MSreplication_options" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "62" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:Nac5777d23c024273a9810cc8ac231cb3 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:COLUMN_NAME "xdttm_ins" ;
-    ns1:DATA_TYPE "datetime" ;
-    ns1:DATETIME_PRECISION "3" ;
-    ns1:IS_NULLABLE "NO" ;
-    ns1:ORDINAL_POSITION "2" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "spt_fallback_dev" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "9" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:Nafea0c71fbe9446b9efbfbe40607e19b a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:CHARACTER_MAXIMUM_LENGTH "50" ;
-    ns1:CHARACTER_OCTET_LENGTH "50" ;
-    ns1:CHARACTER_SET_NAME "iso_1" ;
-    ns1:COLLATION_NAME "SQL_Latin1_General_CP1_CI_AS" ;
-    ns1:COLUMN_NAME "SystemUser" ;
-    ns1:DATA_TYPE "varchar" ;
-    ns1:IS_NULLABLE "YES" ;
-    ns1:ORDINAL_POSITION "9" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "TableLoggingData" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "38" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:Nb0a13231310c4b4bacd06d42ebecd797 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:COLUMN_NAME "low" ;
-    ns1:DATA_TYPE "int" ;
-    ns1:IS_NULLABLE "NO" ;
-    ns1:NUMERIC_PRECISION "10" ;
-    ns1:NUMERIC_PRECISION_RADIX "10" ;
-    ns1:NUMERIC_SCALE "0" ;
-    ns1:ORDINAL_POSITION "6" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "spt_fallback_dev" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "13" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:Nb149062745144598b35a5e87c9f985e3 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:COLUMN_NAME "xfallback_dbid" ;
-    ns1:DATA_TYPE "smallint" ;
-    ns1:IS_NULLABLE "YES" ;
-    ns1:NUMERIC_PRECISION "5" ;
-    ns1:NUMERIC_PRECISION_RADIX "10" ;
-    ns1:NUMERIC_SCALE "0" ;
-    ns1:ORDINAL_POSITION "4" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "spt_fallback_db" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "3" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:Nb5e67e7ee89842d296269e9ace5d83b7 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:CHARACTER_MAXIMUM_LENGTH "30" ;
-    ns1:CHARACTER_OCTET_LENGTH "30" ;
-    ns1:CHARACTER_SET_NAME "iso_1" ;
-    ns1:COLLATION_NAME "SQL_Latin1_General_CP1_CI_AS" ;
-    ns1:COLUMN_NAME "name" ;
-    ns1:DATA_TYPE "varchar" ;
-    ns1:IS_NULLABLE "NO" ;
-    ns1:ORDINAL_POSITION "5" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "spt_fallback_db" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "4" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:Nbb3df8822af7488daa13fc3d41b45837 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:CHARACTER_MAXIMUM_LENGTH "128" ;
-    ns1:CHARACTER_OCTET_LENGTH "256" ;
-    ns1:CHARACTER_SET_NAME "UNICODE" ;
-    ns1:COLLATION_NAME "SQL_Latin1_General_CP1_CI_AS" ;
-    ns1:COLUMN_NAME "optname" ;
-    ns1:DATA_TYPE "nvarchar" ;
-    ns1:IS_NULLABLE "NO" ;
-    ns1:ORDINAL_POSITION "1" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "MSreplication_options" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "57" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:Nbf2ded8bc8af4a32b4efa89a024ffca2 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:COLUMN_NAME "high" ;
-    ns1:DATA_TYPE "int" ;
-    ns1:IS_NULLABLE "YES" ;
-    ns1:NUMERIC_PRECISION "10" ;
-    ns1:NUMERIC_PRECISION_RADIX "10" ;
-    ns1:NUMERIC_SCALE "0" ;
-    ns1:ORDINAL_POSITION "5" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "spt_values" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "44" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:Nc1707b92acdc4e14b2566e1c38909a2b a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:COLUMN_NAME "lstart" ;
-    ns1:DATA_TYPE "int" ;
-    ns1:IS_NULLABLE "NO" ;
-    ns1:NUMERIC_PRECISION "10" ;
-    ns1:NUMERIC_PRECISION_RADIX "10" ;
-    ns1:NUMERIC_SCALE "0" ;
-    ns1:ORDINAL_POSITION "7" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "spt_fallback_usg" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "24" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:Nc26386ccc3c84508979d97707de8eaec a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:COLUMN_NAME "io_busy" ;
-    ns1:DATA_TYPE "int" ;
-    ns1:IS_NULLABLE "NO" ;
-    ns1:NUMERIC_PRECISION "10" ;
-    ns1:NUMERIC_PRECISION_RADIX "10" ;
-    ns1:NUMERIC_SCALE "0" ;
-    ns1:ORDINAL_POSITION "3" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "spt_monitor" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "48" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:Nc8fa0dd5d69f49d587d4886cde176544 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:COLUMN_NAME "status" ;
-    ns1:DATA_TYPE "smallint" ;
-    ns1:IS_NULLABLE "NO" ;
-    ns1:NUMERIC_PRECISION "5" ;
-    ns1:NUMERIC_PRECISION_RADIX "10" ;
-    ns1:NUMERIC_SCALE "0" ;
-    ns1:ORDINAL_POSITION "7" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "spt_fallback_db" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "6" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:Nd44b44cc1fff456f917f527347d9f341 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:COLUMN_NAME "value" ;
-    ns1:DATA_TYPE "bit" ;
-    ns1:IS_NULLABLE "NO" ;
-    ns1:ORDINAL_POSITION "2" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "MSreplication_options" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "58" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:Nd9b1e9fadcc94b46801e704c8e22606d a ns1:ObjectJson,
+ns1:N1abcf732623a4068917a6a25befc0f3e a ns1:ObjectJson,
         owl:NamedIndividual ;
     ns2:hasSourceFile "COLUMNS.json" ;
     ns1:COLUMN_NAME "high" ;
@@ -855,104 +122,9 @@ ns1:Nd9b1e9fadcc94b46801e704c8e22606d a ns1:ObjectJson,
     ns1:TABLE_NAME "spt_fallback_dev" ;
     ns1:TABLE_SCHEMA "dbo" ;
     ns1:hasJsonObjectKey "14" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
 
-ns1:Ndc4a3e2be43a47a28d30b8e65f431dac a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:COLUMN_NAME "pack_sent" ;
-    ns1:DATA_TYPE "int" ;
-    ns1:IS_NULLABLE "NO" ;
-    ns1:NUMERIC_PRECISION "10" ;
-    ns1:NUMERIC_PRECISION_RADIX "10" ;
-    ns1:NUMERIC_SCALE "0" ;
-    ns1:ORDINAL_POSITION "6" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "spt_monitor" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "51" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:Ndcc079c93d694940a481d3855fc167ea a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:COLUMN_NAME "total_errors" ;
-    ns1:DATA_TYPE "int" ;
-    ns1:IS_NULLABLE "NO" ;
-    ns1:NUMERIC_PRECISION "10" ;
-    ns1:NUMERIC_PRECISION_RADIX "10" ;
-    ns1:NUMERIC_SCALE "0" ;
-    ns1:ORDINAL_POSITION "11" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "spt_monitor" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "56" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:Ne2d7cddfdc984efb84755ee9547e7940 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:CHARACTER_MAXIMUM_LENGTH "100" ;
-    ns1:CHARACTER_OCTET_LENGTH "100" ;
-    ns1:CHARACTER_SET_NAME "iso_1" ;
-    ns1:COLLATION_NAME "SQL_Latin1_General_CP1_CI_AS" ;
-    ns1:COLUMN_NAME "HostName" ;
-    ns1:DATA_TYPE "varchar" ;
-    ns1:IS_NULLABLE "YES" ;
-    ns1:ORDINAL_POSITION "6" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "TableLoggingData" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "35" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:Ne3da111cfe1b49cb96ebc52ed791ea7a a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:COLUMN_NAME "status" ;
-    ns1:DATA_TYPE "smallint" ;
-    ns1:IS_NULLABLE "NO" ;
-    ns1:NUMERIC_PRECISION "5" ;
-    ns1:NUMERIC_PRECISION_RADIX "10" ;
-    ns1:NUMERIC_SCALE "0" ;
-    ns1:ORDINAL_POSITION "8" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "spt_fallback_dev" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "15" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:Ne5088b1921984fde8cf42274d30ef0ed a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:COLUMN_NAME "idle" ;
-    ns1:DATA_TYPE "int" ;
-    ns1:IS_NULLABLE "NO" ;
-    ns1:NUMERIC_PRECISION "10" ;
-    ns1:NUMERIC_PRECISION_RADIX "10" ;
-    ns1:NUMERIC_SCALE "0" ;
-    ns1:ORDINAL_POSITION "4" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "spt_monitor" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "49" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:Ne566f28bffb1410da0c0f490af5b6ccf a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:COLUMN_NAME "xdttm_ins" ;
-    ns1:DATA_TYPE "datetime" ;
-    ns1:DATETIME_PRECISION "3" ;
-    ns1:IS_NULLABLE "NO" ;
-    ns1:ORDINAL_POSITION "2" ;
-    ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "spt_fallback_db" ;
-    ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "1" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
-
-ns1:Ne8c2687fa93f44f0bcb2ece6ed7adb8d a ns1:ObjectJson,
+ns1:N1edaa6e300a941d88be4090a0a2cd122 a ns1:ObjectJson,
         owl:NamedIndividual ;
     ns2:hasSourceFile "COLUMNS.json" ;
     ns1:COLUMN_NAME "connections" ;
@@ -966,25 +138,22 @@ ns1:Ne8c2687fa93f44f0bcb2ece6ed7adb8d a ns1:ObjectJson,
     ns1:TABLE_NAME "spt_monitor" ;
     ns1:TABLE_SCHEMA "dbo" ;
     ns1:hasJsonObjectKey "52" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
 
-ns1:Nf1144b6579f24eb3acb4b2d13a8a9bc8 a ns1:ObjectJson,
+ns1:N25bf244513ce4cb3b4030244d4e9e500 a ns1:ObjectJson,
         owl:NamedIndividual ;
     ns2:hasSourceFile "COLUMNS.json" ;
-    ns1:COLUMN_NAME "number" ;
-    ns1:DATA_TYPE "int" ;
+    ns1:COLUMN_NAME "value" ;
+    ns1:DATA_TYPE "bit" ;
     ns1:IS_NULLABLE "NO" ;
-    ns1:NUMERIC_PRECISION "10" ;
-    ns1:NUMERIC_PRECISION_RADIX "10" ;
-    ns1:NUMERIC_SCALE "0" ;
     ns1:ORDINAL_POSITION "2" ;
     ns1:TABLE_CATALOG "master" ;
-    ns1:TABLE_NAME "spt_values" ;
+    ns1:TABLE_NAME "MSreplication_options" ;
     ns1:TABLE_SCHEMA "dbo" ;
-    ns1:hasJsonObjectKey "41" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
+    ns1:hasJsonObjectKey "58" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
 
-ns1:Nf737d312b09741409e8aa5b0d1172cf2 a ns1:ObjectJson,
+ns1:N2923443ed9a04a40a221da3aaccf1e56 a ns1:ObjectJson,
         owl:NamedIndividual ;
     ns2:hasSourceFile "COLUMNS.json" ;
     ns1:CHARACTER_MAXIMUM_LENGTH "30" ;
@@ -999,9 +168,840 @@ ns1:Nf737d312b09741409e8aa5b0d1172cf2 a ns1:ObjectJson,
     ns1:TABLE_NAME "spt_fallback_db" ;
     ns1:TABLE_SCHEMA "dbo" ;
     ns1:hasJsonObjectKey "0" ;
-    ns1:parentJsonId ns1:Na339cb6699d04ab4acdfd24e338dfed9 .
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
 
-ns1:Na339cb6699d04ab4acdfd24e338dfed9 a ns1:ArrayJson,
+ns1:N35017792a3d44a5db7b3a1066b0dafac a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:COLUMN_NAME "install_failures" ;
+    ns1:DATA_TYPE "int" ;
+    ns1:IS_NULLABLE "NO" ;
+    ns1:NUMERIC_PRECISION "10" ;
+    ns1:NUMERIC_PRECISION_RADIX "10" ;
+    ns1:NUMERIC_SCALE "0" ;
+    ns1:ORDINAL_POSITION "6" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "MSreplication_options" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "62" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:N37f06a40ff9b4951b7846c55b52d8720 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:COLUMN_NAME "total_read" ;
+    ns1:DATA_TYPE "int" ;
+    ns1:IS_NULLABLE "NO" ;
+    ns1:NUMERIC_PRECISION "10" ;
+    ns1:NUMERIC_PRECISION_RADIX "10" ;
+    ns1:NUMERIC_SCALE "0" ;
+    ns1:ORDINAL_POSITION "9" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "spt_monitor" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "54" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:N3ba0bd69feda477e943381849dc6b9c1 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:COLUMN_NAME "pack_sent" ;
+    ns1:DATA_TYPE "int" ;
+    ns1:IS_NULLABLE "NO" ;
+    ns1:NUMERIC_PRECISION "10" ;
+    ns1:NUMERIC_PRECISION_RADIX "10" ;
+    ns1:NUMERIC_SCALE "0" ;
+    ns1:ORDINAL_POSITION "6" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "spt_monitor" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "51" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:N3c79627d95274b06a50ed1bc3381ed39 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:COLUMN_NAME "DateAdd" ;
+    ns1:DATA_TYPE "datetime" ;
+    ns1:DATETIME_PRECISION "3" ;
+    ns1:IS_NULLABLE "NO" ;
+    ns1:ORDINAL_POSITION "4" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "TableLoggingData" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "33" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:N3e73a526ab364a78ab0cfcbfcc3c615c a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:COLUMN_NAME "total_write" ;
+    ns1:DATA_TYPE "int" ;
+    ns1:IS_NULLABLE "NO" ;
+    ns1:NUMERIC_PRECISION "10" ;
+    ns1:NUMERIC_PRECISION_RADIX "10" ;
+    ns1:NUMERIC_SCALE "0" ;
+    ns1:ORDINAL_POSITION "10" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "spt_monitor" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "55" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:N417f0ead8af44930ad01ee9485e1d0b8 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:COLUMN_NAME "Country_ID" ;
+    ns1:DATA_TYPE "int" ;
+    ns1:IS_NULLABLE "NO" ;
+    ns1:NUMERIC_PRECISION "10" ;
+    ns1:NUMERIC_PRECISION_RADIX "10" ;
+    ns1:NUMERIC_SCALE "0" ;
+    ns1:ORDINAL_POSITION "1" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "country" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "27" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:N4591e736d83141718ef9109f795f0886 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:COLUMN_NAME "minor_version" ;
+    ns1:DATA_TYPE "int" ;
+    ns1:IS_NULLABLE "NO" ;
+    ns1:NUMERIC_PRECISION "10" ;
+    ns1:NUMERIC_PRECISION_RADIX "10" ;
+    ns1:NUMERIC_SCALE "0" ;
+    ns1:ORDINAL_POSITION "4" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "MSreplication_options" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "60" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:N4b7c012413c24f51a960b3116d2b2b86 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:COLUMN_NAME "vstart" ;
+    ns1:DATA_TYPE "int" ;
+    ns1:IS_NULLABLE "NO" ;
+    ns1:NUMERIC_PRECISION "10" ;
+    ns1:NUMERIC_PRECISION_RADIX "10" ;
+    ns1:NUMERIC_SCALE "0" ;
+    ns1:ORDINAL_POSITION "9" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "spt_fallback_usg" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "26" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:N556449acd902447caedfa0893221de1e a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:COLUMN_NAME "xdttm_ins" ;
+    ns1:DATA_TYPE "datetime" ;
+    ns1:DATETIME_PRECISION "3" ;
+    ns1:IS_NULLABLE "NO" ;
+    ns1:ORDINAL_POSITION "2" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "spt_fallback_db" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:N57b5dcc88fcb49b9a0ebf5d4083f7ae2 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:COLUMN_NAME "high" ;
+    ns1:DATA_TYPE "int" ;
+    ns1:IS_NULLABLE "YES" ;
+    ns1:NUMERIC_PRECISION "10" ;
+    ns1:NUMERIC_PRECISION_RADIX "10" ;
+    ns1:NUMERIC_SCALE "0" ;
+    ns1:ORDINAL_POSITION "5" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "spt_values" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "44" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:N5dfcd290d5434c2ba7b22439c8be5723 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:COLUMN_NAME "number" ;
+    ns1:DATA_TYPE "int" ;
+    ns1:IS_NULLABLE "NO" ;
+    ns1:NUMERIC_PRECISION "10" ;
+    ns1:NUMERIC_PRECISION_RADIX "10" ;
+    ns1:NUMERIC_SCALE "0" ;
+    ns1:ORDINAL_POSITION "2" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "spt_values" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "41" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:N60516c5b0995465e8fa192480780b51e a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:COLUMN_NAME "low" ;
+    ns1:DATA_TYPE "int" ;
+    ns1:IS_NULLABLE "YES" ;
+    ns1:NUMERIC_PRECISION "10" ;
+    ns1:NUMERIC_PRECISION_RADIX "10" ;
+    ns1:NUMERIC_SCALE "0" ;
+    ns1:ORDINAL_POSITION "4" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "spt_values" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "43" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:N65edefc3e82d4b7996009a226d122f3c a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:CHARACTER_MAXIMUM_LENGTH "30" ;
+    ns1:CHARACTER_OCTET_LENGTH "30" ;
+    ns1:CHARACTER_SET_NAME "iso_1" ;
+    ns1:COLLATION_NAME "SQL_Latin1_General_CP1_CI_AS" ;
+    ns1:COLUMN_NAME "xserver_name" ;
+    ns1:DATA_TYPE "varchar" ;
+    ns1:IS_NULLABLE "NO" ;
+    ns1:ORDINAL_POSITION "1" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "spt_fallback_usg" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "18" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:N6c72c694ff844e0aa2fe7f247cb00872 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:COLUMN_NAME "version" ;
+    ns1:DATA_TYPE "smallint" ;
+    ns1:IS_NULLABLE "NO" ;
+    ns1:NUMERIC_PRECISION "5" ;
+    ns1:NUMERIC_PRECISION_RADIX "10" ;
+    ns1:NUMERIC_SCALE "0" ;
+    ns1:ORDINAL_POSITION "8" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "spt_fallback_db" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "7" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:N6dc0bf1ca1b54f1ca7732dd6442c5522 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:COLUMN_NAME "lstart" ;
+    ns1:DATA_TYPE "int" ;
+    ns1:IS_NULLABLE "NO" ;
+    ns1:NUMERIC_PRECISION "10" ;
+    ns1:NUMERIC_PRECISION_RADIX "10" ;
+    ns1:NUMERIC_SCALE "0" ;
+    ns1:ORDINAL_POSITION "7" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "spt_fallback_usg" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "24" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:N73a8b23200d441c6a3edb488e107864a a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:COLUMN_NAME "xfallback_vstart" ;
+    ns1:DATA_TYPE "int" ;
+    ns1:IS_NULLABLE "YES" ;
+    ns1:NUMERIC_PRECISION "10" ;
+    ns1:NUMERIC_PRECISION_RADIX "10" ;
+    ns1:NUMERIC_SCALE "0" ;
+    ns1:ORDINAL_POSITION "4" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "spt_fallback_usg" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "21" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:N7871e4efd9f04ec6bce0741bb783571d a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:COLUMN_NAME "segmap" ;
+    ns1:DATA_TYPE "int" ;
+    ns1:IS_NULLABLE "NO" ;
+    ns1:NUMERIC_PRECISION "10" ;
+    ns1:NUMERIC_PRECISION_RADIX "10" ;
+    ns1:NUMERIC_SCALE "0" ;
+    ns1:ORDINAL_POSITION "6" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "spt_fallback_usg" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "23" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:N7c69c8779f874ab88fd9aaacfbc3dbc0 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:COLUMN_NAME "xdttm_last_ins_upd" ;
+    ns1:DATA_TYPE "datetime" ;
+    ns1:DATETIME_PRECISION "3" ;
+    ns1:IS_NULLABLE "NO" ;
+    ns1:ORDINAL_POSITION "3" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "spt_fallback_db" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "2" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:N7e0af5e136da415199fafc9c0c7cd6ef a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:COLUMN_NAME "revision" ;
+    ns1:DATA_TYPE "int" ;
+    ns1:IS_NULLABLE "NO" ;
+    ns1:NUMERIC_PRECISION "10" ;
+    ns1:NUMERIC_PRECISION_RADIX "10" ;
+    ns1:NUMERIC_SCALE "0" ;
+    ns1:ORDINAL_POSITION "5" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "MSreplication_options" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "61" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:N7f59e56ceeeb42a98fee7f7221998262 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:COLUMN_NAME "status" ;
+    ns1:DATA_TYPE "smallint" ;
+    ns1:IS_NULLABLE "NO" ;
+    ns1:NUMERIC_PRECISION "5" ;
+    ns1:NUMERIC_PRECISION_RADIX "10" ;
+    ns1:NUMERIC_SCALE "0" ;
+    ns1:ORDINAL_POSITION "7" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "spt_fallback_db" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "6" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:N83828b1e3493405e9e3f4833bc6f2ed9 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:COLUMN_NAME "Proc_ID" ;
+    ns1:DATA_TYPE "bigint" ;
+    ns1:IS_NULLABLE "YES" ;
+    ns1:NUMERIC_PRECISION "19" ;
+    ns1:NUMERIC_PRECISION_RADIX "10" ;
+    ns1:NUMERIC_SCALE "0" ;
+    ns1:ORDINAL_POSITION "8" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "TableLoggingData" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "37" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:N851439fe65ab4fa787da2270b4953aba a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:COLUMN_NAME "pack_received" ;
+    ns1:DATA_TYPE "int" ;
+    ns1:IS_NULLABLE "NO" ;
+    ns1:NUMERIC_PRECISION "10" ;
+    ns1:NUMERIC_PRECISION_RADIX "10" ;
+    ns1:NUMERIC_SCALE "0" ;
+    ns1:ORDINAL_POSITION "5" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "spt_monitor" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "50" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:N851fbaa09522487184c28fc9dd3a390b a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:COLUMN_NAME "io_busy" ;
+    ns1:DATA_TYPE "int" ;
+    ns1:IS_NULLABLE "NO" ;
+    ns1:NUMERIC_PRECISION "10" ;
+    ns1:NUMERIC_PRECISION_RADIX "10" ;
+    ns1:NUMERIC_SCALE "0" ;
+    ns1:ORDINAL_POSITION "3" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "spt_monitor" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "48" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:N86166f7116e64b07929f0d5dcdd4af62 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:COLUMN_NAME "xdttm_ins" ;
+    ns1:DATA_TYPE "datetime" ;
+    ns1:DATETIME_PRECISION "3" ;
+    ns1:IS_NULLABLE "NO" ;
+    ns1:ORDINAL_POSITION "2" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "spt_fallback_dev" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "9" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:N88abedfcbe74416d81685ed2ce5d890a a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:CHARACTER_MAXIMUM_LENGTH "30" ;
+    ns1:CHARACTER_OCTET_LENGTH "30" ;
+    ns1:CHARACTER_SET_NAME "iso_1" ;
+    ns1:COLLATION_NAME "SQL_Latin1_General_CP1_CI_AS" ;
+    ns1:COLUMN_NAME "name" ;
+    ns1:DATA_TYPE "varchar" ;
+    ns1:IS_NULLABLE "NO" ;
+    ns1:ORDINAL_POSITION "9" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "spt_fallback_dev" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "16" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:N8b8a7c1e7cbf4ada98a8558e4fb5fbd1 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:CHARACTER_MAXIMUM_LENGTH "100" ;
+    ns1:CHARACTER_OCTET_LENGTH "100" ;
+    ns1:CHARACTER_SET_NAME "iso_1" ;
+    ns1:COLLATION_NAME "SQL_Latin1_General_CP1_CI_AS" ;
+    ns1:COLUMN_NAME "Country_Name" ;
+    ns1:DATA_TYPE "varchar" ;
+    ns1:IS_NULLABLE "NO" ;
+    ns1:ORDINAL_POSITION "2" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "country" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "28" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:N94543b209d3a46ecb137d44603a9f4f3 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:COLUMN_NAME "sizepg" ;
+    ns1:DATA_TYPE "int" ;
+    ns1:IS_NULLABLE "NO" ;
+    ns1:NUMERIC_PRECISION "10" ;
+    ns1:NUMERIC_PRECISION_RADIX "10" ;
+    ns1:NUMERIC_SCALE "0" ;
+    ns1:ORDINAL_POSITION "8" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "spt_fallback_usg" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "25" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:N96f88efcbcee4b608914612c8ed2889f a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:CHARACTER_MAXIMUM_LENGTH "30" ;
+    ns1:CHARACTER_OCTET_LENGTH "30" ;
+    ns1:CHARACTER_SET_NAME "iso_1" ;
+    ns1:COLLATION_NAME "SQL_Latin1_General_CP1_CI_AS" ;
+    ns1:COLUMN_NAME "name" ;
+    ns1:DATA_TYPE "varchar" ;
+    ns1:IS_NULLABLE "NO" ;
+    ns1:ORDINAL_POSITION "5" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "spt_fallback_db" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "4" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:N9c4c0c7646ca412694b599a20b7941f6 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:CHARACTER_MAXIMUM_LENGTH "3" ;
+    ns1:CHARACTER_OCTET_LENGTH "6" ;
+    ns1:CHARACTER_SET_NAME "UNICODE" ;
+    ns1:COLLATION_NAME "SQL_Latin1_General_CP1_CI_AS" ;
+    ns1:COLUMN_NAME "type" ;
+    ns1:DATA_TYPE "nchar" ;
+    ns1:IS_NULLABLE "NO" ;
+    ns1:ORDINAL_POSITION "3" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "spt_values" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "42" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:Na783fea10ece4b24a2c8f6ddb609c4ee a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:COLUMN_NAME "low" ;
+    ns1:DATA_TYPE "int" ;
+    ns1:IS_NULLABLE "NO" ;
+    ns1:NUMERIC_PRECISION "10" ;
+    ns1:NUMERIC_PRECISION_RADIX "10" ;
+    ns1:NUMERIC_SCALE "0" ;
+    ns1:ORDINAL_POSITION "6" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "spt_fallback_dev" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "13" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:Na9c0587363554678ac75cbbd25424a86 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:COLUMN_NAME "status" ;
+    ns1:DATA_TYPE "int" ;
+    ns1:IS_NULLABLE "YES" ;
+    ns1:NUMERIC_PRECISION "10" ;
+    ns1:NUMERIC_PRECISION_RADIX "10" ;
+    ns1:NUMERIC_SCALE "0" ;
+    ns1:ORDINAL_POSITION "6" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "spt_values" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "45" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:Naa14204b80ba4532bd32664a3b55cf44 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:COLUMN_NAME "cpu_busy" ;
+    ns1:DATA_TYPE "int" ;
+    ns1:IS_NULLABLE "NO" ;
+    ns1:NUMERIC_PRECISION "10" ;
+    ns1:NUMERIC_PRECISION_RADIX "10" ;
+    ns1:NUMERIC_SCALE "0" ;
+    ns1:ORDINAL_POSITION "2" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "spt_monitor" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "47" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:Nacef78ebb80b428194d8c33d0b30e2e7 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:CHARACTER_MAXIMUM_LENGTH "-1" ;
+    ns1:CHARACTER_OCTET_LENGTH "-1" ;
+    ns1:CHARACTER_SET_NAME "UNICODE" ;
+    ns1:COLLATION_NAME "SQL_Latin1_General_CP1_CI_AS" ;
+    ns1:COLUMN_NAME "Str_json" ;
+    ns1:DATA_TYPE "nvarchar" ;
+    ns1:IS_NULLABLE "YES" ;
+    ns1:ORDINAL_POSITION "10" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "TableLoggingData" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "39" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:Nae165423244e40adaddf29a8180aa073 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:COLUMN_NAME "xfallback_dbid" ;
+    ns1:DATA_TYPE "smallint" ;
+    ns1:IS_NULLABLE "YES" ;
+    ns1:NUMERIC_PRECISION "5" ;
+    ns1:NUMERIC_PRECISION_RADIX "10" ;
+    ns1:NUMERIC_SCALE "0" ;
+    ns1:ORDINAL_POSITION "4" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "spt_fallback_db" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "3" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:Nb232f980d220416f93e36891609f29af a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:CHARACTER_MAXIMUM_LENGTH "128" ;
+    ns1:CHARACTER_OCTET_LENGTH "256" ;
+    ns1:CHARACTER_SET_NAME "UNICODE" ;
+    ns1:COLLATION_NAME "SQL_Latin1_General_CP1_CI_AS" ;
+    ns1:COLUMN_NAME "optname" ;
+    ns1:DATA_TYPE "nvarchar" ;
+    ns1:IS_NULLABLE "NO" ;
+    ns1:ORDINAL_POSITION "1" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "MSreplication_options" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "57" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:Nb329ce78546f4a92b516a33dd017dd1d a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:COLUMN_NAME "lastrun" ;
+    ns1:DATA_TYPE "datetime" ;
+    ns1:DATETIME_PRECISION "3" ;
+    ns1:IS_NULLABLE "NO" ;
+    ns1:ORDINAL_POSITION "1" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "spt_monitor" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "46" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:Nb723ab6fad82439c856c0a8a29a541f8 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:CHARACTER_MAXIMUM_LENGTH "100" ;
+    ns1:CHARACTER_OCTET_LENGTH "100" ;
+    ns1:CHARACTER_SET_NAME "iso_1" ;
+    ns1:COLLATION_NAME "SQL_Latin1_General_CP1_CI_AS" ;
+    ns1:COLUMN_NAME "ProgramName" ;
+    ns1:DATA_TYPE "varchar" ;
+    ns1:IS_NULLABLE "YES" ;
+    ns1:ORDINAL_POSITION "7" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "TableLoggingData" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "36" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:Nb77f10ad38df4bf8939cfb4e5117780e a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:COLUMN_NAME "xdttm_last_ins_upd" ;
+    ns1:DATA_TYPE "datetime" ;
+    ns1:DATETIME_PRECISION "3" ;
+    ns1:IS_NULLABLE "NO" ;
+    ns1:ORDINAL_POSITION "3" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "spt_fallback_usg" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "20" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:Nbbdb914622ba4a80a6337af5e0006446 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:CHARACTER_MAXIMUM_LENGTH "100" ;
+    ns1:CHARACTER_OCTET_LENGTH "100" ;
+    ns1:CHARACTER_SET_NAME "iso_1" ;
+    ns1:COLLATION_NAME "SQL_Latin1_General_CP1_CI_AS" ;
+    ns1:COLUMN_NAME "HostName" ;
+    ns1:DATA_TYPE "varchar" ;
+    ns1:IS_NULLABLE "YES" ;
+    ns1:ORDINAL_POSITION "6" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "TableLoggingData" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "35" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:Nbeb214b90f144174ac47a6e3eb4a2818 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:CHARACTER_MAXIMUM_LENGTH "50" ;
+    ns1:CHARACTER_OCTET_LENGTH "50" ;
+    ns1:CHARACTER_SET_NAME "iso_1" ;
+    ns1:COLLATION_NAME "SQL_Latin1_General_CP1_CI_AS" ;
+    ns1:COLUMN_NAME "SystemUser" ;
+    ns1:DATA_TYPE "varchar" ;
+    ns1:IS_NULLABLE "YES" ;
+    ns1:ORDINAL_POSITION "9" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "TableLoggingData" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "38" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:Nbf9273c9b3a64c9399e706e9eabb7e51 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:COLUMN_NAME "xfallback_low" ;
+    ns1:DATA_TYPE "int" ;
+    ns1:IS_NULLABLE "YES" ;
+    ns1:NUMERIC_PRECISION "10" ;
+    ns1:NUMERIC_PRECISION_RADIX "10" ;
+    ns1:NUMERIC_SCALE "0" ;
+    ns1:ORDINAL_POSITION "4" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "spt_fallback_dev" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "11" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:Nc6e1e89061624b71b7dc5e91267e155d a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:COLUMN_NAME "Base_ID" ;
+    ns1:DATA_TYPE "bigint" ;
+    ns1:IS_NULLABLE "NO" ;
+    ns1:NUMERIC_PRECISION "19" ;
+    ns1:NUMERIC_PRECISION_RADIX "10" ;
+    ns1:NUMERIC_SCALE "0" ;
+    ns1:ORDINAL_POSITION "2" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "TableLoggingData" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "31" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:Nca270ef1ac534d3998c03f20fe097a54 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:COLUMN_NAME "total_errors" ;
+    ns1:DATA_TYPE "int" ;
+    ns1:IS_NULLABLE "NO" ;
+    ns1:NUMERIC_PRECISION "10" ;
+    ns1:NUMERIC_PRECISION_RADIX "10" ;
+    ns1:NUMERIC_SCALE "0" ;
+    ns1:ORDINAL_POSITION "11" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "spt_monitor" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "56" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:Nd24eea7669044160a263b04c8d64eef7 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:COLUMN_NAME "xdttm_ins" ;
+    ns1:DATA_TYPE "datetime" ;
+    ns1:DATETIME_PRECISION "3" ;
+    ns1:IS_NULLABLE "NO" ;
+    ns1:ORDINAL_POSITION "2" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "spt_fallback_usg" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "19" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:Ndee1af15e602404fab5a2c7bced31db3 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:COLUMN_NAME "id" ;
+    ns1:DATA_TYPE "bigint" ;
+    ns1:IS_NULLABLE "NO" ;
+    ns1:NUMERIC_PRECISION "19" ;
+    ns1:NUMERIC_PRECISION_RADIX "10" ;
+    ns1:NUMERIC_SCALE "0" ;
+    ns1:ORDINAL_POSITION "1" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "TableLoggingData" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "30" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:Ndef9fcb0967240c78c605cfacaecd2b3 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:COLUMN_NAME "major_version" ;
+    ns1:DATA_TYPE "int" ;
+    ns1:IS_NULLABLE "NO" ;
+    ns1:NUMERIC_PRECISION "10" ;
+    ns1:NUMERIC_PRECISION_RADIX "10" ;
+    ns1:NUMERIC_SCALE "0" ;
+    ns1:ORDINAL_POSITION "3" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "MSreplication_options" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "59" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:Ne3f5f4e6639e423cb29a472966f4a06a a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:COLUMN_NAME "status" ;
+    ns1:DATA_TYPE "smallint" ;
+    ns1:IS_NULLABLE "NO" ;
+    ns1:NUMERIC_PRECISION "5" ;
+    ns1:NUMERIC_PRECISION_RADIX "10" ;
+    ns1:NUMERIC_SCALE "0" ;
+    ns1:ORDINAL_POSITION "8" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "spt_fallback_dev" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "15" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:Ne691093476a54e1ab0d3d68f83157283 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:CHARACTER_MAXIMUM_LENGTH "35" ;
+    ns1:CHARACTER_OCTET_LENGTH "70" ;
+    ns1:CHARACTER_SET_NAME "UNICODE" ;
+    ns1:COLLATION_NAME "SQL_Latin1_General_CP1_CI_AS" ;
+    ns1:COLUMN_NAME "name" ;
+    ns1:DATA_TYPE "nvarchar" ;
+    ns1:IS_NULLABLE "YES" ;
+    ns1:ORDINAL_POSITION "1" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "spt_values" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "40" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:Nea5428cafb9a41a5a8aa0607e343df51 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:COLUMN_NAME "dbid" ;
+    ns1:DATA_TYPE "smallint" ;
+    ns1:IS_NULLABLE "NO" ;
+    ns1:NUMERIC_PRECISION "5" ;
+    ns1:NUMERIC_PRECISION_RADIX "10" ;
+    ns1:NUMERIC_SCALE "0" ;
+    ns1:ORDINAL_POSITION "5" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "spt_fallback_usg" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "22" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:Nedbc0db512f94b5da4f1158004fb48a1 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:CHARACTER_MAXIMUM_LENGTH "127" ;
+    ns1:CHARACTER_OCTET_LENGTH "127" ;
+    ns1:CHARACTER_SET_NAME "iso_1" ;
+    ns1:COLLATION_NAME "SQL_Latin1_General_CP1_CI_AS" ;
+    ns1:COLUMN_NAME "phyname" ;
+    ns1:DATA_TYPE "varchar" ;
+    ns1:IS_NULLABLE "NO" ;
+    ns1:ORDINAL_POSITION "10" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "spt_fallback_dev" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "17" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:Nf98ecc4f865f4f1b816dc498c502e436 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:CHARACTER_MAXIMUM_LENGTH "2" ;
+    ns1:CHARACTER_OCTET_LENGTH "2" ;
+    ns1:CHARACTER_SET_NAME "iso_1" ;
+    ns1:COLLATION_NAME "SQL_Latin1_General_CP1_CI_AS" ;
+    ns1:COLUMN_NAME "xfallback_drive" ;
+    ns1:DATA_TYPE "char" ;
+    ns1:IS_NULLABLE "YES" ;
+    ns1:ORDINAL_POSITION "5" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "spt_fallback_dev" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "12" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:Nfec7469b5aa0459282e0e8f84a7013a2 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "COLUMNS.json" ;
+    ns1:COLUMN_NAME "idle" ;
+    ns1:DATA_TYPE "int" ;
+    ns1:IS_NULLABLE "NO" ;
+    ns1:NUMERIC_PRECISION "10" ;
+    ns1:NUMERIC_PRECISION_RADIX "10" ;
+    ns1:NUMERIC_SCALE "0" ;
+    ns1:ORDINAL_POSITION "4" ;
+    ns1:TABLE_CATALOG "master" ;
+    ns1:TABLE_NAME "spt_monitor" ;
+    ns1:TABLE_SCHEMA "dbo" ;
+    ns1:hasJsonObjectKey "49" ;
+    ns1:parentJsonId ns1:N61cbe298bc484f348e85e8b9323cb7bd .
+
+ns1:N61cbe298bc484f348e85e8b9323cb7bd a ns1:ArrayJson,
         ns1:FileJson,
         ns1:ObjectJson,
         owl:NamedIndividual ;
