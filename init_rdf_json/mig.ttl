@@ -1,0 +1,574 @@
+@prefix : <http://www.example.com/MIGRATION#> .
+@prefix dg: <http://www.example.com/DocGen#> .
+@prefix fn: <http://www.w3.org/2005/xpath-functions#> .
+@prefix gn: <http://www.geonames.org/ontology#> .
+@prefix js: <http://www.example.com/JSON#> .
+@prefix mg: <http://www.example.com/MG#> .
+@prefix uw: <http://www.example.com/LHUW#> .
+@prefix etl: <http://www.example.com/ETL#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix wgs: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix java: <http://www.example.com/Java#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix report: <http://www.example.com/report#> .
+@prefix sesame: <http://www.openrdf.org/schema/sesame#> .
+@base <http://www.example.com/MIGRATION> .
+
+<http://www.example.com/MIGRATION> rdf:type owl:Ontology ;
+                                    owl:imports <http://www.example.com/ETL> ,
+                                                <http://www.example.com/JSON> ,
+                                                <http://www.example.com/report> .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.example.com/MIGRATION#hasCondition
+:hasCondition rdf:type owl:ObjectProperty ;
+              rdfs:domain :mscondition ;
+              rdfs:range :msprocedurestatement .
+
+
+###  http://www.example.com/MIGRATION#hasDatabase
+:hasDatabase rdf:type owl:ObjectProperty ;
+             rdfs:domain :msdatabase ;
+             rdfs:range :msprocedure .
+
+
+###  http://www.example.com/MIGRATION#hasProcedure
+:hasProcedure rdf:type owl:ObjectProperty ;
+              rdfs:domain :msprocedure ;
+              rdfs:range :msprocexecstmt .
+
+
+###  http://www.example.com/MIGRATION#hasStatement
+:hasStatement rdf:type owl:ObjectProperty ;
+              rdfs:domain :msprocedurevarible ;
+              rdfs:range :msprocedurestatement .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.example.com/MIGRATION#TSQL
+:TSQL rdf:type owl:Class ;
+      rdfs:subClassOf :mssql ;
+      rdfs:label "TSQL" .
+
+
+###  http://www.example.com/MIGRATION#datatypeconversion
+:datatypeconversion rdf:type owl:Class ;
+                    rdfs:subClassOf :transfer ;
+                    rdfs:label "Data type converion" .
+
+
+###  http://www.example.com/MIGRATION#msDateFunctions
+:msDateFunctions rdf:type owl:Class ;
+                 rdfs:subClassOf :msFunctions ;
+                 rdfs:label "Date Functions" .
+
+
+###  http://www.example.com/MIGRATION#msFunctions
+:msFunctions rdf:type owl:Class ;
+             rdfs:subClassOf :TSQL ;
+             rdfs:label "Functions" .
+
+
+###  http://www.example.com/MIGRATION#msProcedureParameter
+:msProcedureParameter rdf:type owl:Class ;
+                      rdfs:subClassOf :msprocedure ;
+                      rdfs:label "Parameter" .
+
+
+###  http://www.example.com/MIGRATION#msStringFunctions
+:msStringFunctions rdf:type owl:Class ;
+                   rdfs:subClassOf :msFunctions ;
+                   rdfs:label "String Functions" .
+
+
+###  http://www.example.com/MIGRATION#mscondition
+:mscondition rdf:type owl:Class ;
+             rdfs:subClassOf :msprocedure ;
+             rdfs:label "Condition" .
+
+
+###  http://www.example.com/MIGRATION#msdatabase
+:msdatabase rdf:type owl:Class ;
+            rdfs:subClassOf :mssql ;
+            report:hasButtonQuery :dbmsselecttn ,
+                                  :dbstatementtype ,
+                                  :msdbdeclarestmtbtn ;
+            rdfs:label "Database" .
+
+
+###  http://www.example.com/MIGRATION#msprocedure
+:msprocedure rdf:type owl:Class ;
+             rdfs:subClassOf :mssql ;
+             report:hasButtonQuery :msprocparams ;
+             report:hasDefaultQuery """PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+  PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+  PREFIX mig: <http://www.example.com/MIGRATION#>
+  PREFIX owl: <http://www.w3.org/2002/07/owl#>
+  PREFIX js: <http://www.example.com/JSON#>
+  PREFIX etl:<http://www.example.com/ETL#>
+  PREFIX report:<http://www.example.com/report#>
+  PREFIX  etl_at: <http://www.example.com/JSON#@>
+  
+select ?iri ?label ?file 
+            {
+            bind(?param? as ?param)
+            ?iri rdf:type ?param .
+            optional{?iri rdfs:label ?label } .
+            ?iri etl:hasSourceFile ?file .  
+            }""" ;
+             rdfs:label "Procedure" .
+
+
+###  http://www.example.com/MIGRATION#msprocedurestatement
+:msprocedurestatement rdf:type owl:Class ;
+                      rdfs:subClassOf :msprocedure ;
+                      rdfs:label "Proc. statatement" .
+
+
+###  http://www.example.com/MIGRATION#msprocedurevarible
+:msprocedurevarible rdf:type owl:Class ;
+                    rdfs:subClassOf :msprocedure ;
+                    rdfs:label "Variable" .
+
+
+###  http://www.example.com/MIGRATION#msprocexecstmt
+:msprocexecstmt rdf:type owl:Class ;
+                rdfs:subClassOf :msprocedure ;
+                report:hasButtonQuery :btnRepProcOtherProc ,
+                                      :btnRepProcStmt ;
+                rdfs:label "Exec Statement" .
+
+
+###  http://www.example.com/MIGRATION#mssql
+:mssql rdf:type owl:Class ;
+       rdfs:label "MS SQL" .
+
+
+###  http://www.example.com/MIGRATION#mssqlprocedurefile
+:mssqlprocedurefile rdf:type owl:Class ;
+                    rdfs:subClassOf :msprocedure ;
+                    rdfs:label "Proc file" .
+
+
+###  http://www.example.com/MIGRATION#msstatement
+:msstatement rdf:type owl:Class ;
+             rdfs:subClassOf :mssqlprocedurefile ;
+             rdfs:label "Statement" .
+
+
+###  http://www.example.com/MIGRATION#pgStatementType
+:pgStatementType rdf:type owl:Class ;
+                 rdfs:subClassOf :pgprocedure ;
+                 rdfs:label "Statement Type" .
+
+
+###  http://www.example.com/MIGRATION#pgprocedure
+:pgprocedure rdf:type owl:Class ;
+             rdfs:subClassOf :postgres ;
+             report:hasButtonQuery :msandpgstatmentbtn ,
+                                   :msprocdeclarebtn ,
+                                   :msprocstatementsforpgbtn ,
+                                   :msvariablebtn ,
+                                   :plpgsqlparametersreport ,
+                                   :procstatementsbtn ;
+             rdfs:label "Procedure" .
+
+
+###  http://www.example.com/MIGRATION#pgprocedureparameter
+:pgprocedureparameter rdf:type owl:Class ;
+                      rdfs:subClassOf :pgprocedure ;
+                      rdfs:label "Parameter" .
+
+
+###  http://www.example.com/MIGRATION#pgprocedurevariable
+:pgprocedurevariable rdf:type owl:Class ;
+                     rdfs:subClassOf :pgprocedure ;
+                     rdfs:label "pg variable" .
+
+
+###  http://www.example.com/MIGRATION#pgstatement
+:pgstatement rdf:type owl:Class ;
+             rdfs:subClassOf :pgprocedure ;
+             rdfs:label "Statement" .
+
+
+###  http://www.example.com/MIGRATION#postgres
+:postgres rdf:type owl:Class ;
+          rdfs:label "Postgres" .
+
+
+###  http://www.example.com/MIGRATION#runcreateprocess
+:runcreateprocess rdf:type owl:Class ;
+                  rdfs:subClassOf :transfer ;
+                  report:hasButtonQuery :runcreateerrorbtn ;
+                  report:hasDefaultQuery """select ?iri  ?start_time
+            {
+            bind(?param? as ?param)
+            ?iri rdf:type ?param .
+            optional{?iri rdfs:label ?label } .
+            ?iri mig:START_AT ?start_time.
+} order by desc(?start_time)""" ;
+                  rdfs:label "Run Create Process" .
+
+
+###  http://www.example.com/MIGRATION#runcreateprocessprocedure
+:runcreateprocessprocedure rdf:type owl:Class ;
+                           rdfs:subClassOf :runcreateprocess ;
+                           rdfs:label "Run Create Procedure" .
+
+
+###  http://www.example.com/MIGRATION#transfer
+:transfer rdf:type owl:Class ;
+          rdfs:label "Transfer" .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.example.com/MIGRATION#btnRepProcOtherProc
+:btnRepProcOtherProc rdf:type owl:NamedIndividual ,
+                              report:buttonReport ;
+                     report:hasQuery """PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+  PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+  PREFIX mig: <http://www.example.com/MIGRATION#>
+  PREFIX owl: <http://www.w3.org/2002/07/owl#>
+  PREFIX js: <http://www.example.com/JSON#>
+  PREFIX etl:<http://www.example.com/ETL#>
+  PREFIX report:<http://www.example.com/report#>
+  PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX  js_at: <http://www.example.com/JSON#@>
+select * 
+{  
+  bind (?param? as ?param) .
+  ?param etl:hasSourceFile ?file .
+  ?iri etl:hasSourceFile ?file .
+  ?iri js_at:StatementId ?StatementId .
+
+  ?iri  js_at:StatementType ?StatementType .
+  ?iri js_at:StatementText ?StatementText .
+  bind (xsd:integer(?StatementId) as ?StatementId_Int)  
+  filter (?StatementType = 'EXECUTE PROC' && ?StatementId != '1')
+
+}  order by ?StatementId_Int""" ;
+                     rdfs:label "Other Procedures" .
+
+
+###  http://www.example.com/MIGRATION#btnRepProcStmt
+:btnRepProcStmt rdf:type owl:NamedIndividual ,
+                         report:buttonReport ;
+                report:hasQuery """PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+  PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+  PREFIX mig: <http://www.example.com/MIGRATION#>
+  PREFIX owl: <http://www.w3.org/2002/07/owl#>
+  PREFIX js: <http://www.example.com/JSON#>
+  PREFIX etl:<http://www.example.com/ETL#>
+  PREFIX report:<http://www.example.com/report#>
+  PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX  js_at: <http://www.example.com/JSON#@>
+select ?iri ?StatementId  ?StatementType ?StatementText 
+{  
+  bind (?param? as ?param) .
+  ?param etl:hasSourceFile ?file .
+  ?param mig:hasProcedure ?proc .
+  ?proc js:ROUTINE_NAME  ?proc_name .
+  ?iri etl:hasSourceFile ?file .
+  ?iri js_at:StatementId ?StatementId .
+  ?iri  js_at:StatementType ?StatementType .
+  ?iri js_at:StatementText ?StatementText .
+  ?iri mig:ProcName ?proc_name .
+  bind (xsd:integer(?StatementId) as ?StatementId_Int)
+}  order by ?StatementId_Int""" ;
+                rdfs:label "Stmt Id" .
+
+
+###  http://www.example.com/MIGRATION#dbmsselecttn
+:dbmsselecttn rdf:type owl:NamedIndividual ,
+                       report:buttonReport ;
+              report:hasQuery """select ?iri ?proc_name ?StatementId_Int  ?StatementType ?StatementText 
+{  
+  bind (?param? as ?paramdb) .
+  ?param mig:hasDatabase ?paramdb .    
+  ?param rdf:type mig:msprocedure .
+  ?param etl:hasSourceFile ?file .
+  ?param rdfs:label ?proc_name .
+  ?iri mig:hasProcedure ?param .
+  ?iri rdf:type mig:msprocedurestatement .
+  ?iri js_at:StatementId ?StatementId .
+  ?iri  js_at:StatementType ?StatementType .
+  ?iri js_at:StatementText ?StatementText .
+  bind (xsd:integer(?StatementId) as ?StatementId_Int)
+  filter (?StatementType='SELECT')
+}  order by ?proc_name ?StatementId_Int""" ;
+              rdfs:label "Select type" .
+
+
+###  http://www.example.com/MIGRATION#dbstatementtype
+:dbstatementtype rdf:type owl:NamedIndividual ,
+                          report:buttonReport ;
+                 report:hasQuery """PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX mig: <http://www.example.com/MIGRATION#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX js: <http://www.example.com/JSON#>
+PREFIX etl:<http://www.example.com/ETL#>
+PREFIX  js_at: <http://www.example.com/JSON#@>
+
+select distinct ?StatementType 
+{  
+  bind (?param? as ?param) .
+  ?iri mig:hasDatabase ?param .
+  ?iri rdf:type mig:msprocedure .
+  ?execStmt mig:hasProcedure ?iri .
+  ?execStmt etl:hasSourceFile ?file .
+  ?stmt etl:hasSourceFile ?file .
+  ?stmt  js_at:StatementType ?StatementType .
+}""" ;
+                 rdfs:label "Statement types" .
+
+
+###  http://www.example.com/MIGRATION#msandpgstatmentbtn
+:msandpgstatmentbtn rdf:type owl:NamedIndividual ,
+                             report:buttonReport ;
+                    report:hasQuery """select ?iri (?StatementId_Int as ?order) ?StatementType  ?StatementText ?pg_statement ?pgtxt ?pgtype
+{  
+  bind (?param? as ?param) .
+
+  ?param etl:hasSourceFile ?file .
+  ?param rdf:type mig:pgprocedure .
+  ?param mig:hasProcedure ?msproc .
+  ?iri mig:hasProcedure ?msproc .
+  ?iri rdf:type mig:msprocedurestatement .
+  ?iri js_at:StatementId ?StatementId .
+  ?iri  js_at:StatementType ?StatementType .
+  ?iri js_at:StatementText ?StatementText .
+  bind (xsd:integer(?StatementId) as ?StatementId_Int)
+  optional{
+    ?pg_statement mig:hasStatement ?iri . 
+    ?pg_statement rdf:type mig:pgstatement.
+    ?pg_statement  mig:StatementText ?pgtxt .
+    ?pg_statement mig:haspgStatementType ?pgst_type .
+    ?pgst_type rdf:type mig:pgStatementType .
+    ?pgst_type rdfs:label ?pgtype .
+      
+  			}
+} order by ?StatementId_Int""" ;
+                    rdfs:label "MS and PG statements" .
+
+
+###  http://www.example.com/MIGRATION#msdbdeclarestmtbtn
+:msdbdeclarestmtbtn rdf:type owl:NamedIndividual ,
+                             report:buttonReport ;
+                    report:hasQuery """select ?iri ?proc_name ?StatementId_Int  ?StatementType ?StatementText 
+{  
+  bind (?param? as ?paramdb) .
+  ?param mig:hasDatabase ?paramdb .    
+  ?param rdf:type mig:msprocedure .
+  ?param etl:hasSourceFile ?file .
+  ?param rdfs:label ?proc_name .
+  ?iri mig:hasProcedure ?param .
+  ?iri rdf:type mig:msprocedurestatement .
+  ?iri js_at:StatementId ?StatementId .
+  ?iri  js_at:StatementType ?StatementType .
+  ?iri js_at:StatementText ?StatementText .
+  bind (xsd:integer(?StatementId) as ?StatementId_Int)
+  filter (regex(?StatementText,'declare','i'))
+}  order by ?proc_name ?StatementId_Int""" ;
+                    rdfs:label "Declare" .
+
+
+###  http://www.example.com/MIGRATION#msprocdeclarebtn
+:msprocdeclarebtn rdf:type owl:NamedIndividual ,
+                           report:buttonReport ;
+                  report:hasQuery """PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX mig: <http://www.example.com/MIGRATION#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX js: <http://www.example.com/JSON#>
+PREFIX etl:<http://www.example.com/ETL#>
+PREFIX  js_at: <http://www.example.com/JSON#@>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+select ?iri ?StatementId  ?StatementType ?StatementText 
+{  
+  bind (?param? as ?param) .
+  ?param rdf:type mig:pgprocedure .
+
+  ?param etl:hasSourceFile ?file .
+  ?param rdf:type mig:pgprocedure .
+  ?param mig:hasProcedure ?msproc .
+  ?iri mig:hasProcedure ?msproc .
+  ?iri rdf:type mig:msprocedurestatement .
+  ?iri js_at:StatementId ?StatementId .
+  ?iri  js_at:StatementType ?StatementType .
+  ?iri js_at:StatementText ?StatementText .
+  bind (xsd:integer(?StatementId) as ?StatementId_Int)
+  filter (regex(?StatementText,'declare','i'))
+}  order by ?StatementId_Int""" ;
+                  rdfs:label "MS declare" .
+
+
+###  http://www.example.com/MIGRATION#msprocparams
+:msprocparams rdf:type owl:NamedIndividual ,
+                       report:buttonReport ;
+              report:hasQuery """PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+  PREFIX mig: <http://www.example.com/MIGRATION#>
+  PREFIX owl: <http://www.w3.org/2002/07/owl#>
+  PREFIX js: <http://www.example.com/JSON#>
+  PREFIX etl:<http://www.example.com/ETL#>
+  PREFIX report:<http://www.example.com/report#>
+  PREFIX  etl_at: <http://www.example.com/JSON#@>
+  PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+  PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+  PREFIX mig: <http://www.example.com/MIGRATION#>
+  PREFIX owl: <http://www.w3.org/2002/07/owl#>
+  PREFIX js: <http://www.example.com/JSON#>
+  PREFIX etl:<http://www.example.com/ETL#>
+  PREFIX report:<http://www.example.com/report#>
+  PREFIX  etl_at: <http://www.example.com/JSON#@>
+
+select ?iri ?name ?datatype ?mode ?position
+{ bind (?param? as ?param)
+  ?iri rdf:type mig:msProcedureParameter .
+  ?iri mig:hasProcedure ?param .
+  ?iri js:PARAMETER_NAME ?name.
+  ?iri js:DATA_TYPE ?datatype .
+  ?iri js:PARAMETER_MODE ?mode .
+  ?iri js:ORDINAL_POSITION ?position .
+}""" ;
+              rdfs:label "Params" .
+
+
+###  http://www.example.com/MIGRATION#msprocstatementsforpgbtn
+:msprocstatementsforpgbtn rdf:type owl:NamedIndividual ,
+                                   report:buttonReport ;
+                          report:hasQuery """PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX mig: <http://www.example.com/MIGRATION#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX js: <http://www.example.com/JSON#>
+PREFIX etl:<http://www.example.com/ETL#>
+PREFIX  js_at: <http://www.example.com/JSON#@>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+select ?iri ?StatementId_Int  ?StatementType ?StatementText 
+
+(replace(group_concat(?condition ; separator=\"; \"),'http://www.example.com/JSON#','') as ?condition_iri )
+
+{  
+  bind (?param? as ?param) .
+
+  ?param etl:hasSourceFile ?file .
+  ?param rdf:type mig:pgprocedure .
+  ?param mig:hasProcedure ?msproc .
+  ?iri mig:hasProcedure ?msproc .
+  ?iri rdf:type mig:msprocedurestatement .
+  ?iri js_at:StatementId ?StatementId .
+  ?iri  js_at:StatementType ?StatementType .
+  ?iri js_at:StatementText ?StatementText .
+  bind (xsd:integer(?StatementId) as ?StatementId_Int)
+  optional {?iri mig:hasCondition ?condition}
+} 
+group by  ?iri ?StatementId_Int  ?StatementType ?StatementText 
+order by ?StatementId_Int""" ;
+                          rdfs:label "MS proc stataments" .
+
+
+###  http://www.example.com/MIGRATION#msvariablebtn
+:msvariablebtn rdf:type owl:NamedIndividual ;
+               report:hasQuery """select ?name ?type ?len ?statement  
+{
+  bind(?param? as ?param)  .
+?param rdf:type mig:pgprocedure .  
+?param mig:hasProcedure ?msproc .  
+?iri mig:VARIABLE_NAME ?name .
+?iri mig:hasProcedure ?msproc .
+?iri mig:hasStatement ?statement .
+?iri mig:DATA_TYPE ?type .
+?iri rdf:type mig:msprocedurevarible .
+?iri mig:CHARACTER_MAXIMUM_LENGTH ?len.
+}""" ;
+               rdfs:label "Variables" .
+
+
+###  http://www.example.com/MIGRATION#plpgsqlparametersreport
+:plpgsqlparametersreport rdf:type owl:NamedIndividual ,
+                                  report:buttonReport ;
+                         report:hasQuery """PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX mig: <http://www.example.com/MIGRATION#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX js: <http://www.example.com/JSON#>
+PREFIX etl:<http://www.example.com/ETL#>
+PREFIX  js_at: <http://www.example.com/JSON#@>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+select ?iri ?mode ?position ?name ?type ?length 
+{  
+  bind (?param? as ?param) .
+  ?param etl:hasSourceFile ?file .
+  ?param rdf:type mig:pgprocedure .
+  ?iri rdf:type mig:pgprocedureparameter .
+  ?iri mig:hasProcedure ?param .
+  ?iri mig:ORDINAL_POSITION ?pos .
+  ?iri mig:PARAMETER_NAME ?name .
+  ?iri mig:DATA_TYPE ?type .
+  optional{?iri mig:PARAMETER_MODE ?mode} .
+  optional{?iri mig:CHARACTER_MAXIMUM_LENGTH ?length} .
+  bind(xsd:integer(?pos) as ?position)  .
+}  order by ?StatementId_Int""" ;
+                         rdfs:label "plpgsql Parameters" .
+
+
+###  http://www.example.com/MIGRATION#procstatementsbtn
+:procstatementsbtn rdf:type owl:NamedIndividual ,
+                            report:buttonReport ;
+                   report:hasQuery """PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX mig: <http://www.example.com/MIGRATION#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX js: <http://www.example.com/JSON#>
+PREFIX etl:<http://www.example.com/ETL#>
+PREFIX  js_at: <http://www.example.com/JSON#@>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+select ?iri ?statement_id  ?text ?statement_type_label {
+  bind(?param? as ?param)
+  ?iri mig:hasProcedure ?param .
+  ?iri rdf:type mig:pgstatement .
+  ?iri mig:StatementText ?text .  
+  ?iri mig:StatementId ?statement_id .
+  ?iri mig:haspgStatementType ?sttype .
+  ?sttype rdf:type mig:pgStatementType .
+  ?sttype rdf:type ?statement_type .
+  ?sttype rdfs:label ?statement_type_label .
+} order by ?statement_id""" ;
+                   rdfs:label "PG Statements" .
+
+
+###  http://www.example.com/MIGRATION#runcreateerrorbtn
+:runcreateerrorbtn rdf:type owl:NamedIndividual ,
+                            report:buttonReport ;
+                   report:hasQuery """select  ?iri ?proc_name (substr(?erro_msg_str,1,150) as ?erro_msg)
+{
+  bind(?param? as ?param) .
+  ?param rdf:type mig:runcreateprocess .  
+  ?iri mig:hasTask ?param .  
+  ?iri rdf:type mig:runcreateprocessprocedure .
+  ?iri mig:hasProcedure ?proc .
+  ?proc rdfs:label ?proc_name .
+  ?iri mig:ERROR_MSG ?erro_msg_str
+} order by ?proc_name""" ;
+                   rdfs:label "Errors" .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

@@ -17,16 +17,18 @@ class json_to_ontology:
     def hashCode(self,inputStr):
         return BNode()    
     def processJsonDir(self):
+
         dir_list = os.listdir(self.dirPath)
         for file in dir_list:
-            self.filename=file
-            self.fileJson={
-                "label": file,
-                "hasSourceFile":file,
-                "iri": self.hashCode(file)
-            }
-            self.processJson(self.dirPath+file)    
-
+            if file.endswith('.json'): 
+                self.filename=file
+                self.fileJson={
+                    "label": file,
+                    "hasSourceFile":file,
+                    "iri": self.hashCode(file)
+                }
+                self.processJson(self.dirPath+file)    
+        
     def processJson(self,file):
         self.toInsertArr=[]        
         print('process: ' + file)
@@ -49,7 +51,7 @@ class json_to_ontology:
         to_file=self.rdf_parsed+self.filename.replace('.json','.ttl')
         self.graph.serialize(to_file, 'turtle')
         print(to_file)
-        self.queryService.load_ttl(to_file)
+        self.queryService.load_ttl(to_file)        
 
     def toTTL(self,item):
         iri=self.Namespace[item['iri']]

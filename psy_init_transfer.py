@@ -20,6 +20,7 @@ from migration.get_proc_plans import mssql_to_postgres
 from migration.convert_json_to_ontology import  json_to_ontology
 import migration.query.runSparqlWrapper as sparql_service
 from migration.process_declare import process_declare
+from migration.load_init_rdf_json import load_init_rdf_json
 
 #get t_* tables
 #select * from INFORMATION_SCHEMA.TABLES where substring(TABLE_NAME,1,2)='t_'
@@ -104,7 +105,10 @@ def add_proc_declare():
     c=process_declare()
     c.iterate_declare()      
 
-with DAG(dag_id="psy_etl_dag", start_date=datetime(2023, 2, 1),catchup=False,  tags=["psy_init"]) as dag:
+@task
+def init_rdf_json():
+    load_init_rdf_json('./dags/init_rdf_json/','./dags/output/')
+with DAG(dag_id="psy_etl_dag",schedule_interval=None , start_date=datetime(2023, 2, 1),catchup=False,  tags=["psy_init"]) as dag:
 
     with TaskGroup("mssql_proc_to_pgsql", tooltip="ms procedure to pgsql procedure") as extract_load_src:
         src_product_tbls = get_src_tables()
@@ -114,6 +118,7 @@ with DAG(dag_id="psy_etl_dag", start_date=datetime(2023, 2, 1),catchup=False,  t
         convert_json_to_rdf=convert_to_ontology()
         run_initial_insert=run_insert_sparql()
         procedure_declare=add_proc_declare()
+        load_init=init_rdf_json()
         #define order
-        src_product_tbls >> load_dimProducts >> proc_plan >> convert_json_to_rdf >> run_initial_insert >> procedure_declare >> pg_create_proc
+        src_product_tbls >> load_dimProducts >> load_init >> proc_plan >>  convert_json_to_rdf >> run_initial_insert >> procedure_declare >> pg_create_proc
     extract_load_src

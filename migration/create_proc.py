@@ -64,7 +64,7 @@ as $$""", self.statementId , proc['iri'], self.statement_types_dict['CREATE LANG
         self.statementId =self.statementId+1
         self.process_body(proc['iri'])
         for stmt_item in self.body_statement:
-            self.ttl_serice.add_stmt(stmt_item['stmt'], self.statementId , proc['iri'],  self.statement_types_dict[stmt_item['type']])
+            self.ttl_serice.add_stmt(stmt_item['stmt'], self.statementId , proc['iri'],  self.statement_types_dict[stmt_item['type']],stmt_item['ms_statement_iri'])
             self.statementId =self.statementId+1  
         self.ttl_serice.add_stmt("""end; $$""", self.statementId , proc['iri'], self.statement_types_dict['CREATE END'])        
         self.statementId =self.statementId+1                     
@@ -97,7 +97,10 @@ as $$""", self.statementId , proc['iri'], self.statement_types_dict['CREATE LANG
         stmt_str=stmt.get_proc_variable.replace('?param?',f"<{procIri}>")
         ret=self.queryService.query(stmt_str)        
         for declare_var in ret:
-            ret_str=ret_str+declare_var['name']['value']+ ' ' +declare_var['type']['value'] + ' ' +declare_var['type_len']['value'] +'; \n'
+            varlen=''
+            if declare_var['type_len']['value']!=None and declare_var['type_len']['value']!='' :
+                varlen='(' + declare_var['type_len']['value'] + ')'
+            ret_str=ret_str+declare_var['name']['value']+ ' ' +declare_var['type']['value'] + ' ' +varlen +'; \n'
             self.proc_variables.append({"name": declare_var['name']['value'], "type": declare_var['type']['value'], "type_len": declare_var['type_len']['value'], "replace_name": declare_var['name']['value'], "var_type":'variable', "ms_name": declare_var['ms_name']['value'] })
         if ret_str!='':
             ret_str='declare \n'+ret_str
@@ -108,9 +111,9 @@ as $$""", self.statementId , proc['iri'], self.statement_types_dict['CREATE LANG
             print('get_all proc :' + proc['name']['value'] + ' iri:' +proc['iri']['value'])    
             self.procedures.append({"iri":proc['iri']['value'], "name":proc['name']['value']})
         return self.procedures
-    def add_body_statement(self,stmt,returned_result,msstmt_iri,procIri,type):
+    def add_body_statement(self,stmt,returned_result,msstmt_iri,procIri,type, ms_statement_iri):
         if returned_result['isChanged']==True:
-            self.body_statement.append({"iri":msstmt_iri,"procIri":procIri,"stmt":stmt,"type":type})
+            self.body_statement.append({"iri":msstmt_iri,"procIri":procIri,"stmt":stmt,"type":type, "ms_statement_iri":ms_statement_iri})
 
     def process_body(self,procIri):
             self.body_statement=[]
@@ -121,7 +124,7 @@ as $$""", self.statementId , proc['iri'], self.statement_types_dict['CREATE LANG
                     ret=select.exec(statement['StatementText']['value'])
                     tmp_stmt=replace_right_ms_vars_in_coparison(self.proc_variables,ret['stmt'])+ ';'
                     #print(tmp_stmt)
-                    self.add_body_statement(tmp_stmt,ret,statement['iri']['value'],procIri,statement['StatementType']['value'])
+                    self.add_body_statement(tmp_stmt,ret,statement['iri']['value'],procIri,statement['StatementType']['value'],statement['iri']['value'])
                     break
 
 if __name__ == "__main__":
