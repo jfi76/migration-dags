@@ -118,12 +118,14 @@
   PREFIX report:<http://www.example.com/report#>
   PREFIX  etl_at: <http://www.example.com/JSON#@>
   
-select ?iri ?label ?file 
+select ?iri ?label ?dbname  
             {
             bind(?param? as ?param)
             ?iri rdf:type ?param .
             optional{?iri rdfs:label ?label } .
             ?iri etl:hasSourceFile ?file .  
+            ?iri mig:hasDatabase ?db .
+            ?db rdfs:label ?dbname
             }""" ;
              rdfs:label "Procedure" .
 
