@@ -12,6 +12,6 @@ class st_type_update(st_common.base_st_type):
     
     def try_update(self):
         new_str=''
-        positions_select= st_common.get_tokens_range(token.tokens, 'select', 'from')  
-        if positions_select['start_index']==None: return   
-        sel_indx=0
+#        positions_select= st_common.get_tokens_range(token.tokens, 'select', 'from')  
+#        if positions_select['start_index']==None: return   
+#        sel_indx=0

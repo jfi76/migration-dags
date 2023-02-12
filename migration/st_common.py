@@ -39,6 +39,10 @@ def get_tokens_range(tokens:sqlparse.sql.TokenList, start_word:str, end_word:str
     return {"start_index":start_index, "end_index" : end_index}            
 def rreplace(init_str,old,new,maxreplace=1):
     return new.join(init_str.rsplit(old, maxreplace))
+def substr_from_word(stmt:str,search_word:str):
+    ind=stmt.lower().find(search_word)
+    if ind!=-1: return stmt[ind:len(stmt)] 
+    else: return stmt
 class base_st_type():
     def __init__(self):
         self.isChanged=False    

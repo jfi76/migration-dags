@@ -15,8 +15,9 @@ class process_declare:
         self.variables=[]
         self.filepath = './dags/output/vars.ttl'
 
-    def parse(self,sql,procIri,stmt_iri):
-        stmts = sqlparse.parse(sql)[0]
+    def parse(self,sql,procIri,stmt_iri):    
+        cut_sql=st_common.substr_from_word(sql,'declare')            
+        stmts = sqlparse.parse(cut_sql)[0]
         i=0  
         for token in stmts.tokens:
             if  isinstance(token, sqlparse.sql.IdentifierList) :
@@ -51,7 +52,6 @@ class process_declare:
         for declare_stmt in ret:   
             self.parse(declare_stmt['StatementText']['value'],declare_stmt['procIri']['value'],declare_stmt['iri']['value'])
         for var_desc in self.variables:    
-            #print(var_desc)
             self.ttl_serice.add_variable(var_desc['name'], self.get_type(var_desc['type']), self.get_len(var_desc['type']), var_desc['procIri'], var_desc['stmt_iri'],var_desc['type'])            
         self.ttl_serice.graph.serialize(self.filepath, 'turtle') 
         self.queryService.load_ttl(self.filepath)
@@ -59,14 +59,12 @@ class process_declare:
     def get_type(self,item):
         ind=item.find('(')
         if  ind!=-1:
-            #print(str(ind) + item + ' is ' + item[0:ind])
             return item[0:ind] 
         return item
     def get_len(self,item):
         ind=item.find('(')
         if  ind!=-1:
             ind2=item.find(')')+1
-            #print(str(ind2) + item + ' is ' + item[ind+1:ind2-1] )
             return item[ind+1:ind2-1] 
         return ''
 
@@ -83,3 +81,4 @@ declare @job_count int
 SET XACT_ABORT ON;
 
 """,'mig:3f293ed7-683c-45d4-9ca9-bcbba4be061e' ,'js:Nd155ee3a3ccc4783b442ffe1185d8f40')
+    print(c.variables)
