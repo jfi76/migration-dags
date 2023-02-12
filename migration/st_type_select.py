@@ -1,15 +1,17 @@
 import sqlparse
 import st_common
 
-class st_type_select():
+class st_type_select(st_common.base_st_type):
+
     def exec(self,statement_text:str):
+        self.isChanged=False    
         self.statement_text=statement_text
-        ret=self.try_select_into()
-        #print(self.statement_text)
-        #if (ret['isChanged']==True):
-            #print('changed: '+ ret['stmt'])        
-        return ret    
-        #self.try_set_variable_select()
+        self.try_select_into()        
+        self.try_set_variable_select()
+
+        return super().exec()
+
+
     def try_select_into(self): # select @c1=c1, @c2=c2 from tab1 => select c1, c2 into @c1, @c2 from tab1 
         def process_identifier(token,variables):
             varstr=''
@@ -22,11 +24,12 @@ class st_type_select():
             return varstr
         variables=[]    
         elements = sqlparse.parse(self.statement_text)
-        positions= self.get_tokens_range(elements[0].tokens, 'select', 'from')      
+        positions= st_common.get_tokens_range(elements[0].tokens, 'select', 'from')      
+        if (positions['start_index']==None): return
         i=0   
 
         new_str=''
-        isChanged=False
+
         var_str=''
         for token in elements[0].tokens:
             if i>=positions['start_index']:
@@ -52,22 +55,39 @@ class st_type_select():
                 else: 
                     new_str=new_str+(str(token))
             i=i+1
-        return {"stmt":new_str, "isChanged":isChanged}    
+        self.set_statement(new_str)
     def try_set_variable_select(self): #  set @t_test_id = (select current_test_id from t_testing  where t_testing_id=@t_testing_id ) =>   select current_test_id into @t_test_id from t_testing  where t_testing_id=@t_testing_id          
-        print('try_set_variable_select')
-#################################################
-    def get_tokens_range(self,tokens:sqlparse.sql.TokenList, start_word:str, end_word:str):
-        start_index=None
-        end_index=None
-        i=0
-        for token in tokens:        
-            if isinstance(token ,sqlparse.sql.Token) and str(token).lower()==start_word:
-                start_index=i
-            if isinstance(token ,sqlparse.sql.Token) and str(token).lower()==end_word:
-                end_index=i
-                return {"start_index":start_index, "end_index" : end_index}
-            i=i+1
-        return {"start_index":start_index, "end_index" : end_index}            
-    def identifier(self, token):
-        self.names.append(token)
+
+        def process_parenthesis(token,variable):
+            new_str=''
+            positions_select= st_common.get_tokens_range(token.tokens, 'select', 'from')  
+            if positions_select['start_index']==None: return   
+            sel_indx=0
+            
+            for subtoken in token.tokens:
+                if sel_indx>=positions_select['start_index']:
+                    if sel_indx==positions_select['end_index']: 
+                        new_str= new_str + '\n into '+variable + '\n'
+                    new_str=new_str+(str(subtoken))                    
+                sel_indx=sel_indx+1
+            print(st_common.rreplace(new_str,')','',1))
+            self.set_statement(st_common.rreplace(new_str,')','',1))
+        elements = sqlparse.parse(self.statement_text)
+        positions= st_common.get_tokens_range(elements[0].tokens, 'set', 'from')      
+        if (positions['start_index']==None): return
+        i=0   
+        var_str=''
+
+        variable = ''
+        for token in elements[0].tokens:
+            if i>=positions['start_index']:
+                if isinstance(token,sqlparse.sql.Comparison) and str(token[0])[0]=="@":
+                    variable=str(token[0]).replace('@','')
+                    if (positions['start_index']!=None):
+                        for subtoken in token.tokens:
+                            if isinstance(subtoken,sqlparse.sql.Parenthesis):
+                                print('start')
+                                process_parenthesis(subtoken,variable)
+
+            i=i+1        
     

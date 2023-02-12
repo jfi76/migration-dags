@@ -1,317 +1,95 @@
-@prefix ns1: <http://www.example.com/JSON#@> .
-@prefix ns2: <http://www.example.com/JSON#> .
-@prefix ns3: <http://www.example.com/ETL#> .
+@prefix ns1: <http://www.example.com/JSON#> .
+@prefix ns2: <http://www.example.com/ETL#> .
+@prefix ns3: <http://www.example.com/JSON#@> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
-ns2:N01ea5c9186234ba489a1125c800644b5 a ns2:ObjectJson,
+ns1:N0600eb2ad56f40ec849f86d900829b95 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:Column "@ip_address" ;
-    ns1:ParameterCompiledValue "'a'" ;
-    ns1:ParameterDataType "varchar(100)" ;
-    ns2:hasJsonObjectKey "3" ;
-    ns2:parentJsonId ns2:Ne167b2f4b1a14538b47a46f93107f3b6 .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:Column "@ip_address" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:Nb743170b44ae4cf3969620da179c5bf1 .
 
-ns2:N0481cc3be15b43ef8e162687e51a49a5 a ns2:ObjectJson,
+ns1:N079e073680b64ff391d4ad49c7bddd82 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:Column "Expr1003" ;
-    ns2:hasJsonObjectKey "ColumnReference" ;
-    ns2:parentJsonId ns2:N15c27495c45e4f7eaf8456ca6ef80287 .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:Column "Expr1003" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N93954022f0c24d2ea223ad47c5d1b4d9 .
 
-ns2:N066979fd04b442f4bcd9ff38c4650bb5 a ns2:ObjectJson,
+ns1:N0d3d0015dbb94eeba64d273b4efab2e8 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:Column "@t_ws_status_id_active" ;
-    ns2:hasJsonObjectKey "ColumnReference" ;
-    ns2:parentJsonId ns2:N08949cce362246ad98864f0077871bf1 .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:GrantedMemory "0" ;
+    ns3:MaxUsedMemory "0" ;
+    ns3:SerialDesiredMemory "0" ;
+    ns3:SerialRequiredMemory "0" ;
+    ns1:hasJsonObjectKey "MemoryGrantInfo" ;
+    ns1:parentJsonId ns1:Na045c45b2ac34f9ca5333abd018fb1b9 .
 
-ns2:N095a28fc6d2649488c09becee9a7491e a ns2:ObjectJson,
+ns1:N11c45dec0a0844bcab7fc41f0f6bbf7c a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:Column "Expr1002" ;
-    ns2:hasJsonObjectKey "2" ;
-    ns2:parentJsonId ns2:N701abcbb4de54535b049d218f1a4f2f8 .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:Column "Expr1002" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N37b3775dd73b4a7cb475f4c7f229de46 .
 
-ns2:N0a9167c7373948cabc6ee56db4e484aa a ns2:ObjectJson,
+ns1:N175b752c6e1f4322baf834d197abf9a4 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:ConstValue "'y'" ;
-    ns2:hasJsonObjectKey "Const" ;
-    ns2:parentJsonId ns2:N383d4a7dad5947248005652ff6587482 .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:Column "AUTH_TYPE" ;
+    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns3:Schema "[dbo]" ;
+    ns3:Table "[T_WORKSTATION]" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N623b9426d9b544aca8cfba12f739b6e3 .
 
-ns2:N0a93b5ea17d24c018df7d0d11a35dbd8 a ns2:ObjectJson,
+ns1:N246effd035b64da1b5c0deaf17a8f882 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:Column "Expr1002" ;
-    ns2:hasJsonObjectKey "ColumnReference" ;
-    ns2:parentJsonId ns2:N1813a99846894b729e1a7bb869fde458 .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:ANSI_NULLS "true" ;
+    ns3:ANSI_PADDING "true" ;
+    ns3:ANSI_WARNINGS "true" ;
+    ns3:ARITHABORT "true" ;
+    ns3:CONCAT_NULL_YIELDS_NULL "true" ;
+    ns3:NUMERIC_ROUNDABORT "false" ;
+    ns3:QUOTED_IDENTIFIER "true" ;
+    ns1:hasJsonObjectKey "StatementSetOptions" ;
+    ns1:parentJsonId ns1:N11fde38791f04ab38a6bd6392c3d26a2 .
 
-ns2:N1113d88b227844f0974754b38e461567 a ns2:ObjectJson,
+ns1:N2b6c81fda6344b7fb29dc5cbc32d15f4 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:Column "Expr1003" ;
-    ns2:hasJsonObjectKey "ColumnReference" ;
-    ns2:parentJsonId ns2:N42cc24d676434febbc16fde937625ffc .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:Column "@t_ws_status_id_active" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N2039d8ce888a4fc5959dd532e39e3e3f .
 
-ns2:N2d24437ebcd043688e07b308a418cbe0 a ns2:ObjectJson,
+ns1:N2e3ae82c67e74d709c4ab060bc1f7660 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:ConstValue "(0)" ;
-    ns2:hasJsonObjectKey "Const" ;
-    ns2:parentJsonId ns2:N550452a8debc4aeda88f46ae490132da .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:EstimatedAvailableDegreeOfParallelism "2" ;
+    ns3:EstimatedAvailableMemoryGrant "311472" ;
+    ns3:EstimatedPagesCached "77868" ;
+    ns3:MaxCompileMemory "574224" ;
+    ns1:hasJsonObjectKey "OptimizerHardwareDependentProperties" ;
+    ns1:parentJsonId ns1:Na7afc1c442384191b82959724ca69644 .
 
-ns2:N36eadb42db1f419fbfb7363b171f1416 a ns2:ObjectJson,
+ns1:N31755415842a4b2da623fc8d034673c1 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:GrantedMemory "0" ;
-    ns1:MaxUsedMemory "0" ;
-    ns1:SerialDesiredMemory "0" ;
-    ns1:SerialRequiredMemory "0" ;
-    ns2:hasJsonObjectKey "MemoryGrantInfo" ;
-    ns2:parentJsonId ns2:N464a9e35bf3f4de39d5c283df913d14a .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:Column "@t_testing_id" ;
+    ns3:ParameterCompiledValue "{guid'E7FAB167-C47A-4865-A8AE-429FA778414C'}" ;
+    ns3:ParameterDataType "uniqueidentifier" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:N10945e25c152401cb3ead2e133590123 .
 
-ns2:N3b225889bf7a4c66a14311189854a6a4 a ns2:ObjectJson,
+ns1:N34ba55d20a2143efba8d365cab798ed8 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:Column "T_WORKSTATION_ID" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Table "[T_WORKSTATION]" ;
-    ns2:hasJsonObjectKey "0" ;
-    ns2:parentJsonId ns2:Ncd89aa275e0143ada6219e87ce8cdb17 .
-
-ns2:N40d60379c3af4335a8ab3299c5bb245f a ns2:ObjectJson,
-        owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:ANSI_NULLS "true" ;
-    ns1:ANSI_PADDING "true" ;
-    ns1:ANSI_WARNINGS "true" ;
-    ns1:ARITHABORT "true" ;
-    ns1:CONCAT_NULL_YIELDS_NULL "true" ;
-    ns1:NUMERIC_ROUNDABORT "false" ;
-    ns1:QUOTED_IDENTIFIER "true" ;
-    ns2:hasJsonObjectKey "StatementSetOptions" ;
-    ns2:parentJsonId ns2:N13c65a4a25a246a0b6b6890ff4e747f7 .
-
-ns2:N42c16f28135c49768e8a7d2d2ffe8c18 a ns2:ObjectJson,
-        owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:Column "Expr1002" ;
-    ns2:hasJsonObjectKey "ColumnReference" ;
-    ns2:parentJsonId ns2:N2766990f8e124917aaa79a84b7e85949 .
-
-ns2:N44e29b6cd81545f9a98c65bcbbac1fb0 a ns2:ObjectJson,
-        owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:Column "@t_testing_id" ;
-    ns1:ParameterCompiledValue "{guid'E7FAB167-C47A-4865-A8AE-429FA778414C'}" ;
-    ns1:ParameterDataType "uniqueidentifier" ;
-    ns2:hasJsonObjectKey "1" ;
-    ns2:parentJsonId ns2:Ne167b2f4b1a14538b47a46f93107f3b6 .
-
-ns2:N461120636c744b7aa3a80c4f5a351d30 a ns2:ObjectJson,
-        owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:EstimatedAvailableDegreeOfParallelism "2" ;
-    ns1:EstimatedAvailableMemoryGrant "311472" ;
-    ns1:EstimatedPagesCached "77868" ;
-    ns1:MaxCompileMemory "8344" ;
-    ns2:hasJsonObjectKey "OptimizerHardwareDependentProperties" ;
-    ns2:parentJsonId ns2:N464a9e35bf3f4de39d5c283df913d14a .
-
-ns2:N4c612dbf95f4409496d6a225b6a786d2 a ns2:ObjectJson,
-        owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:Column "@t_ws_status_id_active" ;
-    ns1:ParameterCompiledValue "{guid'E7FAB167-C47A-4865-A8AE-429FA778414C'}" ;
-    ns1:ParameterDataType "uniqueidentifier" ;
-    ns2:hasJsonObjectKey "0" ;
-    ns2:parentJsonId ns2:Nfc7008cb72ac4f6b8b29dced681fe7f3 .
-
-ns2:N502f665387c8423099b1d3c8868f58b3 a ns2:ObjectJson,
-        owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:ANSI_NULLS "true" ;
-    ns1:ANSI_PADDING "true" ;
-    ns1:ANSI_WARNINGS "true" ;
-    ns1:ARITHABORT "true" ;
-    ns1:CONCAT_NULL_YIELDS_NULL "true" ;
-    ns1:NUMERIC_ROUNDABORT "false" ;
-    ns1:QUOTED_IDENTIFIER "true" ;
-    ns2:hasJsonObjectKey "StatementSetOptions" ;
-    ns2:parentJsonId ns2:N22cc64e8298a41d09067c7d11d907168 .
-
-ns2:N707bbd63a0e748c4b18816d52d74164e a ns2:ObjectJson,
-        owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:Column "@ip_address" ;
-    ns2:hasJsonObjectKey "ColumnReference" ;
-    ns2:parentJsonId ns2:Ne9a726f7d67048df876f03b87cc5261e .
-
-ns2:N72c1026b35354830aff7577bce3b47c5 a ns2:ObjectJson,
-        owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:EstimatedAvailableDegreeOfParallelism "2" ;
-    ns1:EstimatedAvailableMemoryGrant "311472" ;
-    ns1:EstimatedPagesCached "77868" ;
-    ns1:MaxCompileMemory "8344" ;
-    ns2:hasJsonObjectKey "OptimizerHardwareDependentProperties" ;
-    ns2:parentJsonId ns2:Neaf99d7714cd4a429c790cdb07c7dd41 .
-
-ns2:N74408f66ee90463398727711355744f8 a ns2:ObjectJson,
-        owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:Column "AUTH_TYPE" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Table "[T_WORKSTATION]" ;
-    ns2:hasJsonObjectKey "ColumnReference" ;
-    ns2:parentJsonId ns2:Nc7799f5904cb42ef940b5f1afc10eb38 .
-
-ns2:N7551ff963b9047458e278f67270a21d4 a ns2:ObjectJson,
-        owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:Column "T_WORKSTATION_STATUS_ID" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Table "[T_WORKSTATION]" ;
-    ns2:hasJsonObjectKey "ColumnReference" ;
-    ns2:parentJsonId ns2:N53687f25fd724c54945fc49ee1028e8e .
-
-ns2:N799be35684a1489980121c5e45c20457 a ns2:ObjectJson,
-        owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:GrantedMemory "0" ;
-    ns1:MaxUsedMemory "0" ;
-    ns1:SerialDesiredMemory "0" ;
-    ns1:SerialRequiredMemory "0" ;
-    ns2:hasJsonObjectKey "MemoryGrantInfo" ;
-    ns2:parentJsonId ns2:Neaf99d7714cd4a429c790cdb07c7dd41 .
-
-ns2:N7c818ab36d8649f98dff7f51a7eb5883 a ns2:ObjectJson,
-        owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:Column "T_TESTING_ID" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Table "[T_WORKSTATION]" ;
-    ns2:hasJsonObjectKey "ColumnReference" ;
-    ns2:parentJsonId ns2:N0af8b5f4d19b4fd19ad0bb277cc64f70 .
-
-ns2:N7dc213eaea0d4cb6b9b7eb55b32bc120 a ns2:ObjectJson,
-        owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:Column "Expr1002" ;
-    ns2:hasJsonObjectKey "ColumnReference" ;
-    ns2:parentJsonId ns2:N05e31305adae49c4944a7521d03598db .
-
-ns2:N819824f22c9e47c8a60a2b0123608305 a ns2:ObjectJson,
-        owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:Column "IP_ADDRESS" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Table "[T_WORKSTATION]" ;
-    ns2:hasJsonObjectKey "ColumnReference" ;
-    ns2:parentJsonId ns2:N877d2f6c3ad34036b9c33435ecfa1cc0 .
-
-ns2:N883efb64d1094481b1a55ff5c97f010a a ns2:ObjectJson,
-        owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:Column "@ip_address" ;
-    ns1:ParameterCompiledValue "'a'" ;
-    ns1:ParameterDataType "varchar(100)" ;
-    ns2:hasJsonObjectKey "1" ;
-    ns2:parentJsonId ns2:Nfc7008cb72ac4f6b8b29dced681fe7f3 .
-
-ns2:N8fb1b2a91d944c0fa88c554260141779 a ns2:ObjectJson,
-        owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Index "[PK_T_WORKSTATION]" ;
-    ns1:IndexKind "Clustered" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Storage "RowStore" ;
-    ns1:Table "[T_WORKSTATION]" ;
-    ns2:hasJsonObjectKey "Object" ;
-    ns2:parentJsonId ns2:N17eaad4dfb95443b8a3e95bc55a6c433 .
-
-ns2:N938317548c514ba483d87fd57ab832de a ns2:ObjectJson,
-        owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:Column "@ip_address" ;
-    ns2:hasJsonObjectKey "ColumnReference" ;
-    ns2:parentJsonId ns2:N02062d0aa45e4f81917492844002f335 .
-
-ns2:Nb81281cbf2d44156adf0095afe826409 a ns2:ObjectJson,
-        owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:Column "T_WORKSTATION_ID" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Table "[T_WORKSTATION]" ;
-    ns2:hasJsonObjectKey "ColumnReference" ;
-    ns2:parentJsonId ns2:Nf11c67cb31bf4084a7d869e4b0104ef1 .
-
-ns2:Nc128355cbd674195a657dafec26ba957 a ns2:ObjectJson,
-        owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Index "[PK_T_WORKSTATION]" ;
-    ns1:IndexKind "Clustered" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Storage "RowStore" ;
-    ns1:Table "[T_WORKSTATION]" ;
-    ns2:hasJsonObjectKey "Object" ;
-    ns2:parentJsonId ns2:N6e747604c1e14744b0512b73499cca8e .
-
-ns2:Nc498f4072ce3439a927dd95a3721bc27 a ns2:ObjectJson,
-        owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:Column "T_WORKSTATION_ID" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Table "[T_WORKSTATION]" ;
-    ns2:hasJsonObjectKey "0" ;
-    ns2:parentJsonId ns2:N701abcbb4de54535b049d218f1a4f2f8 .
-
-ns2:Nd0daa4480f99483d985b6c502a1fbc89 a ns2:ObjectJson,
-        owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:Column "@t_workstation_id" ;
-    ns1:ParameterCompiledValue "{guid'E7FAB167-C47A-4865-A8AE-429FA778414C'}" ;
-    ns1:ParameterDataType "uniqueidentifier" ;
-    ns2:hasJsonObjectKey "2" ;
-    ns2:parentJsonId ns2:Ne167b2f4b1a14538b47a46f93107f3b6 .
-
-ns2:Nd52d97d3b30e493b83bae9f93871fe05 a ns2:ObjectJson,
-        owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:Column "T_TESTING_ID" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Table "[T_WORKSTATION]" ;
-    ns2:hasJsonObjectKey "1" ;
-    ns2:parentJsonId ns2:N701abcbb4de54535b049d218f1a4f2f8 .
-
-ns2:Nd62ecb1de24c44908f87e999bbb440f2 a ns2:ObjectJson,
-        owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:Column "IP_ADDRESS" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Table "[T_WORKSTATION]" ;
-    ns2:hasJsonObjectKey "ColumnReference" ;
-    ns2:parentJsonId ns2:N0d79971133ae45f495c503dbd1fbe3a8 .
-
-ns2:Ndc55eb42ff4f4d62b12ec388bf811e4e a ns2:ObjectJson,
-        owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:RetrievedFromCache "false" ;
-    ns1:StatementCompId "8" ;
-    ns1:StatementId "5" ;
-    ns1:StatementText """\r
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:RetrievedFromCache "false" ;
+    ns3:StatementCompId "8" ;
+    ns3:StatementId "5" ;
+    ns3:StatementText """\r
 \r
 end \r
 else \r
@@ -319,461 +97,708 @@ begin\r
    select \r
    @t_workstation_id=null\r
    ,@t_testing_id=null,@ip_auth='n'""" ;
-    ns1:StatementType "ASSIGN" ;
-    ns2:hasJsonObjectKey "StmtSimple" ;
-    ns2:parentJsonId ns2:N6f2e39138732473cbe290b84f11408e3 .
+    ns3:StatementType "ASSIGN" ;
+    ns1:hasJsonObjectKey "StmtSimple" ;
+    ns1:parentJsonId ns1:N93c5e4545b5a409cb566e0fbc0ab7f43 .
+
+ns1:N36ebd62f153f40078ebf0a26ca66e1b7 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:ANSI_NULLS "true" ;
+    ns3:ANSI_PADDING "true" ;
+    ns3:ANSI_WARNINGS "true" ;
+    ns3:ARITHABORT "true" ;
+    ns3:CONCAT_NULL_YIELDS_NULL "true" ;
+    ns3:NUMERIC_ROUNDABORT "false" ;
+    ns3:QUOTED_IDENTIFIER "true" ;
+    ns1:hasJsonObjectKey "StatementSetOptions" ;
+    ns1:parentJsonId ns1:N2e5854709254464ca3244e36d05e0dad .
+
+ns1:N3e6b6bfdd76c44b486c281d6a44e7cd9 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:Column "@ip_address" ;
+    ns3:ParameterCompiledValue "'a'" ;
+    ns3:ParameterDataType "varchar(100)" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:N327b3464fefd43a9ba99741375cfc6ee .
+
+ns1:N3ed53b4dcbf9460593e3d4ffe5abb60f a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:Column "@ip_address" ;
+    ns3:ParameterCompiledValue "'a'" ;
+    ns3:ParameterDataType "varchar(100)" ;
+    ns1:hasJsonObjectKey "3" ;
+    ns1:parentJsonId ns1:N10945e25c152401cb3ead2e133590123 .
+
+ns1:N45bc9888917044de8a57e79a8228aa4f a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns3:Index "[PK_T_WORKSTATION]" ;
+    ns3:IndexKind "Clustered" ;
+    ns3:Schema "[dbo]" ;
+    ns3:Storage "RowStore" ;
+    ns3:Table "[T_WORKSTATION]" ;
+    ns1:hasJsonObjectKey "Object" ;
+    ns1:parentJsonId ns1:N9855f1373c6345909ebfcb7b2ea3f1de .
+
+ns1:N4b00b0aa8c3844a6a15ce6ea8f703ada a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:EstimatedAvailableDegreeOfParallelism "2" ;
+    ns3:EstimatedAvailableMemoryGrant "311472" ;
+    ns3:EstimatedPagesCached "77868" ;
+    ns3:MaxCompileMemory "574224" ;
+    ns1:hasJsonObjectKey "OptimizerHardwareDependentProperties" ;
+    ns1:parentJsonId ns1:Na045c45b2ac34f9ca5333abd018fb1b9 .
+
+ns1:N5563d827f96d45aaa30294057ad6709a a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:Column "T_WORKSTATION_ID" ;
+    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns3:Schema "[dbo]" ;
+    ns3:Table "[T_WORKSTATION]" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N71e3e72c21f34ecbba0ef3abd6bbd463 .
+
+ns1:N5bc07246e9c6492aafee3ae92e7e6dc5 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:ConstValue "'y'" ;
+    ns1:hasJsonObjectKey "Const" ;
+    ns1:parentJsonId ns1:Nd883b4caea4340768ed3ab7024f6c314 .
+
+ns1:N6a5f08e673714dc7bac0cfacb8129bb3 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:Column "@t_ws_status_id_active" ;
+    ns3:ParameterCompiledValue "{guid'E7FAB167-C47A-4865-A8AE-429FA778414C'}" ;
+    ns3:ParameterDataType "uniqueidentifier" ;
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:N327b3464fefd43a9ba99741375cfc6ee .
+
+ns1:N6ae4bb609e0549c98d0f3206bb6887f2 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:Column "@ip_auth" ;
+    ns3:ParameterCompiledValue "'a'" ;
+    ns3:ParameterDataType "char(1)" ;
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:N10945e25c152401cb3ead2e133590123 .
+
+ns1:N6dd8da70711c4f0d932eec27c2e3f775 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:Column "Expr1002" ;
+    ns1:hasJsonObjectKey "2" ;
+    ns1:parentJsonId ns1:N1020c2b0942342b1bfc588606cc79242 .
+
+ns1:N78b270c9decd4e56a9eac6675d785534 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:Column "Expr1003" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N737d6503695e45d1a6de9fd00c6cb083 .
+
+ns1:N8381b53df2814be4aa0e8a4b3c443bd7 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:Column "Expr1002" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N3f51283edb6040a3b099b7defeeab424 .
+
+ns1:N8628a1d6de864b91b812f9bc5bc4242a a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns3:Index "[PK_T_WORKSTATION]" ;
+    ns3:IndexKind "Clustered" ;
+    ns3:Schema "[dbo]" ;
+    ns3:Storage "RowStore" ;
+    ns3:Table "[T_WORKSTATION]" ;
+    ns1:hasJsonObjectKey "Object" ;
+    ns1:parentJsonId ns1:N391ec45081584007b9a45f8b289f2787 .
+
+ns1:N8690780517a749ddac501474e3487ef0 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:GrantedMemory "0" ;
+    ns3:MaxUsedMemory "0" ;
+    ns3:SerialDesiredMemory "0" ;
+    ns3:SerialRequiredMemory "0" ;
+    ns1:hasJsonObjectKey "MemoryGrantInfo" ;
+    ns1:parentJsonId ns1:Na7afc1c442384191b82959724ca69644 .
+
+ns1:N885f0304549449efae5005fd54b776f5 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:Column "@t_workstation_id" ;
+    ns3:ParameterCompiledValue "{guid'E7FAB167-C47A-4865-A8AE-429FA778414C'}" ;
+    ns3:ParameterDataType "uniqueidentifier" ;
+    ns1:hasJsonObjectKey "2" ;
+    ns1:parentJsonId ns1:N10945e25c152401cb3ead2e133590123 .
+
+ns1:N8d0ce7de38e2498086b5a1555b970f08 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:Column "IP_ADDRESS" ;
+    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns3:Schema "[dbo]" ;
+    ns3:Table "[T_WORKSTATION]" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:Nea6b8477322d43598f9136933b5afdd8 .
+
+ns1:N8e575ecb7217467ea3ffe3da1a74b036 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:AggType "countstar" ;
+    ns3:Distinct "0" ;
+    ns1:hasJsonObjectKey "Aggregate" ;
+    ns1:parentJsonId ns1:Ne9590d20531441a79bfab2d6949f891e .
+
+ns1:N94385e28abdb4f529265947d3b87f515 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:Column "T_WORKSTATION_ID" ;
+    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns3:Schema "[dbo]" ;
+    ns3:Table "[T_WORKSTATION]" ;
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:N1020c2b0942342b1bfc588606cc79242 .
+
+ns1:N99664af203a348f9a23de814a508f36f a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:Column "T_TESTING_ID" ;
+    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns3:Schema "[dbo]" ;
+    ns3:Table "[T_WORKSTATION]" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:N1020c2b0942342b1bfc588606cc79242 .
+
+ns1:Na6023c4b0a804bebaa4334467e2b3ff6 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:Column "@ip_address" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:Ncb0465b2c22443909b3dce88d368af2b .
+
+ns1:Na825e526a3bc4e3bb561514f1620dc17 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:ConstValue "(0)" ;
+    ns1:hasJsonObjectKey "Const" ;
+    ns1:parentJsonId ns1:N5b2216678e3f45e7a51aa6f85e1985e8 .
+
+ns1:Na9fae672a2f04e42989f49c5809b95f0 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:Column "T_TESTING_ID" ;
+    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns3:Schema "[dbo]" ;
+    ns3:Table "[T_WORKSTATION]" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:N31e3471587854f7ca88cd8f1773af81c .
+
+ns1:Nb802cf49629b482ba13ad5cba2e9d03d a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:Column "Expr1003" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:Nda04777dea3c4c01988ae23827dbfec3 .
+
+ns1:Nc36703406eed4099b8d582c2a7c43920 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:Column "T_WORKSTATION_STATUS_ID" ;
+    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns3:Schema "[dbo]" ;
+    ns3:Table "[T_WORKSTATION]" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:Nc1652f628d7949339817750375f6fb5f .
+
+ns1:Ncbfa338da1bb41a098667bc26cf7a857 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:Column "T_TESTING_ID" ;
+    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns3:Schema "[dbo]" ;
+    ns3:Table "[T_WORKSTATION]" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N1869a058e622459b8de96c68d43070e8 .
+
+ns1:Ncbfcd78e75b54da0a616acc1bd340164 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:Column "T_WORKSTATION_ID" ;
+    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns3:Schema "[dbo]" ;
+    ns3:Table "[T_WORKSTATION]" ;
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:N31e3471587854f7ca88cd8f1773af81c .
 
-ns2:Ne0e1bc1f9f0f418eb5a762488307f5a9 a ns2:ObjectJson,
+ns1:Nd2c3295a62c3431aa1355871e2ef0edd a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:Column "Expr1003" ;
-    ns2:hasJsonObjectKey "ColumnReference" ;
-    ns2:parentJsonId ns2:N363e7055abe746938f24b641e25b46f2 .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:Column "IP_ADDRESS" ;
+    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns3:Schema "[dbo]" ;
+    ns3:Table "[T_WORKSTATION]" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N42788a114c6c453e8018498cc1788d2c .
 
-ns2:Ne3c21be5f5f440f18c1479d87a838c33 a ns2:ObjectJson,
-        owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:Column "@ip_auth" ;
-    ns1:ParameterCompiledValue "'a'" ;
-    ns1:ParameterDataType "char(1)" ;
-    ns2:hasJsonObjectKey "0" ;
-    ns2:parentJsonId ns2:Ne167b2f4b1a14538b47a46f93107f3b6 .
-
-ns2:Nf23c3b8827124651a1eb6ba602ccb818 a ns2:ObjectJson,
-        owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:Column "T_TESTING_ID" ;
-    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns1:Schema "[dbo]" ;
-    ns1:Table "[T_WORKSTATION]" ;
-    ns2:hasJsonObjectKey "1" ;
-    ns2:parentJsonId ns2:Ncd89aa275e0143ada6219e87ce8cdb17 .
-
-ns2:Nf8e961603f1647908d571de7b31d6821 a ns2:ObjectJson,
-        owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:AggType "countstar" ;
-    ns1:Distinct "0" ;
-    ns2:hasJsonObjectKey "Aggregate" ;
-    ns2:parentJsonId ns2:N55863c36174b4b918f6d30d3282bd837 .
-
-ns2:N02062d0aa45e4f81917492844002f335 a ns2:ObjectJson,
-        owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "Identifier" ;
-    ns2:parentJsonId ns2:Nf4bd821a2bd74ecc977f510ad93983d4 .
-
-ns2:N05f9b5ca451d4c4c86d6f9056dbbf852 a ns2:ObjectJson,
-        owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:ScalarString "CONVERT_IMPLICIT(int,[Expr1003],0)" ;
-    ns2:hasJsonObjectKey "ScalarOperator" ;
-    ns2:parentJsonId ns2:N05e31305adae49c4944a7521d03598db .
-
-ns2:N08949cce362246ad98864f0077871bf1 a ns2:ObjectJson,
-        owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "Identifier" ;
-    ns2:parentJsonId ns2:N2a4dfdd32d854c2395e56e1cc100006c .
-
-ns2:N0af8b5f4d19b4fd19ad0bb277cc64f70 a ns2:ObjectJson,
-        owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "1" ;
-    ns2:parentJsonId ns2:Ndf25e6f004184208b71a36b5b75467f3 .
-
-ns2:N0d79971133ae45f495c503dbd1fbe3a8 a ns2:ObjectJson,
-        owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "Identifier" ;
-    ns2:parentJsonId ns2:Na6d45bcc897942f1a39cc9e7f4dd22ba .
-
-ns2:N0ef12c5418904d9dac13d5e38a698e96 a ns2:ObjectJson,
-        owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:CompareOp "EQ" ;
-    ns2:hasJsonObjectKey "Compare" ;
-    ns2:parentJsonId ns2:N150ba5f644ec45399e6e2ee9a70ce0b1 .
-
-ns2:N150ba5f644ec45399e6e2ee9a70ce0b1 a ns2:ObjectJson,
-        owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "1" ;
-    ns2:parentJsonId ns2:Na59f8a081dd145d081f5d979e00459c8 .
-
-ns2:N15c27495c45e4f7eaf8456ca6ef80287 a ns2:ObjectJson,
-        owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "OutputList" ;
-    ns2:parentJsonId ns2:Nd77515e563174cb2850037c000eb8e38 .
-
-ns2:N1813a99846894b729e1a7bb869fde458 a ns2:ObjectJson,
-        owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "OutputList" ;
-    ns2:parentJsonId ns2:Nb8a46bdff9274de2b7f646a55eb6fa42 .
+ns1:Ne3b0928fa9f54f1f8e67c19dcd62046a a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:Column "Expr1002" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N7639d0edb42748108f73cc4be243e584 .
+
+ns1:N057211bf1b1242a8a43df26ea98eac68 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "ParameterList" ;
+    ns1:parentJsonId ns1:Na7afc1c442384191b82959724ca69644 .
+
+ns1:N12112b84f2ea408c8cfcc71f23ebd9fa a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:RetrievedFromCache "false" ;
+    ns3:StatementCompId "1" ;
+    ns3:StatementId "1" ;
+    ns3:StatementText "exec ws_type  'a', 'a', 'E7FAB167-C47A-4865-A8AE-429FA778414C', 'E7FAB167-C47A-4865-A8AE-429FA778414C', 'E7FAB167-C47A-4865-A8AE-429FA778414C'" ;
+    ns3:StatementType "EXECUTE PROC" ;
+    ns1:hasJsonObjectKey "StmtSimple" ;
+    ns1:parentJsonId ns1:Na82a364676204e9685e91f901e5a645d .
+
+ns1:N1869a058e622459b8de96c68d43070e8 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:N11086df2142149c38ff2d4aa081adb9b .
+
+ns1:N2039d8ce888a4fc5959dd532e39e3e3f a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "Identifier" ;
+    ns1:parentJsonId ns1:N9728bd429af14146ae66e705f6654071 .
+
+ns1:N20bc7e518653493dbc975a96f59c625b a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:ScalarString "[PSYCHOLOGY_TEST_1].[dbo].[T_WORKSTATION].[IP_ADDRESS]=[@ip_address]" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:Ne3974e95ef464c2c8a511e3aa61a8608 .
+
+ns1:N2aef6822e8a142028a971ac5f1654fd8 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:ScalarString "[PSYCHOLOGY_TEST_1].[dbo].[T_WORKSTATION].[T_WORKSTATION_STATUS_ID]=[@t_ws_status_id_active] AND [PSYCHOLOGY_TEST_1].[dbo].[T_WORKSTATION].[AUTH_TYPE]=(0) AND [PSYCHOLOGY_TEST_1].[dbo].[T_WORKSTATION].[IP_ADDRESS]=[@ip_address]" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:N2e8dc86b490746ca93c22c6ed1d43618 .
+
+ns1:N2bf968e2ebcc47b289865b184631e2fd a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:Nb04ed173f33d46b69cb53db6977b1a9a .
 
-ns2:N1a015ebe23cf46b18897646c10bde839 a ns2:ObjectJson,
+ns1:N2e8dc86b490746ca93c22c6ed1d43618 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "Predicate" ;
+    ns1:parentJsonId ns1:N391ec45081584007b9a45f8b289f2787 .
+
+ns1:N38efe7dea73544e2bdbf9580d469557c a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "OutputList" ;
-    ns2:parentJsonId ns2:N6a0cbe9fe20347f1ba5e5fbd2d60a22a .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:Na67b311085a64010af16d5d1e97cc93f .
 
-ns2:N1e9702ff59a64693b3e31b969ade2401 a ns2:ObjectJson,
+ns1:N42788a114c6c453e8018498cc1788d2c a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "OutputList" ;
-    ns2:parentJsonId ns2:Nc62bbe16871d4869ac12e2a7afb28b09 .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "Identifier" ;
+    ns1:parentJsonId ns1:N844ae329ffd445179aef4d1322f6ba03 .
 
-ns2:N20613cc04f294c70b46e99721f930b84 a ns2:ObjectJson,
+ns1:N427c804acdea43d58db96eaf20bba155 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "0" ;
-    ns2:parentJsonId ns2:N03b1f631bc084c659f65b3714369ea68 .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "OutputList" ;
+    ns1:parentJsonId ns1:N962c56e4e2c547f88c9abf13be68b3b5 .
 
-ns2:N21f5f25fb1a2452a9712462fea898893 a ns2:ObjectJson,
+ns1:N46c84dc2dcbd43bbbc23250b902780d4 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "1" ;
-    ns2:parentJsonId ns2:N03b1f631bc084c659f65b3714369ea68 .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:CompareOp "EQ" ;
+    ns1:hasJsonObjectKey "Compare" ;
+    ns1:parentJsonId ns1:N20bc7e518653493dbc975a96f59c625b .
 
-ns2:N29a1ed2847404db48ad7898d382a8e8f a ns2:ObjectJson,
+ns1:N4aee6e18c17442e6bdcefc2c0c9d7af2 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:ProcName "ws_type" ;
-    ns2:hasJsonObjectKey "StoredProc" ;
-    ns2:parentJsonId ns2:Nc2f1acf6f8514dac8575251e8fcdae59 .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "DefinedValues" ;
+    ns1:parentJsonId ns1:N9729c29262974f0b82f6b7fa62985ad7 .
 
-ns2:N2a4dfdd32d854c2395e56e1cc100006c a ns2:ObjectJson,
+ns1:N4e5315f882c946d19b5212d6ffe52a4f a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "1" ;
-    ns2:parentJsonId ns2:N949e3bbd8280400d84a15204bf2a65c8 .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:AvgRowSize "42" ;
+    ns3:EstimateCPU "0.0001647" ;
+    ns3:EstimateIO "0.003125" ;
+    ns3:EstimateRebinds "0" ;
+    ns3:EstimateRewinds "0" ;
+    ns3:EstimateRows "1" ;
+    ns3:EstimatedExecutionMode "Row" ;
+    ns3:EstimatedRowsRead "7" ;
+    ns3:EstimatedTotalSubtreeCost "0.0032897" ;
+    ns3:LogicalOp "Clustered Index Scan" ;
+    ns3:NodeId "2" ;
+    ns3:Parallel "0" ;
+    ns3:PhysicalOp "Clustered Index Scan" ;
+    ns3:TableCardinality "7" ;
+    ns1:OutputList "None" ;
+    ns1:hasJsonObjectKey "RelOp" ;
+    ns1:parentJsonId ns1:Nbd30aadf11f84160a2fed6638a0305bf .
 
-ns2:N3017e9bd069e4c5a9bddc74e95b6fe0e a ns2:ObjectJson,
+ns1:N4f885336489a4628bb3aea68a57394dc a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:Build "16.0.1000.6" ;
-    ns1:Version "1.564" ;
-    ns1:xmlns "http://schemas.microsoft.com/sqlserver/2004/07/showplan" ;
-    ns2:hasJsonObjectKey "ShowPlanXML" ;
-    ns2:parentJsonId ns2:N7e02f55620ce470aac55487e7612f44e .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:Nb09dac62ede14d709f3682b2a15342c1 .
 
-ns2:N3825bae8af594860bc754223389da1df a ns2:ObjectJson,
+ns1:N55fafd4132e64a7189b9aa168da8677a a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "0" ;
-    ns2:parentJsonId ns2:N949e3bbd8280400d84a15204bf2a65c8 .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:ScalarString "CONVERT_IMPLICIT(int,[Expr1003],0)" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:N37b3775dd73b4a7cb475f4c7f229de46 .
 
-ns2:N383d4a7dad5947248005652ff6587482 a ns2:ObjectJson,
+ns1:N584d3490229649899dc0e0e29ae90e6d a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:ScalarString "'y'" ;
-    ns2:hasJsonObjectKey "ScalarOperator" ;
-    ns2:parentJsonId ns2:N2766990f8e124917aaa79a84b7e85949 .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "DefinedValues" ;
+    ns1:parentJsonId ns1:N9855f1373c6345909ebfcb7b2ea3f1de .
 
-ns2:N3ae5e10ba2964661abefd916a38b362e a ns2:ObjectJson,
+ns1:N5b2216678e3f45e7a51aa6f85e1985e8 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:ScalarString "[PSYCHOLOGY_TEST_1].[dbo].[T_WORKSTATION].[IP_ADDRESS]=[@ip_address]" ;
-    ns2:hasJsonObjectKey "ScalarOperator" ;
-    ns2:parentJsonId ns2:Na564c0ce25784974892fb7336731d0ab .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:Nb09dac62ede14d709f3682b2a15342c1 .
 
-ns2:N4235ca05b5944807916d5d483dd146e2 a ns2:ObjectJson,
+ns1:N5e43417a4d794f25837aacdbc7af3d30 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "Statements" ;
-    ns2:parentJsonId ns2:N4b1dd6231362490ebd467e837273f194 .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:ProcName "ws_type" ;
+    ns1:hasJsonObjectKey "StoredProc" ;
+    ns1:parentJsonId ns1:N12112b84f2ea408c8cfcc71f23ebd9fa .
 
-ns2:N42cc24d676434febbc16fde937625ffc a ns2:ObjectJson,
+ns1:N623b9426d9b544aca8cfba12f739b6e3 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "Identifier" ;
-    ns2:parentJsonId ns2:Nf9e126a7808b486bb05ff7a981cabcb0 .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "Identifier" ;
+    ns1:parentJsonId ns1:N4f885336489a4628bb3aea68a57394dc .
 
-ns2:N465267fb45614e9cbe64a941107fafbf a ns2:ObjectJson,
+ns1:N6d50933b029244f3854ae3cba6f6b4a5 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "ParameterList" ;
-    ns2:parentJsonId ns2:N464a9e35bf3f4de39d5c283df913d14a .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:Build "16.0.1000.6" ;
+    ns3:Version "1.564" ;
+    ns3:xmlns "http://schemas.microsoft.com/sqlserver/2004/07/showplan" ;
+    ns1:hasJsonObjectKey "ShowPlanXML" ;
+    ns1:parentJsonId ns1:Ne76cff6a31dd406a8115a3097c506cd4 .
 
-ns2:N4afc0b8d2df64ad889cae6ec9c080aaf a ns2:ObjectJson,
+ns1:N71e3e72c21f34ecbba0ef3abd6bbd463 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "Else" ;
-    ns2:parentJsonId ns2:N9c8eaa2513c648dd9a302fadbbcc1034 .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:N11086df2142149c38ff2d4aa081adb9b .
 
-ns2:N4b1dd6231362490ebd467e837273f194 a ns2:ObjectJson,
+ns1:N737d6503695e45d1a6de9fd00c6cb083 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "Then" ;
-    ns2:parentJsonId ns2:N9c8eaa2513c648dd9a302fadbbcc1034 .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "Identifier" ;
+    ns1:parentJsonId ns1:Nd3024ae2b5664cd1a1fb64c1b34eb3cd .
 
-ns2:N53687f25fd724c54945fc49ee1028e8e a ns2:ObjectJson,
+ns1:N7639d0edb42748108f73cc4be243e584 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "Identifier" ;
-    ns2:parentJsonId ns2:N3825bae8af594860bc754223389da1df .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "OutputList" ;
+    ns1:parentJsonId ns1:Nda6522cedf284bad9d6777fecce833d7 .
 
-ns2:N550452a8debc4aeda88f46ae490132da a ns2:ObjectJson,
+ns1:N7a7b76b6e28549418047fc99584137c1 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "1" ;
-    ns2:parentJsonId ns2:Nb17bd2bc70f04295bb2e5735fd186c41 .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "Then" ;
+    ns1:parentJsonId ns1:Nbff245185f10404b9dcda64fe480a9d0 .
 
-ns2:N55863c36174b4b918f6d30d3282bd837 a ns2:ObjectJson,
+ns1:N83dcbbcb2a3d4f388b6d457378c732fe a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:ScalarString "Count(*)" ;
-    ns2:hasJsonObjectKey "ScalarOperator" ;
-    ns2:parentJsonId ns2:N363e7055abe746938f24b641e25b46f2 .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "OutputList" ;
+    ns1:parentJsonId ns1:N275f05c714fd4915a90ef3eeb5067319 .
 
-ns2:N5733401aabd54126b9376e622671b82d a ns2:ObjectJson,
+ns1:N844ae329ffd445179aef4d1322f6ba03 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:AvgRowSize "42" ;
-    ns1:EstimateCPU "0.0001647" ;
-    ns1:EstimateIO "0.003125" ;
-    ns1:EstimateRebinds "0" ;
-    ns1:EstimateRewinds "0" ;
-    ns1:EstimateRows "1" ;
-    ns1:EstimatedExecutionMode "Row" ;
-    ns1:EstimatedRowsRead "7" ;
-    ns1:EstimatedTotalSubtreeCost "0.0032897" ;
-    ns1:LogicalOp "Clustered Index Scan" ;
-    ns1:NodeId "2" ;
-    ns1:Parallel "0" ;
-    ns1:PhysicalOp "Clustered Index Scan" ;
-    ns1:TableCardinality "7" ;
-    ns2:OutputList "None" ;
-    ns2:hasJsonObjectKey "RelOp" ;
-    ns2:parentJsonId ns2:Nd6a91f2a2c914538b3277470b2e3d22a .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:N3b912f870e064988a6f62d7f0f10c52e .
 
-ns2:N58d025701f524704a013dbf79b3efc3d a ns2:ObjectJson,
+ns1:N9144654df2a8448d9ec98ae2df59aa4d a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "2" ;
-    ns2:parentJsonId ns2:Na59f8a081dd145d081f5d979e00459c8 .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:CompareOp "EQ" ;
+    ns1:hasJsonObjectKey "Compare" ;
+    ns1:parentJsonId ns1:Na2ad618b537c4b69a2f8c6aa8de23be5 .
 
-ns2:N5910aa0c024547a3856eb668b39492d4 a ns2:ObjectJson,
+ns1:N93954022f0c24d2ea223ad47c5d1b4d9 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "0" ;
-    ns2:parentJsonId ns2:Na59f8a081dd145d081f5d979e00459c8 .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "OutputList" ;
+    ns1:parentJsonId ns1:Na1b2f29580b245a88b298ba46aed20b8 .
 
-ns2:N6f2e39138732473cbe290b84f11408e3 a ns2:ObjectJson,
+ns1:N93c5e4545b5a409cb566e0fbc0ab7f43 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "Statements" ;
-    ns2:parentJsonId ns2:N4afc0b8d2df64ad889cae6ec9c080aaf .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "Statements" ;
+    ns1:parentJsonId ns1:Ndb67e95a9a3b41d59bf255cbd0c53890 .
 
-ns2:N77d65ee9e731499bad692299e55dd9e2 a ns2:ObjectJson,
+ns1:N93f1372761124d24af52a3009f836081 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "BatchSequence" ;
-    ns2:parentJsonId ns2:N3017e9bd069e4c5a9bddc74e95b6fe0e .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:Nd763676733bc4c4cac1ecbb494958e6c .
 
-ns2:N7e02f55620ce470aac55487e7612f44e a ns2:FileJson,
-        ns2:ObjectJson,
+ns1:N9728bd429af14146ae66e705f6654071 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:Na67b311085a64010af16d5d1e97cc93f .
 
-ns2:N877d2f6c3ad34036b9c33435ecfa1cc0 a ns2:ObjectJson,
+ns1:Na2ad618b537c4b69a2f8c6aa8de23be5 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "Identifier" ;
-    ns2:parentJsonId ns2:N20613cc04f294c70b46e99721f930b84 .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "2" ;
+    ns1:parentJsonId ns1:Nb04ed173f33d46b69cb53db6977b1a9a .
 
-ns2:N9d3adcf7e90544f5933c5358b59164bb a ns2:ObjectJson,
+ns1:Na82a364676204e9685e91f901e5a645d a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "0" ;
-    ns2:parentJsonId ns2:Nb17bd2bc70f04295bb2e5735fd186c41 .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "Statements" ;
+    ns1:parentJsonId ns1:Ne893d18fc26942ca9b725958d01a6603 .
 
-ns2:N9ea9f28da7714eb9bf5d9a0f98f61efc a ns2:ObjectJson,
+ns1:Nb307919ea2fd410fa530e176a20ea317 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "DefinedValues" ;
-    ns2:parentJsonId ns2:Nbd9b9bade0074647a4ddac6203a1184a .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:Operation "AND" ;
+    ns1:hasJsonObjectKey "Logical" ;
+    ns1:parentJsonId ns1:N2aef6822e8a142028a971ac5f1654fd8 .
 
-ns2:Na564c0ce25784974892fb7336731d0ab a ns2:ObjectJson,
+ns1:Nb42d8192aae946a2961010ea3d74c40f a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "Predicate" ;
-    ns2:parentJsonId ns2:N6e747604c1e14744b0512b73499cca8e .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:N3b912f870e064988a6f62d7f0f10c52e .
 
-ns2:Na6d45bcc897942f1a39cc9e7f4dd22ba a ns2:ObjectJson,
+ns1:Nb743170b44ae4cf3969620da179c5bf1 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "0" ;
-    ns2:parentJsonId ns2:Nf540e8bb6e564e70a144b3bcbf33e0d0 .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "Identifier" ;
+    ns1:parentJsonId ns1:Nb42d8192aae946a2961010ea3d74c40f .
 
-ns2:Na841141919f34315bdeb68bed461dc99 a ns2:ObjectJson,
+ns1:Nbdbb60fb35404d4c9359391e4f1fe7ab a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "DefinedValues" ;
-    ns2:parentJsonId ns2:Nd6a91f2a2c914538b3277470b2e3d22a .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "ParameterList" ;
+    ns1:parentJsonId ns1:Na045c45b2ac34f9ca5333abd018fb1b9 .
 
-ns2:Naacc60c1cf26463ba564c20276ca3229 a ns2:ObjectJson,
+ns1:Nc1652f628d7949339817750375f6fb5f a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "DefinedValues" ;
-    ns2:parentJsonId ns2:N10327cc69de34b3694d798b80a67058e .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "Identifier" ;
+    ns1:parentJsonId ns1:N38efe7dea73544e2bdbf9580d469557c .
 
-ns2:Nab1878b8d22b4b38b941db05928e8609 a ns2:ObjectJson,
+ns1:Nc4f490110ec5432cb20b96afbed90d37 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "ParameterList" ;
-    ns2:parentJsonId ns2:Neaf99d7714cd4a429c790cdb07c7dd41 .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "DefinedValues" ;
+    ns1:parentJsonId ns1:Nbd30aadf11f84160a2fed6638a0305bf .
 
-ns2:Nb74e70e2b0fa439ea3ad45c7097464fc a ns2:ObjectJson,
+ns1:Nc89e01586c204de58b58a74b33799afa a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "Predicate" ;
-    ns2:parentJsonId ns2:N17eaad4dfb95443b8a3e95bc55a6c433 .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:CompareOp "EQ" ;
+    ns1:hasJsonObjectKey "Compare" ;
+    ns1:parentJsonId ns1:Nec04a1fb862446b0b6c595ff7d1a8129 .
 
-ns2:Nb87a0b877ced4ee7aaf18b584514d9d6 a ns2:ObjectJson,
+ns1:Nc9cef847caa64bbbb9483ce2661da6ca a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:CompareOp "EQ" ;
-    ns2:hasJsonObjectKey "Compare" ;
-    ns2:parentJsonId ns2:N3ae5e10ba2964661abefd916a38b362e .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:DataType "int" ;
+    ns3:Implicit "1" ;
+    ns3:Style "0" ;
+    ns1:hasJsonObjectKey "Convert" ;
+    ns1:parentJsonId ns1:N55fafd4132e64a7189b9aa168da8677a .
 
-ns2:Nbb4b8635b2fc43179cf3dacce4649170 a ns2:ObjectJson,
+ns1:Ncb0465b2c22443909b3dce88d368af2b a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:DataType "int" ;
-    ns1:Implicit "1" ;
-    ns1:Style "0" ;
-    ns2:hasJsonObjectKey "Convert" ;
-    ns2:parentJsonId ns2:N05f9b5ca451d4c4c86d6f9056dbbf852 .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "Identifier" ;
+    ns1:parentJsonId ns1:N93f1372761124d24af52a3009f836081 .
 
-ns2:Nc2f1acf6f8514dac8575251e8fcdae59 a ns2:ObjectJson,
+ns1:Ncb3395ae3ee44655b6100024a2deeb7e a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:RetrievedFromCache "false" ;
-    ns1:StatementCompId "1" ;
-    ns1:StatementId "1" ;
-    ns1:StatementText "exec ws_type  'a', 'a', 'E7FAB167-C47A-4865-A8AE-429FA778414C', 'E7FAB167-C47A-4865-A8AE-429FA778414C', 'E7FAB167-C47A-4865-A8AE-429FA778414C'" ;
-    ns1:StatementType "EXECUTE PROC" ;
-    ns2:hasJsonObjectKey "StmtSimple" ;
-    ns2:parentJsonId ns2:Nc4c7cefcfe244db28341a20530b9ab75 .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "DefinedValues" ;
+    ns1:parentJsonId ns1:N725d4746b0f54859a4cdf92efca32f7c .
 
-ns2:Nc4c7cefcfe244db28341a20530b9ab75 a ns2:ObjectJson,
+ns1:Ncf8910bdd4d0451185ad3401883d50c9 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "Statements" ;
-    ns2:parentJsonId ns2:Nf40ede762a0846eb96a1c7b6f15172d7 .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "Statements" ;
+    ns1:parentJsonId ns1:N7a7b76b6e28549418047fc99584137c1 .
 
-ns2:Nc7799f5904cb42ef940b5f1afc10eb38 a ns2:ObjectJson,
+ns1:Nd3024ae2b5664cd1a1fb64c1b34eb3cd a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "Identifier" ;
-    ns2:parentJsonId ns2:N9d3adcf7e90544f5933c5358b59164bb .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:Nc9cef847caa64bbbb9483ce2661da6ca .
 
-ns2:Nca2d1006d75e4b1a8562a52c503b6c0a a ns2:ObjectJson,
+ns1:Nd883b4caea4340768ed3ab7024f6c314 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:ScalarString "[PSYCHOLOGY_TEST_1].[dbo].[T_WORKSTATION].[T_WORKSTATION_STATUS_ID]=[@t_ws_status_id_active] AND [PSYCHOLOGY_TEST_1].[dbo].[T_WORKSTATION].[AUTH_TYPE]=(0) AND [PSYCHOLOGY_TEST_1].[dbo].[T_WORKSTATION].[IP_ADDRESS]=[@ip_address]" ;
-    ns2:hasJsonObjectKey "ScalarOperator" ;
-    ns2:parentJsonId ns2:Nb74e70e2b0fa439ea3ad45c7097464fc .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:ScalarString "'y'" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:N3f51283edb6040a3b099b7defeeab424 .
 
-ns2:Nd736358afcaa4f1c9db18927991ed881 a ns2:ObjectJson,
+ns1:Ndb67e95a9a3b41d59bf255cbd0c53890 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "DefinedValues" ;
-    ns2:parentJsonId ns2:N6e747604c1e14744b0512b73499cca8e .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "Else" ;
+    ns1:parentJsonId ns1:Nbff245185f10404b9dcda64fe480a9d0 .
 
-ns2:Ne9a726f7d67048df876f03b87cc5261e a ns2:ObjectJson,
+ns1:Ne3974e95ef464c2c8a511e3aa61a8608 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "Identifier" ;
-    ns2:parentJsonId ns2:N21f5f25fb1a2452a9712462fea898893 .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "Predicate" ;
+    ns1:parentJsonId ns1:N9855f1373c6345909ebfcb7b2ea3f1de .
 
-ns2:Nf11c67cb31bf4084a7d869e4b0104ef1 a ns2:ObjectJson,
+ns1:Ne54d5d967b884c8db942fda367585ad9 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "0" ;
-    ns2:parentJsonId ns2:Ndf25e6f004184208b71a36b5b75467f3 .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "BatchSequence" ;
+    ns1:parentJsonId ns1:N6d50933b029244f3854ae3cba6f6b4a5 .
 
-ns2:Nf400824a2d9c4f93ae2eda01ed65cd5c a ns2:ObjectJson,
+ns1:Ne76cff6a31dd406a8115a3097c506cd4 a ns1:FileJson,
+        ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:CompareOp "EQ" ;
-    ns2:hasJsonObjectKey "Compare" ;
-    ns2:parentJsonId ns2:N58d025701f524704a013dbf79b3efc3d .
+    ns2:hasSourceFile "ws_type.json" .
 
-ns2:Nf40ede762a0846eb96a1c7b6f15172d7 a ns2:ObjectJson,
+ns1:Ne893d18fc26942ca9b725958d01a6603 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "Batch" ;
-    ns2:parentJsonId ns2:N77d65ee9e731499bad692299e55dd9e2 .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "Batch" ;
+    ns1:parentJsonId ns1:Ne54d5d967b884c8db942fda367585ad9 .
 
-ns2:Nf4bd821a2bd74ecc977f510ad93983d4 a ns2:ObjectJson,
+ns1:Ne9590d20531441a79bfab2d6949f891e a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "1" ;
-    ns2:parentJsonId ns2:Nf540e8bb6e564e70a144b3bcbf33e0d0 .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:ScalarString "Count(*)" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:Nda04777dea3c4c01988ae23827dbfec3 .
 
-ns2:Nf676edbed7cf45d18c7f514210903bca a ns2:ObjectJson,
+ns1:Nea6b8477322d43598f9136933b5afdd8 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:CompareOp "EQ" ;
-    ns2:hasJsonObjectKey "Compare" ;
-    ns2:parentJsonId ns2:N5910aa0c024547a3856eb668b39492d4 .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "Identifier" ;
+    ns1:parentJsonId ns1:Nf39111fbd5214868aba5cd7aeae9bfad .
 
-ns2:Nf84e6231fcf44850aaa92c6caf662c1c a ns2:ObjectJson,
+ns1:Nec04a1fb862446b0b6c595ff7d1a8129 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:Operation "AND" ;
-    ns2:hasJsonObjectKey "Logical" ;
-    ns2:parentJsonId ns2:Nca2d1006d75e4b1a8562a52c503b6c0a .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "1" ;
+    ns1:parentJsonId ns1:Nb04ed173f33d46b69cb53db6977b1a9a .
 
-ns2:Nf9e126a7808b486bb05ff7a981cabcb0 a ns2:ObjectJson,
+ns1:Nedea041d269245659911d59a925f59f3 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "ScalarOperator" ;
-    ns2:parentJsonId ns2:Nbb4b8635b2fc43179cf3dacce4649170 .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:CompareOp "EQ" ;
+    ns1:hasJsonObjectKey "Compare" ;
+    ns1:parentJsonId ns1:N2bf968e2ebcc47b289865b184631e2fd .
 
-ns2:N03b1f631bc084c659f65b3714369ea68 a ns2:ArrayJson,
-        ns2:ObjectJson,
+ns1:Nf39111fbd5214868aba5cd7aeae9bfad a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "ScalarOperator" ;
-    ns2:parentJsonId ns2:Nb87a0b877ced4ee7aaf18b584514d9d6 .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "0" ;
+    ns1:parentJsonId ns1:Nd763676733bc4c4cac1ecbb494958e6c .
 
-ns2:N05e31305adae49c4944a7521d03598db a ns2:ObjectJson,
+ns1:N11086df2142149c38ff2d4aa081adb9b a ns1:ArrayJson,
+        ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "DefinedValue" ;
-    ns2:parentJsonId ns2:N9ea9f28da7714eb9bf5d9a0f98f61efc .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "DefinedValue" ;
+    ns1:parentJsonId ns1:N584d3490229649899dc0e0e29ae90e6d .
 
-ns2:N09dc657c54ff414d993ecd055991942b a ns2:ObjectJson,
+ns1:N11fde38791f04ab38a6bd6392c3d26a2 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "Statements" ;
-    ns2:parentJsonId ns2:N29a1ed2847404db48ad7898d382a8e8f .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:CardinalityEstimationModelVersion "70" ;
+    ns3:QueryHash "0x66A3CFB4124C0BA2" ;
+    ns3:QueryPlanHash "0xD18F7CED47F5B429" ;
+    ns3:RetrievedFromCache "false" ;
+    ns3:SecurityPolicyApplied "false" ;
+    ns3:StatementCompId "5" ;
+    ns3:StatementEstRows "1" ;
+    ns3:StatementId "4" ;
+    ns3:StatementOptmLevel "TRIVIAL" ;
+    ns3:StatementSubTreeCost "0.00329106" ;
+    ns3:StatementText """ \r
+begin\r
+\r
+   select \r
+   @t_workstation_id=t_workstation_id\r
+   ,@t_testing_id=t_testing_id,@ip_auth='y'\r
+   from t_workstation \r
+   where ip_address=@ip_address""" ;
+    ns3:StatementType "SELECT" ;
+    ns1:hasJsonObjectKey "StmtSimple" ;
+    ns1:parentJsonId ns1:Ncf8910bdd4d0451185ad3401883d50c9 .
 
-ns2:N10327cc69de34b3694d798b80a67058e a ns2:ObjectJson,
+ns1:N275f05c714fd4915a90ef3eeb5067319 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "ComputeScalar" ;
-    ns2:parentJsonId ns2:N6a0cbe9fe20347f1ba5e5fbd2d60a22a .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:AvgRowSize "40" ;
+    ns3:EstimateCPU "1e-07" ;
+    ns3:EstimateIO "0" ;
+    ns3:EstimateRebinds "0" ;
+    ns3:EstimateRewinds "0" ;
+    ns3:EstimateRows "1" ;
+    ns3:EstimatedExecutionMode "Row" ;
+    ns3:EstimatedTotalSubtreeCost "0.00329106" ;
+    ns3:LogicalOp "Compute Scalar" ;
+    ns3:NodeId "0" ;
+    ns3:Parallel "0" ;
+    ns3:PhysicalOp "Compute Scalar" ;
+    ns1:hasJsonObjectKey "RelOp" ;
+    ns1:parentJsonId ns1:Na045c45b2ac34f9ca5333abd018fb1b9 .
 
-ns2:N13c65a4a25a246a0b6b6890ff4e747f7 a ns2:ObjectJson,
+ns1:N2e5854709254464ca3244e36d05e0dad a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:CardinalityEstimationModelVersion "70" ;
-    ns1:QueryHash "0x7928B5A09AAA2327" ;
-    ns1:QueryPlanHash "0x9284BD71E774932D" ;
-    ns1:RetrievedFromCache "false" ;
-    ns1:SecurityPolicyApplied "false" ;
-    ns1:StatementCompId "3" ;
-    ns1:StatementEstRows "1" ;
-    ns1:StatementId "2" ;
-    ns1:StatementOptmLevel "TRIVIAL" ;
-    ns1:StatementSubTreeCost "0.00329206" ;
-    ns1:StatementText """\r
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:CardinalityEstimationModelVersion "70" ;
+    ns3:QueryHash "0x7928B5A09AAA2327" ;
+    ns3:QueryPlanHash "0x9284BD71E774932D" ;
+    ns3:RetrievedFromCache "false" ;
+    ns3:SecurityPolicyApplied "false" ;
+    ns3:StatementCompId "3" ;
+    ns3:StatementEstRows "1" ;
+    ns3:StatementId "2" ;
+    ns3:StatementOptmLevel "TRIVIAL" ;
+    ns3:StatementSubTreeCost "0.00329206" ;
+    ns3:StatementText """\r
 CREATE procedure [dbo].[ws_type] \r
 @ip_address varchar(100),\r
 @ip_auth char(1) output,\r
@@ -788,250 +813,225 @@ from t_workstation \r
 where ip_address=@ip_address and \r
 t_workstation_status_id=@t_ws_status_id_active \r
 and auth_type=0""" ;
-    ns1:StatementType "SELECT" ;
-    ns2:hasJsonObjectKey "StmtSimple" ;
-    ns2:parentJsonId ns2:N09dc657c54ff414d993ecd055991942b .
+    ns3:StatementType "SELECT" ;
+    ns1:hasJsonObjectKey "StmtSimple" ;
+    ns1:parentJsonId ns1:N7e3490f5735f444fb2cb87b98fdf2ec6 .
 
-ns2:N17eaad4dfb95443b8a3e95bc55a6c433 a ns2:ObjectJson,
+ns1:N31e3471587854f7ca88cd8f1773af81c a ns1:ArrayJson,
+        ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:ForceScan "0" ;
-    ns1:ForcedIndex "0" ;
-    ns1:NoExpandHint "0" ;
-    ns1:Ordered "0" ;
-    ns1:Storage "RowStore" ;
-    ns2:DefinedValues "None" ;
-    ns2:hasJsonObjectKey "IndexScan" ;
-    ns2:parentJsonId ns2:N5733401aabd54126b9376e622671b82d .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N427c804acdea43d58db96eaf20bba155 .
 
-ns2:N22cc64e8298a41d09067c7d11d907168 a ns2:ObjectJson,
+ns1:N327b3464fefd43a9ba99741375cfc6ee a ns1:ArrayJson,
+        ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:CardinalityEstimationModelVersion "70" ;
-    ns1:QueryHash "0x66A3CFB4124C0BA2" ;
-    ns1:QueryPlanHash "0xD18F7CED47F5B429" ;
-    ns1:RetrievedFromCache "false" ;
-    ns1:SecurityPolicyApplied "false" ;
-    ns1:StatementCompId "5" ;
-    ns1:StatementEstRows "1" ;
-    ns1:StatementId "4" ;
-    ns1:StatementOptmLevel "TRIVIAL" ;
-    ns1:StatementSubTreeCost "0.00329106" ;
-    ns1:StatementText """ \r
-begin\r
-\r
-   select \r
-   @t_workstation_id=t_workstation_id\r
-   ,@t_testing_id=t_testing_id,@ip_auth='y'\r
-   from t_workstation \r
-   where ip_address=@ip_address""" ;
-    ns1:StatementType "SELECT" ;
-    ns2:hasJsonObjectKey "StmtSimple" ;
-    ns2:parentJsonId ns2:N4235ca05b5944807916d5d483dd146e2 .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N057211bf1b1242a8a43df26ea98eac68 .
 
-ns2:N2766990f8e124917aaa79a84b7e85949 a ns2:ObjectJson,
+ns1:N37b3775dd73b4a7cb475f4c7f229de46 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "DefinedValue" ;
-    ns2:parentJsonId ns2:Naacc60c1cf26463ba564c20276ca3229 .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "DefinedValue" ;
+    ns1:parentJsonId ns1:N4aee6e18c17442e6bdcefc2c0c9d7af2 .
 
-ns2:N363e7055abe746938f24b641e25b46f2 a ns2:ObjectJson,
+ns1:N391ec45081584007b9a45f8b289f2787 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "DefinedValue" ;
-    ns2:parentJsonId ns2:Na841141919f34315bdeb68bed461dc99 .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:ForceScan "0" ;
+    ns3:ForcedIndex "0" ;
+    ns3:NoExpandHint "0" ;
+    ns3:Ordered "0" ;
+    ns3:Storage "RowStore" ;
+    ns1:DefinedValues "None" ;
+    ns1:hasJsonObjectKey "IndexScan" ;
+    ns1:parentJsonId ns1:N4e5315f882c946d19b5212d6ffe52a4f .
 
-ns2:N6a0cbe9fe20347f1ba5e5fbd2d60a22a a ns2:ObjectJson,
+ns1:N3b912f870e064988a6f62d7f0f10c52e a ns1:ArrayJson,
+        ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:AvgRowSize "40" ;
-    ns1:EstimateCPU "1e-07" ;
-    ns1:EstimateIO "0" ;
-    ns1:EstimateRebinds "0" ;
-    ns1:EstimateRewinds "0" ;
-    ns1:EstimateRows "1" ;
-    ns1:EstimatedExecutionMode "Row" ;
-    ns1:EstimatedTotalSubtreeCost "0.00329106" ;
-    ns1:LogicalOp "Compute Scalar" ;
-    ns1:NodeId "0" ;
-    ns1:Parallel "0" ;
-    ns1:PhysicalOp "Compute Scalar" ;
-    ns2:hasJsonObjectKey "RelOp" ;
-    ns2:parentJsonId ns2:N464a9e35bf3f4de39d5c283df913d14a .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:N46c84dc2dcbd43bbbc23250b902780d4 .
 
-ns2:N949e3bbd8280400d84a15204bf2a65c8 a ns2:ArrayJson,
-        ns2:ObjectJson,
+ns1:N3f51283edb6040a3b099b7defeeab424 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "ScalarOperator" ;
-    ns2:parentJsonId ns2:Nf676edbed7cf45d18c7f514210903bca .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "DefinedValue" ;
+    ns1:parentJsonId ns1:Ncb3395ae3ee44655b6100024a2deeb7e .
 
-ns2:N9c8eaa2513c648dd9a302fadbbcc1034 a ns2:ObjectJson,
+ns1:N725d4746b0f54859a4cdf92efca32f7c a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:RetrievedFromCache "false" ;
-    ns1:StatementCompId "4" ;
-    ns1:StatementId "3" ;
-    ns1:StatementText """\r
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "ComputeScalar" ;
+    ns1:parentJsonId ns1:N275f05c714fd4915a90ef3eeb5067319 .
+
+ns1:N7e3490f5735f444fb2cb87b98fdf2ec6 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "Statements" ;
+    ns1:parentJsonId ns1:N5e43417a4d794f25837aacdbc7af3d30 .
+
+ns1:N962c56e4e2c547f88c9abf13be68b3b5 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:AvgRowSize "54" ;
+    ns3:EstimateCPU "0.0001647" ;
+    ns3:EstimateIO "0.003125" ;
+    ns3:EstimateRebinds "0" ;
+    ns3:EstimateRewinds "0" ;
+    ns3:EstimateRows "1" ;
+    ns3:EstimatedExecutionMode "Row" ;
+    ns3:EstimatedRowsRead "7" ;
+    ns3:EstimatedTotalSubtreeCost "0.0032897" ;
+    ns3:LogicalOp "Clustered Index Scan" ;
+    ns3:NodeId "1" ;
+    ns3:Parallel "0" ;
+    ns3:PhysicalOp "Clustered Index Scan" ;
+    ns3:TableCardinality "7" ;
+    ns1:hasJsonObjectKey "RelOp" ;
+    ns1:parentJsonId ns1:N725d4746b0f54859a4cdf92efca32f7c .
+
+ns1:N9729c29262974f0b82f6b7fa62985ad7 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "ComputeScalar" ;
+    ns1:parentJsonId ns1:Nda6522cedf284bad9d6777fecce833d7 .
+
+ns1:Na1b2f29580b245a88b298ba46aed20b8 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:AvgRowSize "11" ;
+    ns3:EstimateCPU "1.1e-06" ;
+    ns3:EstimateIO "0" ;
+    ns3:EstimateRebinds "0" ;
+    ns3:EstimateRewinds "0" ;
+    ns3:EstimateRows "1" ;
+    ns3:EstimatedExecutionMode "Row" ;
+    ns3:EstimatedTotalSubtreeCost "0.00329206" ;
+    ns3:LogicalOp "Aggregate" ;
+    ns3:NodeId "1" ;
+    ns3:Parallel "0" ;
+    ns3:PhysicalOp "Stream Aggregate" ;
+    ns1:hasJsonObjectKey "RelOp" ;
+    ns1:parentJsonId ns1:N9729c29262974f0b82f6b7fa62985ad7 .
+
+ns1:Na67b311085a64010af16d5d1e97cc93f a ns1:ArrayJson,
+        ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:Nedea041d269245659911d59a925f59f3 .
+
+ns1:Nb09dac62ede14d709f3682b2a15342c1 a ns1:ArrayJson,
+        ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:Nc89e01586c204de58b58a74b33799afa .
+
+ns1:Nbd30aadf11f84160a2fed6638a0305bf a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "StreamAggregate" ;
+    ns1:parentJsonId ns1:Na1b2f29580b245a88b298ba46aed20b8 .
+
+ns1:Nbff245185f10404b9dcda64fe480a9d0 a ns1:ObjectJson,
+        owl:NamedIndividual ;
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:RetrievedFromCache "false" ;
+    ns3:StatementCompId "4" ;
+    ns3:StatementId "3" ;
+    ns3:StatementText """\r
 \r
 if @ws_ip_count > 0""" ;
-    ns1:StatementType "COND" ;
-    ns2:Condition "None" ;
-    ns2:hasJsonObjectKey "StmtCond" ;
-    ns2:parentJsonId ns2:N09dc657c54ff414d993ecd055991942b .
+    ns3:StatementType "COND" ;
+    ns1:Condition "None" ;
+    ns1:hasJsonObjectKey "StmtCond" ;
+    ns1:parentJsonId ns1:N7e3490f5735f444fb2cb87b98fdf2ec6 .
 
-ns2:Nb17bd2bc70f04295bb2e5735fd186c41 a ns2:ArrayJson,
-        ns2:ObjectJson,
+ns1:Nd763676733bc4c4cac1ecbb494958e6c a ns1:ArrayJson,
+        ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "ScalarOperator" ;
-    ns2:parentJsonId ns2:N0ef12c5418904d9dac13d5e38a698e96 .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:N9144654df2a8448d9ec98ae2df59aa4d .
 
-ns2:Nb8a46bdff9274de2b7f646a55eb6fa42 a ns2:ObjectJson,
+ns1:Nda04777dea3c4c01988ae23827dbfec3 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:AvgRowSize "11" ;
-    ns1:EstimateCPU "0" ;
-    ns1:EstimateIO "0" ;
-    ns1:EstimateRebinds "0" ;
-    ns1:EstimateRewinds "0" ;
-    ns1:EstimateRows "1" ;
-    ns1:EstimatedExecutionMode "Row" ;
-    ns1:EstimatedTotalSubtreeCost "0.00329206" ;
-    ns1:LogicalOp "Compute Scalar" ;
-    ns1:NodeId "0" ;
-    ns1:Parallel "0" ;
-    ns1:PhysicalOp "Compute Scalar" ;
-    ns2:hasJsonObjectKey "RelOp" ;
-    ns2:parentJsonId ns2:Neaf99d7714cd4a429c790cdb07c7dd41 .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "DefinedValue" ;
+    ns1:parentJsonId ns1:Nc4f490110ec5432cb20b96afbed90d37 .
 
-ns2:Nbd9b9bade0074647a4ddac6203a1184a a ns2:ObjectJson,
+ns1:Nda6522cedf284bad9d6777fecce833d7 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "ComputeScalar" ;
-    ns2:parentJsonId ns2:Nb8a46bdff9274de2b7f646a55eb6fa42 .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:AvgRowSize "11" ;
+    ns3:EstimateCPU "0" ;
+    ns3:EstimateIO "0" ;
+    ns3:EstimateRebinds "0" ;
+    ns3:EstimateRewinds "0" ;
+    ns3:EstimateRows "1" ;
+    ns3:EstimatedExecutionMode "Row" ;
+    ns3:EstimatedTotalSubtreeCost "0.00329206" ;
+    ns3:LogicalOp "Compute Scalar" ;
+    ns3:NodeId "0" ;
+    ns3:Parallel "0" ;
+    ns3:PhysicalOp "Compute Scalar" ;
+    ns1:hasJsonObjectKey "RelOp" ;
+    ns1:parentJsonId ns1:Na7afc1c442384191b82959724ca69644 .
 
-ns2:Nc62bbe16871d4869ac12e2a7afb28b09 a ns2:ObjectJson,
+ns1:N1020c2b0942342b1bfc588606cc79242 a ns1:ArrayJson,
+        ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:AvgRowSize "54" ;
-    ns1:EstimateCPU "0.0001647" ;
-    ns1:EstimateIO "0.003125" ;
-    ns1:EstimateRebinds "0" ;
-    ns1:EstimateRewinds "0" ;
-    ns1:EstimateRows "1" ;
-    ns1:EstimatedExecutionMode "Row" ;
-    ns1:EstimatedRowsRead "7" ;
-    ns1:EstimatedTotalSubtreeCost "0.0032897" ;
-    ns1:LogicalOp "Clustered Index Scan" ;
-    ns1:NodeId "1" ;
-    ns1:Parallel "0" ;
-    ns1:PhysicalOp "Clustered Index Scan" ;
-    ns1:TableCardinality "7" ;
-    ns2:hasJsonObjectKey "RelOp" ;
-    ns2:parentJsonId ns2:N10327cc69de34b3694d798b80a67058e .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:N83dcbbcb2a3d4f388b6d457378c732fe .
 
-ns2:Ncd89aa275e0143ada6219e87ce8cdb17 a ns2:ArrayJson,
-        ns2:ObjectJson,
+ns1:N9855f1373c6345909ebfcb7b2ea3f1de a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "ColumnReference" ;
-    ns2:parentJsonId ns2:N1e9702ff59a64693b3e31b969ade2401 .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:ForceScan "0" ;
+    ns3:ForcedIndex "0" ;
+    ns3:NoExpandHint "0" ;
+    ns3:Ordered "0" ;
+    ns3:Storage "RowStore" ;
+    ns1:hasJsonObjectKey "IndexScan" ;
+    ns1:parentJsonId ns1:N962c56e4e2c547f88c9abf13be68b3b5 .
 
-ns2:Nd6a91f2a2c914538b3277470b2e3d22a a ns2:ObjectJson,
+ns1:Nb04ed173f33d46b69cb53db6977b1a9a a ns1:ArrayJson,
+        ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "StreamAggregate" ;
-    ns2:parentJsonId ns2:Nd77515e563174cb2850037c000eb8e38 .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "ScalarOperator" ;
+    ns1:parentJsonId ns1:Nb307919ea2fd410fa530e176a20ea317 .
 
-ns2:Nd77515e563174cb2850037c000eb8e38 a ns2:ObjectJson,
+ns1:N10945e25c152401cb3ead2e133590123 a ns1:ArrayJson,
+        ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:AvgRowSize "11" ;
-    ns1:EstimateCPU "1.1e-06" ;
-    ns1:EstimateIO "0" ;
-    ns1:EstimateRebinds "0" ;
-    ns1:EstimateRewinds "0" ;
-    ns1:EstimateRows "1" ;
-    ns1:EstimatedExecutionMode "Row" ;
-    ns1:EstimatedTotalSubtreeCost "0.00329206" ;
-    ns1:LogicalOp "Aggregate" ;
-    ns1:NodeId "1" ;
-    ns1:Parallel "0" ;
-    ns1:PhysicalOp "Stream Aggregate" ;
-    ns2:hasJsonObjectKey "RelOp" ;
-    ns2:parentJsonId ns2:Nbd9b9bade0074647a4ddac6203a1184a .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns1:hasJsonObjectKey "ColumnReference" ;
+    ns1:parentJsonId ns1:Nbdbb60fb35404d4c9359391e4f1fe7ab .
 
-ns2:Ndf25e6f004184208b71a36b5b75467f3 a ns2:ArrayJson,
-        ns2:ObjectJson,
+ns1:Na045c45b2ac34f9ca5333abd018fb1b9 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "DefinedValue" ;
-    ns2:parentJsonId ns2:Nd736358afcaa4f1c9db18927991ed881 .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:CachedPlanSize "16" ;
+    ns3:CompileCPU "1" ;
+    ns3:CompileMemory "176" ;
+    ns3:CompileTime "1" ;
+    ns1:hasJsonObjectKey "QueryPlan" ;
+    ns1:parentJsonId ns1:N11fde38791f04ab38a6bd6392c3d26a2 .
 
-ns2:Nf540e8bb6e564e70a144b3bcbf33e0d0 a ns2:ArrayJson,
-        ns2:ObjectJson,
+ns1:Na7afc1c442384191b82959724ca69644 a ns1:ObjectJson,
         owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "ScalarOperator" ;
-    ns2:parentJsonId ns2:Nf400824a2d9c4f93ae2eda01ed65cd5c .
-
-ns2:Nfc7008cb72ac4f6b8b29dced681fe7f3 a ns2:ArrayJson,
-        ns2:ObjectJson,
-        owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "ColumnReference" ;
-    ns2:parentJsonId ns2:Nab1878b8d22b4b38b941db05928e8609 .
-
-ns2:N6e747604c1e14744b0512b73499cca8e a ns2:ObjectJson,
-        owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:ForceScan "0" ;
-    ns1:ForcedIndex "0" ;
-    ns1:NoExpandHint "0" ;
-    ns1:Ordered "0" ;
-    ns1:Storage "RowStore" ;
-    ns2:hasJsonObjectKey "IndexScan" ;
-    ns2:parentJsonId ns2:Nc62bbe16871d4869ac12e2a7afb28b09 .
-
-ns2:N701abcbb4de54535b049d218f1a4f2f8 a ns2:ArrayJson,
-        ns2:ObjectJson,
-        owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "ColumnReference" ;
-    ns2:parentJsonId ns2:N1a015ebe23cf46b18897646c10bde839 .
-
-ns2:Na59f8a081dd145d081f5d979e00459c8 a ns2:ArrayJson,
-        ns2:ObjectJson,
-        owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "ScalarOperator" ;
-    ns2:parentJsonId ns2:Nf84e6231fcf44850aaa92c6caf662c1c .
-
-ns2:N464a9e35bf3f4de39d5c283df913d14a a ns2:ObjectJson,
-        owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:CachedPlanSize "16" ;
-    ns1:CompileCPU "1" ;
-    ns1:CompileMemory "176" ;
-    ns1:CompileTime "1" ;
-    ns2:hasJsonObjectKey "QueryPlan" ;
-    ns2:parentJsonId ns2:N22cc64e8298a41d09067c7d11d907168 .
-
-ns2:Ne167b2f4b1a14538b47a46f93107f3b6 a ns2:ArrayJson,
-        ns2:ObjectJson,
-        owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns2:hasJsonObjectKey "ColumnReference" ;
-    ns2:parentJsonId ns2:N465267fb45614e9cbe64a941107fafbf .
-
-ns2:Neaf99d7714cd4a429c790cdb07c7dd41 a ns2:ObjectJson,
-        owl:NamedIndividual ;
-    ns3:hasSourceFile "ws_type.json" ;
-    ns1:CachedPlanSize "16" ;
-    ns1:CompileCPU "2" ;
-    ns1:CompileMemory "200" ;
-    ns1:CompileTime "2" ;
-    ns2:hasJsonObjectKey "QueryPlan" ;
-    ns2:parentJsonId ns2:N13c65a4a25a246a0b6b6890ff4e747f7 .
+    ns2:hasSourceFile "ws_type.json" ;
+    ns3:CachedPlanSize "16" ;
+    ns3:CompileCPU "2" ;
+    ns3:CompileMemory "200" ;
+    ns3:CompileTime "2" ;
+    ns1:hasJsonObjectKey "QueryPlan" ;
+    ns1:parentJsonId ns1:N2e5854709254464ca3244e36d05e0dad .
 

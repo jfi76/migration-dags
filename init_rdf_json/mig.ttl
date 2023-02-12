@@ -181,6 +181,7 @@ select ?iri ?label ?dbname
                                    :msprocstatementsforpgbtn ,
                                    :msvariablebtn ,
                                    :plpgsqlparametersreport ,
+                                   :procErrorbtn ,
                                    :procstatementsbtn ;
              rdfs:label "Procedure" .
 
@@ -528,6 +529,23 @@ select ?iri ?mode ?position ?name ?type ?length
   bind(xsd:integer(?pos) as ?position)  .
 }  order by ?StatementId_Int""" ;
                          rdfs:label "plpgsql Parameters" .
+
+
+###  http://www.example.com/MIGRATION#procErrorbtn
+:procErrorbtn rdf:type owl:NamedIndividual ,
+                       report:buttonReport ;
+              report:hasQuery """select  ?iri ?task_label (substr(?erro_msg_str,1,150) as ?erro_msg)
+{
+  bind(?param? as ?param) .
+  ?task rdf:type mig:runcreateprocess .  
+  ?iri mig:hasTask ?task .
+  ?task mig:START_AT ?task_start.
+  ?task rdfs:label ?task_label .   
+  ?iri rdf:type mig:runcreateprocessprocedure .
+  ?iri mig:hasProcedure ?param .
+  ?iri mig:ERROR_MSG ?erro_msg_str
+} order by DESC(?task_start)""" ;
+              rdfs:label "Errors" .
 
 
 ###  http://www.example.com/MIGRATION#procstatementsbtn

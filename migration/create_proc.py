@@ -23,6 +23,7 @@ class create_proc:
     def log_task_start(self):
         self.taskIri=self.ttl_serice.start_run_task()
         return self.taskIri
+    
     def iterate_proc(self):        
         self.queryService.insert(stmt.delete_pgstatements)
         self.set_statement_types()        
@@ -122,10 +123,11 @@ as $$""", self.statementId , proc['iri'], self.statement_types_dict['CREATE LANG
             for statement in ret:
                 if (statement['StatementType']['value']=='SELECT'): 
                     ret=select.exec(statement['StatementText']['value'])
+                    print(ret)
                     tmp_stmt=replace_right_ms_vars_in_coparison(self.proc_variables,ret['stmt'])+ ';'
                     #print(tmp_stmt)
                     self.add_body_statement(tmp_stmt,ret,statement['iri']['value'],procIri,statement['StatementType']['value'],statement['iri']['value'])
-                    break
+                    #break
 
 if __name__ == "__main__":
     print ('main')
@@ -133,8 +135,8 @@ if __name__ == "__main__":
 #    c.fileoutput='./output/proc.ttl'
 #    c.iterate_proc()
     
-    procIri='http://www.example.com/MIGRATION#8e7ef6a7-c2d0-4683-997b-22a77da92063'
-    procIrir='http://www.example.com/MIGRATION#969bd3bc-4e04-4782-a48e-129ca986d4aa'
+
+    procIri='http://www.example.com/MIGRATION#ac3cd396-a02d-4e87-808e-79e872409a63'
     c.get_proc_variables(procIri)
     c.prep_params(procIri)
     c.process_body(procIri)

@@ -6,6 +6,7 @@ sys.path.append( './migration/query/' )
 import runSparqlWrapper as sparql_service
 import statements as stmt
 from rdf_ttl_service import rdfTTLService
+import st_common
 
 class process_declare:
     def __init__(self):
@@ -22,7 +23,7 @@ class process_declare:
                 if str(token[0])[0]=="@":
                     for subtoken in token:
                         if isinstance(subtoken, sqlparse.sql.Identifier) :
-                            self.form_declare(stmts.tokens,subtoken,i,procIri,stmt_iri)
+                            self.form_declare(stmts.tokens,subtoken,i,procIri,stmt_iri)            
             if isinstance(token, sqlparse.sql.Identifier):
                 if str(token[0])[0]=="@":
                     self.form_declare(stmts.tokens,token,i,procIri,stmt_iri)
@@ -72,4 +73,13 @@ class process_declare:
 if __name__ == "__main__":
 
     c=process_declare()
-    c.iterate_declare()
+    #c.iterate_declare()
+    c.parse("""
+CREATE procedure [dbo].[selupd_1print] 
+as 
+declare @t_testing_id uniqueidentifier
+declare @job_count int 
+
+SET XACT_ABORT ON;
+
+""",'mig:3f293ed7-683c-45d4-9ca9-bcbba4be061e' ,'js:Nd155ee3a3ccc4783b442ffe1185d8f40')

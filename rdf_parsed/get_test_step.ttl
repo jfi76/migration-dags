@@ -1,938 +1,1010 @@
-@prefix ns1: <http://www.example.com/JSON#> .
-@prefix ns2: <http://www.example.com/ETL#> .
-@prefix ns3: <http://www.example.com/JSON#@> .
+@prefix ns1: <http://www.example.com/JSON#@> .
+@prefix ns2: <http://www.example.com/JSON#> .
+@prefix ns3: <http://www.example.com/ETL#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
-ns1:N0f0ed04769544fae803bac151fb25768 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:EstimatedAvailableDegreeOfParallelism "2" ;
-    ns3:EstimatedAvailableMemoryGrant "311472" ;
-    ns3:EstimatedPagesCached "77868" ;
-    ns3:MaxCompileMemory "8272" ;
-    ns1:hasJsonObjectKey "OptimizerHardwareDependentProperties" ;
-    ns1:parentJsonId ns1:N2547bafebf2946eea12ebb58945c5771 .
-
-ns1:N362ce1bc94a541d58b00767e4d55d7cc a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:Alias "[ts]" ;
-    ns3:Column "PAGE_USR_TEXT_LANG2" ;
-    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns3:Schema "[dbo]" ;
-    ns3:Table "[T_TEST_STEP]" ;
-    ns1:hasJsonObjectKey "1" ;
-    ns1:parentJsonId ns1:N5d98c9793fdf4916864b5529ad5673bb .
-
-ns1:N36f3381338fb44179e5cf874209cc29b a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:Alias "[ts]" ;
-    ns3:Column "PAGE_USR_TEXT_LANG1" ;
-    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns3:Schema "[dbo]" ;
-    ns3:Table "[T_TEST_STEP]" ;
-    ns1:hasJsonObjectKey "0" ;
-    ns1:parentJsonId ns1:N5d98c9793fdf4916864b5529ad5673bb .
-
-ns1:N37a95f74b45a4c7fbcff5ba48fa76a02 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:Alias "[ts]" ;
-    ns3:Column "T_TEST_STEP_ID" ;
-    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns3:Schema "[dbo]" ;
-    ns3:Table "[T_TEST_STEP]" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:N1a1522bf1ed44ea5831b14ea6dd0d673 .
-
-ns1:N3bbf8801d4194683b90048f3bdcac4d3 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:Alias "[tt]" ;
-    ns3:Column "RESULT_TXT" ;
-    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns3:Schema "[dbo]" ;
-    ns3:Table "[T_TESTING_STEP]" ;
-    ns1:hasJsonObjectKey "0" ;
-    ns1:parentJsonId ns1:Nb95b083178d641f692cce4aab145cf73 .
-
-ns1:N41af8eeb911e42258a40c6b9acbc29d5 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:ConstValue "(2)" ;
-    ns1:hasJsonObjectKey "Const" ;
-    ns1:parentJsonId ns1:N70cbf555c70347b3a1cb26c97d2a812d .
-
-ns1:N455d94d68a414381881cff08a4b1a7fe a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:Alias "[ts]" ;
-    ns3:Column "PAGE_USR_TEXT_LANG1" ;
-    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns3:Schema "[dbo]" ;
-    ns3:Table "[T_TEST_STEP]" ;
-    ns1:hasJsonObjectKey "0" ;
-    ns1:parentJsonId ns1:N4e4710911fd54849955999c36d6d01eb .
-
-ns1:N482d0a0b76094a9b870d867a84cb267a a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:Column "@lang_num" ;
-    ns3:ParameterCompiledValue "(1)" ;
-    ns3:ParameterDataType "int" ;
-    ns1:hasJsonObjectKey "0" ;
-    ns1:parentJsonId ns1:N545d087b17da493cb95e96a75428aed8 .
-
-ns1:N5841f6265d40403face6ad621bfbfd06 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:ConstValue "(3)" ;
-    ns1:hasJsonObjectKey "Const" ;
-    ns1:parentJsonId ns1:Na64f7d6a88ee46cc8f933168a5115822 .
-
-ns1:N61fb642455c948e88205ad441fde38ea a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:Column "@current_step_id" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:Ne7bab518d7434322954aade58b3bfb66 .
-
-ns1:N67d7a5c9f0554f559228d12a67effb7f a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:Alias "[ts]" ;
-    ns3:Column "PAGE_USR_TEXT_LANG1" ;
-    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns3:Schema "[dbo]" ;
-    ns3:Table "[T_TEST_STEP]" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:N8afd120ebf734656a6d95872c026bad1 .
-
-ns1:N681f6747fd3341db8ba45ac420b9af8d a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:Alias "[ts]" ;
-    ns3:Column "PAGE_USR_TEXT_LANG3" ;
-    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns3:Schema "[dbo]" ;
-    ns3:Table "[T_TEST_STEP]" ;
-    ns1:hasJsonObjectKey "2" ;
-    ns1:parentJsonId ns1:N4e4710911fd54849955999c36d6d01eb .
-
-ns1:N704be6696a4c493d867bba03308b1344 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:Column "@current_step_id" ;
-    ns3:ParameterCompiledValue "{guid'E7FAB167-C47A-4865-A8AE-429FA778414C'}" ;
-    ns3:ParameterDataType "uniqueidentifier" ;
-    ns1:hasJsonObjectKey "2" ;
-    ns1:parentJsonId ns1:N545d087b17da493cb95e96a75428aed8 .
-
-ns1:N71be1e367bbe4e44a49376ee4f130946 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:Alias "[tt]" ;
-    ns3:Column "T_TEST_STEP_ID" ;
-    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns3:Schema "[dbo]" ;
-    ns3:Table "[T_TESTING_STEP]" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:N2a5c9d05d256449b9c809b75d39231bf .
-
-ns1:N72d2a27c9d214e97b26087d092b2c177 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:Alias "[ts]" ;
-    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns3:Index "[PK_T_TEST_STEP]" ;
-    ns3:IndexKind "Clustered" ;
-    ns3:Schema "[dbo]" ;
-    ns3:Storage "RowStore" ;
-    ns3:Table "[T_TEST_STEP]" ;
-    ns1:hasJsonObjectKey "Object" ;
-    ns1:parentJsonId ns1:N2409e346340543e491a74f833d3d5082 .
-
-ns1:N759083f2a27247f488ba0d4d04b92d3d a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:Column "@current_step_id" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:N99566233a55549fbbcda031200d4c51d .
-
-ns1:N75f71d4137dd4068ac8a21abd666e00c a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:ColumnId "4" ;
-    ns3:Name "[T_TESTING_ID]" ;
-    ns1:hasJsonObjectKey "0" ;
-    ns1:parentJsonId ns1:N539d7e7e049a42779f660be747982b98 .
-
-ns1:N7f3576d264eb48debaf0951c8da8ec97 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:ColumnId "6" ;
-    ns3:Name "[T_TEST_STEP_ID]" ;
-    ns1:hasJsonObjectKey "1" ;
-    ns1:parentJsonId ns1:N539d7e7e049a42779f660be747982b98 .
-
-ns1:N86403bcc025643e3b75b0efb27890e98 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:Column "Expr1002" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:N3e8e0f108fb64e7581b99667f34da67e .
-
-ns1:N93d7c065c76a4687bb75423d33c23d6e a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:Column "@t_testing_id" ;
-    ns3:ParameterCompiledValue "{guid'E7FAB167-C47A-4865-A8AE-429FA778414C'}" ;
-    ns3:ParameterDataType "uniqueidentifier" ;
-    ns1:hasJsonObjectKey "1" ;
-    ns1:parentJsonId ns1:N545d087b17da493cb95e96a75428aed8 .
-
-ns1:N9da167a8eb8042cfa5c08ba3e0c51240 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:Alias "[ts]" ;
-    ns3:Column "PAGE_USR_TEXT_LANG2" ;
-    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns3:Schema "[dbo]" ;
-    ns3:Table "[T_TEST_STEP]" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:N535de87418cb4b329cd452b41ca052de .
-
-ns1:Nab04225cd1bb4c6d841c919c48400be6 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:Alias "[ts]" ;
-    ns3:Column "PAGE_USR_TEXT_LANG2" ;
-    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns3:Schema "[dbo]" ;
-    ns3:Table "[T_TEST_STEP]" ;
-    ns1:hasJsonObjectKey "1" ;
-    ns1:parentJsonId ns1:N4e4710911fd54849955999c36d6d01eb .
-
-ns1:Nae351972af014b55b3be8ec737704912 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:Column "@lang_num" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:N89ed63c2ab2845a7b7c4bb9ce7942c92 .
-
-ns1:Nb0da41b0e9c84fe3abb513f83fe6faf4 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:Alias "[tt]" ;
-    ns3:Column "RESULT_TXT" ;
-    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns3:Schema "[dbo]" ;
-    ns3:Table "[T_TESTING_STEP]" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:Na44e5e819ec34b6abc1dfaba294b1f8a .
-
-ns1:Nb1a47feeb112444f9f06b648f1036391 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:ColumnId "6" ;
-    ns3:Name "[T_TEST_STEP_ID]" ;
-    ns1:hasJsonObjectKey "1" ;
-    ns1:parentJsonId ns1:Nd9d4a83568a84713800084f92e5feb92 .
-
-ns1:Nb1f6952de95945168d5e24cfd74d5b6d a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:ColumnId "5" ;
-    ns3:Name "[RESULT_TXT]" ;
-    ns1:hasJsonObjectKey "Column" ;
-    ns1:parentJsonId ns1:N0a9a78499e1642caac56567e344c99cf .
-
-ns1:Nb45639c343aa41bc9cd7763293accaa2 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:Column "@t_testing_id" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:N308f396008fd488b9b09e14b88ba4002 .
-
-ns1:Nb73a3e3c1a114d349fbb65bd0e07e6b7 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:Alias "[ts]" ;
-    ns3:Column "PAGE_USR_TEXT_LANG3" ;
-    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns3:Schema "[dbo]" ;
-    ns3:Table "[T_TEST_STEP]" ;
-    ns1:hasJsonObjectKey "2" ;
-    ns1:parentJsonId ns1:N5d98c9793fdf4916864b5529ad5673bb .
-
-ns1:Nbca9a18a0f564ad6bee53b96d4be40dc a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:Column "Expr1002" ;
-    ns1:hasJsonObjectKey "1" ;
-    ns1:parentJsonId ns1:Nb95b083178d641f692cce4aab145cf73 .
-
-ns1:Nc902be2f0a5e4cf0b3bd73363866622a a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:Alias "[ts]" ;
-    ns3:Column "PAGE_USR_TEXT_LANG2" ;
-    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns3:Schema "[dbo]" ;
-    ns3:Table "[T_TEST_STEP]" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:N5cea16e312f84052a39b0c2abaa0e9e8 .
-
-ns1:Nc9c14898282746a99f3122c03c011b8f a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:Alias "[tt]" ;
-    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns3:Index "[PK_T_TESTING_STEP]" ;
-    ns3:IndexKind "Clustered" ;
-    ns3:Schema "[dbo]" ;
-    ns3:Storage "RowStore" ;
-    ns3:Table "[T_TESTING_STEP]" ;
-    ns1:hasJsonObjectKey "Object" ;
-    ns1:parentJsonId ns1:N5e6ddb01e42d4576b3fa71873fca45b9 .
-
-ns1:Ncada91a91c55447aa751238670070f12 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:Alias "[tt]" ;
-    ns3:Column "RESULT_TXT" ;
-    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns3:Schema "[dbo]" ;
-    ns3:Table "[T_TESTING_STEP]" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:Nd72c7420d11a4feca0f4035b3bde8b49 .
-
-ns1:Ncfb72bbb64f245c9865bcdd80e392b7b a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:Alias "[ts]" ;
-    ns3:Column "PAGE_USR_TEXT_LANG1" ;
-    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns3:Schema "[dbo]" ;
-    ns3:Table "[T_TEST_STEP]" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:N08e10e8056c241df8c1ad2badd72d997 .
-
-ns1:Nd07c0efc7fdd49049d8368f80a1bd042 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:ColumnId "4" ;
-    ns3:Name "[T_TESTING_ID]" ;
-    ns1:hasJsonObjectKey "0" ;
-    ns1:parentJsonId ns1:Nd9d4a83568a84713800084f92e5feb92 .
-
-ns1:Ne325b7443a534af7a12bad47b24727f0 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:Column "@lang_num" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:Nbdc57a350e154400b16c39b7d3f17b7c .
-
-ns1:Nf0f91b08f9af489fab486d0d23ca78c4 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:ANSI_NULLS "true" ;
-    ns3:ANSI_PADDING "true" ;
-    ns3:ANSI_WARNINGS "true" ;
-    ns3:ARITHABORT "true" ;
-    ns3:CONCAT_NULL_YIELDS_NULL "true" ;
-    ns3:NUMERIC_ROUNDABORT "false" ;
-    ns3:QUOTED_IDENTIFIER "true" ;
-    ns1:hasJsonObjectKey "StatementSetOptions" ;
-    ns1:parentJsonId ns1:N25b4ccc154154fb4be2ca156f6e685a6 .
-
-ns1:Nf3d00331d91a400f9b077c8621fc2e47 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:Alias "[ts]" ;
-    ns3:Column "PAGE_USR_TEXT_LANG3" ;
-    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns3:Schema "[dbo]" ;
-    ns3:Table "[T_TEST_STEP]" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:N3a0f99372181457593e74c0765e72078 .
-
-ns1:Nf52dc6be86d64b1495f2e62352dbde25 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:Alias "[tt]" ;
-    ns3:Column "RESULT_TXT" ;
-    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns3:Schema "[dbo]" ;
-    ns3:Table "[T_TESTING_STEP]" ;
-    ns1:hasJsonObjectKey "3" ;
-    ns1:parentJsonId ns1:N4e4710911fd54849955999c36d6d01eb .
-
-ns1:Nf9a1290ee698463e89483bbcea277d9d a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:GrantedMemory "0" ;
-    ns3:MaxUsedMemory "0" ;
-    ns3:SerialDesiredMemory "0" ;
-    ns3:SerialRequiredMemory "0" ;
-    ns1:hasJsonObjectKey "MemoryGrantInfo" ;
-    ns1:parentJsonId ns1:N2547bafebf2946eea12ebb58945c5771 .
-
-ns1:Nfb9d665d688640909df80306e1a82c64 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:Alias "[ts]" ;
-    ns3:Column "PAGE_USR_TEXT_LANG3" ;
-    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns3:Schema "[dbo]" ;
-    ns3:Table "[T_TEST_STEP]" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:Nc07beca97f17486d9686fc1b4f6d75e3 .
-
-ns1:Nfe9c1d8e8276441384faab7deeaab9b3 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:Alias "[tt]" ;
-    ns3:Column "T_TESTING_ID" ;
-    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns3:Schema "[dbo]" ;
-    ns3:Table "[T_TESTING_STEP]" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:Ne0a212c5033a416685f883414a8f623a .
-
-ns1:N00468a43d1774305bdd9314b07fa88ba a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "Statements" ;
-    ns1:parentJsonId ns1:Nd5d91ca1b72f484ca434150f3b93a7dc .
-
-ns1:N00c86ad401024fbbb085208666ce524a a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "OutputList" ;
-    ns1:parentJsonId ns1:N6f142b8324d4459e9b5b3b1f0f9c1d0d .
-
-ns1:N01957ecc589c49c7a2021d7ddc5e2b94 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "DefinedValues" ;
-    ns1:parentJsonId ns1:N95e1876eeb19427381fec037d58f04ae .
-
-ns1:N0498db1d48c04778a587bcbb466420b2 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "ScalarOperator" ;
-    ns1:parentJsonId ns1:N574aefc3f7984b378e2a31fc314818bc .
-
-ns1:N08e10e8056c241df8c1ad2badd72d997 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "0" ;
-    ns1:parentJsonId ns1:N36284ca3fbe640ba87f41f0822b52173 .
-
-ns1:N0a9a78499e1642caac56567e344c99cf a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:Usage "INCLUDE" ;
-    ns1:hasJsonObjectKey "1" ;
-    ns1:parentJsonId ns1:N04fa398a62f8449f9b4cca487b05dce7 .
-
-ns1:N0ab09fc710aa429c94155da1ddb3f8c0 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "0" ;
-    ns1:parentJsonId ns1:N892ad89229e94af982802223f903134a .
-
-ns1:N0b6f33aa22ac468594126fdbd31eabc0 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "BatchSequence" ;
-    ns1:parentJsonId ns1:Nc1645b527f444294975822b5e610b3f7 .
-
-ns1:N0c6916ccda2741cfa50f08bc45804c5a a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "ScalarOperator" ;
-    ns1:parentJsonId ns1:N2498922205444e6c8afac011ac22eea1 .
-
-ns1:N0e90725027214a658bc904bf8d4a93c7 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:ScalarString "[PSYCHOLOGY_TEST_1].[dbo].[T_TESTING_STEP].[T_TEST_STEP_ID] as [tt].[T_TEST_STEP_ID]=[@current_step_id] AND [PSYCHOLOGY_TEST_1].[dbo].[T_TESTING_STEP].[T_TESTING_ID] as [tt].[T_TESTING_ID]=[@t_testing_id]" ;
-    ns1:hasJsonObjectKey "ScalarOperator" ;
-    ns1:parentJsonId ns1:Nf7c008d11c494445ad00db7bab51164b .
-
-ns1:N15a3b73580404c11bab4c75329ef30a8 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:CompareOp "EQ" ;
-    ns1:hasJsonObjectKey "Compare" ;
-    ns1:parentJsonId ns1:N4cfef38470264d68a2819fff5fc7b9fc .
-
-ns1:N18c6378572124f0d88ae7fcfd3fdf279 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns3:Schema "[dbo]" ;
-    ns3:Table "[T_TESTING_STEP]" ;
-    ns1:hasJsonObjectKey "MissingIndex" ;
-    ns1:parentJsonId ns1:Nab70c084d65a4a8a99b5763e27999db5 .
-
-ns1:N1a1522bf1ed44ea5831b14ea6dd0d673 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "RangeColumns" ;
-    ns1:parentJsonId ns1:N69e5542556a041378740926fdd11062d .
-
-ns1:N1a8d4c9c806f44b79879f92937ba8e43 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:CompareOp "EQ" ;
-    ns1:hasJsonObjectKey "Compare" ;
-    ns1:parentJsonId ns1:N0498db1d48c04778a587bcbb466420b2 .
+ns2:N0227fd1a70d740b2afb8b5b9baf1dc2a a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:Alias "[tt]" ;
+    ns1:Column "T_TESTING_ID" ;
+    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns1:Schema "[dbo]" ;
+    ns1:Table "[T_TESTING_STEP]" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:N5ace565a3d934c37a007cf90e2c07acd .
+
+ns2:N0aea8117b7e641d2807926cc94b9ee0f a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:Alias "[tt]" ;
+    ns1:Column "RESULT_TXT" ;
+    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns1:Schema "[dbo]" ;
+    ns1:Table "[T_TESTING_STEP]" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:N93debf741d1d426694dfe760b90d0f1f .
+
+ns2:N0aecfbc86aa84f38901629eaea394753 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:ColumnId "6" ;
+    ns1:Name "[T_TEST_STEP_ID]" ;
+    ns2:hasJsonObjectKey "1" ;
+    ns2:parentJsonId ns2:Nf2ac4ec6f7774609a9832a23d9ec5bb5 .
+
+ns2:N0e205588ee384604805428ed6f27364b a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:Alias "[ts]" ;
+    ns1:Column "PAGE_USR_TEXT_LANG2" ;
+    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns1:Schema "[dbo]" ;
+    ns1:Table "[T_TEST_STEP]" ;
+    ns2:hasJsonObjectKey "1" ;
+    ns2:parentJsonId ns2:N5c60004328ba472ebd8cfbc1d09d03eb .
+
+ns2:N10422165c173489a8442428e76aa0f85 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:Alias "[tt]" ;
+    ns1:Column "RESULT_TXT" ;
+    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns1:Schema "[dbo]" ;
+    ns1:Table "[T_TESTING_STEP]" ;
+    ns2:hasJsonObjectKey "0" ;
+    ns2:parentJsonId ns2:N0f2a38d69a1645eba5bc389f5aaa748a .
+
+ns2:N143838bc02b440ad832b61661b3fda14 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:Alias "[ts]" ;
+    ns1:Column "PAGE_USR_TEXT_LANG1" ;
+    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns1:Schema "[dbo]" ;
+    ns1:Table "[T_TEST_STEP]" ;
+    ns2:hasJsonObjectKey "0" ;
+    ns2:parentJsonId ns2:N82e39494bb26419980ad427f5b9df579 .
+
+ns2:N17a7e44549534996b25146961907998a a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:Alias "[ts]" ;
+    ns1:Column "PAGE_USR_TEXT_LANG3" ;
+    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns1:Schema "[dbo]" ;
+    ns1:Table "[T_TEST_STEP]" ;
+    ns2:hasJsonObjectKey "2" ;
+    ns2:parentJsonId ns2:N82e39494bb26419980ad427f5b9df579 .
+
+ns2:N30217694310c4722ad9c6d360ea173f3 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:ConstValue "(2)" ;
+    ns2:hasJsonObjectKey "Const" ;
+    ns2:parentJsonId ns2:Nb05613fd375b490bb8c7975f38d54045 .
+
+ns2:N31f036127df549e5972432a5f1885511 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:Column "@t_testing_id" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:N5b5de44db97348bba44a4ffca3ff25ee .
+
+ns2:N335dc04a01104eb68aa87826b8b7d580 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:ColumnId "4" ;
+    ns1:Name "[T_TESTING_ID]" ;
+    ns2:hasJsonObjectKey "0" ;
+    ns2:parentJsonId ns2:N95f88626547948fa884e92d1cdfa9b96 .
+
+ns2:N36617d7698fb460abe9e79127a345efc a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:Alias "[tt]" ;
+    ns1:Column "RESULT_TXT" ;
+    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns1:Schema "[dbo]" ;
+    ns1:Table "[T_TESTING_STEP]" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:N7eb2bf95150d44f98ad8bdade75872ff .
+
+ns2:N3f7394cbf453409a90558ee9672c1f7f a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:Column "Expr1002" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:N2c293958e57e45e88d1c102836a86689 .
+
+ns2:N402f39e9a1c5455f8c5cdd3f2a86619a a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:Alias "[tt]" ;
+    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns1:Index "[PK_T_TESTING_STEP]" ;
+    ns1:IndexKind "Clustered" ;
+    ns1:Schema "[dbo]" ;
+    ns1:Storage "RowStore" ;
+    ns1:Table "[T_TESTING_STEP]" ;
+    ns2:hasJsonObjectKey "Object" ;
+    ns2:parentJsonId ns2:N1320e0cbcdfb44e7ad657c8e3d128653 .
+
+ns2:N41e6f2ba80d141b29ea0a1c225188183 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:ConstValue "(3)" ;
+    ns2:hasJsonObjectKey "Const" ;
+    ns2:parentJsonId ns2:N654c8463a0c5413c8ec5433271eebdab .
+
+ns2:N42f49b4655d04cfeaa24fe86b4d9f07d a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:Alias "[ts]" ;
+    ns1:Column "PAGE_USR_TEXT_LANG3" ;
+    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns1:Schema "[dbo]" ;
+    ns1:Table "[T_TEST_STEP]" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:Nc7a77fefacea44799c6207f1a08d89ca .
+
+ns2:N5453148c227c409492a953fa554a6118 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:Alias "[ts]" ;
+    ns1:Column "PAGE_USR_TEXT_LANG3" ;
+    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns1:Schema "[dbo]" ;
+    ns1:Table "[T_TEST_STEP]" ;
+    ns2:hasJsonObjectKey "2" ;
+    ns2:parentJsonId ns2:N5c60004328ba472ebd8cfbc1d09d03eb .
+
+ns2:N6207942a5eda4dbab375ecbbb96fb93c a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:Alias "[ts]" ;
+    ns1:Column "PAGE_USR_TEXT_LANG2" ;
+    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns1:Schema "[dbo]" ;
+    ns1:Table "[T_TEST_STEP]" ;
+    ns2:hasJsonObjectKey "1" ;
+    ns2:parentJsonId ns2:N82e39494bb26419980ad427f5b9df579 .
+
+ns2:N623f9037bf9147d295c054c933d0a4d6 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:Column "@lang_num" ;
+    ns1:ParameterCompiledValue "(1)" ;
+    ns1:ParameterDataType "int" ;
+    ns2:hasJsonObjectKey "0" ;
+    ns2:parentJsonId ns2:N852da5c4e5da48b4908b8fc8a8fe62dd .
+
+ns2:N6a682570c3504cbca6428734c736ef1e a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:Alias "[ts]" ;
+    ns1:Column "PAGE_USR_TEXT_LANG3" ;
+    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns1:Schema "[dbo]" ;
+    ns1:Table "[T_TEST_STEP]" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:N97abdfdfafcd4a1987cdd8730150a21f .
+
+ns2:N7221bf24c220420f8891944a8857dd49 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:Alias "[ts]" ;
+    ns1:Column "PAGE_USR_TEXT_LANG1" ;
+    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns1:Schema "[dbo]" ;
+    ns1:Table "[T_TEST_STEP]" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:N930415c093b34cf6b9d7b2a47330aebb .
+
+ns2:N729d994da83e4624b043c5906db60c2e a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:Alias "[ts]" ;
+    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns1:Index "[PK_T_TEST_STEP]" ;
+    ns1:IndexKind "Clustered" ;
+    ns1:Schema "[dbo]" ;
+    ns1:Storage "RowStore" ;
+    ns1:Table "[T_TEST_STEP]" ;
+    ns2:hasJsonObjectKey "Object" ;
+    ns2:parentJsonId ns2:N2c143b3cee4045659492e1b0e2f875c6 .
+
+ns2:N7b8b43c2500e4055951fab74b1074865 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:Alias "[ts]" ;
+    ns1:Column "PAGE_USR_TEXT_LANG2" ;
+    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns1:Schema "[dbo]" ;
+    ns1:Table "[T_TEST_STEP]" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:N91243cb1a5024997972d7dd7623ac8ba .
+
+ns2:N85923da6ddcb4209a36cb6614a6aecac a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:Alias "[ts]" ;
+    ns1:Column "PAGE_USR_TEXT_LANG1" ;
+    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns1:Schema "[dbo]" ;
+    ns1:Table "[T_TEST_STEP]" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:Nc9db25f806de4841bbc18bc322b73025 .
+
+ns2:N87928bab460845c683fb4dc8e699bbea a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:EstimatedAvailableDegreeOfParallelism "2" ;
+    ns1:EstimatedAvailableMemoryGrant "311472" ;
+    ns1:EstimatedPagesCached "77868" ;
+    ns1:MaxCompileMemory "572608" ;
+    ns2:hasJsonObjectKey "OptimizerHardwareDependentProperties" ;
+    ns2:parentJsonId ns2:Ned6cbd990d284c529158140ae7f61295 .
+
+ns2:N93a96f42e6d640c992f744bd7b5ce82d a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:Column "@lang_num" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:N416f3079a67343c1be49ed6fbfa1fd25 .
+
+ns2:N97268297c3204d9194ce9c6d3adb3ab7 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:Alias "[ts]" ;
+    ns1:Column "PAGE_USR_TEXT_LANG2" ;
+    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns1:Schema "[dbo]" ;
+    ns1:Table "[T_TEST_STEP]" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:Nbe5321e92efb4d3aac10b49569d4f1c6 .
+
+ns2:N9b6d13c60d06444bbe24ce8509b79f0f a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:Column "@current_step_id" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:N36dc98fee36348f6a94e1d3776b76fb5 .
+
+ns2:Nb985a73113cb46a585021db817d8528d a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:Column "@lang_num" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:N28e778f4bcbc4248b84159622768a1f4 .
+
+ns2:Nbb03c292d3344a2eaffedf8125e6307b a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:Alias "[ts]" ;
+    ns1:Column "PAGE_USR_TEXT_LANG1" ;
+    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns1:Schema "[dbo]" ;
+    ns1:Table "[T_TEST_STEP]" ;
+    ns2:hasJsonObjectKey "0" ;
+    ns2:parentJsonId ns2:N5c60004328ba472ebd8cfbc1d09d03eb .
+
+ns2:Nbb7e1281c6e54f6bbe54198f86f50697 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:ANSI_NULLS "true" ;
+    ns1:ANSI_PADDING "true" ;
+    ns1:ANSI_WARNINGS "true" ;
+    ns1:ARITHABORT "true" ;
+    ns1:CONCAT_NULL_YIELDS_NULL "true" ;
+    ns1:NUMERIC_ROUNDABORT "false" ;
+    ns1:QUOTED_IDENTIFIER "true" ;
+    ns2:hasJsonObjectKey "StatementSetOptions" ;
+    ns2:parentJsonId ns2:Nab7c9450bde0406281048ae2365c7495 .
+
+ns2:Ncc872b64c92b4399ab56474eac7bcd2a a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:Column "@current_step_id" ;
+    ns1:ParameterCompiledValue "{guid'E7FAB167-C47A-4865-A8AE-429FA778414C'}" ;
+    ns1:ParameterDataType "uniqueidentifier" ;
+    ns2:hasJsonObjectKey "2" ;
+    ns2:parentJsonId ns2:N852da5c4e5da48b4908b8fc8a8fe62dd .
+
+ns2:Ndde24889d45946058edde831ec23cc74 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:Alias "[ts]" ;
+    ns1:Column "T_TEST_STEP_ID" ;
+    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns1:Schema "[dbo]" ;
+    ns1:Table "[T_TEST_STEP]" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:N3e549151fdc24572b1c848cadb6c9c2b .
+
+ns2:Ne12225919ab74ab09493858ee971d4b7 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:Column "Expr1002" ;
+    ns2:hasJsonObjectKey "1" ;
+    ns2:parentJsonId ns2:N0f2a38d69a1645eba5bc389f5aaa748a .
+
+ns2:Ne87fdfd23f004198b6f936098fe357fe a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:ColumnId "4" ;
+    ns1:Name "[T_TESTING_ID]" ;
+    ns2:hasJsonObjectKey "0" ;
+    ns2:parentJsonId ns2:Nf2ac4ec6f7774609a9832a23d9ec5bb5 .
+
+ns2:Necc4007f50b941819baf2563d5069111 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:Column "@t_testing_id" ;
+    ns1:ParameterCompiledValue "{guid'E7FAB167-C47A-4865-A8AE-429FA778414C'}" ;
+    ns1:ParameterDataType "uniqueidentifier" ;
+    ns2:hasJsonObjectKey "1" ;
+    ns2:parentJsonId ns2:N852da5c4e5da48b4908b8fc8a8fe62dd .
+
+ns2:Nef9502c8b6c84960a5fbdfdfb2bc5b32 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:Alias "[tt]" ;
+    ns1:Column "T_TEST_STEP_ID" ;
+    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns1:Schema "[dbo]" ;
+    ns1:Table "[T_TESTING_STEP]" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:N2fac9e463ce44d13be7ecc645a50ae08 .
+
+ns2:Nf1397b84d121465c85751fc23c04abae a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:ColumnId "6" ;
+    ns1:Name "[T_TEST_STEP_ID]" ;
+    ns2:hasJsonObjectKey "1" ;
+    ns2:parentJsonId ns2:N95f88626547948fa884e92d1cdfa9b96 .
+
+ns2:Nfb241fd901aa42208fc880f124b22cb6 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:ColumnId "5" ;
+    ns1:Name "[RESULT_TXT]" ;
+    ns2:hasJsonObjectKey "Column" ;
+    ns2:parentJsonId ns2:N0d7799c3f62340d7830822f70701461f .
+
+ns2:Nfcc8724b706e493c8723a006c38fd952 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:Alias "[tt]" ;
+    ns1:Column "RESULT_TXT" ;
+    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns1:Schema "[dbo]" ;
+    ns1:Table "[T_TESTING_STEP]" ;
+    ns2:hasJsonObjectKey "3" ;
+    ns2:parentJsonId ns2:N5c60004328ba472ebd8cfbc1d09d03eb .
+
+ns2:Nff75fbed12ac4b02a035d36f225a7527 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:GrantedMemory "0" ;
+    ns1:MaxUsedMemory "0" ;
+    ns1:SerialDesiredMemory "0" ;
+    ns1:SerialRequiredMemory "0" ;
+    ns2:hasJsonObjectKey "MemoryGrantInfo" ;
+    ns2:parentJsonId ns2:Ned6cbd990d284c529158140ae7f61295 .
+
+ns2:Nffb3033f9f92414ba3f7faf095b9f626 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:Column "@current_step_id" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:N6c4bad8d26c84865b6ef5aa81146be0b .
+
+ns2:N0003e249cf0c40e09679e3888d8dc81f a ns2:FileJson,
+        ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" .
+
+ns2:N01ab8eb1a30946f0b01039252fd37f02 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "Statements" ;
+    ns2:parentJsonId ns2:N08f4eff62853422c87689d180476ada6 .
+
+ns2:N02684470d9654bc19ccd95aa62e2c703 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:CompareOp "EQ" ;
+    ns2:hasJsonObjectKey "Compare" ;
+    ns2:parentJsonId ns2:Nb8b3a3d9b46d467f8e315a64ef07e3a0 .
+
+ns2:N06726ccb1ff243319aaf7962ff15ef6a a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "0" ;
+    ns2:parentJsonId ns2:Nfe768807908945398876e58dd48b3a99 .
+
+ns2:N0706e6be0b4e4762a2e847094d62f515 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "1" ;
+    ns2:parentJsonId ns2:N3b73ef88d8a246508c25bc5cecce72f4 .
+
+ns2:N08f4eff62853422c87689d180476ada6 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:ProcName "get_test_step" ;
+    ns2:hasJsonObjectKey "StoredProc" ;
+    ns2:parentJsonId ns2:N8dab400bac054cdab955079a991ee15e .
+
+ns2:N0b3c3055e55342d3bd385e66e8d096a2 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "Else" ;
+    ns2:parentJsonId ns2:Nbf3da1eb50704f54abdb84f44808d9a3 .
+
+ns2:N0d7799c3f62340d7830822f70701461f a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:Usage "INCLUDE" ;
+    ns2:hasJsonObjectKey "1" ;
+    ns2:parentJsonId ns2:N0204182921064e8e91cfaee1af4097a8 .
+
+ns2:N12aefbcd72a749b1998137d139d27f0b a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:Build "16.0.1000.6" ;
+    ns1:Version "1.564" ;
+    ns1:xmlns "http://schemas.microsoft.com/sqlserver/2004/07/showplan" ;
+    ns2:hasJsonObjectKey "ShowPlanXML" ;
+    ns2:parentJsonId ns2:N0003e249cf0c40e09679e3888d8dc81f .
+
+ns2:N1cedca9f780b469f9982c5bbabaf6e9c a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:Impact "96.9388" ;
+    ns2:hasJsonObjectKey "1" ;
+    ns2:parentJsonId ns2:Nce757d9ba7a945b98ebf4ae4a4c3f496 .
+
+ns2:N1d3137db9b674c678a3ee557e829b538 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "DefinedValues" ;
+    ns2:parentJsonId ns2:N3145cc4d8f4f47128ac2fcd124a6d3da .
+
+ns2:N1ddab44614e144be8ea9af6b5c5850c9 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "Statements" ;
+    ns2:parentJsonId ns2:N73b46cbfc62349b093e1af09f08c01a3 .
+
+ns2:N28e778f4bcbc4248b84159622768a1f4 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "Identifier" ;
+    ns2:parentJsonId ns2:N06726ccb1ff243319aaf7962ff15ef6a .
+
+ns2:N2a25c33696f34aeda301b08c6fe8c7ee a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "OutputList" ;
+    ns2:parentJsonId ns2:N81052eb90f6848e9b96d6e343866c51a .
+
+ns2:N2a506d00f8454603b65652c8670c921b a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "DefinedValues" ;
+    ns2:parentJsonId ns2:N1320e0cbcdfb44e7ad657c8e3d128653 .
+
+ns2:N2fac9e463ce44d13be7ecc645a50ae08 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "Identifier" ;
+    ns2:parentJsonId ns2:Nf612a2fec4ff4ec8bb4f763518f34229 .
+
+ns2:N33cc111cb16844a782d1f8bfc4fc1ecc a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:CompareOp "EQ" ;
+    ns2:hasJsonObjectKey "Compare" ;
+    ns2:parentJsonId ns2:Nd89b29b0cc224ca3b7e465c7e46ebfcf .
+
+ns2:N34b5ffaec224430abba5f4149d49552d a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "0" ;
+    ns2:parentJsonId ns2:N3702a8921fe84e4a853412faedf977e4 .
+
+ns2:N36dc98fee36348f6a94e1d3776b76fb5 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "Identifier" ;
+    ns2:parentJsonId ns2:Nc8c1b63f89364198b2b8d90653104a5d .
+
+ns2:N39e90a95d5d24bd999ffce818840b50b a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "SeekKeys" ;
+    ns2:parentJsonId ns2:Nfacf3cdc06174524980c33f8326a6b36 .
+
+ns2:N3e549151fdc24572b1c848cadb6c9c2b a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "RangeColumns" ;
+    ns2:parentJsonId ns2:N7248f279d5594b1988f58ef2cfd07a38 .
+
+ns2:N414d03594b2a462bb5b2138472f68b27 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns1:Schema "[dbo]" ;
+    ns1:Table "[T_TESTING_STEP]" ;
+    ns2:hasJsonObjectKey "MissingIndex" ;
+    ns2:parentJsonId ns2:N1cedca9f780b469f9982c5bbabaf6e9c .
 
-ns1:N1da7ac456b994735b922d5b99e7503be a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "DefinedValues" ;
-    ns1:parentJsonId ns1:N5e6ddb01e42d4576b3fa71873fca45b9 .
+ns2:N416f3079a67343c1be49ed6fbfa1fd25 a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "Identifier" ;
+    ns2:parentJsonId ns2:N34b5ffaec224430abba5f4149d49552d .
+
+ns2:N4b11d006b9ea483587eac00337368afb a ns2:ObjectJson,
+        owl:NamedIndividual ;
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "1" ;
+    ns2:parentJsonId ns2:N97490723424f459fa86da22901ad9c07 .
 
-ns1:N1e4f8a214cc14648b018366b20d14024 a ns1:FileJson,
-        ns1:ObjectJson,
+ns2:N53da94700a044f09a9a522b51730d523 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "Then" ;
+    ns2:parentJsonId ns2:Nc540b95db9b44dfb8b04407c7da6e646 .
 
-ns1:N1fc30e8558fd419fa3e8241653636ef3 a ns1:ObjectJson,
+ns2:N55a0883cd26441bdb0b19a97cf4a4a81 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "MissingIndexes" ;
-    ns1:parentJsonId ns1:N2547bafebf2946eea12ebb58945c5771 .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "ParameterList" ;
+    ns2:parentJsonId ns2:Ned6cbd990d284c529158140ae7f61295 .
 
-ns1:N22a76f48872e46eaafe136e35b75bb6a a ns1:ObjectJson,
+ns2:N5641832a5e234aafb18862a8307a98dc a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "Else" ;
-    ns1:parentJsonId ns1:Nb7f80ca68dbb4784a2232c095b733a40 .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "ScalarOperator" ;
+    ns2:parentJsonId ns2:N8a2f3d1fe5e3462d901e3af4cd747188 .
 
-ns1:N2498922205444e6c8afac011ac22eea1 a ns1:ObjectJson,
+ns2:N56e5ce433b5a4823b9492093053139c6 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "Else" ;
-    ns1:parentJsonId ns1:N9f4bdffd7ffe441689155ed32445d761 .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "Else" ;
+    ns2:parentJsonId ns2:Nc540b95db9b44dfb8b04407c7da6e646 .
 
-ns1:N2a5c9d05d256449b9c809b75d39231bf a ns1:ObjectJson,
+ns2:N5ace565a3d934c37a007cf90e2c07acd a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "Identifier" ;
-    ns1:parentJsonId ns1:N8aa0bd9b8c62474a956fe346f72cbf84 .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "Identifier" ;
+    ns2:parentJsonId ns2:Na94bb408428946d1ba5420bbcd008a62 .
 
-ns1:N2bbcf57da0564f239651bfdc9cb0ce60 a ns1:ObjectJson,
+ns2:N5b5de44db97348bba44a4ffca3ff25ee a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:ScalarString "[@current_step_id]" ;
-    ns1:hasJsonObjectKey "ScalarOperator" ;
-    ns1:parentJsonId ns1:Nfba6a553163f4aefb2ce1a1abf04d175 .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "Identifier" ;
+    ns2:parentJsonId ns2:N4b11d006b9ea483587eac00337368afb .
 
-ns1:N308f396008fd488b9b09e14b88ba4002 a ns1:ObjectJson,
+ns2:N5f441c0bd8834d8dab2c81aa216b04b9 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "Identifier" ;
-    ns1:parentJsonId ns1:N8c06d914fac74672957d1c435c5e346a .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "ScalarOperator" ;
+    ns2:parentJsonId ns2:Nb53843cc81434b8fb53d050a0ae25709 .
 
-ns1:N3a0f99372181457593e74c0765e72078 a ns1:ObjectJson,
+ns2:N6263fecc5c354fb1baab3ba9afb2ffee a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "2" ;
-    ns1:parentJsonId ns1:N36284ca3fbe640ba87f41f0822b52173 .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:Usage "EQUALITY" ;
+    ns2:hasJsonObjectKey "ColumnGroup" ;
+    ns2:parentJsonId ns2:N987b92f0b22947979e85aceb0275be1b .
 
-ns1:N3aa4ea55d48a4220ad55c3ffa494b213 a ns1:ObjectJson,
+ns2:N65466f78b2494d4fb0af24977c0e111a a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "OutputList" ;
-    ns1:parentJsonId ns1:N65e3f32f0c854307aa45908ec1cc2b27 .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "ScalarOperator" ;
+    ns2:parentJsonId ns2:N0b3c3055e55342d3bd385e66e8d096a2 .
 
-ns1:N3b3b32e0d3ba4e699a990de364f74f84 a ns1:ObjectJson,
+ns2:N654c8463a0c5413c8ec5433271eebdab a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "Statements" ;
-    ns1:parentJsonId ns1:N8c92616702d64a5a8f01afc93d323771 .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "1" ;
+    ns2:parentJsonId ns2:N3702a8921fe84e4a853412faedf977e4 .
 
-ns1:N4cfef38470264d68a2819fff5fc7b9fc a ns1:ObjectJson,
+ns2:N6c4bad8d26c84865b6ef5aa81146be0b a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "ScalarOperator" ;
-    ns1:parentJsonId ns1:N749cd127824b431bb874deb0370a772e .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "Identifier" ;
+    ns2:parentJsonId ns2:N0706e6be0b4e4762a2e847094d62f515 .
 
-ns1:N4e4125197f694d34a10b885dfac5feab a ns1:ObjectJson,
+ns2:N6f2215573212405eb5dd4e219c564307 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "ParameterList" ;
-    ns1:parentJsonId ns1:N2547bafebf2946eea12ebb58945c5771 .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "Predicate" ;
+    ns2:parentJsonId ns2:N1320e0cbcdfb44e7ad657c8e3d128653 .
 
-ns1:N535de87418cb4b329cd452b41ca052de a ns1:ObjectJson,
+ns2:N702e4aebea3e48bd989e8a540bf0f14d a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "1" ;
-    ns1:parentJsonId ns1:N36284ca3fbe640ba87f41f0822b52173 .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "Condition" ;
+    ns2:parentJsonId ns2:Nc540b95db9b44dfb8b04407c7da6e646 .
 
-ns1:N574aefc3f7984b378e2a31fc314818bc a ns1:ObjectJson,
+ns2:N73b46cbfc62349b093e1af09f08c01a3 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "Condition" ;
-    ns1:parentJsonId ns1:N9f4bdffd7ffe441689155ed32445d761 .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "Batch" ;
+    ns2:parentJsonId ns2:Necbf9e4110fd409a80314816ba0594d4 .
 
-ns1:N5cea16e312f84052a39b0c2abaa0e9e8 a ns1:ObjectJson,
+ns2:N7eb2bf95150d44f98ad8bdade75872ff a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "Identifier" ;
-    ns1:parentJsonId ns1:Nd9c73c8594644e2e886a128296166ee8 .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "OutputList" ;
+    ns2:parentJsonId ns2:Nebb6c41fe2954e9784cc4e52d224509f .
 
-ns1:N68501184df0c4bf99280ea25c7b7111c a ns1:ObjectJson,
+ns2:N8390bc54f81b4f4d94209313c6258a21 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "SeekPredicates" ;
-    ns1:parentJsonId ns1:N2409e346340543e491a74f833d3d5082 .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "MissingIndexes" ;
+    ns2:parentJsonId ns2:Ned6cbd990d284c529158140ae7f61295 .
 
-ns1:N70cbf555c70347b3a1cb26c97d2a812d a ns1:ObjectJson,
+ns2:N873f4e14174341cb8e296558451ecaed a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "1" ;
-    ns1:parentJsonId ns1:N29192f98c4b84260a668c486ee418cff .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "OutputList" ;
+    ns2:parentJsonId ns2:Nbd9008f8163f46c8bfb9cc9ce711ad3a .
 
-ns1:N749cd127824b431bb874deb0370a772e a ns1:ObjectJson,
+ns2:N8a2f3d1fe5e3462d901e3af4cd747188 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "Condition" ;
-    ns1:parentJsonId ns1:Nb7f80ca68dbb4784a2232c095b733a40 .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "Condition" ;
+    ns2:parentJsonId ns2:Nbf3da1eb50704f54abdb84f44808d9a3 .
 
-ns1:N7a126c81edc045e2ad82fc95f89c939f a ns1:ObjectJson,
+ns2:N8b26b2f7756c4b1c8fc7313388cc6913 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "0" ;
-    ns1:parentJsonId ns1:N0c2d7a8a891d475da4e6abcc080995cb .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:Impact "96.9374" ;
+    ns2:hasJsonObjectKey "0" ;
+    ns2:parentJsonId ns2:Nce757d9ba7a945b98ebf4ae4a4c3f496 .
 
-ns1:N850d45adad904c5583df7f32b4a85ff7 a ns1:ObjectJson,
+ns2:N8cb351b8f05c4f4db9b2dd5a9b6868f4 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:Database "[PSYCHOLOGY_TEST_1]" ;
-    ns3:Schema "[dbo]" ;
-    ns3:Table "[T_TESTING_STEP]" ;
-    ns1:hasJsonObjectKey "MissingIndex" ;
-    ns1:parentJsonId ns1:Na2723963de8c420d95806c238e73918d .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:Optimized "0" ;
+    ns2:hasJsonObjectKey "NestedLoops" ;
+    ns2:parentJsonId ns2:N81052eb90f6848e9b96d6e343866c51a .
 
-ns1:N898b1cc07e9c4d9d857f5c139a1c6032 a ns1:ObjectJson,
+ns2:N8dab400bac054cdab955079a991ee15e a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:CompareOp "EQ" ;
-    ns1:hasJsonObjectKey "Compare" ;
-    ns1:parentJsonId ns1:Nff61be962cee49088a36c921be32c3c9 .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:RetrievedFromCache "false" ;
+    ns1:StatementCompId "1" ;
+    ns1:StatementId "1" ;
+    ns1:StatementText "exec get_test_step  1, 'E7FAB167-C47A-4865-A8AE-429FA778414C', 'E7FAB167-C47A-4865-A8AE-429FA778414C'" ;
+    ns1:StatementType "EXECUTE PROC" ;
+    ns2:hasJsonObjectKey "StmtSimple" ;
+    ns2:parentJsonId ns2:N1ddab44614e144be8ea9af6b5c5850c9 .
 
-ns1:N89ed63c2ab2845a7b7c4bb9ce7942c92 a ns1:ObjectJson,
+ns2:N91243cb1a5024997972d7dd7623ac8ba a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "Identifier" ;
-    ns1:parentJsonId ns1:N7a126c81edc045e2ad82fc95f89c939f .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "1" ;
+    ns2:parentJsonId ns2:Nf79d4eb9c2014c78b115371a0ce4d87c .
 
-ns1:N8aa0bd9b8c62474a956fe346f72cbf84 a ns1:ObjectJson,
+ns2:N930415c093b34cf6b9d7b2a47330aebb a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "0" ;
-    ns1:parentJsonId ns1:N8b7681611cf24cc79b4f6a943745c35f .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "Identifier" ;
+    ns2:parentJsonId ns2:Nce3cca4a0bd242e0af5ae6f2bb511ad4 .
 
-ns1:N8afd120ebf734656a6d95872c026bad1 a ns1:ObjectJson,
+ns2:N93debf741d1d426694dfe760b90d0f1f a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "Identifier" ;
-    ns1:parentJsonId ns1:Ne122f78db5cf403fac19c0cd1a94379e .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "DefinedValue" ;
+    ns2:parentJsonId ns2:N2a506d00f8454603b65652c8670c921b .
 
-ns1:N8c06d914fac74672957d1c435c5e346a a ns1:ObjectJson,
+ns2:N97abdfdfafcd4a1987cdd8730150a21f a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "1" ;
-    ns1:parentJsonId ns1:N892ad89229e94af982802223f903134a .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "Identifier" ;
+    ns2:parentJsonId ns2:Nce4da63f1ec4434987c7eea8d589d743 .
 
-ns1:N8c92616702d64a5a8f01afc93d323771 a ns1:ObjectJson,
+ns2:N987b92f0b22947979e85aceb0275be1b a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:ProcName "get_test_step" ;
-    ns1:hasJsonObjectKey "StoredProc" ;
-    ns1:parentJsonId ns1:Naa4c99e6e5e04e8d9c297db09cfbcbec .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:Database "[PSYCHOLOGY_TEST_1]" ;
+    ns1:Schema "[dbo]" ;
+    ns1:Table "[T_TESTING_STEP]" ;
+    ns2:hasJsonObjectKey "MissingIndex" ;
+    ns2:parentJsonId ns2:N8b26b2f7756c4b1c8fc7313388cc6913 .
 
-ns1:N8ced594bde01485fb3dd3f4859ba57d1 a ns1:ObjectJson,
+ns2:Na94bb408428946d1ba5420bbcd008a62 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "1" ;
-    ns1:parentJsonId ns1:N8b7681611cf24cc79b4f6a943745c35f .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "0" ;
+    ns2:parentJsonId ns2:N97490723424f459fa86da22901ad9c07 .
 
-ns1:N99566233a55549fbbcda031200d4c51d a ns1:ObjectJson,
+ns2:Nafc67f74e4fc4e5593bea55ea1fd5d91 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "Identifier" ;
-    ns1:parentJsonId ns1:N2bbcf57da0564f239651bfdc9cb0ce60 .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "ScalarOperator" ;
+    ns2:parentJsonId ns2:N702e4aebea3e48bd989e8a540bf0f14d .
 
-ns1:N9ad585c2f090437ca242b89b55560df3 a ns1:ObjectJson,
+ns2:Nb05613fd375b490bb8c7975f38d54045 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "SeekKeys" ;
-    ns1:parentJsonId ns1:Nf71bee13d7d04a1eb88cb2c8b6bb0a09 .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "1" ;
+    ns2:parentJsonId ns2:Nfe768807908945398876e58dd48b3a99 .
 
-ns1:Na2723963de8c420d95806c238e73918d a ns1:ObjectJson,
+ns2:Nb28754360b9b4b68b8a0cc0f581bc9de a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:Impact "96.9259" ;
-    ns1:hasJsonObjectKey "0" ;
-    ns1:parentJsonId ns1:N917fed38de75467eb89d8acfc9d76509 .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "SeekPredicates" ;
+    ns2:parentJsonId ns2:N2c143b3cee4045659492e1b0e2f875c6 .
 
-ns1:Na44e5e819ec34b6abc1dfaba294b1f8a a ns1:ObjectJson,
+ns2:Nb53843cc81434b8fb53d050a0ae25709 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "DefinedValue" ;
-    ns1:parentJsonId ns1:N1da7ac456b994735b922d5b99e7503be .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "Then" ;
+    ns2:parentJsonId ns2:Nbf3da1eb50704f54abdb84f44808d9a3 .
 
-ns1:Na64f7d6a88ee46cc8f933168a5115822 a ns1:ObjectJson,
+ns2:Nb8b3a3d9b46d467f8e315a64ef07e3a0 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "1" ;
-    ns1:parentJsonId ns1:N0c2d7a8a891d475da4e6abcc080995cb .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "0" ;
+    ns2:parentJsonId ns2:N21a6bf2e9e274b31a103ab4d9fbd95f6 .
 
-ns1:Na8ec5805712b41089cfdc7aed1eb80fa a ns1:ObjectJson,
+ns2:Nbe5321e92efb4d3aac10b49569d4f1c6 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:Optimized "0" ;
-    ns1:hasJsonObjectKey "NestedLoops" ;
-    ns1:parentJsonId ns1:N20321580530b48e1a0e6ed0ba7bcd4dd .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "Identifier" ;
+    ns2:parentJsonId ns2:N5f441c0bd8834d8dab2c81aa216b04b9 .
 
-ns1:Naa4c99e6e5e04e8d9c297db09cfbcbec a ns1:ObjectJson,
+ns2:Nc7a77fefacea44799c6207f1a08d89ca a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:RetrievedFromCache "false" ;
-    ns3:StatementCompId "1" ;
-    ns3:StatementId "1" ;
-    ns3:StatementText "exec get_test_step  1, 'E7FAB167-C47A-4865-A8AE-429FA778414C', 'E7FAB167-C47A-4865-A8AE-429FA778414C'" ;
-    ns3:StatementType "EXECUTE PROC" ;
-    ns1:hasJsonObjectKey "StmtSimple" ;
-    ns1:parentJsonId ns1:N00468a43d1774305bdd9314b07fa88ba .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "2" ;
+    ns2:parentJsonId ns2:Nf79d4eb9c2014c78b115371a0ce4d87c .
 
-ns1:Nab70c084d65a4a8a99b5763e27999db5 a ns1:ObjectJson,
+ns2:Nc8094a2c572b4ad5b15e3f3473bc96de a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:Impact "96.9272" ;
-    ns1:hasJsonObjectKey "1" ;
-    ns1:parentJsonId ns1:N917fed38de75467eb89d8acfc9d76509 .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "RangeExpressions" ;
+    ns2:parentJsonId ns2:N7248f279d5594b1988f58ef2cfd07a38 .
 
-ns1:Naf1cb93e0cfa4f8f9755648afdd6d65b a ns1:ObjectJson,
+ns2:Nc8c1b63f89364198b2b8d90653104a5d a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:Usage "EQUALITY" ;
-    ns1:hasJsonObjectKey "ColumnGroup" ;
-    ns1:parentJsonId ns1:N850d45adad904c5583df7f32b4a85ff7 .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:ScalarString "[@current_step_id]" ;
+    ns2:hasJsonObjectKey "ScalarOperator" ;
+    ns2:parentJsonId ns2:Nc8094a2c572b4ad5b15e3f3473bc96de .
 
-ns1:Nb6864ae329b14e4da88863fe35097606 a ns1:ObjectJson,
+ns2:Nc95324d2bc2b4c4583038f197945b511 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:CompareOp "EQ" ;
-    ns1:hasJsonObjectKey "Compare" ;
-    ns1:parentJsonId ns1:Neab7994769d44dbc9eb6fb79d2c0c311 .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "OutputList" ;
+    ns2:parentJsonId ns2:N96bbf14795ab45ad962b8b70fac9645f .
 
-ns1:Nb6a98c7abe604b4db28cf069a2c5c14b a ns1:ObjectJson,
+ns2:Nc9d4372e039c45a08a072954b5132de0 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "ScalarOperator" ;
-    ns1:parentJsonId ns1:Nbdbebc39ea314647a0cfddad03a236ae .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:ScalarString "CASE WHEN [@lang_num]=(2) THEN [PSYCHOLOGY_TEST_1].[dbo].[T_TEST_STEP].[PAGE_USR_TEXT_LANG2] as [ts].[PAGE_USR_TEXT_LANG2] ELSE CASE WHEN [@lang_num]=(3) THEN [PSYCHOLOGY_TEST_1].[dbo].[T_TEST_STEP].[PAGE_USR_TEXT_LANG3] as [ts].[PAGE_USR_TEXT_LANG3] ELSE [PSYCHOLOGY_TEST_1].[dbo].[T_TEST_STEP].[PAGE_USR_TEXT_LANG1] as [ts].[PAGE_USR_TEXT_LANG1] END END" ;
+    ns2:hasJsonObjectKey "ScalarOperator" ;
+    ns2:parentJsonId ns2:N2c293958e57e45e88d1c102836a86689 .
 
-ns1:Nb7c6d2d6bc0a40ce88b2cd8b684fc3a3 a ns1:ObjectJson,
+ns2:Nc9db25f806de4841bbc18bc322b73025 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:Usage "EQUALITY" ;
-    ns1:hasJsonObjectKey "0" ;
-    ns1:parentJsonId ns1:N04fa398a62f8449f9b4cca487b05dce7 .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "0" ;
+    ns2:parentJsonId ns2:Nf79d4eb9c2014c78b115371a0ce4d87c .
 
-ns1:Nba7e5e07f69d4d6aae1908a09ba7c41d a ns1:ObjectJson,
+ns2:Nce3cca4a0bd242e0af5ae6f2bb511ad4 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:Operation "AND" ;
-    ns1:hasJsonObjectKey "Logical" ;
-    ns1:parentJsonId ns1:N0e90725027214a658bc904bf8d4a93c7 .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "ScalarOperator" ;
+    ns2:parentJsonId ns2:N56e5ce433b5a4823b9492093053139c6 .
 
-ns1:Nbdbebc39ea314647a0cfddad03a236ae a ns1:ObjectJson,
+ns2:Nce4da63f1ec4434987c7eea8d589d743 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "Then" ;
-    ns1:parentJsonId ns1:Nb7f80ca68dbb4784a2232c095b733a40 .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "ScalarOperator" ;
+    ns2:parentJsonId ns2:N53da94700a044f09a9a522b51730d523 .
 
-ns1:Nbdc57a350e154400b16c39b7d3f17b7c a ns1:ObjectJson,
+ns2:Nd89b29b0cc224ca3b7e465c7e46ebfcf a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "Identifier" ;
-    ns1:parentJsonId ns1:Ndd5f7aca72a84a04916209defb929ddd .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "1" ;
+    ns2:parentJsonId ns2:N21a6bf2e9e274b31a103ab4d9fbd95f6 .
 
-ns1:Nc07beca97f17486d9686fc1b4f6d75e3 a ns1:ObjectJson,
+ns2:Nd9699e2d72aa47fb82411113ded43f5e a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "Identifier" ;
-    ns1:parentJsonId ns1:Nb6a98c7abe604b4db28cf069a2c5c14b .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:CompareOp "EQ" ;
+    ns2:hasJsonObjectKey "Compare" ;
+    ns2:parentJsonId ns2:Nafc67f74e4fc4e5593bea55ea1fd5d91 .
 
-ns1:Nc1645b527f444294975822b5e610b3f7 a ns1:ObjectJson,
+ns2:Nda4155b557f84d539affe1e3202769ea a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:Build "16.0.1000.6" ;
-    ns3:Version "1.564" ;
-    ns3:xmlns "http://schemas.microsoft.com/sqlserver/2004/07/showplan" ;
-    ns1:hasJsonObjectKey "ShowPlanXML" ;
-    ns1:parentJsonId ns1:N1e4f8a214cc14648b018366b20d14024 .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:Operation "AND" ;
+    ns2:hasJsonObjectKey "Logical" ;
+    ns2:parentJsonId ns2:Nf6db791b0039464a877763b786a57f10 .
 
-ns1:Nd166acf224d84f2dacbe07aa8056e676 a ns1:ObjectJson,
+ns2:Ne3f79c25619341c18aa5e6629099546a a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "DefinedValues" ;
-    ns1:parentJsonId ns1:N2409e346340543e491a74f833d3d5082 .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:Usage "EQUALITY" ;
+    ns2:hasJsonObjectKey "0" ;
+    ns2:parentJsonId ns2:N0204182921064e8e91cfaee1af4097a8 .
 
-ns1:Nd26d0c99963b46d29a6f6e13c33e839f a ns1:ObjectJson,
+ns2:Necbf9e4110fd409a80314816ba0594d4 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "Then" ;
-    ns1:parentJsonId ns1:N9f4bdffd7ffe441689155ed32445d761 .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "BatchSequence" ;
+    ns2:parentJsonId ns2:N12aefbcd72a749b1998137d139d27f0b .
 
-ns1:Nd5d91ca1b72f484ca434150f3b93a7dc a ns1:ObjectJson,
+ns2:Nf612a2fec4ff4ec8bb4f763518f34229 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "Batch" ;
-    ns1:parentJsonId ns1:N0b6f33aa22ac468594126fdbd31eabc0 .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "0" ;
+    ns2:parentJsonId ns2:N3b73ef88d8a246508c25bc5cecce72f4 .
 
-ns1:Nd72c7420d11a4feca0f4035b3bde8b49 a ns1:ObjectJson,
+ns2:Nf6db791b0039464a877763b786a57f10 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "OutputList" ;
-    ns1:parentJsonId ns1:N2bbd5e3392a640aa9805cdfc009785f5 .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:ScalarString "[PSYCHOLOGY_TEST_1].[dbo].[T_TESTING_STEP].[T_TEST_STEP_ID] as [tt].[T_TEST_STEP_ID]=[@current_step_id] AND [PSYCHOLOGY_TEST_1].[dbo].[T_TESTING_STEP].[T_TESTING_ID] as [tt].[T_TESTING_ID]=[@t_testing_id]" ;
+    ns2:hasJsonObjectKey "ScalarOperator" ;
+    ns2:parentJsonId ns2:N6f2215573212405eb5dd4e219c564307 .
 
-ns1:Nd9c73c8594644e2e886a128296166ee8 a ns1:ObjectJson,
+ns2:Nfacf3cdc06174524980c33f8326a6b36 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "ScalarOperator" ;
-    ns1:parentJsonId ns1:Nd26d0c99963b46d29a6f6e13c33e839f .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "SeekPredicateNew" ;
+    ns2:parentJsonId ns2:Nb28754360b9b4b68b8a0cc0f581bc9de .
 
-ns1:Ndd5f7aca72a84a04916209defb929ddd a ns1:ObjectJson,
+ns2:Nfd6e3a7b249b4404a67a246b39c682a3 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "0" ;
-    ns1:parentJsonId ns1:N29192f98c4b84260a668c486ee418cff .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:CompareOp "EQ" ;
+    ns2:hasJsonObjectKey "Compare" ;
+    ns2:parentJsonId ns2:N5641832a5e234aafb18862a8307a98dc .
 
-ns1:Ne0a212c5033a416685f883414a8f623a a ns1:ObjectJson,
+ns2:Nfdd6798050a54341a4851fb2c26e8f54 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "Identifier" ;
-    ns1:parentJsonId ns1:N0ab09fc710aa429c94155da1ddb3f8c0 .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "DefinedValues" ;
+    ns2:parentJsonId ns2:N2c143b3cee4045659492e1b0e2f875c6 .
 
-ns1:Ne122f78db5cf403fac19c0cd1a94379e a ns1:ObjectJson,
+ns2:N0204182921064e8e91cfaee1af4097a8 a ns2:ArrayJson,
+        ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "ScalarOperator" ;
-    ns1:parentJsonId ns1:N22a76f48872e46eaafe136e35b75bb6a .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "ColumnGroup" ;
+    ns2:parentJsonId ns2:N414d03594b2a462bb5b2138472f68b27 .
 
-ns1:Ne2cd6e09b3324520ad6b1285cfa3bde0 a ns1:ObjectJson,
+ns2:N0f2a38d69a1645eba5bc389f5aaa748a a ns2:ArrayJson,
+        ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:ScalarString "CASE WHEN [@lang_num]=(2) THEN [PSYCHOLOGY_TEST_1].[dbo].[T_TEST_STEP].[PAGE_USR_TEXT_LANG2] as [ts].[PAGE_USR_TEXT_LANG2] ELSE CASE WHEN [@lang_num]=(3) THEN [PSYCHOLOGY_TEST_1].[dbo].[T_TEST_STEP].[PAGE_USR_TEXT_LANG3] as [ts].[PAGE_USR_TEXT_LANG3] ELSE [PSYCHOLOGY_TEST_1].[dbo].[T_TEST_STEP].[PAGE_USR_TEXT_LANG1] as [ts].[PAGE_USR_TEXT_LANG1] END END" ;
-    ns1:hasJsonObjectKey "ScalarOperator" ;
-    ns1:parentJsonId ns1:N3e8e0f108fb64e7581b99667f34da67e .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:Nc95324d2bc2b4c4583038f197945b511 .
 
-ns1:Ne7bab518d7434322954aade58b3bfb66 a ns1:ObjectJson,
+ns2:N21a6bf2e9e274b31a103ab4d9fbd95f6 a ns2:ArrayJson,
+        ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "Identifier" ;
-    ns1:parentJsonId ns1:N8ced594bde01485fb3dd3f4859ba57d1 .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "ScalarOperator" ;
+    ns2:parentJsonId ns2:Nda4155b557f84d539affe1e3202769ea .
 
-ns1:Neab7994769d44dbc9eb6fb79d2c0c311 a ns1:ObjectJson,
+ns2:N2c293958e57e45e88d1c102836a86689 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "0" ;
-    ns1:parentJsonId ns1:N67d40166d476436385e0bd6142014238 .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "DefinedValue" ;
+    ns2:parentJsonId ns2:N1d3137db9b674c678a3ee557e829b538 .
 
-ns1:Nf6523ab1891d415ea2ff0039f295e046 a ns1:ObjectJson,
+ns2:N3145cc4d8f4f47128ac2fcd124a6d3da a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "OutputList" ;
-    ns1:parentJsonId ns1:N20321580530b48e1a0e6ed0ba7bcd4dd .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "ComputeScalar" ;
+    ns2:parentJsonId ns2:N96bbf14795ab45ad962b8b70fac9645f .
 
-ns1:Nf71bee13d7d04a1eb88cb2c8b6bb0a09 a ns1:ObjectJson,
+ns2:N3702a8921fe84e4a853412faedf977e4 a ns2:ArrayJson,
+        ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "SeekPredicateNew" ;
-    ns1:parentJsonId ns1:N68501184df0c4bf99280ea25c7b7111c .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "ScalarOperator" ;
+    ns2:parentJsonId ns2:Nd9699e2d72aa47fb82411113ded43f5e .
 
-ns1:Nf7c008d11c494445ad00db7bab51164b a ns1:ObjectJson,
+ns2:N3b73ef88d8a246508c25bc5cecce72f4 a ns2:ArrayJson,
+        ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "Predicate" ;
-    ns1:parentJsonId ns1:N5e6ddb01e42d4576b3fa71873fca45b9 .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "ScalarOperator" ;
+    ns2:parentJsonId ns2:N02684470d9654bc19ccd95aa62e2c703 .
 
-ns1:Nfba6a553163f4aefb2ce1a1abf04d175 a ns1:ObjectJson,
+ns2:N7248f279d5594b1988f58ef2cfd07a38 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "RangeExpressions" ;
-    ns1:parentJsonId ns1:N69e5542556a041378740926fdd11062d .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:ScanType "EQ" ;
+    ns2:hasJsonObjectKey "Prefix" ;
+    ns2:parentJsonId ns2:N39e90a95d5d24bd999ffce818840b50b .
 
-ns1:Nff61be962cee49088a36c921be32c3c9 a ns1:ObjectJson,
+ns2:N780d3137e70b44d1a850bc8131392b19 a ns2:ArrayJson,
+        ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "1" ;
-    ns1:parentJsonId ns1:N67d40166d476436385e0bd6142014238 .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "RelOp" ;
+    ns2:parentJsonId ns2:N8cb351b8f05c4f4db9b2dd5a9b6868f4 .
 
-ns1:N04fa398a62f8449f9b4cca487b05dce7 a ns1:ArrayJson,
-        ns1:ObjectJson,
+ns2:N81052eb90f6848e9b96d6e343866c51a a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "ColumnGroup" ;
-    ns1:parentJsonId ns1:N18c6378572124f0d88ae7fcfd3fdf279 .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:AvgRowSize "1221" ;
+    ns1:EstimateCPU "4.18e-06" ;
+    ns1:EstimateIO "0" ;
+    ns1:EstimateRebinds "0" ;
+    ns1:EstimateRewinds "0" ;
+    ns1:EstimateRows "1" ;
+    ns1:EstimatedExecutionMode "Row" ;
+    ns1:EstimatedTotalSubtreeCost "0.306124" ;
+    ns1:LogicalOp "Inner Join" ;
+    ns1:NodeId "1" ;
+    ns1:Parallel "0" ;
+    ns1:PhysicalOp "Nested Loops" ;
+    ns2:hasJsonObjectKey "RelOp" ;
+    ns2:parentJsonId ns2:N3145cc4d8f4f47128ac2fcd124a6d3da .
 
-ns1:N0c2d7a8a891d475da4e6abcc080995cb a ns1:ArrayJson,
-        ns1:ObjectJson,
+ns2:N95f88626547948fa884e92d1cdfa9b96 a ns2:ArrayJson,
+        ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "ScalarOperator" ;
-    ns1:parentJsonId ns1:N15a3b73580404c11bab4c75329ef30a8 .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "Column" ;
+    ns2:parentJsonId ns2:N6263fecc5c354fb1baab3ba9afb2ffee .
 
-ns1:N20321580530b48e1a0e6ed0ba7bcd4dd a ns1:ObjectJson,
+ns2:N96bbf14795ab45ad962b8b70fac9645f a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:AvgRowSize "1221" ;
-    ns3:EstimateCPU "4.18e-06" ;
-    ns3:EstimateIO "0" ;
-    ns3:EstimateRebinds "0" ;
-    ns3:EstimateRewinds "0" ;
-    ns3:EstimateRows "1" ;
-    ns3:EstimatedExecutionMode "Row" ;
-    ns3:EstimatedTotalSubtreeCost "0.304974" ;
-    ns3:LogicalOp "Inner Join" ;
-    ns3:NodeId "1" ;
-    ns3:Parallel "0" ;
-    ns3:PhysicalOp "Nested Loops" ;
-    ns1:hasJsonObjectKey "RelOp" ;
-    ns1:parentJsonId ns1:N95e1876eeb19427381fec037d58f04ae .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:AvgRowSize "1081" ;
+    ns1:EstimateCPU "1e-07" ;
+    ns1:EstimateIO "0" ;
+    ns1:EstimateRebinds "0" ;
+    ns1:EstimateRewinds "0" ;
+    ns1:EstimateRows "1" ;
+    ns1:EstimatedExecutionMode "Row" ;
+    ns1:EstimatedTotalSubtreeCost "0.306124" ;
+    ns1:LogicalOp "Compute Scalar" ;
+    ns1:NodeId "0" ;
+    ns1:Parallel "0" ;
+    ns1:PhysicalOp "Compute Scalar" ;
+    ns2:hasJsonObjectKey "RelOp" ;
+    ns2:parentJsonId ns2:Ned6cbd990d284c529158140ae7f61295 .
 
-ns1:N21339a8293854da4b9bf173395fdceb3 a ns1:ArrayJson,
-        ns1:ObjectJson,
+ns2:N97490723424f459fa86da22901ad9c07 a ns2:ArrayJson,
+        ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "RelOp" ;
-    ns1:parentJsonId ns1:Na8ec5805712b41089cfdc7aed1eb80fa .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "ScalarOperator" ;
+    ns2:parentJsonId ns2:N33cc111cb16844a782d1f8bfc4fc1ecc .
 
-ns1:N25b4ccc154154fb4be2ca156f6e685a6 a ns1:ObjectJson,
+ns2:Nab7c9450bde0406281048ae2365c7495 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:CardinalityEstimationModelVersion "70" ;
-    ns3:QueryHash "0x07A85B7E44284607" ;
-    ns3:QueryPlanHash "0x32FF30DE064DB49D" ;
-    ns3:RetrievedFromCache "false" ;
-    ns3:SecurityPolicyApplied "false" ;
-    ns3:StatementCompId "3" ;
-    ns3:StatementEstRows "1" ;
-    ns3:StatementId "2" ;
-    ns3:StatementOptmEarlyAbortReason "GoodEnoughPlanFound" ;
-    ns3:StatementOptmLevel "FULL" ;
-    ns3:StatementSubTreeCost "0.304974" ;
-    ns3:StatementText """\r
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:CardinalityEstimationModelVersion "70" ;
+    ns1:QueryHash "0x07A85B7E44284607" ;
+    ns1:QueryPlanHash "0x32FF30DE064DB49D" ;
+    ns1:RetrievedFromCache "false" ;
+    ns1:SecurityPolicyApplied "false" ;
+    ns1:StatementCompId "3" ;
+    ns1:StatementEstRows "1" ;
+    ns1:StatementId "2" ;
+    ns1:StatementOptmEarlyAbortReason "GoodEnoughPlanFound" ;
+    ns1:StatementOptmLevel "FULL" ;
+    ns1:StatementSubTreeCost "0.306124" ;
+    ns1:StatementText """\r
 CREATE procedure [dbo].[get_test_step]\r
 @lang_num int,\r
 @current_step_id uniqueidentifier,\r
@@ -952,214 +1024,142 @@ tt.result_txt\r
 from t_test_step ts inner join t_testing_step tt \r
 on ts.t_test_step_id=tt.t_test_step_id\r
 where ts.t_test_step_id=@current_step_id and tt.t_testing_id=@t_testing_id""" ;
-    ns3:StatementType "SELECT" ;
-    ns1:hasJsonObjectKey "StmtSimple" ;
-    ns1:parentJsonId ns1:N3b3b32e0d3ba4e699a990de364f74f84 .
+    ns1:StatementType "SELECT" ;
+    ns2:hasJsonObjectKey "StmtSimple" ;
+    ns2:parentJsonId ns2:N01ab8eb1a30946f0b01039252fd37f02 .
 
-ns1:N29192f98c4b84260a668c486ee418cff a ns1:ArrayJson,
-        ns1:ObjectJson,
+ns2:Nbd9008f8163f46c8bfb9cc9ce711ad3a a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "ScalarOperator" ;
-    ns1:parentJsonId ns1:N1a8d4c9c806f44b79879f92937ba8e43 .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:AvgRowSize "219" ;
+    ns1:EstimateCPU "0.0001581" ;
+    ns1:EstimateIO "0.003125" ;
+    ns1:EstimateRebinds "0" ;
+    ns1:EstimateRewinds "0" ;
+    ns1:EstimateRows "1" ;
+    ns1:EstimatedExecutionMode "Row" ;
+    ns1:EstimatedRowsRead "1" ;
+    ns1:EstimatedTotalSubtreeCost "0.0032831" ;
+    ns1:LogicalOp "Clustered Index Seek" ;
+    ns1:NodeId "2" ;
+    ns1:Parallel "0" ;
+    ns1:PhysicalOp "Clustered Index Seek" ;
+    ns1:TableCardinality "940" ;
+    ns2:hasJsonObjectKey "0" ;
+    ns2:parentJsonId ns2:N780d3137e70b44d1a850bc8131392b19 .
 
-ns1:N2bbd5e3392a640aa9805cdfc009785f5 a ns1:ObjectJson,
+ns2:Nce757d9ba7a945b98ebf4ae4a4c3f496 a ns2:ArrayJson,
+        ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:AvgRowSize "1043" ;
-    ns3:EstimateCPU "0.0243735" ;
-    ns3:EstimateIO "0.25794" ;
-    ns3:EstimateRebinds "0" ;
-    ns3:EstimateRewinds "0" ;
-    ns3:EstimateRows "1" ;
-    ns3:EstimatedExecutionMode "Row" ;
-    ns3:EstimatedRowsRead "22015" ;
-    ns3:EstimatedTotalSubtreeCost "0.282313" ;
-    ns3:LogicalOp "Clustered Index Scan" ;
-    ns3:NodeId "3" ;
-    ns3:Parallel "0" ;
-    ns3:PhysicalOp "Clustered Index Scan" ;
-    ns3:TableCardinality "22015" ;
-    ns1:hasJsonObjectKey "1" ;
-    ns1:parentJsonId ns1:N21339a8293854da4b9bf173395fdceb3 .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "MissingIndexGroup" ;
+    ns2:parentJsonId ns2:N8390bc54f81b4f4d94209313c6258a21 .
 
-ns1:N3e8e0f108fb64e7581b99667f34da67e a ns1:ObjectJson,
+ns2:Nebb6c41fe2954e9784cc4e52d224509f a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "DefinedValue" ;
-    ns1:parentJsonId ns1:N01957ecc589c49c7a2021d7ddc5e2b94 .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:AvgRowSize "1043" ;
+    ns1:EstimateCPU "0.0246012" ;
+    ns1:EstimateIO "0.258681" ;
+    ns1:EstimateRebinds "0" ;
+    ns1:EstimateRewinds "0" ;
+    ns1:EstimateRows "1" ;
+    ns1:EstimatedExecutionMode "Row" ;
+    ns1:EstimatedRowsRead "22222" ;
+    ns1:EstimatedTotalSubtreeCost "0.283282" ;
+    ns1:LogicalOp "Clustered Index Scan" ;
+    ns1:NodeId "3" ;
+    ns1:Parallel "0" ;
+    ns1:PhysicalOp "Clustered Index Scan" ;
+    ns1:TableCardinality "22222" ;
+    ns2:hasJsonObjectKey "1" ;
+    ns2:parentJsonId ns2:N780d3137e70b44d1a850bc8131392b19 .
 
-ns1:N539d7e7e049a42779f660be747982b98 a ns1:ArrayJson,
-        ns1:ObjectJson,
+ns2:Nf2ac4ec6f7774609a9832a23d9ec5bb5 a ns2:ArrayJson,
+        ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "Column" ;
-    ns1:parentJsonId ns1:Nb7c6d2d6bc0a40ce88b2cd8b684fc3a3 .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "Column" ;
+    ns2:parentJsonId ns2:Ne3f79c25619341c18aa5e6629099546a .
 
-ns1:N65e3f32f0c854307aa45908ec1cc2b27 a ns1:ObjectJson,
+ns2:Nfe768807908945398876e58dd48b3a99 a ns2:ArrayJson,
+        ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:AvgRowSize "219" ;
-    ns3:EstimateCPU "0.0001581" ;
-    ns3:EstimateIO "0.003125" ;
-    ns3:EstimateRebinds "0" ;
-    ns3:EstimateRewinds "0" ;
-    ns3:EstimateRows "1" ;
-    ns3:EstimatedExecutionMode "Row" ;
-    ns3:EstimatedRowsRead "1" ;
-    ns3:EstimatedTotalSubtreeCost "0.0032831" ;
-    ns3:LogicalOp "Clustered Index Seek" ;
-    ns3:NodeId "2" ;
-    ns3:Parallel "0" ;
-    ns3:PhysicalOp "Clustered Index Seek" ;
-    ns3:TableCardinality "940" ;
-    ns1:hasJsonObjectKey "0" ;
-    ns1:parentJsonId ns1:N21339a8293854da4b9bf173395fdceb3 .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "ScalarOperator" ;
+    ns2:parentJsonId ns2:Nfd6e3a7b249b4404a67a246b39c682a3 .
 
-ns1:N67d40166d476436385e0bd6142014238 a ns1:ArrayJson,
-        ns1:ObjectJson,
+ns2:N1320e0cbcdfb44e7ad657c8e3d128653 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "ScalarOperator" ;
-    ns1:parentJsonId ns1:Nba7e5e07f69d4d6aae1908a09ba7c41d .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:ForceScan "0" ;
+    ns1:ForcedIndex "0" ;
+    ns1:NoExpandHint "0" ;
+    ns1:Ordered "0" ;
+    ns1:Storage "RowStore" ;
+    ns2:hasJsonObjectKey "IndexScan" ;
+    ns2:parentJsonId ns2:Nebb6c41fe2954e9784cc4e52d224509f .
 
-ns1:N69e5542556a041378740926fdd11062d a ns1:ObjectJson,
+ns2:N2c143b3cee4045659492e1b0e2f875c6 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:ScanType "EQ" ;
-    ns1:hasJsonObjectKey "Prefix" ;
-    ns1:parentJsonId ns1:N9ad585c2f090437ca242b89b55560df3 .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:ForceScan "0" ;
+    ns1:ForceSeek "0" ;
+    ns1:ForcedIndex "0" ;
+    ns1:NoExpandHint "0" ;
+    ns1:Ordered "1" ;
+    ns1:ScanDirection "FORWARD" ;
+    ns1:Storage "RowStore" ;
+    ns2:hasJsonObjectKey "IndexScan" ;
+    ns2:parentJsonId ns2:Nbd9008f8163f46c8bfb9cc9ce711ad3a .
 
-ns1:N6f142b8324d4459e9b5b3b1f0f9c1d0d a ns1:ObjectJson,
+ns2:N82e39494bb26419980ad427f5b9df579 a ns2:ArrayJson,
+        ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:AvgRowSize "1081" ;
-    ns3:EstimateCPU "1e-07" ;
-    ns3:EstimateIO "0" ;
-    ns3:EstimateRebinds "0" ;
-    ns3:EstimateRewinds "0" ;
-    ns3:EstimateRows "1" ;
-    ns3:EstimatedExecutionMode "Row" ;
-    ns3:EstimatedTotalSubtreeCost "0.304974" ;
-    ns3:LogicalOp "Compute Scalar" ;
-    ns3:NodeId "0" ;
-    ns3:Parallel "0" ;
-    ns3:PhysicalOp "Compute Scalar" ;
-    ns1:hasJsonObjectKey "RelOp" ;
-    ns1:parentJsonId ns1:N2547bafebf2946eea12ebb58945c5771 .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:N873f4e14174341cb8e296558451ecaed .
 
-ns1:N892ad89229e94af982802223f903134a a ns1:ArrayJson,
-        ns1:ObjectJson,
+ns2:N852da5c4e5da48b4908b8fc8a8fe62dd a ns2:ArrayJson,
+        ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "ScalarOperator" ;
-    ns1:parentJsonId ns1:N898b1cc07e9c4d9d857f5c139a1c6032 .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:N55a0883cd26441bdb0b19a97cf4a4a81 .
 
-ns1:N8b7681611cf24cc79b4f6a943745c35f a ns1:ArrayJson,
-        ns1:ObjectJson,
+ns2:Nbf3da1eb50704f54abdb84f44808d9a3 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "ScalarOperator" ;
-    ns1:parentJsonId ns1:Nb6864ae329b14e4da88863fe35097606 .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "IF" ;
+    ns2:parentJsonId ns2:Nc9d4372e039c45a08a072954b5132de0 .
 
-ns1:N917fed38de75467eb89d8acfc9d76509 a ns1:ArrayJson,
-        ns1:ObjectJson,
+ns2:Nc540b95db9b44dfb8b04407c7da6e646 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "MissingIndexGroup" ;
-    ns1:parentJsonId ns1:N1fc30e8558fd419fa3e8241653636ef3 .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "IF" ;
+    ns2:parentJsonId ns2:N65466f78b2494d4fb0af24977c0e111a .
 
-ns1:N95e1876eeb19427381fec037d58f04ae a ns1:ObjectJson,
+ns2:Nf79d4eb9c2014c78b115371a0ce4d87c a ns2:ArrayJson,
+        ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "ComputeScalar" ;
-    ns1:parentJsonId ns1:N6f142b8324d4459e9b5b3b1f0f9c1d0d .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "DefinedValue" ;
+    ns2:parentJsonId ns2:Nfdd6798050a54341a4851fb2c26e8f54 .
 
-ns1:Nb95b083178d641f692cce4aab145cf73 a ns1:ArrayJson,
-        ns1:ObjectJson,
+ns2:N5c60004328ba472ebd8cfbc1d09d03eb a ns2:ArrayJson,
+        ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:N00c86ad401024fbbb085208666ce524a .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns2:hasJsonObjectKey "ColumnReference" ;
+    ns2:parentJsonId ns2:N2a25c33696f34aeda301b08c6fe8c7ee .
 
-ns1:Nd9d4a83568a84713800084f92e5feb92 a ns1:ArrayJson,
-        ns1:ObjectJson,
+ns2:Ned6cbd990d284c529158140ae7f61295 a ns2:ObjectJson,
         owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "Column" ;
-    ns1:parentJsonId ns1:Naf1cb93e0cfa4f8f9755648afdd6d65b .
-
-ns1:N2409e346340543e491a74f833d3d5082 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:ForceScan "0" ;
-    ns3:ForceSeek "0" ;
-    ns3:ForcedIndex "0" ;
-    ns3:NoExpandHint "0" ;
-    ns3:Ordered "1" ;
-    ns3:ScanDirection "FORWARD" ;
-    ns3:Storage "RowStore" ;
-    ns1:hasJsonObjectKey "IndexScan" ;
-    ns1:parentJsonId ns1:N65e3f32f0c854307aa45908ec1cc2b27 .
-
-ns1:N36284ca3fbe640ba87f41f0822b52173 a ns1:ArrayJson,
-        ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "DefinedValue" ;
-    ns1:parentJsonId ns1:Nd166acf224d84f2dacbe07aa8056e676 .
-
-ns1:N545d087b17da493cb95e96a75428aed8 a ns1:ArrayJson,
-        ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:N4e4125197f694d34a10b885dfac5feab .
-
-ns1:N5d98c9793fdf4916864b5529ad5673bb a ns1:ArrayJson,
-        ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:N3aa4ea55d48a4220ad55c3ffa494b213 .
-
-ns1:N5e6ddb01e42d4576b3fa71873fca45b9 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:ForceScan "0" ;
-    ns3:ForcedIndex "0" ;
-    ns3:NoExpandHint "0" ;
-    ns3:Ordered "0" ;
-    ns3:Storage "RowStore" ;
-    ns1:hasJsonObjectKey "IndexScan" ;
-    ns1:parentJsonId ns1:N2bbd5e3392a640aa9805cdfc009785f5 .
-
-ns1:N9f4bdffd7ffe441689155ed32445d761 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "IF" ;
-    ns1:parentJsonId ns1:Ne2cd6e09b3324520ad6b1285cfa3bde0 .
-
-ns1:Nb7f80ca68dbb4784a2232c095b733a40 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "IF" ;
-    ns1:parentJsonId ns1:N0c6916ccda2741cfa50f08bc45804c5a .
-
-ns1:N4e4710911fd54849955999c36d6d01eb a ns1:ArrayJson,
-        ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns1:hasJsonObjectKey "ColumnReference" ;
-    ns1:parentJsonId ns1:Nf6523ab1891d415ea2ff0039f295e046 .
-
-ns1:N2547bafebf2946eea12ebb58945c5771 a ns1:ObjectJson,
-        owl:NamedIndividual ;
-    ns2:hasSourceFile "get_test_step.json" ;
-    ns3:CachedPlanSize "32" ;
-    ns3:CompileCPU "4" ;
-    ns3:CompileMemory "312" ;
-    ns3:CompileTime "4" ;
-    ns1:hasJsonObjectKey "QueryPlan" ;
-    ns1:parentJsonId ns1:N25b4ccc154154fb4be2ca156f6e685a6 .
+    ns3:hasSourceFile "get_test_step.json" ;
+    ns1:CachedPlanSize "32" ;
+    ns1:CompileCPU "14" ;
+    ns1:CompileMemory "312" ;
+    ns1:CompileTime "15" ;
+    ns2:hasJsonObjectKey "QueryPlan" ;
+    ns2:parentJsonId ns2:Nab7c9450bde0406281048ae2365c7495 .
 
