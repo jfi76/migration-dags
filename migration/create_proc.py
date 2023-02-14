@@ -132,7 +132,7 @@ as $$""", self.statementId , proc['iri'], self.statement_types_dict['CREATE LANG
                 if (statement['StatementType']['value']=='UPDATE'): 
                     ret=update.exec(statement['StatementText']['value'])
                     tmp_stmt=replace_right_ms_vars_in_coparison(self.proc_variables,ret['stmt'])+ ';'
-                    #print(tmp_stmt)
+
                     self.add_body_statement(tmp_stmt,ret,statement['iri']['value'],procIri,statement['StatementType']['value'],statement['iri']['value'])
 
 
