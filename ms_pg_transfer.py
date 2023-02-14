@@ -108,7 +108,7 @@ def add_proc_declare():
 @task
 def init_rdf_json():
     load_init_rdf_json('./dags/init_rdf_json/','./dags/output/')
-with DAG(dag_id="psy_etl_dag",schedule_interval=None , start_date=datetime(2023, 2, 1),catchup=False,  tags=["psy_init"]) as dag:
+with DAG(dag_id="proc_etl_migr_dag",schedule_interval=None , start_date=datetime(2023, 2, 1),catchup=False,  tags=["proc_migr"]) as dag:
 
     with TaskGroup("mssql_proc_to_pgsql", tooltip="ms procedure to pgsql procedure") as extract_load_src:
         src_product_tbls = get_src_tables()
