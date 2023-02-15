@@ -16,7 +16,13 @@ https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index
 use docker-comose.yml
 in docker-compose.yml change line to add modules:
 _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:- apache-airflow-providers-microsoft-mssql SPARQLWrapper xmltodict rdflib requests sqlparse}
-I have airflow folder, dags (this project) is subfolder.
+I have airflow folder. dags (this project) is subfolder.
+airflow
+    dags -- root of this repository
+    logs 
+    .plugins 
+    docker-compose.yml
+
 in airflow folder I run docker-compose up
 
 3. https://github.com/jfi76/sparql-reporter
