@@ -2,26 +2,7 @@ import pymssql
 import xmltodict
 import json
 import os
-"""
-useful info  http://www.pymssql.org/en/stable/pymssql_examples.html
-https://learn.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-transact-sql?view=azuresqldb-current&viewFallbackFrom=sql-server-ver16
-https://www.w3.org/community/rax/wiki/XML_to_RDF_Transformation_processes_using_XSLT
-https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html
-https://learn.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-text-query-plan-transact-sql?view=sql-server-ver16
-airflow and the password airflow
-host.docker.internal
-C:\zena\airflow
-docker-compose up
-docker run --hostname=9683a1f947b2 --mac-address=02:42:ac:11:00:02 --env=POSTGRES_PASSWORD=mysecretpassword --env=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/lib/postgresql/15/bin --env=GOSU_VERSION=1.14 --env=LANG=en_US.utf8 --env=PG_MAJOR=15 --env=PG_VERSION=15.1-1.pgdg110+1 --env=PGDATA=/var/lib/postgresql/data --volume=/var/lib/postgresql/data -p 5432:5432 --restart=no --runtime=runc -d postgres
-fuseki admin pw123
-docker run --hostname=74be21cce865 --mac-address=02:42:ac:11:00:02 --env=ADMIN_PASSWORD=pw123 --env=PATH=/usr/local/openjdk-11/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin --env=LANG=C.UTF-8 --env=JAVA_HOME=/usr/local/openjdk-11 --env=JAVA_VERSION=11.0.6 --env=JAVA_BASE_URL=https://github.com/AdoptOpenJDK/openjdk11-upstream-binaries/releases/download/jdk-11.0.6%2B10/OpenJDK11U-jre_ --env=JAVA_URL_VERSION=11.0.6_10 --env=FUSEKI_SHA512=62ac07f70c65a77fb90127635fa82f719fd5f4f10339c32702ebd664227d78f7414233d69d5b73f25b033f2fdea37b8221ea498755697eea3c1344819e4a527e --env=FUSEKI_VERSION=3.14.0 --env=ASF_MIRROR=http://www.apache.org/dyn/mirrors/mirrors.cgi?action=download&filename= --env=ASF_ARCHIVE=http://archive.apache.org/dist/ --env=FUSEKI_BASE=/fuseki --env=FUSEKI_HOME=/jena-fuseki --volume=c:/fuseki:/fuseki --volume=/fuseki --workdir=/jena-fuseki -p 3030:3030 --restart=no --label='org.opencontainers.image.authors=Apache Jena Fuseki by https://jena.apache.org/; this image by https://orcid.org/0000-0001-9842-9718' --label='org.opencontainers.image.description=Fuseki is a SPARQL 1.1 server with a web interface, backed by the Apache Jena TDB RDF triple store.' --label='org.opencontainers.image.documentation=https://jena.apache.org/documentation/fuseki2/' --label='org.opencontainers.image.licenses=(Apache-2.0 AND (GPL-2.0 WITH Classpath-exception-2.0) AND GPL-3.0)' --label='org.opencontainers.image.source=https://github.com/stain/jena-docker/' --label='org.opencontainers.image.title=Apache Jena Fuseki' --label='org.opencontainers.image.url=https://github.com/stain/jena-docker/tree/master/jena-fuseki' --label='org.opencontainers.image.version=3.14.0' --runtime=runc -d stain/jena-fuseki
 
-docker run --hostname=df0b9247528d --mac-address=02:42:ac:11:00:03 --env=ADMIN_PASSWORD=pw123 --env=PATH=/usr/local/openjdk-11/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin --env=LANG=C.UTF-8 --env=JAVA_HOME=/usr/local/openjdk-11 --env=JAVA_VERSION=11.0.6 --env=JAVA_BASE_URL=https://github.com/AdoptOpenJDK/openjdk11-upstream-binaries/releases/download/jdk-11.0.6%2B10/OpenJDK11U-jre_ --env=JAVA_URL_VERSION=11.0.6_10 --env=FUSEKI_SHA512=62ac07f70c65a77fb90127635fa82f719fd5f4f10339c32702ebd664227d78f7414233d69d5b73f25b033f2fdea37b8221ea498755697eea3c1344819e4a527e --env=FUSEKI_VERSION=3.14.0 --env=ASF_MIRROR=http://www.apache.org/dyn/mirrors/mirrors.cgi?action=download&filename= --env=ASF_ARCHIVE=http://archive.apache.org/dist/ --env=FUSEKI_BASE=/fuseki --env=FUSEKI_HOME=/jena-fuseki --volume=c:/fuseki:/fuseki --volume=/fuseki --workdir=/jena-fuseki -p 3030:3030 --restart=no --label='org.opencontainers.image.authors=Apache Jena Fuseki by https://jena.apache.org/; this image by https://orcid.org/0000-0001-9842-9718' --label='org.opencontainers.image.description=Fuseki is a SPARQL 1.1 server with a web interface, backed by the Apache Jena TDB RDF triple store.' --label='org.opencontainers.image.documentation=https://jena.apache.org/documentation/fuseki2/' --label='org.opencontainers.image.licenses=(Apache-2.0 AND (GPL-2.0 WITH Classpath-exception-2.0) AND GPL-3.0)' --label='org.opencontainers.image.source=https://github.com/stain/jena-docker/' --label='org.opencontainers.image.title=Apache Jena Fuseki' --label='org.opencontainers.image.url=https://github.com/stain/jena-docker/tree/master/jena-fuseki' --label='org.opencontainers.image.version=3.14.0' --runtime=runc -d stain/jena-fuseki
-docker run -d --name fuseki -p 3030:3030 --env=ADMIN_PASSWORD=pw123 --volume=c:/fuseki:/fuseki stain/jena-fuseki
-https://hub.docker.com/r/stain/jena-fuseki/#!
-/migr_mssql_pqsql/sparql  for selects
-"""
-# docker run -d --name fuseki -p 3030:3030 -v /ssd/data/fuseki:/fuseki stain/jena-fuseki
 
 class mssql_to_postgres:
     def __init__(self, con_server, con_passw):    

@@ -16,6 +16,28 @@ https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index
 use docker-comose.yml
 in docker-compose.yml change line to add modules:
 _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:- apache-airflow-providers-microsoft-mssql SPARQLWrapper xmltodict rdflib requests sqlparse}
+I have airflow folder, dags (this project) is subfolder.
+in airflow folder I run docker-compose up
 
+3. https://github.com/jfi76/sparql-reporter
+ui which used for browsing data related to migration
+
+4. ms-sql and postgres db setup as your choice
+in Airflow connections:
+postgres
+mssql
+with any db. use host as "host.docker.internal".
+in Airflow variables:
+mssql_serv:host.docker.internal
+mssql_pass: any your real pass of sa login
+currently get_proc_plans.py does not use hook and separate credentials which taken from vairiables, to chenge use line:
+pymssql.connect(server=self.con_server, user='sa',
+                        password=self.con_passw, database='PSYCHOLOGY_TEST_1')
+
+!!!! in dags folder create 4 dirs which contains processde xml,json,rdf files:
+mkdir json_data
+mkdir xml_data
+mkdir output
+mkdir rdf_parsed
 
 

@@ -26,7 +26,7 @@ from migration.load_init_rdf_json import load_init_rdf_json
 #select * from INFORMATION_SCHEMA.TABLES where substring(TABLE_NAME,1,2)='t_'
 @task()
 def get_src_tables():
-    hook = MsSqlHook(mssql_conn_id="t440s")    
+    hook = MsSqlHook(mssql_conn_id="mssql")    
     sql = """ select  LOWER(table_name) as table_name from INFORMATION_SCHEMA.TABLES where substring(TABLE_NAME,1,2)='t_' """
     df = hook.get_pandas_df(sql)
     print(df)
