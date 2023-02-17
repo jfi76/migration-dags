@@ -22,8 +22,8 @@ import migration.query.runSparqlWrapper as sparql_service
 from migration.process_declare import process_declare
 from migration.load_init_rdf_json import load_init_rdf_json
 
-#get t_* tables
-#select * from INFORMATION_SCHEMA.TABLES where substring(TABLE_NAME,1,2)='t_'
+# get t_* tables
+# use own filter to get needed tables
 @task()
 def get_src_tables():
     hook = MsSqlHook(mssql_conn_id="mssql")    
@@ -62,8 +62,6 @@ def prepare_proc():
     c.log_task_start()
     c.iterate_proc()
     c.ttl_serice.emptyGraph()    
-    print('finish iterate')
-    #ret=c.get_all_proc()
 
     for proc in c.procedures:
         print(proc['iri'])    
@@ -75,7 +73,6 @@ def prepare_proc():
                 exec_str=exec_str+'\n'+stmt['text']['value']
                 print(stmt['text']['value'])
             if exec_str!='' :
-                #print(exec_str)
                 engine.execute(exec_str)
         except Exception as e:
             print('taskIri:'+c.taskIri + ';proc:' + proc['iri'] + ';exception:'+str(e))    

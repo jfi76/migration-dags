@@ -41,6 +41,12 @@ currently get_proc_plans.py does not use hook and separate credentials which tak
 pymssql.connect(server=self.con_server, user='sa',
                         password=self.con_passw, database=self.con_db)
 
+in ms_pg_transfer use own filter to control needed table 
+sql = """ select  LOWER(table_name) as table_name from INFORMATION_SCHEMA.TABLES where substring(TABLE_NAME,1,2)='t_' """                        
+
+in get_proc_plans.py control your procedures for transfer
+self.getProcXMLExec('select ROUTINE_NAME , ROUTINE_TYPE from INFORMATION_SCHEMA.ROUTINES WHERE ROUTINE_TYPE=\'PROCEDURE\' and substring(ROUTINE_NAME,1,3)!=\'sp_\'  ')
+
 !!!! in dags folder create 4 dirs which contains processde xml,json,rdf files:
 mkdir json_data
 mkdir xml_data
