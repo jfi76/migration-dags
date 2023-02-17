@@ -40,13 +40,11 @@ def load_src_data(tbl_dict: dict):
     engine = create_engine(f'postgresql://{conn.login}:{conn.password}@{conn.host}:{conn.port}/{conn.schema}')
     all_tbl_name = []
     start_time = time.time()
-    #access the table_name element in dictionaries
     for k, v in tbl_dict['table_name'].items():
-        #print(v)
         all_tbl_name.append(v)
         rows_imported = 0
         sql = f'select * FROM {v}'
-        hook = MsSqlHook(mssql_conn_id="t440s")
+        hook = MsSqlHook(mssql_conn_id="mssql")
         df = hook.get_pandas_df(sql)
         df.columns = df.columns.str.lower()
         print(f'importing rows {rows_imported} to {rows_imported + len(df)}... for table {v} ')
@@ -86,7 +84,7 @@ def prepare_proc():
     c.queryService.load_ttl(c.fileoutput)        
 @task
 def get_proc_plan():    
-    ms_to_pq=mssql_to_postgres(con_server=Variable.get('mssql_serv'), con_passw=Variable.get('mssql_pass'))
+    ms_to_pq=mssql_to_postgres(con_server=Variable.get('mssql_serv'), con_passw=Variable.get('mssql_pass'), con_db=Variable.get('mssql_db'))
     ms_to_pq.exec()  
 
 @task 

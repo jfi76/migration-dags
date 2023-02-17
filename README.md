@@ -1,4 +1,4 @@
-proc migration mssql to pgsql
+procedures migration mssql to pgsql
 
 tools for runnging example
 
@@ -36,9 +36,10 @@ with any db. use host as "host.docker.internal".
 in Airflow variables:
 mssql_serv:host.docker.internal
 mssql_pass: any your real pass of sa login
+mssql_db: db name
 currently get_proc_plans.py does not use hook and separate credentials which taken from vairiables, to chenge use line:
 pymssql.connect(server=self.con_server, user='sa',
-                        password=self.con_passw, database='PSYCHOLOGY_TEST_1')
+                        password=self.con_passw, database=self.con_db)
 
 !!!! in dags folder create 4 dirs which contains processde xml,json,rdf files:
 mkdir json_data

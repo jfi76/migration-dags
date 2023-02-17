@@ -5,11 +5,12 @@ import os
 
 
 class mssql_to_postgres:
-    def __init__(self, con_server, con_passw):    
+    def __init__(self, con_server, con_passw, con_db):    
         self.con_server=con_server
         self.con_passw=con_passw
+        self.con_db=con_db
         self.conn = pymssql.connect(server=self.con_server, user='sa',
-                        password=self.con_passw, database='PSYCHOLOGY_TEST_1')
+                        password=self.con_passw, database=self.con_db)
         self.xml_data='./dags/xml_data/'
         self.json_data='./dags/json_data/'
     def con_close(self):
@@ -120,10 +121,10 @@ class mssql_to_postgres:
         self.execJsonSave('select * from master.INFORMATION_SCHEMA.COLUMNS for json path',self.json_data+'COLUMNS.json')
         self.execJsonSave('select * from INFORMATION_SCHEMA.CHECK_CONSTRAINTS for json path',self.json_data+'CHECK_CONSTRAINTS.json')
         self.execJsonSave('select * from INFORMATION_SCHEMA.CONSTRAINT_TABLE_USAGE for json path',self.json_data+'CONSTRAINT_TABLE_USAGE.json')
-        self.execJsonSave('select * from master.sys.databases where name=\'PSYCHOLOGY_TEST_1\' for json path ',self.json_data+'databases.json')
+        self.execJsonSave('select * from master.sys.databases where name=\''+self.con_db+'\' for json path ',self.json_data+'databases.json')
         self.getProcXMLExec('select ROUTINE_NAME , ROUTINE_TYPE from INFORMATION_SCHEMA.ROUTINES WHERE ROUTINE_TYPE=\'PROCEDURE\' and substring(ROUTINE_NAME,1,3)!=\'sp_\'  ')
         self.con_close()
 
 if __name__ == "__main__":
-        ms_to_pq=mssql_to_postgres(con_server=os.environ['mssql_serv'], con_passw=os.environ['mssql_pass'])
+        ms_to_pq=mssql_to_postgres(con_server=os.environ['mssql_serv'], con_passw=os.environ['mssql_pass'], con_db='PS_TEST_1')
         ms_to_pq.exec()
