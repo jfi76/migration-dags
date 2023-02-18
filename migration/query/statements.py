@@ -92,7 +92,7 @@ insert {
 where{
 select 
 (iri(concat('http://www.example.com/MIGRATION#',struuid())) as ?uid)
-(replace(?name,'@','') as ?name_conv) (IF(coalesce(?convPQ,'')='',?type,?convPQ) as ?type_conv) (coalesce(?len,'') as ?type_len) ?statement ?param ?iri
+(replace(?name,'@','var_') as ?name_conv) (IF(coalesce(?convPQ,'')='',?type,?convPQ) as ?type_conv) (coalesce(?len,'') as ?type_len) ?statement ?param ?iri
 {
 #bind(mig:69ee3c35-402f-4fa5-bf95-9945ed3220bd as ?param)  .
 ?param rdf:type mig:pgprocedure .  

@@ -326,16 +326,16 @@ PREFIX js: <http://www.example.com/JSON#>
 PREFIX etl:<http://www.example.com/ETL#>
 PREFIX  js_at: <http://www.example.com/JSON#@>
 
-select distinct ?StatementType 
+select ?StatementType (count(*) as ?count)
 {  
   bind (?param? as ?param) .
-  ?iri mig:hasDatabase ?param .
-  ?iri rdf:type mig:msprocedure .
-  ?execStmt mig:hasProcedure ?iri .
-  ?execStmt etl:hasSourceFile ?file .
-  ?stmt etl:hasSourceFile ?file .
-  ?stmt  js_at:StatementType ?StatementType .
-}""" ;
+  ?param rdf:type mig:msdatabase .
+  ?msproc rdf:type mig:msprocedure .
+  ?msproc mig:hasDatabase ?param .
+  ?iri mig:hasProcedure ?msproc .
+  ?iri rdf:type mig:msprocedurestatement .
+  ?iri  js_at:StatementType ?StatementType .
+} group by ?StatementType""" ;
                  rdfs:label "Statement types" .
 
 

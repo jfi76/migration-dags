@@ -38,7 +38,7 @@ class st_type_select(st_common.base_st_type):
                     for var in variables:                                        
                         if var_str=='': separator=''
                         else:separator=','
-                        var_str=var_str + separator  + var.replace('@','')                     
+                        var_str=var_str + separator  + var.replace('@','var_')                     
 
                     if var_str!='':    
                         new_str= new_str + '\n into '+var_str + '\n'
@@ -82,7 +82,7 @@ class st_type_select(st_common.base_st_type):
         for token in elements[0].tokens:
             if i>=positions['start_index']:
                 if isinstance(token,sqlparse.sql.Comparison) and str(token[0])[0]=="@":
-                    variable=str(token[0]).replace('@','')
+                    variable=str(token[0]).replace('@','var_')
                     if (positions['start_index']!=None):
                         for subtoken in token.tokens:
                             if isinstance(subtoken,sqlparse.sql.Parenthesis):

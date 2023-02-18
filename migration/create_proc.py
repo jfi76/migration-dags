@@ -8,7 +8,7 @@ from rdf_ttl_service import rdfTTLService
 from st_type_select import st_type_select 
 from st_type_update import st_type_update
 
-from st_common import replace_right_ms_vars_in_coparison
+from st_common import replace_right_ms_vars_in_coparison, simple_function_replacement
 class create_proc:
     def __init__(self):
         self.procedures=[]
@@ -127,12 +127,13 @@ as $$""", self.statementId , proc['iri'], self.statement_types_dict['CREATE LANG
                 if (statement['StatementType']['value']=='SELECT'): 
                     ret=select.exec(statement['StatementText']['value'])
                     tmp_stmt=replace_right_ms_vars_in_coparison(self.proc_variables,ret['stmt'])+ ';'
+                    tmp_stmt=simple_function_replacement(tmp_stmt)
                     #print(tmp_stmt)
                     self.add_body_statement(tmp_stmt,ret,statement['iri']['value'],procIri,statement['StatementType']['value'],statement['iri']['value'])
                 if (statement['StatementType']['value']=='UPDATE'): 
                     ret=update.exec(statement['StatementText']['value'])
                     tmp_stmt=replace_right_ms_vars_in_coparison(self.proc_variables,ret['stmt'])+ ';'
-
+                    tmp_stmt=simple_function_replacement(tmp_stmt)
                     self.add_body_statement(tmp_stmt,ret,statement['iri']['value'],procIri,statement['StatementType']['value'],statement['iri']['value'])
 
 

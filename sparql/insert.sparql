@@ -132,7 +132,7 @@ insert {
 select  
 (iri(concat('http://www.example.com/MIGRATION#',struuid())) as ?uid)
 ?DATA_TYPE ?PARAMETER_NAME ?ORDINAL_POSITION ?CHARACTER_MAXIMUM_LENGTH ?PARAMETER_MODE 
-(replace(?PARAMETER_NAME,'@','') as ?plpgsqlParam) ?convPQ 
+(replace(?PARAMETER_NAME,'@','var_') as ?plpgsqlParam) ?convPQ 
 (xsd:integer(?ORDINAL_POSITION) as ?pos_int)  
 ?iri
 ?param  
