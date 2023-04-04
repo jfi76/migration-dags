@@ -5,7 +5,7 @@ def replace_right_ms_vars_in_coparison(variables, stmt):
         stmt=re.sub("=(\s)*" + var['ms_name'] + "(\s)*", ' ='+var['replace_name']+' ' , stmt, flags=re.IGNORECASE)
     return stmt
 def simple_function_replacement(stmt):
-    replacements=[{"from":'getdate\(\)',"to":'now()'}]
+    replacements=[{"from":'getdate\(\)',"to":'now()'}, {"from":'isnull\(',"to":'coalesce('}]
     for item in replacements:
         stmt=re.sub(item['from'], item['to'], stmt, flags=re.IGNORECASE)
     return stmt

@@ -342,7 +342,7 @@ select ?StatementType (count(*) as ?count)
 ###  http://www.example.com/MIGRATION#msandpgstatmentbtn
 :msandpgstatmentbtn rdf:type owl:NamedIndividual ,
                              report:buttonReport ;
-                    report:hasQuery """select ?iri (?StatementId_Int as ?order) ?StatementType  ?StatementText ?pg_statement ?pgtxt ?pgtype
+                    report:hasQuery """select ?iri (?StatementId_Int as ?order) ?StatementType  ?StatementText  ?pgtxt ?pgtype ?pg_statement
 {  
   bind (?param? as ?param) .
 
