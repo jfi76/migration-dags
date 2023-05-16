@@ -143,8 +143,9 @@ if __name__ == "__main__":
 #    c.fileoutput='./output/proc.ttl'
 #    c.iterate_proc()
     
-
-    procIri='http://www.example.com/MIGRATION#ac3cd396-a02d-4e87-808e-79e872409a63'
+    
+    c.queryService.dbpath='http://localhost:3030/migration_rdf'
+    procIri='http://www.example.com/MIGRATION#b6a69125-a861-4397-96aa-cce295762ef8'
     c.get_proc_variables(procIri)
     c.prep_params(procIri)
     c.process_body(procIri)

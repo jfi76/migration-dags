@@ -17,13 +17,24 @@ class st_type_select(st_common.base_st_type):
             varstr=''
             if isinstance(token, sqlparse.sql.Comparison) and str(token[0])[0]=="@":
                 variables.append(str(token[0]))
+                #print(variables)
+                #print('+++++++',token,type(token))
                 for t in token:
                     if isinstance(t, sqlparse.sql.Identifier) and str(t)[0]!="@":
                         varstr=varstr+str(t)
+                        #print('*****',t,type(t))   
+                        #print('get it')
+                    if isinstance(t,sqlparse.sql.Function):
+                        varstr=varstr+str(t)     
+                    #else:
+                     #   print('-----',t,type(t))     
+                        #print()    
+                        
             else:varstr=varstr+(str(token))                    
             return varstr
         variables=[]    
         elements = sqlparse.parse(self.statement_text)
+        print(self.statement_text)        
         positions= st_common.get_tokens_range(elements[0].tokens, 'select', 'from')      
         if (positions['start_index']==None): return
         i=0   
@@ -90,4 +101,42 @@ class st_type_select(st_common.base_st_type):
                                 process_parenthesis(subtoken,variable)
 
             i=i+1        
-    
+
+
+
+if __name__ == "__main__":
+    st_s= st_type_select()
+    st_s.statement_text="""
+begin
+
+--set @seconds_remain=200
+
+
+select  
+@start_time=min(isnull(ts.view_date,getdate()))
+--ts.view_date,
+,@STOP_TIME_SEC=min(isnull(tt.STOP_TIME_SEC,0))
+from t_testing_step ts
+inner join t_test_step s on ts.t_test_step_id=s.t_test_step_id
+inner join t_testing_test tt on s.t_test_id=tt.t_test_id 
+where s.t_test_id=@t_test_id
+and ts.t_testing_id=@t_testing_id
+and tt.t_testing_id=@t_testing_id    
+    """   
+#     st_s.statement_text="""
+#   select @test_name=te.obj_name,@test_num=te.order_num,
+#   @question_btn_mark=te.user_question_mark,
+#   @back_btn_mark=te.back_btn_mark,
+#   @CURRENT_STOP_TIME=CURRENT_STOP_TIME,
+#   @stop_time_sec=stop_time_sec,
+#   @count_stop_times=tt.count_stop_times,
+#   @stop_times=te.stop_times,
+#   @time_limit_min=te.timelimitmin,
+#   @show_question_mark = te.show_question_mark
+#   from t_test te inner join t_testing_test tt
+#   on te.t_test_id=tt.t_test_id 
+#   where te.t_test_id=@t_test_id and tt.t_testing_id=@t_testing_id    
+#     """
+    st_s.try_select_into()
+    print('changed to:')
+    print(st_s.statement_text)
