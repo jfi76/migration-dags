@@ -17,18 +17,11 @@ class st_type_select(st_common.base_st_type):
             varstr=''
             if isinstance(token, sqlparse.sql.Comparison) and str(token[0])[0]=="@":
                 variables.append(str(token[0]))
-                #print(variables)
-                #print('+++++++',token,type(token))
                 for t in token:
                     if isinstance(t, sqlparse.sql.Identifier) and str(t)[0]!="@":
                         varstr=varstr+str(t)
-                        #print('*****',t,type(t))   
-                        #print('get it')
                     if isinstance(t,sqlparse.sql.Function):
                         varstr=varstr+str(t)     
-                    #else:
-                     #   print('-----',t,type(t))     
-                        #print()    
                         
             else:varstr=varstr+(str(token))                    
             return varstr
