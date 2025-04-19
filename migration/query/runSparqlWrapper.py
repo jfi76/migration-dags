@@ -31,7 +31,7 @@ class runSparqlWrapper:
             print(e)
         return ret      
     def load_ttl(self,file):
-        data = open(file).read()
+        data = open(file, encoding='utf-8').read()
         headers = {'Content-Type': 'text/turtle;charset=utf-8'}        
         resp = requests.post(self.dbpath+'/data?default', data=data.encode('utf-8'), headers=headers)
         print(self.dbpath+'/data' + ' from ' + file)

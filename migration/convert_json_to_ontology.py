@@ -32,13 +32,13 @@ class json_to_ontology:
     def processJson(self,file):
         self.toInsertArr=[]        
         print('process: ' + file)
-        f = open(file)
+        f = open(file,encoding='utf-8')
         symbol= f.readline(1)
         f.close()
         if len(symbol)<=0 :
             print('no process')            
             return 
-        f = open(file)
+        f = open(file, encoding='utf-8')
         data = json.load(f)
         f.close()        
         self.iterate_recursive2aarayNode(data,None, None, self.fileJson['iri'])
@@ -49,8 +49,8 @@ class json_to_ontology:
         for item in self.toInsertArr:
             self.toTTL(item)
         to_file=self.rdf_parsed+self.filename.replace('.json','.ttl')
-        self.graph.serialize(to_file, 'turtle')
         print(to_file)
+        self.graph.serialize(to_file, 'turtle')        
         self.queryService.load_ttl(to_file)        
 
     def toTTL(self,item):
@@ -109,8 +109,9 @@ class json_to_ontology:
 
 # running                
 if __name__ == "__main__":
-    conv=json_to_ontology('./json_data/')
+    #conv=json_to_ontology('./json_data/')
     #conv.queryService.dbpath='http://localhost:3030/test2/data'
     #conv
+    conv=json_to_ontology('./moi_doc_json/')
     conv.rdf_parsed='./rdf_parsed/'
     conv.processJsonDir()

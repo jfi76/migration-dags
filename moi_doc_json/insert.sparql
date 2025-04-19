@@ -1,0 +1,8 @@
+#select ?iri ?label ?file
+insert {?iri rdf:type mig:msdash} where 
+            {            
+            ?iri rdf:type js:FileJson .
+            optional{?iri rdfs:label ?label } .
+            ?iri etl:hasSourceFile ?file .  
+			filter (regex(?file,'ModelSchema','i') )  
+            }
