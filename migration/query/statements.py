@@ -135,3 +135,13 @@ select ?iri ?StatementId_Int  ?StatementType ?StatementText
 } 
 order by ?StatementId_Int
 """
+select_recursive_visualiz_pbi="""
+select ?node  ?name 
+{
+  ?iri rdf:type mig:msdash .
+  ?node js:parentVisualId*  ?iri .
+  ?node js:name ?name .
+  ?node rdf:type ?type .  
+  filter (?type not in (owl:NamedIndividual,js:ObjectJson) )
+} 
+"""

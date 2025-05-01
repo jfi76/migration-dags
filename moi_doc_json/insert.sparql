@@ -1,8 +1,40 @@
-#select ?iri ?label ?file
 insert {?iri rdf:type mig:msdash} where 
             {            
             ?iri rdf:type js:FileJson .
             optional{?iri rdfs:label ?label } .
             ?iri etl:hasSourceFile ?file .  
 			filter (regex(?file,'ModelSchema','i') )  
-            }
+            };
+insert {?ch3 rdf:type mig:msDashTable .  
+        ?ch3 mig:hasMsDash ?param  . 
+        ?ch3 rdfs:label ?tableName .
+        ?ch3 js:parentVisualId ?param .
+        } where 
+{
+ ?param rdf:type mig:msdash .
+ ?ch1 js:parentJsonId ?param .
+ ?ch1  js:hasJsonObjectKey 'model' .
+ ?ch1 js:defaultPowerBIDataSourceVersion ?defaultPowerBIDataSourceVersion .
+ ?ch2 js:parentJsonId ?ch1 .
+ ?ch2 js:hasJsonObjectKey 'tables' .
+ ?ch3 js:parentJsonId ?ch2 . 
+ ?ch4 js:parentJsonId ?ch3 . 	
+ ?ch3 js:name  ?tableName .  
+};
+insert {?column rdf:type mig:DashColumn .  
+        ?column mig:hasMsDash ?dash  . 
+        ?column mig:hasMsDashTable ?table  . 
+        ?column rdfs:label ?colname .
+        ?column js:parentVisualId ?table .        
+        }  
+where 
+{
+  ?dash rdf:type mig:msdash .
+  ?table mig:hasMsDash ?dash . 
+  ?table rdf:type mig:msDashTable .
+  ?columns js:parentJsonId ?table .
+  ?columns js:hasJsonObjectKey 'columns' . 
+  ?column  js:parentJsonId ?columns . 
+  ?column js:name ?colname .
+  ?table js:name  ?tableName .    
+};

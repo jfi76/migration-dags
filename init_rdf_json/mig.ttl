@@ -28,14 +28,26 @@
 
 ###  http://www.example.com/MIGRATION#hasCondition
 :hasCondition rdf:type owl:ObjectProperty ;
-              rdfs:domain :mscondition ;
-              rdfs:range :msprocedurestatement .
+              rdfs:domain :msprocedurestatement ;
+              rdfs:range :msprocedure .
 
 
 ###  http://www.example.com/MIGRATION#hasDatabase
 :hasDatabase rdf:type owl:ObjectProperty ;
              rdfs:domain :msdatabase ;
              rdfs:range :msprocedure .
+
+
+###  http://www.example.com/MIGRATION#hasMsDash
+:hasMsDash rdf:type owl:ObjectProperty ;
+           rdfs:domain :msDashTable ;
+           rdfs:range :msdash .
+
+
+###  http://www.example.com/MIGRATION#hasMsDashTable
+:hasMsDashTable rdf:type owl:ObjectProperty ;
+                rdfs:domain :DashColumn ;
+                rdfs:range :msDashTable .
 
 
 ###  http://www.example.com/MIGRATION#hasProcedure
@@ -51,8 +63,50 @@
 
 
 #################################################################
+#    Data properties
+#################################################################
+
+###  http://www.example.com/JSON#hasRichText
+js:hasRichText rdfs:domain :msdash .
+
+
+#################################################################
 #    Classes
 #################################################################
+
+###  http://www.example.com/MIGRATION#DashColumn
+:DashColumn rdf:type owl:Class ;
+            rdfs:subClassOf :msdash ;
+            report:hasDefaultQuery """PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+  PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+  PREFIX mig: <http://www.example.com/MIGRATION#>
+  PREFIX owl: <http://www.w3.org/2002/07/owl#>
+  PREFIX js: <http://www.example.com/JSON#>
+  PREFIX etl:<http://www.example.com/ETL#>
+  PREFIX report:<http://www.example.com/report#>
+  PREFIX  etl_at: <http://www.example.com/JSON#@>
+  PREFIX  js_at: <http://www.example.com/JSON#@>
+  PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+select (?column as ?iri) ?dashName ?tabeName ?colname ?type ?dataType ?sourceColumn ?expression
+{
+  #bind (?param? as ?table) .
+  ?dash rdf:type mig:msdash .
+  ?dash js:name ?dashName .
+  ?table js:name ?tabeName .  
+  ?table mig:hasMsDash ?dash . 
+  ?table rdf:type mig:msDashTable .
+  ?column mig:hasMsDashTable ?table .
+  ?column rdf:type mig:DashColumn .
+  ?column js:name ?colname .
+  optional {?column js:type ?type} .
+  optional {?column js:dataType ?dataType} .
+  optional {?column js:sourceColumn ?sourceColumn } .
+  optional {?column js:expression ?expression } .     
+}
+order by ?dashName ?tabeName""" ;
+            rdfs:label "Dash Column" .
+
 
 ###  http://www.example.com/MIGRATION#TSQL
 :TSQL rdf:type owl:Class ;
@@ -64,6 +118,13 @@
 :datatypeconversion rdf:type owl:Class ;
                     rdfs:subClassOf :transfer ;
                     rdfs:label "Data type converion" .
+
+
+###  http://www.example.com/MIGRATION#msDashTable
+:msDashTable rdf:type owl:Class ;
+             rdfs:subClassOf :msdash ;
+             report:hasButtonQuery :BtnDashColumns ;
+             rdfs:label "DashTable" .
 
 
 ###  http://www.example.com/MIGRATION#msDateFunctions
@@ -99,7 +160,8 @@
 ###  http://www.example.com/MIGRATION#msdash
 :msdash rdf:type owl:Class ;
         rdfs:subClassOf :mssql ;
-        report:hasButtonQuery :DashTables ;
+        report:hasButtonQuery :BtnDashTabelsColumns ,
+                              :DashTables ;
         rdfs:label "Dash" .
 
 
@@ -245,9 +307,56 @@ select ?iri ?label ?dbname
 #    Individuals
 #################################################################
 
+###  http://www.example.com/MIGRATION#BtnDashColumns
+:BtnDashColumns rdf:type owl:NamedIndividual ,
+                         report:buttonReport ;
+                report:hasQuery """select (?column as ?iri)  ?colname ?type ?dataType ?sourceColumn ?expression
+{
+  bind (?param? as ?table) .
+  ?dash rdf:type mig:msdash .
+  ?dash js:name ?dashName .
+  ?table js:name ?tableName .  
+  ?table mig:hasMsDash ?dash . 
+  ?table rdf:type mig:msDashTable .
+  ?column mig:hasMsDashTable ?table .
+  ?column rdf:type mig:DashColumn .
+  ?column js:name ?colname .
+  optional {?column js:type ?type} .
+  optional {?column js:dataType ?dataType} .
+  optional {?column js:sourceColumn ?sourceColumn } .
+  optional {?column js:expression ?expression } .     
+}
+order by ?dashName ?tabeName""" ;
+                rdfs:label "columns" .
+
+
+###  http://www.example.com/MIGRATION#BtnDashTabelsColumns
+:BtnDashTabelsColumns rdf:type owl:NamedIndividual ,
+                               report:buttonReport ;
+                      report:hasQuery """select (?column as ?iri) ?dashName ?tableName ?colname ?type ?dataType ?sourceColumn ?expression
+{
+  bind (?param? as ?dash) .
+  ?dash rdf:type mig:msdash .
+  ?dash js:name ?dashName .
+  ?table js:name ?tableName .  
+  ?table mig:hasMsDash ?dash . 
+  ?table rdf:type mig:msDashTable .
+  ?column mig:hasMsDashTable ?table .
+  ?column rdf:type mig:DashColumn .
+  ?column js:name ?colname .
+  optional {?column js:type ?type} .
+  optional {?column js:dataType ?dataType} .
+  optional {?column js:sourceColumn ?sourceColumn } .
+  optional {?column js:expression ?expression } .     
+}
+order by ?dashName ?tabeName""" ;
+                      rdfs:label "Tables and Columns" .
+
+
 ###  http://www.example.com/MIGRATION#DashTables
-:DashTables rdf:type owl:NamedIndividual ;
-            report:hasQuery """select ?ch2  ?tableName    
+:DashTables rdf:type owl:NamedIndividual ,
+                     report:buttonReport ;
+            report:hasQuery """select ?ch3  ?tableName    
 {
 bind (?param? as ?param)  
  ?param rdf:type mig:msdash .
