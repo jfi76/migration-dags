@@ -108,6 +108,18 @@ order by ?dashName ?tabeName""" ;
             rdfs:label "Dash Column" .
 
 
+###  http://www.example.com/MIGRATION#DashLayout
+:DashLayout rdf:type owl:Class ;
+            rdfs:subClassOf :msdash ;
+            rdfs:label "DashLayout" .
+
+
+###  http://www.example.com/MIGRATION#DashSection
+:DashSection rdf:type owl:Class ;
+             rdfs:subClassOf :DashLayout ;
+             rdfs:label "DashSection" .
+
+
 ###  http://www.example.com/MIGRATION#TSQL
 :TSQL rdf:type owl:Class ;
       rdfs:subClassOf :mssql ;

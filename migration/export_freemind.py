@@ -21,7 +21,7 @@ class export_freemind:
 
         for export_stmt_result in ret:   
             parent_node = root.find(f""".//node[@ID='{self.replace_url(export_stmt_result['parentVisualId']['value'])}']""")
-            #print(parent_node)
+            print(parent_node)
             #print(f"""{export_stmt_result['node']['value']} {export_stmt_result['name']['value']} {export_stmt_result['parentVisualId']['value']}""")
             if parent_node==None:
                 parent_node = etree.SubElement(root, "node")    

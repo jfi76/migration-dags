@@ -138,11 +138,23 @@ order by ?StatementId_Int
 select_recursive_visualiz_pbi="""
 select distinct ?node  ?name ?parentVisualId
 {
+  bind(js:Ncefc853c5f8c46f7b5cc10e8852c1619 as ?iri)
   ?iri rdf:type mig:msdash .
   ?node js:parentVisualId*  ?iri .
-  ?node js:name ?name .
+  ?node rdfs:label ?name .
   ?node js:parentVisualId ?parentVisualId .
   ?node rdf:type ?type .  
   filter (?type not in (owl:NamedIndividual,js:ObjectJson) ) 
-} limit 20
+} 
+"""
+
+select_config_pbi="""
+ select ?vc_item ?config {  
+  ?sect rdf:type mig:DashSection .
+  ?vc js:parentJsonId ?sect .
+  ?vc js:hasJsonObjectKey 'visualContainers' .
+  ?vc_item js:parentJsonId  ?vc .
+  ?vc_item js:config ?config .
+  ?vc_item js:config ?config .
+   } 
 """

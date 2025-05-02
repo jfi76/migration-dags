@@ -1,3 +1,4 @@
+####
 insert {?iri rdf:type mig:msdash} where 
             {            
             ?iri rdf:type js:FileJson .
@@ -10,7 +11,8 @@ insert {?ch3 rdf:type mig:msDashTable .
         ?ch3 rdfs:label ?tableName .
         ?ch3 js:parentVisualId ?ch2 .
         ?ch2 js:parentVisualId ?param .
-        ?ch2 rdfs:label ?tablekey .
+        ?ch2 rdfs:label 'tables' .
+        ?ch2 js:name 'tables' .
         } where 
 {
  ?param rdf:type mig:msdash .
@@ -19,7 +21,7 @@ insert {?ch3 rdf:type mig:msDashTable .
  ?ch1 js:defaultPowerBIDataSourceVersion ?defaultPowerBIDataSourceVersion .
  ?ch2 js:parentJsonId ?ch1 .
  ?ch2 js:hasJsonObjectKey 'tables' .
- oiptional {?ch2 js:hasJsonObjectKey ?tablekey} .
+
  ?ch3 js:parentJsonId ?ch2 . 
  ?ch4 js:parentJsonId ?ch3 . 	
  ?ch3 js:name  ?tableName .  
@@ -28,7 +30,10 @@ insert {?column rdf:type mig:DashColumn .
         ?column mig:hasMsDash ?dash  . 
         ?column mig:hasMsDashTable ?table  . 
         ?column rdfs:label ?colname .
-        ?column js:parentVisualId ?table .        
+        ?column js:parentVisualId ?columns .        
+        ?columns js:parentVisualId ?table .       
+        ?columns rdfs:label 'columns' .
+        ?columns js:name 'columns' .
         }  
 where 
 {
@@ -40,4 +45,42 @@ where
   ?column  js:parentJsonId ?columns . 
   ?column js:name ?colname .
   ?table js:name  ?tableName .    
+};
+
+insert {?lt rdf:type mig:DashLayout .} 
+where 
+            {            
+            ?lt rdf:type js:FileJson .
+            ?lt etl:hasSourceFile ?file .  
+			filter (regex(?file,'Layout','i') )  
+            };
+insert{ 
+  ?lt mig:hasMsDash ?iri . 
+  ?lt rdfs:label 'Layout' . 
+  ?lt js:parentVisualId ?iri . }
+where 
+{           ?iri rdf:type mig:msdash .
+            ?lt rdf:type mig:DashLayout .
+            ?lt etl:hasSourceFile ?file_lt .  
+            ?iri etl:hasSourceFile ?file .  
+			filter (regex(?file,'IM-','i') && regex(?file_lt,'IM-','i') )  
+            };
+
+insert {?section rdf:type mig:DashSection .  
+        ?section mig:hasMsDash ?iri  . 
+        ?section rdfs:label ?displayName  .
+        ?section js:parentVisualId ?sections .        
+        ?sections js:parentVisualId ?lt .       
+        ?sections rdfs:label 'sections' .
+        }  
+where 
+ {
+  ?iri rdf:type mig:msdash .        
+  ?lt mig:hasMsDash ?iri .       
+  ?lt rdf:type mig:DashLayout .
+  ?sections js:parentJsonId ?lt .
+  ?sections js:hasJsonObjectKey 'sections' . 
+  ?section  js:parentJsonId ?sections . 
+  ?section js:name ?secname .
+  ?section js:displayName ?displayName .
 };
