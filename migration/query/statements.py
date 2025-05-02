@@ -136,12 +136,13 @@ select ?iri ?StatementId_Int  ?StatementType ?StatementText
 order by ?StatementId_Int
 """
 select_recursive_visualiz_pbi="""
-select ?node  ?name 
+select distinct ?node  ?name ?parentVisualId
 {
   ?iri rdf:type mig:msdash .
   ?node js:parentVisualId*  ?iri .
   ?node js:name ?name .
+  ?node js:parentVisualId ?parentVisualId .
   ?node rdf:type ?type .  
-  filter (?type not in (owl:NamedIndividual,js:ObjectJson) )
-} 
+  filter (?type not in (owl:NamedIndividual,js:ObjectJson) ) 
+} limit 20
 """

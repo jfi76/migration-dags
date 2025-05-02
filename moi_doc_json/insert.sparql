@@ -8,7 +8,9 @@ insert {?iri rdf:type mig:msdash} where
 insert {?ch3 rdf:type mig:msDashTable .  
         ?ch3 mig:hasMsDash ?param  . 
         ?ch3 rdfs:label ?tableName .
-        ?ch3 js:parentVisualId ?param .
+        ?ch3 js:parentVisualId ?ch2 .
+        ?ch2 js:parentVisualId ?param .
+        ?ch2 rdfs:label ?tablekey .
         } where 
 {
  ?param rdf:type mig:msdash .
@@ -17,6 +19,7 @@ insert {?ch3 rdf:type mig:msDashTable .
  ?ch1 js:defaultPowerBIDataSourceVersion ?defaultPowerBIDataSourceVersion .
  ?ch2 js:parentJsonId ?ch1 .
  ?ch2 js:hasJsonObjectKey 'tables' .
+ oiptional {?ch2 js:hasJsonObjectKey ?tablekey} .
  ?ch3 js:parentJsonId ?ch2 . 
  ?ch4 js:parentJsonId ?ch3 . 	
  ?ch3 js:name  ?tableName .  
