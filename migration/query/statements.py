@@ -138,7 +138,7 @@ order by ?StatementId_Int
 select_recursive_visualiz_pbi="""
 select distinct ?node  ?name ?parentVisualId
 {
-  bind(js:Ncefc853c5f8c46f7b5cc10e8852c1619 as ?iri)
+  bind(js:N6e9e6a1da69b408fa22d219906b358eb as ?iri)
   ?iri rdf:type mig:msdash .
   ?node js:parentVisualId*  ?iri .
   ?node rdfs:label ?name .

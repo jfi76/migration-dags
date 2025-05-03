@@ -1,0 +1,79 @@
+delete 
+{?uid rdf:type mig:DashVisualContainer .} where 
+{?uid rdf:type mig:DashVisualContainer .};
+
+insert{?iri rdf:type mig:DashConfFile}
+where {
+            ?iri rdf:type js:FileJson .
+            ?iri etl:hasSourceFile ?file .  
+			filter (regex(?file,'-conf.json','i') )  
+            };
+insert{
+?uid rdf:type mig:DashVisualContainer .
+?iri mig:hasVisualContainer ?uid .
+} where 
+{
+select ?iri ?file (iri(concat('http://www.example.com/JSON#',replace(?file,'-conf.json',''))) as ?uid) 
+            {            
+            ?iri rdf:type js:FileJson .
+            optional{?iri rdfs:label ?label } .
+            ?iri etl:hasSourceFile ?file .  
+			filter (regex(?file,'-conf.json','i') )  
+            }
+};
+
+
+insert{
+  ?containers js:parentVisualId ?section.  
+  ?container js:parentVisualId ?containers .    
+  ?containers rdfs:label 'visualContainers' .
+}
+where 
+ {
+    
+  ?section rdf:type mig:DashSection .
+  ?containers js:parentJsonId  ?section.  
+  ?containers js:hasJsonObjectKey 'visualContainers' . 
+  ?container  js:parentJsonId ?containers .   
+  ?container rdf:type mig:DashVisualContainer .
+};
+
+insert {?container mig:hasDasVisualType ?visualType . 
+        ?container mig:hasDasVisualName ?objName . 
+        ?container rdfs:label ?label .} 
+      where 
+      {
+select distinct ?container (xsd:integer(?conJsonObjectKey) as ?c_key) ?config ?visualType ?objName (?objName + ' : ' + ?visualType as ?label )
+where 
+ {    
+  #bind (js:N913671cb453b4b66804070ba7a178288 as ?l1 )  .
+  bind (js:N144c4be4e4c34a3fb8f7d9983ae08c04 as ?section )
+  ?containers js:parentJsonId  ?section.
+  ?containers js:hasJsonObjectKey 'visualContainers' .
+  ?container js:parentJsonId ?containers .
+  ?container rdf:type mig:DashVisualContainer .
+  ?container js:hasJsonObjectKey ?conJsonObjectKey .
+  ?config mig:hasVisualContainer  ?container.
+  ?config rdf:type mig:DashConfFile  .
+  ?l1 js:parentJsonId  ?config .
+  ?l1 js:hasJsonObjectKey 'singleVisual' .
+  optional {?l1 js:visualType  ?visualType }
+  ?l2 js:parentJsonId  ?l1 .
+  #?l2 js:hasJsonObjectKey 'objects' .
+  ?l3 js:parentJsonId  ?l1 .
+  ?l3 js:hasJsonObjectKey  'vcObjects' .
+  ?l4 js:parentJsonId  ?l3 .
+  ?l4 js:hasJsonObjectKey  'title' .
+  ?l5 js:parentJsonId  ?l4 .
+  ?l6 js:parentJsonId  ?l5 .
+  ?l6 js:hasJsonObjectKey  'properties' .  
+  ?l7 js:parentJsonId  ?l6 .
+  ?l7 js:hasJsonObjectKey 'text' .
+  ?l8 js:parentJsonId  ?l7 .
+  ?l8 js:hasJsonObjectKey 'expr' .
+  ?l9 js:parentJsonId  ?l8 .
+  ?l9 js:hasJsonObjectKey 'Literal' .
+  ?l9 js:Value ?objName .
+}
+};
+
