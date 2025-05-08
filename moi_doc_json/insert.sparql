@@ -63,7 +63,8 @@ where
             ?lt rdf:type mig:DashLayout .
             ?lt etl:hasSourceFile ?file_lt .  
             ?iri etl:hasSourceFile ?file .  
-			filter (regex(?file,'IM-','i') && regex(?file_lt,'IM-','i') )  
+  
+			filter (strbefore(?file,'-') = strbefore(?file_lt,'-') )  
             };
 
 insert {?section rdf:type mig:DashSection .  

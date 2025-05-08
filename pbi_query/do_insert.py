@@ -31,3 +31,8 @@ if __name__ == "__main__":
     data = open('../moi_doc_json/insert2.sparql').read()
     service=sparql_service.runSparqlWrapper()
     service.insert(data)
+
+############################
+    # conv2=json_to_ontology('../playground_adds/')
+    # conv2.rdf_parsed='../playground_parsed_adds/'
+    # conv2.processJsonDir()

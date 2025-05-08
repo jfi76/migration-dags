@@ -75,18 +75,24 @@ class json_to_ontology:
             for jsonPart in item['parsedJson']:
                 if (jsonPart !=None and item['parsedJson']!=None and not isinstance(jsonPart, dict) and (not isinstance(jsonPart, list))):                
                     try:
-                        self.graph.add((iri ,self.Namespace[jsonPart], Literal(str(item['parsedJson'][jsonPart])))) 
+                        if isinstance(jsonPart,str):
+                            self.graph.add((iri ,self.Namespace['jsstring'], Literal(str(jsonPart)))) 
+                        else :    
+                            self.graph.add((iri ,self.Namespace[jsonPart], Literal(str(item['parsedJson'][jsonPart])))) 
                     except Exception as exc:
-                        print(iri) 
-                        #print(item)
+                        print(exc) 
+                        print(type(jsonPart))
+                        print(jsonPart)
+                        print('-----------------------------')
                         
 
 
     def iterate_recursive2aarayNode(self, parsedJson, parentJsonId, parentKey, hasFileIri):
         #print(hasFileIri + ' is obj' + str(isinstance(parsedJson, dict)) + ' is arr ' + str(isinstance(parsedJson, list)) + '  ' + json.dumps(parsedJson)[0:10]  )
         isArray=False
+        isStr=False
         iri=self.hashCode(self.filename + str(parentKey) + str(parentJsonId)) 
-        if isinstance(parsedJson, dict):
+        if isinstance(parsedJson, str):
             if hasFileIri != None: 
                 iri=hasFileIri
         if isinstance(parsedJson, list):
@@ -102,6 +108,7 @@ class json_to_ontology:
         
         if  (isinstance(parsedJson, list) and len(parsedJson)>0) :        
             ind=0
+
             for item in parsedJson:                    
                 if isinstance(item, dict) or (isinstance(item, list) and len(item)>0) :
                     self.iterate_recursive2aarayNode(item,iri, ind , None) 

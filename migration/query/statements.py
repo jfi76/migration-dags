@@ -138,7 +138,7 @@ order by ?StatementId_Int
 select_recursive_visualiz_pbi="""
 select distinct ?node  ?name ?parentVisualId
 {
-  bind(js:N6e9e6a1da69b408fa22d219906b358eb as ?iri)
+  bind(?param? as ?iri)
   ?iri rdf:type mig:msdash .
   ?node js:parentVisualId*  ?iri .
   ?node rdfs:label ?name .
@@ -156,5 +156,25 @@ select_config_pbi="""
   ?vc_item js:parentJsonId  ?vc .
   ?vc_item js:config ?config .
   ?vc_item js:config ?config .
+   } 
+"""
+
+select_recursive_visualiz_eyed="""
+select distinct ?node  (coalesce(?label,?name,?JsonObjectKey) as ?nodeName) ?parentVisualId
+{
+  ?iri rdf:type mig:msdash .
+  ?node js:parentJsonId*  ?iri .
+  optional{?node rdfs:label ?label .  }
+  optional{?node js:name ?name .  }
+  optional{?node js:hasJsonObjectKey ?JsonObjectKey .  }    
+  ?node js:parentJsonId ?parentVisualId .
+  ?node rdf:type ?type .  
+  filter (?type not in (owl:NamedIndividual,js:ObjectJson) ) 
+}  
+"""
+stmt_to_get_dasahes="""
+ select ?iri ?hasSourceFile {  
+?iri rdf:type mig:msdash .
+?iri etl:hasSourceFile  ?hasSourceFile .
    } 
 """

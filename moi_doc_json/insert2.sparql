@@ -47,7 +47,7 @@ select distinct ?container (xsd:integer(?conJsonObjectKey) as ?c_key) ?config ?v
 where 
  {    
   #bind (js:N913671cb453b4b66804070ba7a178288 as ?l1 )  .
-  bind (js:N144c4be4e4c34a3fb8f7d9983ae08c04 as ?section )
+  ?section rdf:type mig:DashSection.
   ?containers js:parentJsonId  ?section.
   ?containers js:hasJsonObjectKey 'visualContainers' .
   ?container js:parentJsonId ?containers .
@@ -75,5 +75,42 @@ where
   ?l9 js:hasJsonObjectKey 'Literal' .
   ?l9 js:Value ?objName .
 }
+};
+
+insert {
+?expr mig:hasMsDashTable ?table .
+?expr rdf:type  mig:DashExpression . 
+?table mig:sourceString ?jsstring . 
+} where 
+#select  ?table ?tabname ?expr ?jsstring
+{?table rdf:type mig:msDashTable.
+ ?part js:parentJsonId  ?table .
+ ?table js:name ?tabname . 
+ ?part js:hasJsonObjectKey "partitions" .
+ ?itempart  js:parentJsonId ?part.  
+ ?itempart js:hasJsonObjectKey ?keyitem .
+ ?source  js:parentJsonId ?itempart.  
+ ?source js:hasJsonObjectKey "source" .  
+ ?expr  js:parentJsonId ?source.   
+ ?expr js:hasJsonObjectKey "expression" .
+ ?expr  js:jsstring ?jsstring.
+  filter ( regex(?jsstring,'Schema') && regex(?jsstring,'Item') )
+};
+
+insert {
+?expr mig:hasMsDashTable ?table .
+?expr rdf:type  mig:DashExpression . 
+} where 
+{?table rdf:type mig:msDashTable.
+ ?part js:parentJsonId  ?table .
+ ?table js:name ?tabname . 
+ ?part js:hasJsonObjectKey "partitions" .
+ ?itempart  js:parentJsonId ?part.  
+ ?itempart js:hasJsonObjectKey ?keyitem .
+ ?source  js:parentJsonId ?itempart.  
+ ?source js:hasJsonObjectKey "source" .  
+ ?expr  js:parentJsonId ?source.   
+ ?expr js:hasJsonObjectKey "expression" .
+ ?expr  js:jsstring ?jsstring.
 };
 
