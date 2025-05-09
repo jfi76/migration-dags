@@ -57,6 +57,21 @@ class rdfTTLService:
         self.graph.add((iri ,self.Namespace.ERROR_MSG, Literal(error)))
         self.graph.add((iri ,RDFS.label, Literal(label)))                   
         return iri
+    def add_table_name(self,table_iri,shema:str,item:str):
+        #iri=self.Namespace[self.hashCode()]
+        iri=URIRef(table_iri)
+        self.graph.add((iri , RDF.type, OWL.NamedIndividual))  
+        self.graph.add((iri ,RDF.type, self.Namespace.msprocedurevarible))
+        self.graph.add((iri ,self.Namespace.hasSQLname, Literal(shema+'.'+item)))            
+        self.graph.add((iri ,self.Namespace.hasSQLShema, Literal(shema)))                    
+        self.graph.add((iri ,self.Namespace.hasSQLTableName, Literal(item)))                    
+    def add_renamed_col(self,col_init,col_renamed,expr_iri):
+        iri=self.Namespace[self.hashCode()]
+        self.graph.add((iri , RDF.type, OWL.NamedIndividual))  
+        self.graph.add((iri ,RDF.type, self.Namespace.dashrenamedcolumn))
+        self.graph.add((iri , self.Namespace.hasExpression,URIRef(expr_iri)))
+        self.graph.add((iri , self.Namespace.column_init,Literal(col_init)))                
+        self.graph.add((iri , self.Namespace.column_renamed,Literal(col_renamed)))                        
 
         #js:PARAMETER_NAME
 

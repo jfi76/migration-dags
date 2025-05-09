@@ -178,3 +178,13 @@ stmt_to_get_dasahes="""
 ?iri etl:hasSourceFile  ?hasSourceFile .
    } 
 """
+
+stmt_table_expr="""
+select ?table ?tabname ?expr ?jsstring 
+{
+?expr mig:hasMsDashTable ?table .
+?expr rdf:type  mig:DashExpression . 
+?expr  js:jsstring ?jsstring.
+?table js:name ?tabname .   
+} 
+"""

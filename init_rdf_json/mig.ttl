@@ -76,6 +76,21 @@
 js:hasRichText rdfs:domain :msdash .
 
 
+###  http://www.example.com/MIGRATION#hasSQLShema
+:hasSQLShema rdf:type owl:DatatypeProperty ;
+             rdfs:range xsd:string .
+
+
+###  http://www.example.com/MIGRATION#hasSQLTableName
+:hasSQLTableName rdf:type owl:DatatypeProperty ;
+                 rdfs:range xsd:string .
+
+
+###  http://www.example.com/MIGRATION#hasSQLname
+:hasSQLname rdf:type owl:DatatypeProperty ;
+            rdfs:range xsd:string .
+
+
 #################################################################
 #    Classes
 #################################################################
@@ -149,6 +164,12 @@ order by ?dashName ?tabeName""" ;
 :TSQL rdf:type owl:Class ;
       rdfs:subClassOf :mssql ;
       rdfs:label "TSQL" .
+
+
+###  http://www.example.com/MIGRATION#dashrenamedcolumn
+:dashrenamedcolumn rdf:type owl:Class ;
+                   rdfs:subClassOf :DashExpression ;
+                   rdfs:label "dashrenamedcolumn" .
 
 
 ###  http://www.example.com/MIGRATION#datatypeconversion
