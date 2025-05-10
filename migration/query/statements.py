@@ -188,3 +188,37 @@ select ?table ?tabname ?expr ?jsstring
 ?table js:name ?tabname .   
 } 
 """
+
+stmt_table_relations="""
+select *
+{
+  bind(?param? as ?iri)
+  ?iri mig:hasRelationshipFrom ?rel1 .
+  ?rel1 rdf:type mig:dashTableRelationship  .
+  ?rel2 mig:hasParentRelationship* ?rel1 .
+  ?rel2 rdf:type mig:dashTableRelationship  .
+  ?rel2tabfrom mig:hasRelationshipFrom ?rel2.
+  ?rel2tabto mig:hasRelationshipTo  ?rel2.
+  ?rel2tabfrom js:name ?tabfromName .
+  ?rel2tabto js:name ?tabtoName .
+  optional {?rel2tabto mig:hasSqlName ?tabtohasSQLname}.
+  optional {?rel2tabfrom mig:hasSqlName ?tabfromhasSQLname} .
+  ?columTo mig:hasRelationshipColumnTo  ?rel2 .
+  ?columFrom mig:hasRelationshipColumnFrom  ?rel2 .
+  optional {?columTo mig:hasSqlName ?columToSQLname}.
+  optional {?columFrom mig:hasSqlName ?columFromSQLname} .  
+}
+"""
+stmt_tablefrom_sorted="""
+select (max(?etlSource) as ?src) ?dash ?tableFrom (count(*) as ?count) (max(?hasSqlName) as ?tbname) 
+{
+?tableFrom  rdf:type mig:msDashTable .
+?tableFrom mig:hasRelationshipFrom ?relat.
+ ?tableFrom mig:hasMsDash ?dash . 
+?tableFrom js:name ?tabname .  
+?dash etl:hasSourceFile ?etlSource .  
+?tableFrom mig:hasSqlName ?hasSqlName 
+}
+group by ?dash ?tableFrom
+order by ?dash desc(?count) 
+"""

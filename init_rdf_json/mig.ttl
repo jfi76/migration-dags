@@ -204,7 +204,8 @@ order by ?dashName ?tabeName""" ;
 ###  http://www.example.com/MIGRATION#msDashTable
 :msDashTable rdf:type owl:Class ;
              rdfs:subClassOf :msdash ;
-             report:hasButtonQuery :BtnDashColumns ;
+             report:hasButtonQuery :BTNtableandrelationships ,
+                                   :BtnDashColumns ;
              rdfs:label "DashTable" .
 
 
@@ -387,6 +388,29 @@ select ?iri ?label ?dbname
 #################################################################
 #    Individuals
 #################################################################
+
+###  http://www.example.com/MIGRATION#BTNtableandrelationships
+:BTNtableandrelationships rdf:type owl:NamedIndividual ;
+                          report:hasButtonQuery """select *
+{
+  bind(?param ?iri)
+  ?iri mig:hasRelationshipFrom ?rel1 .
+  ?rel1 rdf:type mig:dashTableRelationship  .
+  ?rel2 mig:hasParentRelationship* ?rel1 .
+  ?rel2 rdf:type mig:dashTableRelationship  .
+  ?rel2tabfrom mig:hasRelationshipFrom ?rel2.
+  ?rel2tabto mig:hasRelationshipTo  ?rel2.
+  ?rel2tabfrom js:name ?tabfromName .
+  ?rel2tabto js:name ?tabtoName .
+  optional {?rel2tabto mig:hasSqlName ?tabtohasSQLname}.
+  optional {?rel2tabfrom mig:hasSqlName ?tabfromhasSQLname} .
+  ?columTo mig:hasRelationshipColumnTo  ?rel2 .
+  ?columFrom mig:hasRelationshipColumnFrom  ?rel2 .
+  optional {?columTo mig:hasSqlName ?columToSQLname}.
+  optional {?columFrom mig:hasSqlName ?columFromSQLname} .  
+}""" ;
+                          rdfs:label "Table relations" .
+
 
 ###  http://www.example.com/MIGRATION#BtnDashColumns
 :BtnDashColumns rdf:type owl:NamedIndividual ,

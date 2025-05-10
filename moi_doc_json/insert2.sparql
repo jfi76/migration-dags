@@ -146,6 +146,7 @@ insert {
   ?tableTo mig:hasRelationshipTo ?relat.
   ?columTo mig:hasRelationshipColumnTo  ?relat .
   ?columFrom mig:hasRelationshipColumnFrom  ?relat .
+  ?relat rdf:type mig:dashTableRelationship .
 } where 
 {
  ?iri rdf:type mig:msdash  .
@@ -170,5 +171,19 @@ insert {
  ?columTo mig:hasMsDashTable ?tableTo .
  ?columTo js:name  ?toColumn .
 
-}  
-;
+};
+
+insert {?relat2 mig:hasParentRelationship ?relat1}
+ where{
+?relat1 rdf:type mig:dashTableRelationship .
+?tableFrom1 mig:hasRelationshipFrom ?relat1.
+?tableTo1 mig:hasRelationshipTo ?relat1.  
+?tableTo1 mig:hasRelationshipFrom  ?relat2.
+};
+
+#insert {
+#?iri mig:hasSqlName ?sqlname .
+#}
+#where {?iri mig:hasSQLname ?sqlname .};
+
+
