@@ -166,6 +166,29 @@ order by ?dashName ?tabeName""" ;
       rdfs:label "TSQL" .
 
 
+###  http://www.example.com/MIGRATION#dashTableRelationship
+:dashTableRelationship rdf:type owl:Class ;
+                       rdfs:subClassOf :msDashTable ;
+                       rdfs:label "dashTableRelationship" .
+
+
+###  http://www.example.com/MIGRATION#dashclickhouse
+:dashclickhouse rdf:type owl:Class ;
+                rdfs:subClassOf :msdash ;
+                rdfs:label "clickhouse" .
+
+
+###  http://www.example.com/MIGRATION#dashexportquery
+:dashexportquery rdf:type owl:Class ;
+                 rdfs:subClassOf :dashclickhouse .
+
+
+###  http://www.example.com/MIGRATION#dashmart
+:dashmart rdf:type owl:Class ;
+          rdfs:subClassOf :dashclickhouse ;
+          rdfs:label "mart" .
+
+
 ###  http://www.example.com/MIGRATION#dashrenamedcolumn
 :dashrenamedcolumn rdf:type owl:Class ;
                    rdfs:subClassOf :DashExpression ;
@@ -368,7 +391,7 @@ select ?iri ?label ?dbname
 ###  http://www.example.com/MIGRATION#BtnDashColumns
 :BtnDashColumns rdf:type owl:NamedIndividual ,
                          report:buttonReport ;
-                report:hasQuery """select (?column as ?iri)  ?colname ?type ?dataType ?sourceColumn ?expression
+                report:hasQuery """select (?column as ?iri)  ?colname ?type ?dataType ?sourceColumn ?expression ?sqlname
 {
   bind (?param? as ?table) .
   ?dash rdf:type mig:msdash .
@@ -382,7 +405,8 @@ select ?iri ?label ?dbname
   optional {?column js:type ?type} .
   optional {?column js:dataType ?dataType} .
   optional {?column js:sourceColumn ?sourceColumn } .
-  optional {?column js:expression ?expression } .     
+  optional {?column js:expression ?expression } .  
+optional {?column mig:hasSqlName ?sqlname }   
 }
 order by ?dashName ?tabeName""" ;
                 rdfs:label "columns" .

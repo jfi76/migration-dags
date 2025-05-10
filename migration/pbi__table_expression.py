@@ -42,11 +42,9 @@ class process_table_expreesion:
         #print(parsed)
         if len(parsed)>0 and isinstance(parsed[0],list)==False:
             self.ttl_serice.add_renamed_col(parsed[0],parsed[1],expr['expr']['value'])
-            #print(parsed[0]+'=>' + parsed[1])     
         else:
             for col_renamed in parsed:
                 self.ttl_serice.add_renamed_col(col_renamed[0],col_renamed[1],expr['expr']['value'])
-                #print(col_renamed[0]+'=>' + col_renamed[1])
         
     def iterate_expr(self):
         stmt_str=stmt.stmt_table_expr
