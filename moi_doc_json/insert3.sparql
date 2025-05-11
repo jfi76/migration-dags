@@ -1,0 +1,32 @@
+select 
+#*
+?tabfromsqlname ?tabfromjsname ?tabtojsname ?tabtosqlname ?rel_order (concat('t',str(?rel_order))  as ?prefix)
+{
+  bind(mig:N5e7077d2bc714478aacad44c382422ed as ?exp_query)
+  ?exp_query rdf:type mig:dashexportquery .
+  ?qrel mig:hasExportQuery ?exp_query .
+  ?qrel mig:hasOrder ?rel_order .
+  ?qrel mig:parentRelation ?tab_rel .
+  ?tableTo  mig:hasRelationshipTo  ?tab_rel.
+  ?tableTo mig:hasSqlName ?tabtosqlname .
+  ?tableTo js:name ?tabtojsname .
+  ?tableFrom  mig:hasRelationshipFrom  ?tab_rel.
+  ?tableFrom js:name ?tabfromjsname .
+  ?tableFrom mig:hasSqlName ?tabfromsqlname .
+#  ?qcol rdf:type mig:queryrelationcolumn .
+#  ?qcol mig:hasColumn ?col .
+#  optional{?col js:type 'calculated' 
+#    bind('y' as ?isCalculated)
+#  }.
+#?col mig:hasSqlName ?sqlNmae.      
+}
+#select ?col  {
+#?qcol rdf:type mig:queryrelationcolumn .
+#?qcol mig:hasColumn ?col .
+#  optional{?col js:type 'calculated' 
+#    bind('y' as ?isCalculated)
+#  }.
+#?col mig:hasSqlName ?sqlNmae.  
+#}    
+order by xsd:integer(?rel_order)
+

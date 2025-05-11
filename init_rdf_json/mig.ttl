@@ -414,9 +414,9 @@ select ?iri ?label ?dbname
 
 ###  http://www.example.com/MIGRATION#BTNtableandrelationships
 :BTNtableandrelationships rdf:type owl:NamedIndividual ;
-                          report:hasButtonQuery """select *
+                          report:hasQuery """select *
 {
-  bind(?param ?iri)
+  bind(?param? as ?iri)
   ?iri mig:hasRelationshipFrom ?rel1 .
   ?rel1 rdf:type mig:dashTableRelationship  .
   ?rel2 mig:hasParentRelationship* ?rel1 .
@@ -432,7 +432,7 @@ select ?iri ?label ?dbname
   optional {?columTo mig:hasSqlName ?columToSQLname}.
   optional {?columFrom mig:hasSqlName ?columFromSQLname} .  
 }""" ;
-                          rdfs:label "Table relations" .
+                          rdfs:label "Table relations joins" .
 
 
 ###  http://www.example.com/MIGRATION#BtnDashColumns
