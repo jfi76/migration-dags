@@ -1,5 +1,7 @@
 import sys
 
+from pbi_create_export_query import create_export_query
+
 
 sys.path.append( '../migration/' )
 sys.path.append( '../migration/query/' )
@@ -28,11 +30,22 @@ if __name__ == "__main__":
     # conv2.rdf_parsed='../playground_parsed_adds/'
     # conv2.processJsonDir()
 
-    data = open('../moi_doc_json/insert2.sparql').read()
-    service=sparql_service.runSparqlWrapper()
-    service.insert(data)
+    # data = open('../moi_doc_json/insert2.sparql').read()
+    # service=sparql_service.runSparqlWrapper()
+    # service.insert(data)
 
 ############################
     # conv2=json_to_ontology('../playground_adds/')
     # conv2.rdf_parsed='../playground_parsed_adds/'
     # conv2.processJsonDir()
+############################
+
+    data = open('../moi_doc_json/delete3.sparql').read()
+    service=sparql_service.runSparqlWrapper()
+    service.insert(data)
+
+    stmt_all_dashes="""select dash ?fileName  {?dash rdf:type mig:msdash . 
+    ?dash js:FileJson ?fileName .
+    } """    
+    cexp=create_export_query(stmt_all_dashes,'../playground')
+    cexp.iterate_dashes()

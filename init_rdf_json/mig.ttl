@@ -38,6 +38,16 @@
              rdfs:range :msprocedure .
 
 
+###  http://www.example.com/MIGRATION#hasExportQuery
+:hasExportQuery rdf:type owl:ObjectProperty ;
+                rdfs:range :dashexportquery .
+
+
+###  http://www.example.com/MIGRATION#hasMart
+:hasMart rdf:type owl:ObjectProperty ;
+         rdfs:range :dashmart .
+
+
 ###  http://www.example.com/MIGRATION#hasMsDash
 :hasMsDash rdf:type owl:ObjectProperty ;
            rdfs:domain :msDashTable ;
@@ -180,7 +190,8 @@ order by ?dashName ?tabeName""" ;
 
 ###  http://www.example.com/MIGRATION#dashexportquery
 :dashexportquery rdf:type owl:Class ;
-                 rdfs:subClassOf :dashclickhouse .
+                 rdfs:subClassOf :dashclickhouse ;
+                 rdfs:label "dash export query" .
 
 
 ###  http://www.example.com/MIGRATION#dashmart
@@ -358,6 +369,12 @@ select ?iri ?label ?dbname
 ###  http://www.example.com/MIGRATION#postgres
 :postgres rdf:type owl:Class ;
           rdfs:label "Postgres" .
+
+
+###  http://www.example.com/MIGRATION#queryrelation
+:queryrelation rdf:type owl:Class ;
+               rdfs:subClassOf :dashexportquery ;
+               rdfs:label "queryrelation" .
 
 
 ###  http://www.example.com/MIGRATION#runcreateprocess

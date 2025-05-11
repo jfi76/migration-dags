@@ -190,9 +190,9 @@ select ?table ?tabname ?expr ?jsstring
 """
 
 stmt_table_relations="""
-select *
+select ?rel2 ?tabfromName ?tabtoName
 {
-  bind(?param? as ?iri)
+  bind(uri(?param?) as ?iri)
   ?iri mig:hasRelationshipFrom ?rel1 .
   ?rel1 rdf:type mig:dashTableRelationship  .
   ?rel2 mig:hasParentRelationship* ?rel1 .
@@ -212,13 +212,16 @@ select *
 stmt_tablefrom_sorted="""
 select (max(?etlSource) as ?src) ?dash ?tableFrom (count(*) as ?count) (max(?hasSqlName) as ?tbname) 
 {
+  bind(uri(?param?) as ?dash)
+?tableFrom js:name ?tabname .      
 ?tableFrom  rdf:type mig:msDashTable .
 ?tableFrom mig:hasRelationshipFrom ?relat.
  ?tableFrom mig:hasMsDash ?dash . 
-?tableFrom js:name ?tabname .  
+
 ?dash etl:hasSourceFile ?etlSource .  
 ?tableFrom mig:hasSqlName ?hasSqlName 
 }
 group by ?dash ?tableFrom
 order by ?dash desc(?count) 
 """
+

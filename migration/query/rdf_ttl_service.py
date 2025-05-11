@@ -73,6 +73,39 @@ class rdfTTLService:
         self.graph.add((iri , self.Namespace.column_init,Literal(col_init)))                
         self.graph.add((iri , self.Namespace.column_renamed,Literal(col_renamed)))                        
 
+
+    def add_mart(self,dash,label):
+        iri=self.Namespace[self.hashCode()]
+        self.graph.add((iri , RDF.type, OWL.NamedIndividual))  
+        self.graph.add((iri ,RDF.type, self.Namespace.dashmart))
+        self.graph.add((iri , self.Namespace.hasMsDash,URIRef(dash)))
+        self.graph.add((iri , self.Namespace.label,Literal('витрина '+label)))   
+        return iri                     
+
+    def add_export_query(self,dash,table_iri,table_name,relation_count,mart_iri):
+        iri=self.Namespace[self.hashCode()]
+        self.graph.add((iri , RDF.type, OWL.NamedIndividual))  
+        self.graph.add((iri ,RDF.type, self.Namespace.dashexportquery))
+        self.graph.add((iri , self.Namespace.hasMsDash,URIRef(dash)))
+        self.graph.add((iri , self.Namespace.hasMsDashTable,URIRef(table_iri)))
+        self.graph.add((iri , self.Namespace.relationCount,Literal(relation_count,datatype='xsd:integer')))                
+        #self.graph.add((iri , self.Namespace.hasSqlName,Literal('v_mart_'+table_name)))                        
+        #self.graph.add((iri , self.Namespace.hasOrder,Literal(hasOrder,datatype='xsd:integer')))                        
+        self.graph.add((iri , self.Namespace.hasMart,URIRef(mart_iri)))        
+        self.graph.add((iri , self.Namespace.label,Literal('v_export_query_'+table_name)))
+        return iri
+
+    def add_queryrelation(self,export_query_iri,order,parent_relation_iri,label):
+        iri=self.Namespace[self.hashCode()]
+        self.graph.add((iri , RDF.type, OWL.NamedIndividual))  
+        self.graph.add((iri ,RDF.type, self.Namespace.queryrelation))
+        self.graph.add((iri , self.Namespace.hasExportQuery,URIRef(export_query_iri)))
+        self.graph.add((iri , self.Namespace.parentRelation,URIRef(parent_relation_iri)))
+        self.graph.add((iri , self.Namespace.relationCount,Literal(order,datatype='xsd:integer')))    
+        self.graph.add((iri , self.Namespace.label,Literal(label)))
+                 
+        return iri
+
         #js:PARAMETER_NAME
 
         # stmt="""
