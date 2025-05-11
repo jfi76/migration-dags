@@ -17,13 +17,24 @@ class create_export_query:
 
     def check_table_in_export_query(self,dash_iri, table_iri):    
         return True
+    def add_column_to_relation(self, tableTo_iri,query_relation_iri, relat_order):
+        #(?column as ?iri)  ?colname ?type ?dataType ?sourceColumn ?expression ?sqlname
+        q=stmt.stmt_relation_columns.replace('?param?',f'"{tableTo_iri}"')
+        
+        ret=self.queryService.query(q)       
+        order=0
+        for export_stmt_result in ret: 
+            order=order+1
+            self.ttl_serice.add_queryrelation_column(export_stmt_result['iri']['value'],order,query_relation_iri, 't'+str(relat_order)+'.' +export_stmt_result['sqlname']['value'])
+
     def add_relation(self,query_export_iri:str,master_table_iri):
         ret=self.queryService.query(stmt.stmt_table_relations.replace('?param?',f'"{master_table_iri}"'))        
         order=0
         for export_stmt_result in ret: 
             #?tabfromName ?tabtoName   
-            relation_iri=self.ttl_serice.add_queryrelation(query_export_iri,order,export_stmt_result['rel2']['value'], f'{export_stmt_result['rel2']['value']}' )    
+            relation_iri=self.ttl_serice.add_queryrelation(query_export_iri,order,export_stmt_result['rel2']['value'], f"""{export_stmt_result['tabfromName']['value']}=>{export_stmt_result['tabtoName']['value']}""" )    
             order=order+1
+            self.add_column_to_relation(export_stmt_result['rel2tabto']['value'],relation_iri, order)
     def prepare_export_query(self,mart_iri:str,dash_iri:str):
         ret=self.queryService.query(stmt.stmt_tablefrom_sorted.replace('?param?',f'"{dash_iri}"')) 
              
@@ -40,6 +51,8 @@ class create_export_query:
         self.queryService.insert('delete {?dashmart ?p ?o} where { ?dashmart rdf:type mig:dashmart .?dashmart ?p ?o .} ')        
         self.queryService.insert('delete {?query ?p ?o} where { ?query rdf:type mig:dashexportquery . ?query ?p ?o .}')        
         self.queryService.insert('delete {?query ?p ?o} where { ?query rdf:type mig:queryrelation . ?query ?p ?o .}')
+        self.queryService.insert('delete {?query ?p ?o} where { ?query rdf:type mig:queryrelationcolumn . ?query ?p ?o .}')
+        
         ret=self.queryService.query(self.stmt_to_export)
         
         for export_stmt_result in ret: 

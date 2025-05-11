@@ -377,6 +377,12 @@ select ?iri ?label ?dbname
                rdfs:label "queryrelation" .
 
 
+###  http://www.example.com/MIGRATION#queryrelationcolumn
+:queryrelationcolumn rdf:type owl:Class ;
+                     rdfs:subClassOf :queryrelation ;
+                     rdfs:label "queryrelationcolumn" .
+
+
 ###  http://www.example.com/MIGRATION#runcreateprocess
 :runcreateprocess rdf:type owl:Class ;
                   rdfs:subClassOf :transfer ;

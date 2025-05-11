@@ -101,8 +101,21 @@ class rdfTTLService:
         self.graph.add((iri ,RDF.type, self.Namespace.queryrelation))
         self.graph.add((iri , self.Namespace.hasExportQuery,URIRef(export_query_iri)))
         self.graph.add((iri , self.Namespace.parentRelation,URIRef(parent_relation_iri)))
-        self.graph.add((iri , self.Namespace.relationCount,Literal(order,datatype='xsd:integer')))    
+        self.graph.add((iri , self.Namespace.hasOrder,Literal(order,datatype='xsd:integer')))    
         self.graph.add((iri , self.Namespace.label,Literal(label)))
+                 
+        return iri
+
+    def add_queryrelation_column(self,column_iri,order,query_relation_iri,label):
+        iri=self.Namespace[self.hashCode()]
+        self.graph.add((iri , RDF.type, OWL.NamedIndividual))  
+        self.graph.add((iri ,RDF.type, self.Namespace.queryrelationcolumn))
+        self.graph.add((iri , self.Namespace.hasQueryRelation,URIRef(query_relation_iri)))
+        self.graph.add((iri , self.Namespace.hasColumn,URIRef(column_iri)))
+        # self.graph.add((iri , self.Namespace.parentRelation,URIRef(parent_relation_iri)))
+        self.graph.add((iri , self.Namespace.hasOrder,Literal(order,datatype='xsd:integer')))    
+        self.graph.add((iri , self.Namespace.label,Literal(label)))
+        # queryrelation
                  
         return iri
 

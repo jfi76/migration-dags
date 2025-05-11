@@ -190,7 +190,7 @@ select ?table ?tabname ?expr ?jsstring
 """
 
 stmt_table_relations="""
-select ?rel2 ?tabfromName ?tabtoName
+select ?rel2 ?tabfromName ?tabtoName ?rel2tabto
 {
   bind(uri(?param?) as ?iri)
   ?iri mig:hasRelationshipFrom ?rel1 .
@@ -224,4 +224,21 @@ select (max(?etlSource) as ?src) ?dash ?tableFrom (count(*) as ?count) (max(?has
 group by ?dash ?tableFrom
 order by ?dash desc(?count) 
 """
+stmt_relation_columns="""select (?column as ?iri)  ?colname ?type ?dataType ?sourceColumn ?expression ?sqlname{
+  bind (uri(?param?) as ?table) .
+  ?dash rdf:type mig:msdash .
+  ?dash js:name ?dashName .
+  ?table js:name ?tableName .  
+  ?table mig:hasMsDash ?dash . 
+  ?table rdf:type mig:msDashTable .
+  ?column mig:hasMsDashTable ?table .
+  ?column rdf:type mig:DashColumn .
+  ?column js:name ?colname .
+  optional {?column js:type ?type} .
+  optional {?column js:dataType ?dataType} .
+  optional {?column js:sourceColumn ?sourceColumn } .
+  optional {?column js:expression ?expression } .  
+  optional {?column mig:hasSqlName ?sqlname } .  
+}
 
+"""
