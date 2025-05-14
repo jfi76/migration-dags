@@ -162,7 +162,8 @@ select_config_pbi="""
 select_recursive_visualiz_eyed="""
 select distinct ?node  (coalesce(?label,?name,?JsonObjectKey) as ?nodeName) ?parentVisualId
 {
-  ?iri rdf:type mig:msdash .
+  #?iri rdf:type mig:msdash .
+  bind(?param? as ?iri)
   ?node js:parentJsonId*  ?iri .
   optional{?node rdfs:label ?label .  }
   optional{?node js:name ?name .  }
