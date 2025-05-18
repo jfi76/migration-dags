@@ -211,7 +211,7 @@ select ?rel2 ?tabfromName ?tabtoName ?rel2tabto
 }
 """
 stmt_tablefrom_sorted="""
-select (max(?etlSource) as ?src) ?dash ?tableFrom (count(*) as ?count) (max(?hasSqlName) as ?tbname) 
+select (max(?etlSource) as ?src) ?dash ?tableFrom (count(*) as ?count) (max(?hasSqlName) as ?tbname) (max(?tabname) as ?tabjsname) (min(?relat) as ?relat_tab)
 {
   bind(uri(?param?) as ?dash)
 ?tableFrom js:name ?tabname .      
@@ -242,4 +242,162 @@ stmt_relation_columns="""select (?column as ?iri)  ?colname ?type ?dataType ?sou
   optional {?column mig:hasSqlName ?sqlname } .  
 }
 
+"""
+
+stmt_form_from="""
+select 
+?tab_rel ?qrel
+(concat('t',str(?fromOrder))  as ?prefixFrom) 
+?columTo
+?columFromSQLname
+?columToSQLname
+?tabtojsname ?tabtosqlname ?rel_order (concat('t',str(?rel_order))  as ?prefix)
+
+{
+  bind(uri(?param?) as ?exp_query)
+  ?exp_query rdf:type mig:dashexportquery .
+  ?qrel mig:hasExportQuery ?exp_query .
+  ?qrel rdf:type mig:queryrelation .
+  ?qrel mig:hasOrder ?rel_order .
+  ?qrel mig:parentRelation ?tab_rel .
+  ?tableTo  mig:hasRelationshipTo  ?tab_rel.
+  ?tableTo mig:hasSqlName ?tabtosqlname .
+   
+  ?tableTo js:name ?tabtojsname .
+  ?qrel mig:hasFromOrder ?fromOrder.
+  ?columTo mig:hasRelationshipColumnTo  ?tab_rel .
+  ?columFrom mig:hasRelationshipColumnFrom  ?tab_rel .
+  optional {?columTo mig:hasSqlName ?columToSQLname}.
+  optional {?columFrom mig:hasSqlName ?columFromSQLname} .  
+  
+#  ?tableFrom  mig:hasRelationshipFrom  ?tab_rel.
+#  ?tableFrom js:name ?tabfromjsname .
+#  ?tableFrom mig:hasSqlName ?tabfromsqlname .
+}
+order by xsd:integer(?rel_order)
+"""
+stmt_all_export_query="""select ?exp_query ?SlqName ?jsname {?exp_query rdf:type mig:dashexportquery .
+ ?exp_query mig:hasMsDashTable ?mainTable .
+ ?mainTable mig:hasSqlName ?SlqName . 
+ ?mainTable js:name ?jsname .  
+} """
+
+stmt_mart_export_cols="""
+select 
+?tab_rel ?qrel ?qcol ?tabtojsname ?tabtosqlname ?rel_order (concat('t',str(?rel_order))  as ?prefix)
+(IF(coalesce(?coltype,'')="calculated",concat('calc_t',str(?rel_order),'_',str(?colOrder)),
+    concat('t',str(?rel_order),'_',str(?colOrder),'_',?sqlName)
+  ) as ?colName) ?coljsname ?colOrder ?coltype ?dataType ?exp_query
+WHERE {
+  { 
+    bind(?param? as ?exp_query)
+    ?exp_query rdf:type mig:dashexportquery .
+    ?qrel mig:hasExportQuery ?exp_query .
+    ?qrel rdf:type mig:queryrelation .
+    ?qrel mig:hasOrder ?rel_order . 
+    filter( xsd:integer(?rel_order) = 0) .
+        ?qcol mig:hasQueryRelation ?qrel .  
+        ?qcol rdf:type mig:queryrelationcolumn .  
+        ?qcol mig:hasColumn ?col .
+        ?qcol mig:hasOrder ?colOrder .
+        ?col mig:hasSqlName ?sqlName .
+        ?col js:name ?coljsname .  
+        optional {?col js:type ?coltype}
+        ?col js:dataType ?dataType .
+
+  } 
+  
+  UNION 
+      {
+        bind(?param? as ?exp_query)
+        ?exp_query rdf:type mig:dashexportquery .
+        ?qrel mig:hasExportQuery ?exp_query .
+        ?qrel rdf:type mig:queryrelation .
+        ?qrel mig:hasOrder ?rel_order .
+        ?qrel mig:parentRelation ?tab_rel .
+        ?tableTo  mig:hasRelationshipTo  ?tab_rel.
+        ?tableTo mig:hasSqlName ?tabtosqlname .
+        ?tableTo js:name ?tabtojsname .
+        ?qcol mig:hasQueryRelation ?qrel .  
+        ?qcol rdf:type mig:queryrelationcolumn .  
+        ?qcol mig:hasColumn ?col .
+        ?qcol mig:hasOrder ?colOrder .
+        ?col mig:hasSqlName ?sqlName .
+        ?col js:name ?coljsname .  
+        optional {?col js:type ?coltype}
+    	?col js:dataType ?dataType .
+      }
+  }    
+order by xsd:integer(?rel_order) xsd:integer(?colOrder)      
+"""
+stmt_insert_mart_col="""
+insert {
+  ?uid rdf:type mig:martcolumn .
+  ?uid mig:hasSqlName ?colName .
+  ?uid mig:dataType ?dataType .
+  ?uid mig:hasOrder ?colOrder .
+  ?uid mig:hasQueryRelation ?qrel .   
+  ?uid mig:hasQueryColumn ?qcol .
+  ?uid mig:hasExportQuery ?exp_query .
+  ?uid mig:hasMart ?mart .
+  ?uid mig:hasMsDashTable ?tab_rel .
+  ?uid mig:hasVisualLabel ?hasVisualLabel .
+} where {
+  select 
+  
+  ?tab_rel ?qrel ?qcol ?tabtojsname ?tabtosqlname ?rel_order (concat('t',str(?rel_order))  as ?prefix)
+  (IF(coalesce(?coltype,'')="calculated",concat('calc_t',str(?rel_order),'_',str(?colOrder)),
+      concat('t',str(?rel_order),'_',str(?colOrder),'_',?sqlName)
+    ) as ?colName) ?coljsname ?colOrder ?coltype ?dataType
+  (iri(concat('http://www.example.com/MIGRATION#',struuid())) as ?uid) 
+      ?exp_query ?mart 
+  (concat(?colName,':',?coljsname,':',?dataType) as ?hasVisualLabel)
+  WHERE {
+    { 
+      ?exp_query rdf:type mig:dashexportquery .
+      ?exp_query mig:hasMart ?mart .
+      ?exp_query mig:hasMsDashTable ?tab_rel.
+      ?mart rdf:type mig:dashmart .
+      #bind(mig:Nf76bc87394d14b3abe1a6475af28a214 as ?exp_query)
+      ?exp_query rdf:type mig:dashexportquery .
+      ?qrel mig:hasExportQuery ?exp_query .
+      ?qrel rdf:type mig:queryrelation .
+      ?qrel mig:hasOrder ?rel_order . 
+      filter( xsd:integer(?rel_order) = 0) .
+          ?qcol mig:hasQueryRelation ?qrel .  
+          ?qcol rdf:type mig:queryrelationcolumn .  
+          ?qcol mig:hasColumn ?col .
+          ?qcol mig:hasOrder ?colOrder .
+          ?col mig:hasSqlName ?sqlName .
+          ?col js:name ?coljsname .  
+          optional {?col js:type ?coltype}
+          ?col js:dataType ?dataType .
+
+    } 
+    UNION 
+         {
+          ?exp_query rdf:type mig:dashexportquery .
+          ?exp_query mig:hasMart ?mart .
+          ?mart rdf:type mig:dashmart .
+      
+          ?exp_query rdf:type mig:dashexportquery .
+          ?qrel mig:hasExportQuery ?exp_query .
+          ?qrel rdf:type mig:queryrelation .
+          ?qrel mig:hasOrder ?rel_order .
+          ?qrel mig:parentRelation ?tab_rel .
+          ?tableTo  mig:hasRelationshipTo  ?tab_rel.
+          ?tableTo mig:hasSqlName ?tabtosqlname .
+          ?tableTo js:name ?tabtojsname .
+          ?qcol mig:hasQueryRelation ?qrel .  
+          ?qcol rdf:type mig:queryrelationcolumn .  
+          ?qcol mig:hasColumn ?col .
+          ?qcol mig:hasOrder ?colOrder .
+          ?col mig:hasSqlName ?sqlName .
+          ?col js:name ?coljsname .  
+          optional {?col js:type ?coltype}
+          ?col js:dataType ?dataType .
+        }
+    }    
+  order by ?mart ?exp_query xsd:integer(?rel_order) xsd:integer(?colOrder)      
+}
 """

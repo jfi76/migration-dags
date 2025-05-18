@@ -95,14 +95,22 @@ class rdfTTLService:
         self.graph.add((iri , self.Namespace.label,Literal('v_export_query_'+table_name)))
         return iri
 
-    def add_queryrelation(self,export_query_iri,order,parent_relation_iri,label):
+    def add_queryrelation(self,export_query_iri,order,parent_relation_iri,label,table_from_iri,table_from_relation_iri,table_from_order):
         iri=self.Namespace[self.hashCode()]
         self.graph.add((iri , RDF.type, OWL.NamedIndividual))  
         self.graph.add((iri ,RDF.type, self.Namespace.queryrelation))
         self.graph.add((iri , self.Namespace.hasExportQuery,URIRef(export_query_iri)))
-        self.graph.add((iri , self.Namespace.parentRelation,URIRef(parent_relation_iri)))
+        if parent_relation_iri!=None:
+            self.graph.add((iri , self.Namespace.parentRelation,URIRef(parent_relation_iri)))
+
         self.graph.add((iri , self.Namespace.hasOrder,Literal(order,datatype='xsd:integer')))    
         self.graph.add((iri , self.Namespace.label,Literal(label)))
+        if table_from_relation_iri!=None:
+            self.graph.add((iri , self.Namespace.parentFromRelation,URIRef(table_from_relation_iri)))
+            self.graph.add((iri , self.Namespace.tableFrom ,URIRef(table_from_iri)))
+            self.graph.add((iri , self.Namespace.hasFromOrder,Literal(table_from_order, datatype='xsd:integer')))            
+
+        #table_from_iri
                  
         return iri
 
@@ -118,6 +126,25 @@ class rdfTTLService:
         # queryrelation
                  
         return iri
+
+    def add_from(self,export_query_iri,item:str):
+            iri=URIRef(export_query_iri)
+            #self.graph.add((iri ,RDF.type, self.Namespace.msprocedurevarible))
+            self.graph.add((iri ,self.Namespace.hasSql, Literal(item)))            
+
+    def add_mart_column(self,column_iri,order,query_relation_iri,label):
+        iri=self.Namespace[self.hashCode()]
+        self.graph.add((iri , RDF.type, OWL.NamedIndividual))  
+        self.graph.add((iri ,RDF.type, self.Namespace.queryrelationcolumn))
+        self.graph.add((iri , self.Namespace.hasQueryRelation,URIRef(query_relation_iri)))
+        self.graph.add((iri , self.Namespace.hasColumn,URIRef(column_iri)))
+        # self.graph.add((iri , self.Namespace.parentRelation,URIRef(parent_relation_iri)))
+        self.graph.add((iri , self.Namespace.hasOrder,Literal(order,datatype='xsd:integer')))    
+        self.graph.add((iri , self.Namespace.label,Literal(label)))
+        # queryrelation
+                 
+        return iri
+
 
         #js:PARAMETER_NAME
 
