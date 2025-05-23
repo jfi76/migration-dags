@@ -28,7 +28,7 @@ def prepare_proc():
     c.iterate_proc()    
     c.ttl_serice.emptyGraph()    
     drop_proc(c.procedures,engine)
-    
+    return
     with engine.connect() as connection:
         for proc in c.procedures:
             print(proc['iri'])    
@@ -52,8 +52,8 @@ def prepare_proc():
 
 if __name__ == "__main__":
    ####init_rdf_json####
-    # cl=load_init_rdf_json('../init_rdf_json/','../output/')
-   ####get_proc_plan####
+#    cl=load_init_rdf_json('../init_rdf_json/','../output/')
+   ###get_proc_plan####
 #    ms_to_pq=mssql_to_postgres(con_server=os.environ['mssql_serv'], con_passw=os.environ['mssql_pass'], con_db='PS_TEST_1')
 #    ms_to_pq.xml_data='../xml_data/'
 #    ms_to_pq.json_data='../json_data/'
@@ -67,8 +67,8 @@ if __name__ == "__main__":
 #    service=sparql_service.runSparqlWrapper()
 #    service.insert(data)
      ####
-   d=process_declare()
-   d.filepath='../output/vars.ttl'
-   d.iterate_declare()      
-   ##prepare_proc####   
-   prepare_proc() 
+  d=process_declare()
+  d.filepath='../output/vars.ttl'
+  d.iterate_declare()      
+   #prepare_proc####   
+  prepare_proc() 

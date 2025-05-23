@@ -2,7 +2,8 @@ import requests
 
 from SPARQLWrapper import SPARQLWrapper, JSON, XML
 import prefix as prefix
-DBPATH='http://host.docker.internal:3030/migration_rdf'
+#DBPATH='http://host.docker.internal:3030/migration_rdf'
+DBPATH='http://localhost:3030/migration_rdf2'
 
 class runSparqlWrapper:
     def __init__(self):    

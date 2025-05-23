@@ -148,6 +148,23 @@ select distinct ?node  ?name ?parentVisualId
 } 
 """
 
+select_recursive_vizualiz_mart="""
+select distinct ?node  (coalesce(?vlabelname,?sqljsname,?jsname,?lname,?miglabel) as ?name) ?parentVisualId ?type 
+{
+  bind(?param? as ?iri)
+  ?iri rdf:type mig:dashmart.
+  ?node mig:parentVisualId1*  ?iri .
+  optional{?node rdfs:label ?lname } .
+  optional{?node mig:hasVisualLabel ?vlabelname } .
+  optional{?node js:name ?jsname } .
+  optional{?node mig:hasSqlName ?sqljsname } .
+  optional{?node  mig:label ?miglabel}
+  ?node mig:parentVisualId1 ?parentVisualId .
+  ?node rdf:type ?type .
+  filter (?type not in (owl:NamedIndividual,js:ObjectJson) )
+}
+"""
+
 select_config_pbi="""
  select ?vc_item ?config {  
   ?sect rdf:type mig:DashSection .
@@ -159,6 +176,23 @@ select_config_pbi="""
    } 
 """
 
+select_recursive_visualiz_eyed_mart="""
+select distinct ?node  (coalesce(?vlabelname,?sqljsname,?jsname,?lname,?miglabel,?JsonObjectKey) as ?nodeName) ?parentVisualId
+{
+  ?iri rdf:type mig:dashmart .  
+  ?node mig:parentVisualId1*  ?iri .
+  optional{?node rdfs:label ?lname } .
+  optional{?node mig:hasVisualLabel ?vlabelname } .
+  optional{?node js:name ?jsname } .
+  optional{?node mig:hasSqlName ?sqljsname } .
+  optional{?node  mig:label ?miglabel}
+
+  optional{?node js:hasJsonObjectKey ?JsonObjectKey .  }    
+  ?node mig:parentVisualId1 ?parentVisualId .
+  ?node rdf:type ?type .  
+  filter (?type not in (owl:NamedIndividual,js:ObjectJson) ) 
+}  
+"""
 select_recursive_visualiz_eyed="""
 select distinct ?node  (coalesce(?label,?name,?JsonObjectKey) as ?nodeName) ?parentVisualId
 {
@@ -177,6 +211,12 @@ stmt_to_get_dasahes="""
  select ?iri ?hasSourceFile {  
 ?iri rdf:type mig:msdash .
 ?iri etl:hasSourceFile  ?hasSourceFile .
+   } 
+"""
+stmt_to_get_marts="""
+ select ?iri ?hasSourceFile {  
+?iri rdf:type mig:dashmart .
+?iri mig:label  ?hasSourceFile .
    } 
 """
 
@@ -342,6 +382,10 @@ insert {
   ?uid mig:hasMart ?mart .
   ?uid mig:hasMsDashTable ?tab_rel .
   ?uid mig:hasVisualLabel ?hasVisualLabel .
+  ?uid mig:parentVisualId ?exp_query .
+  ?exp_query mig:parentVisualId ?mart .
+  ?col  mig:parentVisualId ?uid .
+  
 } where {
   select 
   
@@ -372,14 +416,20 @@ insert {
           ?col js:name ?coljsname .  
           optional {?col js:type ?coltype}
           ?col js:dataType ?dataType .
-
+          
     } 
+    #order by xsd:integer(?rel_order) xsd:integer(?colOrder)
     UNION 
-         {
+  #    {
+  #      select 
+  #      ?tab_rel ?qrel ?qcol ?tabtojsname ?tabtosqlname ?rel_order (concat('t',str(?rel_order))  as ?prefix)
+  #      ?sqlName ?coljsname ?colOrder
+        {
           ?exp_query rdf:type mig:dashexportquery .
           ?exp_query mig:hasMart ?mart .
           ?mart rdf:type mig:dashmart .
       
+#          bind(mig:Nf76bc87394d14b3abe1a6475af28a214 as ?exp_query)
           ?exp_query rdf:type mig:dashexportquery .
           ?qrel mig:hasExportQuery ?exp_query .
           ?qrel rdf:type mig:queryrelation .
