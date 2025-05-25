@@ -92,7 +92,7 @@ class rdfTTLService:
         #self.graph.add((iri , self.Namespace.hasSqlName,Literal('v_mart_'+table_name)))                        
         #self.graph.add((iri , self.Namespace.hasOrder,Literal(hasOrder,datatype='xsd:integer')))                        
         self.graph.add((iri , self.Namespace.hasMart,URIRef(mart_iri)))        
-        self.graph.add((iri , self.Namespace.label,Literal('v_export_query_'+table_name)))
+        self.graph.add((iri , self.Namespace.label,Literal('export_query_'+table_name)))
         return iri
 
     def add_queryrelation(self,export_query_iri,order,parent_relation_iri,label,table_from_iri,table_from_relation_iri,table_from_order):

@@ -70,9 +70,11 @@ class create_export_query:
             
             self.add_column_to_relation(export_stmt_result['rel2tabto']['value'],relation_iri, order)            
     def prepare_export_query(self,mart_iri:str,dash_iri:str):
+        #print(stmt.stmt_tablefrom_sorted.replace('?param?',f'"{dash_iri}"'))
         ret=self.queryService.query(stmt.stmt_tablefrom_sorted.replace('?param?',f'"{dash_iri}"')) 
              
         for export_stmt_result in ret:   
+            print(export_stmt_result)
             if self.check_table_in_export_query(dash_iri, export_stmt_result['tableFrom']['value']):
                 export_iri=self.ttl_serice.add_export_query(dash_iri,export_stmt_result['tableFrom']['value'],
                                                               export_stmt_result['tbname']['value'], 
@@ -80,7 +82,7 @@ class create_export_query:
                 self.add_relation(export_iri,export_stmt_result['tableFrom']['value'],
                                   export_stmt_result['relat_tab']['value'],export_stmt_result['tabjsname']['value'])
                 
-            break    
+            #break    
     def iterate_dashes(self):
         self.queryService.insert('delete {?dashmart ?p ?o} where { ?dashmart rdf:type mig:dashmart .?dashmart ?p ?o .} ')        
         self.queryService.insert('delete {?query ?p ?o} where { ?query rdf:type mig:dashexportquery . ?query ?p ?o .}')        
