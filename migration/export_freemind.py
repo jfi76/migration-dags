@@ -36,7 +36,7 @@ class export_freemind:
             node = etree.SubElement(parent_node, "node")
             node.set("ID", self.replace_url(export_stmt_result['node']['value']))
             node.set("TEXT", export_stmt_result['name']['value'])
-            if "DashColumn" in export_stmt_result.keys() and "DashColumn" in  export_stmt_result['type']['value']:
+            if "type" in export_stmt_result.keys() and "DashColumn" in  export_stmt_result['type']['value']:
                 node.set("BACKGROUND_COLOR", "#ffff99")
                 node.set("COLOR", "#009966")
             prev_node=export_stmt_result['node']['value']    

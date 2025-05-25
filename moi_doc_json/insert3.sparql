@@ -23,8 +23,8 @@ insert {
 } 
 #
 where {
-  select 
-  
+select 
+
   ?tab_rel ?qrel ?qcol ?tabtojsname ?tabtosqlname ?rel_order (concat('t',str(?rel_order))  as ?prefix)
   (IF(coalesce(?coltype,'')="calculated",concat('calc_t',str(?rel_order),'_',str(?colOrder)),
       concat('t',str(?rel_order),'_',str(?colOrder),'_',?sqlName)
@@ -33,12 +33,18 @@ where {
       ?exp_query ?mart 
   (concat(?colName,'\n',?coljsname,'\n',?dataType) as ?hasVisualLabel)
   ?col ?tab_rel ?tableTo 
-  (concat(?tabtojsname,'\n',?tabtosqlname ,'\n','export_click.',?hasSQLTableName ) as  ?hasVisualLabelTableTo)
+  (concat(?tabtojsname,'\n',?tabtosqlname ,'\n','export_pbi.m_',str(?mart_order),'_t_',str(?rel_order),?hasSQLTableName ) as  ?hasVisualLabelTableTo)
+
   WHERE {
     { 
       ?exp_query rdf:type mig:dashexportquery .
       ?exp_query mig:hasMart ?mart .
-      ?exp_query mig:hasMsDashTable ?tab_rel.
+      ?mart mig:hasOrder ?mart_order .
+      ?exp_query mig:hasMsDashTable ?tableTo.      
+      ?tableTo mig:hasSqlName ?tabtosqlname .
+      ?tableTo js:name ?tabtojsname .
+      optional{?tableTo mig:hasSQLTableName ?hasSQLTableName }.
+    
       ?mart rdf:type mig:dashmart .
       #bind(mig:Nf76bc87394d14b3abe1a6475af28a214 as ?exp_query)
       ?exp_query rdf:type mig:dashexportquery .
@@ -61,7 +67,7 @@ where {
           ?exp_query rdf:type mig:dashexportquery .
           ?exp_query mig:hasMart ?mart .
           ?mart rdf:type mig:dashmart .
-      
+          ?mart mig:hasOrder ?mart_order .
           ?exp_query rdf:type mig:dashexportquery .
           ?qrel mig:hasExportQuery ?exp_query .
           ?qrel rdf:type mig:queryrelation .
@@ -81,5 +87,5 @@ where {
           ?col js:dataType ?dataType .
         }
     }    
-  order by ?mart ?exp_query xsd:integer(?rel_order) xsd:integer(?colOrder)      
+  order by ?mart ?exp_query xsd:integer(?rel_order) xsd:integer(?colOrder)     
 };

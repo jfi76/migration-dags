@@ -37,9 +37,17 @@ if __name__ == "__main__":
     # conv2.rdf_parsed='../playground_parsed_adds/'
     # conv2.processJsonDir()
 
+    # c=process_table_expreesion('../playground_parsed_adds/')
+    # c.iterate_expr()
+
+
     # data = open('../moi_doc_json/insert2.sparql').read()
     # service=sparql_service.runSparqlWrapper()
     # service.insert(data)
+
+    # c=process_table_expreesion('../playground_parsed_adds/')
+    # c.iterate_expr()
+
 
     # cfrm=export_freemind(stmt.select_recursive_visualiz_pbi,'c:\\zena\\')
     # cfrm.key_name='Дашбоард'
@@ -52,8 +60,6 @@ if __name__ == "__main__":
     # conv2.processJsonDir()
 ############################
 
-    c=process_table_expreesion('../playground_parsed_adds/')
-    c.iterate_expr()
     
     stmt_all_dashes="""select ?dash ?fileName  {
     ?dash rdf:type mig:msdash . 
@@ -62,6 +68,7 @@ if __name__ == "__main__":
 
     cexp=create_export_query(stmt_all_dashes,'../playground_parsed_adds/')
     cexp.iterate_dashes()
+
     cexp.create_from_for_export_query()
 
     data = open('../moi_doc_json/insert3.sparql').read()

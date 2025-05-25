@@ -82,7 +82,7 @@ class create_export_query:
                 self.add_relation(export_iri,export_stmt_result['tableFrom']['value'],
                                   export_stmt_result['relat_tab']['value'],export_stmt_result['tabjsname']['value'])
                 
-            #break    
+            break    
     def iterate_dashes(self):
         self.queryService.insert('delete {?dashmart ?p ?o} where { ?dashmart rdf:type mig:dashmart .?dashmart ?p ?o .} ')        
         self.queryService.insert('delete {?query ?p ?o} where { ?query rdf:type mig:dashexportquery . ?query ?p ?o .}')        
@@ -90,10 +90,11 @@ class create_export_query:
         self.queryService.insert('delete {?query ?p ?o} where { ?query rdf:type mig:queryrelationcolumn . ?query ?p ?o .}')
         
         ret=self.queryService.query(self.stmt_to_export)
-        
+        mart_order=0
         for export_stmt_result in ret: 
-            if (export_stmt_result['dash']['value']  in self.created_dashes.keys())==False:                
-                mart_iri=self.ttl_serice.add_mart(export_stmt_result['dash']['value'],export_stmt_result['fileName']['value'])
+            if (export_stmt_result['dash']['value']  in self.created_dashes.keys())==False:
+                mart_order=mart_order+1                
+                mart_iri=self.ttl_serice.add_mart(export_stmt_result['dash']['value'],export_stmt_result['fileName']['value'],mart_order)
                 self.created_dashes[export_stmt_result['dash']['value']]=mart_iri
             mart_iri=self.created_dashes[export_stmt_result['dash']['value']]    
 

@@ -74,12 +74,14 @@ class rdfTTLService:
         self.graph.add((iri , self.Namespace.column_renamed,Literal(col_renamed)))                        
 
 
-    def add_mart(self,dash,label):
+    def add_mart(self,dash,label,mart_order):
         iri=self.Namespace[self.hashCode()]
         self.graph.add((iri , RDF.type, OWL.NamedIndividual))  
         self.graph.add((iri ,RDF.type, self.Namespace.dashmart))
         self.graph.add((iri , self.Namespace.hasMsDash,URIRef(dash)))
-        self.graph.add((iri , self.Namespace.label,Literal('витрина '+label)))   
+        self.graph.add((iri , self.Namespace.label,Literal(label)))   
+        self.graph.add((iri , self.Namespace.hasOrder,Literal(mart_order,datatype='xsd:integer')))
+        
         return iri                     
 
     def add_export_query(self,dash,table_iri,table_name,relation_count,mart_iri):
@@ -92,7 +94,7 @@ class rdfTTLService:
         #self.graph.add((iri , self.Namespace.hasSqlName,Literal('v_mart_'+table_name)))                        
         #self.graph.add((iri , self.Namespace.hasOrder,Literal(hasOrder,datatype='xsd:integer')))                        
         self.graph.add((iri , self.Namespace.hasMart,URIRef(mart_iri)))        
-        self.graph.add((iri , self.Namespace.label,Literal('export_query_'+table_name)))
+        self.graph.add((iri , self.Namespace.label,Literal(table_name)))
         return iri
 
     def add_queryrelation(self,export_query_iri,order,parent_relation_iri,label,table_from_iri,table_from_relation_iri,table_from_order):
