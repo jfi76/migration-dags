@@ -20,6 +20,9 @@ insert {
   ?tableTo mig:parentVisualId1  ?exp_query .
   ?col  mig:parentVisualId1  ?tableTo .  
   ?uid  mig:parentVisualId1  ?col .  
+  ?tableTo mig:hasPrefix ?TableToPrefix .
+  ?tableTo mig:hasExportSqlName ?hasExportSqlName .
+  ?col mig:hasExportSqlName ?colName .
 } 
 #
 where {
@@ -33,8 +36,10 @@ select
       ?exp_query ?mart 
   (concat(?colName,'\n',?coljsname,'\n',?dataType) as ?hasVisualLabel)
   ?col ?tab_rel ?tableTo 
-  (concat(?tabtojsname,'\n',?tabtosqlname ,'\n','export_pbi.m_',str(?mart_order),'_t_',str(?rel_order),?hasSQLTableName ) as  ?hasVisualLabelTableTo)
-
+  (concat(?tabtojsname,'\n',?tabtosqlname ,'\n','export_pbi.m',str(?mart_order),'_t_',str(?rel_order),?hasSQLTableName ) as  ?hasVisualLabelTableTo)
+  (concat('m',str(?mart_order),'_t_',str(?rel_order),?hasSQLTableName ) as  ?TableToPrefix)
+  (concat('export_pbi.m',str(?mart_order),'_t_',str(?rel_order),?hasSQLTableName ) as  ?hasExportSqlName)
+  
   WHERE {
     { 
       ?exp_query rdf:type mig:dashexportquery .
@@ -51,7 +56,9 @@ select
       ?qrel mig:hasExportQuery ?exp_query .
       ?qrel rdf:type mig:queryrelation .
       ?qrel mig:hasOrder ?rel_order . 
-      filter( xsd:integer(?rel_order) = 0) .
+      optional{?qrel mig:parentFromRelation	?parentRelFrom }     .
+
+      filter(coalesce(?parentRelFrom,'')='' ) .
           ?qcol mig:hasQueryRelation ?qrel .  
           ?qcol rdf:type mig:queryrelationcolumn .  
           ?qcol mig:hasColumn ?col .

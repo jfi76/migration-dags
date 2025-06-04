@@ -47,6 +47,9 @@ if __name__ == "__main__":
 
     # c=process_table_expreesion('../playground_parsed_adds/')
     # c.iterate_expr()
+    # data = open('../moi_doc_json/insert2_2.sparql').read()
+    # service=sparql_service.runSparqlWrapper()
+    # service.insert(data)
 
 
     # cfrm=export_freemind(stmt.select_recursive_visualiz_pbi,'c:\\zena\\')

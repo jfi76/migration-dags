@@ -1,0 +1,72 @@
+insert {
+  ?col mig:hasSqlName ?column_init.
+  ?col mig:hasExpression ?expr .
+} where 
+{
+?iri rdf:type mig:dashrenamedcolumn .  
+?iri mig:column_init ?column_init .
+?iri mig:column_renamed   ?column_renamed .
+?iri mig:hasExpression ?expr .
+?expr mig:hasMsDashTable ?table .
+?col mig:hasMsDashTable ?table  .
+?col rdf:type mig:DashColumn  . 
+?col js:name ?column_renamed .  
+?col js:name ?coljsname .  
+};
+
+insert {
+  ?col mig:hasSqlName ?jsname .
+}
+
+where {
+  ?col rdf:type mig:DashColumn  . 
+  ?col js:name ?jsname .
+  optional {?col mig:hasSqlName ?sqlName}
+  filter ( coalesce(?sqlName,'')='')
+};
+
+insert {
+  ?tableTo mig:hasRelationFrom ?tableFrom.
+  ?tableFrom mig:hasRelationshipFrom ?relat.
+  ?tableTo mig:hasRelationshipTo ?relat.
+  ?columTo mig:hasRelationshipColumnTo  ?relat .
+  ?columFrom mig:hasRelationshipColumnFrom  ?relat .
+  ?relat rdf:type mig:dashTableRelationship .
+} where 
+{
+ ?iri rdf:type mig:msdash  .
+ ?ch1 js:parentJsonId ?iri   .
+ ?ch1  js:hasJsonObjectKey 'model' .
+ ?relats js:parentJsonId ?ch1 . 
+ ?relats js:hasJsonObjectKey "relationships" .
+ ?relat js:parentJsonId  ?relats.
+ ?relat js:fromTable  ?fromTable .
+ ?relat js:toTable  ?toTable .  
+ ?relat js:toColumn  ?toColumn .    
+ ?relat js:fromColumn  ?fromColumn .      
+ ?tableFrom  rdf:type mig:msDashTable .
+ ?tableFrom js:name ?fromTable  .
+ ?tableTo  rdf:type mig:msDashTable .
+ ?tableTo js:name ?toTable  .  
+ ?columFrom rdf:type mig:DashColumn .
+ ?columFrom mig:hasMsDashTable ?tableFrom .
+ ?columFrom js:name  ?fromColumn .
+
+ ?columTo rdf:type mig:DashColumn .
+ ?columTo mig:hasMsDashTable ?tableTo .
+ ?columTo js:name  ?toColumn .
+
+};
+
+insert {?relat2 mig:hasParentRelationship ?relat1}
+ where{
+?relat1 rdf:type mig:dashTableRelationship .
+?tableFrom1 mig:hasRelationshipFrom ?relat1.
+?tableTo1 mig:hasRelationshipTo ?relat1.  
+?tableTo1 mig:hasRelationshipFrom  ?relat2.
+};
+
+#insert {
+#?iri mig:hasSqlName ?sqlname .
+#}
+#where {?iri mig:hasSQLname ?sqlname .};
