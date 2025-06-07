@@ -66,6 +66,40 @@ insert {?relat2 mig:hasParentRelationship ?relat1}
 ?tableTo1 mig:hasRelationshipFrom  ?relat2.
 };
 
+insert {?iri mig:hasPrefix ?tab_prefix .
+?iri mig:hasExportSqlName ?tab_export_name .
+}
+where 
+ {
+?iri rdf:type mig:msDashTable .
+?iri js:hasJsonObjectKey ?key .
+?iri mig:hasSQLTableName ?tab_nam_sql .        
+?iri mig:hasMsDash ?dash . 
+?dash mig:hasPrefix  ?prefix .  
+  bind (concat(?prefix,'_',?key )  as ?tab_prefix)  .
+  bind (concat(?tab_prefix,'_', ?tab_nam_sql) as ?tab_export_name ) .   
+};
+
+insert 
+{?iri mig:hasExportSqlName ?export_col_name}
+where 
+{ ?iri rdf:type mig:DashColumn .
+  optional{?iri js:type ?coltype} .
+  ?iri js:hasJsonObjectKey ?key .
+  ?iri mig:hasSqlName ?sqlName .
+  ?iri mig:hasMsDashTable ?table .
+#  ?table mig:hasMsDash js:Nbf85e8d1889344f2a3a26f5fbcfa4c70 .
+#  ?table mig:hasPrefix ?tab_prefix .  
+  ?table js:hasJsonObjectKey ?tab_key .  
+    
+  bind( 
+    IF(coalesce(?coltype,'')="calculated" || coalesce(?coltype,'')="calculatedTableColumn", concat('calc_t',?tab_key,'_',?key ),
+      concat('t',?tab_key,'_',?sqlName)  )
+     as ?export_col_name
+    )	
+#    
+};
+
 #insert {
 #?iri mig:hasSqlName ?sqlname .
 #}

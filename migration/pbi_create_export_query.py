@@ -42,52 +42,60 @@ class create_export_query:
             self.ttl_serice.add_queryrelation_column(export_stmt_result['iri']['value'],order,query_relation_iri, 't'+str(relat_order)+'.' +export_stmt_result['sqlname']['value'])
 
     def add_relation(self,query_export_iri:str,master_table_iri,relat_tab_iri,master_table_name):
+        self.order=self.order+1
         ret=self.queryService.query(stmt.stmt_table_relations.replace('?param?',f'"{master_table_iri}"'))                
         #self.get_table_from_array()  table_iri:table_iri,relation_iri:relation_iri,order:order
         # (max(?etlSource) as ?src) ?dash ?tableFrom (count(*) as ?count) (max(?hasSqlName) as ?tbname) (min(?relat) as ?relat_tab)
-        relation_iri=self.ttl_serice.add_queryrelation(query_export_iri,'0',None, 
+        relation_iri=self.ttl_serice.add_queryrelation(query_export_iri,str(self.order),None, 
                                                        f"""{master_table_name}""",
-                                                       None , None ,'0')         
-        self.add_tables_to_array((master_table_iri),master_table_name,relation_iri,0)
-        self.add_column_to_relation(master_table_iri,relation_iri, '0') 
+                                                       None , None ,str(self.order))         
+        self.add_tables_to_array((master_table_iri),master_table_name,relation_iri,self.order)
+        self.add_column_to_relation(master_table_iri,relation_iri, str(self.order)) 
         #print(self.tables)
-        order=0
+        #self.order=0
         for export_stmt_result in ret: 
-            order=order+1
-            #?rel2 ?rel2tabfrom ?tabfromName ?rel2tabto ?tabtoName 
-            #table_from_iri,table_from_relation_iri,table_from_order
-            # table_iri:table_iri,relation_iri:relation_iri,order:order
+            if 1==1 : 
+            #or self.get_table_from_array(export_stmt_result['tabtoName']['value'])==None    
+            #or self.get_table_from_array(export_stmt_result['tabfromName']['value'])==None:
+                self.order=self.order+1
+                #?rel2 ?rel2tabfrom ?tabfromName ?rel2tabto ?tabtoName 
+                #table_from_iri,table_from_relation_iri,table_from_order
+                # table_iri:table_iri,relation_iri:relation_iri,order:order
 
-            fromTab=self.get_table_from_array(export_stmt_result['tabfromName']['value'])
-            #print(export_stmt_result['tabfromName']['value'])
-            #print(fromTab)
-            relation_iri=self.ttl_serice.add_queryrelation(query_export_iri,order,
-                                                           export_stmt_result['rel2']['value'], 
-                                                           f"""{export_stmt_result['tabfromName']['value']}=>{export_stmt_result['tabtoName']['value']}""",
-                                                            fromTab['table_iri'], fromTab['relation_iri'] , fromTab['order']
-                                                             )    
-            self.add_tables_to_array(export_stmt_result['rel2tabto']['value'],export_stmt_result['tabtoName']['value'],relation_iri,order)
-            
-            self.add_column_to_relation(export_stmt_result['rel2tabto']['value'],relation_iri, order)            
+                fromTab=self.get_table_from_array(export_stmt_result['tabfromName']['value'])
+                #print(export_stmt_result['tabfromName']['value'])
+                #print(fromTab)
+                relation_iri=self.ttl_serice.add_queryrelation(query_export_iri,self.order,
+                                                            export_stmt_result['rel2']['value'], 
+                                                            f"""{export_stmt_result['tabfromName']['value']}=>{export_stmt_result['tabtoName']['value']}""",
+                                                                fromTab['table_iri'], fromTab['relation_iri'] , fromTab['order']
+                                                                )    
+                self.add_tables_to_array(export_stmt_result['rel2tabto']['value'],export_stmt_result['tabtoName']['value'],relation_iri,self.order)
+                
+                self.add_column_to_relation(export_stmt_result['rel2tabto']['value'],relation_iri, self.order)            
     def prepare_export_query(self,mart_iri:str,dash_iri:str):
         #print(stmt.stmt_tablefrom_sorted.replace('?param?',f'"{dash_iri}"'))
         ret=self.queryService.query(stmt.stmt_tablefrom_sorted.replace('?param?',f'"{dash_iri}"')) 
-             
+        self.order=0     
         for export_stmt_result in ret:   
-            print(export_stmt_result)
-            if self.check_table_in_export_query(dash_iri, export_stmt_result['tableFrom']['value']):
+            #print(export_stmt_result)
+            if self.check_table_in_export_query(dash_iri, export_stmt_result['tableFrom']['value']) and self.get_table_from_array(export_stmt_result['tabjsname']['value'])==None:
                 export_iri=self.ttl_serice.add_export_query(dash_iri,export_stmt_result['tableFrom']['value'],
                                                               export_stmt_result['tbname']['value'], 
                                                               export_stmt_result['count']['value'],mart_iri)
-                self.add_relation(export_iri,export_stmt_result['tableFrom']['value'],
-                                  export_stmt_result['relat_tab']['value'],export_stmt_result['tabjsname']['value'])
                 
-            break    
+                print(export_stmt_result['tabjsname']['value'])
+                #print(self.tables)
+                self.add_relation(export_iri,export_stmt_result['tableFrom']['value'],
+                                export_stmt_result['relat_tab']['value'],export_stmt_result['tabjsname']['value'])
+                
+            #break    
     def iterate_dashes(self):
         self.queryService.insert('delete {?dashmart ?p ?o} where { ?dashmart rdf:type mig:dashmart .?dashmart ?p ?o .} ')        
         self.queryService.insert('delete {?query ?p ?o} where { ?query rdf:type mig:dashexportquery . ?query ?p ?o .}')        
         self.queryService.insert('delete {?query ?p ?o} where { ?query rdf:type mig:queryrelation . ?query ?p ?o .}')
         self.queryService.insert('delete {?query ?p ?o} where { ?query rdf:type mig:queryrelationcolumn . ?query ?p ?o .}')
+        self.queryService.insert('delete {?iri mig:hasExportSqlName ?q} where {?iri mig:hasExportSqlName ?q}')
         
         ret=self.queryService.query(self.stmt_to_export)
         mart_order=0
@@ -113,7 +121,7 @@ class create_export_query:
         self.ttl_serice.emptyGraph()
         for export_stmt_result in ret: 
             from_=from_ + " \njoin " + f"""{export_stmt_result['tabtosqlname']['value']} as {export_stmt_result['prefix']['value']}""" + f""" /*{export_stmt_result['tabtojsname']['value']}*/\n  on """ + f"""{export_stmt_result['prefixFrom']['value']}.{export_stmt_result['columFromSQLname']['value']}={export_stmt_result['prefix']['value']}.{export_stmt_result['columToSQLname']['value']}\n"""
-        print(from_)  
+        #print(from_)  
         self.ttl_serice.add_from(query_iri,from_)     
         filepath=self.dir_to_save+'create_export_query_from.ttl'  
         self.ttl_serice.graph.serialize(filepath, 'turtle') 

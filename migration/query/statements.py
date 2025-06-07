@@ -451,3 +451,32 @@ insert {
   order by ?mart ?exp_query xsd:integer(?rel_order) xsd:integer(?colOrder)      
 }
 """
+
+stmt_all_tables="""
+
+"""
+
+stmt_for_create_view="""
+select (concat( ?val , ' ' , ?hasExportSqlName ) as ?line )
+#(?column as ?iri)  ?colname ?type ?dataType ?sourceColumn ?expression ?sqlname ?hasExportSqlName
+{
+  bind (?param? as ?table) .  
+  ?dash rdf:type mig:msdash .
+  ?dash js:name ?dashName .
+  ?table js:name ?tableName .  
+  ?table mig:hasMsDash ?dash . 
+  ?table rdf:type mig:msDashTable .
+  ?column mig:hasMsDashTable ?table .
+  ?column rdf:type mig:DashColumn .
+  ?column js:name ?colname .
+  optional {?column js:type ?type} .
+  optional {?column js:dataType ?dataType} .
+  optional {?column js:sourceColumn ?sourceColumn } .
+  optional {?column js:expression ?expression } .  
+  optional {?column mig:hasSqlName ?sqlname }   
+  optional{ ?column mig:hasExportSqlName ?hasExportSqlName } .
+  optional{ ?column mig:hasExportCalcSql ?hasExportCalcSqlName } .
+  bind (IF(coalesce(?type,'')="calculated" || coalesce(?type,'')="calculatedTableColumn", 
+      coalesce(?hasExportCalcSqlName,'NULL') , ?sqlname ) as ?val)
+}
+"""

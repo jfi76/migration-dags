@@ -28,7 +28,7 @@ def prepare_proc():
     c.iterate_proc()    
     c.ttl_serice.emptyGraph()    
     drop_proc(c.procedures,engine)
-    return
+    
     with engine.connect() as connection:
         for proc in c.procedures:
             print(proc['iri'])    
@@ -62,11 +62,11 @@ if __name__ == "__main__":
 #    conv=json_to_ontology('../json_data/')
 #    conv.rdf_parsed='../rdf_parsed/'
 #    conv.processJsonDir()
-   ####run_insert_sparql####
+#    ###run_insert_sparql####
 #    data = open('../sparql/insert.sparql').read()
 #    service=sparql_service.runSparqlWrapper()
 #    service.insert(data)
-     ####
+     ##
   d=process_declare()
   d.filepath='../output/vars.ttl'
   d.iterate_declare()      

@@ -1,10 +1,15 @@
 ####
-insert {?iri rdf:type mig:msdash} where 
+insert {
+  ?iri rdf:type mig:msdash .
+  ?iri mig:hasPrefix  ?prefix .
+
+} where 
             {            
             ?iri rdf:type js:FileJson .
             optional{?iri rdfs:label ?label } .
             ?iri etl:hasSourceFile ?file .  
 			filter (regex(?file,'ModelSchema','i') )  
+            bind(strbefore(?file,'-') as ?prefix) 
             };
 insert {?ch3 rdf:type mig:msDashTable .  
         ?ch3 mig:hasMsDash ?param  . 

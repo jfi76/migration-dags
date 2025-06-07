@@ -59,6 +59,7 @@ class rdfTTLService:
         return iri
     def add_table_name(self,table_iri,shema:str,item:str):
         #iri=self.Namespace[self.hashCode()]
+        #print(shema+'.'+item)    
         iri=URIRef(table_iri)
         self.graph.add((iri , RDF.type, OWL.NamedIndividual))  
         #self.graph.add((iri ,RDF.type, self.Namespace.msprocedurevarible))
@@ -66,6 +67,7 @@ class rdfTTLService:
         self.graph.add((iri ,self.Namespace.hasSQLShema, Literal(shema)))                    
         self.graph.add((iri ,self.Namespace.hasSQLTableName, Literal(item)))                    
     def add_renamed_col(self,col_init,col_renamed,expr_iri):
+        #print(col_renamed)
         iri=self.Namespace[self.hashCode()]
         self.graph.add((iri , RDF.type, OWL.NamedIndividual))  
         self.graph.add((iri ,RDF.type, self.Namespace.dashrenamedcolumn))

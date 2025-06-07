@@ -86,6 +86,10 @@
 js:hasRichText rdfs:domain :msdash .
 
 
+###  http://www.example.com/MIGRATION#hasPrefix
+:hasPrefix rdf:type owl:DatatypeProperty .
+
+
 ###  http://www.example.com/MIGRATION#hasSQLShema
 :hasSQLShema rdf:type owl:DatatypeProperty ;
              rdfs:range xsd:string .
@@ -191,6 +195,14 @@ order by ?dashName ?tabeName""" ;
 ###  http://www.example.com/MIGRATION#dashexportquery
 :dashexportquery rdf:type owl:Class ;
                  rdfs:subClassOf :dashclickhouse ;
+                 report:hasDefaultQuery """select ?iri ?param ?label ?DashFile
+            {
+            bind(mig:dashexportquery as ?param)
+            ?iri rdf:type ?param .
+            optional{?iri rdfs:label ?label } .
+            ?iri mig:hasMsDash ?dash.
+            optional {?dash etl:hasSourceFile ?DashFile}
+}""" ;
                  rdfs:label "dash export query" .
 
 
@@ -438,7 +450,7 @@ select ?iri ?label ?dbname
 ###  http://www.example.com/MIGRATION#BtnDashColumns
 :BtnDashColumns rdf:type owl:NamedIndividual ,
                          report:buttonReport ;
-                report:hasQuery """select (?column as ?iri)  ?colname ?type ?dataType ?sourceColumn ?expression ?sqlname
+                report:hasQuery """select (?column as ?iri)  ?colname ?type ?dataType ?sourceColumn ?expression ?sqlname ?hasExportSqlName
 {
   bind (?param? as ?table) .
   ?dash rdf:type mig:msdash .
@@ -454,6 +466,7 @@ select ?iri ?label ?dbname
   optional {?column js:sourceColumn ?sourceColumn } .
   optional {?column js:expression ?expression } .  
 optional {?column mig:hasSqlName ?sqlname }   
+optional{ ?column mig:hasExportSqlName ?hasExportSqlName }.
 }
 order by ?dashName ?tabeName""" ;
                 rdfs:label "columns" .
@@ -485,7 +498,7 @@ order by ?dashName ?tabeName""" ;
 ###  http://www.example.com/MIGRATION#DashTables
 :DashTables rdf:type owl:NamedIndividual ,
                      report:buttonReport ;
-            report:hasQuery """select ?ch3  ?tableName    
+            report:hasQuery """select ?ch3  ?tableName  ?hasSqlName  ?hasExportSqlName
 {
 bind (?param? as ?param)  
  ?param rdf:type mig:msdash .
@@ -497,6 +510,8 @@ bind (?param? as ?param)
  ?ch3 js:parentJsonId ?ch2 . 
  ?ch3 js:hasJsonObjectKey  ?valNum .
  ?ch3 js:name  ?tableName .  
+ ?ch3 mig:hasSqlName ?hasSqlName.
+optional { ?ch3 mig:hasExportSqlName ?hasExportSqlName } .
 }""" ;
             rdfs:label "Tables" .
 
