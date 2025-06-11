@@ -136,6 +136,12 @@ class rdfTTLService:
             #self.graph.add((iri ,RDF.type, self.Namespace.msprocedurevarible))
             self.graph.add((iri ,self.Namespace.hasSql, Literal(item)))            
 
+    def add_table_hasSql(self,table_iri,sql:str):
+            iri=URIRef(table_iri)
+            #self.graph.add((iri ,RDF.type, self.Namespace.msprocedurevarible))
+            self.graph.add((iri ,self.Namespace.hasSql, Literal(sql)))            
+
+
     def add_mart_column(self,column_iri,order,query_relation_iri,label):
         iri=self.Namespace[self.hashCode()]
         self.graph.add((iri , RDF.type, OWL.NamedIndividual))  

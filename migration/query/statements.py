@@ -453,6 +453,16 @@ insert {
 """
 
 stmt_all_tables="""
+select ?table ?jsname ?sqlName ?hasExportSqlName
+{
+  ?dash rdf:type mig:msdash .
+  ?table mig:hasMsDash ?dash .
+  ?table rdf:type mig:msDashTable .
+  ?table js:name ?jsname .
+  ?table  mig:hasSqlName ?sqlName .
+  ?table mig:hasExportSqlName ?hasExportSqlName .
+}
+order by ?dash
 
 """
 
@@ -460,7 +470,7 @@ stmt_for_create_view="""
 select (concat( ?val , ' ' , ?hasExportSqlName ) as ?line )
 #(?column as ?iri)  ?colname ?type ?dataType ?sourceColumn ?expression ?sqlname ?hasExportSqlName
 {
-  bind (?param? as ?table) .  
+  bind (uri(?param?) as ?table) .  
   ?dash rdf:type mig:msdash .
   ?dash js:name ?dashName .
   ?table js:name ?tableName .  

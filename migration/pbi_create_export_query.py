@@ -54,7 +54,7 @@ class create_export_query:
         #print(self.tables)
         #self.order=0
         for export_stmt_result in ret: 
-            if 1==1 : 
+            if self.get_table_from_array(export_stmt_result['tabtoName']['value'])==None : 
             #or self.get_table_from_array(export_stmt_result['tabtoName']['value'])==None    
             #or self.get_table_from_array(export_stmt_result['tabfromName']['value'])==None:
                 self.order=self.order+1
@@ -95,7 +95,7 @@ class create_export_query:
         self.queryService.insert('delete {?query ?p ?o} where { ?query rdf:type mig:dashexportquery . ?query ?p ?o .}')        
         self.queryService.insert('delete {?query ?p ?o} where { ?query rdf:type mig:queryrelation . ?query ?p ?o .}')
         self.queryService.insert('delete {?query ?p ?o} where { ?query rdf:type mig:queryrelationcolumn . ?query ?p ?o .}')
-        self.queryService.insert('delete {?iri mig:hasExportSqlName ?q} where {?iri mig:hasExportSqlName ?q}')
+        #self.queryService.insert('delete {?iri mig:hasExportSqlName ?q} where {?iri mig:hasExportSqlName ?q}')
         
         ret=self.queryService.query(self.stmt_to_export)
         mart_order=0
@@ -131,8 +131,30 @@ class create_export_query:
     #     ret=self.queryService.query(stmt.stmt_all_export_query)                      
     #     for export_query_result in ret:   
     #         self.create_from(export_query_result['exp_query']['value'],f"""{export_query_result['SlqName']['value']} as t0 /*{export_query_result['jsname']['value']}*/\n""")
+    def add_hasSql_prop(self,table_iri, sqlName, alias):
+        ret=self.queryService.query(stmt.stmt_for_create_view.replace('?param?',f'"{table_iri}"'))  
+        stmtSql='(select '
+        i=0
+        ln=len(ret)        
+        for export_stmt_result in ret:             
+            i=i+1  
+            stmtSql=stmtSql + ' ' + export_stmt_result['line']['value'] 
+            if ln!=i:            stmtSql=stmtSql + """,
+            """
+        stmtSql=stmtSql + ' '  +"""
+ from """ + sqlName  + ' )  ' + alias
+        self.ttl_serice.add_table_hasSql(table_iri,stmtSql)
 
-        
+    def create_view_sql(self):
+        self.queryService.insert("""delete {?iri mig:hasSql ?sql} where { ?iri rdf:type mig:msDashTable . ?iri mig:hasSql ?sql}""")
+        ret=self.queryService.query(stmt.stmt_all_tables)                  
+        self.ttl_serice.emptyGraph()
+        for export_stmt_result in ret: 
+            self.add_hasSql_prop(export_stmt_result['table']['value'],  export_stmt_result['sqlName']['value'], export_stmt_result['hasExportSqlName']['value']  )
+        filepath=self.dir_to_save+'create_view_sql.ttl'  
+        self.ttl_serice.graph.serialize(filepath, 'turtle') 
+        self.queryService.load_ttl(filepath)
+
 if __name__ == "__main__":
     
     stmt_all_dashes="""select ?dash ?fileName  {
