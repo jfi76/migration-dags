@@ -468,8 +468,9 @@ order by ?dash
 """
 
 stmt_for_create_view="""
-select (concat( ?val , ' ' , ?hasExportSqlName ) as ?line )
+select (concat( ?val , ' ' , ?hasExportSqlName ) as ?line ) 
 #(?column as ?iri)  ?colname ?type ?dataType ?sourceColumn ?expression ?sqlname ?hasExportSqlName
+?key ?colname 
 {
   bind (uri(?param?) as ?table) .  
   ?dash rdf:type mig:msdash .
@@ -487,7 +488,9 @@ select (concat( ?val , ' ' , ?hasExportSqlName ) as ?line )
   optional {?column mig:hasSqlName ?sqlname }   
   optional{ ?column mig:hasExportSqlName ?hasExportSqlName } .
   optional{ ?column mig:hasExportCalcSql ?hasExportCalcSqlName } .
+  optional {?column js:hasJsonObjectKey ?key .}
   bind (IF(coalesce(?type,'')="calculated" || coalesce(?type,'')="calculatedTableColumn", 
       coalesce(?hasExportCalcSqlName,'NULL') , ?sqlname ) as ?val)
 }
+order by xsd:integer(?key)
 """

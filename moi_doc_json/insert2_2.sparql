@@ -13,6 +13,27 @@ insert {
 ?col js:name ?column_renamed .  
 ?col js:name ?coljsname .  
 };
+#added 
+insert {
+  ?col mig:hasSqlName ?column_renamed.
+  ?col mig:hasExpression ?expr .
+  ?col mig:hasExportCalcSql ?hasCalculatedSql .
+} where 
+
+{
+?iri rdf:type mig:dashaddedcolumn .  
+?iri mig:column_init ?column_init .
+?iri mig:column_renamed   ?column_renamed .
+?iri mig:hasExpression ?expr .
+?expr mig:hasMsDashTable ?table .
+?col mig:hasMsDashTable ?table  .
+?col rdf:type mig:DashColumn  . 
+?col js:name ?column_init .  
+?col js:name ?coljsname .  
+optional {?iri mig:hasExportCalcSql ?hasCalculatedSql_init }  
+  bind(coalesce(?hasCalculatedSql_init,'') as ?hasCalculatedSql)  
+};
+
 
 insert {
   ?col mig:hasSqlName ?jsname .
@@ -91,10 +112,10 @@ where
 #  ?table mig:hasMsDash js:Nbf85e8d1889344f2a3a26f5fbcfa4c70 .
 #  ?table mig:hasPrefix ?tab_prefix .  
   ?table js:hasJsonObjectKey ?tab_key .  
-    
+ optional{?iri mig:hasExportCalcSql ?hasCalculatedSql} . 
   bind( 
-    IF(coalesce(?coltype,'')="calculated" || coalesce(?coltype,'')="calculatedTableColumn", concat('calc_t',?tab_key,'_',?key ),
-      concat('t',?tab_key,'_',?sqlName)  )
+    IF(coalesce(?coltype,'')="calculated" || coalesce(?coltype,'')="calculatedTableColumn" || coalesce(?hasCalculatedSql,'')!='', concat('calc_t',?tab_key,'_',?key ),
+      concat('t',?tab_key,'_',?key,'_',?sqlName)  )
      as ?export_col_name
     )	
 #    

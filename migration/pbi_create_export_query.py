@@ -145,7 +145,7 @@ select """
         for export_stmt_result in ret:             
             i=i+1  
             stmtSql=stmtSql + ' ' + export_stmt_result['line']['value'] 
-            if ln!=i:            stmtSql=stmtSql + """,
+            if ln!=i:            stmtSql=stmtSql + f""",/* {export_stmt_result['colname']['value'] } */
             """
         stmtSql=stmtSql + ' '  +"""
  from """ + sqlName  + ' ;  ' 
@@ -165,7 +165,7 @@ select """
         with self.engine.connect() as connection:
             try: 
                 connection.begin()
-                connection.execute(text(f'''drop view if exists {view_name}; '''))
+                connection.execute(text(f'''drop view if exists {self.export_schema}.{view_name}; '''))
                 connection.execute(text(sql_to_run))
                 connection.commit()
             except Exception as e:
