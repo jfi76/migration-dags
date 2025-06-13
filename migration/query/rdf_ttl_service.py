@@ -75,6 +75,15 @@ class rdfTTLService:
         self.graph.add((iri , self.Namespace.column_init,Literal(col_init)))                
         self.graph.add((iri , self.Namespace.column_renamed,Literal(col_renamed)))                        
 
+    def add_duplicated_col(self,col_init,col_duplicated,expr_iri):
+        #print(col_renamed)
+        iri=self.Namespace[self.hashCode()]
+        self.graph.add((iri , RDF.type, OWL.NamedIndividual))  
+        self.graph.add((iri ,RDF.type, self.Namespace.dashduplicatedcolumn))
+        self.graph.add((iri , self.Namespace.hasExpression,URIRef(expr_iri)))
+        self.graph.add((iri , self.Namespace.column_init,Literal(col_init)))                
+        self.graph.add((iri , self.Namespace.column_duplicated,Literal(col_duplicated)))                        
+
 
     def add_mart(self,dash,label,mart_order):
         iri=self.Namespace[self.hashCode()]

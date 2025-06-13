@@ -453,7 +453,7 @@ insert {
 """
 
 stmt_all_tables="""
-select ?table ?jsname ?sqlName ?hasExportSqlName
+select ?table ?jsname ?sqlName ?hasExportSqlName (coalesce(?sql,'' ) as ?sqlstmt )
 {
   ?dash rdf:type mig:msdash .
   ?table mig:hasMsDash ?dash .
@@ -461,6 +461,7 @@ select ?table ?jsname ?sqlName ?hasExportSqlName
   ?table js:name ?jsname .
   ?table  mig:hasSqlName ?sqlName .
   ?table mig:hasExportSqlName ?hasExportSqlName .
+  optional{?table mig:hasSql ?sql }.
 }
 order by ?dash
 

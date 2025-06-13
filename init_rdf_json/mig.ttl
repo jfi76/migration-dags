@@ -190,10 +190,22 @@ order by ?dashName ?tabeName""" ;
                        rdfs:label "dashTableRelationship" .
 
 
+###  http://www.example.com/MIGRATION#dashaddedcolumn
+:dashaddedcolumn rdf:type owl:Class ;
+                 rdfs:subClassOf :DashExpression ;
+                 rdfs:label "dashaddedcolumn" .
+
+
 ###  http://www.example.com/MIGRATION#dashclickhouse
 :dashclickhouse rdf:type owl:Class ;
                 rdfs:subClassOf :msdash ;
                 rdfs:label "clickhouse" .
+
+
+###  http://www.example.com/MIGRATION#dashduplicatedcolumn
+:dashduplicatedcolumn rdf:type owl:Class ;
+                      rdfs:subClassOf :DashExpression ;
+                      rdfs:label "dashduplicatedcolumn" .
 
 
 ###  http://www.example.com/MIGRATION#dashexportquery

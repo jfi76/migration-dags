@@ -45,8 +45,8 @@ if __name__ == "__main__":
     # service=sparql_service.runSparqlWrapper()
     # service.insert(data)
 
-    # c=process_table_expreesion('../playground_parsed_adds/')
-    # c.iterate_expr()
+    c=process_table_expreesion('../playground_parsed_adds/')
+    c.iterate_expr()
     # data = open('../moi_doc_json/insert2_2.sparql').read()
     # service=sparql_service.runSparqlWrapper()
     # service.insert(data)
@@ -66,16 +66,20 @@ if __name__ == "__main__":
 ############################
 
     
-    stmt_all_dashes="""select ?dash ?fileName  {
-    ?dash rdf:type mig:msdash . 
-    ?dash etl:hasSourceFile ?fileName . 
-    }"""    
+    # stmt_all_dashes="""select ?dash ?fileName  {
+    # ?dash rdf:type mig:msdash . 
+    # ?dash etl:hasSourceFile ?fileName . 
+    # }"""    
 
-    cexp=create_export_query(stmt_all_dashes,'../playground_parsed_adds/')
-    cexp.create_view_sql()
-    cexp.iterate_dashes()
+    # cexp=create_export_query(stmt_all_dashes,'../playground_parsed_adds/')
+    
+    # cexp.create_view_sql()
+    
+    # cexp.iterate_dashes()
 
-    cexp.create_from_for_export_query()
+    # cexp.create_from_for_export_query()
+    # cexp.run_views_onserver()
+    
 
     # data = open('../moi_doc_json/insert3.sparql').read()
     # service=sparql_service.runSparqlWrapper()
