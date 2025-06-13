@@ -357,6 +357,12 @@ select ?iri ?label ?dbname
              rdfs:label "Statement" .
 
 
+###  http://www.example.com/MIGRATION#parentexportquery
+:parentexportquery rdf:type owl:Class ;
+                   rdfs:subClassOf :dashexportquery ;
+                   rdfs:label "parentquery" .
+
+
 ###  http://www.example.com/MIGRATION#pgStatementType
 :pgStatementType rdf:type owl:Class ;
                  rdfs:subClassOf :pgprocedure ;

@@ -22,12 +22,12 @@ class create_export_query:
     def clean_uri(self,name:str):
         return name.replace('http://www.example.com/JSON#','').replace('http://www.example.com/MIGRATION#','')
 
-    def add_tables_to_array(self,table_iri:str, table_name:str,relation_iri,order):
+    def add_tables_to_array(self,table_iri:str, table_name:str,relation_iri,order,query_export_iri):
         if table_name in self.tables.keys():
             
             return self.tables[table_name]
         else :
-            self.tables[table_name]={"table_iri":self.clean_uri(table_iri),"relation_iri":self.clean_uri(relation_iri),"order":order}
+            self.tables[table_name]={"table_iri":self.clean_uri(table_iri),"relation_iri":'mig:'+self.clean_uri(relation_iri),"order":order,"query_export_iri":query_export_iri}
     def get_table_from_array(self,table_name):
         if table_name in self.tables.keys():
             return self.tables[table_name]
@@ -53,10 +53,11 @@ class create_export_query:
         relation_iri=self.ttl_service.add_queryrelation(query_export_iri,str(self.order),None, 
                                                        f"""{master_table_name}""",
                                                        None , None ,str(self.order))         
-        self.add_tables_to_array((master_table_iri),master_table_name,relation_iri,self.order)
+        self.add_tables_to_array((master_table_iri),master_table_name,relation_iri,self.order,query_export_iri)
         self.add_column_to_relation(master_table_iri,relation_iri, str(self.order)) 
         #print(self.tables)
         #self.order=0
+        parent_order=0
         for export_stmt_result in ret: 
             if self.get_table_from_array(export_stmt_result['tabtoName']['value'])==None : 
             #or self.get_table_from_array(export_stmt_result['tabtoName']['value'])==None    
@@ -74,9 +75,15 @@ class create_export_query:
                                                             f"""{export_stmt_result['tabfromName']['value']}=>{export_stmt_result['tabtoName']['value']}""",
                                                                 fromTab['table_iri'], fromTab['relation_iri'] , fromTab['order']
                                                                 )    
-                self.add_tables_to_array(export_stmt_result['rel2tabto']['value'],export_stmt_result['tabtoName']['value'],relation_iri,self.order)
+                self.add_tables_to_array(export_stmt_result['rel2tabto']['value'],export_stmt_result['tabtoName']['value'],relation_iri,self.order,query_export_iri)
                 
                 self.add_column_to_relation(export_stmt_result['rel2tabto']['value'],relation_iri, self.order)            
+            else:
+                found=self.get_table_from_array(export_stmt_result['tabtoName']['value'])
+
+                if parent_order==0 and found['query_export_iri']!=query_export_iri and 'LocalDateTable' not in export_stmt_result['tabtoName']['value']:
+                    self.ttl_service.add_parent_query(found['relation_iri'] ,query_export_iri,found['query_export_iri'],export_stmt_result['rel2']['value'],parent_order)
+                parent_order=parent_order+1
     def prepare_export_query(self,mart_iri:str,dash_iri:str):
         #print(stmt.stmt_tablefrom_sorted.replace('?param?',f'"{dash_iri}"'))
         ret=self.queryService.query(stmt.stmt_tablefrom_sorted.replace('?param?',f'"{dash_iri}"')) 
@@ -99,6 +106,8 @@ class create_export_query:
         self.queryService.insert('delete {?query ?p ?o} where { ?query rdf:type mig:dashexportquery . ?query ?p ?o .}')        
         self.queryService.insert('delete {?query ?p ?o} where { ?query rdf:type mig:queryrelation . ?query ?p ?o .}')
         self.queryService.insert('delete {?query ?p ?o} where { ?query rdf:type mig:queryrelationcolumn . ?query ?p ?o .}')
+        self.queryService.insert('delete {?query ?p ?o} where { ?query rdf:type mig:parentexportquery . ?query ?p ?o .}')
+        
         #self.queryService.insert('delete {?iri mig:hasExportSqlName ?q} where {?iri mig:hasExportSqlName ?q}')
         
         ret=self.queryService.query(self.stmt_to_export)
@@ -147,6 +156,7 @@ select """
             stmtSql=stmtSql + ' ' + export_stmt_result['line']['value'] 
             if ln!=i:            stmtSql=stmtSql + f""",/* {export_stmt_result['colname']['value'] } */
             """
+        #COMMENT ON COLUMN reports.logistics_hand_dash_fram_exception_doc.doc_header_id IS 'd1';        
         stmtSql=stmtSql + ' '  +"""
  from """ + sqlName  + ' ;  ' 
         self.ttl_service.add_table_hasSql(table_iri,stmtSql)

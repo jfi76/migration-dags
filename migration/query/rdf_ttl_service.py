@@ -105,6 +105,16 @@ class rdfTTLService:
         
         return iri                     
 
+    def add_parent_query(self,parent_relation_iri,query_iri,parent_query,relation_iri,order):
+        iri=self.Namespace[self.hashCode()]
+        self.graph.add((iri , RDF.type, OWL.NamedIndividual))  
+        self.graph.add((iri ,RDF.type, self.Namespace.parentexportquery))
+        self.graph.add((iri , self.Namespace.hasExportParentQuery,URIRef(parent_query)))
+        self.graph.add((iri , self.Namespace.hasExportQuery,URIRef(query_iri)))
+        self.graph.add((iri , self.Namespace.hasRelation,URIRef(relation_iri)))
+        self.graph.add((iri , self.Namespace.hasParentRelation,URIRef(parent_relation_iri)))
+        self.graph.add((iri , self.Namespace.hasFromOrder,Literal(order, datatype='xsd:integer')))            
+
     def add_export_query(self,dash,table_iri,table_name,relation_count,mart_iri):
         iri=self.Namespace[self.hashCode()]
         self.graph.add((iri , RDF.type, OWL.NamedIndividual))  
