@@ -290,8 +290,12 @@ select
 (concat('t',str(?fromOrder))  as ?prefixFrom) 
 ?columTo
 ?columFromSQLname
+?cfr_hasExportSqlName
 ?columToSQLname
+?cto_hasExportSqlName
 ?tabtojsname ?tabtosqlname ?rel_order (concat('t',str(?rel_order))  as ?prefix)
+?t_hasExportSqlName 
+?t_key
 
 {
   bind(uri(?param?) as ?exp_query)
@@ -302,25 +306,28 @@ select
   ?qrel mig:parentRelation ?tab_rel .
   ?tableTo  mig:hasRelationshipTo  ?tab_rel.
   ?tableTo mig:hasSqlName ?tabtosqlname .
-   
+  ?tableTo mig:hasExportSqlName ?t_hasExportSqlName . 
   ?tableTo js:name ?tabtojsname .
   ?qrel mig:hasFromOrder ?fromOrder.
   ?columTo mig:hasRelationshipColumnTo  ?tab_rel .
+  ?columTo mig:hasExportSqlName ?cto_hasExportSqlName  .
   ?columFrom mig:hasRelationshipColumnFrom  ?tab_rel .
+  ?columFrom mig:hasExportSqlName ?cfr_hasExportSqlName  .
   optional {?columTo mig:hasSqlName ?columToSQLname}.
   optional {?columFrom mig:hasSqlName ?columFromSQLname} .  
-  
-#  ?tableFrom  mig:hasRelationshipFrom  ?tab_rel.
-#  ?tableFrom js:name ?tabfromjsname .
-#  ?tableFrom mig:hasSqlName ?tabfromsqlname .
+  ?tableTo js:hasJsonObjectKey ?t_key .
 }
 order by xsd:integer(?rel_order)
 """
-stmt_all_export_query="""select ?exp_query ?SlqName ?jsname {?exp_query rdf:type mig:dashexportquery .
+stmt_all_export_query="""select ?exp_query ?SlqName ?jsname ?order ?hasExportSqlName ?key {?exp_query rdf:type mig:dashexportquery .
  ?exp_query mig:hasMsDashTable ?mainTable .
+ ?exp_query mig:hasOrder ?order   .
  ?mainTable mig:hasSqlName ?SlqName . 
- ?mainTable js:name ?jsname .  
-} """
+ ?mainTable js:name ?jsname .
+ ?mainTable js:hasJsonObjectKey ?key . 
+ ?mainTable mig:hasExportSqlName ?hasExportSqlName .
+} 
+ """
 
 stmt_mart_export_cols="""
 select 
@@ -493,4 +500,23 @@ select (concat( ?val , ' ' , ?hasExportSqlName ) as ?line )
       coalesce(?hasExportCalcSqlName,'NULL') , ?sqlname ) as ?val)
 }
 order by xsd:integer(?key)
+"""
+
+stmt_expquery_cols="""
+select ?expsqlname  ?colname
+{ 
+ bind(uri(?param?)  as ?expq)
+  
+  ?iri rdf:type mig:queryrelationcolumn  .
+  ?iri mig:hasQueryRelation ?qrel .	
+  ?qrel mig:hasExportQuery  ?expq .    
+  ?iri mig:hasColumn  ?col .
+  ?col js:name ?colname . 
+  ?col rdf:type  mig:DashColumn .
+  ?col mig:hasExportSqlName ?expsqlname .
+  ?col js:hasJsonObjectKey ?c_key . 
+  ?col mig:hasMsDashTable ?table .
+  ?table  js:hasJsonObjectKey ?t_key . 
+} order by xsd:integer(?t_key) xsd:integer(?c_key) 
+
 """

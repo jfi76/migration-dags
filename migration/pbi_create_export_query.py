@@ -27,7 +27,7 @@ class create_export_query:
             
             return self.tables[table_name]
         else :
-            self.tables[table_name]={"table_iri":self.clean_uri(table_iri),"relation_iri":'mig:'+self.clean_uri(relation_iri),"order":order,"query_export_iri":query_export_iri}
+            self.tables[table_name]={"table_iri":self.clean_uri(table_iri),"relation_iri":relation_iri,"order":order,"query_export_iri":query_export_iri}
     def get_table_from_array(self,table_name):
         if table_name in self.tables.keys():
             return self.tables[table_name]
@@ -87,14 +87,15 @@ class create_export_query:
     def prepare_export_query(self,mart_iri:str,dash_iri:str):
         #print(stmt.stmt_tablefrom_sorted.replace('?param?',f'"{dash_iri}"'))
         ret=self.queryService.query(stmt.stmt_tablefrom_sorted.replace('?param?',f'"{dash_iri}"')) 
-        self.order=0     
+        self.order=0 
+        export_query_order=0    
         for export_stmt_result in ret:   
             #print(export_stmt_result)
             if self.check_table_in_export_query(dash_iri, export_stmt_result['tableFrom']['value']) and self.get_table_from_array(export_stmt_result['tabjsname']['value'])==None:
                 export_iri=self.ttl_service.add_export_query(dash_iri,export_stmt_result['tableFrom']['value'],
                                                               export_stmt_result['tbname']['value'], 
-                                                              export_stmt_result['count']['value'],mart_iri)
-                
+                                                              export_stmt_result['count']['value'],mart_iri,export_query_order)
+                export_query_order=export_query_order+1
                 print(export_stmt_result['tabjsname']['value'])
                 #print(self.tables)
                 self.add_relation(export_iri,export_stmt_result['tableFrom']['value'],
@@ -123,23 +124,38 @@ class create_export_query:
         filepath=self.dir_to_save+'create_export_query.ttl'  
         self.ttl_service.graph.serialize(filepath, 'turtle') 
         self.queryService.load_ttl(filepath)
-
+    def create_select_list(self,query_iri):
+        ret=self.queryService.query(stmt.stmt_expquery_cols.replace('?param?',f'"{query_iri}"'))                  
+        select_sql=''
+        for export_query_result in ret:   
+            if select_sql!='' :
+                select_sql=select_sql+""",
+                """ 
+            select_sql=select_sql+export_query_result['expsqlname']['value']
+        
+        self.ttl_service.add_select_list(query_iri,select_sql)    
+    
     def create_from_for_export_query(self):
+        self.ttl_service.emptyGraph()
         ret=self.queryService.query(stmt.stmt_all_export_query)                      
         for export_query_result in ret:   
-            self.create_from(export_query_result['exp_query']['value'],f"""{export_query_result['SlqName']['value']} as t0 /*{export_query_result['jsname']['value']}*/\n""")
-
-    def create_from(self, query_iri,from_):    
-        ret=self.queryService.query(stmt.stmt_form_from.replace('?param?',f'"{query_iri}"'))                  
-        self.ttl_service.emptyGraph()
-        for export_stmt_result in ret: 
-            from_=from_ + " \njoin " + f"""{export_stmt_result['tabtosqlname']['value']} as {export_stmt_result['prefix']['value']}""" + f""" /*{export_stmt_result['tabtojsname']['value']}*/\n  on """ + f"""{export_stmt_result['prefixFrom']['value']}.{export_stmt_result['columFromSQLname']['value']}={export_stmt_result['prefix']['value']}.{export_stmt_result['columToSQLname']['value']}\n"""
-        #print(from_)  
-        self.ttl_service.add_from(query_iri,from_)     
+            self.create_from(export_query_result['exp_query']['value'],f"""{self.export_schema}.{export_query_result['hasExportSqlName']['value']} as t{export_query_result['key']['value']} /*{export_query_result['jsname']['value']}*/\n""")
+            self.create_select_list(export_query_result['exp_query']['value'])
         filepath=self.dir_to_save+'create_export_query_from.ttl'  
         self.ttl_service.graph.serialize(filepath, 'turtle') 
         self.queryService.load_ttl(filepath)
         self.queryService.insert(stmt.stmt_insert_mart_col)
+    def create_from(self, query_iri,from_):    
+        ret=self.queryService.query(stmt.stmt_form_from.replace('?param?',f'"{query_iri}"'))                  
+
+        for export_stmt_result in ret: 
+            from_=from_ + " \nleft join " + f"""{self.export_schema}.{export_stmt_result['t_hasExportSqlName']['value']} as t{export_stmt_result['t_key']['value']}""" + f""" /*{export_stmt_result['tabtojsname']['value']}*/\n  on """ + f"""{export_stmt_result['cfr_hasExportSqlName']['value']}={export_stmt_result['cto_hasExportSqlName']['value']}\n"""
+        #print(from_)  
+        self.ttl_service.add_from(query_iri,from_)     
+#        filepath=self.dir_to_save+'create_export_query_from.ttl'  
+#        self.ttl_service.graph.serialize(filepath, 'turtle') 
+#        self.queryService.load_ttl(filepath)
+#        self.queryService.insert(stmt.stmt_insert_mart_col)
     # def create_mart_cols(self):
     #     ret=self.queryService.query(stmt.stmt_all_export_query)                      
     #     for export_query_result in ret:   

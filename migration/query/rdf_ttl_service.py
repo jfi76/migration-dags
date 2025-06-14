@@ -108,14 +108,14 @@ class rdfTTLService:
     def add_parent_query(self,parent_relation_iri,query_iri,parent_query,relation_iri,order):
         iri=self.Namespace[self.hashCode()]
         self.graph.add((iri , RDF.type, OWL.NamedIndividual))  
-        self.graph.add((iri ,RDF.type, self.Namespace.parentexportquery))
+        self.graph.add((iri ,RDF.type, URIRef(self.Namespace.parentexportquery)))
         self.graph.add((iri , self.Namespace.hasExportParentQuery,URIRef(parent_query)))
         self.graph.add((iri , self.Namespace.hasExportQuery,URIRef(query_iri)))
         self.graph.add((iri , self.Namespace.hasRelation,URIRef(relation_iri)))
         self.graph.add((iri , self.Namespace.hasParentRelation,URIRef(parent_relation_iri)))
         self.graph.add((iri , self.Namespace.hasFromOrder,Literal(order, datatype='xsd:integer')))            
 
-    def add_export_query(self,dash,table_iri,table_name,relation_count,mart_iri):
+    def add_export_query(self,dash,table_iri,table_name,relation_count,mart_iri,export_query_order):
         iri=self.Namespace[self.hashCode()]
         self.graph.add((iri , RDF.type, OWL.NamedIndividual))  
         self.graph.add((iri ,RDF.type, self.Namespace.dashexportquery))
@@ -126,6 +126,7 @@ class rdfTTLService:
         #self.graph.add((iri , self.Namespace.hasOrder,Literal(hasOrder,datatype='xsd:integer')))                        
         self.graph.add((iri , self.Namespace.hasMart,URIRef(mart_iri)))        
         self.graph.add((iri , self.Namespace.label,Literal(table_name)))
+        self.graph.add((iri , self.Namespace.hasOrder,Literal(export_query_order, datatype='xsd:integer'))) 
         return iri
 
     def add_queryrelation(self,export_query_iri,order,parent_relation_iri,label,table_from_iri,table_from_relation_iri,table_from_order):
@@ -163,7 +164,11 @@ class rdfTTLService:
     def add_from(self,export_query_iri,item:str):
             iri=URIRef(export_query_iri)
             #self.graph.add((iri ,RDF.type, self.Namespace.msprocedurevarible))
-            self.graph.add((iri ,self.Namespace.hasSql, Literal(item)))            
+            self.graph.add((iri ,self.Namespace.hasSqlFrom, Literal(item)))            
+    def add_select_list(self,export_query_iri,item:str):
+            iri=URIRef(export_query_iri)
+            #self.graph.add((iri ,RDF.type, self.Namespace.msprocedurevarible))
+            self.graph.add((iri ,self.Namespace.hasSqlSelect, Literal(item)))            
 
     def add_table_hasSql(self,table_iri,sql:str):
             iri=URIRef(table_iri)
