@@ -73,7 +73,7 @@ if __name__ == "__main__":
     cexp.iterate_dashes()
 
     cexp.create_from_for_export_query()
-
+    cexp.create_mart_export_query()
     cexp.run_views_onserver()
     
 

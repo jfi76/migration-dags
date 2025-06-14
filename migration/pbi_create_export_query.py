@@ -160,6 +160,44 @@ class create_export_query:
     #     ret=self.queryService.query(stmt.stmt_all_export_query)                      
     #     for export_query_result in ret:   
     #         self.create_from(export_query_result['exp_query']['value'],f"""{export_query_result['SlqName']['value']} as t0 /*{export_query_result['jsname']['value']}*/\n""")
+    def create_hasmartsql(self,exp_query_iri,order):        
+        ret=self.queryService.query(stmt.stmt_exp_query_with_child.replace('?param?',f'"{exp_query_iri}"'))                  
+        exportsql=''
+        for export_query_result in ret:               
+            exportsql=f"""(select {export_query_result['select']['value']} from  {export_query_result['from']['value']}) as q{order}
+"""
+            self.ttl_service.add_exp_query_export_sql(exp_query_iri,exportsql)
+    
+
+    def create_mart_export_query(self):
+        self.ttl_service.emptyGraph()
+        ret=self.queryService.query(stmt.stmt_exp_query_all)  
+        #?query ?exp_order (coalesce( ?main_query,'') as ?hasParent                    
+        exportsql=''
+        for export_query_result in ret:   
+            #if export_query_result['exp_order']['value']=='0' or export_query_result['hasParent']['value']!='':
+            #self.create_hasmartsql(export_query_result['query']['value'], export_query_result['exp_order']['value'])
+            exportsql=f"""(select {export_query_result['select']['value']} from  {export_query_result['from']['value']}) as q{order}
+"""
+            self.ttl_service.add_exp_query_export_sql(export_query_result['query']['value'],exportsql)
+        filepath=self.dir_to_save+'create_export_query_from.ttl'  
+        self.ttl_service.graph.serialize(filepath, 'turtle') 
+        self.queryService.load_ttl(filepath)
+
+        ret=self.queryService.query(stmt.stmt_exp_query_all)              
+        for export_query_result in ret:   
+            sql=''
+            if export_query_result['exp_order']['value']=='0' or export_query_result['hasParent']['value']!='':
+                sql="""select * from """ + export_query_result['sql']['value']
+                #self.create_hasmartsql(export_query_result['query']['value'], export_query_result['exp_order']['value'])
+                self.create_hasmartsql(export_query_result['query']['value'], export_query_result['exp_order']['value'])
+        filepath=self.dir_to_save+'create_export_query_from.ttl'  
+        self.ttl_service.graph.serialize(filepath, 'turtle') 
+        self.queryService.load_ttl(filepath)
+        self.queryService.insert(stmt.stmt_insert_mart_col)
+
+        
+
     def add_hasSql_prop(self,table_iri, sqlName, alias):
         view_name=f"""{self.export_schema}.{alias}"""
         ret=self.queryService.query(stmt.stmt_for_create_view.replace('?param?',f'"{table_iri}"'))  

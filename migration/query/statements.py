@@ -520,3 +520,39 @@ select ?expsqlname  ?colname
 } order by xsd:integer(?t_key) xsd:integer(?c_key) 
 
 """
+
+stmt_exp_query_all="""select ?query ?exp_order (coalesce( ?main_query,'') as ?hasParent )
+?select ?from 
+ {
+ ?query mig:hasMart  ?mart  .
+ ?query rdf:type  mig:dashexportquery .
+ ?query mig:hasOrder ?exp_order .
+ ?query  mig:hasSqlSelect ?select .
+?query  mig:hasSqlFrom ?from .
+
+ optional { ?p_query rdf:type mig:parentexportquery  .
+        ?p_query mig:hasExportQuery ?query .
+        ?p_query mig:hasExportParentQuery ?main_query .
+  } 
+}
+order by ?mart xsd:integer(?exp_order)
+
+"""
+#
+stmt_exp_query_with_child="""
+select ?query ?exp_order (coalesce( ?main_query,'') as ?hasParent ) ?select  ?from 
+{
+ bind (uri(?param?) as ?query) .
+ ?query mig:hasMart  ?mart  .
+ ?query rdf:type  mig:dashexportquery .
+ ?query mig:hasOrder ?exp_order . 
+ ?query  mig:hasSqlSelect ?select .
+?query  mig:hasSqlFrom ?from .
+  optional { ?p_query rdf:type mig:parentexportquery  .
+         ?p_query mig:hasExportQuery ?query .
+         ?p_query mig:hasExportParentQuery ?main_query .
+     } .
+}
+order by ?mart xsd:integer(?exp_order)
+"""
+#
