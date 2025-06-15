@@ -175,6 +175,12 @@ class rdfTTLService:
             #self.graph.add((iri ,RDF.type, self.Namespace.msprocedurevarible))
             self.graph.add((iri ,self.Namespace.hasSql, Literal(item)))            
 
+    def add_exp_query_export_mainsql(self,export_query_iri,item:str):
+            iri=URIRef(export_query_iri)
+            #self.graph.add((iri ,RDF.type, self.Namespace.msprocedurevarible))
+            self.graph.add((iri ,self.Namespace.hasMainSql, Literal(item)))            
+
+
     def add_table_hasSql(self,table_iri,sql:str):
             iri=URIRef(table_iri)
             #self.graph.add((iri ,RDF.type, self.Namespace.msprocedurevarible))

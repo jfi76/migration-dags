@@ -56,10 +56,6 @@ if __name__ == "__main__":
     # cfrm.key_name='Дашбоард'
     # cfrm.get_dashes()
 
-
-
-
-
     
     stmt_all_dashes="""select ?dash ?fileName  {
     ?dash rdf:type mig:msdash . 

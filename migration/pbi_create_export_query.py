@@ -139,17 +139,19 @@ class create_export_query:
         self.ttl_service.emptyGraph()
         ret=self.queryService.query(stmt.stmt_all_export_query)                      
         for export_query_result in ret:   
-            self.create_from(export_query_result['exp_query']['value'],f"""{self.export_schema}.{export_query_result['hasExportSqlName']['value']} as t{export_query_result['key']['value']} /*{export_query_result['jsname']['value']}*/\n""")
+            self.create_from(export_query_result['exp_query']['value'],f"""{self.export_schema}.{export_query_result['hasExportSqlName']['value']}  t{export_query_result['key']['value']}
+""")
             self.create_select_list(export_query_result['exp_query']['value'])
         filepath=self.dir_to_save+'create_export_query_from.ttl'  
         self.ttl_service.graph.serialize(filepath, 'turtle') 
         self.queryService.load_ttl(filepath)
-        self.queryService.insert(stmt.stmt_insert_mart_col)
+        #self.queryService.insert(stmt.stmt_insert_mart_col)
     def create_from(self, query_iri,from_):    
         ret=self.queryService.query(stmt.stmt_form_from.replace('?param?',f'"{query_iri}"'))                  
 
         for export_stmt_result in ret: 
-            from_=from_ + " \nleft join " + f"""{self.export_schema}.{export_stmt_result['t_hasExportSqlName']['value']} as t{export_stmt_result['t_key']['value']}""" + f""" /*{export_stmt_result['tabtojsname']['value']}*/\n  on """ + f"""{export_stmt_result['cfr_hasExportSqlName']['value']}={export_stmt_result['cto_hasExportSqlName']['value']}\n"""
+            from_=from_ + "left join " + f"""{self.export_schema}.{export_stmt_result['t_hasExportSqlName']['value']} as t{export_stmt_result['t_key']['value']}""" + f"""  on """ + f"""{export_stmt_result['cfr_hasExportSqlName']['value']}={export_stmt_result['cto_hasExportSqlName']['value']}
+"""
         #print(from_)  
         self.ttl_service.add_from(query_iri,from_)     
 #        filepath=self.dir_to_save+'create_export_query_from.ttl'  
@@ -160,14 +162,18 @@ class create_export_query:
     #     ret=self.queryService.query(stmt.stmt_all_export_query)                      
     #     for export_query_result in ret:   
     #         self.create_from(export_query_result['exp_query']['value'],f"""{export_query_result['SlqName']['value']} as t0 /*{export_query_result['jsname']['value']}*/\n""")
+#?query ?exp_order (coalesce( ?main_query,'') as ?hasParent ) ?select  ?from 
+# ?to_table ?from_table ?from_col_export_name ?to_col_export_name        
+        
     def create_hasmartsql(self,exp_query_iri,order):        
         ret=self.queryService.query(stmt.stmt_exp_query_with_child.replace('?param?',f'"{exp_query_iri}"'))                  
         exportsql=''
         for export_query_result in ret:               
-            exportsql=f"""(select {export_query_result['select']['value']} from  {export_query_result['from']['value']}) as q{order}
+            exportsql=exportsql + f""" left join {export_query_result['sql']['value']} 
+            on {export_query_result['from_col_export_name']['value']}={export_query_result['to_col_export_name']['value']}
 """
-            self.ttl_service.add_exp_query_export_sql(exp_query_iri,exportsql)
-    
+#            self.ttl_service.add_exp_query_export_sql(exp_query_iri,exportsql)
+        return exportsql 
 
     def create_mart_export_query(self):
         self.ttl_service.emptyGraph()
@@ -177,20 +183,22 @@ class create_export_query:
         for export_query_result in ret:   
             #if export_query_result['exp_order']['value']=='0' or export_query_result['hasParent']['value']!='':
             #self.create_hasmartsql(export_query_result['query']['value'], export_query_result['exp_order']['value'])
-            exportsql=f"""(select {export_query_result['select']['value']} from  {export_query_result['from']['value']}) as q{order}
-"""
+            exportsql=f"""(select {export_query_result['select']['value']} from  {export_query_result['from']['value']} ) as q{export_query_result['exp_order']['value']} """
             self.ttl_service.add_exp_query_export_sql(export_query_result['query']['value'],exportsql)
         filepath=self.dir_to_save+'create_export_query_from.ttl'  
         self.ttl_service.graph.serialize(filepath, 'turtle') 
         self.queryService.load_ttl(filepath)
 
         ret=self.queryService.query(stmt.stmt_exp_query_all)              
+        sql=''
         for export_query_result in ret:   
-            sql=''
-            if export_query_result['exp_order']['value']=='0' or export_query_result['hasParent']['value']!='':
-                sql="""select * from """ + export_query_result['sql']['value']
+            
+            if export_query_result['exp_order']['value']=='0' or export_query_result['hasParent']['value']=='':
+                sql=f"""select * from {export_query_result['sql']['value']}""" 
                 #self.create_hasmartsql(export_query_result['query']['value'], export_query_result['exp_order']['value'])
-                self.create_hasmartsql(export_query_result['query']['value'], export_query_result['exp_order']['value'])
+                sql=sql+" "+self.create_hasmartsql(export_query_result['query']['value'], export_query_result['exp_order']['value'])
+                self.ttl_service.add_exp_query_export_mainsql(export_query_result['query']['value'],sql)                
+        #        print(sql)
         filepath=self.dir_to_save+'create_export_query_from.ttl'  
         self.ttl_service.graph.serialize(filepath, 'turtle') 
         self.queryService.load_ttl(filepath)
@@ -221,6 +229,14 @@ select """
         ret=self.queryService.query(stmt.stmt_all_tables)                  
         for export_stmt_result in ret: 
             self.run_on_server_create_view(export_stmt_result['sqlstmt']['value'] , export_stmt_result['hasExportSqlName']['value'], export_stmt_result['table']['value'])            
+#?prefix  ?mainsql ?order            
+        ret=self.queryService.query(stmt.stmt_main_views)                      
+        for export_stmt_result in ret: 
+            main_name=f"""{export_stmt_result['prefix']['value']}_fact_{export_stmt_result['order']['value']}"""
+            create_sql=f"""create or replace view {self.export_schema}.{main_name} as
+              {export_stmt_result['mainsql']['value']} """
+            self.run_on_server_create_view( create_sql,main_name, export_stmt_result['iri']['value'])            
+                        
         filepath=self.dir_to_save+'create_view_sql_run.ttl'  
         self.ttl_service.graph.serialize(filepath, 'turtle') 
         self.queryService.load_ttl(filepath)

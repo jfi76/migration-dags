@@ -517,19 +517,20 @@ select ?expsqlname  ?colname
   ?col js:hasJsonObjectKey ?c_key . 
   ?col mig:hasMsDashTable ?table .
   ?table  js:hasJsonObjectKey ?t_key . 
+  ?table mig:hasSqlName ?sqlNameTable .
 } order by xsd:integer(?t_key) xsd:integer(?c_key) 
 
 """
 
 stmt_exp_query_all="""select ?query ?exp_order (coalesce( ?main_query,'') as ?hasParent )
-?select ?from 
+?select ?from (coalesce(?sql_init,'') as ?sql)
  {
  ?query mig:hasMart  ?mart  .
  ?query rdf:type  mig:dashexportquery .
  ?query mig:hasOrder ?exp_order .
  ?query  mig:hasSqlSelect ?select .
-?query  mig:hasSqlFrom ?from .
-
+ ?query  mig:hasSqlFrom ?from .
+  optional{?query mig:hasSql  ?sql_init .} .
  optional { ?p_query rdf:type mig:parentexportquery  .
         ?p_query mig:hasExportQuery ?query .
         ?p_query mig:hasExportParentQuery ?main_query .
@@ -541,18 +542,41 @@ order by ?mart xsd:integer(?exp_order)
 #
 stmt_exp_query_with_child="""
 select ?query ?exp_order (coalesce( ?main_query,'') as ?hasParent ) ?select  ?from 
+ ?to_table ?from_table ?from_col_export_name ?to_col_export_name ?sql
 {
- bind (uri(?param?) as ?query) .
+ bind (uri(?param?) as ?main_query) .
+ ?p_query rdf:type mig:parentexportquery  . 
+ ?p_query mig:hasExportParentQuery ?main_query . 
+ ?p_query mig:hasExportQuery ?query . 
+ ?p_query mig:hasRelation ?Relation . 
+ ?to_table mig:hasRelationshipTo ?Relation  .
+ ?from_table mig:hasRelationshipFrom ?Relation .
+  
+ ?to_column mig:hasRelationshipColumnTo ?Relation  .
+ ?from_column mig:hasRelationshipColumnFrom ?Relation .
+ ?from_column mig:hasExportSqlName ?from_col_export_name .   
+ ?to_column mig:hasExportSqlName ?to_col_export_name .    
+ ?p_query mig:hasParentRelation ?parent_Relation .  
+ ?Relation js:fromTable ?jstablefrom  .
+ ?Relation js:fromColumn ?jscolfrom  . 
  ?query mig:hasMart  ?mart  .
  ?query rdf:type  mig:dashexportquery .
  ?query mig:hasOrder ?exp_order . 
  ?query  mig:hasSqlSelect ?select .
 ?query  mig:hasSqlFrom ?from .
-  optional { ?p_query rdf:type mig:parentexportquery  .
-         ?p_query mig:hasExportQuery ?query .
-         ?p_query mig:hasExportParentQuery ?main_query .
-     } .
+?query mig:hasSql  ?sql .
 }
 order by ?mart xsd:integer(?exp_order)
+
+"""
+
+stmt_main_views="""
+select ?prefix  ?mainsql ?order ?iri {
+?iri rdf:type mig:dashexportquery .  
+?iri mig:hasMainSql ?mainsql .
+?iri mig:hasOrder ?order  . 
+?iri mig:hasMsDash ?dash .  
+?dash  mig:hasPrefix ?prefix .
+}
 """
 #
