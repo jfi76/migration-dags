@@ -460,7 +460,8 @@ insert {
 """
 
 stmt_all_tables="""
-select ?table ?jsname ?sqlName ?hasExportSqlName (coalesce(?sql,'' ) as ?sqlstmt )
+select ?table ?jsname ?sqlName ?hasExportSqlName (coalesce(?sql,'' ) as ?sqlstmt ) (coalesce(?dist_col_val,'') as ?table_distinct_col)
+
 {
   ?dash rdf:type mig:msdash .
   ?table mig:hasMsDash ?dash .
@@ -469,9 +470,15 @@ select ?table ?jsname ?sqlName ?hasExportSqlName (coalesce(?sql,'' ) as ?sqlstmt
   ?table  mig:hasSqlName ?sqlName .
   ?table mig:hasExportSqlName ?hasExportSqlName .
   optional{?table mig:hasSql ?sql }.
+  optional {
+  ?expr mig:hasMsDashTable ?table .
+  ?expr rdf:type mig:DashExpression . 
+  ?dist_col mig:hasExpression  ?expr . 
+  ?dist_col rdf:type mig:tabledistinctcolumn  .
+  ?dist_col mig:column ?dist_col_val .
+  }
 }
 order by ?dash
-
 """
 
 stmt_for_create_view="""
@@ -503,7 +510,7 @@ order by xsd:integer(?key)
 """
 
 stmt_expquery_cols="""
-select ?expsqlname  ?colname
+select ?expsqlname  ?colname ?col ?dataType
 { 
  bind(uri(?param?)  as ?expq)
   
@@ -518,6 +525,7 @@ select ?expsqlname  ?colname
   ?col mig:hasMsDashTable ?table .
   ?table  js:hasJsonObjectKey ?t_key . 
   ?table mig:hasSqlName ?sqlNameTable .
+  optional{?col js:dataType ?dataType} .
 } order by xsd:integer(?t_key) xsd:integer(?c_key) 
 
 """

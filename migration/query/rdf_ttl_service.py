@@ -84,6 +84,16 @@ class rdfTTLService:
         self.graph.add((iri , self.Namespace.column_init,Literal(col_init)))                
         self.graph.add((iri , self.Namespace.column_duplicated,Literal(col_duplicated)))                        
 
+    def add_table_distinct_col(self,column,expr_iri):
+        #print(col_renamed)
+        iri=self.Namespace[self.hashCode()]
+        self.graph.add((iri , RDF.type, OWL.NamedIndividual))  
+        self.graph.add((iri ,RDF.type, self.Namespace.tabledistinctcolumn))
+        self.graph.add((iri , self.Namespace.hasExpression,URIRef(expr_iri)))
+        self.graph.add((iri , self.Namespace.column,Literal(column)))                
+                              
+
+
     def add_added_col(self,col_init,col_renamed,expr_iri):
         #print(col_renamed)
         iri=self.Namespace[self.hashCode()]

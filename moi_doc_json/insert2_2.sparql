@@ -121,6 +121,15 @@ where
 #    
 };
 
+insert {?parent js:expression ?join_str} where 
+{
+?iri js:jsstringjoin ?join_str .
+?iri js:parentJsonId ?parent . 
+?parent rdf:type mig:DashColumn .  
+  optional {?parent js:expression ?express  } .
+  filter (coalesce(?express,'')='')  
+};      
+
 #insert {
 #?iri mig:hasSqlName ?sqlname .
 #}

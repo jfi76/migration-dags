@@ -7,7 +7,7 @@ import json
 import runSparqlWrapper as sparql_service
 import statements as stmt
 from rdf_ttl_service import rdfTTLService
-
+import re
 import ast
 import jsbeautifier
 
@@ -117,6 +117,17 @@ class process_table_expreesion:
                 self.add_column_each(expr)
         if 'each ' in expr['jsstring']['value'] and 'Text.Combine' in expr['jsstring']['value']:
                 self.add_column_each_textcomb(expr)
+    def distinct_table(self,expr:dict):
+        val:str=expr['jsstring']['value']
+        ##Table.Distinct(#\"Переименованные столбцы\", {\"doc_header_id\"})
+        match = re.search(r'\{(.*?)\}', val)
+
+        if match:
+            result = match.group(1)
+            #print(result)
+            self.ttl_service.add_table_distinct_col(result,expr['expr']['value'])
+
+
 
     def proc_duplicate_columns(self,expr:dict):
         val:str=expr['jsstring']['value']
@@ -143,6 +154,7 @@ class process_table_expreesion:
         self.queryService.insert('delete {?iri ?p ?o} where {?iri rdf:type mig:dashrenamedcolumn . ?iri ?p ?o}')
         self.queryService.insert('delete {?iri ?p ?o} where {?iri rdf:type mig:dashduplicatedcolumn . ?iri ?p ?o}')
         self.queryService.insert('delete {?iri ?p ?o} where {?iri rdf:type mig:dashaddedcolumn . ?iri ?p ?o}')        
+        self.queryService.insert('delete {?iri ?p ?o} where {?iri rdf:type mig:tabledistinctcolumn . ?iri ?p ?o}')        
 
         stmt_str=stmt.stmt_table_expr
         ret=self.queryService.query(stmt_str)
@@ -155,6 +167,8 @@ class process_table_expreesion:
                 if 'Table.RenameColumns' in  table_expr_stmt['jsstring']['value']: self.proc_rename_columns(table_expr_stmt)
                 if 'Table.DuplicateColumn' in  table_expr_stmt['jsstring']['value']: self.proc_duplicate_columns(table_expr_stmt)
                 if 'Table.AddColumn' in  table_expr_stmt['jsstring']['value']: self.proc_add_columns(table_expr_stmt) 
+                if 'Table.Distinct' in table_expr_stmt['jsstring']['value']: self.distinct_table(table_expr_stmt) 
+                
             except Exception as e:
                 print('error in table expr:')
                 print(e)

@@ -71,12 +71,14 @@ class json_to_ontology:
                 if (jsonPart !=None and item['parsedJson']!=None and not isinstance(item['parsedJson'][jsonPart], dict) and (not isinstance(item['parsedJson'][jsonPart], list))):
                     self.graph.add((iri ,self.Namespace[jsonPart], Literal(str(item['parsedJson'][jsonPart]))))                  
         
-        if isinstance(item['parsedJson'],list):                
+        if isinstance(item['parsedJson'],list):
+            jsstringjoined=''                
             for jsonPart in item['parsedJson']:
                 if (jsonPart !=None and item['parsedJson']!=None and not isinstance(jsonPart, dict) and (not isinstance(jsonPart, list))):                
                     try:
                         if isinstance(jsonPart,str):
                             self.graph.add((iri ,self.Namespace['jsstring'], Literal(str(jsonPart)))) 
+                            jsstringjoined=jsstringjoined+'\n'+str(jsonPart)
                         else :    
                             self.graph.add((iri ,self.Namespace[jsonPart], Literal(str(item['parsedJson'][jsonPart])))) 
                     except Exception as exc:
@@ -84,7 +86,15 @@ class json_to_ontology:
                         print(type(jsonPart))
                         print(jsonPart)
                         print('-----------------------------')
-                        
+            if jsstringjoined!='':   
+                try:             
+                    self.graph.add((iri ,self.Namespace['jsstringjoin'], Literal(str(jsstringjoined)))) 
+                except Exception as exc:
+                    print(exc) 
+                    print(type(jsonPart))
+                    print(jsstringjoined)
+                    print('-----------------------------')
+                    
 
 
     def iterate_recursive2aarayNode(self, parsedJson, parentJsonId, parentKey, hasFileIri):

@@ -108,7 +108,7 @@ class create_export_query:
         self.queryService.insert('delete {?query ?p ?o} where { ?query rdf:type mig:queryrelation . ?query ?p ?o .}')
         self.queryService.insert('delete {?query ?p ?o} where { ?query rdf:type mig:queryrelationcolumn . ?query ?p ?o .}')
         self.queryService.insert('delete {?query ?p ?o} where { ?query rdf:type mig:parentexportquery . ?query ?p ?o .}')
-        
+        self.queryService.insert("""delete {?iri mig:hasSql ?sql} where { ?iri rdf:type mig:msDashTable . ?iri mig:hasSql ?sql}""")
         #self.queryService.insert('delete {?iri mig:hasExportSqlName ?q} where {?iri mig:hasExportSqlName ?q}')
         
         ret=self.queryService.query(self.stmt_to_export)
@@ -206,21 +206,32 @@ class create_export_query:
 
         
 
-    def add_hasSql_prop(self,table_iri, sqlName, alias):
+    def add_hasSql_prop(self,table_iri, sqlName, alias,table_distinct_col):
         view_name=f"""{self.export_schema}.{alias}"""
         ret=self.queryService.query(stmt.stmt_for_create_view.replace('?param?',f'"{table_iri}"'))  
-        stmtSql=f"""create or replace view {view_name}  as  
+        stmtSql_start=f"""create or replace view {view_name}  as  
 select """
         i=0
-        ln=len(ret)        
+        ln=len(ret) 
+        stmtSql=''       
         for export_stmt_result in ret:             
             i=i+1  
             stmtSql=stmtSql + ' ' + export_stmt_result['line']['value'] 
             if ln!=i:            stmtSql=stmtSql + f""",/* {export_stmt_result['colname']['value'] } */
             """
-        #COMMENT ON COLUMN reports.logistics_hand_dash_fram_exception_doc.doc_header_id IS 'd1';        
-        stmtSql=stmtSql + ' '  +"""
- from """ + sqlName  + ' ;  ' 
+        #COMMENT ON COLUMN reports.logistics_hand_dash_fram_exception_doc.doc_header_id IS 'd1';   
+        if table_distinct_col!='':
+            distinct_col=f""", row_number() over (partition by {table_distinct_col.replace('+',' || ').replace('''"''','')} )  as rn """
+            stmtSql=stmtSql_start +  "  * from (select " + stmtSql + ' ' + distinct_col  +"""
+    from """ + sqlName  + """ ) z  
+    where rn=1
+    ;  """
+
+        else:                         
+            stmtSql=stmtSql_start + stmtSql + ' '  +"""
+    from """ + sqlName  + ' ;  ' 
+        
+
         self.ttl_service.add_table_hasSql(table_iri,stmtSql)
         #self.run_on_server_create_view(stmtSql, view_name, table_iri)    
     def run_views_onserver(self):
@@ -245,7 +256,7 @@ select """
         with self.engine.connect() as connection:
             try: 
                 connection.begin()
-                connection.execute(text(f'''drop view if exists {self.export_schema}.{view_name}; '''))
+                connection.execute(text(f'''drop view if exists {self.export_schema}.{view_name} cascade; '''))
                 connection.execute(text(sql_to_run))
                 connection.commit()
             except Exception as e:
@@ -259,7 +270,7 @@ select """
         ret=self.queryService.query(stmt.stmt_all_tables)                  
         self.ttl_service.emptyGraph()
         for export_stmt_result in ret: 
-            self.add_hasSql_prop(export_stmt_result['table']['value'],  export_stmt_result['sqlName']['value'], export_stmt_result['hasExportSqlName']['value']  )
+            self.add_hasSql_prop(export_stmt_result['table']['value'],  export_stmt_result['sqlName']['value'], export_stmt_result['hasExportSqlName']['value'],export_stmt_result['table_distinct_col']['value']  )
         filepath=self.dir_to_save+'create_view_sql.ttl'  
         self.ttl_service.graph.serialize(filepath, 'turtle') 
         self.queryService.load_ttl(filepath)

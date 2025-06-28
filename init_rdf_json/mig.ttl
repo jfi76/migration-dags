@@ -106,7 +106,32 @@ js:hasRichText rdfs:domain :msdash .
 
 
 ###  http://www.example.com/MIGRATION#hasSql
-:hasSql rdf:type owl:DatatypeProperty .
+:hasSql rdf:type owl:DatatypeProperty ;
+        report:hasQuery """select ?sqlNameTable ?col_name  ?dataType ?conv_dataType ?exportSqlName (concat(' Nullable (',?conv_dataType,')') as ?clickDt)
+{
+bind(?param? as  ?mart  )
+?colrel rdf:type mig:queryrelationcolumn .
+?colrel mig:hasQueryRelation ?qrel .
+?qrel mig:hasExportQuery ?expquery .  
+?expquery mig:hasOrder ?expQueryOrder .  
+?expquery mig:hasMart ?mart .  
+?colrel mig:hasColumn ?col .  
+?col js:name ?col_name .  
+?col mig:hasExportSqlName ?exportSqlName .
+?col js:hasJsonObjectKey ?c_key . 
+?col mig:hasMsDashTable ?table .
+?table  js:hasJsonObjectKey ?t_key . 
+ ?table mig:hasSqlName ?sqlNameTable . 
+optional{?col js:dataType ?dataType} .  
+bind(IF(?dataType='string','String',
+      IF(?dataType='int64','Int64',
+        IF(?dataType='dateTime','DateTime32',
+          IF(?dataType='double','Float64','')
+         )
+        )
+      ) as ?conv_dataType)  
+}
+order by xsd:integer(?expQueryOrder) xsd:integer(?t_key) xsd:integer(?c_key)""" .
 
 
 #################################################################
@@ -225,6 +250,7 @@ order by ?dashName ?tabeName""" ;
 ###  http://www.example.com/MIGRATION#dashmart
 :dashmart rdf:type owl:Class ;
           rdfs:subClassOf :dashclickhouse ;
+          report:hasButtonQuery :mart_clickhouse_columns ;
           rdfs:label "mart" .
 
 
@@ -437,6 +463,12 @@ select ?iri ?label ?dbname
                            rdfs:label "Run Create Procedure" .
 
 
+###  http://www.example.com/MIGRATION#tabledistinctcolumn
+:tabledistinctcolumn rdf:type owl:Class ;
+                     rdfs:subClassOf :DashExpression ;
+                     rdfs:label "tabledistinctcolumn" .
+
+
 ###  http://www.example.com/MIGRATION#transfer
 :transfer rdf:type owl:Class ;
           rdfs:label "Transfer" .
@@ -472,7 +504,7 @@ select ?iri ?label ?dbname
 ###  http://www.example.com/MIGRATION#BtnDashColumns
 :BtnDashColumns rdf:type owl:NamedIndividual ,
                          report:buttonReport ;
-                report:hasQuery """select (?column as ?iri)  ?colname ?type ?dataType ?sourceColumn ?expression ?sqlname ?hasExportSqlName
+                report:hasQuery """select (?column as ?iri)  ?colname ?type ?dataType ?sourceColumn ?expression ?sqlname ?hasExportSqlName ?summarizeBy
 {
   bind (?param? as ?table) .
   ?dash rdf:type mig:msdash .
@@ -489,6 +521,7 @@ select ?iri ?label ?dbname
   optional {?column js:expression ?expression } .  
 optional {?column mig:hasSqlName ?sqlname }   
 optional{ ?column mig:hasExportSqlName ?hasExportSqlName }.
+optional ?column js:summarizeBy  ?summarizeBy } .
 }
 order by ?dashName ?tabeName""" ;
                 rdfs:label "columns" .
@@ -637,6 +670,37 @@ select ?StatementType (count(*) as ?count)
   ?iri  js_at:StatementType ?StatementType .
 } group by ?StatementType""" ;
                  rdfs:label "Statement types" .
+
+
+###  http://www.example.com/MIGRATION#mart_clickhouse_columns
+:mart_clickhouse_columns rdf:type owl:NamedIndividual ,
+                                  report:buttonReport ;
+                         report:hasQuery """select ?sqlNameTable ?col_name  ?dataType ?conv_dataType ?exportSqlName (concat(' Nullable (',?conv_dataType,')') as ?clickDt)
+{
+bind(?param? as  ?mart  )
+?colrel rdf:type mig:queryrelationcolumn .
+?colrel mig:hasQueryRelation ?qrel .
+?qrel mig:hasExportQuery ?expquery .  
+?expquery mig:hasOrder ?expQueryOrder .  
+?expquery mig:hasMart ?mart .  
+?colrel mig:hasColumn ?col .  
+?col js:name ?col_name .  
+?col mig:hasExportSqlName ?exportSqlName .
+?col js:hasJsonObjectKey ?c_key . 
+?col mig:hasMsDashTable ?table .
+?table  js:hasJsonObjectKey ?t_key . 
+ ?table mig:hasSqlName ?sqlNameTable . 
+optional{?col js:dataType ?dataType} .  
+bind(IF(?dataType='string','String',
+      IF(?dataType='int64','Int64',
+        IF(?dataType='dateTime','DateTime32',
+          IF(?dataType='double','Float64','')
+         )
+        )
+      ) as ?conv_dataType)  
+}
+order by xsd:integer(?expQueryOrder) xsd:integer(?t_key) xsd:integer(?c_key)""" ;
+                         rdfs:label "ClickHouse" .
 
 
 ###  http://www.example.com/MIGRATION#msandpgstatmentbtn
