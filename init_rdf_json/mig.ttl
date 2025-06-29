@@ -504,7 +504,7 @@ select ?iri ?label ?dbname
 ###  http://www.example.com/MIGRATION#BtnDashColumns
 :BtnDashColumns rdf:type owl:NamedIndividual ,
                          report:buttonReport ;
-                report:hasQuery """select (?column as ?iri)  ?colname ?type ?dataType ?sourceColumn ?expression ?sqlname ?hasExportSqlName ?summarizeBy
+                report:hasQuery """select (?column as ?iri)  ?colname ?type ?dataType ?sourceColumn ?expression  (coalesce(?expreplaced,'') as ?col_expr_export) ?sqlname ?hasExportSqlName ?summarizeBy
 {
   bind (?param? as ?table) .
   ?dash rdf:type mig:msdash .
@@ -521,7 +521,8 @@ select ?iri ?label ?dbname
   optional {?column js:expression ?expression } .  
 optional {?column mig:hasSqlName ?sqlname }   
 optional{ ?column mig:hasExportSqlName ?hasExportSqlName }.
-optional ?column js:summarizeBy  ?summarizeBy } .
+optional {?column js:summarizeBy  ?summarizeBy } .
+optional {?column mig:hasExpressionReplaced ?expreplaced}
 }
 order by ?dashName ?tabeName""" ;
                 rdfs:label "columns" .
@@ -530,7 +531,8 @@ order by ?dashName ?tabeName""" ;
 ###  http://www.example.com/MIGRATION#BtnDashTabelsColumns
 :BtnDashTabelsColumns rdf:type owl:NamedIndividual ,
                                report:buttonReport ;
-                      report:hasQuery """select (?column as ?iri) ?dashName ?tableName ?colname ?type ?dataType ?sourceColumn ?expression
+                      report:hasQuery """select (?column as ?iri) ?dashName ?tableName ?colname ?type ?dataType ?sourceColumn ?expression (coalesce(?expreplaced,'') as ?col_expr_export)
+?summarizeBy 
 {
   bind (?param? as ?dash) .
   ?dash rdf:type mig:msdash .
@@ -545,6 +547,8 @@ order by ?dashName ?tabeName""" ;
   optional {?column js:dataType ?dataType} .
   optional {?column js:sourceColumn ?sourceColumn } .
   optional {?column js:expression ?expression } .     
+optional {?column mig:hasExpressionReplaced ?expreplaced} .
+optional {?column js:summarizeBy  ?summarizeBy } . 
 }
 order by ?dashName ?tabeName""" ;
                       rdfs:label "Tables and Columns" .

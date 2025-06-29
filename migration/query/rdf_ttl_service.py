@@ -91,9 +91,12 @@ class rdfTTLService:
         self.graph.add((iri ,RDF.type, self.Namespace.tabledistinctcolumn))
         self.graph.add((iri , self.Namespace.hasExpression,URIRef(expr_iri)))
         self.graph.add((iri , self.Namespace.column,Literal(column)))                
-                              
-
-
+    def column_expression_renamed(self,column_iri,expression_renamed:str):
+        iri=URIRef(column_iri)
+        self.graph.add((iri ,self.Namespace.hasExpressionReplaced, Literal(expression_renamed)))                                                                           
+    def column_expression_column(self,column_iri,exp_col_iri):
+        iri=URIRef(column_iri)
+        self.graph.add((iri ,self.Namespace.hasExpressionColumn, URIRef(exp_col_iri)))                                                                           
     def add_added_col(self,col_init,col_renamed,expr_iri):
         #print(col_renamed)
         iri=self.Namespace[self.hashCode()]

@@ -587,4 +587,43 @@ select ?prefix  ?mainsql ?order ?iri {
 ?dash  mig:hasPrefix ?prefix .
 }
 """
+
+stmt_calc_columns_repalce_expr='''
+select (?column as ?iri)   ?colsearch ?colrepl ?expression ?colname2 ?tableName
+(coalesce(?summarizeBy2,'' ) as ?summarizeBy2_exp) 
+(coalesce(?summarizeBy,'' ) as ?summarizeBy_col )
+?hasExportSqlName2 
+?column2 
+{
+  
+  ?dash rdf:type mig:msdash .
+  ?dash js:name ?dashName .
+  ?table js:name ?tableName .  
+  ?table mig:hasMsDash ?dash . 
+  ?table rdf:type mig:msDashTable .
+  ?column mig:hasMsDashTable ?table .
+  ?column rdf:type mig:DashColumn .
+  ?column js:name ?colname .
+  ?column js:type ?type .
+  optional {?column js:dataType ?dataType} .
+  optional {?column js:sourceColumn ?sourceColumn } .
+  ?column js:expression ?expression  .  
+optional {?column mig:hasSqlName ?sqlname }  . 
+optional{ ?column mig:hasExportSqlName ?hasExportSqlName }.
+?column js:summarizeBy  ?summarizeBy .
+
+  ?column2 mig:hasMsDashTable ?table2 .
+  ?column2 rdf:type mig:DashColumn .
+  ?column2 js:name ?colname2 .
+  ?column2 mig:hasSqlName ?sqlname2 .
+  ?column2 mig:hasExportSqlName ?hasExportSqlName2 .
+  optional {?column2 js:summarizeBy  ?summarizeBy2} .
+  #?column2 js:sourceColumn ?sourceColumn2 .
+  #bind( concat(?tableName,  "\\\\'\\\\[" , ?colname2 , '\\\\]')  as ?colsearch )
+  bind( concat("\\\\[" , ?colname2 , '\\\\]')  as ?colsearch )
+  bind( concat( "[" , ?hasExportSqlName2 , ']')  as ?colrepl )
+  filter (  regex(?expression,?colsearch,"i" ))
+}
+
+'''
 #
