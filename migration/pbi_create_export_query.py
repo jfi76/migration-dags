@@ -219,9 +219,9 @@ select """
             stmtSql=stmtSql + ' ' + export_stmt_result['line']['value'] 
             if ln!=i:            stmtSql=stmtSql + f""",/* {export_stmt_result['colname']['value'] } */
             """
-        #COMMENT ON COLUMN reports.logistics_hand_dash_fram_exception_doc.doc_header_id IS 'd1';   
+        #COMMENT ON COLUMN reports.logistics_hand_dash_fram_exception_doc.doc_header_id IS 'd1';   .replace('+',' || ').replace('''"''','')
         if table_distinct_col!='':
-            distinct_col=f""", row_number() over (partition by {table_distinct_col.replace('+',' || ').replace('''"''','')} )  as rn """
+            distinct_col=f""", row_number() over (partition by {table_distinct_col} )  as rn """
             stmtSql=stmtSql_start +  "  * from (select " + stmtSql + ' ' + distinct_col  +"""
     from """ + sqlName  + """ ) z  
     where rn=1
@@ -246,6 +246,7 @@ select """
             main_name=f"""{export_stmt_result['prefix']['value']}_fact_{export_stmt_result['order']['value']}"""
             create_sql=f"""create or replace view {self.export_schema}.{main_name} as
               {export_stmt_result['mainsql']['value']} """
+            self.ttl_service.column_main_mart_name(main_name,export_stmt_result['iri']['value'])
             self.run_on_server_create_view( create_sql,main_name, export_stmt_result['iri']['value'])            
                         
         filepath=self.dir_to_save+'create_view_sql_run.ttl'  
@@ -278,6 +279,9 @@ select """
     def log_task_start(self):
         self.taskIri=self.ttl_service.start_run_task()
         return self.taskIri
+
+        
+
 
 if __name__ == "__main__":
     

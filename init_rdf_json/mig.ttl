@@ -469,6 +469,18 @@ select ?iri ?label ?dbname
                      rdfs:label "tabledistinctcolumn" .
 
 
+###  http://www.example.com/MIGRATION#tansformed_click
+:tansformed_click rdf:type owl:Class ;
+                  rdfs:subClassOf :DashExpression ;
+                  rdfs:label "tansformed_click" .
+
+
+###  http://www.example.com/MIGRATION#tansformed_postgres
+:tansformed_postgres rdf:type owl:Class ;
+                     rdfs:subClassOf :DashExpression ;
+                     rdfs:label "tansformed_postgres" .
+
+
 ###  http://www.example.com/MIGRATION#transfer
 :transfer rdf:type owl:Class ;
           rdfs:label "Transfer" .
@@ -533,6 +545,8 @@ order by ?dashName ?tabeName""" ;
                                report:buttonReport ;
                       report:hasQuery """select (?column as ?iri) ?dashName ?tableName ?colname ?type ?dataType ?sourceColumn ?expression (coalesce(?expreplaced,'') as ?col_expr_export)
 ?summarizeBy 
+?pg_sql 
+?click_sql 
 {
   bind (?param? as ?dash) .
   ?dash rdf:type mig:msdash .
@@ -549,6 +563,8 @@ order by ?dashName ?tabeName""" ;
   optional {?column js:expression ?expression } .     
 optional {?column mig:hasExpressionReplaced ?expreplaced} .
 optional {?column js:summarizeBy  ?summarizeBy } . 
+optional{?column  mig:hasPostgresSql ?pg_sql .  }
+optional{?column  mig:hasClickSql ?click_sql .  }
 }
 order by ?dashName ?tabeName""" ;
                       rdfs:label "Tables and Columns" .
@@ -679,7 +695,8 @@ select ?StatementType (count(*) as ?count)
 ###  http://www.example.com/MIGRATION#mart_clickhouse_columns
 :mart_clickhouse_columns rdf:type owl:NamedIndividual ,
                                   report:buttonReport ;
-                         report:hasQuery """select ?sqlNameTable ?col_name  ?dataType ?conv_dataType ?exportSqlName (concat(' Nullable (',?conv_dataType,')') as ?clickDt)
+                         report:hasQuery """select ?sqlNameTable ?col_name  ?dataType ?conv_dataType ?exportSqlName (concat(' Nullable (',?conv_dataType,')') as ?clickDt) 
+?run_sql_click 
 {
 bind(?param? as  ?mart  )
 ?colrel rdf:type mig:queryrelationcolumn .
@@ -695,6 +712,12 @@ bind(?param? as  ?mart  )
 ?table  js:hasJsonObjectKey ?t_key . 
  ?table mig:hasSqlName ?sqlNameTable . 
 optional{?col js:dataType ?dataType} .  
+optional{
+    ?rsql rdf:type mig:tansformed_click .    
+    ?rsql mig:hasColumn ?col .
+    ?rsql js:run_sql ?run_sql_click . 
+
+  }
 bind(IF(?dataType='string','String',
       IF(?dataType='int64','Int64',
         IF(?dataType='dateTime','DateTime32',

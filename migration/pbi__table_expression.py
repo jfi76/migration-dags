@@ -125,7 +125,7 @@ class process_table_expreesion:
         if match:
             result = match.group(1)
             #print(result)
-            self.ttl_service.add_table_distinct_col(result,expr['expr']['value'])
+            self.ttl_service.add_table_distinct_col(str(result).replace('\"',''),expr['expr']['value'])
 
 
 

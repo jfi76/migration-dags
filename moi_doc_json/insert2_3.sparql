@@ -1,0 +1,52 @@
+delete {?column  mig:hasPostgresSql ?sql} where {?column  mig:hasPostgresSql ?sql}; 
+delete {?column  mig:hasClickSql ?sql} where {?column  mig:hasClickSql ?sql};
+
+insert {?dax rdf:type mig:tansformed_click .
+?dax mig:hasColumn ?column .
+?column  mig:hasClickSql ?sql .  
+} where 
+{?iri rdf:type js:FileJson .
+?iri etl:hasSourceFile ?filename .
+  filter (contains(?filename,'dax_click.json'))
+?child1 js:parentJsonId ?iri .
+?dax js:parentJsonId ?child1 .  
+?dax js:tableName ?tableName .
+?dax js:colname ?colname .
+?dax js:sql ?sql .  
+?column rdf:type mig:DashColumn .  
+?column  js:expression ?exp.
+?column js:name ?colname .
+?column mig:hasMsDashTable ?table .  
+?table js:name ?tableName  .  
+};
+insert {?dax rdf:type mig:tansformed_postgres .
+?dax mig:hasColumn ?column .
+?column  mig:hasPostgresSql ?sql .  
+} where 
+#
+#
+{?iri rdf:type js:FileJson .
+?iri etl:hasSourceFile ?filename .
+  filter (contains(?filename,'sql_answ_dax.json'))
+?child1 js:parentJsonId ?iri .
+?dax js:parentJsonId ?child1 .  
+?dax js:tableName ?tableName .
+?dax js:colname ?colname .
+?dax js:sql ?sql .  
+?column rdf:type mig:DashColumn .  
+?column  js:expression ?exp.
+?column js:name ?colname .
+?column mig:hasMsDashTable ?table .  
+?table js:name ?tableName  .  
+};
+
+insert {?iri mig:hasMainSqlName ?hasMainSqlName }where 
+
+{  
+?iri rdf:type mig:dashmart .
+?iri mig:label  ?hasSourceFile .
+?iri mig:hasOrder ?order .      
+?iri mig:hasMsDash ?dash .  
+?dash mig:hasPrefix ?pref .  
+bind( 'Reports_duk.distrib_' + ?pref +'_fact_'+ str(?order) as   ?hasMainSqlName  ) .
+};

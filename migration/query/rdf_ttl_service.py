@@ -213,6 +213,9 @@ class rdfTTLService:
                  
         return iri
 
+    def column_main_mart_name(self,main_name,query_exp_iri):
+        iri=URIRef(query_exp_iri)
+        self.graph.add((iri ,self.Namespace.hasMainSqlName, Literal(main_name)))                                                                           
 
         #js:PARAMETER_NAME
 
@@ -228,3 +231,10 @@ class rdfTTLService:
         # """
         # return stmt.format(statType=pgStatementType)
 
+    def mart_dataset_sql(self,mart_iri, sql ):
+            iri=URIRef(mart_iri)
+            self.graph.add((iri ,self.Namespace.hasMainSqlName, Literal(sql)))  
+                                                                                    
+    def mart_dataset_column_sql(self,column_iri, sql ):
+            iri=URIRef(column_iri)
+            self.graph.add((iri ,self.Namespace.hasSqlDataset, Literal(sql)))                                                                           

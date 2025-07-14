@@ -214,9 +214,10 @@ stmt_to_get_dasahes="""
    } 
 """
 stmt_to_get_marts="""
- select ?iri ?hasSourceFile {  
+ select ?iri ?hasSourceFile ?hasMainSqlName {  
 ?iri rdf:type mig:dashmart .
 ?iri mig:label  ?hasSourceFile .
+?iri mig:hasMainSqlName ?hasMainSqlName .
    } 
 """
 
@@ -460,7 +461,7 @@ insert {
 """
 
 stmt_all_tables="""
-select ?table ?jsname ?sqlName ?hasExportSqlName (coalesce(?sql,'' ) as ?sqlstmt ) (coalesce(?dist_col_val,'') as ?table_distinct_col)
+select ?table ?jsname ?sqlName ?hasExportSqlName (coalesce(?sql,'' ) as ?sqlstmt ) (coalesce(?hasExportCalcSql,?dist_col_val,'') as ?table_distinct_col)
 
 {
   ?dash rdf:type mig:msdash .
@@ -476,6 +477,15 @@ select ?table ?jsname ?sqlName ?hasExportSqlName (coalesce(?sql,'' ) as ?sqlstmt
   ?dist_col mig:hasExpression  ?expr . 
   ?dist_col rdf:type mig:tabledistinctcolumn  .
   ?dist_col mig:column ?dist_col_val .
+
+      optional {
+      ?col2 mig:hasMsDashTable ?table .
+      ?col2 js:name ?dist_col_val .                  
+      ?col2 rdf:type mig:DashColumn .
+      ?col2 mig:hasExportCalcSql ?hasExportCalcSql . 
+    }  
+
+
   }
 }
 order by ?dash
@@ -626,4 +636,66 @@ optional{ ?column mig:hasExportSqlName ?hasExportSqlName }.
 }
 
 '''
+
+stmt_pbi_section_containers="""
+select ?vc ?name ?y ?vctype  
+{
+?iri rdf:type mig:DashSection  .
+?vcs js:parentJsonId ?iri  .
+?vc js:parentJsonId ?vcs .  
+?vc rdf:type mig:DashVisualContainer .
+?vc rdfs:label ?name .  
+?vc mig:hasDasVisualType ?vctype .  
+?vc js:y ?y .  
+}    
+order by ASC(xsd:float(?y)) 
+
+"""
 #
+stmt_dataset_sql="""
+select ?sqlNameTable ?col_name  ?dataType ?conv_dataType ?exportSqlName (concat(' Nullable (',?conv_dataType,')') as ?clickDt) 
+?run_sql_click ?hasExportCalcSqlName ?expression ?type
+(
+  coalesce(IF((coalesce(?type,'')="calculated" || coalesce(?type,'')="calculatedTableColumn") && coalesce(?run_sql_click,'')='', 'null', ?run_sql_click  )  
+  ,'')
+  as ?calc_line)
+?col   
+{
+bind(uri(?param?) as  ?mart  )
+?colrel rdf:type mig:queryrelationcolumn .
+?colrel mig:hasQueryRelation ?qrel .
+?qrel mig:hasExportQuery ?expquery .  
+?expquery mig:hasOrder ?expQueryOrder .  
+?expquery mig:hasMart ?mart .  
+?colrel mig:hasColumn ?col .  
+?col js:name ?col_name .  
+?col mig:hasExportSqlName ?exportSqlName .
+?col js:hasJsonObjectKey ?c_key . 
+?col mig:hasMsDashTable ?table .
+?table  js:hasJsonObjectKey ?t_key . 
+ ?table mig:hasSqlName ?sqlNameTable . 
+optional{?col js:dataType ?dataType} .  
+optional{ ?col mig:hasExportCalcSql ?hasExportCalcSqlName } .  
+optional {?col js:expression ?expression } .    
+optional {?col js:type ?type} .  
+optional{
+    ?rsql rdf:type mig:tansformed_click .    
+    ?rsql mig:hasColumn ?col .
+    ?rsql js:run_sql ?run_sql_click . 
+
+  }
+bind(IF(?dataType='string','String',
+      IF(?dataType='int64','Int64',
+        IF(?dataType='dateTime','DateTime32',
+          IF(?dataType='double','Float64','')
+         )
+        )
+      ) as ?conv_dataType)  
+  
+  #bind (IF(coalesce(?type,'')="calculated" || coalesce(?type,'')="calculatedTableColumn", 
+  #    coalesce(?hasExportCalcSqlName,'NULL') , ?sqlname ) as ?val)  
+  
+}
+order by xsd:integer(?expQueryOrder) xsd:integer(?t_key) xsd:integer(?c_key)
+
+"""
