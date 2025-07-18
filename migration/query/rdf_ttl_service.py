@@ -233,7 +233,7 @@ class rdfTTLService:
 
     def mart_dataset_sql(self,mart_iri, sql ):
             iri=URIRef(mart_iri)
-            self.graph.add((iri ,self.Namespace.hasMainSqlName, Literal(sql)))  
+            self.graph.add((iri ,self.Namespace.hasSqlDataset, Literal(sql)))  
                                                                                     
     def mart_dataset_column_sql(self,column_iri, sql ):
             iri=URIRef(column_iri)

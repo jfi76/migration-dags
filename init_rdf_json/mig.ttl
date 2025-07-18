@@ -247,6 +247,18 @@ order by ?dashName ?tabeName""" ;
                  rdfs:label "dash export query" .
 
 
+###  http://www.example.com/MIGRATION#dashlayouttable
+:dashlayouttable rdf:type owl:Class ;
+                 rdfs:subClassOf :DashLayout ;
+                 rdfs:label "Table" .
+
+
+###  http://www.example.com/MIGRATION#dashlayouttable_selectpart
+:dashlayouttable_selectpart rdf:type owl:Class ;
+                            rdfs:subClassOf :dashlayouttable ;
+                            rdfs:label "Select part" .
+
+
 ###  http://www.example.com/MIGRATION#dashmart
 :dashmart rdf:type owl:Class ;
           rdfs:subClassOf :dashclickhouse ;
@@ -319,6 +331,18 @@ order by ?dashName ?tabeName""" ;
                                   :dbstatementtype ,
                                   :msdbdeclarestmtbtn ;
             rdfs:label "Database" .
+
+
+###  http://www.example.com/MIGRATION#mslayoutrows
+:mslayoutrows rdf:type owl:Class ;
+              rdfs:subClassOf :dashlayouttable ;
+              rdfs:label "Table Rows" .
+
+
+###  http://www.example.com/MIGRATION#mslayoutvalues
+:mslayoutvalues rdf:type owl:Class ;
+                rdfs:subClassOf :dashlayouttable ;
+                rdfs:label "Values" .
 
 
 ###  http://www.example.com/MIGRATION#msprocedure
@@ -429,6 +453,12 @@ select ?iri ?label ?dbname
 ###  http://www.example.com/MIGRATION#postgres
 :postgres rdf:type owl:Class ;
           rdfs:label "Postgres" .
+
+
+###  http://www.example.com/MIGRATION#queryref
+:queryref rdf:type owl:Class ;
+          rdfs:subClassOf :dashlayouttable ;
+          rdfs:label "queryref" .
 
 
 ###  http://www.example.com/MIGRATION#queryrelation

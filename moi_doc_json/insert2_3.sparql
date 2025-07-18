@@ -50,3 +50,134 @@ insert {?iri mig:hasMainSqlName ?hasMainSqlName }where
 ?dash mig:hasPrefix ?pref .  
 bind( 'Reports_duk.distrib_' + ?pref +'_fact_'+ str(?order) as   ?hasMainSqlName  ) .
 };
+insert {?iri rdf:type mig:dashlayouttable . ?qr  rdf:type mig:mslayoutrows . ?qr mig:hasLayoutTable  ?iri
+. ?qr rdf:type mig:queryref 
+ } where
+{
+  
+  ?iri rdf:type mig:DashVisualContainer .
+  ?lev1 mig:hasVisualContainer ?iri .
+  ?sect js:parentJsonId ?lev1 .
+  ?sect js:hasJsonObjectKey "singleVisual" .
+  ?sect  js:visualType "pivotTable" .
+  ?proj js:parentJsonId ?sect .
+  ?proj js:hasJsonObjectKey "projections" .
+  ?rows js:parentJsonId ?proj .
+  ?rows js:hasJsonObjectKey "Rows" .
+  ?qr js:parentJsonId ?rows .
+  ?qr js:queryRef ?group_by_cols .
+};
+
+insert {?v rdf:type mig:mslayoutvalues . ?v mig:hasLayoutTable  ?iri . ?v rdf:type mig:queryref   } where
+{
+  
+  ?iri rdf:type mig:DashVisualContainer .
+  ?lev1 mig:hasVisualContainer ?iri .
+  ?sect js:parentJsonId ?lev1 .
+  ?sect js:hasJsonObjectKey "singleVisual" .
+  ?sect  js:visualType "pivotTable" .
+  ?proj js:parentJsonId ?sect .
+  ?proj js:hasJsonObjectKey "projections" .
+  ?values js:parentJsonId ?proj .
+  ?values js:hasJsonObjectKey "Values" .
+  ?v js:parentJsonId ?values .
+  ?v js:queryRef ?aggr_cols .
+};
+
+#insert {?qr rdf:type mig:queryref . ?qr mig:hasLayoutTable  ?iri  } where 
+#{
+#  ?iri rdf:type mig:DashVisualContainer .
+#  ?lev1 mig:hasVisualContainer ?iri .
+#  ?sect js:parentJsonId ?lev1 .
+#  ?sect js:hasJsonObjectKey  "singleVisual" .
+#  #?sect  js:visualType "pivotTable" .
+#  ?qr js:parentJsonId*	?sect .
+#  ?qr js:queryRef ?queryref .};
+
+
+#insert {?name mig:hasLayoutTable ?iri . 
+#  ?qr mig:hasColProtQuery  ?proj .
+#  ?qr mig:hasProtoColItem ?protoItem  .
+#  ?qr mig:hasProtoName ?name .
+  
+#} where 
+
+#{  
+#  ?iri rdf:type mig:DashVisualContainer .
+#  ?lev1 mig:hasVisualContainer ?iri .
+#  ?sect js:parentJsonId ?lev1 .
+#  ?sect js:hasJsonObjectKey "singleVisual" .
+#  ?sect  js:visualType "pivotTable" .
+#  ?proj js:parentJsonId ?sect .
+#  ?proj js:hasJsonObjectKey* "prototypeQuery" .
+#  ?name js:Name ?layoutcolName .
+#  ?qr rdf:type mig:queryref .  
+#  ?qr js:queryRef ?layoutcolName .
+#  ?name js:parentJsonId ?protoItem .  
+#};
+
+
+
+
+insert {
+  ?iri  mig:hasMsDash ?dash . 
+  ?qr mig:hasColumn ?dcol . ?qr mig:hasLayoutType ?col_agg . ?qr mig:hasAggFunc ?aggfun . ?qr mig:hasAggOrCol ?obj  } where 
+{
+  ?iri rdf:type mig:DashVisualContainer .
+  ?iri   js:parentJsonId ?p1.
+  ?p1 js:parentJsonId ?p2 .
+  ?p2  mig:hasMsDash ?dash .
+  ?lev1 mig:hasVisualContainer ?iri .
+  ?sect js:parentJsonId ?lev1 .
+  ?sect js:hasJsonObjectKey "singleVisual" .
+  ?sect  js:visualType "pivotTable" .
+  ?proj js:parentJsonId ?sect .
+  ?proj js:hasJsonObjectKey "prototypeQuery" .
+  ?from js:parentJsonId ?proj .
+  ?from js:hasJsonObjectKey 'From' .
+  ?from_items js:parentJsonId ?from .	
+  ?from_items js:Name ?from_alias .
+  ?from_items js:Entity ?from_table_name .
+  ?table  mig:hasMsDash ?dash .
+  ?table js:name ?from_table_name  .
+  ?table rdf:type mig:msDashTable .
+  ?select js:parentJsonId ?proj .
+  ?select js:hasJsonObjectKey 'Select' .
+  ?selarr js:parentJsonId ?select .
+  ?selarr js:Name ?jsname .
+  ?obj js:parentJsonId ?selarr .
+  ?qr rdf:type mig:queryref .  
+  ?qr js:queryRef ?jsname .
+  ?qr mig:hasLayoutTable ?iri .
+  ?obj js:hasJsonObjectKey ?col_agg .
+  optional {?obj js:Function ?aggfun}
+  optional {?obj js:Property ?colname .
+  ?expr2 js:parentJsonId ?obj .  
+  ?expr2 js:hasJsonObjectKey 'Expression' .
+  ?srf js:parentJsonId ?expr2 .  
+  ?srf js:hasJsonObjectKey 'SourceRef'.  
+  ?srf js:Source ?qrSource . 
+  }
+  optional {?expr js:parentJsonId ?obj .
+   ?expr js:hasJsonObjectKey 'Expression' .
+   ?prop js:parentJsonId ?expr .
+    ?prop js:Property ?colname .
+  ?col  js:parentJsonId ?expr .
+  ?col  js:hasJsonObjectKey 'Column' . 
+  ?expr2 js:parentJsonId ?col  .  
+  ?expr2 js:hasJsonObjectKey 'Expression' .
+  ?srf js:parentJsonId ?expr2 .  
+  ?srf js:hasJsonObjectKey 'SourceRef'.  
+  ?srf js:Source ?qrSource . 
+  }
+  ?dcol mig:hasMsDashTable ?table .  
+  ?dcol mig:hasMsDash ?dash . 
+  ?dcol rdf:type mig:DashColumn .  
+  ?dcol js:name ?colname .  
+      
+  #?prop js:parentJsonId* ?obj .
+  #?prop js:hasJsonObjectKey 'Property' .
+  
+#  ?prop js:parentJsonId ?obj .
+#  ?prop js:hasJsonObjectKey ?pnam .
+}
