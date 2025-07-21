@@ -71,23 +71,24 @@ class superset_migr:
         #print(select_line + ' from ' + mainsql)
         self.ttl_service.mart_dataset_sql(mart_iri,'select ' + select_line + ' from ' + mainsql)
 
-    def prepare_pivot(self,recordset:dict):
-        #print(recordset)
-        self.json_dump_recordset(recordset, self.dir_to_save+'pivot.json')
-        ret=self.queryService.query(stmt.stmt_get_layout_table.replace('?param?',"'"+recordset['vc']['value'] +"'"))
-        self.json_dump_recordset(ret, self.dir_to_save+'pivot_columns.json')
+    def prepare_pivot_tableex(self,recordset:dict, type:str,index:int):
         
-        self.form_send_api.form_chart_wrapper('pivot')
+        self.json_dump_recordset(recordset, self.dir_to_save+f'{type}{index}.json')
+        ret=self.queryService.query(stmt.stmt_get_layout_table.replace('?param?',"'"+recordset['vc']['value'] +"'"))
+        self.json_dump_recordset(ret, self.dir_to_save+f'{type}{index}_columns.json')
+        
+        self.form_send_api.form_chart_wrapper(type)
 
     def iterate_sections(self, dash_iri):
             #self.queryService.insert('delete {?iri ?p ?o} where {?iri rdf:type mig:dashrenamedcolumn . ?iri ?p ?o}')
             ret=self.queryService.query(stmt.stmt_pbi_section_containers.replace("?param?", '"'+ dash_iri +'"' ))
-            for table_expr_stmt in ret:   
-                if table_expr_stmt['vctype']['value'] == 'pivotTable':
-
-                    self.prepare_pivot(table_expr_stmt)
-
-
+            i=0
+            for table_expr_stmt in ret :   
+                if table_expr_stmt['vctype']['value'] in ['pivotTable','tableEx']:
+                    self.prepare_pivot_tableex(table_expr_stmt,table_expr_stmt['vctype']['value'],i)
+                    i=i+1
+            ret=self.queryService.query(stmt.stmt_get_layout_table_dash.replace("?param?", '"'+ dash_iri +'"' ))                    
+            self.json_dump_recordset(ret, self.dir_to_save+f'all_columns.json')
 if __name__ == "__main__":
     c=superset_migr('../playground_ai/')
     #c.iterate_marts()

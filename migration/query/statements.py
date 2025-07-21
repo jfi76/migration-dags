@@ -653,6 +653,9 @@ bind (uri(?param?) as ?dash)
 ?vc rdfs:label ?name .  
 ?vc mig:hasDasVisualType ?vctype .  
 ?vc js:y ?y .  
+?iri js:displayName  ?SecdisplayName .
+  filter ( ?SecdisplayName='Главная страница')  
+
 }    
 order by ASC(xsd:float(?y)) 
 
@@ -708,16 +711,43 @@ order by xsd:integer(?expQueryOrder) xsd:integer(?t_key) xsd:integer(?c_key)
 """
 
 stmt_get_layout_table="""
-select ?qr  ?datasetName ?dataType ?LayoutType ?objkey (coalesce(?agg_func,'') as ?agg_func_num )
+select ?qr  ?datasetName ?dataType ?LayoutType ?objkey (coalesce(?agg_func,'') as ?agg_func_num ) ?query_ref (coalesce(?DisplayNameStr,?datasetName) as ?DisplayName)
 {
   bind(uri(?param?) as ?lt)  
 ?qr mig:hasLayoutTable ?lt .  
 ?qr  rdf:type  mig:queryref .
 ?qr mig:hasColumn ?col .
-?col mig:hasSqlDataset ?datasetName .  
+?col mig:hasExportSqlName ?datasetName .  
 ?col js:dataType ?dataType .  
 ?qr mig:hasLayoutType ?LayoutType . 
 ?qr js:hasJsonObjectKey ?objkey   .
+?qr js:queryRef ?query_ref .  
   optional {?qr mig:hasAggFunc ?agg_func}  
+?qr mig:hasDisplayName ?DisplayNameStr .  
 } order by xsd:int(?objkey) 
 """ 
+
+stmt_get_layout_table_dash="""
+select ?VisualType ?lt ?qr  ?datasetName ?dataType ?LayoutType ?objkey (coalesce(?agg_func,'') as ?agg_func_num ) ?query_ref  (coalesce(?DisplayNameStr,?datasetName) as ?DisplayName)
+{
+bind (uri(?param?) as ?dash)  
+?iri mig:hasMsDash ?dash .  
+?iri rdf:type mig:DashSection  .
+?vcs js:parentJsonId ?iri  .
+?lt js:parentJsonId ?vcs .  
+?lt mig:hasDasVisualType ?VisualType .  
+?qr mig:hasLayoutTable ?lt .  
+?qr  rdf:type  mig:queryref .
+?qr mig:hasColumn ?col .
+?col mig:hasExportSqlName ?datasetName .  
+?col js:dataType ?dataType .  
+?qr mig:hasLayoutType ?LayoutType . 
+?qr js:hasJsonObjectKey ?objkey   .
+?qr js:queryRef ?query_ref .  
+  optional {?qr mig:hasAggFunc ?agg_func}  
+?qr mig:hasDisplayName ?DisplayNameStr .  
+?iri js:displayName  ?SecdisplayName .
+  filter ( ?SecdisplayName='Главная страница')  
+      
+} order by xsd:int(?objkey) 
+"""
