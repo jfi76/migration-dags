@@ -751,3 +751,18 @@ bind (uri(?param?) as ?dash)
       
 } order by xsd:int(?objkey) 
 """
+
+stmt_filter_details="""
+select ?iri ?filterType ?queryref ?ExportSqlName (coalesce(?cultName,?jsname) as ?CulturalName) {
+  bind(uri(?param?) as ?iri) .
+  ?iri rdf:type mig:dashfilter .
+  ?iri mig:hasFilterType ?filterType .
+  ?qr mig:hasLayoutTable ?iri .
+  ?qr rdf:type mig:queryref  .
+  ?qr js:queryRef ?queryref  .  
+  ?qr mig:hasColumn ?col .
+  ?col mig:hasExportSqlName  ?ExportSqlName .
+  ?col js:name ?jsname .
+  optional {?col mig:hasCulturalName ?cultName } .
+}
+"""

@@ -203,3 +203,66 @@ where
   ?names js:hasJsonObjectKey ?qrref .    
 };
 
+insert {?iri mig:hasFilterType ?typeName . } where 
+{
+  ?iri rdf:type mig:DashVisualContainer .
+  ?iri   js:parentJsonId ?p1.
+  ?p1 js:parentJsonId ?p2 .
+  ?p2  mig:hasMsDash ?dash .
+  ?lev1 mig:hasVisualContainer ?iri .
+  ?sect js:parentJsonId ?lev1 .
+  ?sect js:hasJsonObjectKey "singleVisual" .
+  ?sect  js:visualType ?vctype .
+  ?colO js:parentJsonId ?sect .
+  ?colO js:hasJsonObjectKey "objects" .
+  ?data js:parentJsonId ?colO	.
+  ?data js:hasJsonObjectKey "data" .
+  ?arr js:parentJsonId ?data .
+  ?prop js:parentJsonId  ?arr .
+  ?prop  js:hasJsonObjectKey "properties" .
+  ?mode	 js:parentJsonId	?prop .
+  ?mode  js:hasJsonObjectKey "mode" .
+  ?expr js:parentJsonId ?mode .
+  ?expr js:hasJsonObjectKey 'expr' .
+  ?lit js:parentJsonId ?expr .
+  ?lit js:hasJsonObjectKey "Literal"  .  
+  ?lit js:Value ?typeName .
+};
+insert {?iri rdf:type mig:dashfilter} where {
+?iri rdf:type mig:DashVisualContainer .
+?iri mig:hasDasVisualType "slicer"  .
+};
+insert {?iri rdf:type mig:dashfilter} where {
+?iri rdf:type mig:DashVisualContainer .
+?iri mig:hasDasVisualType "slicer"  .
+};
+insert {?col mig:hasCulturalName ?cultName . ?col mig:hasCultBinding ?binding } where 
+{ ?dash rdf:type mig:msdash .
+  ?col rdf:type mig:DashColumn .
+  ?col mig:hasMsDash ?dash .
+  ?col js:name ?jsname .
+  ?col mig:hasMsDashTable ?table .
+  ?table js:name ?tabname .
+#  bind (LCASE (concat(?tabname,'.', ?jsname )) as ?colfullname )
+  ?model js:parentJsonId ?dash .
+  ?model js:hasJsonObjectKey "model" .
+  ?cultures js:parentJsonId ?model .
+  ?cultures js:hasJsonObjectKey "cultures" .
+  ?item js:parentJsonId* ?cultures .
+  ?item js:hasJsonObjectKey "Terms" .
+  ?item js:parentJsonId ?parent .
+  ?definition js:parentJsonId ?parent .
+  ?definition js:hasJsonObjectKey "Definition" . 
+  ?binding js:parentJsonId ?definition .
+  ?binding js:hasJsonObjectKey "Binding" .
+  ?binding js:ConceptualEntity ?tabname .
+  ?binding js:ConceptualProperty ?jsname .
+  #bind(concat(?ConceptualEntity ,'.',))
+  #?item js:hasJsonObjectKey ?colfullname.  
+  ?cularr js:parentJsonId ?item .
+  ?cul js:parentJsonId  ?cularr .
+  ?cul  js:hasJsonObjectKey ?cultName  .      
+};
+
+
+

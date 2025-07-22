@@ -79,6 +79,15 @@ class superset_migr:
         
         self.form_send_api.form_chart_wrapper(type)
 
+    def prepare_filter(self,recordset:dict, type:str,index:int):
+        
+        self.json_dump_recordset(recordset, self.dir_to_save+f'{type}{index}.json')
+        ret=self.queryService.query(stmt.stmt_filter_details.replace('?param?',"'"+recordset['vc']['value'] +"'"))
+        self.json_dump_recordset(ret, self.dir_to_save+f'{type}{index}_columns.json')
+        
+        self.form_send_api.form_chart_wrapper(type)
+
+
     def iterate_sections(self, dash_iri):
             #self.queryService.insert('delete {?iri ?p ?o} where {?iri rdf:type mig:dashrenamedcolumn . ?iri ?p ?o}')
             ret=self.queryService.query(stmt.stmt_pbi_section_containers.replace("?param?", '"'+ dash_iri +'"' ))
@@ -87,6 +96,10 @@ class superset_migr:
                 if table_expr_stmt['vctype']['value'] in ['pivotTable','tableEx']:
                     self.prepare_pivot_tableex(table_expr_stmt,table_expr_stmt['vctype']['value'],i)
                     i=i+1
+                if table_expr_stmt['vctype']['value'] in ['slicer']:
+                    self.prepare_filter(table_expr_stmt,table_expr_stmt['vctype']['value'],i)
+                    i=i+1
+
             ret=self.queryService.query(stmt.stmt_get_layout_table_dash.replace("?param?", '"'+ dash_iri +'"' ))                    
             self.json_dump_recordset(ret, self.dir_to_save+f'all_columns.json')
 if __name__ == "__main__":
