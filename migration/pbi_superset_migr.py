@@ -21,6 +21,7 @@ class superset_migr:
         self.dir_to_save=dir_to_save
         self.ttl_service=rdfTTLService()
         self.form_send_api=form_send_api(dir_to_save)
+        self.filters=[]
 
     def iterate_marts(self):     
         self.queryService.insert('delete {?dashmart mig:hasSqlDataset ?o} where { ?dashmart rdf:type mig:dashmart .?dashmart mig:hasSqlDataset ?o .} ')           
@@ -50,7 +51,10 @@ class superset_migr:
         self.json_dump_recordset(recordset, self.dir_to_save+'dataset.json')
         self.form_send_api.post_dataset(recordset['dash_prefix']['value'] + ' ' + str(datetime.datetime.now()))
         self.form_send_api.post_dashboard(recordset['dash_prefix']['value'] + ' ' + str(datetime.datetime.now()))
-        self.iterate_sections(recordset['dash_iri']['value'])
+        ret=self.queryService.query( stmt.stmt_sections.replace('?param?',"'"+recordset['dash_iri']['value']+"'")  )
+        for sect in ret:
+            self.iterate_sections(sect['sect']['value'])
+
     def prepare_dataset_sql(self,mart_iri, mainsql):
 # ?sqlNameTable ?col_name  ?dataType ?conv_dataType ?exportSqlName (concat(' Nullable (',?conv_dataType,')') as ?clickDt) 
 # ?run_sql_click         
@@ -79,28 +83,30 @@ class superset_migr:
         
         self.form_send_api.form_chart_wrapper(type)
 
-    def prepare_filter(self,recordset:dict, type:str,index:int):
+    def prepare_filter(self,sectiri, type:str,index:int):
         
-        self.json_dump_recordset(recordset, self.dir_to_save+f'{type}{index}.json')
-        ret=self.queryService.query(stmt.stmt_filter_details.replace('?param?',"'"+recordset['vc']['value'] +"'"))
-        self.json_dump_recordset(ret, self.dir_to_save+f'{type}{index}_columns.json')
+        #self.json_dump_recordset(recordset, self.dir_to_save+f'{type}{index}.json')
+        ret=self.queryService.query(stmt.stmt_filter_details.replace('?param?',"'"+sectiri +"'"))
+        self.json_dump_recordset(ret, self.dir_to_save+f'all_{type}_columns.json')
         
-        self.form_send_api.form_chart_wrapper(type)
+        #self.form_send_api.form_chart_wrapper(type)
 
 
-    def iterate_sections(self, dash_iri):
+    def iterate_sections(self, sectiri):
             #self.queryService.insert('delete {?iri ?p ?o} where {?iri rdf:type mig:dashrenamedcolumn . ?iri ?p ?o}')
-            ret=self.queryService.query(stmt.stmt_pbi_section_containers.replace("?param?", '"'+ dash_iri +'"' ))
+            ret=self.queryService.query(stmt.stmt_pbi_section_containers.replace("?param?", '"'+ sectiri +'"' ))
             i=0
+            self.filters=[]
             for table_expr_stmt in ret :   
                 if table_expr_stmt['vctype']['value'] in ['pivotTable','tableEx']:
                     self.prepare_pivot_tableex(table_expr_stmt,table_expr_stmt['vctype']['value'],i)
                     i=i+1
                 if table_expr_stmt['vctype']['value'] in ['slicer']:
-                    self.prepare_filter(table_expr_stmt,table_expr_stmt['vctype']['value'],i)
-                    i=i+1
-
-            ret=self.queryService.query(stmt.stmt_get_layout_table_dash.replace("?param?", '"'+ dash_iri +'"' ))                    
+                    print('slicer')
+                    #self.filters.append(self.prepare_filter(table_expr_stmt,table_expr_stmt['vctype']['value'],i))
+                    #i=i+1
+            self.filters.append(self.prepare_filter(sectiri,'slicer',i))
+            ret=self.queryService.query(stmt.stmt_get_layout_table_dash.replace("?param?", '"'+ sectiri +'"' ))                    
             self.json_dump_recordset(ret, self.dir_to_save+f'all_columns.json')
 if __name__ == "__main__":
     c=superset_migr('../playground_ai/')

@@ -264,5 +264,17 @@ insert {?col mig:hasCulturalName ?cultName . ?col mig:hasCultBinding ?binding } 
   ?cul  js:hasJsonObjectKey ?cultName  .      
 };
 
+insert {
+        ?container mig:hasSection ?section .
+        } 
+      where 
+ {    
 
+  ?section rdf:type mig:DashSection.
+  ?containers js:parentJsonId  ?section.
+  ?containers js:hasJsonObjectKey 'visualContainers' .
+  ?container js:parentJsonId ?containers .
+  ?container rdf:type mig:DashVisualContainer .
+  };
+  
 

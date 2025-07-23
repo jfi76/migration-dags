@@ -40,7 +40,9 @@ where
 
 insert {?container mig:hasDasVisualType ?visualType . 
         ?container mig:hasDasVisualName ?objName . 
-        ?container rdfs:label ?label .} 
+        ?container rdfs:label ?label . 
+        ?container mig:hasSection ?section .
+        } 
       where 
       {
 select distinct ?container (xsd:integer(?conJsonObjectKey) as ?c_key) ?config ?visualType ?objName (?objName + ' : ' + ?visualType as ?label )

@@ -642,19 +642,15 @@ optional{ ?column mig:hasExportSqlName ?hasExportSqlName }.
 '''
 
 stmt_pbi_section_containers="""
-select ?vc ?name ?y ?vctype  
+select ?vc ?name ?y ?vctype  ?iri
 {
 bind (uri(?param?) as ?dash)  
-?iri mig:hasMsDash ?dash .  
 ?iri rdf:type mig:DashSection  .
-?vcs js:parentJsonId ?iri  .
-?vc js:parentJsonId ?vcs .  
+?vc mig:hasSection ?iri  .
 ?vc rdf:type mig:DashVisualContainer .
 ?vc rdfs:label ?name .  
 ?vc mig:hasDasVisualType ?vctype .  
 ?vc js:y ?y .  
-?iri js:displayName  ?SecdisplayName .
-  filter ( ?SecdisplayName='Главная страница')  
 
 }    
 order by ASC(xsd:float(?y)) 
@@ -754,7 +750,11 @@ bind (uri(?param?) as ?dash)
 
 stmt_filter_details="""
 select ?iri ?filterType ?queryref ?ExportSqlName (coalesce(?cultName,?jsname) as ?CulturalName) {
-  bind(uri(?param?) as ?iri) .
+  bind(uri(?param?) as ?sect) .
+  ?sect mig:hasMsDash ?dash .
+  ?sect rdf:type mig:DashSection .
+  ?iri mig:hasSection ?sect .    
+  ?iri mig:hasMsDash ?dash .
   ?iri rdf:type mig:dashfilter .
   ?iri mig:hasFilterType ?filterType .
   ?qr mig:hasLayoutTable ?iri .
@@ -764,5 +764,17 @@ select ?iri ?filterType ?queryref ?ExportSqlName (coalesce(?cultName,?jsname) as
   ?col mig:hasExportSqlName  ?ExportSqlName .
   ?col js:name ?jsname .
   optional {?col mig:hasCulturalName ?cultName } .
+  ?iri js:y ?y .  
+}    
+order by ASC(xsd:float(?y)) 
+
+"""
+stmt_sections="""
+select ?iri ?sect {
+bind(uri(?param?) as ?iri )  
+?sect rdf:type mig:DashSection .
+?sect mig:hasMsDash ?iri .
+?sect js:displayName  ?SecdisplayName .
+filter ( ?SecdisplayName='Главная страница') .   
 }
 """
