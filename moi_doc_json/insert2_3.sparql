@@ -174,7 +174,7 @@ insert {
   ?dcol mig:hasMsDash ?dash . 
   ?dcol rdf:type mig:DashColumn .  
   ?dcol js:name ?colname .  
-      
+  filter(?qrSource=?from_alias)      
   #?prop js:parentJsonId* ?obj .
   #?prop js:hasJsonObjectKey 'Property' .
   
@@ -276,5 +276,5 @@ insert {
   ?container js:parentJsonId ?containers .
   ?container rdf:type mig:DashVisualContainer .
   };
-  
+
 

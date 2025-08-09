@@ -75,9 +75,52 @@ where
   ?l8 js:hasJsonObjectKey 'expr' .
   ?l9 js:parentJsonId  ?l8 .
   ?l9 js:hasJsonObjectKey 'Literal' .
-  ?l9 js:Value ?objName .
+  ?l9 js:Value ?objNamestr .
+  bind (replace(?objNamestr,"'","") as ?objName) 
+  filter (?visualType !='slicer')
 }
 };
+insert {?container mig:hasDasVisualType ?visualType . 
+        ?container mig:hasDasVisualName ?objName . 
+        ?container rdfs:label ?label . 
+        ?container mig:hasSection ?section .
+        } 
+      where 
+      {
+select distinct ?container (xsd:integer(?conJsonObjectKey) as ?c_key) ?config ?visualType ?objName (?objName + ' : ' + ?visualType as ?label ) 
+where 
+ {    
+#  bind (js:Nf0b73f07d8ca472cb2a2e9fd6849d53d as ?container)  .
+  ?section rdf:type mig:DashSection.
+  ?containers js:parentJsonId  ?section.
+  ?containers js:hasJsonObjectKey 'visualContainers' .
+  ?container js:parentJsonId ?containers .
+  ?container rdf:type mig:DashVisualContainer .
+  ?container js:hasJsonObjectKey ?conJsonObjectKey .
+  ?config mig:hasVisualContainer  ?container.
+  ?config rdf:type mig:DashConfFile  .
+  ?l1 js:parentJsonId  ?config .
+  ?l1 js:hasJsonObjectKey 'singleVisual' .
+    bind('slicer' as ?visualType)  
+  ?l1 js:visualType  ?visualType .
+ 
+  ?iri js:parentJsonId* ?l1 .
+  ?iri  js:hasJsonObjectKey 'header' .
+  ?p1 js:parentJsonId ?iri .
+  ?p2  js:parentJsonId ?p1 .
+  ?p2 js:hasJsonObjectKey 'properties'  .
+  ?p3 js:parentJsonId ?p2 .
+  ?p3 js:hasJsonObjectKey 'text'.
+  ?p4 js:parentJsonId ?p3 .
+  ?p4 js:hasJsonObjectKey 'expr' . 
+  ?p5 js:parentJsonId ?p4 . 
+  ?p5 js:Value ?objNamestr .
+    bind (replace(?objNamestr,"'","") as ?objName)    
+  
+    
+ }
+};
+
 
 insert {
 ?expr mig:hasMsDashTable ?table .

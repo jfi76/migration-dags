@@ -166,14 +166,19 @@ select distinct ?node  (coalesce(?vlabelname,?sqljsname,?jsname,?lname,?miglabel
 """
 
 select_config_pbi="""
- select ?vc_item ?config {  
-  ?sect rdf:type mig:DashSection .
+select ?vc_item ?config {  
+  {?sect rdf:type mig:DashSection .
   ?vc js:parentJsonId ?sect .
   ?vc js:hasJsonObjectKey 'visualContainers' .
   ?vc_item js:parentJsonId  ?vc .
   ?vc_item js:config ?config .
-  ?vc_item js:config ?config .
-   } 
+    ?vc_item js:config ?config .}
+  union 
+  {?vc_item rdf:type mig:DashSection .
+   ?vc_item  js:config ?config .
+  }
+   }
+	 
 """
 
 select_recursive_visualiz_eyed_mart="""
@@ -634,8 +639,8 @@ optional{ ?column mig:hasExportSqlName ?hasExportSqlName }.
   optional {?column2 js:summarizeBy  ?summarizeBy2} .
   #?column2 js:sourceColumn ?sourceColumn2 .
   #bind( concat(?tableName,  "\\\\'\\\\[" , ?colname2 , '\\\\]')  as ?colsearch )
-  bind( concat("\\\\[" , ?colname2 , '\\\\]')  as ?colsearch )
-  bind( concat( "[" , ?hasExportSqlName2 , ']')  as ?colrepl )
+  bind( concat("'",?tablename2,"'","\\\\[" , ?colname2 , '\\\\]')  as ?colsearch )
+  bind( concat("'",?tableName ,"'", "[" , ?hasExportSqlName2 , ']')  as ?colrepl )
   filter (  regex(?expression,?colsearch,"i" ))
 }
 
@@ -644,7 +649,7 @@ optional{ ?column mig:hasExportSqlName ?hasExportSqlName }.
 stmt_pbi_section_containers="""
 select ?vc ?name ?y ?vctype  ?iri
 {
-bind (uri(?param?) as ?dash)  
+bind (uri(?param?) as ?iri)  
 ?iri rdf:type mig:DashSection  .
 ?vc mig:hasSection ?iri  .
 ?vc rdf:type mig:DashVisualContainer .
@@ -707,7 +712,7 @@ order by xsd:integer(?expQueryOrder) xsd:integer(?t_key) xsd:integer(?c_key)
 """
 
 stmt_get_layout_table="""
-select ?qr  ?datasetName ?dataType ?LayoutType ?objkey (coalesce(?agg_func,'') as ?agg_func_num ) ?query_ref (coalesce(?DisplayNameStr,?datasetName) as ?DisplayName)
+select ?qr  ?datasetName ?dataType ?LayoutType ?objkey (coalesce(?agg_func,'') as ?agg_func_num ) ?query_ref (coalesce(?DisplayNameStr,?coljsname,?datasetName) as ?DisplayName)
 {
   bind(uri(?param?) as ?lt)  
 ?qr mig:hasLayoutTable ?lt .  
@@ -715,6 +720,7 @@ select ?qr  ?datasetName ?dataType ?LayoutType ?objkey (coalesce(?agg_func,'') a
 ?qr mig:hasColumn ?col .
 ?col mig:hasExportSqlName ?datasetName .  
 ?col js:dataType ?dataType .  
+?col js:name ?coljsname .  
 ?qr mig:hasLayoutType ?LayoutType . 
 ?qr js:hasJsonObjectKey ?objkey   .
 ?qr js:queryRef ?query_ref .  
@@ -726,7 +732,7 @@ select ?qr  ?datasetName ?dataType ?LayoutType ?objkey (coalesce(?agg_func,'') a
 stmt_get_layout_table_dash="""
 select ?VisualType ?lt ?qr  ?datasetName ?dataType ?LayoutType ?objkey (coalesce(?agg_func,'') as ?agg_func_num ) ?query_ref  (coalesce(?DisplayNameStr,?datasetName) as ?DisplayName)
 {
-bind (uri(?param?) as ?dash)  
+bind (uri(?param?) as ?iri)  
 ?iri mig:hasMsDash ?dash .  
 ?iri rdf:type mig:DashSection  .
 ?vcs js:parentJsonId ?iri  .
@@ -749,7 +755,7 @@ bind (uri(?param?) as ?dash)
 """
 
 stmt_filter_details="""
-select ?iri ?filterType ?queryref ?ExportSqlName (coalesce(?cultName,?jsname) as ?CulturalName) {
+select ?iri ?filterType ?queryref ?ExportSqlName (coalesce(?hasDasVisualName,?cultName,?jsname) as ?CulturalName) {
   bind(uri(?param?) as ?sect) .
   ?sect mig:hasMsDash ?dash .
   ?sect rdf:type mig:DashSection .
@@ -757,10 +763,11 @@ select ?iri ?filterType ?queryref ?ExportSqlName (coalesce(?cultName,?jsname) as
   ?iri mig:hasMsDash ?dash .
   ?iri rdf:type mig:dashfilter .
   ?iri mig:hasFilterType ?filterType .
+  optional {?iri mig:hasDasVisualName ?hasDasVisualName }.
   ?qr mig:hasLayoutTable ?iri .
   ?qr rdf:type mig:queryref  .
   ?qr js:queryRef ?queryref  .  
-  ?qr mig:hasColumn ?col .
+  ?qr mig:hasColumn ?col .  
   ?col mig:hasExportSqlName  ?ExportSqlName .
   ?col js:name ?jsname .
   optional {?col mig:hasCulturalName ?cultName } .
