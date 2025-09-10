@@ -9,16 +9,20 @@ import runSparqlWrapper as sparql_service
 import statements as stmt
 from rdf_ttl_service import rdfTTLService
 
+EXPORT_SCHEMA='export_pbi'
+
 class create_export_query:
     def __init__(self, stmt_to_export, dir_to_save):
         self.engine = sqlalchemy.create_engine(f'''postgresql://postgres:mysecretpassword@localhost:5432/mig15''')    
-        self.export_schema='export_pbi'
+        self.export_schema=EXPORT_SCHEMA
         self.queryService=sparql_service.runSparqlWrapper()
         self.stmt_to_export=stmt_to_export
         self.dir_to_save=dir_to_save
         self.created_dashes:dict={}
         self.ttl_service=rdfTTLService()
         self.tables={}
+        self.try_one_view=False # creates view per 1toMany path
+        self.save_create_view_not_execute=True
     def clean_uri(self,name:str):
         return name.replace('http://www.example.com/JSON#','').replace('http://www.example.com/MIGRATION#','')
 
@@ -59,7 +63,7 @@ class create_export_query:
         #self.order=0
         parent_order=0
         for export_stmt_result in ret: 
-            if self.get_table_from_array(export_stmt_result['tabtoName']['value'])==None : 
+            if self.get_table_from_array(export_stmt_result['tabtoName']['value'])==None or self.try_one_view==False: 
             #or self.get_table_from_array(export_stmt_result['tabtoName']['value'])==None    
             #or self.get_table_from_array(export_stmt_result['tabfromName']['value'])==None:
                 self.order=self.order+1

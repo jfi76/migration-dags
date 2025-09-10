@@ -166,16 +166,20 @@ select distinct ?node  (coalesce(?vlabelname,?sqljsname,?jsname,?lname,?miglabel
 """
 
 select_config_pbi="""
-select ?vc_item ?config {  
+select ?vc_item ?config ?itype {  
   {?sect rdf:type mig:DashSection .
   ?vc js:parentJsonId ?sect .
   ?vc js:hasJsonObjectKey 'visualContainers' .
   ?vc_item js:parentJsonId  ?vc .
   ?vc_item js:config ?config .
-    ?vc_item js:config ?config .}
+    ?vc_item js:config ?config .
+    
+  bind ('c' as ?itype)   .
+    }
   union 
   {?vc_item rdf:type mig:DashSection .
    ?vc_item  js:config ?config .
+   bind ('s' as ?itype)   .
   }
    }
 	 
@@ -236,7 +240,8 @@ select ?table ?tabname ?expr ?jsstring
 ?expr mig:hasMsDashTable ?table .
 ?expr rdf:type  mig:DashExpression . 
 ?expr  js:jsstring ?jsstring.
-?table js:name ?tabname .   
+?table js:name ?tabname .
+#filter (?tabname ='Коррктировки')   
 } 
 """
 
@@ -632,6 +637,7 @@ optional{ ?column mig:hasExportSqlName ?hasExportSqlName }.
 ?column js:summarizeBy  ?summarizeBy .
 
   ?column2 mig:hasMsDashTable ?table2 .
+  ?table2 js:name ?tablename2 .
   ?column2 rdf:type mig:DashColumn .
   ?column2 js:name ?colname2 .
   ?column2 mig:hasSqlName ?sqlname2 .
@@ -640,7 +646,7 @@ optional{ ?column mig:hasExportSqlName ?hasExportSqlName }.
   #?column2 js:sourceColumn ?sourceColumn2 .
   #bind( concat(?tableName,  "\\\\'\\\\[" , ?colname2 , '\\\\]')  as ?colsearch )
   bind( concat("'",?tablename2,"'","\\\\[" , ?colname2 , '\\\\]')  as ?colsearch )
-  bind( concat("'",?tableName ,"'", "[" , ?hasExportSqlName2 , ']')  as ?colrepl )
+  bind( concat( "[" , ?hasExportSqlName2 , ']')  as ?colrepl )
   filter (  regex(?expression,?colsearch,"i" ))
 }
 
@@ -749,8 +755,14 @@ bind (uri(?param?) as ?iri)
   optional {?qr mig:hasAggFunc ?agg_func}  
 ?qr mig:hasDisplayName ?DisplayNameStr .  
 ?iri js:displayName  ?SecdisplayName .
-  filter ( ?SecdisplayName='Главная страница')  
-      
+#  filter ( ?SecdisplayName='Главная страница')  
+optional {
+  ?vis mig:DashSection ?iri  .
+  ?vis rdf:type mig:DashConfFile .
+  ?vis js:visibility  ?visibility .  
+  }
+bind (coalesce(?visibility,'0') as ?isvisible )
+filter (?isvisible='0')      
 } order by xsd:int(?objkey) 
 """
 
@@ -782,6 +794,13 @@ bind(uri(?param?) as ?iri )
 ?sect rdf:type mig:DashSection .
 ?sect mig:hasMsDash ?iri .
 ?sect js:displayName  ?SecdisplayName .
-filter ( ?SecdisplayName='Главная страница') .   
+#filter ( ?SecdisplayName='Главная страница') .   
+optional {
+  ?vis mig:DashSection ?sect  .
+  ?vis rdf:type mig:DashConfFile .
+  ?vis js:visibility  ?visibility .  
+  }
+bind (coalesce(?visibility,'0') as ?isvisible )
+filter (?isvisible='0')
 }
 """

@@ -48,7 +48,7 @@ class rdfTTLService:
         self.graph.add((iri ,RDFS.label, Literal(label)))           
         return iri
     def log_proc_error(self,taksIri,procIri,error,label=''):
-        print('do_logging:'+ error[0:10])
+        #print('do_logging:'+ error[0:10])
         iri=self.Namespace[self.hashCode()]     
         self.graph.add((iri , RDF.type, OWL.NamedIndividual))              
         self.graph.add((iri ,RDF.type, self.Namespace.runcreateprocessprocedure))                               
@@ -238,3 +238,9 @@ class rdfTTLService:
     def mart_dataset_column_sql(self,column_iri, sql ):
             iri=URIRef(column_iri)
             self.graph.add((iri ,self.Namespace.hasSqlDataset, Literal(sql)))                                                                           
+
+    def table_expr_calendar(self,table_iri, hasSQLShema, hasSQLTableName ):
+            iri=URIRef(table_iri)
+            self.graph.add((iri ,self.Namespace.hasSQLShema, Literal(hasSQLShema)))   
+            self.graph.add((iri ,RDF.type, self.Namespace.dashCalendar))                                                                                    
+            self.graph.add((iri ,self.Namespace.hasSQLTableName, Literal(hasSQLTableName)))  

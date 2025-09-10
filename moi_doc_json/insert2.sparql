@@ -13,12 +13,26 @@ insert{
 ?iri mig:hasVisualContainer ?uid .
 } where 
 {
-select ?iri ?file (iri(concat('http://www.example.com/JSON#',replace(?file,'-conf.json',''))) as ?uid) 
+select ?iri ?file (iri(concat('http://www.example.com/JSON#',replace(?file,'-c-conf.json',''))) as ?uid) 
             {            
             ?iri rdf:type js:FileJson .
             optional{?iri rdfs:label ?label } .
             ?iri etl:hasSourceFile ?file .  
-			filter (regex(?file,'-conf.json','i') )  
+			filter (regex(?file,'-c-conf.json','i') )  
+            }
+};
+
+insert{
+?uid rdf:type mig:DashSection .
+?iri mig:hasDashSection ?uid .
+} where 
+{
+select ?iri ?file (iri(concat('http://www.example.com/JSON#',replace(?file,'-s-conf.json',''))) as ?uid) 
+            {            
+            ?iri rdf:type js:FileJson .
+            optional{?iri rdfs:label ?label } .
+            ?iri etl:hasSourceFile ?file .  
+			filter (regex(?file,'-s-conf.json','i') )  
             }
 };
 
@@ -121,25 +135,45 @@ where
  }
 };
 
+insert {
+?expr mig:hasMsDashTable ?table .
+?expr rdf:type  mig:DashExpression . 
+?table mig:sourceString ?jsstring . 
+?expr js:jsstring ?jsstring .
+} where 
+
+{?table rdf:type mig:msDashTable.
+ ?part js:parentJsonId  ?table .
+ ?table js:name ?tabname . 
+ ?part js:hasJsonObjectKey "partitions" .
+ ?itempart  js:parentJsonId ?part.  
+ ?itempart js:hasJsonObjectKey ?keyitem .
+ ?expr  js:parentJsonId ?itempart.  
+ ?expr js:hasJsonObjectKey "source" .  
+ ?expr  js:expression ?jsstring.
+};
+
 
 insert {
 ?expr mig:hasMsDashTable ?table .
 ?expr rdf:type  mig:DashExpression . 
 ?table mig:sourceString ?jsstring . 
+?expr js:jsstring ?jsstring .
 } where 
-#select  ?table ?tabname ?expr ?jsstring
+
 {?table rdf:type mig:msDashTable.
  ?part js:parentJsonId  ?table .
  ?table js:name ?tabname . 
  ?part js:hasJsonObjectKey "partitions" .
  ?itempart  js:parentJsonId ?part.  
  ?itempart js:hasJsonObjectKey ?keyitem .
- ?source  js:parentJsonId ?itempart.  
- ?source js:hasJsonObjectKey "source" .  
- ?expr  js:parentJsonId ?source.   
- ?expr js:hasJsonObjectKey "expression" .
- ?expr  js:jsstring ?jsstring.
-  filter ( regex(?jsstring,'Schema') && regex(?jsstring,'Item') )
+ ?expr  js:parentJsonId ?itempart.  
+ ?expr js:hasJsonObjectKey "source" .  
+# ?expr  js:parentJsonId ?source.   
+ #?source js:hasJsonObjectKey "expression" .
+ ?expr  js:expression ?jsstring.
+ filter ( regex(?jsstring,'Date','i')=false && regex(?jsstring,'Local','i')=false  )
+ #filter (?tabname ='reports duk_rad_ouzp_attr_data_distinct')     
 };
 
 insert {
@@ -158,5 +192,4 @@ insert {
  ?expr js:hasJsonObjectKey "expression" .
  ?expr  js:jsstring ?jsstring.
 };
-
 

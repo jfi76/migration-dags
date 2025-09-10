@@ -13,7 +13,7 @@ class config_load:
     def get_and_save(self):
         ret=self.queryService.query(self.stmt_to_export)
         for export_stmt_result in ret:   
-            file=f'''{self.file_to_save}/{str(export_stmt_result['vc_item']['value']).replace('http://www.example.com/JSON#','')}-conf.json'''
+            file=f'''{self.file_to_save}/{str(export_stmt_result['vc_item']['value']).replace('http://www.example.com/JSON#','')}-{export_stmt_result['itype']['value']}-conf.json'''
             f = open(file,"w",encoding='utf-8')
             f.write(export_stmt_result['config']['value'])            
             f.close()        

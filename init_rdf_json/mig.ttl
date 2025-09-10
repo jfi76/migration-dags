@@ -209,6 +209,12 @@ order by ?dashName ?tabeName""" ;
       rdfs:label "TSQL" .
 
 
+###  http://www.example.com/MIGRATION#dashCalendar
+:dashCalendar rdf:type owl:Class ;
+              rdfs:subClassOf :msDashTable ;
+              rdfs:comment "Calendar" .
+
+
 ###  http://www.example.com/MIGRATION#dashTableRelationship
 :dashTableRelationship rdf:type owl:Class ;
                        rdfs:subClassOf :msDashTable ;
@@ -610,7 +616,7 @@ order by ?dashName ?tabeName""" ;
 ###  http://www.example.com/MIGRATION#DashTables
 :DashTables rdf:type owl:NamedIndividual ,
                      report:buttonReport ;
-            report:hasQuery """select ?ch3  ?tableName  ?hasSqlName  ?hasExportSqlName
+            report:hasQuery """select ?ch3  ?tableName  ?hasSqlName  ?hasExportSqlName ?sourceString ?exptype ?tablexpr
 {
 bind (?param? as ?param)  
  ?param rdf:type mig:msdash .
@@ -622,9 +628,16 @@ bind (?param? as ?param)
  ?ch3 js:parentJsonId ?ch2 . 
  ?ch3 js:hasJsonObjectKey  ?valNum .
  ?ch3 js:name  ?tableName .  
- ?ch3 mig:hasSqlName ?hasSqlName.
+optional {?ch3 mig:hasSqlName ?hasSqlName} .
 optional { ?ch3 mig:hasExportSqlName ?hasExportSqlName } .
-}""" ;
+optional {?ch3  mig:sourceString ?sourceString} .
+optional {
+?expr rdf:type mig:DashExpression .
+?expr mig:hasMsDashTable  ?ch3 .  
+?expr js:type ?exptype .
+?expr  js:expression ?tablexpr .
+ }
+} order by  ?tableName""" ;
             rdfs:label "Tables" .
 
 
