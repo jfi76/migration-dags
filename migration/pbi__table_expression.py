@@ -7,6 +7,7 @@ import json
 import runSparqlWrapper as sparql_service
 import statements as stmt
 from rdf_ttl_service import rdfTTLService
+from pbi_create_export_query import EXPORT_SCHEMA
 import re
 import ast
 import jsbeautifier
@@ -31,16 +32,24 @@ class process_table_expreesion:
         item=val1[:end]        
         self.ttl_service.add_table_name(expr['table']['value'],schema,item)
     def proc_rename_columns(self,expr:dict):
+        #print('start rename')
         val:str=expr['jsstring']['value']
         start=val.find('Table.RenameColumns(')
         val1=val[start+len('Table.RenameColumns('):]
         #Table.RenameColumns(DIM_branch,{{\"branch_short_name\", \"МРФ\"}, {\"branch_pleasant_name\", \"РФ\"}, {\"macrobranch_consolidation\", \"МР\"}}),
-        start=val.find('{')
-        val1=val[start-1+len('{'):]
-        end=val1.rfind(')')
+        start=val1.find('{')
+        #print(val1 + '\n\n')
+        val1=val1[start-1+len('{'):]
+        #print(val1 + '\n\n')
+        
+        
+        end=val1.find('})')+1
+        #print(item)
+        #print(val1[:end])
         item=val1[:end].replace('{','[').replace('}',']')
+        
         parsed=ast.literal_eval(item)
-        #print(parsed)
+        
         if len(parsed)>0 and isinstance(parsed[0],list)==False:
             init_col=parsed[0]
             if init_col in self.duplicated_column.keys():
@@ -61,7 +70,7 @@ class process_table_expreesion:
         val1=val[start+len(','):]
         end=val1.find(',')
         item1=val1[:end].replace('"','').strip()
-        print(item1)
+        #print(item1)
 
         start=val.find('Table.AddColumn(')
         val1=val[start+len('Table.AddColumn('):]
@@ -128,6 +137,10 @@ class process_table_expreesion:
             self.ttl_service.add_table_distinct_col(str(result).replace('\"',''),expr['expr']['value'])
 
 
+    def create_exp_table(self,expr:dict):
+        #table_expr_calendar
+        self.ttl_service.table_expr_calendar(expr['table']['value'],EXPORT_SCHEMA, f'common_calendar')
+         
 
     def proc_duplicate_columns(self,expr:dict):
         val:str=expr['jsstring']['value']
@@ -138,8 +151,8 @@ class process_table_expreesion:
         val1=val[start+len(','):]
         end=val1.rfind(')')
         item=val1[:end].replace('{','[').replace('}',']')
-        print('item:')
-        print(item)
+        # print('item:')
+        # print(item)
         parsed=ast.literal_eval(item)
         
         if len(parsed)>0 and isinstance(parsed[0],list)==False:
@@ -149,7 +162,7 @@ class process_table_expreesion:
             for col_renamed in parsed:
                 self.ttl_service.add_duplicated_col(col_renamed[0],col_renamed[1],expr['expr']['value'])
                 self.duplicated_column[col_renamed[1]]=col_renamed[0]
-        print(self.duplicated_column)
+        #print(self.duplicated_column)
     def iterate_expr(self):
         self.queryService.insert('delete {?iri ?p ?o} where {?iri rdf:type mig:dashrenamedcolumn . ?iri ?p ?o}')
         self.queryService.insert('delete {?iri ?p ?o} where {?iri rdf:type mig:dashduplicatedcolumn . ?iri ?p ?o}')
@@ -168,6 +181,7 @@ class process_table_expreesion:
                 if 'Table.DuplicateColumn' in  table_expr_stmt['jsstring']['value']: self.proc_duplicate_columns(table_expr_stmt)
                 if 'Table.AddColumn' in  table_expr_stmt['jsstring']['value']: self.proc_add_columns(table_expr_stmt) 
                 if 'Table.Distinct' in table_expr_stmt['jsstring']['value']: self.distinct_table(table_expr_stmt) 
+                if 'CALENDAR(' in table_expr_stmt['jsstring']['value']: self.create_exp_table(table_expr_stmt) 
                 
             except Exception as e:
                 print('error in table expr:')
