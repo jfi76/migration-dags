@@ -94,11 +94,13 @@ where
  {
 ?iri rdf:type mig:msDashTable .
 ?iri js:hasJsonObjectKey ?key .
+optional{
 ?iri mig:hasSQLTableName ?tab_nam_sql .        
+} .
 ?iri mig:hasMsDash ?dash . 
 ?dash mig:hasPrefix  ?prefix .  
   bind (concat(?prefix,'_',?key )  as ?tab_prefix)  .
-  bind (concat(?tab_prefix,'_', ?tab_nam_sql) as ?tab_export_name ) .   
+  bind (concat(?tab_prefix,'_', coalesce(?tab_nam_sql,'_art')) as ?tab_export_name ) .   
 };
 
 insert 

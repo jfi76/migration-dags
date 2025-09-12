@@ -804,3 +804,36 @@ bind (coalesce(?visibility,'0') as ?isvisible )
 filter (?isvisible='0')
 }
 """
+
+stmt_tables_source_str="""
+select ?dash ?table ?tablename ?hasSQLShema ?hasSQLTableName ?sourceString ?hasExportSqlName {
+  bind (uri(?param?)  as ?dash )
+  ?table mig:hasMsDash ?dash .
+  ?table rdf:type mig:msDashTable .
+  ?table js:name ?tablename .
+  optional{
+  ?table mig:hasSQLTableName ?hasSQLTableName .
+  ?table mig:hasSQLShema ?hasSQLShema .  
+  }. 
+  ?table mig:sourceString ?sourceString .
+  ?table  mig:hasExportSqlName ?hasExportSqlName .
+}
+"""
+stmt_tables_cols="""
+select ?dash ?table ?tablename ?colname ?hasSQLShema ?hasSQLTableName ?sourceString ?hasExportSqlNameTab ?hasExportSqlNameCol{
+  bind (uri(?param?) as ?dash )
+  ?table mig:hasMsDash ?dash .
+  ?table rdf:type mig:msDashTable .
+  ?table js:name ?tablename .
+  optional{
+  ?table mig:hasSQLTableName ?hasSQLTableName .
+  ?table mig:hasSQLShema ?hasSQLShema .  
+} .  
+
+  ?table  mig:hasExportSqlName ?hasExportSqlNameTab .  
+  ?column mig:hasMsDashTable ?table .
+  ?column rdf:type mig:DashColumn . 
+  ?column js:name ?colname .
+  ?column mig:hasExportSqlName ?hasExportSqlNameCol .
+}
+"""

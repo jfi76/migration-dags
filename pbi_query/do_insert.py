@@ -1,10 +1,12 @@
 import sys
 
 
+
+
 sys.path.append( '../migration/' )
 sys.path.append( '../migration/query/' )
 from pbi__table_expression import process_table_expreesion
-
+from pbi_replace_cols_tabs import replace_cols_tabs
 from export_freemind import export_freemind
 from pbi_create_export_query import create_export_query
 from pbi_calculated_columns import calculated_columns
@@ -16,6 +18,12 @@ from pbi_config_load import config_load
 from load_init_rdf_json import load_init_rdf_json
 
 if __name__ == "__main__":
+    stmt_all_dashes="""select ?dash ?fileName  {
+    bind(js:N0500555be7d2497793899a8c2f304b34 as ?dash)
+    ?dash rdf:type mig:msdash . 
+    ?dash etl:hasSourceFile ?fileName . 
+    
+    }"""    
 
     # cl=load_init_rdf_json('../init_rdf_json/','../output/')
 
@@ -46,42 +54,39 @@ if __name__ == "__main__":
     # service=sparql_service.runSparqlWrapper()
     # service.insert(data)
 
-    c=process_table_expreesion('../playground_parsed_adds/')
-    c.iterate_expr()
-    data = open('../moi_doc_json/insert2_2.sparql').read()
-    service=sparql_service.runSparqlWrapper()
-    service.insert(data)
+    # c=process_table_expreesion('../playground_parsed_adds/')
+    # c.iterate_expr()
+    # data = open('../moi_doc_json/insert2_2.sparql').read()
+    # service=sparql_service.runSparqlWrapper()
+    # service.insert(data)
 
 
     # cfrm=export_freemind(stmt.select_recursive_visualiz_pbi,'c:\\zena\\')
     # cfrm.key_name='Дашбоард'
     # cfrm.get_dashes()
 
-    calc=calculated_columns('../playground_parsed_adds/')
-    calc.replace_expression()
+    # calc=calculated_columns('../playground_parsed_adds/')
+    # calc.replace_expression()
 
-    conv3=json_to_ontology('../playground_ai/')
-    conv3.rdf_parsed='../playground_ai_parsed/'
-    conv3.processJsonDir()
+    # conv3=json_to_ontology('../playground_ai/')
+    # conv3.rdf_parsed='../playground_ai_parsed/'
+    # conv3.processJsonDir()
 
-    data = open('../moi_doc_json/insert2_3.sparql').read()
-    service=sparql_service.runSparqlWrapper()
-    service.insert(data)
+    # data = open('../moi_doc_json/insert2_3.sparql').read()
+    # service=sparql_service.runSparqlWrapper()
+    # service.insert(data)
 
+    crepl=replace_cols_tabs('',stmt.stmt_tables_source_str,stmt.stmt_tables_cols,stmt.stmt_tables_source_str, '../playground_parsed_adds/', stmt_all_dashes)
+    crepl.do_dashes()
+
+    # cexp=create_export_query(stmt_all_dashes,'../playground_parsed_adds/')
     
-    stmt_all_dashes="""select ?dash ?fileName  {
-    ?dash rdf:type mig:msdash . 
-    ?dash etl:hasSourceFile ?fileName . 
-    }"""    
-
-    cexp=create_export_query(stmt_all_dashes,'../playground_parsed_adds/')
+    # cexp.create_view_sql()
     
-    cexp.create_view_sql()
-    
-    cexp.iterate_dashes()
+    # cexp.iterate_dashes()
 
-    cexp.create_from_for_export_query()
-    cexp.create_mart_export_query()
+    # cexp.create_from_for_export_query()
+    # cexp.create_mart_export_query()
     #cexp.run_views_onserver()
     
 #####################################
