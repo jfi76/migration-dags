@@ -837,3 +837,12 @@ select ?dash ?table ?tablename ?colname ?hasSQLShema ?hasSQLTableName ?sourceStr
   ?column mig:hasExportSqlName ?hasExportSqlNameCol .
 }
 """
+stmt_all_tables_art="""
+select ?sqlstmt   ?hasSqlName  ?table 
+{?table mig:hasSQLShema ?hasSQLShema . 
+?table mig:hasSQLTableName ?hasSQLTableName .
+?table mig:hasSqlArt ?sqlstmt .
+?table mig:hasSqlName ?hasSqlName .
+?table rdf:type mig:artTable .  
+}
+"""

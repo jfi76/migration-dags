@@ -68,6 +68,10 @@ if __name__ == "__main__":
     # calc=calculated_columns('../playground_parsed_adds/')
     # calc.replace_expression()
 
+    # crepl=replace_cols_tabs('',stmt.stmt_tables_source_str,stmt.stmt_tables_cols,stmt.stmt_tables_source_str, '../playground_parsed_adds/', stmt_all_dashes)
+    # crepl.do_dashes()
+
+
     # conv3=json_to_ontology('../playground_ai/')
     # conv3.rdf_parsed='../playground_ai_parsed/'
     # conv3.processJsonDir()
@@ -76,12 +80,14 @@ if __name__ == "__main__":
     # service=sparql_service.runSparqlWrapper()
     # service.insert(data)
 
-    crepl=replace_cols_tabs('',stmt.stmt_tables_source_str,stmt.stmt_tables_cols,stmt.stmt_tables_source_str, '../playground_parsed_adds/', stmt_all_dashes)
-    crepl.do_dashes()
+    f = open('../playground_parsed_adds/'+'all_views.sql', encoding='utf-8',mode="w")
+    f.write('')
+    f.close()        
 
-    # cexp=create_export_query(stmt_all_dashes,'../playground_parsed_adds/')
-    
-    # cexp.create_view_sql()
+    cexp=create_export_query(stmt_all_dashes,'../playground_parsed_adds/')
+
+    cexp.run_view_art_sql()
+    cexp.create_view_sql()
     
     # cexp.iterate_dashes()
 

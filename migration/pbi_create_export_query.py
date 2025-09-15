@@ -258,17 +258,30 @@ select """
         self.queryService.load_ttl(filepath)
 
     def run_on_server_create_view(self, sql_to_run, view_name, table_iri):
-        with self.engine.connect() as connection:
-            try: 
-                connection.begin()
-                connection.execute(text(f'''drop view if exists {self.export_schema}.{view_name} cascade; '''))
-                connection.execute(text(sql_to_run))
-                connection.commit()
-            except Exception as e:
-                connection.rollback()
-                self.ttl_service.log_proc_error(self.taskIri, table_iri , str(e))
-                print(e)    
+        if self.save_create_view_not_execute==False:
+            with self.engine.connect() as connection:
+                try: 
+                    connection.begin()
+                    connection.execute(text(f'''drop view if exists {self.export_schema}.{view_name} cascade; '''))
+                    connection.execute(text(sql_to_run))
+                    connection.commit()
+                except Exception as e:
+                    connection.rollback()
+                    self.ttl_service.log_proc_error(self.taskIri, table_iri , str(e))
+                    print(e)    
+        else:
+            f = open(self.dir_to_save+'all_views.sql', encoding='utf-8',mode="a")
+            f.write(sql_to_run)
+            f.close()        
 
+
+    def run_view_art_sql(self):
+        
+        ret=self.queryService.query(stmt.stmt_all_tables_art)                  
+        for export_stmt_result in ret: 
+            self.run_on_server_create_view(f"""create view {export_stmt_result['hasSqlName']['value']} as 
+                                           """ + export_stmt_result['sqlstmt']['value'] + ';' , 
+                export_stmt_result['hasSqlName']['value'], export_stmt_result['table']['value'])            
 
     def create_view_sql(self):
         self.queryService.insert("""delete {?iri mig:hasSql ?sql} where { ?iri rdf:type mig:msDashTable . ?iri mig:hasSql ?sql}""")

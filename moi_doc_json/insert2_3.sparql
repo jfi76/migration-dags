@@ -278,3 +278,42 @@ insert {
   };
 
 
+
+insert {?dax rdf:type mig:tansformed_click .
+?dax mig:hasMsDashTable ?table  .
+?table  mig:hasTableExpressionSql ?sql .  
+} 
+where 
+
+{?iri rdf:type js:FileJson .
+?iri etl:hasSourceFile ?filename .
+  filter (contains(?filename,'dax_click_tab.json'))
+?child1 js:parentJsonId ?iri .
+?dax js:parentJsonId ?child1 .  
+?dax js:tableName ?tableName .
+?dax js:dash ?daxdash .
+?dax js:sql ?sql .  
+?dash rdf:type mig:msdash .  
+?dash  mig:hasPrefix ?daxdash.
+?table js:name ?tableName  .  
+?table rdf:type mig:msDashTable .
+
+};
+
+insert{?table mig:hasSQLShema ?hasSQLShema . 
+?table mig:hasSQLTableName ?hasSQLTableName .
+?table mig:hasSqlArt ?sql .
+?table mig:hasSqlName ?hasSqlName .
+?table rdf:type mig:artTable .  
+}
+where 
+{
+select ?table ?hasExportSqlName  
+(replace(replace(?hasTableExpressionSql,'```sql', ''),'```', '') as ?sql)   
+( concat(?hasExportSqlName,'_input') as ?hasSQLTableName)
+( concat('export_pbi','.', ?hasExportSqlName,'_input')  as ?hasSqlName)
+{
+?table rdf:type mig:msDashTable .
+?table mig:hasTableExpressionSql ?hasTableExpressionSql .  
+?table mig:hasExportSqlName ?hasExportSqlName }
+};

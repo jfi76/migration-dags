@@ -209,6 +209,12 @@ order by ?dashName ?tabeName""" ;
       rdfs:label "TSQL" .
 
 
+###  http://www.example.com/MIGRATION#artTable
+:artTable rdf:type owl:Class ;
+          rdfs:subClassOf :msDashTable ;
+          rdfs:label "Artificial Table" .
+
+
 ###  http://www.example.com/MIGRATION#dashCalendar
 :dashCalendar rdf:type owl:Class ;
               rdfs:subClassOf :msDashTable ;
@@ -586,13 +592,14 @@ order by ?dashName ?tabeName""" ;
 ###  http://www.example.com/MIGRATION#BtnDashTabelsColumns
 :BtnDashTabelsColumns rdf:type owl:NamedIndividual ,
                                report:buttonReport ;
-                      report:hasQuery """select (?column as ?iri) ?dashName ?tableName ?colname ?type ?dataType ?sourceColumn ?expression (coalesce(?expreplaced,'') as ?col_expr_export)
+                      report:hasQuery """select ?dash_prefix (?column as ?iri) ?dashName ?tableName ?colname ?type ?dataType ?sourceColumn ?expression (coalesce(?expreplaced,'') as ?col_expr_export)
 ?summarizeBy 
 ?pg_sql 
 ?click_sql 
 {
   bind (?param? as ?dash) .
   ?dash rdf:type mig:msdash .
+?dash mig:hasPrefix ?dash_prefix .
   ?dash js:name ?dashName .
   ?table js:name ?tableName .  
   ?table mig:hasMsDash ?dash . 
@@ -616,10 +623,11 @@ order by ?dashName ?tabeName""" ;
 ###  http://www.example.com/MIGRATION#DashTables
 :DashTables rdf:type owl:NamedIndividual ,
                      report:buttonReport ;
-            report:hasQuery """select ?ch3  ?tableName  ?hasSqlName  ?hasExportSqlName ?sourceString ?exptype ?tablexpr
+            report:hasQuery """select  ?dash_prefix ?ch3  ?tableName  ?hasSqlName  ?hasExportSqlName ?sourceString ?exptype ?tablexpr ?hasExpressionReplaced
 {
 bind (?param? as ?param)  
  ?param rdf:type mig:msdash .
+?param mig:hasPrefix ?dash_prefix .
  ?ch1 js:parentJsonId ?param .
  ?ch1  js:hasJsonObjectKey 'model' .
  ?ch1 js:defaultPowerBIDataSourceVersion ?defaultPowerBIDataSourceVersion .
@@ -631,11 +639,13 @@ bind (?param? as ?param)
 optional {?ch3 mig:hasSqlName ?hasSqlName} .
 optional { ?ch3 mig:hasExportSqlName ?hasExportSqlName } .
 optional {?ch3  mig:sourceString ?sourceString} .
+optional {?ch3 mig:hasExpressionReplaced ?hasExpressionReplaced .}
 optional {
 ?expr rdf:type mig:DashExpression .
 ?expr mig:hasMsDashTable  ?ch3 .  
 ?expr js:type ?exptype .
 ?expr  js:expression ?tablexpr .
+
  }
 } order by  ?tableName""" ;
             rdfs:label "Tables" .
