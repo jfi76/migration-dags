@@ -1,6 +1,7 @@
 
 import sys 
 import sqlalchemy 
+import re
 from sqlalchemy import create_engine, MetaData, text
 sys.path.append( './query/' )
 sys.path.append( './migration/query/' )
@@ -274,13 +275,40 @@ select """
             f.write(sql_to_run)
             f.close()        
 
-
-    def run_view_art_sql(self):
+    def process_distinct_column(self,str:str, table_iri):
+        # """SELECT relation_type FROM ( """        
+        pattern=r'SELECT\s+([\w\s,]+)\s+FROM\s+\('
+        match=re.search(pattern, str)
+        column_names_list=[]
         
+        if match:
+            column_names=match.group(1) 
+            column_names_list=[col.strip() for col in column_names.split(',') ]
+        if table_iri in  self.art_cols.keys():    
+            i=0
+            ret_str=[]
+            for col in  self.art_cols[table_iri]:
+               if i<len(column_names_list):
+                ret_str.append(f""" {column_names_list[i]} as {col} """)               
+               i=i+1
+
+        return ','.join(ret_str)
+    
+    def run_view_art_sql(self):
+        self.art_cols={}
+        ret=self.queryService.query(stmt.stmt_cols_table_art)
+        for export_stmt_result in ret:
+            if export_stmt_result['table']['value'] not in self.art_cols.keys():
+                self.art_cols[export_stmt_result['table']['value']]=[]
+            self.art_cols[export_stmt_result['table']['value']].append(export_stmt_result['colExpName']['value'])    
+            
         ret=self.queryService.query(stmt.stmt_all_tables_art)                  
-        for export_stmt_result in ret: 
+        for export_stmt_result in ret:
+            select_start=self.process_distinct_column(export_stmt_result['sqlstmt']['value'], export_stmt_result['table']['value'])
+            start=str(export_stmt_result['sqlstmt']['value']).lower().find('from')
+            stmt_str=f"""SELECT {select_start} """ + export_stmt_result['sqlstmt']['value'][start:]
             self.run_on_server_create_view(f"""create view {export_stmt_result['hasSqlName']['value']} as 
-                                           """ + export_stmt_result['sqlstmt']['value'] + ';' , 
+                                           """ + stmt_str + ';' , 
                 export_stmt_result['hasSqlName']['value'], export_stmt_result['table']['value'])            
 
     def create_view_sql(self):

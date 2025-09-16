@@ -846,3 +846,18 @@ select ?sqlstmt   ?hasSqlName  ?table
 ?table rdf:type mig:artTable .  
 }
 """
+
+stmt_cols_table_art="""
+select ?dash ?table ?tablename  ?colExpName  {
+?dash rdf:type mig:msdash .  
+?table mig:hasMsDash ?dash   .
+?table rdf:type mig:msDashTable .  
+?table rdf:type mig:artTable .
+?col mig:hasMsDashTable ?table .  
+?col rdf:type mig:DashColumn .  
+?table js:name ?tablename .  
+?col mig:hasExportSqlName ?colExpName  .
+?col js:hasJsonObjectKey ?key .      
+}
+order by ?dash  ?table xsd:int(?key)
+"""
