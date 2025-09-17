@@ -556,13 +556,16 @@ select ?expsqlname  ?colname ?col ?dataType
 
 stmt_exp_query_all="""select ?query ?exp_order (coalesce( ?main_query,'') as ?hasParent )
 ?select ?from (coalesce(?sql_init,'') as ?sql)
+?src_name 
  {
  ?query mig:hasMart  ?mart  .
  ?query rdf:type  mig:dashexportquery .
  ?query mig:hasOrder ?exp_order .
  ?query  mig:hasSqlSelect ?select .
  ?query  mig:hasSqlFrom ?from .
-  optional{?query mig:hasSql  ?sql_init .} .
+ 
+ optional {?query mig:label ?src_name } . 
+ optional{?query mig:hasSql  ?sql_init .} .
  optional { ?p_query rdf:type mig:parentexportquery  .
         ?p_query mig:hasExportQuery ?query .
         ?p_query mig:hasExportParentQuery ?main_query .
@@ -848,7 +851,7 @@ select ?sqlstmt   ?hasSqlName  ?table
 """
 
 stmt_cols_table_art="""
-select ?dash ?table ?tablename  ?colExpName  {
+select ?dash ?table ?tablename  ?colExpName ?col {
 ?dash rdf:type mig:msdash .  
 ?table mig:hasMsDash ?dash   .
 ?table rdf:type mig:msDashTable .  

@@ -247,3 +247,8 @@ class rdfTTLService:
     def table_expression_renamed(self,table_iri,expression_renamed:str):
         iri=URIRef(table_iri)
         self.graph.add((iri ,self.Namespace.hasExpressionReplaced, Literal(expression_renamed)))                                                                           
+    def col_hasSqlName(self,col_iri,hasSqlName:str):
+        iri=URIRef(col_iri)
+        self.graph.add((iri ,self.Namespace.hasSqlName, Literal(hasSqlName)))  
+        self.graph.add((iri ,self.Namespace.hasExportCalcSql, Literal(hasSqlName)))  
+                                                                                        

@@ -188,7 +188,7 @@ class create_export_query:
         for export_query_result in ret:   
             #if export_query_result['exp_order']['value']=='0' or export_query_result['hasParent']['value']!='':
             #self.create_hasmartsql(export_query_result['query']['value'], export_query_result['exp_order']['value'])
-            exportsql=f"""(select {export_query_result['select']['value']} from  {export_query_result['from']['value']} ) as q{export_query_result['exp_order']['value']} """
+            exportsql=f"""(select {export_query_result['select']['value']} , '{export_query_result['src_name']['value']}' as source_name from  {export_query_result['from']['value']} ) as q{export_query_result['exp_order']['value']} """
             self.ttl_service.add_exp_query_export_sql(export_query_result['query']['value'],exportsql)
         filepath=self.dir_to_save+'create_export_query_from.ttl'  
         self.ttl_service.graph.serialize(filepath, 'turtle') 
@@ -289,10 +289,12 @@ select """
             ret_str=[]
             for col in  self.art_cols[table_iri]:
                if i<len(column_names_list):
-                ret_str.append(f""" {column_names_list[i]} as {col} """)               
+                #print(self.art_cols[i] + ' ' + column_names_list[i])
+                self.ttl_service.col_hasSqlName(col,column_names_list[i])
+                #ret_str.append(f""" {column_names_list[i]} as {col} """)               
                i=i+1
 
-        return ','.join(ret_str)
+        
     
     def run_view_art_sql(self):
         self.art_cols={}
@@ -300,16 +302,22 @@ select """
         for export_stmt_result in ret:
             if export_stmt_result['table']['value'] not in self.art_cols.keys():
                 self.art_cols[export_stmt_result['table']['value']]=[]
-            self.art_cols[export_stmt_result['table']['value']].append(export_stmt_result['colExpName']['value'])    
+            self.art_cols[export_stmt_result['table']['value']].append(export_stmt_result['col']['value'])    
             
         ret=self.queryService.query(stmt.stmt_all_tables_art)                  
         for export_stmt_result in ret:
-            select_start=self.process_distinct_column(export_stmt_result['sqlstmt']['value'], export_stmt_result['table']['value'])
-            start=str(export_stmt_result['sqlstmt']['value']).lower().find('from')
-            stmt_str=f"""SELECT {select_start} """ + export_stmt_result['sqlstmt']['value'][start:]
+            #select_start=
+            self.process_distinct_column(export_stmt_result['sqlstmt']['value'], export_stmt_result['table']['value'])
+            #start=str(export_stmt_result['sqlstmt']['value']).lower().find('from')
+            #stmt_str=f"""SELECT {select_start} """ + export_stmt_result['sqlstmt']['value'][start:]
             self.run_on_server_create_view(f"""create view {export_stmt_result['hasSqlName']['value']} as 
-                                           """ + stmt_str + ';' , 
+                                           """ + export_stmt_result['sqlstmt']['value'] + """;
+                                           """ , 
                 export_stmt_result['hasSqlName']['value'], export_stmt_result['table']['value'])            
+        filepath=self.dir_to_save+'create_view_sql_col.ttl'  
+        self.ttl_service.graph.serialize(filepath, 'turtle') 
+        self.queryService.load_ttl(filepath)
+            
 
     def create_view_sql(self):
         self.queryService.insert("""delete {?iri mig:hasSql ?sql} where { ?iri rdf:type mig:msDashTable . ?iri mig:hasSql ?sql}""")

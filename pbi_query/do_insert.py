@@ -79,26 +79,26 @@ if __name__ == "__main__":
     # data = open('../moi_doc_json/insert2_3.sparql').read()
     # service=sparql_service.runSparqlWrapper()
     # service.insert(data)
+#####
+    # f = open('../playground_parsed_adds/'+'all_views.sql', encoding='utf-8',mode="w")
+    # f.write('')
+    # f.close()        
 
-    f = open('../playground_parsed_adds/'+'all_views.sql', encoding='utf-8',mode="w")
-    f.write('')
-    f.close()        
+    # cexp=create_export_query(stmt_all_dashes,'../playground_parsed_adds/')
 
-    cexp=create_export_query(stmt_all_dashes,'../playground_parsed_adds/')
-
-    cexp.run_view_art_sql()
-    cexp.create_view_sql()
+    # cexp.run_view_art_sql()
+    # cexp.create_view_sql()
     
     # cexp.iterate_dashes()
 
     # cexp.create_from_for_export_query()
     # cexp.create_mart_export_query()
-    #cexp.run_views_onserver()
+    # cexp.run_views_onserver()
     
 #####################################
-    # data = open('../moi_doc_json/insert3.sparql').read()
-    # service=sparql_service.runSparqlWrapper()
-    # service.insert(data)
+    data = open('../moi_doc_json/insert3.sparql').read()
+    service=sparql_service.runSparqlWrapper()
+    service.insert(data)
 
-    # cexpfm2=export_freemind(stmt.select_recursive_vizualiz_mart,'c:\\zena\\')    
-    # cexpfm2.get_marts()
+    cexpfm2=export_freemind(stmt.select_recursive_vizualiz_mart,'c:\\zena\\')    
+    cexpfm2.get_marts()
