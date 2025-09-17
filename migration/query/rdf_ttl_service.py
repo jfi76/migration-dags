@@ -244,6 +244,8 @@ class rdfTTLService:
             self.graph.add((iri ,self.Namespace.hasSQLShema, Literal(hasSQLShema)))   
             self.graph.add((iri ,RDF.type, self.Namespace.dashCalendar))                                                                                    
             self.graph.add((iri ,self.Namespace.hasSQLTableName, Literal(hasSQLTableName)))  
+            self.graph.add((iri ,self.Namespace.hasSqlName, Literal(hasSQLShema+'.'+hasSQLTableName)))  
+            
     def table_expression_renamed(self,table_iri,expression_renamed:str):
         iri=URIRef(table_iri)
         self.graph.add((iri ,self.Namespace.hasExpressionReplaced, Literal(expression_renamed)))                                                                           

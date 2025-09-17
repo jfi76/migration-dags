@@ -54,51 +54,54 @@ if __name__ == "__main__":
     # service=sparql_service.runSparqlWrapper()
     # service.insert(data)
 
-    # c=process_table_expreesion('../playground_parsed_adds/')
-    # c.iterate_expr()
-    # data = open('../moi_doc_json/insert2_2.sparql').read()
-    # service=sparql_service.runSparqlWrapper()
-    # service.insert(data)
-
-
-    # cfrm=export_freemind(stmt.select_recursive_visualiz_pbi,'c:\\zena\\')
-    # cfrm.key_name='Дашбоард'
-    # cfrm.get_dashes()
-
-    # calc=calculated_columns('../playground_parsed_adds/')
-    # calc.replace_expression()
-
-    # crepl=replace_cols_tabs('',stmt.stmt_tables_source_str,stmt.stmt_tables_cols,stmt.stmt_tables_source_str, '../playground_parsed_adds/', stmt_all_dashes)
-    # crepl.do_dashes()
-
-
-    # conv3=json_to_ontology('../playground_ai/')
-    # conv3.rdf_parsed='../playground_ai_parsed/'
-    # conv3.processJsonDir()
-
-    # data = open('../moi_doc_json/insert2_3.sparql').read()
-    # service=sparql_service.runSparqlWrapper()
-    # service.insert(data)
-#####
-    # f = open('../playground_parsed_adds/'+'all_views.sql', encoding='utf-8',mode="w")
-    # f.write('')
-    # f.close()        
-
-    # cexp=create_export_query(stmt_all_dashes,'../playground_parsed_adds/')
-
-    # cexp.run_view_art_sql()
-    # cexp.create_view_sql()
-    
-    # cexp.iterate_dashes()
-
-    # cexp.create_from_for_export_query()
-    # cexp.create_mart_export_query()
-    # cexp.run_views_onserver()
-    
-#####################################
-    data = open('../moi_doc_json/insert3.sparql').read()
+    c=process_table_expreesion('../playground_parsed_adds/')
+    c.iterate_expr()
+    data = open('../moi_doc_json/insert2_2.sparql').read()
     service=sparql_service.runSparqlWrapper()
     service.insert(data)
 
-    cexpfm2=export_freemind(stmt.select_recursive_vizualiz_mart,'c:\\zena\\')    
-    cexpfm2.get_marts()
+
+    cfrm=export_freemind(stmt.select_recursive_visualiz_pbi,'c:\\zena\\')
+    cfrm.key_name='Дашбоард'
+    cfrm.get_dashes()
+
+    calc=calculated_columns('../playground_parsed_adds/')
+    calc.replace_expression()
+
+    crepl=replace_cols_tabs('',stmt.stmt_tables_source_str,stmt.stmt_tables_cols,stmt.stmt_tables_source_str, '../playground_parsed_adds/', stmt_all_dashes)
+    crepl.do_dashes()
+
+
+    conv3=json_to_ontology('../playground_ai/')
+    conv3.rdf_parsed='../playground_ai_parsed/'
+    conv3.processJsonDir()
+
+    data = open('../moi_doc_json/insert2_3.sparql').read()
+    service=sparql_service.runSparqlWrapper()
+    service.insert(data)
+#####
+    f = open('../playground_parsed_adds/'+'all_views.sql', encoding='utf-8',mode="w")
+    f.write('')
+    f.close()        
+
+    cexp=create_export_query(stmt_all_dashes,'../playground_parsed_adds/')
+
+    cexp.run_view_art_sql()
+    cexp.create_view_sql()
+    
+    cexp.iterate_dashes()
+
+    cexp.create_from_for_export_query()
+    cexp.create_mart_export_query()
+    cexp.run_views_onserver()
+    
+#####################################
+    # data = open('../moi_doc_json/insert3.sparql').read()
+    # service=sparql_service.runSparqlWrapper()
+    # service.insert(data)
+
+    # cexpfm2=export_freemind(stmt.select_recursive_vizualiz_mart,'c:\\zena\\')    
+    # cexpfm2.get_marts()
+
+# create view export_pbi.common_calendar as  
+# SELECT generate_series('2020-01-01'::date, '2025-01-10'::date, '1 day') as Date;
