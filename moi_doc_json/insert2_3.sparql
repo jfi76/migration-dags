@@ -300,6 +300,8 @@ where
 
 };
 
+
+
 insert{?table mig:hasSQLShema ?hasSQLShema . 
 ?table mig:hasSQLTableName ?hasSQLTableName .
 ?table mig:hasSqlArt ?sql .
@@ -312,6 +314,7 @@ select ?table ?hasExportSqlName
 (replace(replace(?hasTableExpressionSql,'```sql', ''),'```', '') as ?sql)   
 ( concat(?hasExportSqlName,'_input') as ?hasSQLTableName)
 ( concat('export_pbi','.', ?hasExportSqlName,'_input')  as ?hasSqlName)
+('export_pbi' as ?hasSQLShema) 
 {
 ?table rdf:type mig:msDashTable .
 ?table mig:hasTableExpressionSql ?hasTableExpressionSql .  

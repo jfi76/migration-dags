@@ -1,3 +1,33 @@
+delete {
+#?table mig:hasSQLShema ?hasSQLShema . 
+?table mig:hasSQLTableName ?hasSQLTableName .
+?table mig:hasExportSqlName ?ExportSqlName  .
+?table mig:hasSqlName ?hasSqlName .
+#?table mig:hasSqlArt ?sql .  
+#?table mig:hasSQLShema ?hasSQLShema . 
+}
+where 
+{
+?table rdf:type mig:artTable .  
+#optional { ?table mig:hasSQLShema ?hasSQLShema } . 
+optional { ?table mig:hasSQLTableName ?hasSQLTableName } .
+ optional {?table mig:hasExportSqlName ?ExportSqlName } .
+#optional { ?table mig:hasSqlArt ?sql } .
+optional { ?table mig:hasSqlName ?hasSqlName }.
+};
+
+delete {
+?col mig:hasSqlName ?colsqlname .  
+}
+where 
+{
+?table rdf:type mig:artTable .  
+
+?col mig:hasMsDashTable ?table .  
+?col rdf:type mig:DashColumn .  
+?col mig:hasSqlName ?colsqlname .
+};
+
 insert {
   ?col mig:hasSqlName ?column_init.
   ?col mig:hasExpression ?expr .
@@ -87,8 +117,33 @@ insert {?relat2 mig:hasParentRelationship ?relat1}
 ?tableTo1 mig:hasRelationshipFrom  ?relat2.
 };
 
+#delete {
+ 
+#?iri mig:hasExportSqlName ?expsqlname .
+#?iri mig:hasPrefix ?prefix.
+#} where {
+#?iri rdf:type mig:msDashTable . 
+#optional {?iri mig:hasExportSqlName ?expsqlname }.
+#optional { ?iri mig:hasPrefix ?prefix }.
+#};
+
+delete {?iri mig:hasPrefix ?tab_prefix .
+?iri mig:hasExportSqlName ?tab_export_name .
+}
+where 
+ {
+?iri rdf:type mig:msDashTable .  
+?iri mig:hasPrefix ?tab_prefix .
+?iri mig:hasExportSqlName ?tab_export_name .
+ };
+
+
+
+
 insert {?iri mig:hasPrefix ?tab_prefix .
 ?iri mig:hasExportSqlName ?tab_export_name .
+
+
 }
 where 
  {
@@ -131,6 +186,40 @@ insert {?parent js:expression ?join_str} where
   optional {?parent js:expression ?express  } .
   filter (coalesce(?express,'')='')  
 };      
+
+#delete {
+#?iri mig:hasSQLTableName ?hasSQLTableName .
+#?iri mig:hasExportSqlName ?hasExportSqlName .
+#?iri mig:hasPrefix ?hasPrefix .  
+#?iri mig:hasSqlName  ?hasSqlName .  
+#} 
+#where 
+#{
+#?iri rdf:type mig:artTable .  
+# optional {?iri mig:hasSQLTableName ?hasSQLTableName .} 
+# optional {?iri mig:hasExportSqlName ?hasExportSqlName . } 
+# optional {?iri mig:hasPrefix ?hasPrefix . }
+# optional {?iri mig:hasSqlName  ?hasSqlName . }  
+#};
+
+#delete {?col mig:hasSqlName ?hasSqlName.
+#?col mig:hasExportCalcSql ?hasExportCalcSql.
+#?col  mig:hasExportSqlName ?hasExportSqlName  
+# } where 
+# {
+#?dash rdf:type mig:msdash .  
+#?table mig:hasMsDash ?dash   .
+#?table rdf:type mig:msDashTable .  
+#?table rdf:type mig:artTable .
+#?col mig:hasMsDashTable ?table .  
+#?col rdf:type mig:DashColumn .  
+#?table js:name ?tablename .  
+#optional { ?col mig:hasExportSqlName ?colExpName  }.
+#?col js:hasJsonObjectKey ?key .      
+#optional { ?col mig:hasSqlName ?hasSqlName }.
+#optional { ?col mig:hasExportCalcSql ?hasExportCalcSql }.
+#optional {?col  mig:hasExportSqlName ?hasExportSqlName }  
+#};
 
 #insert {
 #?iri mig:hasSqlName ?sqlname .

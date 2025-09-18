@@ -297,6 +297,30 @@ select """
         
     
     def run_view_art_sql(self):
+#        self.queryService.insert("""delete {?iri mig:hasSql ?sql} where { ?iri rdf:type mig:artTable . ?iri mig:hasSql ?sql}""")
+#        self.queryService.insert("""delete {?iri mig:hasExportCalcSql ?sql} where { ?iri rdf:type mig:artTable . ?iri mig:hasExportCalcSql ?sql}""")
+#         self.queryService.insert("""
+# delete {?col mig:hasSqlName ?hasSqlName.
+# ?col mig:hasExportCalcSql ?hasExportCalcSql.
+# ?col  mig:hasExportSqlName ?hasExportSqlName  
+#  } where 
+#  {
+# ?dash rdf:type mig:msdash .  
+# ?table mig:hasMsDash ?dash   .
+# ?table rdf:type mig:msDashTable .  
+# ?table rdf:type mig:artTable .
+# ?col mig:hasMsDashTable ?table .  
+# ?col rdf:type mig:DashColumn .  
+# ?table js:name ?tablename .  
+# optional { ?col mig:hasExportSqlName ?colExpName  }.
+# ?col js:hasJsonObjectKey ?key .      
+# optional { ?col mig:hasSqlName ?hasSqlName }.
+# optional { ?col mig:hasExportCalcSql ?hasExportCalcSql }.
+# optional {?col  mig:hasExportSqlName ?hasExportSqlName }  
+# };
+
+
+# """)
         self.art_cols={}
         ret=self.queryService.query(stmt.stmt_cols_table_art)
         for export_stmt_result in ret:

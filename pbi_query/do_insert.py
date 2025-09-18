@@ -45,14 +45,14 @@ if __name__ == "__main__":
     # conv2=json_to_ontology('../playground_adds/')
     # conv2.rdf_parsed='../playground_parsed_adds/'
     # conv2.processJsonDir()
+######run creation from 
+    c=process_table_expreesion('../playground_parsed_adds/')
+    c.iterate_expr()
 
-    # c=process_table_expreesion('../playground_parsed_adds/')
-    # c.iterate_expr()
 
-
-    # data = open('../moi_doc_json/insert2.sparql').read()
-    # service=sparql_service.runSparqlWrapper()
-    # service.insert(data)
+    data = open('../moi_doc_json/insert2.sparql').read()
+    service=sparql_service.runSparqlWrapper()
+    service.insert(data)
 
     c=process_table_expreesion('../playground_parsed_adds/')
     c.iterate_expr()
@@ -61,9 +61,9 @@ if __name__ == "__main__":
     service.insert(data)
 
 
-    cfrm=export_freemind(stmt.select_recursive_visualiz_pbi,'c:\\zena\\')
-    cfrm.key_name='Дашбоард'
-    cfrm.get_dashes()
+    # cfrm=export_freemind(stmt.select_recursive_visualiz_pbi,'c:\\zena\\')
+    # cfrm.key_name='Дашбоард'
+    # cfrm.get_dashes()
 
     calc=calculated_columns('../playground_parsed_adds/')
     calc.replace_expression()
@@ -79,7 +79,7 @@ if __name__ == "__main__":
     data = open('../moi_doc_json/insert2_3.sparql').read()
     service=sparql_service.runSparqlWrapper()
     service.insert(data)
-#####
+# #####
     f = open('../playground_parsed_adds/'+'all_views.sql', encoding='utf-8',mode="w")
     f.write('')
     f.close()        
@@ -91,9 +91,9 @@ if __name__ == "__main__":
     
     cexp.iterate_dashes()
 
-    cexp.create_from_for_export_query()
-    cexp.create_mart_export_query()
-    cexp.run_views_onserver()
+#     cexp.create_from_for_export_query()
+#     cexp.create_mart_export_query()
+#     cexp.run_views_onserver()
     
 #####################################
     # data = open('../moi_doc_json/insert3.sparql').read()

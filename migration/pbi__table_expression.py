@@ -168,6 +168,19 @@ class process_table_expreesion:
         self.queryService.insert('delete {?iri ?p ?o} where {?iri rdf:type mig:dashduplicatedcolumn . ?iri ?p ?o}')
         self.queryService.insert('delete {?iri ?p ?o} where {?iri rdf:type mig:dashaddedcolumn . ?iri ?p ?o}')        
         self.queryService.insert('delete {?iri ?p ?o} where {?iri rdf:type mig:tabledistinctcolumn . ?iri ?p ?o}')        
+        self.queryService.insert('''
+delete {?iri rdf:type mig:dashCalendar . 
+?iri mig:hasSQLShema ?hasSQLShema .
+?iri mig:hasSQLTableName ?hasSQLTableName .
+?iri mig:hasSqlName ?hasSqlName .                                 
+} where {
+?iri rdf:type mig:dashCalendar . 
+?iri mig:hasSQLShema ?hasSQLShema .
+?iri mig:hasSQLTableName ?hasSQLTableName .
+?iri mig:hasSqlName ?hasSqlName .
+}
+''')        
+
 
         stmt_str=stmt.stmt_table_expr
         ret=self.queryService.query(stmt_str)
