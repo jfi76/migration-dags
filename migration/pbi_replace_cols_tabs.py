@@ -21,7 +21,7 @@ class replace_cols_tabs:
         self.stmt_dashes=stmt_dashes
     def do_dashes(self):
         ret=self.queryService.query(self.stmt_dashes)
-        self.queryService.insert('delete {?tab  mig:hasExpressionReplaced ?o} where { ?tab rdf:type mig:msDashTable .?tab mig:hasExpressionReplaced ?o .} ')        
+        self.queryService.insert('delete {?tab  mig:hasExpressionReplaced ?o} where { ?tab rdf:type mig:msDashTable .?tab mig:hasExpressionReplaced ?o } ')        
         for export_stmt_result in ret:
             self.dash_iri= export_stmt_result['dash']['value']
             self.init_arrays()
