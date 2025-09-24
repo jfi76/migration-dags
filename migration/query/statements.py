@@ -246,7 +246,7 @@ select ?table ?tabname ?expr ?jsstring
 """
 
 stmt_table_relations="""
-select ?rel2 ?tabfromName ?tabtoName ?rel2tabto
+select distinct ?rel2 ?tabfromName ?tabtoName ?rel2tabto
 {
   bind(uri(?param?) as ?iri)
   ?iri mig:hasRelationshipFrom ?rel1 .
@@ -300,7 +300,7 @@ stmt_relation_columns="""select (?column as ?iri)  ?colname ?type ?dataType ?sou
 """
 
 stmt_form_from="""
-select 
+select distinct 
 ?tab_rel ?qrel
 (concat('t',str(?fromOrder))  as ?prefixFrom) 
 ?columTo
@@ -534,7 +534,7 @@ order by xsd:integer(?key)
 """
 
 stmt_expquery_cols="""
-select ?expsqlname  ?colname ?col ?dataType
+select distinct ?expsqlname  ?colname ?col ?dataType ?hasMartExporName
 { 
  bind(uri(?param?)  as ?expq)
   
@@ -550,6 +550,8 @@ select ?expsqlname  ?colname ?col ?dataType
   ?table  js:hasJsonObjectKey ?t_key . 
   ?table mig:hasSqlName ?sqlNameTable .
   optional{?col js:dataType ?dataType} .
+  ?col mig:hasMartExporName ?hasMartExporName . 
+
 } order by xsd:integer(?t_key) xsd:integer(?c_key) 
 
 """
@@ -576,7 +578,7 @@ order by ?mart xsd:integer(?exp_order)
 """
 #
 stmt_exp_query_with_child="""
-select ?query ?exp_order (coalesce( ?main_query,'') as ?hasParent ) ?select  ?from 
+select distinct ?query ?exp_order (coalesce( ?main_query,'') as ?hasParent ) ?select  ?from 
  ?to_table ?from_table ?from_col_export_name ?to_col_export_name ?sql
 {
  bind (uri(?param?) as ?main_query) .

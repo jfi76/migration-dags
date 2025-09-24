@@ -1,0 +1,19 @@
+insert {?col mig:hasMartExporName ?minexportSqlName . }
+where {    
+  select ?col ?sqlNameTable ?col_name (min(?exportSqlName) as ?minexportSqlName) (max(?exportSqlName) as ?maxexportSqlName)  (count(*) as ?count_exp)
+  {
+   ?colrel rdf:type mig:queryrelationcolumn .
+   ?colrel mig:hasQueryRelation ?qrel .
+   ?qrel mig:hasExportQuery ?expquery .  
+   ?expquery mig:hasOrder ?expQueryOrder .  
+   ?expquery mig:hasMart ?mart .  
+   ?colrel mig:hasColumn ?col .  
+   ?col js:name ?col_name .  
+   ?col mig:hasExportSqlName ?exportSqlName .
+   ?col js:hasJsonObjectKey ?c_key . 
+   ?col mig:hasMsDashTable ?table .
+   ?table  js:hasJsonObjectKey ?t_key . 
+   ?table mig:hasSqlName ?sqlNameTable . 
+	}
+  group by ?col ?sqlNameTable ?col_name
+};

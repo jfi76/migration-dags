@@ -157,6 +157,15 @@ optional{
   bind (concat(?prefix,'_',?key )  as ?tab_prefix)  .
   bind (concat(?tab_prefix,'_', coalesce(?tab_nam_sql,'_art')) as ?tab_export_name ) .   
 };
+delete {?iri mig:hasExportSqlName ?export_col_name}
+where 
+{ ?iri rdf:type mig:DashColumn .
+  optional{?iri js:type ?coltype} .
+  ?iri js:hasJsonObjectKey ?key .
+  ?iri mig:hasSqlName ?sqlName .
+  ?iri mig:hasMsDashTable ?table .
+  ?iri mig:hasExportSqlName ?export_col_name .
+};
 
 insert 
 {?iri mig:hasExportSqlName ?export_col_name}

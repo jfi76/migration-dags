@@ -56,6 +56,7 @@ if __name__ == "__main__":
 
     c=process_table_expreesion('../playground_parsed_adds/')
     c.iterate_expr()
+
     data = open('../moi_doc_json/insert2_2.sparql').read()
     service=sparql_service.runSparqlWrapper()
     service.insert(data)
@@ -79,6 +80,10 @@ if __name__ == "__main__":
     data = open('../moi_doc_json/insert2_3.sparql').read()
     service=sparql_service.runSparqlWrapper()
     service.insert(data)
+    
+    data = open('../moi_doc_json/insert2_4.sparql').read()
+    service=sparql_service.runSparqlWrapper()
+    service.insert(data)    
 # #####
     f = open('../playground_parsed_adds/'+'all_views.sql', encoding='utf-8',mode="w")
     f.write('')
@@ -91,9 +96,9 @@ if __name__ == "__main__":
     
     cexp.iterate_dashes()
 
-#     cexp.create_from_for_export_query()
-#     cexp.create_mart_export_query()
-#     cexp.run_views_onserver()
+    cexp.create_from_for_export_query()
+    cexp.create_mart_export_query()
+    cexp.run_views_onserver()
     
 #####################################
     # data = open('../moi_doc_json/insert3.sparql').read()

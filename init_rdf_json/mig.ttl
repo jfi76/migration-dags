@@ -280,7 +280,8 @@ order by ?dashName ?tabeName""" ;
 ###  http://www.example.com/MIGRATION#dashmart
 :dashmart rdf:type owl:Class ;
           rdfs:subClassOf :dashclickhouse ;
-          report:hasButtonQuery :mart_clickhouse_columns ;
+          report:hasButtonQuery :mart_clickhouse_columns ,
+                                :mart_export_quries ;
           rdfs:label "mart" .
 
 
@@ -788,6 +789,22 @@ bind(IF(?dataType='string','String',
 }
 order by xsd:integer(?expQueryOrder) xsd:integer(?t_key) xsd:integer(?c_key)""" ;
                          rdfs:label "ClickHouse" .
+
+
+###  http://www.example.com/MIGRATION#mart_export_quries
+:mart_export_quries rdf:type owl:NamedIndividual ,
+                             report:buttonReport ;
+                    report:hasQuery """select ?query ?query_label {
+bind (?param? as ?mart )  
+?mart mig:hasMsDash ?dash .  
+?dash rdf:type mig:msdash .    
+
+?query rdf:type mig:dashexportquery .
+?query  mig:hasMart ?mart . 
+?query mig:label ?query_label .  
+?query mig:hasMainSql ?mainsql .
+}""" ;
+                    rdfs:label "Mart and views" .
 
 
 ###  http://www.example.com/MIGRATION#msandpgstatmentbtn

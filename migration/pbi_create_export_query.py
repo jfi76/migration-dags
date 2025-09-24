@@ -136,8 +136,10 @@ class create_export_query:
             if select_sql!='' :
                 select_sql=select_sql+""",
                 """ 
-            select_sql=select_sql+export_query_result['expsqlname']['value']
-        
+            select_sql=select_sql+export_query_result['expsqlname']['value'] 
+            if export_query_result['hasMartExporName']['value']!=export_query_result['expsqlname']['value']:
+                select_sql = select_sql +  ' as ' + export_query_result['hasMartExporName']['value'] + ' ' 
+
         self.ttl_service.add_select_list(query_iri,select_sql)    
     
     def create_from_for_export_query(self):
@@ -238,7 +240,7 @@ select """
         
 
         self.ttl_service.add_table_hasSql(table_iri,stmtSql)
-        #self.run_on_server_create_view(stmtSql, view_name, table_iri)    
+         
     def run_views_onserver(self):
         self.ttl_service.emptyGraph()
         self.task_iri=self.log_task_start()
@@ -252,13 +254,13 @@ select """
             create_sql=f"""create or replace view {self.export_schema}.{main_name} as
               {export_stmt_result['mainsql']['value']} """
             self.ttl_service.column_main_mart_name(main_name,export_stmt_result['iri']['value'])
-            self.run_on_server_create_view( create_sql,main_name, export_stmt_result['iri']['value'])            
+            self.run_on_server_create_view( create_sql,main_name, export_stmt_result['iri']['value'], 'all_views_mart.sql' )            
                         
         filepath=self.dir_to_save+'create_view_sql_run.ttl'  
         self.ttl_service.graph.serialize(filepath, 'turtle') 
         self.queryService.load_ttl(filepath)
 
-    def run_on_server_create_view(self, sql_to_run, view_name, table_iri):
+    def run_on_server_create_view(self, sql_to_run, view_name, table_iri, file_name='all_views.sql'):
         if self.save_create_view_not_execute==False:
             with self.engine.connect() as connection:
                 try: 
@@ -271,7 +273,7 @@ select """
                     self.ttl_service.log_proc_error(self.taskIri, table_iri , str(e))
                     print(e)    
         else:
-            f = open(self.dir_to_save+'all_views.sql', encoding='utf-8',mode="a")
+            f = open(self.dir_to_save+file_name, encoding='utf-8',mode="a")
             f.write(sql_to_run)
             f.close()        
 
@@ -337,7 +339,7 @@ select """
             self.run_on_server_create_view(f"""create view {export_stmt_result['hasSqlName']['value']} as 
                                            """ + export_stmt_result['sqlstmt']['value'] + """;
                                            """ , 
-                export_stmt_result['hasSqlName']['value'], export_stmt_result['table']['value'])            
+                export_stmt_result['hasSqlName']['value'], export_stmt_result['table']['value'], 'all_views_art.sql')            
         filepath=self.dir_to_save+'create_view_sql_col.ttl'  
         self.ttl_service.graph.serialize(filepath, 'turtle') 
         self.queryService.load_ttl(filepath)
