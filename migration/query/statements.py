@@ -300,37 +300,47 @@ stmt_relation_columns="""select (?column as ?iri)  ?colname ?type ?dataType ?sou
 """
 
 stmt_form_from="""
-select distinct 
-?tab_rel ?qrel
+select distinct
+?tableFrom  ?tableTo 
+?tab_rel 
+#?qrel
 (concat('t',str(?fromOrder))  as ?prefixFrom) 
 ?columTo
 ?columFromSQLname
 ?cfr_hasExportSqlName
 ?columToSQLname
 ?cto_hasExportSqlName
-?tabtojsname ?tabtosqlname ?rel_order (concat('t',str(?rel_order))  as ?prefix)
+?tabtojsname ?tabtosqlname 
+#?rel_order (concat('t',str(?rel_order))  as ?prefix)
 ?t_hasExportSqlName 
 ?t_key
 
+
 {
   bind(uri(?param?) as ?exp_query)
+  ?exp_query mig:hasMsDash ?dash .
   ?exp_query rdf:type mig:dashexportquery .
   ?qrel mig:hasExportQuery ?exp_query .
   ?qrel rdf:type mig:queryrelation .
   ?qrel mig:hasOrder ?rel_order .
   ?qrel mig:parentRelation ?tab_rel .
+  ?tableTo   mig:hasMsDash ?dash .
   ?tableTo  mig:hasRelationshipTo  ?tab_rel.
   ?tableTo mig:hasSqlName ?tabtosqlname .
   ?tableTo mig:hasExportSqlName ?t_hasExportSqlName . 
   ?tableTo js:name ?tabtojsname .
   ?qrel mig:hasFromOrder ?fromOrder.
   ?columTo mig:hasRelationshipColumnTo  ?tab_rel .
+  ?columTo mig:hasMsDashTable ?tableTo .
   ?columTo mig:hasExportSqlName ?cto_hasExportSqlName  .
   ?columFrom mig:hasRelationshipColumnFrom  ?tab_rel .
   ?columFrom mig:hasExportSqlName ?cfr_hasExportSqlName  .
   optional {?columTo mig:hasSqlName ?columToSQLname}.
   optional {?columFrom mig:hasSqlName ?columFromSQLname} .  
+  ?columFrom mig:hasMsDashTable ?tableFrom .
+  ?tableFrom mig:hasMsDash ?dash .
   ?tableTo js:hasJsonObjectKey ?t_key .
+
 }
 order by xsd:integer(?rel_order)
 """

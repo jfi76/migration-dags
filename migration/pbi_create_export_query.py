@@ -216,7 +216,8 @@ class create_export_query:
     def add_hasSql_prop(self,table_iri, sqlName, alias,table_distinct_col):
         view_name=f"""{self.export_schema}.{alias}"""
         ret=self.queryService.query(stmt.stmt_for_create_view.replace('?param?',f'"{table_iri}"'))  
-        stmtSql_start=f"""create or replace view {view_name}  as  
+        stmtSql_start=f"""
+        create or replace view {view_name}  as  
 select """
         i=0
         ln=len(ret) 
@@ -246,13 +247,15 @@ select """
         self.task_iri=self.log_task_start()
         ret=self.queryService.query(stmt.stmt_all_tables)                  
         for export_stmt_result in ret: 
-            self.run_on_server_create_view(export_stmt_result['sqlstmt']['value'] , export_stmt_result['hasExportSqlName']['value'], export_stmt_result['table']['value'])            
+            self.run_on_server_create_view(export_stmt_result['sqlstmt']['value'] , export_stmt_result['hasExportSqlName']['value'], export_stmt_result['table']['value'],'all_views.sql')            
 #?prefix  ?mainsql ?order            
         ret=self.queryService.query(stmt.stmt_main_views)                      
         for export_stmt_result in ret: 
             main_name=f"""{export_stmt_result['prefix']['value']}_fact_{export_stmt_result['order']['value']}"""
-            create_sql=f"""create or replace view {self.export_schema}.{main_name} as
-              {export_stmt_result['mainsql']['value']} """
+            create_sql=f"""
+            create or replace view {self.export_schema}.{main_name} as
+              {export_stmt_result['mainsql']['value']} ;
+              """
             self.ttl_service.column_main_mart_name(main_name,export_stmt_result['iri']['value'])
             self.run_on_server_create_view( create_sql,main_name, export_stmt_result['iri']['value'], 'all_views_mart.sql' )            
                         
@@ -260,7 +263,7 @@ select """
         self.ttl_service.graph.serialize(filepath, 'turtle') 
         self.queryService.load_ttl(filepath)
 
-    def run_on_server_create_view(self, sql_to_run, view_name, table_iri, file_name='all_views.sql'):
+    def run_on_server_create_view(self, sql_to_run, view_name, table_iri, file_name):
         if self.save_create_view_not_execute==False:
             with self.engine.connect() as connection:
                 try: 
@@ -292,6 +295,7 @@ select """
             for col in  self.art_cols[table_iri]:
                if i<len(column_names_list):
                 #print(self.art_cols[i] + ' ' + column_names_list[i])
+                
                 self.ttl_service.col_hasSqlName(col,column_names_list[i])
                 #ret_str.append(f""" {column_names_list[i]} as {col} """)               
                i=i+1
@@ -299,6 +303,9 @@ select """
         
     
     def run_view_art_sql(self):
+        self.queryService.insert("""delete {?col mig:hasSqlName ?sql} where { ?iri rdf:type mig:artTable . 
+                                 ?col mig:hasMsDashTable ?iri .
+                                 ?col mig:hasSqlName ?sql }""")        
 #        self.queryService.insert("""delete {?iri mig:hasSql ?sql} where { ?iri rdf:type mig:artTable . ?iri mig:hasSql ?sql}""")
 #        self.queryService.insert("""delete {?iri mig:hasExportCalcSql ?sql} where { ?iri rdf:type mig:artTable . ?iri mig:hasExportCalcSql ?sql}""")
 #         self.queryService.insert("""

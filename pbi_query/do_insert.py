@@ -88,6 +88,13 @@ if __name__ == "__main__":
     f = open('../playground_parsed_adds/'+'all_views.sql', encoding='utf-8',mode="w")
     f.write('')
     f.close()        
+    f = open('../playground_parsed_adds/'+'all_views_mart.sql', encoding='utf-8',mode="w")
+    f.write('')
+    f.close()        
+    f = open('../playground_parsed_adds/'+'all_views_art.sql', encoding='utf-8',mode="w")
+    f.write('')
+    f.close()        
+
 
     cexp=create_export_query(stmt_all_dashes,'../playground_parsed_adds/')
 
