@@ -248,6 +248,7 @@ order by ?dashName ?tabeName""" ;
 ###  http://www.example.com/MIGRATION#dashexportquery
 :dashexportquery rdf:type owl:Class ;
                  rdfs:subClassOf :dashclickhouse ;
+                 report:hasButtonQuery :clickhouseExportQueryInsert ;
                  report:hasDefaultQuery """select ?iri ?param ?label ?DashFile
             {
             bind(mig:dashexportquery as ?param)
@@ -280,7 +281,8 @@ order by ?dashName ?tabeName""" ;
 ###  http://www.example.com/MIGRATION#dashmart
 :dashmart rdf:type owl:Class ;
           rdfs:subClassOf :dashclickhouse ;
-          report:hasButtonQuery :mart_clickhouse_columns ,
+          report:hasButtonQuery :ClickHouseInsert ,
+                                :mart_clickhouse_columns ,
                                 :mart_export_quries ;
           rdfs:label "mart" .
 
@@ -621,6 +623,25 @@ order by ?dashName ?tabeName""" ;
                       rdfs:label "Tables and Columns" .
 
 
+###  http://www.example.com/MIGRATION#ClickHouseInsert
+:ClickHouseInsert rdf:type owl:NamedIndividual ;
+                  report:hasQuery """select distinct ?MartExporName ?table_name ?table_sqlname  {
+  bind(?param? as  ?mart)
+  ?mart rdf:type mig:dashmart .
+  ?exp_query mig:hasMart ?mart .
+  #bind (mig:N9b4d7e911dde4810bb3e6bb0d5b2c585 as ?exp_query)
+  ?exp_query rdf:type mig:dashexportquery .
+  ?col mig:hasExportQuery  ?exp_query .
+  ?col rdf:type mig:DashColumn .  
+  ?col mig:hasMartExporName ?MartExporName .
+  ?col mig:hasMsDashTable ?table .
+  ?table js:name ?table_name .
+  ?table mig:hasSqlName ?table_sqlname .
+}
+order by ?table_name ?MartExporName""" ;
+                  rdfs:label "Insert all" .
+
+
 ###  http://www.example.com/MIGRATION#DashTables
 :DashTables rdf:type owl:NamedIndividual ,
                      report:buttonReport ;
@@ -708,6 +729,25 @@ select ?iri ?StatementId  ?StatementType ?StatementText
                 rdfs:label "Stmt Id" .
 
 
+###  http://www.example.com/MIGRATION#clickhouseExportQueryInsert
+:clickhouseExportQueryInsert rdf:type owl:NamedIndividual ;
+                             report:hasQuery """select distinct ?MartExporName ?table_name ?table_sqlname  {
+  bind (?param? as ?exp_query)
+
+  ?mart rdf:type mig:dashmart .
+  ?exp_query mig:hasMart ?mart .
+  ?exp_query rdf:type mig:dashexportquery .
+  ?col mig:hasExportQuery  ?exp_query .
+  ?col rdf:type mig:DashColumn .  
+  ?col mig:hasMartExporName ?MartExporName .
+  ?col mig:hasMsDashTable ?table .
+  ?table js:name ?table_name .
+  ?table mig:hasSqlName ?table_sqlname .
+}
+order by ?table_name  ?MartExporName""" ;
+                             rdfs:label "Insert for exp q" .
+
+
 ###  http://www.example.com/MIGRATION#dbmsselecttn
 :dbmsselecttn rdf:type owl:NamedIndividual ,
                        report:buttonReport ;
@@ -756,7 +796,7 @@ select ?StatementType (count(*) as ?count)
 ###  http://www.example.com/MIGRATION#mart_clickhouse_columns
 :mart_clickhouse_columns rdf:type owl:NamedIndividual ,
                                   report:buttonReport ;
-                         report:hasQuery """select ?sqlNameTable ?col_name  ?dataType ?conv_dataType ?exportSqlName (concat(' Nullable (',?conv_dataType,')') as ?clickDt) 
+                         report:hasQuery """select  distinct ?sqlNameTable ?col_name  ?dataType ?conv_dataType ?exportSqlName (concat(' Nullable (',?conv_dataType,')') as ?clickDt) 
 ?run_sql_click 
 {
 bind(?param? as  ?mart  )

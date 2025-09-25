@@ -108,17 +108,21 @@ class create_export_query:
                 
             #break    
     def iterate_dashes(self):
+        
         self.queryService.insert('delete {?dashmart ?p ?o} where { ?dashmart rdf:type mig:dashmart .?dashmart ?p ?o .} ')        
         self.queryService.insert('delete {?query ?p ?o} where { ?query rdf:type mig:dashexportquery . ?query ?p ?o .}')        
         self.queryService.insert('delete {?query ?p ?o} where { ?query rdf:type mig:queryrelation . ?query ?p ?o .}')
         self.queryService.insert('delete {?query ?p ?o} where { ?query rdf:type mig:queryrelationcolumn . ?query ?p ?o .}')
         self.queryService.insert('delete {?query ?p ?o} where { ?query rdf:type mig:parentexportquery . ?query ?p ?o .}')
         self.queryService.insert("""delete {?iri mig:hasSql ?sql} where { ?iri rdf:type mig:msDashTable . ?iri mig:hasSql ?sql}""")
+        self.queryService.insert('delete {?col mig:hasExportQuery ?es} where { ?col rdf:type mig:DashColumn . ?col mig:hasExportQuery ?es .}')
+        
         #self.queryService.insert('delete {?iri mig:hasExportSqlName ?q} where {?iri mig:hasExportSqlName ?q}')
         
         ret=self.queryService.query(self.stmt_to_export)
         mart_order=0
         for export_stmt_result in ret: 
+            
             if (export_stmt_result['dash']['value']  in self.created_dashes.keys())==False:
                 mart_order=mart_order+1                
                 mart_iri=self.ttl_service.add_mart(export_stmt_result['dash']['value'],export_stmt_result['fileName']['value'],mart_order)
@@ -139,7 +143,7 @@ class create_export_query:
             select_sql=select_sql+export_query_result['expsqlname']['value'] 
             if export_query_result['hasMartExporName']['value']!=export_query_result['expsqlname']['value']:
                 select_sql = select_sql +  ' as ' + export_query_result['hasMartExporName']['value'] + ' ' 
-
+            self.ttl_service.col_add_hasExportQuery(export_query_result['col']['value'],query_iri)
         self.ttl_service.add_select_list(query_iri,select_sql)    
     
     def create_from_for_export_query(self):
@@ -247,7 +251,7 @@ select """
         self.task_iri=self.log_task_start()
         ret=self.queryService.query(stmt.stmt_all_tables)                  
         for export_stmt_result in ret: 
-            self.run_on_server_create_view(export_stmt_result['sqlstmt']['value'] , export_stmt_result['hasExportSqlName']['value'], export_stmt_result['table']['value'],'all_views.sql')            
+            self.run_on_server_create_view(export_stmt_result['sqlstmt']['value'] , export_stmt_result['hasExportSqlName']['value'], export_stmt_result['table']['value'],export_stmt_result['prefix']['value']+'-all_views'+export_stmt_result['add_file_name']['value'])            
 #?prefix  ?mainsql ?order            
         ret=self.queryService.query(stmt.stmt_main_views)                      
         for export_stmt_result in ret: 
@@ -257,7 +261,7 @@ select """
               {export_stmt_result['mainsql']['value']} ;
               """
             self.ttl_service.column_main_mart_name(main_name,export_stmt_result['iri']['value'])
-            self.run_on_server_create_view( create_sql,main_name, export_stmt_result['iri']['value'], 'all_views_mart.sql' )            
+            self.run_on_server_create_view( create_sql,main_name, export_stmt_result['iri']['value'], export_stmt_result['prefix']['value']+'-all_views_mart' )            
                         
         filepath=self.dir_to_save+'create_view_sql_run.ttl'  
         self.ttl_service.graph.serialize(filepath, 'turtle') 
@@ -276,7 +280,7 @@ select """
                     self.ttl_service.log_proc_error(self.taskIri, table_iri , str(e))
                     print(e)    
         else:
-            f = open(self.dir_to_save+file_name, encoding='utf-8',mode="a")
+            f = open(self.dir_to_save+file_name+'.sql', encoding='utf-8',mode="a")
             f.write(sql_to_run)
             f.close()        
 
@@ -346,7 +350,7 @@ select """
             self.run_on_server_create_view(f"""create view {export_stmt_result['hasSqlName']['value']} as 
                                            """ + export_stmt_result['sqlstmt']['value'] + """;
                                            """ , 
-                export_stmt_result['hasSqlName']['value'], export_stmt_result['table']['value'], 'all_views_art.sql')            
+                export_stmt_result['hasSqlName']['value'], export_stmt_result['table']['value'], export_stmt_result['prefix']['value']+'-all_views_art_input')            
         filepath=self.dir_to_save+'create_view_sql_col.ttl'  
         self.ttl_service.graph.serialize(filepath, 'turtle') 
         self.queryService.load_ttl(filepath)
@@ -366,7 +370,20 @@ select """
         self.taskIri=self.ttl_service.start_run_task()
         return self.taskIri
 
-        
+
+    def prepare_files_for_sql(self, dash):
+        f = open('../playground_parsed_adds/'+f'{dash}-all_views.sql', encoding='utf-8',mode="w")
+        f.write('')
+        f = open('../playground_parsed_adds/'+f'{dash}-all_views_art_input.sql', encoding='utf-8',mode="w")
+        f.write('')
+        f.close()        
+        f = open('../playground_parsed_adds/'+f'{dash}-all_views_mart.sql', encoding='utf-8',mode="w")
+        f.write('')
+        f.close()        
+        f = open('../playground_parsed_adds/'+f'{dash}-all_views_art.sql', encoding='utf-8',mode="w")
+        f.write('')
+        f.close()        
+
 
 
 if __name__ == "__main__":

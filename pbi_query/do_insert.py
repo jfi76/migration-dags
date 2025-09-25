@@ -1,5 +1,5 @@
 import sys
-
+import os, shutil
 
 
 
@@ -16,6 +16,17 @@ import query.runSparqlWrapper as sparql_service
 import query.statements as stmt
 from pbi_config_load import config_load 
 from load_init_rdf_json import load_init_rdf_json
+def remove_files_in_dir(folder):
+#folder = '/path/to/folder'
+    for filename in os.listdir(folder):
+        file_path = os.path.join(folder, filename)
+        try:
+            if os.path.isfile(file_path) or os.path.islink(file_path):
+                os.unlink(file_path)
+            elif os.path.isdir(file_path):
+                shutil.rmtree(file_path)
+        except Exception as e:
+            print('Failed to delete %s. Reason: %s' % (file_path, e))
 
 if __name__ == "__main__":
     stmt_all_dashes="""select ?dash ?fileName  {
@@ -46,6 +57,7 @@ if __name__ == "__main__":
     # conv2.rdf_parsed='../playground_parsed_adds/'
     # conv2.processJsonDir()
 ######run creation from 
+    remove_files_in_dir('../playground_parsed_adds')
     c=process_table_expreesion('../playground_parsed_adds/')
     c.iterate_expr()
 
@@ -54,6 +66,7 @@ if __name__ == "__main__":
     service=sparql_service.runSparqlWrapper()
     service.insert(data)
 
+    
     c=process_table_expreesion('../playground_parsed_adds/')
     c.iterate_expr()
 
@@ -65,7 +78,7 @@ if __name__ == "__main__":
     # cfrm=export_freemind(stmt.select_recursive_visualiz_pbi,'c:\\zena\\')
     # cfrm.key_name='Дашбоард'
     # cfrm.get_dashes()
-
+    
     calc=calculated_columns('../playground_parsed_adds/')
     calc.replace_expression()
 
@@ -85,17 +98,8 @@ if __name__ == "__main__":
     service=sparql_service.runSparqlWrapper()
     service.insert(data)    
 # #####
-    f = open('../playground_parsed_adds/'+'all_views.sql', encoding='utf-8',mode="w")
-    f.write('')
-    f.close()        
-    f = open('../playground_parsed_adds/'+'all_views_mart.sql', encoding='utf-8',mode="w")
-    f.write('')
-    f.close()        
-    f = open('../playground_parsed_adds/'+'all_views_art.sql', encoding='utf-8',mode="w")
-    f.write('')
-    f.close()        
 
-
+    
     cexp=create_export_query(stmt_all_dashes,'../playground_parsed_adds/')
 
     cexp.run_view_art_sql()

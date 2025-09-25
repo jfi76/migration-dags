@@ -485,13 +485,18 @@ insert {
 """
 
 stmt_all_tables="""
-select ?table ?jsname ?sqlName ?hasExportSqlName (coalesce(?sql,'' ) as ?sqlstmt ) (coalesce(?hasExportCalcSql,?dist_col_val,'') as ?table_distinct_col)
-
+select ?prefix ?table ?jsname ?sqlName ?hasExportSqlName (coalesce(?sql,'' ) as ?sqlstmt ) (coalesce(?hasExportCalcSql,?dist_col_val,'') as ?table_distinct_col)
+(coalesce(?add_file_name_art,'') as ?add_file_name)
 {
   ?dash rdf:type mig:msdash .
+  ?dash mig:hasPrefix ?prefix .
   ?table mig:hasMsDash ?dash .
   ?table rdf:type mig:msDashTable .
   ?table js:name ?jsname .
+optional {
+  ?table rdf:type mig:artTable .
+    bind('art' as ?add_file_name_art)  
+  }  
   ?table  mig:hasSqlName ?sqlName .
   ?table mig:hasExportSqlName ?hasExportSqlName .
   optional{?table mig:hasSql ?sql }.
@@ -685,7 +690,7 @@ order by ASC(xsd:float(?y))
 """
 #
 stmt_dataset_sql="""
-select ?sqlNameTable ?col_name  ?dataType ?conv_dataType ?exportSqlName (concat(' Nullable (',?conv_dataType,')') as ?clickDt) 
+select distinct ?sqlNameTable ?col_name  ?dataType ?conv_dataType ?exportSqlName (concat(' Nullable (',?conv_dataType,')') as ?clickDt) 
 ?run_sql_click ?hasExportCalcSqlName ?expression ?type
 (
   coalesce(IF((coalesce(?type,'')="calculated" || coalesce(?type,'')="calculatedTableColumn") && coalesce(?run_sql_click,'')='', 'null', ?run_sql_click  )  
@@ -853,12 +858,14 @@ select ?dash ?table ?tablename ?colname ?hasSQLShema ?hasSQLTableName ?sourceStr
 }
 """
 stmt_all_tables_art="""
-select ?sqlstmt   ?hasSqlName  ?table 
+select ?sqlstmt   ?hasSqlName  ?table ?prefix
 {?table mig:hasSQLShema ?hasSQLShema . 
 ?table mig:hasSQLTableName ?hasSQLTableName .
 ?table mig:hasSqlArt ?sqlstmt .
 ?table mig:hasSqlName ?hasSqlName .
 ?table rdf:type mig:artTable .  
+?table mig:hasMsDash ?dash   .
+?dash mig:hasPrefix ?prefix .
 }
 """
 

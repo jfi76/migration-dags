@@ -253,4 +253,6 @@ class rdfTTLService:
         iri=URIRef(col_iri)
         self.graph.add((iri ,self.Namespace.hasSqlName, Literal(hasSqlName)))  
         self.graph.add((iri ,self.Namespace.hasExportCalcSql, Literal(hasSqlName)))  
-                                                                                        
+    def col_add_hasExportQuery(self, col_iri, exp_query_iri):
+        self.graph.add((URIRef(col_iri) ,self.Namespace.hasExportQuery, URIRef(exp_query_iri)))  
+        
