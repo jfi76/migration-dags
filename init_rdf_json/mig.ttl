@@ -215,6 +215,14 @@ order by ?dashName ?tabeName""" ;
           rdfs:label "Artificial Table" .
 
 
+###  http://www.example.com/MIGRATION#common_reports
+:common_reports rdf:type owl:Class ;
+                rdfs:subClassOf :msdash ;
+                report:hasButtonQuery :common_dash_cont_stat2 ,
+                                      :common_dash_containers ;
+                rdfs:label "Common reports" .
+
+
 ###  http://www.example.com/MIGRATION#dashCalendar
 :dashCalendar rdf:type owl:Class ;
               rdfs:subClassOf :msDashTable ;
@@ -342,6 +350,8 @@ order by ?dashName ?tabeName""" ;
         rdfs:subClassOf :mssql ;
         report:hasButtonQuery :BtnDashTabelsColumns ,
                               :DashTables ,
+                              :dash_sect_cont ,
+                              :dash_visual_containers_counts ,
                               :tablescolumn2 ;
         rdfs:label "Dash" .
 
@@ -746,6 +756,116 @@ select ?iri ?StatementId  ?StatementType ?StatementText
 }
 order by ?table_name  ?MartExporName""" ;
                              rdfs:label "Insert for exp q" .
+
+
+###  http://www.example.com/MIGRATION#common_dash_cont_stat2
+:common_dash_cont_stat2 rdf:type owl:NamedIndividual ,
+                                 report:buttonReport ;
+                        report:hasQuery """select  ?dashPrefix ?contType (count(*) as ?total) 
+{
+
+?cont rdf:type mig:DashVisualContainer .
+?cont mig:hasSection ?sect .  
+?sect rdfs:label ?sectLabel .  
+?sect mig:hasMsDash ?dash .  
+?dash mig:hasPrefix ?dashPrefix .  
+?cont rdfs:label ?Contlabel .  
+?cont mig:hasDasVisualType ?contType . 
+?sect js:hasJsonObjectKey ?secKey .    
+optional {
+  ?vis mig:DashSection ?sect  .
+  ?vis rdf:type mig:DashConfFile .
+  ?vis js:visibility  ?visibility .  
+  }
+?cont js:y ?y .  
+bind (coalesce(?visibility,'0') as ?isvisible )
+filter (?isvisible='0')  
+}
+group by ?dashPrefix ?contType
+order by ?dashPrefix  desc(?total)""" ;
+                        rdfs:label "Dashes stat by containers" .
+
+
+###  http://www.example.com/MIGRATION#common_dash_containers
+:common_dash_containers rdf:type owl:NamedIndividual ,
+                                 report:buttonReport ;
+                        report:hasQuery """select distinct  ?contType (count(*) as ?total) 
+{
+
+?cont rdf:type mig:DashVisualContainer .
+?cont mig:hasSection ?sect .  
+?sect rdfs:label ?sectLabel .  
+?sect mig:hasMsDash ?dash .  
+?dash mig:hasPrefix ?dashPrefix .  
+?cont rdfs:label ?Contlabel .  
+?cont mig:hasDasVisualType ?contType . 
+?sect js:hasJsonObjectKey ?secKey .    
+optional {
+  ?vis mig:DashSection ?sect  .
+  ?vis rdf:type mig:DashConfFile .
+  ?vis js:visibility  ?visibility .  
+  }
+?cont js:y ?y .  
+bind (coalesce(?visibility,'0') as ?isvisible )
+filter (?isvisible='0')  
+}
+group by ?contType
+order by ?dashPrefix  desc(?total)""" ;
+                        rdfs:label "All containers stat" .
+
+
+###  http://www.example.com/MIGRATION#dash_sect_cont
+:dash_sect_cont rdf:type owl:NamedIndividual ,
+                         report:buttonReport ;
+                report:hasQuery """select distinct  ?dashPrefix ?sect ?sectLabel ?Contlabel ?contType {
+  bind ( ?param? as ?dash)  
+?cont rdf:type mig:DashVisualContainer .
+?cont mig:hasSection ?sect .  
+?sect rdfs:label ?sectLabel .  
+?sect mig:hasMsDash ?dash .  
+?dash mig:hasPrefix ?dashPrefix .  
+?cont rdfs:label ?Contlabel .  
+?cont mig:hasDasVisualType ?contType . 
+?sect js:hasJsonObjectKey ?secKey .    
+optional {
+  ?vis mig:DashSection ?sect  .
+  ?vis rdf:type mig:DashConfFile .
+  ?vis js:visibility  ?visibility .  
+  }
+?cont js:y ?y .  
+bind (coalesce(?visibility,'0') as ?isvisible )
+filter (?isvisible='0')  
+}
+order by ?dash xsd:integer(?secKey) ?sect  xsd:integer(?y)""" ;
+                rdfs:label "Section and cont" .
+
+
+###  http://www.example.com/MIGRATION#dash_visual_containers_counts
+:dash_visual_containers_counts rdf:type owl:NamedIndividual ,
+                                        report:buttonReport ;
+                               report:hasQuery """select distinct  ?dashPrefix ?contType (count(*) as ?total) 
+{
+  bind (?param? as ?dash)  
+?cont rdf:type mig:DashVisualContainer .
+?cont mig:hasSection ?sect .  
+?sect rdfs:label ?sectLabel .  
+?sect mig:hasMsDash ?dash .  
+?dash mig:hasPrefix ?dashPrefix .  
+?cont rdfs:label ?Contlabel .  
+?cont mig:hasDasVisualType ?contType . 
+?sect js:hasJsonObjectKey ?secKey .    
+optional {
+  ?vis mig:DashSection ?sect  .
+  ?vis rdf:type mig:DashConfFile .
+  ?vis js:visibility  ?visibility .  
+  }
+?cont js:y ?y .  
+bind (coalesce(?visibility,'0') as ?isvisible )
+filter (?isvisible='0')  
+}
+group by ?dashPrefix ?contType
+order by ?dashPrefix  desc(?total)""" ;
+                               rdfs:label "Visual Contaners stat" .
 
 
 ###  http://www.example.com/MIGRATION#dbmsselecttn

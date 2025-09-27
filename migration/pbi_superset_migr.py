@@ -47,7 +47,7 @@ class superset_migr:
         fjson.close()
 
     def create_superset_from_mart(self,recordset):        
-        #self.queryService.query(stmt.stmt_to_get_marts)
+        
         self.json_dump_recordset(recordset, self.dir_to_save+'dataset.json')
         self.form_send_api.post_dataset(recordset['dash_prefix']['value'] + ' ' + str(datetime.datetime.now()))
         self.form_send_api.post_dashboard(recordset['dash_prefix']['value'] + ' ' + str(datetime.datetime.now()))
