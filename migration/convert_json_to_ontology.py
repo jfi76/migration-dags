@@ -1,4 +1,4 @@
-import os
+import os, shutil
 import json
 from rdflib import URIRef, BNode, Literal, Graph, Namespace, RDF, OWL
 import sys 
@@ -14,10 +14,22 @@ class json_to_ontology:
         self.toInsertArr=[]
         self.rdf_parsed='./dags/rdf_parsed/'
         self.queryService=sparql_service.runSparqlWrapper()
+    def remove_files_in_dir(self, folder):
+    #folder = '/path/to/folder'
+        for filename in os.listdir(folder):
+            file_path = os.path.join(folder, filename)
+            try:
+                if os.path.isfile(file_path) or os.path.islink(file_path):
+                    os.unlink(file_path)
+                elif os.path.isdir(file_path):
+                    shutil.rmtree(file_path)
+            except Exception as e:
+                print('Failed to delete %s. Reason: %s' % (file_path, e))
+
     def hashCode(self,inputStr):
         return BNode()    
     def processJsonDir(self):
-
+        self.remove_files_in_dir(self.rdf_parsed)
         dir_list = os.listdir(self.dirPath)
         for file in dir_list:
             if file.endswith('.json'): 

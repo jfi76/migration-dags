@@ -54,6 +54,29 @@ where
   ?table js:name  ?tableName .    
 };
 
+
+insert {?column rdf:type mig:Dashmeasure .  
+        ?column mig:hasMsDash ?dash  . 
+        ?column mig:hasMsDashTable ?table  . 
+        ?column rdfs:label ?colname .
+        ?column js:parentVisualId ?columns .        
+        ?columns js:parentVisualId ?table .       
+        ?columns rdfs:label 'measures' .
+        ?columns js:name 'measures' .
+        }  
+where 
+{
+  ?dash rdf:type mig:msdash .
+  ?table mig:hasMsDash ?dash . 
+  ?table rdf:type mig:msDashTable .
+  ?columns js:parentJsonId ?table .
+  ?columns js:hasJsonObjectKey 'measures' . 
+  ?column  js:parentJsonId ?columns . 
+  ?column js:name ?colname .
+  ?table js:name  ?tableName .    
+};
+
+
 insert {?lt rdf:type mig:DashLayout .} 
 where 
             {            

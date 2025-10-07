@@ -196,6 +196,16 @@ insert {?parent js:expression ?join_str} where
   filter (coalesce(?express,'')='')  
 };      
 
+insert {?parent js:expression ?join_str} where 
+{
+?iri js:jsstringjoin ?join_str .
+?iri js:parentJsonId ?parent . 
+?parent rdf:type mig:Dashmeasure .  
+  optional {?parent js:expression ?express  } .
+  filter (coalesce(?express,'')='')  
+};      
+
+
 #delete {
 #?iri mig:hasSQLTableName ?hasSQLTableName .
 #?iri mig:hasExportSqlName ?hasExportSqlName .

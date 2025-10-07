@@ -223,13 +223,13 @@ stmt_to_get_dasahes="""
    } 
 """
 stmt_to_get_marts="""
- select ?iri ?hasSourceFile ?hasMainSqlName ?sql ?dash_iri ?dash_prefix{  
+ select ?iri ?hasSourceFile ?hasMainSqlName (coalesce(?sql_txt,'') as ?sql) ?dash_iri ?dash_prefix{  
 ?iri rdf:type mig:dashmart .
 ?iri mig:label  ?hasSourceFile .
 ?iri mig:hasMsDash ?dash_iri .   
 ?dash_iri mig:hasPrefix ?dash_prefix .
 optional{?iri mig:hasMainSqlName ?hasMainSqlName } .
-optional{?iri mig:hasSqlDataset ?sql .}
+optional{?iri mig:hasSqlDataset ?sql_txt .}
    }
  
 """
@@ -673,7 +673,7 @@ optional{ ?column mig:hasExportSqlName ?hasExportSqlName }.
 '''
 
 stmt_pbi_section_containers="""
-select ?vc ?name ?y ?vctype  ?iri
+select ?vc ?name ?y ?vctype  ?iri ?section_name
 {
 bind (uri(?param?) as ?iri)  
 ?iri rdf:type mig:DashSection  .
@@ -682,10 +682,9 @@ bind (uri(?param?) as ?iri)
 ?vc rdfs:label ?name .  
 ?vc mig:hasDasVisualType ?vctype .  
 ?vc js:y ?y .  
-
+?iri js:displayName ?section_name 
 }    
 order by ASC(xsd:float(?y)) 
-
 
 """
 #
@@ -757,10 +756,12 @@ select ?qr  ?datasetName ?dataType ?LayoutType ?objkey (coalesce(?agg_func,'') a
 
 stmt_get_layout_table_dash="""
 select ?VisualType ?lt ?qr  ?datasetName ?dataType ?LayoutType ?objkey (coalesce(?agg_func,'') as ?agg_func_num ) ?query_ref  (coalesce(?DisplayNameStr,?datasetName) as ?DisplayName)
+ ?section_name
 {
 bind (uri(?param?) as ?iri)  
 ?iri mig:hasMsDash ?dash .  
 ?iri rdf:type mig:DashSection  .
+?iri js:displayName  ?section_name .
 ?vcs js:parentJsonId ?iri  .
 ?lt js:parentJsonId ?vcs .  
 ?lt mig:hasDasVisualType ?VisualType .  
@@ -809,7 +810,7 @@ order by ASC(xsd:float(?y))
 
 """
 stmt_sections="""
-select ?iri ?sect {
+select ?iri ?sect (?SecdisplayName as ?section_name) {
 bind(uri(?param?) as ?iri )  
 ?sect rdf:type mig:DashSection .
 ?sect mig:hasMsDash ?iri .

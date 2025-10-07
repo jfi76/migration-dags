@@ -203,6 +203,13 @@ order by ?dashName ?tabeName""" ;
                      rdfs:label "DashVisualContainer" .
 
 
+###  http://www.example.com/MIGRATION#Dashmeasure
+:Dashmeasure rdf:type owl:Class ;
+             rdfs:subClassOf :msdash ;
+             report:hasButtonQuery :table_measures ;
+             rdfs:label "Dash Measures" .
+
+
 ###  http://www.example.com/MIGRATION#TSQL
 :TSQL rdf:type owl:Class ;
       rdfs:subClassOf :mssql ;
@@ -219,7 +226,8 @@ order by ?dashName ?tabeName""" ;
 :common_reports rdf:type owl:Class ;
                 rdfs:subClassOf :msdash ;
                 report:hasButtonQuery :common_dash_cont_stat2 ,
-                                      :common_dash_containers ;
+                                      :common_dash_containers ,
+                                      :common_dashes_section_containers ;
                 rdfs:label "Common reports" .
 
 
@@ -814,6 +822,32 @@ order by ?dashPrefix  desc(?total)""" ;
                         rdfs:label "All containers stat" .
 
 
+###  http://www.example.com/MIGRATION#common_dashes_section_containers
+:common_dashes_section_containers rdf:type owl:NamedIndividual ,
+                                           report:buttonReport ;
+                                  report:hasQuery """select distinct  ?dashPrefix ?sect ?sectLabel ?Contlabel ?contType {
+
+?cont rdf:type mig:DashVisualContainer .
+?cont mig:hasSection ?sect .  
+?sect rdfs:label ?sectLabel .  
+?sect mig:hasMsDash ?dash .  
+?dash mig:hasPrefix ?dashPrefix .  
+?cont rdfs:label ?Contlabel .  
+?cont mig:hasDasVisualType ?contType . 
+?sect js:hasJsonObjectKey ?secKey .    
+optional {
+  ?vis mig:DashSection ?sect  .
+  ?vis rdf:type mig:DashConfFile .
+  ?vis js:visibility  ?visibility .  
+  }
+?cont js:y ?y .  
+bind (coalesce(?visibility,'0') as ?isvisible )
+filter (?isvisible='0')  
+}
+order by ?dash xsd:integer(?secKey) ?sect  xsd:integer(?y)""" ;
+                                  rdfs:label "All dashes sections and visuals" .
+
+
 ###  http://www.example.com/MIGRATION#dash_sect_cont
 :dash_sect_cont rdf:type owl:NamedIndividual ,
                          report:buttonReport ;
@@ -1217,6 +1251,37 @@ select ?iri ?statement_id  ?text ?statement_type_label {
   ?iri mig:ERROR_MSG ?erro_msg_str
 } order by ?proc_name""" ;
                    rdfs:label "Errors" .
+
+
+###  http://www.example.com/MIGRATION#table_measures
+:table_measures rdf:type owl:NamedIndividual ,
+                         report:buttonReport ;
+                report:hasQuery """select ?dash_prefix (?column as ?iri) ?dashName ?tableName ?colname ?type ?dataType ?sourceColumn ?expression (coalesce(?expreplaced,'') as ?col_expr_export)
+?summarizeBy 
+?pg_sql 
+?click_sql 
+{
+  bind (?param? as ?dash) .
+  ?dash rdf:type mig:msdash .
+  ?dash mig:hasPrefix ?dash_prefix .
+  ?dash js:name ?dashName .
+  ?table js:name ?tableName .  
+  ?table mig:hasMsDash ?dash . 
+  ?table rdf:type mig:msDashTable .
+  ?column mig:hasMsDashTable ?table .
+  ?column rdf:type mig:Dashmeasure .
+  ?column js:name ?colname .
+  optional {?column js:type ?type} .
+  optional {?column js:dataType ?dataType} .
+  optional {?column js:sourceColumn ?sourceColumn } .
+  optional {?column js:expression ?expression } .     
+optional {?column mig:hasExpressionReplaced ?expreplaced} .
+optional {?column js:summarizeBy  ?summarizeBy } . 
+optional{?column  mig:hasPostgresSql ?pg_sql .  }
+optional{?column  mig:hasClickSql ?click_sql .  }
+}
+order by ?dashName ?tabeName""" ;
+                rdfs:label "Table measures" .
 
 
 ###  http://www.example.com/MIGRATION#tablescolumn2

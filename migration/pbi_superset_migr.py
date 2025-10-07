@@ -52,6 +52,7 @@ class superset_migr:
         self.form_send_api.post_dataset(recordset['dash_prefix']['value'] + ' ' + str(datetime.datetime.now()))
         self.form_send_api.post_dashboard(recordset['dash_prefix']['value'] + ' ' + str(datetime.datetime.now()))
         ret=self.queryService.query( stmt.stmt_sections.replace('?param?',"'"+recordset['dash_iri']['value']+"'")  )
+        self.json_dump_recordset(recordset, self.dir_to_save+'tab_list.json')
         for sect in ret:
             self.iterate_sections(sect['sect']['value'])
 
@@ -110,5 +111,5 @@ class superset_migr:
             self.json_dump_recordset(ret, self.dir_to_save+f'all_columns.json')
 if __name__ == "__main__":
     c=superset_migr('../playground_ai/')
-    #c.iterate_marts()
+    c.iterate_marts()
     c.create_superset()

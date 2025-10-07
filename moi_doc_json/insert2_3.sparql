@@ -63,7 +63,7 @@ insert {?iri rdf:type mig:dashlayouttable . ?qr  rdf:type mig:mslayoutrows . ?qr
   ?proj js:parentJsonId ?sect .
   ?proj js:hasJsonObjectKey "projections" .
   ?rows js:parentJsonId ?proj .
-  ?rows js:hasJsonObjectKey "Rows" .
+  #?rows js:hasJsonObjectKey "Rows" .
   ?qr js:parentJsonId ?rows .
   ?qr js:queryRef ?group_by_cols .
 };

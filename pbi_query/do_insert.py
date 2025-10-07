@@ -16,6 +16,16 @@ import query.runSparqlWrapper as sparql_service
 import query.statements as stmt
 from pbi_config_load import config_load 
 from load_init_rdf_json import load_init_rdf_json
+def clean_tmp_data():
+    remove_files_in_dir('../playground_adds')
+    remove_files_in_dir('../playground_parsed_adds')
+    #remove_files_in_dir('../playground_ai')
+    remove_files_in_dir('../playground_ai_parsed')
+    remove_files_in_dir('../playground_parsed')
+    remove_files_in_dir('../play_ground_export_query')
+    
+
+
 def remove_files_in_dir(folder):
 #folder = '/path/to/folder'
     for filename in os.listdir(folder):
@@ -30,87 +40,90 @@ def remove_files_in_dir(folder):
 
 if __name__ == "__main__":
     stmt_all_dashes="""select ?dash ?fileName  {
-    bind(js:N0500555be7d2497793899a8c2f304b34 as ?dash)
+   
     ?dash rdf:type mig:msdash . 
     ?dash etl:hasSourceFile ?fileName . 
     
     }"""    
+    clean_tmp_data()
+    
+    cl=load_init_rdf_json('../init_rdf_json/','../output/')
 
-    # cl=load_init_rdf_json('../init_rdf_json/','../output/')
+    conv=json_to_ontology('../playground/')
+    conv.rdf_parsed='../playground_parsed/'
+    conv.processJsonDir()
+    data = open('../moi_doc_json/insert.sparql').read()
+    service=sparql_service.runSparqlWrapper()
+    service.insert(data)
 
-    # conv=json_to_ontology('../playground/')
-    # conv.rdf_parsed='../playground_parsed/'
-    # conv.processJsonDir()
-    # data = open('../moi_doc_json/insert.sparql').read()
+    cfrm=export_freemind(stmt.select_recursive_visualiz_pbi,'c:\\zena\\')
+    cfrm.key_name='Дашбоард init'
+    cfrm.get_dashes()
+
+    c=config_load(stmt.select_config_pbi,'../playground_adds')
+    c.get_and_save()    
+
+    conv2=json_to_ontology('../playground_adds/')
+    conv2.rdf_parsed='../playground_parsed_adds/'
+    conv2.processJsonDir()
+######run creation from 
+    # c=process_table_expreesion('../playground_parsed_adds/')
+    # c.iterate_expr()
+
+
+    # data = open('../moi_doc_json/insert2.sparql').read()
     # service=sparql_service.runSparqlWrapper()
     # service.insert(data)
 
-    # cfrm=export_freemind(stmt.select_recursive_visualiz_pbi,'c:\\zena\\')
-    # cfrm.key_name='Дашбоард init'
-    # cfrm.get_dashes()
-
-
-    # c=config_load(stmt.select_config_pbi,'../playground_adds')
-    # c.get_and_save()    
-
-    # conv2=json_to_ontology('../playground_adds/')
-    # conv2.rdf_parsed='../playground_parsed_adds/'
-    # conv2.processJsonDir()
-######run creation from 
-    remove_files_in_dir('../playground_parsed_adds')
-    c=process_table_expreesion('../playground_parsed_adds/')
-    c.iterate_expr()
-
-
-    data = open('../moi_doc_json/insert2.sparql').read()
-    service=sparql_service.runSparqlWrapper()
-    service.insert(data)
-
     
-    c=process_table_expreesion('../playground_parsed_adds/')
-    c.iterate_expr()
+    # c=process_table_expreesion('../playground_parsed_adds/')
+    # c.iterate_expr()
 
-    data = open('../moi_doc_json/insert2_2.sparql').read()
-    service=sparql_service.runSparqlWrapper()
-    service.insert(data)
+    # data = open('../moi_doc_json/insert2_2.sparql').read()
+    # service=sparql_service.runSparqlWrapper()
+    # service.insert(data)
 
 
     # cfrm=export_freemind(stmt.select_recursive_visualiz_pbi,'c:\\zena\\')
     # cfrm.key_name='Дашбоард'
     # cfrm.get_dashes()
+    # calc=calculated_columns('../playground_parsed_adds/')
+    # calc.replace_expression()
+
+    # crepl=replace_cols_tabs('',stmt.stmt_tables_source_str,stmt.stmt_tables_cols,stmt.stmt_tables_source_str, '../playground_parsed_adds/', stmt_all_dashes)
+    # crepl.do_dashes()
+
+    # conv3=json_to_ontology('../playground_ai/')
+    # conv3.rdf_parsed='../playground_ai_parsed/'
+    # conv3.processJsonDir()
+
+    # data = open('../moi_doc_json/insert2_3.sparql').read()
+    # service=sparql_service.runSparqlWrapper()
+    # service.insert(data)
     
-    calc=calculated_columns('../playground_parsed_adds/')
-    calc.replace_expression()
 
-    crepl=replace_cols_tabs('',stmt.stmt_tables_source_str,stmt.stmt_tables_cols,stmt.stmt_tables_source_str, '../playground_parsed_adds/', stmt_all_dashes)
-    crepl.do_dashes()
-
-
-    conv3=json_to_ontology('../playground_ai/')
-    conv3.rdf_parsed='../playground_ai_parsed/'
-    conv3.processJsonDir()
-
-    data = open('../moi_doc_json/insert2_3.sparql').read()
-    service=sparql_service.runSparqlWrapper()
-    service.insert(data)
-    
-    data = open('../moi_doc_json/insert2_4.sparql').read()
-    service=sparql_service.runSparqlWrapper()
-    service.insert(data)    
 # #####
 
-    
-    cexp=create_export_query(stmt_all_dashes,'../playground_parsed_adds/')
+
+    cexp=create_export_query(stmt_all_dashes,'../play_ground_export_query/')
 
     cexp.run_view_art_sql()
     cexp.create_view_sql()
     
     cexp.iterate_dashes()
+    
+    data = open('../moi_doc_json/insert2_4.sparql').read()
+    service=sparql_service.runSparqlWrapper()
+    service.insert(data)    
 
     cexp.create_from_for_export_query()
     cexp.create_mart_export_query()
     cexp.run_views_onserver()
-    
+
+    conv3=json_to_ontology('../playground_ai2/')
+    conv3.rdf_parsed='../playground_ai_parsed2/'
+    conv3.processJsonDir()
+
 #####################################
     # data = open('../moi_doc_json/insert3.sparql').read()
     # service=sparql_service.runSparqlWrapper()
