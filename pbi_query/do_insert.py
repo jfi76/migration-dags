@@ -47,59 +47,59 @@ if __name__ == "__main__":
     }"""    
     clean_tmp_data()
     
-    cl=load_init_rdf_json('../init_rdf_json/','../output/')
+    # cl=load_init_rdf_json('../init_rdf_json/','../output/')
 
-    conv=json_to_ontology('../playground/')
-    conv.rdf_parsed='../playground_parsed/'
-    conv.processJsonDir()
-    data = open('../moi_doc_json/insert.sparql').read()
+    # conv=json_to_ontology('../playground/')
+    # conv.rdf_parsed='../playground_parsed/'
+    # conv.processJsonDir()
+    # data = open('../moi_doc_json/insert.sparql').read()
+    # service=sparql_service.runSparqlWrapper()
+    # service.insert(data)
+
+    # cfrm=export_freemind(stmt.select_recursive_visualiz_pbi,'c:\\zena\\')
+    # cfrm.key_name='Дашбоард init'
+    # cfrm.get_dashes()
+
+    # c=config_load(stmt.select_config_pbi,'../playground_adds')
+    # c.get_and_save()    
+
+    # conv2=json_to_ontology('../playground_adds/')
+    # conv2.rdf_parsed='../playground_parsed_adds/'
+    # conv2.processJsonDir()
+######run creation from 
+    c=process_table_expreesion('../playground_parsed_adds/')
+    c.iterate_expr()
+
+
+    data = open('../moi_doc_json/insert2.sparql').read()
     service=sparql_service.runSparqlWrapper()
     service.insert(data)
 
-    cfrm=export_freemind(stmt.select_recursive_visualiz_pbi,'c:\\zena\\')
-    cfrm.key_name='Дашбоард init'
-    cfrm.get_dashes()
-
-    c=config_load(stmt.select_config_pbi,'../playground_adds')
-    c.get_and_save()    
-
-    conv2=json_to_ontology('../playground_adds/')
-    conv2.rdf_parsed='../playground_parsed_adds/'
-    conv2.processJsonDir()
-######run creation from 
-    # c=process_table_expreesion('../playground_parsed_adds/')
-    # c.iterate_expr()
-
-
-    # data = open('../moi_doc_json/insert2.sparql').read()
-    # service=sparql_service.runSparqlWrapper()
-    # service.insert(data)
-
     
-    # c=process_table_expreesion('../playground_parsed_adds/')
-    # c.iterate_expr()
+    c=process_table_expreesion('../playground_parsed_adds/')
+    c.iterate_expr()
 
-    # data = open('../moi_doc_json/insert2_2.sparql').read()
-    # service=sparql_service.runSparqlWrapper()
-    # service.insert(data)
+    data = open('../moi_doc_json/insert2_2.sparql').read()
+    service=sparql_service.runSparqlWrapper()
+    service.insert(data)
 
 
-    # cfrm=export_freemind(stmt.select_recursive_visualiz_pbi,'c:\\zena\\')
-    # cfrm.key_name='Дашбоард'
-    # cfrm.get_dashes()
-    # calc=calculated_columns('../playground_parsed_adds/')
-    # calc.replace_expression()
+    cfrm=export_freemind(stmt.select_recursive_visualiz_pbi,'c:\\zena\\')
+    cfrm.key_name='Дашбоард'
+    cfrm.get_dashes()
+    calc=calculated_columns('../playground_parsed_adds/')
+    calc.replace_expression()
 
-    # crepl=replace_cols_tabs('',stmt.stmt_tables_source_str,stmt.stmt_tables_cols,stmt.stmt_tables_source_str, '../playground_parsed_adds/', stmt_all_dashes)
-    # crepl.do_dashes()
+    crepl=replace_cols_tabs('',stmt.stmt_tables_source_str,stmt.stmt_tables_cols,stmt.stmt_tables_source_str, '../playground_parsed_adds/', stmt_all_dashes)
+    crepl.do_dashes()
 
-    # conv3=json_to_ontology('../playground_ai/')
-    # conv3.rdf_parsed='../playground_ai_parsed/'
-    # conv3.processJsonDir()
+    conv3=json_to_ontology('../playground_ai/')
+    conv3.rdf_parsed='../playground_ai_parsed/'
+    conv3.processJsonDir()
 
-    # data = open('../moi_doc_json/insert2_3.sparql').read()
-    # service=sparql_service.runSparqlWrapper()
-    # service.insert(data)
+    data = open('../moi_doc_json/insert2_3.sparql').read()
+    service=sparql_service.runSparqlWrapper()
+    service.insert(data)
     
 
 # #####
@@ -123,6 +123,10 @@ if __name__ == "__main__":
     conv3=json_to_ontology('../playground_ai2/')
     conv3.rdf_parsed='../playground_ai_parsed2/'
     conv3.processJsonDir()
+
+    data = open('../moi_doc_json/insert3_1.sparql').read()
+    service=sparql_service.runSparqlWrapper()
+    service.insert(data)    
 
 #####################################
     # data = open('../moi_doc_json/insert3.sparql').read()

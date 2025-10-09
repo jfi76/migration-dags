@@ -206,7 +206,6 @@ order by ?dashName ?tabeName""" ;
 ###  http://www.example.com/MIGRATION#Dashmeasure
 :Dashmeasure rdf:type owl:Class ;
              rdfs:subClassOf :msdash ;
-             report:hasButtonQuery :table_measures ;
              rdfs:label "Dash Measures" .
 
 
@@ -613,7 +612,7 @@ order by ?dashName ?tabeName""" ;
 ###  http://www.example.com/MIGRATION#BtnDashTabelsColumns
 :BtnDashTabelsColumns rdf:type owl:NamedIndividual ,
                                report:buttonReport ;
-                      report:hasQuery """select ?dash_prefix (?column as ?iri) ?dashName ?tableName ?colname ?type ?dataType ?sourceColumn ?expression (coalesce(?expreplaced,'') as ?col_expr_export)
+                      report:hasQuery """select ?dash_prefix (?column as ?iri) ?Dash_Name ?tableName ?colname ?type ?dataType ?sourceColumn ?expression (coalesce(?expreplaced,'') as ?col_expr_export)
 ?summarizeBy 
 ?pg_sql 
 ?click_sql 
@@ -621,7 +620,10 @@ order by ?dashName ?tabeName""" ;
   bind (?param? as ?dash) .
   ?dash rdf:type mig:msdash .
 ?dash mig:hasPrefix ?dash_prefix .
-  ?dash js:name ?dashName .
+optional{?dash mig:dashName ?dashName } .
+bind(coalesce(?dashName,?dashPrefix ) as ?Dash_Name).
+
+#  ?dash js:name ?dashName .
   ?table js:name ?tableName .  
   ?table mig:hasMsDash ?dash . 
   ?table rdf:type mig:msDashTable .
@@ -637,7 +639,7 @@ optional {?column js:summarizeBy  ?summarizeBy } .
 optional{?column  mig:hasPostgresSql ?pg_sql .  }
 optional{?column  mig:hasClickSql ?click_sql .  }
 }
-order by ?dashName ?tabeName""" ;
+order by ?Dash_Name ?tabeName""" ;
                       rdfs:label "Tables and Columns" .
 
 
@@ -663,11 +665,14 @@ order by ?table_name ?MartExporName""" ;
 ###  http://www.example.com/MIGRATION#DashTables
 :DashTables rdf:type owl:NamedIndividual ,
                      report:buttonReport ;
-            report:hasQuery """select  ?dash_prefix ?ch3  ?tableName  ?hasSqlName  ?hasExportSqlName ?sourceString ?exptype ?tablexpr ?hasExpressionReplaced
+            report:hasQuery """select  ?Dash_Name ?ch3  ?tableName  ?hasSqlName  ?hasExportSqlName (coalesce(?sourceString,?tablexpr) as ?source) ?exptype  ?hasExpressionReplaced
 {
 bind (?param? as ?param)  
  ?param rdf:type mig:msdash .
 ?param mig:hasPrefix ?dash_prefix .
+optional{?param mig:dashName ?dashName } .
+bind(coalesce(?dashName,?dashPrefix ) as ?Dash_Name).
+
  ?ch1 js:parentJsonId ?param .
  ?ch1  js:hasJsonObjectKey 'model' .
  ?ch1 js:defaultPowerBIDataSourceVersion ?defaultPowerBIDataSourceVersion .
@@ -683,10 +688,10 @@ optional {?ch3 mig:hasExpressionReplaced ?hasExpressionReplaced .}
 optional {
 ?expr rdf:type mig:DashExpression .
 ?expr mig:hasMsDashTable  ?ch3 .  
-?expr js:type ?exptype .
-?expr  js:expression ?tablexpr .
-
+optional {?expr js:type ?exptype  }.
+?expr  js:jsstringjoin ?tablexpr .
  }
+
 } order by  ?tableName""" ;
             rdfs:label "Tables" .
 
@@ -769,7 +774,16 @@ order by ?table_name  ?MartExporName""" ;
 ###  http://www.example.com/MIGRATION#common_dash_cont_stat2
 :common_dash_cont_stat2 rdf:type owl:NamedIndividual ,
                                  report:buttonReport ;
-                        report:hasQuery """select  ?dashPrefix ?contType (count(*) as ?total) 
+                        report:hasQuery """PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    PREFIX mig: <http://www.example.com/MIGRATION#>
+    PREFIX owl: <http://www.w3.org/2002/07/owl#>
+    PREFIX js: <http://www.example.com/JSON#>
+    PREFIX etl:<http://www.example.com/ETL#>
+    PREFIX  js_at: <http://www.example.com/JSON#@>
+    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+select ?Dash_Name  ?contType (count(*) as ?total) 
 {
 
 ?cont rdf:type mig:DashVisualContainer .
@@ -780,17 +794,19 @@ order by ?table_name  ?MartExporName""" ;
 ?cont rdfs:label ?Contlabel .  
 ?cont mig:hasDasVisualType ?contType . 
 ?sect js:hasJsonObjectKey ?secKey .    
+optional{?dash mig:dashName ?dashName } .
 optional {
   ?vis mig:DashSection ?sect  .
   ?vis rdf:type mig:DashConfFile .
   ?vis js:visibility  ?visibility .  
   }
 ?cont js:y ?y .  
+bind(coalesce(?dashName,?dashPrefix ) as ?Dash_Name)
 bind (coalesce(?visibility,'0') as ?isvisible )
 filter (?isvisible='0')  
 }
-group by ?dashPrefix ?contType
-order by ?dashPrefix  desc(?total)""" ;
+group by ?Dash_Name ?contType
+order by ?Dash_Name  desc(?total)""" ;
                         rdfs:label "Dashes stat by containers" .
 
 
@@ -825,13 +841,16 @@ order by ?dashPrefix  desc(?total)""" ;
 ###  http://www.example.com/MIGRATION#common_dashes_section_containers
 :common_dashes_section_containers rdf:type owl:NamedIndividual ,
                                            report:buttonReport ;
-                                  report:hasQuery """select distinct  ?dashPrefix ?sect ?sectLabel ?Contlabel ?contType {
+                                  report:hasQuery """select distinct  ?Dash_Name?sect ?sectLabel ?Contlabel ?contType {
 
 ?cont rdf:type mig:DashVisualContainer .
 ?cont mig:hasSection ?sect .  
 ?sect rdfs:label ?sectLabel .  
 ?sect mig:hasMsDash ?dash .  
 ?dash mig:hasPrefix ?dashPrefix .  
+optional{?dash mig:dashName ?dashName } .
+bind(coalesce(?dashName,?dashPrefix ) as ?Dash_Name).
+
 ?cont rdfs:label ?Contlabel .  
 ?cont mig:hasDasVisualType ?contType . 
 ?sect js:hasJsonObjectKey ?secKey .    
@@ -1256,31 +1275,6 @@ select ?iri ?statement_id  ?text ?statement_type_label {
 ###  http://www.example.com/MIGRATION#table_measures
 :table_measures rdf:type owl:NamedIndividual ,
                          report:buttonReport ;
-                report:hasQuery """select ?dash_prefix (?column as ?iri) ?dashName ?tableName ?colname ?type ?dataType ?sourceColumn ?expression (coalesce(?expreplaced,'') as ?col_expr_export)
-?summarizeBy 
-?pg_sql 
-?click_sql 
-{
-  bind (?param? as ?dash) .
-  ?dash rdf:type mig:msdash .
-  ?dash mig:hasPrefix ?dash_prefix .
-  ?dash js:name ?dashName .
-  ?table js:name ?tableName .  
-  ?table mig:hasMsDash ?dash . 
-  ?table rdf:type mig:msDashTable .
-  ?column mig:hasMsDashTable ?table .
-  ?column rdf:type mig:Dashmeasure .
-  ?column js:name ?colname .
-  optional {?column js:type ?type} .
-  optional {?column js:dataType ?dataType} .
-  optional {?column js:sourceColumn ?sourceColumn } .
-  optional {?column js:expression ?expression } .     
-optional {?column mig:hasExpressionReplaced ?expreplaced} .
-optional {?column js:summarizeBy  ?summarizeBy } . 
-optional{?column  mig:hasPostgresSql ?pg_sql .  }
-optional{?column  mig:hasClickSql ?click_sql .  }
-}
-order by ?dashName ?tabeName""" ;
                 rdfs:label "Table measures" .
 
 

@@ -1,0 +1,20 @@
+insert {?dax rdf:type mig:tansformed_postgres .
+?dax mig:hasColumn ?column .
+?column  mig:hasPostgresSql ?sql .  
+} where 
+#
+#
+{?iri rdf:type js:FileJson .
+?iri etl:hasSourceFile ?filename .
+  filter (contains(?filename,'sql_answ_dax.json'))
+?child1 js:parentJsonId ?iri .
+?dax js:parentJsonId ?child1 .  
+?dax js:tableName ?tableName .
+?dax js:colname ?colname .
+?dax js:sql ?sql .  
+?column rdf:type mig:DashColumn .  
+?column  js:expression ?exp.
+?column js:name ?colname .
+?column mig:hasMsDashTable ?table .  
+?table js:name ?tableName  .  
+};

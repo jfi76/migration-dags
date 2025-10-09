@@ -115,3 +115,45 @@ where
   ?section js:name ?secname .
   ?section js:displayName ?displayName .
 };
+
+insert {
+?iri mig:dashName ?dashName .
+} where 
+{
+bind ("1С ДО_витрина2" as  ?dashName ) .
+?iri mig:hasPrefix ?pref
+filter ( ?pref ='1cdo2')
+};
+insert {
+?iri mig:dashName ?dashName .
+} where 
+{
+bind ("05-02-04. Дашбоард Рамочные договоры" as  ?dashName ) .
+?iri mig:hasPrefix ?pref
+filter ( ?pref ='RMD')
+};
+insert {
+?iri mig:dashName ?dashName .
+} where 
+{
+bind ("08-00 Радар. Панель по HR-процессам" as  ?dashName ) .
+?iri mig:hasPrefix ?pref
+filter ( ?pref ='radar')
+};
+insert {
+?iri mig:dashName ?dashName .
+} where 
+{
+bind ("08-05. Премирование" as  ?dashName ) .
+?iri mig:hasPrefix ?pref
+filter ( ?pref ='bonus')
+};
+
+insert {
+?iri mig:dashName ?dashName .
+} where 
+{
+bind ("08-01. OTRS ИМ из БД" as  ?dashName ) .
+?iri mig:hasPrefix ?pref
+filter ( ?pref ='imotrs')
+};
