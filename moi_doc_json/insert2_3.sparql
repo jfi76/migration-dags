@@ -60,7 +60,7 @@ insert {?v rdf:type mig:mslayoutvalues . ?v mig:hasLayoutTable  ?iri . ?v rdf:ty
   ?proj js:parentJsonId ?sect .
   ?proj js:hasJsonObjectKey "projections" .
   ?values js:parentJsonId ?proj .
-  ?values js:hasJsonObjectKey "Values" .
+  #?values js:hasJsonObjectKey "Values" .
   ?v js:parentJsonId ?values .
   ?v js:queryRef ?aggr_cols .
 };

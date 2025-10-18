@@ -45,6 +45,7 @@ class superset_migr:
         fjson = open(filepath, "w", encoding="utf-8")
         fjson.write(json.dumps(recordset, ensure_ascii=False))            
         fjson.close()
+        
 
     def create_superset_from_mart(self,recordset):        
         

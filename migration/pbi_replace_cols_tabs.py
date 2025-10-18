@@ -21,7 +21,8 @@ class replace_cols_tabs:
         self.stmt_dashes=stmt_dashes
     def do_dashes(self):
         ret=self.queryService.query(self.stmt_dashes)
-        self.queryService.insert('delete {?tab  mig:hasExpressionReplaced ?o} where { ?tab rdf:type mig:msDashTable .?tab mig:hasExpressionReplaced ?o } ')        
+        #self.queryService.insert('delete {?tab  mig:hasExpressionReplaced ?o} where { ?tab rdf:type mig:msDashTable .?tab mig:hasExpressionReplaced ?o } ')        
+
         for export_stmt_result in ret:
             self.dash_iri= export_stmt_result['dash']['value']
             self.init_arrays()
@@ -32,6 +33,7 @@ class replace_cols_tabs:
     def replace_str_by_cols(self, tabname, dax):
         ret=dax
         if  tabname in self.columns.keys():
+            print(tabname)
             dax_str=dax            
             for col in self.columns[tabname]:
                 if col["tab_col_name"] in dax:
@@ -41,19 +43,54 @@ class replace_cols_tabs:
                 ret=dax_str        
                 
         return ret 
+
+    def replace_str_by_cols_simple(self, tabname, dax):
+        ret=dax
+        if  tabname in self.columns.keys():
+            dax_str=dax            
+            for col in self.columns[tabname]:
+                if col["col_name"] in dax:                    
+                    print(col["col_name"]+' '+ col["to_replace"])
+                    dax_str=dax_str.replace(col["col_name"],col["to_replace"]) 
+            if dax_str!=dax: 
+                ret=dax_str        
                 
+        return ret 
+
     def replace_cols(self):
         for tab in self.dax_for_replace:
             for table in self.tables:
                 if table in tab['replaced']:
+                    print(table)
                     tab['replaced']=self.replace_str_by_cols(table, tab['replaced'])
+            if self.check_uncompleted(tab['replaced']):
+                print('uncomleted')
+                for table in self.tables:
+                    if table==tab['tab_name']:
+                        tab['replaced']=self.replace_str_by_cols_simple(table, tab['replaced'])
+            tab['replaced']=self.replace_str_by_cols_simple(table, tab['replaced'])
+
+    def check_uncompleted(self,s:str):
+        char="["
+        positions = [i for i, c in enumerate(s) if c == char]
+        for posit in positions:
+            pos = s.find('[',posit)          
+            if pos != -1:  
+                if pos == 0:
+                    continue 
+                elif s[pos - 1] != "'":
+                    return True 
+        
+        return False
+        
     def finalize(self):
         for dax in self.dax_for_replace: 
             if dax['replaced']!=dax['dax'] :
-                self.ttl_service.table_expression_renamed(dax['table'],dax['replaced'])
+                self.ttl_service.table_expression_renamed(dax['iri'],dax['replaced'])
         filepath=self.dir_to_save+'col_table_exp_replaced.ttl'  
         self.ttl_service.graph.serialize(filepath, 'turtle') 
-        self.queryService.load_ttl(filepath)
+        #self.queryService.load_ttl(filepath)
+        self.ttl_service.emptyGraph()
 
                     
 
@@ -61,23 +98,26 @@ class replace_cols_tabs:
         q=self.sparql_tables.replace('?param?',f'"{self.dash_iri}"')        
         ret=self.queryService.query(q)               
         for export_stmt_result in ret:         
-            self.tables.append(export_stmt_result['tablename']['value'])
+            self.tables.append(export_stmt_result['obj_name']['value'])
         q=self.sparql_columns.replace('?param?',f'"{self.dash_iri}"')        
         ret=self.queryService.query(q)               
         
         for export_stmt_result in ret:         
-            if export_stmt_result['tablename']['value'] not in self.columns.keys():
-                self.columns[export_stmt_result['tablename']['value']]=[]
-            self.columns[export_stmt_result['tablename']['value']].append(
-                {"tab_col_name": f"""'{export_stmt_result['tablename']['value']}'[{export_stmt_result['colname']['value']}]""" ,
-                 "to_replace":f"""'{export_stmt_result['hasExportSqlNameTab']['value']}'[{export_stmt_result['hasExportSqlNameCol']['value']}]"""
+            if export_stmt_result['obj_name']['value'] not in self.columns.keys():
+                self.columns[export_stmt_result['obj_name']['value']]=[]
+            self.columns[export_stmt_result['obj_name']['value']].append(
+                {"tab_col_name": f"""'{export_stmt_result['obj_name']['value']}'[{export_stmt_result['colname']['value']}]""" ,
+                 "to_replace":f"""'{export_stmt_result['hasExportSqlNameTab']['value']}'[{export_stmt_result['hasExportSqlNameCol']['value']}]""",
+                 "col_name":f"""[{export_stmt_result['colname']['value']}]"""
                 }
                  )
         q=self.sparql_dax.replace('?param?',f'"{self.dash_iri}"')        
         ret=self.queryService.query(q)             
         for export_stmt_result in ret:         
-            self.dax_for_replace.append({"table" : export_stmt_result['table']['value'],"tablename": export_stmt_result['tablename']['value'],
-                                "dax" : export_stmt_result['sourceString']['value'],"replaced":export_stmt_result['sourceString']['value']})
+            self.dax_for_replace.append({"iri" : export_stmt_result['iri']['value'],"obj_name": export_stmt_result['obj_name']['value'],
+                                "dax" : export_stmt_result['sourceString']['value'],"replaced":export_stmt_result['sourceString']['value'],
+                                "tab_name": export_stmt_result['tab_name']['value']
+                                })
             
 
 if __name__ == "__main__":

@@ -63,9 +63,13 @@ insert {?column rdf:type mig:Dashmeasure .
         ?columns js:parentVisualId ?table .       
         ?columns rdfs:label 'measures' .
         ?columns js:name 'measures' .
+        ?column rdf:type mig:DashColumn .  
+        ?column mig:isMeasure ?isMeasure .
+        ?column js:type 'calculated' .
         }  
 where 
 {
+  bind('y' as ?isMeasure) .
   ?dash rdf:type mig:msdash .
   ?table mig:hasMsDash ?dash . 
   ?table rdf:type mig:msDashTable .

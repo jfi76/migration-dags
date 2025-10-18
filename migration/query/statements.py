@@ -290,11 +290,13 @@ stmt_relation_columns="""select (?column as ?iri)  ?colname ?type ?dataType ?sou
   ?column mig:hasMsDashTable ?table .
   ?column rdf:type mig:DashColumn .
   ?column js:name ?colname .
+  optional{?column mig:isMeasure ?isMeasure}
   optional {?column js:type ?type} .
   optional {?column js:dataType ?dataType} .
   optional {?column js:sourceColumn ?sourceColumn } .
   optional {?column js:expression ?expression } .  
   optional {?column mig:hasSqlName ?sqlname } .  
+  filter (coalesce(?isMeasure,'')='')
 }
 
 """
@@ -744,7 +746,7 @@ select ?qr  ?datasetName ?dataType ?LayoutType ?objkey (coalesce(?agg_func,'') a
 ?qr  rdf:type  mig:queryref .
 ?qr mig:hasColumn ?col .
 ?col mig:hasExportSqlName ?datasetName .  
-?col js:dataType ?dataType .  
+optional{?col js:dataType ?dataType} .  
 ?col js:name ?coljsname .  
 ?qr mig:hasLayoutType ?LayoutType . 
 ?qr js:hasJsonObjectKey ?objkey   .
@@ -827,7 +829,10 @@ filter (?isvisible='0')
 """
 
 stmt_tables_source_str="""
-select ?dash ?table ?tablename ?hasSQLShema ?hasSQLTableName ?sourceString ?hasExportSqlName {
+select ?dash (?table as ?iri) (?tablename as ?obj_name) ?hasSQLShema ?hasSQLTableName ?sourceString ?hasExportSqlName 
+ (?tablename as ?tab_name)
+{
+
   bind (uri(?param?)  as ?dash )
   ?table mig:hasMsDash ?dash .
   ?table rdf:type mig:msDashTable .
@@ -840,8 +845,53 @@ select ?dash ?table ?tablename ?hasSQLShema ?hasSQLTableName ?sourceString ?hasE
   ?table  mig:hasExportSqlName ?hasExportSqlName .
 }
 """
+stmt_tables_source_to_replace="""
+select ?dash (?table as ?iri) (?tablename as ?obj_name) ?hasSQLShema ?hasSQLTableName ?sourceString ?hasExportSqlName {
+  bind (uri(?param?)  as ?dash )
+  ?table mig:hasMsDash ?dash .
+  ?table rdf:type mig:msDashTable .
+  ?table js:name ?tablename .
+  optional{
+  ?table mig:hasSQLTableName ?hasSQLTableName .
+  ?table mig:hasSQLShema ?hasSQLShema .  
+  }. 
+  ?table mig:sourceString ?sourceString .
+  ?table  mig:hasExportSqlName ?hasExportSqlName .
+}
+"""
+stmt_cols_expressions_to_replace="""
+select ?dash (?column as ?iri) (?colname as ?obj_name) ?hasSQLShema ?hasSQLTableName ?sourceString ?hasExportSqlName 
+(?tablename as ?tab_name)
+{
+  bind (uri(?param?)  as ?dash )
+  bind (js:N08a5aef920c1400a810d5b9aa49e98c5 as ?column)
+  ?table mig:hasMsDash ?dash .
+  ?table rdf:type mig:msDashTable .
+  ?table js:name ?tablename .
+  #?column rdf:type mig:Dashmeasure .
+  ?column rdf:type mig:DashColumn . 
+  ?column mig:hasMsDashTable ?table .
+  ?column js:name ?colname .
+  optional{
+  ?table mig:hasSQLTableName ?hasSQLTableName .
+  ?table mig:hasSQLShema ?hasSQLShema .  
+  }. 
+  ?column js:expression ?sourceString .
+  ?table  mig:hasExportSqlName ?hasExportSqlName .
+}
+"""
+stmt_tabs_expressions_to_replace="""
+select ?dash (?tablename as ?obj_name) ?hasExportSqlName {
+  bind (uri(?param?)  as ?dash )
+  
+  ?table mig:hasMsDash ?dash .
+  ?table rdf:type mig:msDashTable .
+  ?table js:name ?tablename .  
+  ?table  mig:hasExportSqlName ?hasExportSqlName .
+}
+"""
 stmt_tables_cols="""
-select ?dash ?table ?tablename ?colname ?hasSQLShema ?hasSQLTableName ?sourceString ?hasExportSqlNameTab ?hasExportSqlNameCol{
+select ?dash (?table as ?iri) (?tablename as ?obj_name) ?colname ?hasSQLShema ?hasSQLTableName ?sourceString ?hasExportSqlNameTab ?hasExportSqlNameCol{
   bind (uri(?param?) as ?dash )
   ?table mig:hasMsDash ?dash .
   ?table rdf:type mig:msDashTable .
