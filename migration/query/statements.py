@@ -864,7 +864,7 @@ select ?dash (?column as ?iri) (?colname as ?obj_name) ?hasSQLShema ?hasSQLTable
 (?tablename as ?tab_name)
 {
   bind (uri(?param?)  as ?dash )
-  bind (js:N08a5aef920c1400a810d5b9aa49e98c5 as ?column)
+  
   ?table mig:hasMsDash ?dash .
   ?table rdf:type mig:msDashTable .
   ?table js:name ?tablename .

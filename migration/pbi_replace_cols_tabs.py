@@ -65,10 +65,12 @@ class replace_cols_tabs:
                     tab['replaced']=self.replace_str_by_cols(table, tab['replaced'])
             if self.check_uncompleted(tab['replaced']):
                 print('uncomleted')
-                for table in self.tables:
-                    if table==tab['tab_name']:
-                        tab['replaced']=self.replace_str_by_cols_simple(table, tab['replaced'])
-            tab['replaced']=self.replace_str_by_cols_simple(table, tab['replaced'])
+                for table1 in self.tables:
+                    if table1==tab['tab_name']:
+                        tab['replaced']=self.replace_str_by_cols_simple(table1, tab['replaced'])
+                for table2 in self.tables:        
+                    tab['replaced']=self.replace_str_by_cols_simple(table2, tab['replaced'])
+
 
     def check_uncompleted(self,s:str):
         char="["
@@ -89,7 +91,7 @@ class replace_cols_tabs:
                 self.ttl_service.table_expression_renamed(dax['iri'],dax['replaced'])
         filepath=self.dir_to_save+'col_table_exp_replaced.ttl'  
         self.ttl_service.graph.serialize(filepath, 'turtle') 
-        #self.queryService.load_ttl(filepath)
+        self.queryService.load_ttl(filepath)
         self.ttl_service.emptyGraph()
 
                     
