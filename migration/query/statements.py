@@ -891,7 +891,9 @@ select ?dash (?tablename as ?obj_name) ?hasExportSqlName {
 }
 """
 stmt_tables_cols="""
-select ?dash (?table as ?iri) (?tablename as ?obj_name) ?colname ?hasSQLShema ?hasSQLTableName ?sourceString ?hasExportSqlNameTab ?hasExportSqlNameCol{
+select ?dash (?table as ?iri) (?tablename as ?obj_name) ?colname ?hasSQLShema ?hasSQLTableName ?sourceString ?hasExportSqlNameTab ?hasExportSqlNameCol
+(?column as ?obj_iri)
+{
   bind (uri(?param?) as ?dash )
   ?table mig:hasMsDash ?dash .
   ?table rdf:type mig:msDashTable .

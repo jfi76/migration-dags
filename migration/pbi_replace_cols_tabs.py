@@ -30,7 +30,7 @@ class replace_cols_tabs:
             self.finalize()
         
 
-    def replace_str_by_cols(self, tabname, dax):
+    def replace_str_by_cols(self, tabname, dax, iri):
         ret=dax
         if  tabname in self.columns.keys():
             print(tabname)
@@ -38,20 +38,26 @@ class replace_cols_tabs:
             for col in self.columns[tabname]:
                 if col["tab_col_name"] in dax:
                     print(col["tab_col_name"]+' '+ col["to_replace"])
+                    dax_prev=dax_str
                     dax_str=dax_str.replace(col["tab_col_name"],col["to_replace"]) 
-            if dax_str!=dax: 
+                    if dax_prev!=dax_str:    
+                        self.ttl_service.add_dependency(col["col_iri"],iri)
+            if dax_str!=dax:                 
                 ret=dax_str        
                 
         return ret 
 
-    def replace_str_by_cols_simple(self, tabname, dax):
+    def replace_str_by_cols_simple(self, tabname, dax, iri):
         ret=dax
         if  tabname in self.columns.keys():
             dax_str=dax            
             for col in self.columns[tabname]:
                 if col["col_name"] in dax:                    
                     print(col["col_name"]+' '+ col["to_replace"])
+                    dax_prev=dax_str
                     dax_str=dax_str.replace(col["col_name"],col["to_replace"]) 
+                    if dax_prev!=dax_str:    
+                        self.ttl_service.add_dependency(col["col_iri"],iri)
             if dax_str!=dax: 
                 ret=dax_str        
                 
@@ -62,14 +68,14 @@ class replace_cols_tabs:
             for table in self.tables:
                 if table in tab['replaced']:
                     print(table)
-                    tab['replaced']=self.replace_str_by_cols(table, tab['replaced'])
+                    tab['replaced']=self.replace_str_by_cols(table, tab['replaced'], tab["iri"])
             if self.check_uncompleted(tab['replaced']):
                 print('uncomleted')
                 for table1 in self.tables:
                     if table1==tab['tab_name']:
-                        tab['replaced']=self.replace_str_by_cols_simple(table1, tab['replaced'])
+                        tab['replaced']=self.replace_str_by_cols_simple(table1, tab['replaced'], tab["iri"])
                 for table2 in self.tables:        
-                    tab['replaced']=self.replace_str_by_cols_simple(table2, tab['replaced'])
+                    tab['replaced']=self.replace_str_by_cols_simple(table2, tab['replaced'], tab["iri"])
 
 
     def check_uncompleted(self,s:str):
@@ -110,7 +116,8 @@ class replace_cols_tabs:
             self.columns[export_stmt_result['obj_name']['value']].append(
                 {"tab_col_name": f"""'{export_stmt_result['obj_name']['value']}'[{export_stmt_result['colname']['value']}]""" ,
                  "to_replace":f"""'{export_stmt_result['hasExportSqlNameTab']['value']}'[{export_stmt_result['hasExportSqlNameCol']['value']}]""",
-                 "col_name":f"""[{export_stmt_result['colname']['value']}]"""
+                 "col_name":f"""[{export_stmt_result['colname']['value']}]""",
+                 "col_iri":f"""{export_stmt_result['obj_iri']['value']}"""
                 }
                  )
         q=self.sparql_dax.replace('?param?',f'"{self.dash_iri}"')        

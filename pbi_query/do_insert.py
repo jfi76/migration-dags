@@ -87,8 +87,8 @@ if __name__ == "__main__":
     cfrm=export_freemind(stmt.select_recursive_visualiz_pbi,'c:\\zena\\')
     cfrm.key_name='Дашбоард'
     cfrm.get_dashes()
-##     calc=calculated_columns('../playground_parsed_adds/')
-##     calc.replace_expression()
+#     calc=calculated_columns('../playground_parsed_adds/')
+#     calc.replace_expression()
 
     crepl=replace_cols_tabs('',stmt.stmt_tabs_expressions_to_replace,stmt.stmt_tables_cols,stmt.stmt_tables_source_str, '../playground_parsed_adds/', stmt_all_dashes)
     crepl.do_dashes()
@@ -102,7 +102,7 @@ if __name__ == "__main__":
     service.insert(data)
     
 
-# # # # #####
+# # # #####
 
 
     cexp=create_export_query(stmt_all_dashes,'../play_ground_export_query/')
